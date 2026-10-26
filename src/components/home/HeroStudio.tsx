@@ -9,6 +9,7 @@ import type { AnchorKey, Workshop } from "@/components/studio/scene";
 import type { ScreenLabels } from "@/components/studio/screens";
 import still from "@/components/studio/studio.json";
 import styles from "./HeroStudio.module.css";
+import { readStudioEnv, wantsLive3d } from "./studioMode";
 
 /** The page's ground: the picture was rendered on it and the live scene clears to it. */
 const GROUND = 0x0a0c10;
@@ -50,8 +51,9 @@ const viewKey = (v: View) => `${v.agent.kind}|${v.agent.file}|${v.tests.passed}|
  * The picture of its first frame is on screen at once, cards already pinned.
  * Once the page has loaded and the hero is in view, the live 3D (three.js,
  * loaded on demand) takes over from that same frame. It sleeps when the hero
- * scrolls away or the tab is hidden. Phones, reduced motion and Save-Data
- * keep the picture; without WebGL too. With reduced motion nothing moves.
+ * scrolls away or the tab is hidden, phones included. Reduced motion,
+ * Save-Data and devices under 4 GB keep the picture, and so does a browser
+ * without WebGL; there the cards still move. With reduced motion nothing moves.
  */
 export function HeroStudio() {
   const t = useTranslations("home.hero.studio");
@@ -69,10 +71,9 @@ export function HeroStudio() {
     const box = host.current;
     const el = canvas.current;
     if (!box || !el) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const phone = window.matchMedia("(max-width: 767px)").matches;
-    const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
-    const wants3d = !reduced && !phone && !saveData && typeof IntersectionObserver === "function";
+    const env = readStudioEnv();
+    const reduced = env.reducedMotion;
+    const wants3d = wantsLive3d(env);
 
     let cancelled = false;
     let workshop: Workshop | null = null;
