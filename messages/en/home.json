@@ -74,55 +74,55 @@
     "items": [
       {
         "title": "One project, the whole product",
-        "body": "Front end, back end, app and landing page of one product stay together, each in its own folder."
+        "body": "Front end, back end, app and landing page of one product, each in its folder."
       },
       {
         "title": "Every session in view",
-        "body": "Terminals and agents in tabs, each one saying what it is doing right now."
+        "body": "Terminals and agents in tabs, each saying what it's doing now."
       },
       {
         "title": "Know when they need you",
-        "body": "When an agent asks for permission or finishes, you see it at once and answer right there."
+        "body": "When an agent asks for permission or finishes, you see it and answer right there."
       },
       {
         "title": "Commands in one click",
-        "body": "Persisty reads each folder's commands, like pnpm dev and the tests, and runs them when you ask."
+        "body": "Persisty reads each folder's commands, like pnpm dev and the tests."
       }
     ]
   },
   "recovery": {
     "title": "Sessions that come back after a crash",
-    "body": "If the computer freezes or restarts, Persisty relaunches each project's sessions, resumes the Claude Code conversations and shows a report of what came back and what didn't.",
+    "body": "If the computer freezes or restarts, Persisty relaunches the sessions, resumes Claude Code and shows what came back and what didn't.",
     "link": "How recovery works"
   },
   "projects": {
     "title": "A place for every project",
-    "body": "Projects on top, workspaces (folders and repositories) inside them, sessions as tabs. The sidebar shows which project has an agent waiting for you, and ⌘1 to ⌘9 switch projects without hunting for windows.",
+    "body": "Projects, workspaces inside them and sessions as tabs. The sidebar shows where an agent is waiting for you; ⌘1 to ⌘9 switch projects.",
     "link": "Projects and workspaces"
   },
   "accounts": {
     "title": "Several Claude Code accounts, no logging in and out",
-    "body": "Connect your personal account and your company's, or as many as you have. Persisty follows each one's 5-hour and weekly windows live, and every new session goes to the account with the most room. An account above 90% sits out until it renews.",
+    "body": "Connect as many accounts as you have. Persisty follows each one's 5-hour and weekly windows and opens every new session on the one with the most room.",
     "link": "AI accounts and rotation"
   },
   "states": {
     "title": "You know which agent needs you",
-    "body": "Working, waiting for you, asking for permission, stopped. The state comes from Claude Code's own hooks, not from guessing at what is on screen. No agent spends an hour waiting for a “yes” you never saw.",
+    "body": "Working, waiting for you, asking for permission, stopped. The state comes from Claude Code's own hooks, not a guess at the screen.",
     "link": "Agents and states"
   },
   "pro": {
     "title": "Line up the next request",
-    "body": "The queue delivers your request when the agent is free or the quota renews. Every request saves a restore point, the tests run on their own when the agent finishes, and each session can have its own folder.",
+    "body": "The queue delivers your request when the agent is free or the quota renews. Every request saves a restore point.",
     "link": "Pro features"
   },
   "editor": {
     "title": "Editor, git and notes in the same window",
-    "body": "Open the file the agent touched, read the diff, commit and jot down what's left without leaving the session. Syntax highlighting, project-wide search and git marks in the gutter.",
+    "body": "Open the file the agent touched, read the diff, commit and jot down what's left without leaving the session.",
     "link": "Editor and changes"
   },
   "privacy": {
     "title": "Your code stays on your machine",
-    "body": "Persisty works without an account and without internet. When it does reach out (Claude quota, licence, account), the call shows up in Settings › Network with destination, reason and size. Code, terminal output and prompts never leave.",
+    "body": "Works without an account or internet. Code, terminal output and prompts never leave, and every outside call shows up in Settings › Network.",
     "link": "Security and privacy"
   },
   "companies": {
@@ -164,7 +164,7 @@
   },
   "pricing": {
     "title": "Start for free",
-    "body": "The core is free and asks for no account. Pro unlocks the request queue, account rotation and restore points, for {price} a month.",
+    "body": "The core is free and needs no account. Pro adds the queue, account rotation and restore points for {price} a month.",
     "cta": "See plans and pricing"
   },
   "faq": {

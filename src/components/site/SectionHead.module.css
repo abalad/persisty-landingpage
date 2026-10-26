@@ -6,7 +6,7 @@
 }
 
 .title {
-  max-width: 13ch;
+  max-width: 22ch;
   font-size: var(--display-2);
   font-weight: 340;
   font-variation-settings: "wdth" 104;

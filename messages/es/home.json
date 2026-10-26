@@ -74,55 +74,55 @@
     "items": [
       {
         "title": "Un proyecto, el producto entero",
-        "body": "Front, back, app y landing del mismo producto quedan juntos, cada uno en su carpeta."
+        "body": "Front, back, app y landing del mismo producto, cada uno en su carpeta."
       },
       {
         "title": "Cada sesión a la vista",
-        "body": "Terminales y agentes en pestañas, cada uno diciendo lo que está haciendo ahora."
+        "body": "Terminales y agentes en pestañas, cada uno diciendo qué hace ahora."
       },
       {
         "title": "Sabe cuándo te necesitan",
-        "body": "Cuando un agente pide permiso o termina, lo ves al instante y respondes ahí mismo."
+        "body": "Cuando un agente pide permiso o termina, lo ves y respondes ahí mismo."
       },
       {
         "title": "Comandos con un clic",
-        "body": "Persisty lee los comandos de cada carpeta, como pnpm dev y las pruebas, y los ejecuta cuando lo pides."
+        "body": "Persisty lee los comandos de cada carpeta, como pnpm dev y las pruebas."
       }
     ]
   },
   "recovery": {
     "title": "Sesiones que vuelven después de un cuelgue",
-    "body": "Si la computadora se cuelga o se reinicia, Persisty relanza las sesiones de cada proyecto, retoma las conversaciones de Claude Code y muestra en un informe qué volvió y qué no.",
+    "body": "Si la computadora se cuelga o se reinicia, Persisty relanza las sesiones, retoma Claude Code y muestra qué volvió y qué no.",
     "link": "Cómo funciona la recuperación"
   },
   "projects": {
     "title": "Un lugar para cada proyecto",
-    "body": "Proyectos arriba, workspaces (carpetas y repositorios) dentro de ellos, sesiones en pestañas. La barra lateral muestra qué proyecto tiene un agente esperándote, y ⌘1 a ⌘9 cambian de proyecto sin buscar ventanas.",
+    "body": "Proyectos, workspaces dentro de ellos y sesiones en pestañas. La barra lateral muestra dónde te espera un agente; ⌘1 a ⌘9 cambian de proyecto.",
     "link": "Proyectos y workspaces"
   },
   "accounts": {
     "title": "Varias cuentas de Claude Code, sin cambiar de login",
-    "body": "Conecta tu cuenta personal y la de la empresa, o todas las que tengas. Persisty sigue en vivo la ventana de 5 horas y la semanal de cada una, y cada sesión nueva va a la cuenta con más margen. Una cuenta por encima del 90% queda fuera hasta renovarse.",
+    "body": "Conecta todas las cuentas que tengas. Persisty sigue las ventanas de 5 horas y semanal de cada una y abre cada sesión nueva en la que tiene más margen.",
     "link": "Cuentas de IA y rotación"
   },
   "states": {
     "title": "Sabes qué agente te necesita",
-    "body": "Trabajando, esperándote, pidiendo permiso, detenido. El estado viene de los hooks del propio Claude Code, no de adivinar lo que aparece en pantalla. Ningún agente pasa una hora esperando un “sí” que no viste.",
+    "body": "Trabajando, esperándote, pidiendo permiso, detenido. El estado viene de los hooks de Claude Code, no de adivinar la pantalla.",
     "link": "Agentes y estados"
   },
   "pro": {
     "title": "Deja el próximo pedido en la cola",
-    "body": "La cola entrega tu pedido cuando el agente queda libre o la cuota se renueva. Cada pedido guarda un punto de restauración, las pruebas corren solas cuando el agente termina y cada sesión puede tener su propia carpeta.",
+    "body": "La cola entrega tu pedido cuando el agente queda libre o la cuota se renueva. Cada pedido guarda un punto de restauración.",
     "link": "Funciones Pro"
   },
   "editor": {
     "title": "Editor, git y notas en la misma ventana",
-    "body": "Abre el archivo que tocó el agente, mira el diff, haz el commit y anota lo que falta sin salir de la sesión. Resaltado por lenguaje, búsqueda en el proyecto y marcas de git en el margen.",
+    "body": "Abre el archivo que tocó el agente, mira el diff, haz el commit y anota lo que falta sin salir de la sesión.",
     "link": "Editor y cambios"
   },
   "privacy": {
     "title": "Tu código no sale de tu máquina",
-    "body": "Persisty funciona sin cuenta y sin internet. Cuando habla con afuera (cuota de Claude, licencia, cuenta), la llamada aparece en Configuración › Red con destino, motivo y tamaño. El código, la salida de la terminal y los prompts nunca salen.",
+    "body": "Funciona sin cuenta y sin internet. El código, la salida de la terminal y los prompts nunca salen, y cada llamada afuera aparece en Configuración › Red.",
     "link": "Seguridad y privacidad"
   },
   "companies": {
@@ -164,7 +164,7 @@
   },
   "pricing": {
     "title": "Empieza gratis",
-    "body": "El núcleo es gratis y no pide cuenta. Pro desbloquea la cola de pedidos, la rotación de cuentas y los puntos de restauración, por {price} al mes.",
+    "body": "El núcleo es gratis y no pide cuenta. Pro suma la cola, la rotación de cuentas y los puntos de restauración por {price} al mes.",
     "cta": "Ver planes y precios"
   },
   "faq": {
