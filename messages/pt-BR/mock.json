@@ -65,7 +65,32 @@
         "kind": "answer",
         "text": "Frete por CEP pronto, com testes. Ligo no checkout?"
       }
-    ]
+    ],
+    "tour": {
+      "label": "Capítulos do tour pela janela do Persisty",
+      "chapters": [
+        {
+          "title": "Visão geral",
+          "body": "Projetos na lateral, sessões em abas e os workspaces embaixo."
+        },
+        {
+          "title": "O agente trabalha",
+          "body": "Você pede no terminal e acompanha cada passo do agente."
+        },
+        {
+          "title": "Aguardando você",
+          "body": "Quando o agente para e espera, a aba e o projeto avisam."
+        },
+        {
+          "title": "Workspaces",
+          "body": "Cada pasta do projeto com as sessões e o estado de cada uma."
+        },
+        {
+          "title": "Limites de uso",
+          "body": "As janelas de 5 horas e de 7 dias da conta, sempre à vista."
+        }
+      ]
+    }
   },
   "crash": {
     "label": "Demonstração: as sessões do Persisty voltando depois de o computador travar.",

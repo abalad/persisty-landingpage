@@ -382,6 +382,22 @@
   color: #e7ebf1;
 }
 
+/* Revealed one monospace character per step; the box is as wide as the text. */
+.typed {
+  display: inline-block;
+  animation: typed calc(var(--chars) * 26ms) steps(var(--chars), end) both;
+}
+
+@keyframes typed {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
 .bullet {
   color: var(--color-ok);
 }

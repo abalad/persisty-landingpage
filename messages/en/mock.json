@@ -65,7 +65,32 @@
         "kind": "answer",
         "text": "Shipping by postcode is in, with tests. Wire it into checkout?"
       }
-    ]
+    ],
+    "tour": {
+      "label": "Chapters of the tour of Persisty's window",
+      "chapters": [
+        {
+          "title": "Overview",
+          "body": "Projects on the side, sessions as tabs and the workspaces below."
+        },
+        {
+          "title": "The agent works",
+          "body": "You ask in the terminal and follow every step the agent takes."
+        },
+        {
+          "title": "Waiting for you",
+          "body": "When the agent stops and waits, the tab and the project tell you."
+        },
+        {
+          "title": "Workspaces",
+          "body": "Each of the project's folders, with its sessions and the state of each."
+        },
+        {
+          "title": "Usage limits",
+          "body": "The account's 5-hour and 7-day windows, always in sight."
+        }
+      ]
+    }
   },
   "crash": {
     "label": "Demo: Persisty sessions coming back after the computer crashes.",

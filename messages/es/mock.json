@@ -65,7 +65,32 @@
         "kind": "answer",
         "text": "Envío por código postal listo, con pruebas. ¿Lo conecto al checkout?"
       }
-    ]
+    ],
+    "tour": {
+      "label": "Capítulos del recorrido por la ventana de Persisty",
+      "chapters": [
+        {
+          "title": "Vista general",
+          "body": "Proyectos a un lado, sesiones en pestañas y los workspaces abajo."
+        },
+        {
+          "title": "El agente trabaja",
+          "body": "Pides en la terminal y sigues cada paso del agente."
+        },
+        {
+          "title": "Esperándote",
+          "body": "Cuando el agente se detiene y espera, la pestaña y el proyecto avisan."
+        },
+        {
+          "title": "Workspaces",
+          "body": "Cada carpeta del proyecto con sus sesiones y el estado de cada una."
+        },
+        {
+          "title": "Límites de uso",
+          "body": "Las ventanas de 5 horas y de 7 días de la cuenta, siempre a la vista."
+        }
+      ]
+    }
   },
   "crash": {
     "label": "Demostración: las sesiones de Persisty volviendo después de que la computadora se cuelga.",

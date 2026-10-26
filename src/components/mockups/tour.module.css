@@ -1,0 +1,117 @@
+/*
+ * A phone's view over the app window drawn at desktop size. The view stays
+ * put; the camera moves the window inside it. Under the view, one segment per
+ * chapter (the playing one fills over its length) and what that chapter shows.
+ */
+
+.tour {
+  display: grid;
+  gap: 12px;
+}
+
+.view {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--site-hairline);
+  border-radius: 14px;
+  background: var(--site-ground-raised);
+  contain: paint;
+}
+
+/* Also what the camera measures the window's parts from, so it is positioned. */
+.stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1120px;
+  transform-origin: 0 0;
+  visibility: hidden;
+  will-change: transform;
+}
+
+.stage[data-placed="true"] {
+  visibility: visible;
+}
+
+.tour[data-playing="true"] .stage {
+  transition: transform 1100ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+/* The bar is thin; the button around it is a full finger tall. */
+.segment {
+  position: relative;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.segment::before,
+.fill {
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 2px;
+}
+
+.segment::before {
+  content: "";
+  background: var(--color-border-strong);
+}
+
+.fill {
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.segment[data-state="done"] .fill {
+  transform: scaleX(1);
+  opacity: 0.45;
+}
+
+.segment[data-state="active"] .fill {
+  animation: fill var(--ms) linear both;
+  animation-play-state: paused;
+}
+
+.tour[data-playing="true"] .segment[data-state="active"] .fill {
+  animation-play-state: running;
+}
+
+.caption {
+  min-height: 4.5em;
+  color: var(--site-muted);
+  font-size: var(--small);
+  line-height: 1.5;
+}
+
+.caption strong {
+  display: block;
+  color: var(--site-heading);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@keyframes fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .segment[data-state="active"] .fill {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

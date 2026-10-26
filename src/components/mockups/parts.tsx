@@ -205,8 +205,21 @@ export interface TermLine {
 export function TerminalLine({ line, animate }: { line: TermLine; animate?: boolean }) {
   const cls = cx(s.line, animate && s.lineIn);
   switch (line.kind) {
-    case "prompt":
-      return <span className={cx(s.prompt, animate && s.lineIn)}>{"> " + line.text}</span>;
+    case "prompt": {
+      // Animated, it is typed out one character at a time, the way you would.
+      const text = "> " + line.text;
+      return (
+        <span className={s.prompt}>
+          {animate ? (
+            <span className={s.typed} style={{ "--chars": text.length } as CSSProperties}>
+              {text}
+            </span>
+          ) : (
+            text
+          )}
+        </span>
+      );
+    }
     case "tool":
       return (
         <span className={cls}>
