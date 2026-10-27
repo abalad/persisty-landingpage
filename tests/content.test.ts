@@ -26,7 +26,8 @@ describe("docs", () => {
     }
   });
 
-  it("render to HTML with linkable section headings", async () => {
+  // The first render loads Shiki's grammars and themes: about 4.5s alone, past vitest's 5s on a busy machine.
+  it("render to HTML with linkable section headings", { timeout: 20_000 }, async () => {
     const doc = await getDoc("pt-BR", "getting-started");
     expect(doc?.html).toContain("<h2");
     expect(doc?.headings.length).toBeGreaterThan(0);
