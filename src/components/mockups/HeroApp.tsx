@@ -7,6 +7,7 @@ import { useInView } from "@/hooks/useInView";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useTimeline } from "@/hooks/useTimeline";
+import { Buddy } from "./Buddy";
 import { focusShot, READ_ZOOM } from "./tour";
 import { TOUR_QUERY, WindowTour, type TourChapter, type TourCopy } from "./WindowTour";
 import { Chip, CommandButtons, Rail, SessionHeader, StatusBar, Terminal, TopBar, Window, WorkspaceStrip, type TermLine } from "./parts";
@@ -112,7 +113,9 @@ function HeroWindow({ step, animate }: { step: number; animate: boolean }) {
             branch="main"
             status={done ? <Chip tone="warn" icon="waiting" label={t("states.waiting")} /> : <Chip tone="info" icon="working" label={t("states.working")} />}
           />
-          <Terminal lines={shown} rows={12} caret={done} animateFrom={animate ? step : Infinity} />
+          <Terminal lines={shown} rows={12} caret={done} animateFrom={animate ? step : Infinity}>
+            <Buddy mood={done ? "done" : "working"} />
+          </Terminal>
           <WorkspaceStrip
             title={t("workspaces.title")}
             count={3}

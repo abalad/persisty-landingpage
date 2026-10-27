@@ -347,6 +347,7 @@
 /* ---------------------------------------------------------- terminal */
 
 .terminal {
+  position: relative;
   flex: 1;
   min-height: calc(var(--terminal-rows, 14) * 19.5 * var(--u));
   padding: calc(14 * var(--u)) calc(16 * var(--u));

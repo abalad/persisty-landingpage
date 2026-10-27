@@ -1,0 +1,53 @@
+/* The mascot's corner of the terminal, as in the app: it peeks (just the
+   head) and rises to celebrate. Sized with the window, never past the app's
+   own size. */
+.buddy {
+  --b: min(var(--u, 1px), 1px);
+  position: absolute;
+  right: calc(10 * var(--b));
+  bottom: 0;
+  width: calc(120 * var(--b));
+  height: calc(140 * var(--b));
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.still,
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* The live mascot fades in over the picture of the same pose, then the picture goes. */
+.canvas {
+  opacity: 0;
+  transition: opacity 280ms var(--ease-out);
+}
+
+.buddy[data-live="true"] .canvas {
+  opacity: 1;
+}
+
+.buddy[data-live="true"] .still {
+  visibility: hidden;
+  transition: visibility 0s 280ms;
+}
+
+/* What can be clicked: the peeking head. */
+.hit {
+  position: absolute;
+  left: calc(30 * var(--b));
+  right: calc(30 * var(--b));
+  bottom: 0;
+  height: calc(46 * var(--b));
+  border-radius: calc(24 * var(--b)) calc(24 * var(--b)) 0 0;
+  pointer-events: auto;
+}
+
+.buddy[data-live="true"] .hit {
+  cursor: pointer;
+}

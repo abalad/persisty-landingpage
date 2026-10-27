@@ -257,13 +257,27 @@ export function TerminalLine({ line, animate }: { line: TermLine; animate?: bool
   }
 }
 
-export function Terminal({ lines, rows, caret, animateFrom = Infinity }: { lines: TermLine[]; rows?: number; caret?: boolean; animateFrom?: number }) {
+/** `children` sit over the terminal's text, positioned in its corner (the mascot). */
+export function Terminal({
+  lines,
+  rows,
+  caret,
+  animateFrom = Infinity,
+  children,
+}: {
+  lines: TermLine[];
+  rows?: number;
+  caret?: boolean;
+  animateFrom?: number;
+  children?: ReactNode;
+}) {
   return (
     <div className={cx(s.terminal, s.mono)} style={rows ? ({ "--terminal-rows": rows } as CSSProperties) : undefined}>
       {lines.map((l, i) => (
         <TerminalLine key={i} line={l} animate={i >= animateFrom} />
       ))}
       {caret ? <span className={s.caret} /> : null}
+      {children}
     </div>
   );
 }
