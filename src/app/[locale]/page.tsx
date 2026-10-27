@@ -11,10 +11,9 @@ import { Hero } from "@/components/home/Hero";
 import { Studio } from "@/components/home/Studio";
 import { AccountsMock } from "@/components/mockups/AccountsMock";
 import { CrashDemo } from "@/components/mockups/CrashDemo";
-import { EditorMock } from "@/components/mockups/EditorMock";
 import { NetworkMock } from "@/components/mockups/NetworkMock";
-import { ProjectsMock, StatesMock } from "@/components/mockups/ProjectsMock";
 import { ProTabs } from "@/components/mockups/ProTabs";
+import { EditorWindow, ProjectsWindow, StatesWindow } from "@/components/mockups/tours";
 import { Window } from "@/components/mockups/parts";
 import { PlanCards } from "@/components/pricing/PlanCards";
 import { Badge } from "@/components/site/Badge";
@@ -51,9 +50,7 @@ function HomeContent() {
         <CrashDemo />
       </Feature>
       <Feature id="projects" title={t("projects.title")} body={t("projects.body")} link={{ href: "/docs/projects-and-workspaces", label: t("projects.link") }}>
-        <Window label={m("projects.label")}>
-          <ProjectsMock />
-        </Window>
+        <ProjectsWindow />
       </Feature>
       <Feature id="accounts" title={t("accounts.title")} body={t("accounts.body")} meta={pro} link={{ href: "/docs/ai-accounts", label: t("accounts.link") }} narrow>
         <Window label={m("accounts.label")} designWidth={860}>
@@ -61,17 +58,13 @@ function HomeContent() {
         </Window>
       </Feature>
       <Feature id="states" title={t("states.title")} body={t("states.body")} link={{ href: "/docs/agents", label: t("states.link") }}>
-        <Window label={m("projects.label")}>
-          <StatesMock />
-        </Window>
+        <StatesWindow />
       </Feature>
       <Feature id="pro" title={t("pro.title")} body={t("pro.body")} meta={pro} link={{ href: "/docs/pro", label: t("pro.link") }}>
         <ProTabs />
       </Feature>
       <Feature id="editor" title={t("editor.title")} body={t("editor.body")} link={{ href: "/docs/editor-and-git", label: t("editor.link") }}>
-        <Window label={m("editor.label")}>
-          <EditorMock />
-        </Window>
+        <EditorWindow />
       </Feature>
       <Feature id="privacy" title={t("privacy.title")} body={t("privacy.body")} link={{ href: "/security", label: t("privacy.link") }} narrow>
         <Window label={m("network.label")} designWidth={860}>

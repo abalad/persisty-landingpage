@@ -65,32 +65,7 @@
         "kind": "answer",
         "text": "Frete por CEP pronto, com testes. Ligo no checkout?"
       }
-    ],
-    "tour": {
-      "label": "Capítulos do tour pela janela do Persisty",
-      "chapters": [
-        {
-          "title": "Visão geral",
-          "body": "Projetos na lateral, sessões em abas e os workspaces embaixo."
-        },
-        {
-          "title": "O agente trabalha",
-          "body": "Você pede no terminal e acompanha cada passo do agente."
-        },
-        {
-          "title": "Aguardando você",
-          "body": "Quando o agente para e espera, a aba e o projeto avisam."
-        },
-        {
-          "title": "Workspaces",
-          "body": "Cada pasta do projeto com as sessões e o estado de cada uma."
-        },
-        {
-          "title": "Limites de uso",
-          "body": "As janelas de 5 horas e de 7 dias da conta, sempre à vista."
-        }
-      ]
-    }
+    ]
   },
   "crash": {
     "label": "Demonstração: as sessões do Persisty voltando depois de o computador travar.",
@@ -294,5 +269,91 @@
       }
     ],
     "never": "Nunca: código, saída do terminal, prompts."
+  },
+  "tours": {
+    "hero": {
+      "label": "Capítulos do tour pela janela do Persisty",
+      "chapters": [
+        {
+          "title": "Visão geral",
+          "body": "Projetos na lateral, sessões em abas e os workspaces embaixo."
+        },
+        {
+          "title": "O agente trabalha",
+          "body": "Você pede no terminal e acompanha cada passo do agente."
+        },
+        {
+          "title": "Aguardando você",
+          "body": "Quando o agente para e espera, a aba e o projeto avisam."
+        },
+        {
+          "title": "Workspaces",
+          "body": "Cada pasta do projeto com as sessões e o estado de cada uma."
+        },
+        {
+          "title": "Limites de uso",
+          "body": "As janelas de 5 horas e de 7 dias da conta, sempre à vista."
+        }
+      ]
+    },
+    "projects": {
+      "label": "Capítulos do tour pela janela de projetos",
+      "chapters": [
+        {
+          "title": "Visão geral",
+          "body": "Projetos na lateral, a sessão aberta no meio e os workspaces embaixo."
+        },
+        {
+          "title": "Projetos",
+          "body": "Cada projeto diz se tem agente esperando ou trabalhando."
+        },
+        {
+          "title": "A sessão",
+          "body": "O agente pede permissão e você responde ali mesmo."
+        },
+        {
+          "title": "Workspaces",
+          "body": "As pastas do projeto, cada uma com suas sessões."
+        }
+      ]
+    },
+    "states": {
+      "label": "Capítulos do tour pela janela de agentes",
+      "chapters": [
+        {
+          "title": "Visão geral",
+          "body": "Projetos e agentes à esquerda, a sessão escolhida à direita."
+        },
+        {
+          "title": "Agentes",
+          "body": "Todos os agentes de todos os projetos, com o estado de cada um."
+        },
+        {
+          "title": "Pedido de permissão",
+          "body": "O agente mostra o comando que quer rodar e as opções."
+        }
+      ]
+    },
+    "editor": {
+      "label": "Capítulos do tour pela janela do editor",
+      "chapters": [
+        {
+          "title": "Visão geral",
+          "body": "Arquivos, código e alterações na mesma janela da sessão."
+        },
+        {
+          "title": "Arquivos",
+          "body": "A árvore do projeto marca o que o agente mudou ou criou."
+        },
+        {
+          "title": "Código",
+          "body": "O arquivo aberto, com destaque e as marcas do git na margem."
+        },
+        {
+          "title": "Alterações",
+          "body": "O que mudou, a mensagem e o commit, sem sair da sessão."
+        }
+      ]
+    }
   }
 }

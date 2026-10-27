@@ -65,32 +65,7 @@
         "kind": "answer",
         "text": "Envío por código postal listo, con pruebas. ¿Lo conecto al checkout?"
       }
-    ],
-    "tour": {
-      "label": "Capítulos del recorrido por la ventana de Persisty",
-      "chapters": [
-        {
-          "title": "Vista general",
-          "body": "Proyectos a un lado, sesiones en pestañas y los workspaces abajo."
-        },
-        {
-          "title": "El agente trabaja",
-          "body": "Pides en la terminal y sigues cada paso del agente."
-        },
-        {
-          "title": "Esperándote",
-          "body": "Cuando el agente se detiene y espera, la pestaña y el proyecto avisan."
-        },
-        {
-          "title": "Workspaces",
-          "body": "Cada carpeta del proyecto con sus sesiones y el estado de cada una."
-        },
-        {
-          "title": "Límites de uso",
-          "body": "Las ventanas de 5 horas y de 7 días de la cuenta, siempre a la vista."
-        }
-      ]
-    }
+    ]
   },
   "crash": {
     "label": "Demostración: las sesiones de Persisty volviendo después de que la computadora se cuelga.",
@@ -294,5 +269,91 @@
       }
     ],
     "never": "Nunca: código, salida de la terminal, prompts."
+  },
+  "tours": {
+    "hero": {
+      "label": "Capítulos del recorrido por la ventana de Persisty",
+      "chapters": [
+        {
+          "title": "Vista general",
+          "body": "Proyectos a un lado, sesiones en pestañas y los workspaces abajo."
+        },
+        {
+          "title": "El agente trabaja",
+          "body": "Pides en la terminal y sigues cada paso del agente."
+        },
+        {
+          "title": "Esperándote",
+          "body": "Cuando el agente se detiene y espera, la pestaña y el proyecto avisan."
+        },
+        {
+          "title": "Workspaces",
+          "body": "Cada carpeta del proyecto con sus sesiones y el estado de cada una."
+        },
+        {
+          "title": "Límites de uso",
+          "body": "Las ventanas de 5 horas y de 7 días de la cuenta, siempre a la vista."
+        }
+      ]
+    },
+    "projects": {
+      "label": "Capítulos del recorrido por la ventana de proyectos",
+      "chapters": [
+        {
+          "title": "Vista general",
+          "body": "Proyectos a un lado, la sesión abierta en el centro y los workspaces abajo."
+        },
+        {
+          "title": "Proyectos",
+          "body": "Cada proyecto dice si tiene un agente esperando o trabajando."
+        },
+        {
+          "title": "La sesión",
+          "body": "El agente pide permiso y respondes ahí mismo."
+        },
+        {
+          "title": "Workspaces",
+          "body": "Las carpetas del proyecto, cada una con sus sesiones."
+        }
+      ]
+    },
+    "states": {
+      "label": "Capítulos del recorrido por la ventana de agentes",
+      "chapters": [
+        {
+          "title": "Vista general",
+          "body": "Proyectos y agentes a la izquierda, la sesión elegida a la derecha."
+        },
+        {
+          "title": "Agentes",
+          "body": "Todos los agentes de todos los proyectos, con el estado de cada uno."
+        },
+        {
+          "title": "Pedido de permiso",
+          "body": "El agente muestra el comando que quiere ejecutar y las opciones."
+        }
+      ]
+    },
+    "editor": {
+      "label": "Capítulos del recorrido por la ventana del editor",
+      "chapters": [
+        {
+          "title": "Vista general",
+          "body": "Archivos, código y cambios en la misma ventana de la sesión."
+        },
+        {
+          "title": "Archivos",
+          "body": "El árbol del proyecto marca lo que el agente cambió o creó."
+        },
+        {
+          "title": "Código",
+          "body": "El archivo abierto, con resaltado y las marcas de git en el margen."
+        },
+        {
+          "title": "Cambios",
+          "body": "Lo que cambió, el mensaje y el commit, sin salir de la sesión."
+        }
+      ]
+    }
   }
 }

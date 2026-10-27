@@ -7,7 +7,8 @@ import { useInView } from "@/hooks/useInView";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useTimeline } from "@/hooks/useTimeline";
-import { HeroTour } from "./HeroTour";
+import { focusShot, READ_ZOOM } from "./tour";
+import { TOUR_QUERY, WindowTour, type TourChapter, type TourCopy } from "./WindowTour";
 import { Chip, CommandButtons, Rail, SessionHeader, StatusBar, Terminal, TopBar, Window, WorkspaceStrip, type TermLine } from "./parts";
 import s from "./app.module.css";
 
@@ -15,11 +16,60 @@ import s from "./app.module.css";
 const STEPS = [1400, 800, 650, 950, 650, 1200, 750, 5600];
 const LAST = STEPS.length - 1;
 
-/** Below this width the window is toured instead: drawn at desktop size, a camera moving over it. */
-const TOUR_QUERY = "(max-width: 680px)";
+/** On a phone: the whole window, the agent at work, then where it waits for you, the workspaces and the quota. */
+const TOUR: TourChapter[] = [
+  { key: "overview", ms: 2600 },
+  {
+    key: "working",
+    ms: 8200,
+    frame: (view, stage, part) => {
+      const header = part(s.sessionHeader);
+      const terminal = part(s.terminal);
+      if (!header || !terminal) return null;
+      return focusShot(view, stage, { x: 0, y: header.y, w: terminal.w, h: terminal.y + terminal.h - header.y }, READ_ZOOM, "start", 0);
+    },
+  },
+  {
+    key: "waiting",
+    ms: 2600,
+    // Up close, at the app's own size: the tab's dot, the project's badge and the chip all say it.
+    frame: (view, stage, part) => {
+      const header = part(s.sessionHeader);
+      return header ? focusShot(view, stage, { x: 0, y: 0, w: view.w, h: header.y + header.h }, 1, "start", 0) : null;
+    },
+  },
+  {
+    key: "workspaces",
+    ms: 3000,
+    // The card that wants something from you, with its neighbours at the edges.
+    frame: (view, stage, part) => {
+      const card = part(s.cardActive);
+      return card ? focusShot(view, stage, card, READ_ZOOM) : null;
+    },
+  },
+  {
+    key: "usage",
+    ms: 2600,
+    // Wide enough for the model, the spend and both quota bars.
+    frame: (view, stage, part) => {
+      const status = part(s.statusbar);
+      return status ? focusShot(view, stage, status, 0.68, "start", 8) : null;
+    },
+  },
+];
 
 export function HeroApp() {
-  return useMediaQuery(TOUR_QUERY) ? <HeroTour steps={STEPS} render={(step, animate) => <HeroWindow step={step} animate={animate} />} /> : <HeroDesktop />;
+  const t = useTranslations("mock");
+  const toured = useMediaQuery(TOUR_QUERY);
+  if (!toured) return <HeroDesktop />;
+  return (
+    <WindowTour
+      copy={t.raw("tours.hero") as TourCopy}
+      chapters={TOUR}
+      steps={{ chapter: "working", durations: STEPS }}
+      render={(step, animate) => <HeroWindow step={step} animate={animate} />}
+    />
+  );
 }
 
 function HeroDesktop() {

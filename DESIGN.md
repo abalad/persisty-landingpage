@@ -308,7 +308,7 @@ The home page follows one pattern repeated: a two-column section head (headline 
 
 Grouped content is a list divided by hairlines, never a grid of separate cards: the agent strip (three columns), company items (two columns, 64px gap), FAQ, plan grid (four columns), platform list. Rows pad 22px vertically.
 
-Responsive steps: section heads stack under 820px; the nav collapses to a menu under 900px; plans go to two columns under 1080px and one under 640px; the agent strip stacks under 760px; docs drops its table of contents under 1100px and its sidebar under 820px.
+Responsive steps: under 680px the projects, agents and editor windows are toured like the hero's (four, three and four chapters, captions under them), since their narrow layouts dropped the sidebar, the agents list and the file tree; accounts, network, Pro and the crash demo keep their narrow layouts, which already read on a phone; section heads stack under 820px; the nav collapses to a menu under 900px; plans go to two columns under 1080px and one under 640px; the agent strip stacks under 760px; docs drops its table of contents under 1100px and its sidebar under 820px.
 
 Mockups respond to their container, not the viewport: each window is an inline-size container, every dimension is `calc(n * var(--u))` against a design width (1120 by default, 860 for narrow windows), clamped between 0.6px and 1px per app pixel. Under 640px of container width the window switches to a 400-unit narrow layout that hides the rail and side panels.
 

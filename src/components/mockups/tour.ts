@@ -16,6 +16,9 @@ export interface Rect {
   h: number;
 }
 
+/** Close enough to read on a phone (the app's 13px text lands near 10px), wide enough for a terminal line. */
+export const READ_ZOOM = 0.75;
+
 /** Scale, then move: the window's top-left corner lands at (tx, ty) in the view. */
 export interface Shot {
   k: number;

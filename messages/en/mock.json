@@ -65,32 +65,7 @@
         "kind": "answer",
         "text": "Shipping by postcode is in, with tests. Wire it into checkout?"
       }
-    ],
-    "tour": {
-      "label": "Chapters of the tour of Persisty's window",
-      "chapters": [
-        {
-          "title": "Overview",
-          "body": "Projects on the side, sessions as tabs and the workspaces below."
-        },
-        {
-          "title": "The agent works",
-          "body": "You ask in the terminal and follow every step the agent takes."
-        },
-        {
-          "title": "Waiting for you",
-          "body": "When the agent stops and waits, the tab and the project tell you."
-        },
-        {
-          "title": "Workspaces",
-          "body": "Each of the project's folders, with its sessions and the state of each."
-        },
-        {
-          "title": "Usage limits",
-          "body": "The account's 5-hour and 7-day windows, always in sight."
-        }
-      ]
-    }
+    ]
   },
   "crash": {
     "label": "Demo: Persisty sessions coming back after the computer crashes.",
@@ -294,5 +269,91 @@
       }
     ],
     "never": "Never: code, terminal output, prompts."
+  },
+  "tours": {
+    "hero": {
+      "label": "Chapters of the tour of Persisty's window",
+      "chapters": [
+        {
+          "title": "Overview",
+          "body": "Projects on the side, sessions as tabs and the workspaces below."
+        },
+        {
+          "title": "The agent works",
+          "body": "You ask in the terminal and follow every step the agent takes."
+        },
+        {
+          "title": "Waiting for you",
+          "body": "When the agent stops and waits, the tab and the project tell you."
+        },
+        {
+          "title": "Workspaces",
+          "body": "Each of the project's folders, with its sessions and the state of each."
+        },
+        {
+          "title": "Usage limits",
+          "body": "The account's 5-hour and 7-day windows, always in sight."
+        }
+      ]
+    },
+    "projects": {
+      "label": "Chapters of the tour of the projects window",
+      "chapters": [
+        {
+          "title": "Overview",
+          "body": "Projects on the side, the open session in the middle, workspaces below."
+        },
+        {
+          "title": "Projects",
+          "body": "Each project tells you whether an agent is waiting or working."
+        },
+        {
+          "title": "The session",
+          "body": "The agent asks for permission and you answer right there."
+        },
+        {
+          "title": "Workspaces",
+          "body": "The project's folders, each with its own sessions."
+        }
+      ]
+    },
+    "states": {
+      "label": "Chapters of the tour of the agents window",
+      "chapters": [
+        {
+          "title": "Overview",
+          "body": "Projects and agents on the left, the chosen session on the right."
+        },
+        {
+          "title": "Agents",
+          "body": "Every agent across your projects, with the state of each."
+        },
+        {
+          "title": "Permission request",
+          "body": "The agent shows the command it wants to run and your options."
+        }
+      ]
+    },
+    "editor": {
+      "label": "Chapters of the tour of the editor window",
+      "chapters": [
+        {
+          "title": "Overview",
+          "body": "Files, code and changes in the same window as the session."
+        },
+        {
+          "title": "Files",
+          "body": "The project tree marks what the agent changed or added."
+        },
+        {
+          "title": "Code",
+          "body": "The open file, with highlighting and git marks in the gutter."
+        },
+        {
+          "title": "Changes",
+          "body": "What changed, the message and the commit, without leaving the session."
+        }
+      ]
+    }
   }
 }
