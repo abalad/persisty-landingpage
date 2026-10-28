@@ -75,8 +75,8 @@ try {
   check("removal asks with consequences", confirmText.includes("leaves this account"), confirmText.slice(0, 0));
   await b.evaluate(`[...document.querySelectorAll("button")].find((x) => x.textContent.includes("Remove from account")).click()`);
   await sleep(2000);
-  const left = await (await rest(`devices?id=eq.${deviceId}&select=id`, { method: "GET" })).json();
-  check("device removed, not just revoked", Array.isArray(left) && left.length === 0, JSON.stringify(left));
+  const left = await (await rest(`devices?id=eq.${deviceId}&select=revoked_at`, { method: "GET" })).json();
+  check("device revoked, so the computer is signed out until someone signs in on it", Array.isArray(left) && left.length === 1 && Boolean(left[0].revoked_at), JSON.stringify(left));
   check("device gone from the page", !(await b.evaluate("document.body.innerText")).includes("MacBook de teste"));
 
   await b.evaluate(`[...document.querySelectorAll("button")].find((x) => x.textContent.includes("Record my interest")).click()`);

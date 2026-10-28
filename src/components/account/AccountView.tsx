@@ -29,7 +29,6 @@ interface Device {
   platform: "macos" | "windows" | "linux";
   app_version: string;
   last_seen_at: string;
-  revoked_at: string | null;
 }
 
 type Meta = Record<string, unknown>;
@@ -95,7 +94,7 @@ export function AccountView() {
 
       const [ent, dev] = await Promise.all([
         supabase().rpc("my_entitlement"),
-        supabase().from("devices").select("id,name,platform,app_version,last_seen_at,revoked_at").order("last_seen_at", { ascending: false }),
+        supabase().from("devices").select("id,name,platform,app_version,last_seen_at").is("revoked_at", null).order("last_seen_at", { ascending: false }),
       ]);
       if (!alive) return;
       if (ent.error || dev.error) setLoadFailed(true);
@@ -109,9 +108,9 @@ export function AccountView() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /** Deleting (not revoking) lets the computer come back by signing in again; a revoked id is refused for good. */
+  /** Revoking signs the computer out at its next license check; signing in on it again brings it back. The server keeps its own time. */
   async function remove(id: string) {
-    const { error } = await supabase().from("devices").delete().eq("id", id);
+    const { error } = await supabase().from("devices").update({ revoked_at: new Date().toISOString() }).eq("id", id);
     setConfirming(null);
     if (error) return setStatus({ ok: false, text: t("saveError") });
     setDevices((list) => list.filter((d) => d.id !== id));
@@ -137,7 +136,6 @@ export function AccountView() {
   const platforms = (Array.isArray(meta.notify_platforms) ? (meta.notify_platforms as string[]) : []).map((p) => PLATFORM_NAME[p] ?? p);
   const interests = Array.isArray(meta.interests) ? (meta.interests as string[]) : [];
   const enterprise = interests.includes("enterprise");
-  const active = devices.filter((d) => !d.revoked_at).length;
   const listFormat = new Intl.ListFormat(locale, { type: "conjunction" });
 
   return (
@@ -273,19 +271,19 @@ export function AccountView() {
 
         <section aria-labelledby="g-devices">
           <h2 id="g-devices" className={styles.groupTitle}>
-            {t("devices.title")} · {t("devices.count", { count: active })}
+            {t("devices.title")} · {t("devices.count", { count: devices.length })}
           </h2>
           <div className={styles.box}>
             <div className={styles.row}>
               <span className={styles.rowText}>{devices.length ? t("devices.hint") : t("devices.empty")}</span>
             </div>
             {devices.map((d) => (
-              <div key={d.id} className={`${styles.row} ${d.revoked_at ? styles.revoked : ""}`}>
+              <div key={d.id} className={styles.row}>
                 <div className={styles.device}>
                   <div>
                     <div className={styles.deviceName}>{d.name}</div>
                     <div className={styles.deviceMeta}>
-                      {PLATFORM_NAME[d.platform] ?? d.platform} · {d.app_version} · {d.revoked_at ? t("devices.revoked") : t("devices.lastSeen", { when: relative(locale, d.last_seen_at) })}
+                      {PLATFORM_NAME[d.platform] ?? d.platform} · {d.app_version} · {t("devices.lastSeen", { when: relative(locale, d.last_seen_at) })}
                     </div>
                   </div>
                   {confirming === d.id ? (

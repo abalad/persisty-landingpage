@@ -123,10 +123,6 @@
   font-size: var(--tiny);
 }
 
-.revoked {
-  opacity: 0.55;
-}
-
 .status {
   min-height: 1.4em;
   color: var(--color-accent);
