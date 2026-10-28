@@ -23,8 +23,17 @@
 }
 
 .body {
-  margin-top: 10px;
-  color: var(--site-muted);
+  margin-top: 12px;
+  color: var(--site-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.email {
+  color: var(--site-heading);
+  font-weight: 500;
+  overflow-wrap: anywhere;
 }
 
 .intent {
@@ -129,13 +138,15 @@
 }
 
 .fine {
-  color: var(--site-muted);
-  font-size: var(--tiny);
+  color: var(--site-body);
+  font-size: var(--small);
   line-height: 1.6;
+  text-wrap: pretty;
 }
 
 .fine a {
-  color: var(--site-body);
+  color: var(--site-heading);
+  white-space: nowrap;
   text-decoration: underline;
   text-underline-offset: 0.2em;
   text-decoration-color: var(--pill-secondary-border);

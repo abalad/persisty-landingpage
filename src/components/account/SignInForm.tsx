@@ -80,7 +80,9 @@ export function SignInForm() {
       <Image className={styles.icon} src="/app-icon.png" alt="" width={48} height={48} />
       <div>
         <h1 className={styles.title}>{step === "email" ? t("title") : t("codeTitle")}</h1>
-        <p className={styles.body}>{step === "email" ? t("body") : t("codeBody", { email: email.trim() })}</p>
+        <p className={styles.body}>
+          {step === "email" ? t("body") : t.rich("codeBody", { email: email.trim(), b: (chunks) => <strong className={styles.email}>{chunks}</strong> })}
+        </p>
       </div>
 
       {intent.notify || intent.interest ? <p className={styles.intent}>{intent.interest ? t("intentEnterprise") : t("intentNotify")}</p> : null}
