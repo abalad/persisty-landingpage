@@ -105,7 +105,7 @@ function HeroWindow({ step, animate }: { step: number; animate: boolean }) {
         right={<CommandButtons command="dev" />}
       />
       <div className={s.body}>
-        <Rail projects={[{ letter: "R", active: true, dot: "warn" }, { letter: "Q", dot: "info" }, { letter: "B" }]} />
+        <Rail projects={[{ project: "rota", active: true, dot: "warn" }, { project: "quintal", dot: "info" }, { project: "bussola" }, { project: "mare" }, { project: "pulso" }, { project: "vela" }]} />
         <div className={s.main}>
           <SessionHeader
             name="api"

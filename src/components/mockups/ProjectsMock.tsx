@@ -1,16 +1,23 @@
 import { ListFilter, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { AgentGlyph, Lights, SessionHeader, Chip, Terminal, WorkspaceStrip, cx, type TermLine } from "./parts";
+import { ProjectLogo, projectName } from "./logos";
 import s from "./app.module.css";
 import x from "./extra.module.css";
 
 export function ProjectsSidebar({ showAgents = true, keepOnNarrow = false }: { showAgents?: boolean; keepOnNarrow?: boolean }) {
   const t = useTranslations("mock");
+  // "Nothing running", Bússola's line, for every project at rest.
+  const quiet = t("projects.bussola");
   const projects = [
-    { letter: "R", name: "Rota", sub: t("projects.rota"), tone: "warn", active: true },
-    { letter: "Q", name: "Quintal", sub: t("projects.quintal"), tone: "info" },
-    { letter: "B", name: "Bússola", sub: t("projects.bussola"), tone: null },
+    { key: "rota", sub: t("projects.rota"), tone: "warn", active: true },
+    { key: "quintal", sub: t("projects.quintal"), tone: "info" },
+    { key: "bussola", sub: quiet, tone: null },
+    { key: "mare", sub: quiet, tone: null },
+    { key: "pulso", sub: quiet, tone: null },
   ] as const;
+  // Over the agents' list, the three with something to say.
+  const shown = showAgents ? projects.slice(0, 3) : projects;
   const agents = [
     { name: "checkout", kind: "claude", state: t("states.permission"), tone: "warn", ws: "rota-app" },
     { name: "api", kind: "claude", state: t("states.waiting"), tone: "warn", ws: "rota-api" },
@@ -26,14 +33,14 @@ export function ProjectsSidebar({ showAgents = true, keepOnNarrow = false }: { s
         {t("projects.projectsTitle")}
         <Plus />
       </div>
-      {projects.map((p) => (
-        <div key={p.letter} className={cx(x.project, "active" in p && x.projectActive)}>
+      {shown.map((p) => (
+        <div key={p.key} className={cx(x.project, "active" in p && x.projectActive)}>
           <span className={cx(x.tile, "active" in p && x.tileActive)}>
-            {p.letter}
+            <ProjectLogo project={p.key} />
             {p.tone ? <i style={{ background: `var(--color-${p.tone})` }} /> : null}
           </span>
           <span className={x.projectText}>
-            <span className={x.projectName}>{p.name}</span>
+            <span className={x.projectName}>{projectName(p.key)}</span>
             <span className={x.projectSub} style={{ color: p.tone ? `var(--color-${p.tone})` : "var(--color-fg-subtle)" }}>
               {p.sub}
             </span>

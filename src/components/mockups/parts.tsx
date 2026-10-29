@@ -23,6 +23,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
+import { ProjectLogo, type ProjectKey } from "./logos";
 import s from "./app.module.css";
 
 export type Tone = "info" | "ok" | "warn" | "neutral" | "danger";
@@ -144,7 +145,7 @@ export function CommandButtons({ command }: { command: string }) {
 }
 
 export interface RailProject {
-  letter: string;
+  project: ProjectKey;
   active?: boolean;
   dot?: Tone;
 }
@@ -152,16 +153,17 @@ export interface RailProject {
 export function Rail({ projects }: { projects: RailProject[] }) {
   return (
     <div className={s.rail}>
-      {projects.map((p) => (
-        <span key={p.letter} className={cx(s.railItem, p.active && s.railActive)}>
-          {p.letter}
-          {p.dot ? <span className={cx(s.railDot, s[`dot${p.dot}`])} /> : null}
+      <div className={s.railList}>
+        {projects.map((p) => (
+          <span key={p.project} className={cx(s.railItem, p.active && s.railActive)}>
+            <ProjectLogo project={p.project} />
+            {p.dot ? <span className={cx(s.railDot, s[`dot${p.dot}`])} /> : null}
+          </span>
+        ))}
+        <span className={cx(s.railItem, s.railAdd)}>
+          <Plus />
         </span>
-      ))}
-      <span className={cx(s.railItem, s.railAdd)}>
-        <Plus />
-      </span>
-      <span className={s.railSpacer} />
+      </div>
       <span className={s.iconBtn}>
         <Settings />
       </span>

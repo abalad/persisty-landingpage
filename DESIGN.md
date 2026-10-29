@@ -368,7 +368,7 @@ Grouped items share one container split by hairlines instead of separate cards.
 - **Style:** native disclosure rows between hairlines, 22px vertical padding, question in heading white at 1.0625rem; a drawn plus mark rotates 45 degrees to close. Answer muted, max 68ch.
 
 ### App Window (signature)
-The desktop app redrawn in HTML at full fidelity: macOS traffic lights, top bar with project name and session tabs, project rail, terminal in JetBrains Mono, status chips, and a status bar with live 5h and 7d usage bars. Window-ground fill, 1px border, 12-unit radius, window shadow. All sizes in `--u`; it carries `role="img"` with a translated label. Animated states (agents changing state, the crash and recovery sequence, rows returning one by one at 360ms) switch instantly under reduced motion.
+The desktop app redrawn in HTML at full fidelity: macOS traffic lights, top bar with project name and session tabs, project rail (six made-up projects, each with its own logo filling its tile the way an uploaded logo does in the app: Rota, Quintal, Bússola, Maré, Pulso, Vela, invented names and marks, none a real company's; the list is cut at the window's bottom as it scrolls in the app, never stretching the window), terminal in JetBrains Mono, status chips, and a status bar with live 5h and 7d usage bars. Window-ground fill, 1px border, 12-unit radius, window shadow. All sizes in `--u`; it carries `role="img"` with a translated label. Animated states (agents changing state, the crash and recovery sequence, rows returning one by one at 360ms) switch instantly under reduced motion.
 
 ## Do's and Don'ts
 

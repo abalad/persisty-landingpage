@@ -113,7 +113,7 @@ export function CrashDemo() {
           tabs={rows.map((r, i) => ({ name: r.name, kind: r.kind, tone: tabTone(i), active: i === 0 }))}
         />
         <div className={s.body}>
-          <Rail projects={[{ letter: "R", active: true }, { letter: "Q" }, { letter: "B" }]} />
+          <Rail projects={[{ project: "rota", active: true }, { project: "quintal" }, { project: "bussola" }, { project: "mare" }, { project: "pulso" }, { project: "vela" }]} />
           <div className={c.stage}>
             {showApp ? (
               <div
