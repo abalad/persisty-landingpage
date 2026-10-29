@@ -35,7 +35,7 @@ try {
   });
   await b.send("Page.navigate", { url: `${base}/en/sign-in?next=%2Faccount&notify=mac` });
   await sleep(3500);
-  check("intent shown on sign-in", (await b.evaluate("document.body.innerText")).includes("public build ships"));
+  check("intent shown on sign-in", (await b.evaluate("document.body.innerText")).includes("when a new version is out"));
 
   await b.evaluate(typeInto('input[name="email"]', "not-an-email"));
   await b.evaluate(click('button[type="submit"]'));
@@ -62,7 +62,7 @@ try {
   const text = await b.evaluate("document.body.innerText");
   check("account shows the e-mail", text.includes(email));
   check("account shows the free plan", text.includes("Free"));
-  check("launch notice is on for macOS", text.includes("ships for macOS"));
+  check("new-version e-mail is on for macOS", text.includes("is out for macOS"));
   await b.shot(`${out}/account.png`);
 
   const user = await (await admin(`users/${userId}`)).json();
