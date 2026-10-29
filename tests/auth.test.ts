@@ -78,4 +78,15 @@ describe("mergeIntent", () => {
   it("returns null when there is nothing to change", () => {
     expect(mergeIntent({ interests: ["enterprise"] }, { interest: "enterprise" })).toBeNull();
   });
+
+  it("remembers the language the notice was asked in, for the e-mail", () => {
+    const first = mergeIntent({}, { notify: "any" }, "en");
+    expect(first).toEqual({ notify_release: true, notify_platforms: [], locale: "en" });
+    expect(mergeIntent(first!, { notify: "any" }, "en")).toBeNull();
+    expect(mergeIntent(first!, { notify: "any" }, "es")).toEqual({ notify_release: true, notify_platforms: [], locale: "es" });
+  });
+
+  it("leaves the language alone for Enterprise interest", () => {
+    expect(mergeIntent({}, { interest: "enterprise" }, "en")).toEqual({ interests: ["enterprise"] });
+  });
 });

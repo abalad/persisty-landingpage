@@ -44,6 +44,16 @@ SECRET=$(supabase projects api-keys --project-ref ytmpopebhdtnucdznfsz --reveal 
   node scripts/e2e/account.mjs http://localhost:3000 /tmp
 ```
 
+## E-mail de lançamento
+
+`scripts/release/announce.mjs` manda o e-mail de uma versão nova para quem ligou o aviso (`notify_release` nos metadados do usuário), no idioma em que o site gravou o aviso (`locale`; sem ele, português). Só com ok do usuário, e só por pedido: nada é automático.
+
+```bash
+SECRET=… RESEND_API_KEY=… node scripts/release/announce.mjs 0.8.0          # conta e mostra os e-mails mascarados; não envia
+RESEND_API_KEY=… node scripts/release/announce.mjs 0.8.0 --test             # um por idioma para delivered@resend.dev
+SECRET=… RESEND_API_KEY=… node scripts/release/announce.mjs 0.8.0 --send   # lotes de 100, até 100 por dia (--skip retoma)
+```
+
 ## Antes de divulgar
 
 O e-mail do código de acesso sai pelo Resend ("Persisty <oi@persisty.app>", domínio verificado na região de São Paulo), configurado no Supabase pela integração do Resend em 2026-10-22. No plano gratuito do Resend o teto é de 100 e-mails por dia; o Supabase limita a 25 por hora.

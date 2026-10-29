@@ -83,7 +83,7 @@ export function AccountView() {
         return;
       }
       let current = data.user;
-      const merged = mergeIntent(current.user_metadata ?? {}, intent);
+      const merged = mergeIntent(current.user_metadata ?? {}, intent, locale);
       if (merged) {
         const res = await supabase().auth.updateUser({ data: merged });
         if (res.data.user) current = res.data.user;
@@ -231,7 +231,7 @@ export function AccountView() {
                 <button
                   type="button"
                   className={buttonClass(notifying ? "secondary" : "primary", "md")}
-                  onClick={() => save({ ...meta, notify_release: !notifying })}
+                  onClick={() => save({ ...meta, notify_release: !notifying, locale })}
                 >
                   <ButtonIcon>{notifying ? <BellOff /> : <Bell />}</ButtonIcon>
                   {notifying ? t("notify.turnOff") : t("notify.turnOn")}

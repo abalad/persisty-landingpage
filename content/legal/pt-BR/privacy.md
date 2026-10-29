@@ -43,7 +43,7 @@ Quando você cria uma conta, guardamos:
 - sua organização pessoal e, se houver, as organizações de time das quais participa;
 - os aparelhos conectados: nome, sistema, versão do app e último acesso;
 - seu plano e, quando existirem, os dados da assinatura;
-- as preferências que você marcar, como o e-mail de versões novas e o interesse no Enterprise.
+- as preferências que você marcar, como o e-mail de versões novas (e o idioma em que ele chega) e o interesse no Enterprise.
 
 Esses dados ficam no Supabase, na região de São Paulo. Usamos para manter a conta, emitir a licença e mandar os avisos que você pediu. Não vendemos dados e não usamos para publicidade.
 

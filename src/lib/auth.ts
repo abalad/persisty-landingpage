@@ -1,4 +1,4 @@
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 import type { DesktopPlatform } from "./releases";
 
 export const CODE_MIN = 6;
@@ -64,13 +64,18 @@ type Metadata = Record<string, unknown>;
 
 const list = (v: unknown): string[] => (Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : []);
 
-/** The user's metadata with the intent applied, or `null` when it already holds it. */
-export function mergeIntent(meta: Metadata, intent: Intent): Metadata | null {
+/**
+ * The user's metadata with the intent applied, or `null` when it already
+ * holds it. Turning the notice on also records the site's language, which
+ * the release e-mail is written in.
+ */
+export function mergeIntent(meta: Metadata, intent: Intent, locale?: Locale): Metadata | null {
   const next: Metadata = { ...meta };
   if (intent.notify) {
     next.notify_release = true;
     const platforms = list(meta.notify_platforms);
     next.notify_platforms = intent.notify === "any" || platforms.includes(intent.notify) ? platforms : [...platforms, intent.notify];
+    if (locale) next.locale = locale;
   }
   if (intent.interest) {
     const interests = list(meta.interests);

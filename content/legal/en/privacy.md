@@ -43,7 +43,7 @@ When you create an account, we keep:
 - your personal organisation and, if there are any, the team organisations you belong to;
 - the connected devices: name, system, app version and last access;
 - your plan and, once they exist, the subscription details;
-- the preferences you turn on, such as the new-version e-mail and interest in Enterprise.
+- the preferences you turn on, such as the new-version e-mail (and the language it comes in) and interest in Enterprise.
 
 This data is stored in Supabase, in the São Paulo region. We use it to run the account, issue the licence and send the notices you asked for. We do not sell data and do not use it for advertising.
 
