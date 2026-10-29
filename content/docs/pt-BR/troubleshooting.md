@@ -23,9 +23,8 @@ A fila só envia com o Persisty aberto e com o agente esperando o próximo pedid
 
 ## O que o Persisty ainda não faz
 
-- Trocar a conta de uma sessão que já está rodando quando a quota acaba.
-- Integrações com GitHub, GitLab e ferramentas de analytics.
+- Trocar a conta de uma sessão no meio de um turno. Com o rodízio ligado, a troca acontece quando o turno termina.
+- Integrações com ferramentas de analytics.
 - Divisão do terminal em painéis lado a lado.
-- No editor: autocompletar inteligente, "ir para definição", criar, renomear ou apagar arquivos.
-- Atualização automática do app.
-- Builds assinados e notarizados (em desenvolvimento).
+- No editor: autocompletar inteligente, "ir para definição", renomear ou apagar arquivos.
+- Instalador assinado no Windows, e Windows e Linux testados em máquinas reais.

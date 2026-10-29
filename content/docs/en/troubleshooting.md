@@ -23,9 +23,8 @@ The queue only sends while Persisty is open and the agent is waiting for its nex
 
 ## What Persisty does not do yet
 
-- Switch the account of a session that is already running when the quota runs out.
-- Integrations with GitHub, GitLab and analytics tools.
+- Switch a session's account in the middle of a turn. With rotation on, the switch happens when the turn ends.
+- Integrations with analytics tools.
 - Split the terminal into side-by-side panes.
-- In the editor: smart autocomplete, "go to definition", creating, renaming or deleting files.
-- Update the app automatically.
-- Signed and notarised builds (in development).
+- In the editor: smart autocomplete, "go to definition", renaming or deleting files.
+- A signed Windows installer, and Windows and Linux tested on real machines.

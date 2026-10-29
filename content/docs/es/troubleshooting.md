@@ -23,9 +23,8 @@ La cola solo envía con Persisty abierto y con el agente esperando el próximo p
 
 ## Lo que Persisty todavía no hace
 
-- Cambiar la cuenta de una sesión que ya está corriendo cuando se acaba la cuota.
-- Integraciones con GitHub, GitLab y herramientas de analítica.
+- Cambiar la cuenta de una sesión en medio de un turno. Con la rotación activada, el cambio ocurre cuando el turno termina.
+- Integraciones con herramientas de analítica.
 - Dividir la terminal en paneles lado a lado.
-- En el editor: autocompletado inteligente, "ir a la definición", crear, renombrar o borrar archivos.
-- Actualización automática de la app.
-- Builds firmados y notarizados (en desarrollo).
+- En el editor: autocompletado inteligente, "ir a la definición", renombrar o borrar archivos.
+- Instalador firmado en Windows, y Windows y Linux probados en máquinas reales.

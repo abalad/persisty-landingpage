@@ -16,7 +16,7 @@
       },
       {
         "title": "The core is free",
-        "body": "Public builds coming soon."
+        "body": "Ready to download for Mac, Windows and Linux."
       }
     ],
     "crashLink": "See what happens when the computer crashes",
@@ -122,7 +122,7 @@
   },
   "privacy": {
     "title": "Your code stays on your machine",
-    "body": "Works without an account or internet. Code, terminal output and prompts never leave, and every outside call shows up in Settings › Network.",
+    "body": "Works without an account or internet. Code, terminal output and prompts never leave, and every outside call shows up in Settings › Privacy & network.",
     "link": "Security and privacy"
   },
   "companies": {
@@ -180,7 +180,7 @@
       },
       {
         "q": "Does my code go through your servers?",
-        "a": "No. Code, terminal output and prompts stay on your machine. The app only reaches out to read Claude Code's quota, renew the licence and sign in, and every call shows up in Settings › Network."
+        "a": "No. Code, terminal output and prompts stay on your machine. The app only reaches out to read Claude Code's quota, sign in and renew the licence, use the integrations and git remotes you connect, and look for new versions. Every call shows up in Settings › Privacy & network."
       },
       {
         "q": "Which agents work?",
@@ -208,7 +208,7 @@
       },
       {
         "q": "When can I download it?",
-        "a": "Public builds ship as soon as signing and notarisation are ready. Create an account and tick “Notify me” to hear about it."
+        "a": "Now. The Mac build is signed and notarised by Apple; the Windows and Linux builds ship as a preview, unsigned and not yet tested on real machines. Once installed, the app tells you when a new version is out."
       }
     ]
   },

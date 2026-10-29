@@ -16,7 +16,7 @@
       },
       {
         "title": "O núcleo é grátis",
-        "body": "Builds públicos em breve."
+        "body": "Para baixar no Mac, no Windows e no Linux."
       }
     ],
     "crashLink": "Veja o que acontece quando o computador trava",
@@ -122,7 +122,7 @@
   },
   "privacy": {
     "title": "Seu código não sai da sua máquina",
-    "body": "Funciona sem conta e sem internet. Código, saída do terminal e prompts nunca saem, e cada chamada para fora aparece em Configurações › Rede.",
+    "body": "Funciona sem conta e sem internet. Código, saída do terminal e prompts nunca saem, e cada chamada para fora aparece em Configurações › Privacidade e rede.",
     "link": "Segurança e privacidade"
   },
   "companies": {
@@ -180,7 +180,7 @@
       },
       {
         "q": "Meu código passa pelos servidores de vocês?",
-        "a": "Não. Código, saída do terminal e prompts ficam na sua máquina. O app só fala com fora para ler a quota do Claude Code, renovar a licença e entrar na conta, e cada chamada aparece em Configurações › Rede."
+        "a": "Não. Código, saída do terminal e prompts ficam na sua máquina. O app só fala com fora para ler a quota do Claude Code, entrar na conta e renovar a licença, usar as integrações e os remotos git que você conectar e procurar versões novas. Cada chamada aparece em Configurações › Privacidade e rede."
       },
       {
         "q": "Quais agentes funcionam?",
@@ -208,7 +208,7 @@
       },
       {
         "q": "Quando posso baixar?",
-        "a": "Os builds públicos saem assim que a assinatura e a notarização estiverem prontas. Crie uma conta e marque “Avise-me” para receber o aviso."
+        "a": "Agora. O build do Mac é assinado e notarizado pela Apple; os de Windows e Linux saem como prévia, sem assinatura e ainda não testados em máquinas reais. Depois de instalado, o app avisa quando sai uma versão nova."
       }
     ]
   },
