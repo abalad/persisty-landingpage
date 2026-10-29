@@ -138,6 +138,11 @@ describe("the manifest the release script writes", () => {
     }
   });
 
+  it("has a build for every system once anything is published: the home page and the FAQ say Mac, Windows and Linux can be downloaded", () => {
+    if (!history.length) return;
+    for (const p of ["mac", "windows", "linux"] as const) expect(latestFor(p, history), p).not.toBeNull();
+  });
+
   it("points every file at its release on GitHub, with a size and a SHA-256", () => {
     for (const r of history) {
       for (const f of r.files) {
