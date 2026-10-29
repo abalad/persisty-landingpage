@@ -56,8 +56,8 @@
     ]
   },
   "account": {
-    "title": "Want a heads-up?",
-    "body": "Create an account with your e-mail. You get a code to sign in, and we let you know when the build for your system ships.",
+    "title": "Want to hear about new versions?",
+    "body": "Create an account with your e-mail and get a note when a new version is out. You sign in with a code, no password.",
     "cta": "Create account and notify me"
   },
   "versions": {

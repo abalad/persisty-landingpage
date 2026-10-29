@@ -16,7 +16,7 @@ From solo developers to companies. The core user keeps several software products
 
 ## Product Purpose
 
-Persisty is a local-first desktop workspace (macOS first; Windows and Linux builds exist but are not verified on real machines) that keeps AI coding sessions alive and organised. The site must explain what it does, sell the paid plans, collect accounts, offer the download, and keep visitors coming back through Docs and Changelog.
+Persisty is a local-first desktop workspace (macOS first; Windows and Linux builds ship as previews, not verified on real machines) that keeps AI coding sessions alive and organised. The site must explain what it does, sell the paid plans, collect accounts, offer the download, and keep visitors coming back through Docs and Changelog.
 
 The three pains that made the founder build it, in his words (2026-10-21):
 
@@ -36,8 +36,10 @@ Developers run Claude Code and Codex in terminals for hours, switch between wind
 
 ## Capabilities and Constraints
 
-Available today (in the app, Milestone 1, not yet publicly downloadable):
+Available today (in the app; public download since 0.8.0):
 
+- Public download at `/download`, newest build per system from `src/data/releases.json` (written by the app's publish step), every version with sizes and SHA-256 at `/download/versions`, and `/download/latest/<mac|windows|linux>` for links. The Mac build is universal, signed and notarised by Apple; Windows (NSIS installer) and Linux (AppImage and .deb) ship as previews: unsigned, not tested on real machines. Files are hosted as GitHub Releases of the public repository `abalad/persisty-releases`.
+- Updates from inside the app: it checks GitHub on open, every 6 h and on demand (Settings › About, where the automatic check can be turned off), shows a notice and installs and restarts in one click; on Windows and Linux it warns first when sessions are open. Every check appears in the network log.
 - Business projects with several workspaces (folders, with or without git); sessions as tabs; workspaces as cards.
 - Persistent sessions; reconciliation on open; "Restore all" (idempotent, journaled); clear report of what could not be recovered after a reboot.
 - Agent detection and states for Claude Code (hooks: working, waiting for you, permission pending, idle) and Codex (resume not verified). Any CLI runs in a persistent terminal.
@@ -46,7 +48,7 @@ Available today (in the app, Milestone 1, not yet publicly downloadable):
 - Persisty Cloud account by e-mail code; license signed with Ed25519, works 14 days offline, 5 devices; network log listing every outbound call.
 - Pro (gated by license): own folder per session (git worktree), restore points per request, check on finish, request queue (waits for the agent, the 5-hour window renewal, or a time), several Claude Code accounts side by side with rotation for new sessions (accounts at 90% or more sit out).
 
-Not true today, must not be claimed: moving a running session to another account when it hits the limit; public download; signed/notarized builds; Team features (team board, FinOps, policies, audit log); Enterprise features (SSO, SCIM, model gateway, self-host); Growth integrations; mobile app; remote runner.
+Not true today, must not be claimed: moving a running session to another account in the middle of a turn (since 0.8.0, with rotation on, a session moves when its turn ends at the limit); signed Windows builds; Windows or Linux tested on real machines; Team features (team board, FinOps, policies, audit log); Enterprise features (SSO, SCIM, model gateway, self-host); Growth integrations; mobile app; remote runner.
 
 Prices decided by the user (2026-10-21): Free; Pro US$ 9.90 per month; Team US$ 19.90 per user per month; Enterprise by contact. No annual price decided. Stripe is not wired: "Subscribe" buttons exist and do nothing yet (user's instruction). No contact e-mail exists yet: it lives in an environment variable; while empty, "Talk to us" leads to account creation with Enterprise interest recorded in the user's metadata.
 

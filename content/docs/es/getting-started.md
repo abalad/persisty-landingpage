@@ -1,6 +1,6 @@
 ---
 title: Primeros pasos
-description: Qué es Persisty, cómo instalarlo y cómo abrir el primer proyecto con una sesión de agente.
+description: Qué es Persisty, cómo instalarlo y actualizarlo y cómo abrir el primer proyecto con una sesión de agente.
 group: start
 order: 1
 ---
@@ -11,11 +11,23 @@ Nada de lo que haces en Persisty depende de una cuenta ni de internet. La cuenta
 
 Por ahora, la interfaz de la app está en portugués y en inglés. Por eso esta documentación da entre paréntesis el nombre en inglés de cada menú, botón y pestaña.
 
-## Instalar
+## Instalar y actualizar
 
-1. Descarga el build de tu sistema en la [página de descarga](/download). Mientras no haya un build público, marca "Avísame" para recibir el aviso.
-2. Abre Persisty. Todo lo que necesita ya viene dentro de la app; no hace falta instalar ninguna otra dependencia.
-3. Para usar agentes, ten [Claude Code](https://docs.claude.com/en/docs/claude-code) instalado y con el login hecho. Las terminales comunes funcionan sin él.
+1. Descarga la versión de tu sistema en la [página de descarga](/download).
+2. Instálala:
+   - **Mac**: abre el DMG y arrastra Persisty a la carpeta Aplicaciones. La app está firmada y notarizada por Apple.
+   - **Windows** (versión preliminar, sin firma): ejecuta el instalador. Si SmartScreen avisa, haz clic en **Más información › Ejecutar de todas formas**.
+   - **Linux** (versión preliminar, sin firma): usa el AppImage o el paquete `.deb`. El AppImage necesita permiso de ejecución: `chmod +x Persisty_*.AppImage`.
+3. Abre Persisty. Todo lo que necesita ya viene dentro de la app; no hace falta instalar ninguna otra dependencia.
+4. Para usar agentes, ten [Claude Code](https://docs.claude.com/en/docs/claude-code) instalado y con el login hecho. Las terminales comunes funcionan sin él.
+
+### Versiones nuevas
+
+La app busca versiones nuevas al abrirse y cada 6 horas. Cuando sale una, aparece un aviso con su número, un enlace a las novedades e **Instalar y reiniciar** (*Install and restart*). Cerrar el aviso oculta solo esa versión. En **Configuración › Acerca de** (*Settings › About*) puedes buscar en el momento o apagar la búsqueda automática.
+
+- **Mac**: instalar no pregunta nada. La app descarga, instala y reinicia, y las sesiones abiertas vuelven con ella.
+- **Windows y Linux**: si hay sesiones abiertas, la app avisa antes que pueden cerrarse, y tú instalas ahora o lo dejas para después.
+- **Linux con el `.deb`**: la app no lo instala sola. El aviso lleva a la página de descarga para que bajes el paquete nuevo.
 
 ## Crear el primer proyecto
 

@@ -1,7 +1,7 @@
 ---
 title: Política de privacidad
 description: Qué datos guardan el sitio, la app y Persisty Cloud, dónde quedan, para qué y cómo pedir que se borren.
-updated: 2026-10-22
+updated: 2026-10-29
 ---
 
 Persisty se hizo para guardar lo mínimo. La app funciona sin cuenta y sin internet, y lo que haces en ella se queda en tu máquina.
@@ -10,7 +10,21 @@ Persisty se hizo para guardar lo mínimo. La app funciona sin cuenta y sin inter
 
 Los proyectos, las sesiones, el historial de la terminal, las notas y el uso de IA quedan en una base de datos local en tu computadora. Persisty no envía código, salida de la terminal ni prompts a ninguna parte y no tiene telemetría.
 
-La app solo habla con afuera para leer la cuota de Claude Code (con la credencial que Claude Code ya guarda), entrar a la cuenta de Persisty Cloud y renovar la licencia. Cada llamada aparece en **Configuración › Red** (*Settings › Network*).
+La app solo habla con afuera para:
+
+- leer la cuota de Claude Code, con la credencial que Claude Code ya guarda;
+- entrar a la cuenta de Persisty Cloud y renovar la licencia;
+- hablar con GitHub, GitLab o Bitbucket, en las integraciones que conectes;
+- clonar, buscar, traer y enviar commits en el remoto de tus repositorios git. Para mostrar lo que falta traer y enviar, la búsqueda también ocurre sola al abrir y cada 5 minutos con la app en pantalla;
+- buscar versiones nuevas de la app (ver abajo).
+
+Cada llamada aparece en **Configuración › Privacidad y red** (*Settings › Privacy & network*), con destino, motivo, tamaño y resultado.
+
+### Búsqueda de versiones nuevas
+
+Para saber si salió una versión nueva, la app descarga de GitHub un archivo público que solo dice cuál es la versión más reciente (`github.com/abalad/persisty-releases`). GitHub ve la dirección IP de tu computadora y, en el encabezado del pedido, la versión de la app. Ningún dato de tu cuenta ni de tus proyectos va con él.
+
+La búsqueda ocurre al abrir la app, cada 6 horas con ella abierta y cuando haces clic en **Buscar actualizaciones** (*Check for updates*). Para apagar la búsqueda automática, usa **Configuración › Acerca de** (*Settings › About*); el botón sigue funcionando. Cuando pides instalar, la app descarga la versión nueva del mismo lugar.
 
 ## En el sitio
 
@@ -29,7 +43,7 @@ Cuando creas una cuenta, guardamos:
 - tu organización personal y, si las hay, las organizaciones de equipo de las que formas parte;
 - las computadoras conectadas: nombre, sistema, versión de la app y último acceso;
 - tu plan y, cuando existan, los datos de la suscripción;
-- las preferencias que marques, como el aviso de lanzamiento y el interés en Enterprise.
+- las preferencias que marques, como el e-mail de versiones nuevas y el interés en Enterprise.
 
 Estos datos quedan en Supabase, en la región de São Paulo. Los usamos para mantener la cuenta, emitir la licencia y enviar los avisos que pediste. No vendemos datos ni los usamos para publicidad.
 

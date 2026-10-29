@@ -56,8 +56,8 @@
     ]
   },
   "account": {
-    "title": "¿Quieres el aviso?",
-    "body": "Crea una cuenta con tu e-mail. Recibes un código para entrar y te avisamos cuando salga el build de tu sistema.",
+    "title": "¿Quieres saber de las versiones nuevas?",
+    "body": "Crea una cuenta con tu e-mail y recibe un aviso cuando salga una versión nueva. Entras con un código, sin contraseña.",
     "cta": "Crear cuenta y avisarme"
   },
   "versions": {
