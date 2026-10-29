@@ -11,7 +11,8 @@ import styles from "./Nav.module.css";
 export function Nav() {
   const t = useTranslations("nav");
   const links = [
-    { href: "/#product", label: t("product") },
+    { href: "/", label: t("start") },
+    { href: "/#product", label: t("features") },
     { href: "/pricing", label: t("pricing") },
     { href: "/docs", label: t("docs") },
     { href: "/changelog", label: t("changelog") },
