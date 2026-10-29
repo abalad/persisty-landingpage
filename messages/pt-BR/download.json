@@ -1,30 +1,42 @@
 {
   "meta": {
     "title": "Download",
-    "description": "Baixe o Persisty para macOS, Windows ou Linux. Os primeiros builds públicos saem em breve; crie uma conta para receber o aviso."
+    "description": "Baixe o Persisty para macOS, Windows ou Linux e veja todas as versões, com data, tamanho e SHA-256."
   },
   "title": "Baixe o Persisty",
-  "body": "Ainda não há build público: falta assinar e notarizar o app. Escolha o seu sistema e receba um aviso quando sair.",
+  "body": "A versão mais recente para cada sistema. No Mac, o app é assinado e notarizado pela Apple; no Windows e no Linux, sai como prévia.",
+  "bodyNone": "Ainda não há versão para baixar. Escolha o seu sistema e receba um e-mail quando ela sair.",
   "yours": "Seu sistema",
   "soon": "Em breve",
   "notify": "Avise-me",
   "download": "Baixar",
+  "deb": "Baixar o .deb",
+  "allVersions": "Todas as versões",
   "platforms": {
     "mac": {
       "name": "macOS",
       "detail": "Apple Silicon e Intel",
-      "note": "Onde o Persisty é usado todos os dias. Testado em Apple Silicon; Intel deve funcionar."
+      "note": "Onde o Persisty é usado todos os dias. Testado em Apple Silicon; Intel deve funcionar.",
+      "released": "Assinado e notarizado pela Apple. Testado em Apple Silicon; Intel deve funcionar."
     },
     "windows": {
       "name": "Windows",
       "detail": "x64, instalador",
-      "note": "Sai como prévia: o build existe, mas ainda não foi testado em máquinas reais."
+      "note": "Sai como prévia: o build existe, mas ainda não foi testado em máquinas reais.",
+      "released": "Sem assinatura e ainda não testado em máquinas reais. Se o SmartScreen avisar, clique em Mais informações › Executar assim mesmo."
     },
     "linux": {
       "name": "Linux",
       "detail": "x64",
-      "note": "Sai como prévia, nas mesmas condições do Windows."
+      "note": "Sai como prévia, nas mesmas condições do Windows.",
+      "released": "Sem assinatura e ainda não testado em máquinas reais. Antes de abrir o AppImage, dê permissão de execução com <code>chmod +x {name}</code>."
     }
+  },
+  "kinds": {
+    "dmg": "DMG universal",
+    "nsis": "Instalador .exe",
+    "appimage": "AppImage",
+    "deb": "Pacote .deb"
   },
   "needs": {
     "title": "O que você precisa",
@@ -47,5 +59,17 @@
     "title": "Quer ser avisado?",
     "body": "Crie uma conta com seu e-mail. Você recebe um código para entrar, e a gente avisa quando o build do seu sistema sair.",
     "cta": "Criar conta e me avisar"
+  },
+  "versions": {
+    "meta": {
+      "title": "Todas as versões",
+      "description": "Cada versão do Persisty para baixar, com data, tamanho e SHA-256 de cada arquivo."
+    },
+    "title": "Todas as versões",
+    "body": "Cada versão do Persisty, da mais nova para a mais antiga, com o tamanho e o SHA-256 de cada arquivo.",
+    "verify": "Para conferir um download, compare o SHA-256 com o que mostra <code>shasum -a 256 nome-do-arquivo</code> no Mac e no Linux, ou <code>Get-FileHash nome-do-arquivo</code> no PowerShell do Windows.",
+    "sha": "SHA-256",
+    "empty": "Nenhuma versão publicada ainda.",
+    "emptyLink": "Ver a página de download"
   }
 }

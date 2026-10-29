@@ -174,6 +174,12 @@ components:
     rounded: "{rounded.pill}"
     height: "22px"
     padding: "0 8px"
+  badge-preview:
+    backgroundColor: "{colors.status-warn-wash}"
+    textColor: "{colors.status-warn}"
+    rounded: "{rounded.pill}"
+    height: "22px"
+    padding: "0 8px"
   badge-planned:
     backgroundColor: "{colors.status-neutral-wash}"
     textColor: "#a9b1c1"
@@ -259,7 +265,7 @@ Cool graphite neutrals in two tiers (page and app window), one lime accent, and 
 - **App graphite** (window-ground, app-surface, app-surface-2, app-surface-3, app-border, app-border-strong, app-fg, app-fg-muted, app-fg-subtle): the desktop app's palette, used inside mockups and for floating app-like chrome on the page (locale popover, code blocks, `kbd`).
 
 ### Status
-- **Amber** (status-warn): waiting for you, permission pending, "In development", usage bars at 90% or more.
+- **Amber** (status-warn): waiting for you, permission pending, "Preview", "In development", usage bars at 90% or more.
 - **Blue** (status-info): working.
 - **Lime** (lime, same token as the accent): idle, OK, "Available".
 - **Coral** (status-danger): errors and invalid fields.
@@ -342,7 +348,7 @@ Soft, quiet pills; the lime one is the only bright object on a dark page.
 - **Arrow link:** lime text, weight 500, trailing arrow that slides 3px on hover.
 
 ### Badges
-- **Style:** 22px pill, 0.75rem weight 500, a 6px dot plus a word. Available (lime on its wash), In development (amber on its wash), Planned (slate wash, hollow dot), Pro (transparent with a 1px lime inset ring at 45%).
+- **Style:** 22px pill, 0.75rem weight 500, a 6px dot plus a word. Available (lime on its wash), Preview (amber on its wash, hollow dot: a download that is out but unsigned and not tested on real machines), In development (amber on its wash), Planned (slate wash, hollow dot), Pro (transparent with a 1px lime inset ring at 45%).
 
 ### Tab pills
 - **Style:** 36px pill with a hairline border, muted text and a 15px icon; hover brightens text and border. Selected: lime wash with a 50% lime border and white text. Scrolls horizontally, edge to edge, on narrow screens.

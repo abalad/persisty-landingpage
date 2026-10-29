@@ -1,30 +1,42 @@
 {
   "meta": {
     "title": "Download",
-    "description": "Download Persisty for macOS, Windows or Linux. The first public builds ship soon; create an account to hear about it."
+    "description": "Download Persisty for macOS, Windows or Linux, and see every version with its date, size and SHA-256."
   },
   "title": "Download Persisty",
-  "body": "There is no public build yet: the app still has to be signed and notarised. Pick your system and get a heads-up when it ships.",
+  "body": "The latest version for each system. On the Mac the app is signed and notarised by Apple; on Windows and Linux it ships as a preview.",
+  "bodyNone": "There is no version to download yet. Pick your system and get an e-mail when it ships.",
   "yours": "Your system",
   "soon": "Soon",
   "notify": "Notify me",
   "download": "Download",
+  "deb": "Download the .deb",
+  "allVersions": "All versions",
   "platforms": {
     "mac": {
       "name": "macOS",
       "detail": "Apple Silicon and Intel",
-      "note": "Where Persisty is used every day. Tested on Apple Silicon; Intel should work."
+      "note": "Where Persisty is used every day. Tested on Apple Silicon; Intel should work.",
+      "released": "Signed and notarised by Apple. Tested on Apple Silicon; Intel should work."
     },
     "windows": {
       "name": "Windows",
       "detail": "x64, installer",
-      "note": "Ships as a preview: the build exists but has not been tested on real machines yet."
+      "note": "Ships as a preview: the build exists but has not been tested on real machines yet.",
+      "released": "Unsigned and not yet tested on real machines. If SmartScreen warns you, click More info › Run anyway."
     },
     "linux": {
       "name": "Linux",
       "detail": "x64",
-      "note": "Ships as a preview, on the same terms as Windows."
+      "note": "Ships as a preview, on the same terms as Windows.",
+      "released": "Unsigned and not yet tested on real machines. Before opening the AppImage, make it executable with <code>chmod +x {name}</code>."
     }
+  },
+  "kinds": {
+    "dmg": "Universal DMG",
+    "nsis": "Installer .exe",
+    "appimage": "AppImage",
+    "deb": ".deb package"
   },
   "needs": {
     "title": "What you need",
@@ -47,5 +59,17 @@
     "title": "Want a heads-up?",
     "body": "Create an account with your e-mail. You get a code to sign in, and we let you know when the build for your system ships.",
     "cta": "Create account and notify me"
+  },
+  "versions": {
+    "meta": {
+      "title": "All versions",
+      "description": "Every Persisty version to download, with the date, size and SHA-256 of each file."
+    },
+    "title": "All versions",
+    "body": "Every version of Persisty, newest first, with the size and SHA-256 of each file.",
+    "verify": "To check a download, compare its SHA-256 with what <code>shasum -a 256 file-name</code> shows on Mac and Linux, or <code>Get-FileHash file-name</code> in Windows PowerShell.",
+    "sha": "SHA-256",
+    "empty": "No version published yet.",
+    "emptyLink": "See the download page"
   }
 }

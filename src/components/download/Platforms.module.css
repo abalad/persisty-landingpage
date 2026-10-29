@@ -76,6 +76,37 @@
   font-size: var(--small);
 }
 
+.note code {
+  padding: 0.12em 0.4em;
+  border: 1px solid var(--site-hairline);
+  border-radius: 5px;
+  background: var(--site-ground);
+  color: var(--site-heading);
+  overflow-wrap: anywhere;
+}
+
+.action {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+}
+
+.file,
+.alt {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  font-variant-numeric: tabular-nums;
+}
+
+.alt {
+  color: var(--color-accent);
+}
+
+.alt:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 640px) {
   .row {
     grid-template-columns: 44px minmax(0, 1fr);
@@ -83,6 +114,7 @@
 
   .action {
     grid-column: 1 / -1;
+    justify-items: start;
     margin-top: 12px;
   }
 }

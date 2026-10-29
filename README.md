@@ -50,4 +50,4 @@ O e-mail do código de acesso sai pelo Resend ("Persisty <oi@persisty.app>", dom
 
 
 - **E-mail de contato** em `NEXT_PUBLIC_CONTACT_EMAIL`.
-- **Builds públicos** em `src/lib/releases.ts`.
+- **Versões para baixar** em `src/data/releases.json`, escrito pelo passo "publicar" do app (`scripts/release/publish.mjs`), nunca à mão. Download, Todas as versões e `/download/latest/<mac|windows|linux>` saem dele.

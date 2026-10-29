@@ -29,6 +29,16 @@
   color: var(--color-warn);
 }
 
+.preview {
+  background: var(--color-warn-bg);
+  color: var(--color-warn);
+}
+
+.preview .dot {
+  background: transparent;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+
 .planned {
   background: var(--color-neutral-bg);
   color: #a9b1c1;

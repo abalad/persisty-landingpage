@@ -4,7 +4,7 @@ import { listDocs } from "@/lib/content";
 import { localizedPath } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
-const PAGES = ["/", "/pricing", "/download", "/docs", "/changelog", "/brand", "/security", "/privacy", "/terms"];
+const PAGES = ["/", "/pricing", "/download", "/download/versions", "/docs", "/changelog", "/brand", "/security", "/privacy", "/terms"];
 
 /** Every public page in each language, each entry listing its translations. */
 export default function sitemap(): MetadataRoute.Sitemap {

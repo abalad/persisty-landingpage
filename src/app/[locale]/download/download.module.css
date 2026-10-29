@@ -1,3 +1,22 @@
+.versions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.versions svg {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.versions:hover svg {
+  transform: translateX(3px);
+}
+
 .needs {
   padding-top: var(--section-y);
 }
