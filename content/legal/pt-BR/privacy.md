@@ -22,7 +22,7 @@ Cada chamada aparece em **Configurações › Privacidade e rede**, com destino,
 
 ### Procura de versões novas
 
-Para saber se saiu uma versão nova, o app baixa do GitHub um arquivo público que só diz qual é a versão mais recente (`github.com/abalad/persisty-releases`). O GitHub vê o endereço IP do seu computador e, no cabeçalho do pedido, a versão do app. Nenhum dado da sua conta ou dos seus projetos vai junto.
+Para saber se saiu uma versão nova, o app baixa do GitHub um arquivo público que só diz qual é a versão mais recente (`github.com/abalad/persisty-releases`). O GitHub vê o endereço IP do seu computador e o nome do componente que faz a consulta; a versão do app não vai no pedido. Nenhum dado da sua conta ou dos seus projetos vai junto.
 
 A procura acontece ao abrir o app, a cada 6 horas com ele aberto e quando você clica em **Procurar atualizações**. Para desligar a procura automática, use **Configurações › Sobre**; o botão continua funcionando. Quando você pede para instalar, o app baixa a versão nova do mesmo lugar.
 

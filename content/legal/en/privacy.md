@@ -22,7 +22,7 @@ Every call shows up in **Settings › Privacy & network**, with its destination,
 
 ### Looking for new versions
 
-To find out whether a new version is out, the app downloads from GitHub a public file that only says which version is the latest (`github.com/abalad/persisty-releases`). GitHub sees your computer's IP address and, in the request header, the app's version. No data from your account or your projects goes with it.
+To find out whether a new version is out, the app downloads from GitHub a public file that only says which version is the latest (`github.com/abalad/persisty-releases`). GitHub sees your computer's IP address and the name of the component that makes the request; the app's version is not in the request. No data from your account or your projects goes with it.
 
 The check happens when the app opens, every 6 hours while it is open and when you click **Check for updates**. To turn the automatic check off, use **Settings › About**; the button still works. When you ask to install, the app downloads the new version from the same place.
 
