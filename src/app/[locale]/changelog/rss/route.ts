@@ -20,9 +20,9 @@ export async function GET(_req: Request, { params }: RouteContext<"/[locale]/cha
   const items = entries
     .map(
       (e) => `    <item>
-      <title>${escape(e.title)}</title>
+      <title>${escape(`${e.version} · ${e.title}`)}</title>
       <link>${page}#${e.id}</link>
-      <guid isPermaLink="false">${e.id}</guid>
+      <guid isPermaLink="false">${e.version}</guid>
       <pubDate>${new Date(`${e.date}T12:00:00Z`).toUTCString()}</pubDate>
       <description>${escape(e.html)}</description>
     </item>`,

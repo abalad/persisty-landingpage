@@ -36,9 +36,14 @@ export default async function ChangelogPage({ params }: PageProps<"/[locale]/cha
       <ol className={`container ${styles.list}`}>
         {entries.map((e) => (
           <li key={e.id} id={e.id} className={styles.entry}>
-            <time className={styles.date} dateTime={e.date}>
-              {date.format(new Date(`${e.date}T00:00:00Z`))}
-            </time>
+            <div className={styles.meta}>
+              <a className={styles.version} href={`#${e.id}`}>
+                {e.version}
+              </a>
+              <time className={styles.date} dateTime={e.date}>
+                {date.format(new Date(`${e.date}T00:00:00Z`))}
+              </time>
+            </div>
             <article>
               <h2 className={styles.title}>
                 <a href={`#${e.id}`}>{e.title}</a>

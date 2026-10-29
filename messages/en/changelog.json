@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "Changelog",
-    "description": "What changed in Persisty, newest first."
+    "description": "What changed in each version of Persisty, newest first."
   },
   "title": "Changelog",
-  "body": "What changed in Persisty, newest first. None of this has shipped in a public build yet.",
+  "body": "What changed in each version, newest first.",
   "rss": "RSS feed",
   "feedTitle": "Persisty: Changelog"
 }

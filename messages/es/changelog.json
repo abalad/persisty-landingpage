@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "Changelog",
-    "description": "Lo que cambió en Persisty, de lo más nuevo a lo más antiguo."
+    "description": "Lo que cambió en cada versión de Persisty, de la más nueva a la más antigua."
   },
   "title": "Changelog",
-  "body": "Lo que cambió en Persisty, de lo más nuevo a lo más antiguo. Nada de esto salió todavía en un build público.",
+  "body": "Lo que cambió en cada versión, de la más nueva a la más antigua.",
   "rss": "Feed RSS",
   "feedTitle": "Persisty: Changelog"
 }

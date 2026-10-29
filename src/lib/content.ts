@@ -10,6 +10,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import type { Locale } from "@/i18n/routing";
 import { localizedPath } from "./seo";
+import { compareVersions, isVersion } from "./semver";
 
 const ROOT = join(process.cwd(), "content");
 
@@ -35,10 +36,11 @@ export interface Doc extends DocMeta {
   headings: Heading[];
 }
 
+/** One version's notes; `id` is the version, so it is also the page anchor. */
 export interface ChangelogEntry {
   id: string;
+  version: string;
   date: string;
-  version: string | null;
   title: string;
   html: string;
 }
@@ -125,17 +127,23 @@ export async function getDoc(locale: Locale, slug: string): Promise<Doc | null> 
   };
 }
 
-/** Every changelog entry of one language, newest first. File names are `<date>-<id>.md`. */
-export async function listChangelog(locale: Locale): Promise<ChangelogEntry[]> {
-  const dir = join(ROOT, "changelog", locale);
+/**
+ * Every changelog entry of one language, newest version first. Each file is
+ * `<version>.md` with that `version` in its frontmatter; anything else is an
+ * error, so a misnamed entry fails the build instead of going missing.
+ */
+export async function listChangelog(locale: Locale, root = ROOT): Promise<ChangelogEntry[]> {
+  const dir = join(root, "changelog", locale);
   const entries = await Promise.all(
     files(dir).map(async (f) => {
       const { data, content } = matter(readFileSync(join(dir, f), "utf8"));
+      const version = data.version === undefined ? "" : String(data.version);
+      if (!isVersion(version) || f !== `${version}.md`) throw new Error(`changelog/${locale}/${f}: the file must be <version>.md with that version in its frontmatter`);
       const date = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : String(data.date);
-      return { id: f.replace(/\.md$/, ""), date, version: data.version ? String(data.version) : null, title: String(data.title ?? ""), html: await renderMarkdown(content, locale) };
+      return { id: version, version, date, title: String(data.title ?? ""), html: await renderMarkdown(content, locale) };
     }),
   );
-  return entries.sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
+  return entries.sort((a, b) => compareVersions(b.version, a.version));
 }
 
 export const LEGAL_PAGES = ["privacy", "security", "terms"] as const;
