@@ -1,0 +1,127 @@
+{
+  "common": {
+    "comparePlans": "Comparar planos",
+    "compareTitle": "Compare os planos",
+    "onThisPage": "Nesta página",
+    "inPlan": "No {plan}",
+    "docs": "Como funciona, nos docs",
+    "roadmapTitle": "Vem aí no {plan}",
+    "roadmapBody": "Planejado, ainda não disponível. Cada item ganha desenho próprio antes de ser construído e só aparece como disponível quando sair numa versão.",
+    "freeFine": "Sem conta e sem cartão. Mac assinado pela Apple; Windows e Linux em prévia.",
+    "seePro": "Conhecer o Pro",
+    "downloadFree": "Baixar grátis",
+    "index": {
+      "free": {
+        "recovery": "Recuperação",
+        "projects": "Projetos",
+        "states": "Estados dos agentes",
+        "editor": "Editor e git",
+        "privacy": "Privacidade"
+      },
+      "pro": {
+        "accounts": "Várias contas",
+        "queue": "Fila de pedidos",
+        "restore-points": "Pontos de restauração",
+        "verify": "Verificação",
+        "worktree": "Pasta própria"
+      },
+      "team": {
+        "pro": "Tudo do Pro",
+        "billing": "Cobrança do time",
+        "privacy": "Privacidade"
+      }
+    },
+    "tried": {
+      "label": "Recurso do Pro",
+      "text": "Você tentou usar {feature}. Esse recurso é do Pro.",
+      "already": "Já assina? Entre com a mesma conta no app, em Configurações › Conta.",
+      "price": "{price} por mês",
+      "subscribe": "Assinar o Pro",
+      "close": "Fechar aviso",
+      "names": {
+        "accounts": "várias contas com rodízio",
+        "queue": "a fila de pedidos",
+        "restore-points": "os pontos de restauração",
+        "verify": "a verificação ao terminar",
+        "worktree": "a pasta própria por sessão"
+      }
+    }
+  },
+  "pro": {
+    "meta": {
+      "title": "Pro",
+      "description": "Várias contas do Claude Code com rodízio, fila de pedidos, pontos de restauração, verificação ao terminar e pasta própria por sessão."
+    },
+    "hero": {
+      "title": "Quando a quota acaba, o pedido espera na fila e a sessão troca de conta.",
+      "body": "O Pro acrescenta ao Persisty várias contas do Claude Code com rodízio, a fila de pedidos, um ponto de restauração a cada pedido, seus testes rodando quando o agente para e uma pasta própria para cada sessão. Por {price} por mês."
+    },
+    "sections": {
+      "accounts": {
+        "title": "Várias contas do Claude Code, sem /login no meio do dia",
+        "body": "Conecte a conta pessoal e a da empresa. O Persisty acompanha as janelas de 5 horas e 7 dias de cada uma, manda cada sessão nova para a que tem mais folga e, quando uma sessão chega ao limite que você escolheu, passa para outra ao terminar a resposta.",
+        "below": "A conta deste computador, com a quota ao vivo.",
+        "here": "Quantas contas você tiver, com rodízio e o limite de troca que você escolher."
+      },
+      "queue": {
+        "title": "O próximo pedido já escrito, esperando a vez",
+        "body": "Escreva agora e escolha quando vai: assim que o agente ficar livre, quando a janela de 5 h renovar ou a partir de um horário. Um por vez, na ordem, nunca no meio de um trabalho nem por cima de um pedido de permissão.",
+        "below": "Você espera o agente terminar para mandar o próximo.",
+        "here": "A fila manda o próximo quando der, com o Persisty aberto."
+      },
+      "restore-points": {
+        "title": "Volte a pasta para antes de qualquer pedido",
+        "body": "Cada pedido grava o estado da pasta antes de o agente começar. Você vê o que volta e o que seria apagado antes de confirmar, e restaurar guarda o estado de agora como um ponto novo, para desfazer.",
+        "below": "Os pontos já gravados continuam disponíveis para restaurar.",
+        "here": "Um ponto a cada pedido, até 50 por sessão."
+      },
+      "verify": {
+        "title": "Seus testes rodam quando o agente para",
+        "body": "Escolha um comando do workspace, como pnpm test. Quando o agente para depois de mudar arquivos, ele roda sozinho na pasta da sessão, e o cabeçalho diz se passou, se falhou ou se ainda está rodando.",
+        "below": "Você lembra de rodar os testes depois de cada pedido.",
+        "here": "O resultado aparece no cabeçalho da sessão."
+      },
+      "worktree": {
+        "title": "Dois agentes no mesmo repositório, sem um pisar no outro",
+        "body": "A sessão nova ganha um branch persist/<nome> numa pasta só dela. Ao fechar, o Persisty diz quantos commits o branch guarda e pergunta se a pasta fica, sai ou sai descartando o que não foi commitado. O branch nunca é apagado.",
+        "below": "As sessões de um workspace editam a mesma pasta.",
+        "here": "Uma pasta e um branch para cada sessão."
+      }
+    },
+    "alsoTitle": "Também no Pro",
+    "alsoBody": "O que vem junto com a assinatura.",
+    "allFree": {
+      "name": "Tudo do plano grátis",
+      "line": "Recuperação, projetos, estados dos agentes, editor, git, voz, tarefas e o registro de rede continuam iguais."
+    },
+    "faq": {
+      "title": "Dúvidas sobre o Pro",
+      "items": [
+        {
+          "q": "Os pedidos da fila saem com o Persisty fechado?",
+          "a": "Não. A fila é conferida a cada 10 segundos com o Persisty aberto. Com o app fechado, nada é enviado; quando você abre de novo, ela continua de onde estava."
+        },
+        {
+          "q": "O que acontece se eu parar de pagar o Pro?",
+          "a": "O Persisty volta ao grátis. Nada se perde: os pontos de restauração gravados continuam restauráveis e os pedidos que já estavam na fila continuam valendo."
+        },
+        {
+          "q": "Preciso de internet para usar o Pro?",
+          "a": "Não o tempo todo. A licença é assinada e vale 14 dias sem conexão; o app renova sozinho quando há rede."
+        },
+        {
+          "q": "Em quantos computadores posso usar?",
+          "a": "Em até 5 computadores por conta. Você vê e remove cada um em Minha conta."
+        },
+        {
+          "q": "Em que moeda eu pago?",
+          "a": "Em reais, no Brasil, e em dólares fora dele. O pagamento é no cartão, pelo Stripe, e você cancela quando quiser no portal da assinatura."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Comece pelo grátis e assine quando um recurso do Pro fizer falta.",
+      "body": "O núcleo do Persisty funciona sem conta. O Pro chega ao app sozinho assim que você assina."
+    }
+  }
+}

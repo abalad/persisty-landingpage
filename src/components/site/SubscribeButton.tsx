@@ -10,13 +10,14 @@ import type { Locale } from "@/i18n/routing";
 import { onPageRestored } from "@/lib/bfcache";
 import { subscribe, type BillingErrorKey, type Navigation, type TeamOrder } from "@/lib/billing";
 import type { PaidPlan } from "@/lib/pricing";
-import { buttonClass, type ButtonVariant } from "./Button";
+import { buttonClass, type ButtonSize, type ButtonVariant } from "./Button";
 import styles from "./checkout.module.css";
 import { TeamCheckoutForm } from "./TeamCheckoutForm";
 
 interface Props {
   plan: PaidPlan;
   variant?: ButtonVariant;
+  size?: ButtonSize;
   children: ReactNode;
   /** Team only: subscribing an existing team again, the form starts from it and the checkout names it. */
   prefill?: Required<TeamOrder>;
@@ -31,7 +32,7 @@ export function SubscribeButton(props: Props) {
   return (
     <Suspense
       fallback={
-        <button type="button" className={buttonClass(props.variant ?? "primary", "md")} disabled>
+        <button type="button" className={buttonClass(props.variant ?? "primary", props.size ?? "md")} disabled>
           {props.children}
         </button>
       }
@@ -41,7 +42,7 @@ export function SubscribeButton(props: Props) {
   );
 }
 
-function Subscribe({ plan, variant = "primary", children, prefill }: Props) {
+function Subscribe({ plan, variant = "primary", size = "md", children, prefill }: Props) {
   const t = useTranslations("pricing.checkout");
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -105,7 +106,7 @@ function Subscribe({ plan, variant = "primary", children, prefill }: Props) {
 
   return (
     <div className={styles.stack}>
-      <button type="button" className={buttonClass(variant, "md")} onClick={() => void start()} disabled={busy} aria-busy={busy}>
+      <button type="button" className={buttonClass(variant, size)} onClick={() => void start()} disabled={busy} aria-busy={busy}>
         {busy ? t("busy") : children}
       </button>
       {error ? (

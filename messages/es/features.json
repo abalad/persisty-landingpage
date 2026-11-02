@@ -81,7 +81,7 @@
     "where": "Nueva sesión › Carpeta propia (worktree)"
   },
   "offlineLicense": {
-    "line": "La licencia vale 14 días sin internet, en hasta 5 computadoras.",
+    "line": "La app renueva la licencia sola cuando hay red. Ves y quitas cada computadora en Mi cuenta.",
     "where": "Configuración › Cuenta"
   },
   "remote": {

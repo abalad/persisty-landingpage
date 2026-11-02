@@ -1,7 +1,7 @@
 import { ArrowDownToLine, Check, CircleDashed } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "@/components/site/Badge";
-import { ButtonLink } from "@/components/site/Button";
+import { ButtonLink, type ButtonSize } from "@/components/site/Button";
 import { SubscribeButton } from "@/components/site/SubscribeButton";
 import type { Locale } from "@/i18n/routing";
 import { SHOWN_PLANS, type Plan } from "@/lib/plans";
@@ -68,23 +68,23 @@ export function PlanCards({ withFeatures = false }: { withFeatures?: boolean }) 
 }
 
 /** A plan's main action: download Free, subscribe to Pro or Team. */
-export function PlanAction({ plan, label }: { plan: Plan; label: string }) {
+export function PlanAction({ plan, label, size }: { plan: Plan; label: string; size?: ButtonSize }) {
   if (plan.id === "free") {
     return (
-      <ButtonLink href="/download" variant="secondary" icon={<ArrowDownToLine />}>
+      <ButtonLink href="/download" variant={size === "lg" ? "primary" : "secondary"} size={size} icon={<ArrowDownToLine />}>
         {label}
       </ButtonLink>
     );
   }
   if (plan.id === "enterprise") {
     return (
-      <ButtonLink href={contactHref("enterprise") ?? "/sign-in"} variant="secondary">
+      <ButtonLink href={contactHref("enterprise") ?? "/sign-in"} variant="secondary" size={size}>
         {label}
       </ButtonLink>
     );
   }
   return (
-    <SubscribeButton plan={plan.id} variant={plan.id === "pro" ? "primary" : "secondary"}>
+    <SubscribeButton plan={plan.id} variant={plan.id === "pro" || size === "lg" ? "primary" : "secondary"} size={size}>
       {label}
     </SubscribeButton>
   );

@@ -81,7 +81,7 @@
     "where": "New session › Own folder (worktree)"
   },
   "offlineLicense": {
-    "line": "The license works 14 days without internet, on up to 5 computers.",
+    "line": "The app renews the license by itself when there is a connection. You see and remove each computer in My account.",
     "where": "Settings › Account"
   },
   "remote": {

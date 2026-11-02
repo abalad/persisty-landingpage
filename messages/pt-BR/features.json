@@ -81,7 +81,7 @@
     "where": "Nova sessão › Pasta própria (worktree)"
   },
   "offlineLicense": {
-    "line": "A licença vale 14 dias sem internet, em até 5 computadores.",
+    "line": "O app renova a licença sozinho quando há rede. Você vê e remove cada computador em Minha conta.",
     "where": "Configurações › Conta"
   },
   "remote": {
