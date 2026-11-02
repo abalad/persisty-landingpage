@@ -51,6 +51,9 @@ const CHECKOUT_POLL_MS = 3000;
 
 const Context = createContext<AccountContext | null>(null);
 
+/** Hands a ready account to the panels, for fixtures that show them without signing in. */
+export const AccountContextProvider = Context.Provider;
+
 export function useAccount(): AccountContext {
   const value = useContext(Context);
   if (!value) throw new Error("useAccount outside AccountProvider");

@@ -1,5 +1,5 @@
 import type { BillingState } from "./billing";
-import type { PlanId } from "./plans";
+import { planById, type PlanFeature, type PlanId, type ShownPlanId } from "./plans";
 import type { PaidPlan } from "./pricing";
 
 /** The parts of My account, each at its own address. */
@@ -34,4 +34,19 @@ export function subscribeOptions(plan: PlanId): PaidPlan[] {
 export function signInPath(pathname: string, intent: string): string {
   const extra = intent.replace(/^\?/, "");
   return `/sign-in?next=${encodeURIComponent(pathname)}${extra ? `&${extra}` : ""}`;
+}
+
+/** What a plan unlocks beyond the free core, plan by plan: Pro's features, and Team's on top for a team. Only what is available. */
+export function unlockedFor(plan: PlanId): { plan: ShownPlanId; features: PlanFeature[] }[] {
+  const group = (id: ShownPlanId) => ({ plan: id, features: planById(id).features.filter((f) => f.status === "available") });
+  if (plan === "pro") return [group("pro")];
+  if (plan === "team" || plan === "enterprise") return [group("pro"), group("team")];
+  return [];
+}
+
+/** The one plan up worth showing: Pro to the free plan, Team to Pro; nothing above Team while Enterprise is hidden. */
+export function upsellFor(plan: PlanId): "pro" | "team" | null {
+  if (plan === "free") return "pro";
+  if (plan === "pro") return "team";
+  return null;
 }

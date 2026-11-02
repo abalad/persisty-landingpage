@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
-import { BillingPanel } from "@/components/account/panels/BillingPanel";
+import { Overview } from "@/components/account/panels/Overview";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/account">): Promise<Metadata> {
   const { locale } = await params;
@@ -12,5 +12,5 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/account"
 export default function Page({ params }: PageProps<"/[locale]/account">) {
   const { locale } = use(params);
   setRequestLocale(locale);
-  return <BillingPanel />;
+  return <Overview />;
 }

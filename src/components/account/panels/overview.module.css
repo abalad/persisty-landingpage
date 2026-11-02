@@ -1,0 +1,253 @@
+/* ---- The plan: the featured plan's raised night and lime top edge, as on Pricing --- */
+
+.plan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 32px;
+  padding: 28px;
+  border: 1px solid var(--site-hairline);
+  border-radius: 14px;
+  background: #11151c;
+  box-shadow: inset 0 2px 0 var(--color-accent);
+}
+
+.planMain {
+  display: grid;
+  gap: 8px;
+}
+
+.planName {
+  color: var(--site-heading);
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 3rem);
+  font-weight: 330;
+  font-variation-settings: "wdth" 106;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.planState {
+  margin-top: 6px;
+  color: var(--site-body);
+}
+
+.planPrice {
+  color: var(--site-muted);
+  font-size: var(--small);
+  font-feature-settings: "tnum";
+}
+
+/* Every state carries its word; the dot only repeats it. */
+.dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  vertical-align: 0.12em;
+}
+
+.dotOk {
+  background: var(--color-accent);
+}
+
+.dotWarn {
+  background: var(--color-warn);
+}
+
+.dotDanger {
+  background: var(--color-danger);
+}
+
+/* ---- Features, one row each, split by hairlines inside one panel ------------ */
+
+.group {
+  display: grid;
+  gap: 10px;
+}
+
+.groupTitle {
+  color: var(--site-body);
+  font-size: var(--small);
+  font-weight: 500;
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--site-hairline);
+  border-radius: 12px;
+  background: var(--site-ground-raised);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 18px 20px;
+}
+
+.row + .row {
+  border-top: 1px solid var(--site-hairline);
+}
+
+.visual {
+  min-width: 0;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  height: 112px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+}
+
+.icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--site-muted);
+}
+
+.text {
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+}
+
+.name {
+  color: var(--site-heading);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.line {
+  max-width: 56ch;
+  color: var(--site-muted);
+  font-size: var(--small);
+  line-height: 1.55;
+}
+
+.where {
+  color: var(--site-body);
+  font-size: var(--tiny);
+}
+
+.how {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--color-accent);
+  font-size: var(--small);
+  font-weight: 500;
+}
+
+.how svg {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.how:hover svg {
+  transform: translateX(3px);
+}
+
+/* ---- The plan up ------------------------------------------------------------ */
+
+.upHead {
+  display: grid;
+  gap: 8px;
+}
+
+.upBody {
+  max-width: 60ch;
+  color: var(--site-muted);
+  line-height: 1.55;
+}
+
+.upActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 24px 28px;
+  border: 1px solid var(--site-hairline);
+  border-radius: 14px;
+  background: var(--site-ground-raised);
+}
+
+.teamMain {
+  display: grid;
+  gap: 6px;
+  flex: 1 1 360px;
+}
+
+.teamTitle {
+  color: var(--site-heading);
+  font-size: 1.25rem;
+  font-weight: 450;
+  font-variation-settings: "wdth" 104;
+}
+
+/* ---- Coming next ------------------------------------------------------------ */
+
+.soon {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--site-hairline);
+}
+
+.soonRow {
+  display: grid;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--site-hairline);
+}
+
+.soonName {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  color: var(--site-heading);
+  font-weight: 500;
+}
+
+@media (max-width: 720px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .soon {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plan {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how svg {
+    transition: none;
+  }
+}

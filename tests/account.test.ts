@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { accountSections, signInPath, subscribeOptions } from "../src/lib/account";
+import { accountSections, signInPath, subscribeOptions, unlockedFor, upsellFor } from "../src/lib/account";
 import { FREE, type BillingState, type Team } from "../src/lib/billing";
 
 const state = (over: Partial<BillingState> = {}): BillingState => ({ entitlement: FREE, subscription: null, manages: false, personal: null, teams: [], lapsedTeams: [], failed: false, ...over });
@@ -31,5 +31,19 @@ describe("account panel", () => {
   it("comes back to the part of the account you asked for", () => {
     expect(signInPath("/account/devices", "")).toBe("/sign-in?next=%2Faccount%2Fdevices");
     expect(signInPath("/account", "?notify=mac")).toBe("/sign-in?next=%2Faccount&notify=mac");
+  });
+
+  it("unlocks what the plan pays for, never Growth", () => {
+    expect(unlockedFor("free")).toEqual([]);
+    expect(unlockedFor("pro").map((g) => g.plan)).toEqual(["pro"]);
+    expect(unlockedFor("pro")[0].features.map((f) => f.id)).toEqual(["accountRotation", "requestQueue", "restorePoints", "verifyOnFinish", "worktrees", "offlineLicense"]);
+    expect(unlockedFor("team").map((g) => g.plan)).toEqual(["pro", "team"]);
+    expect(unlockedFor("team").flatMap((g) => g.features).some((f) => f.status !== "available" || f.id === "growth")).toBe(false);
+  });
+
+  it("invites one step up", () => {
+    expect(upsellFor("free")).toBe("pro");
+    expect(upsellFor("pro")).toBe("team");
+    expect(upsellFor("team")).toBeNull();
   });
 });
