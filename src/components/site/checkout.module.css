@@ -1,0 +1,23 @@
+.stack {
+  display: grid;
+  gap: 10px;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+}
+
+.hint {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.total {
+  color: var(--site-heading);
+  font-size: var(--small);
+  font-variant-numeric: tabular-nums;
+}

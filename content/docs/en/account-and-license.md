@@ -23,4 +23,4 @@ Paid features are enabled by a signed licence that the app checks on its own.
 
 ## Plans
 
-See the plans and what each one includes on [Pricing](/pricing). Subscriptions open soon.
+See the plans and what each one includes on [Pricing](/pricing). You pay by card, through Stripe; the subscription and team invites live in My account.

@@ -20,7 +20,7 @@ import { Badge } from "@/components/site/Badge";
 import { ButtonLink } from "@/components/site/Button";
 import type { FaqItem } from "@/components/site/Faq";
 import type { Locale } from "@/i18n/routing";
-import { formatPrice } from "@/lib/pricing";
+import { formatPlanPrice } from "@/lib/pricing";
 import { alternatesFor } from "@/lib/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
@@ -72,7 +72,7 @@ function HomeContent() {
         </Window>
       </Feature>
       <Companies />
-      <Feature id="pricing" title={t("pricing.title")} body={t("pricing.body", { price: formatPrice(locale, 990) })}>
+      <Feature id="pricing" title={t("pricing.title")} body={t("pricing.body", { price: formatPlanPrice(locale, "pro") })}>
         <PlanCards />
         <div style={{ marginTop: 28 }}>
           <ButtonLink href="/pricing" variant="secondary">

@@ -136,8 +136,8 @@
       },
       {
         "title": "Cobrança por pessoa, numa fatura só",
-        "body": "Team a US$ 19,90 por pessoa por mês, com tudo do Pro para cada uma.",
-        "status": "in-development"
+        "body": "Team a R$ 19,90 por pessoa por mês, com tudo do Pro para cada uma.",
+        "status": "available"
       },
       {
         "title": "Quadro do time",
@@ -172,7 +172,7 @@
     "items": [
       {
         "q": "O Persisty é de graça?",
-        "a": "O núcleo é: projetos, workspaces, sessões persistentes, recuperação, estados dos agentes, editor, git e uso de IA, sem conta e sem prazo. O Pro custa US$ 9,90 por mês e libera rodízio de contas, fila de pedidos, pontos de restauração, verificação ao terminar e pasta própria por sessão."
+        "a": "O núcleo é: projetos, workspaces, sessões persistentes, recuperação, estados dos agentes, editor, git e uso de IA, sem conta e sem prazo. O Pro custa R$ 9,90 por mês e libera rodízio de contas, fila de pedidos, pontos de restauração, verificação ao terminar e pasta própria por sessão."
       },
       {
         "q": "Preciso criar conta?",

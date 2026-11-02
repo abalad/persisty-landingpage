@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contactHref, subscribe } from "../src/lib/site";
+import { contactHref } from "../src/lib/site";
 
 describe("contactHref", () => {
   it("opens an e-mail about Enterprise when an address is configured", () => {
@@ -16,12 +16,6 @@ describe("contactHref", () => {
 
   it("without an address, offers no general contact", () => {
     expect(contactHref("contact", undefined)).toBeNull();
-  });
-});
-
-describe("subscribe", () => {
-  it("does nothing yet: billing arrives with Stripe", () => {
-    expect(subscribe("pro")).toBeUndefined();
   });
 });
 

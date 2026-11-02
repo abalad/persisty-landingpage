@@ -1,5 +1,3 @@
-import type { PlanId } from "./plans";
-
 export const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://ytmpopebhdtnucdznfsz.supabase.co";
 /** Publishable by design: the desktop app ships the same key. Row-level security guards the data. */
 export const SUPABASE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? "sb_publishable_O6TCB8NFNzTgx9Ma6TCnFQ_cE3-jDgR";
@@ -17,9 +15,4 @@ export function contactHref(topic: "enterprise" | "contact", email = process.env
     return `mailto:${address}?subject=${encodeURIComponent(subject)}`;
   }
   return topic === "enterprise" ? `/sign-in?next=${encodeURIComponent("/account")}&interest=enterprise` : null;
-}
-
-/** Billing is not wired yet (Stripe comes next); the button exists and does nothing, by decision. */
-export function subscribe(plan: PlanId): void {
-  void plan;
 }

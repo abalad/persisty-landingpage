@@ -13,8 +13,8 @@ type Messages = Record<string, Record<string, unknown>>;
 
 /** Only what interactive components read goes to the browser. */
 function clientMessages(all: Messages): Messages {
-  const { nav, badge, mock, download, auth, home } = all;
-  return { nav, badge, mock, download, auth, home: { hero: (home as Messages).hero } };
+  const { nav, badge, mock, download, auth, home, pricing } = all;
+  return { nav, badge, mock, download, auth, home: { hero: (home as Messages).hero }, pricing: { checkout: (pricing as Messages).checkout } };
 }
 
 export function generateStaticParams() {

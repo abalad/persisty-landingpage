@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/site/Button";
 import { SubscribeButton } from "@/components/site/SubscribeButton";
 import type { Locale } from "@/i18n/routing";
 import { PLANS, type Plan } from "@/lib/plans";
-import { formatPrice } from "@/lib/pricing";
+import { currencyFor, formatPlanPrice, formatPrice } from "@/lib/pricing";
 import { contactHref } from "@/lib/site";
 import styles from "./PlanCards.module.css";
 
@@ -26,10 +26,12 @@ export function PlanCards({ withFeatures = false }: { withFeatures?: boolean }) 
               <p className={styles.tagline}>{t(`plans.${plan.id}.tagline`)}</p>
             </div>
             <div className={styles.price}>
-              {plan.priceCents === null ? (
+              {plan.id === "enterprise" ? (
                 <span className={`${styles.amount} ${styles.amountText}`}>{t("plans.enterprise.price")}</span>
               ) : (
-                <span className={styles.amount}>{formatPrice(locale, plan.priceCents)}</span>
+                <span className={styles.amount}>
+                  {plan.id === "free" ? formatPrice(locale, 0, currencyFor(locale), { explicit: true }) : formatPlanPrice(locale, plan.id)}
+                </span>
               )}
               <span className={styles.per}>{t(`plans.${plan.id}.per`)}</span>
             </div>

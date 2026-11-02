@@ -23,4 +23,4 @@ Las funciones pagas se desbloquean con una licencia firmada que la app verifica 
 
 ## Planes
 
-Mira los planes y lo que incluye cada uno en [Precios](/pricing). Las suscripciones abren pronto.
+Mira los planes y lo que incluye cada uno en [Precios](/pricing). Pagas con tarjeta, a través de Stripe; la suscripción y las invitaciones del equipo están en Mi cuenta.

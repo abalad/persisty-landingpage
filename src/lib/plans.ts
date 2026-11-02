@@ -10,21 +10,18 @@ export interface PlanFeature {
 
 export interface Plan {
   id: PlanId;
-  /** `null` means the price is agreed by contact. */
-  priceCents: number | null;
+  /** The price lives in `priceFor`, by currency; Free is zero and Enterprise is agreed by contact. */
   billing: "free" | "month" | "user-month" | "contact";
   /** Features this plan adds on top of the previous one. */
   features: PlanFeature[];
 }
 
 const available = (id: string): PlanFeature => ({ id, status: "available" });
-const inDevelopment = (id: string): PlanFeature => ({ id, status: "in-development" });
 const planned = (id: string): PlanFeature => ({ id, status: "planned" });
 
 export const PLANS: Plan[] = [
   {
     id: "free",
-    priceCents: 0,
     billing: "free",
     features: [
       available("projects"),
@@ -39,7 +36,6 @@ export const PLANS: Plan[] = [
   },
   {
     id: "pro",
-    priceCents: 990,
     billing: "month",
     features: [
       available("accountRotation"),
@@ -53,13 +49,11 @@ export const PLANS: Plan[] = [
   },
   {
     id: "team",
-    priceCents: 1990,
     billing: "user-month",
-    features: [inDevelopment("teamBilling"), planned("teamBoard"), planned("finops"), planned("policies")],
+    features: [available("teamBilling"), planned("teamBoard"), planned("finops"), planned("policies")],
   },
   {
     id: "enterprise",
-    priceCents: null,
     billing: "contact",
     features: [planned("sso"), planned("modelGateway"), planned("selfHost"), planned("sourceReview")],
   },

@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Preços",
-    "description": "Gratuito sem conta, Pro por US$ 9,90 por mês, Team por US$ 19,90 por pessoa e Enterprise sob consulta."
+    "description": "Gratuito sem conta, Pro por R$ 9,90 por mês, Team por R$ 19,90 por pessoa e Enterprise sob consulta."
   },
   "title": "Planos e preços",
   "body": "O núcleo do Persisty é grátis e não pede conta. Os planos pagos liberam a fila de pedidos, o rodízio de contas e os pontos de restauração; para times, também o controle de quem paga.",
-  "currency": "Preços em dólares americanos.",
-  "opening": "As assinaturas abrem em breve.",
+  "currency": "Preços em reais, no cartão, pelo Stripe.",
+  "opening": "Cancele quando quiser, sem multa.",
   "includes": "Tudo do {plan}, mais:",
   "plans": {
     "free": {
@@ -74,8 +74,8 @@
         "a": "Não. Projetos, sessões persistentes, recuperação, estados dos agentes, editor, git e uso de IA continuam grátis, sem conta."
       },
       {
-        "q": "Por que o preço é em dólar?",
-        "a": "Porque a maior parte do que quem usa agentes já paga é em dólar, e assim o preço é o mesmo em todo lugar."
+        "q": "Em que moeda eu pago?",
+        "a": "Em reais, no Brasil, e em dólares fora dele. O pagamento é no cartão, pelo Stripe."
       },
       {
         "q": "O que acontece se eu parar de pagar o Pro?",
@@ -90,9 +90,35 @@
         "a": "Em até 5 aparelhos por conta."
       },
       {
+        "q": "Como funciona o Team?",
+        "a": "Você dá um nome ao time, escolhe quantos assentos quer e convida as pessoas pelo e-mail, em Minha conta. Assentos e cancelamento ficam no portal da assinatura."
+      },
+      {
         "q": "Como funciona o Enterprise?",
         "a": "Combinamos com a sua empresa o que ela precisa: SSO, instalação própria, gateway de modelos e acesso ao código-fonte sob confidencialidade. Esses recursos ainda estão planejados."
       }
     ]
+  },
+  "checkout": {
+    "busy": "Abrindo o pagamento…",
+    "teamName": "Nome do time",
+    "teamNamePlaceholder": "Ex.: Produto",
+    "seats": "Assentos",
+    "seatsHint": "Um por pessoa, de 1 a 100. Dá para mudar depois.",
+    "total": "{total} por mês",
+    "continue": "Ir para o pagamento",
+    "back": "Voltar",
+    "problems": {
+      "name": "Dê um nome ao time.",
+      "nameLong": "O nome vai até 80 caracteres.",
+      "seats": "Escolha de 1 a 100 assentos."
+    },
+    "errors": {
+      "network": "Não conseguimos falar com o servidor. Confira a internet e tente de novo.",
+      "invalid": "Confira o nome do time e os assentos e tente de novo.",
+      "forbidden": "Só o dono ou um admin do time gerencia a assinatura.",
+      "noCustomer": "Ainda não há compra nesta conta.",
+      "unknown": "Não conseguimos abrir o pagamento agora. Tente de novo em instantes."
+    }
   }
 }

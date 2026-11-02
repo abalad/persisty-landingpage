@@ -23,4 +23,4 @@ Os recursos pagos são liberados por uma licença assinada que o app confere soz
 
 ## Planos
 
-Veja os planos e o que cada um inclui em [Preços](/pricing). As assinaturas abrem em breve.
+Veja os planos e o que cada um inclui em [Preços](/pricing). O pagamento é no cartão, pelo Stripe; a assinatura e os convites do time ficam em Minha conta.

@@ -1,12 +1,12 @@
 {
   "meta": {
     "title": "Precios",
-    "description": "Gratis sin cuenta, Pro por US$ 9,90 al mes, Team por US$ 19,90 por persona y Enterprise a consultar."
+    "description": "Gratis sin cuenta, Pro por US$ 4,90 al mes, Team por US$ 9,90 por persona y Enterprise a consultar."
   },
   "title": "Planes y precios",
   "body": "El núcleo de Persisty es gratis y no pide cuenta. Los planes pagos desbloquean la cola de pedidos, la rotación de cuentas y los puntos de restauración; para equipos, también el control para quien paga.",
-  "currency": "Precios en dólares estadounidenses.",
-  "opening": "Las suscripciones abren pronto.",
+  "currency": "Precios en dólares estadounidenses, con tarjeta, a través de Stripe.",
+  "opening": "Cancela cuando quieras, sin cargo.",
   "includes": "Todo lo de {plan}, más:",
   "plans": {
     "free": {
@@ -74,8 +74,8 @@
         "a": "No. Proyectos, sesiones persistentes, recuperación, estados de los agentes, editor, git y uso de IA siguen gratis, sin cuenta."
       },
       {
-        "q": "¿Por qué el precio está en dólares?",
-        "a": "Porque la mayor parte de lo que ya paga quien usa agentes está en dólares, y así el precio es el mismo en todas partes."
+        "q": "¿En qué moneda pago?",
+        "a": "En dólares, y en reales en Brasil. Pagas con tarjeta, a través de Stripe."
       },
       {
         "q": "¿Qué pasa si dejo de pagar Pro?",
@@ -90,9 +90,35 @@
         "a": "En hasta 5 equipos por cuenta."
       },
       {
+        "q": "¿Cómo funciona Team?",
+        "a": "Le das un nombre al equipo, eliges cuántos asientos quieres e invitas a las personas por e-mail desde Mi cuenta. Los asientos y la cancelación están en el portal de la suscripción."
+      },
+      {
         "q": "¿Cómo funciona Enterprise?",
         "a": "Acordamos con tu empresa lo que necesita: SSO, instalación propia, gateway de modelos y acceso al código fuente bajo confidencialidad. Estas funciones todavía están planificadas."
       }
     ]
+  },
+  "checkout": {
+    "busy": "Abriendo el pago…",
+    "teamName": "Nombre del equipo",
+    "teamNamePlaceholder": "Ej.: Producto",
+    "seats": "Asientos",
+    "seatsHint": "Uno por persona, de 1 a 100. Puedes cambiarlo después.",
+    "total": "{total} al mes",
+    "continue": "Ir al pago",
+    "back": "Volver",
+    "problems": {
+      "name": "Ponle un nombre al equipo.",
+      "nameLong": "El nombre puede tener hasta 80 caracteres.",
+      "seats": "Elige de 1 a 100 asientos."
+    },
+    "errors": {
+      "network": "No pudimos hablar con el servidor. Revisa tu conexión e intenta de nuevo.",
+      "invalid": "Revisa el nombre del equipo y los asientos e intenta de nuevo.",
+      "forbidden": "Solo el dueño o un admin del equipo gestiona la suscripción.",
+      "noCustomer": "Todavía no hay compras en esta cuenta.",
+      "unknown": "No pudimos abrir el pago ahora. Intenta de nuevo en un momento."
+    }
   }
 }

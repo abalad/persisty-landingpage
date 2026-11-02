@@ -136,8 +136,8 @@
       },
       {
         "title": "Per-person billing on one invoice",
-        "body": "Team at US$ 19.90 per person per month, with all of Pro for each of them.",
-        "status": "in-development"
+        "body": "Team at US$ 9.90 per person per month, with all of Pro for each of them.",
+        "status": "available"
       },
       {
         "title": "Team board",
@@ -172,7 +172,7 @@
     "items": [
       {
         "q": "Is Persisty free?",
-        "a": "The core is: projects, workspaces, persistent sessions, recovery, agent states, editor, git and AI usage, with no account and no time limit. Pro costs US$ 9.90 a month and adds account rotation, the request queue, restore points, check on finish and a folder of its own per session."
+        "a": "The core is: projects, workspaces, persistent sessions, recovery, agent states, editor, git and AI usage, with no account and no time limit. Pro costs US$ 4.90 a month and adds account rotation, the request queue, restore points, check on finish and a folder of its own per session."
       },
       {
         "q": "Do I need an account?",

@@ -11,17 +11,11 @@ import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { intentFromQuery, mergeIntent } from "@/lib/auth";
 import { intentQuery } from "@/lib/intentQuery";
-import { planById, type PlanId } from "@/lib/plans";
-import { formatPrice } from "@/lib/pricing";
+import { FREE, loadBilling, openPortal, type BillingState } from "@/lib/billing";
+import { formatPlanPrice } from "@/lib/pricing";
 import { supabase } from "@/lib/supabase";
 import styles from "./account.module.css";
-
-interface Entitlement {
-  plan: PlanId;
-  org_name: string | null;
-  features: string[];
-  period_end: string | null;
-}
+import { TeamMembers } from "./TeamMembers";
 
 interface Device {
   id: string;
@@ -32,6 +26,11 @@ interface Device {
 }
 
 type Meta = Record<string, unknown>;
+type CheckoutNotice = "waiting" | "done" | "late";
+
+/** After Stripe's checkout the webhook can take a few seconds: the plan is read again for about 15 s. */
+const CHECKOUT_POLLS = 5;
+const CHECKOUT_POLL_MS = 3000;
 const PLATFORM_NAME = { macos: "macOS", windows: "Windows", linux: "Linux", mac: "macOS" } as Record<string, string>;
 
 function relative(locale: string, iso: string): string {
@@ -49,12 +48,15 @@ function relative(locale: string, iso: string): string {
 export function AccountView() {
   const t = useTranslations("auth.account");
   const f = useTranslations("auth.features");
+  const billingError = useTranslations("pricing.checkout.errors");
   const locale = useLocale() as Locale;
   const router = useRouter();
   const query = useSearchParams();
 
   const [user, setUser] = useState<User | null>(null);
-  const [entitlement, setEntitlement] = useState<Entitlement | null>(null);
+  const [billing, setBilling] = useState<BillingState | null>(null);
+  const [notice, setNotice] = useState<CheckoutNotice | null>(null);
+  const [opening, setOpening] = useState(false);
   const [devices, setDevices] = useState<Device[]>([]);
   const [loadFailed, setLoadFailed] = useState(false);
   const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null);
@@ -92,14 +94,29 @@ export function AccountView() {
       setUser(current);
       if (intent.notify || intent.interest) router.replace("/account");
 
-      const [ent, dev] = await Promise.all([
-        supabase().rpc("my_entitlement"),
+      const [bill, dev] = await Promise.all([
+        loadBilling(current.id),
         supabase().from("devices").select("id,name,platform,app_version,last_seen_at").is("revoked_at", null).order("last_seen_at", { ascending: false }),
       ]);
       if (!alive) return;
-      if (ent.error || dev.error) setLoadFailed(true);
-      setEntitlement((ent.data as Entitlement[] | null)?.[0] ?? { plan: "free", org_name: null, features: [], period_end: null });
+      if (bill.failed || dev.error) setLoadFailed(true);
+      setBilling(bill);
       setDevices((dev.data as Device[] | null) ?? []);
+
+      if (query.get("checkout") !== "done") return;
+      window.history.replaceState(null, "", window.location.pathname);
+      const first = bill.entitlement.plan;
+      let latest = bill;
+      setNotice("waiting");
+      for (let i = 0; i < CHECKOUT_POLLS; i++) {
+        await new Promise((r) => window.setTimeout(r, CHECKOUT_POLL_MS));
+        if (!alive) return;
+        latest = await loadBilling(current.id);
+        if (!alive) return;
+        setBilling(latest);
+        if (latest.entitlement.plan !== first) break;
+      }
+      if (alive) setNotice(latest.entitlement.plan !== "free" ? "done" : "late");
     })();
     return () => {
       alive = false;
@@ -117,6 +134,25 @@ export function AccountView() {
     setStatus({ ok: true, text: t("saved") });
   }
 
+  async function reloadBilling() {
+    if (!user) return;
+    const next = await loadBilling(user.id);
+    setBilling(next);
+    if (next.failed) setLoadFailed(true);
+  }
+
+  async function manage() {
+    if (opening || !billing) return;
+    setOpening(true);
+    const orgId = billing.entitlement.org_id ?? undefined;
+    const personal = !billing.teams.some((team) => team.id === orgId);
+    const error = await openPortal({ locale, go: () => {} }, personal ? undefined : orgId);
+    if (error) {
+      setStatus({ ok: false, text: billingError(error) });
+      setOpening(false);
+    }
+  }
+
   async function signOut() {
     await supabase().auth.signOut();
     router.replace("/");
@@ -131,7 +167,12 @@ export function AccountView() {
     );
   }
 
-  const plan = entitlement?.plan ?? "free";
+  const entitlement = billing?.entitlement ?? FREE;
+  const plan = entitlement.plan;
+  const subscription = billing?.subscription ?? null;
+  const ends = subscription?.cancel_at_period_end === true;
+  const periodEnd = subscription?.current_period_end ?? entitlement.period_end;
+  const dateFormat = new Intl.DateTimeFormat(locale, { dateStyle: "long" });
   const notifying = meta.notify_release === true;
   const platforms = (Array.isArray(meta.notify_platforms) ? (meta.notify_platforms as string[]) : []).map((p) => PLATFORM_NAME[p] ?? p);
   const interests = Array.isArray(meta.interests) ? (meta.interests as string[]) : [];
@@ -159,6 +200,12 @@ export function AccountView() {
         </p>
       ) : null}
 
+      {notice ? (
+        <p className={`${styles.status} ${styles.notice}`} role="status" style={{ marginTop: 24, maxWidth: 880 }}>
+          {t(`checkout.${notice}`)}
+        </p>
+      ) : null}
+
       <div className={styles.groups}>
         <section aria-labelledby="g-plan">
           <h2 id="g-plan" className={styles.groupTitle}>
@@ -170,15 +217,25 @@ export function AccountView() {
                 <span className={styles.planName}>{t(`plan.${plan}`)}</span>
                 <span className={styles.rowText}>
                   {[
-                    entitlement?.org_name && plan !== "free" ? t("plan.org", { name: entitlement.org_name }) : null,
-                    entitlement?.period_end ? t("plan.renews", { date: new Intl.DateTimeFormat(locale, { dateStyle: "long" }).format(new Date(entitlement.period_end)) }) : null,
+                    entitlement.org_name && billing?.teams.some((team) => team.id === entitlement.org_id) ? t("plan.org", { name: entitlement.org_name }) : null,
+                    periodEnd && plan !== "free" ? t(ends ? "plan.ends" : "plan.renews", { date: dateFormat.format(new Date(periodEnd)) }) : null,
                   ]
                     .filter(Boolean)
                     .join(" · ") || (plan === "free" ? t("plan.none") : "")}
                 </span>
+                {subscription?.status === "past_due" ? <span className={`${styles.rowText} ${styles.statusError}`}>{t("plan.pastDue")}</span> : null}
               </div>
+              {plan === "free" ? (
+                <ButtonLink href="/pricing" variant="secondary" trailingIcon={<ArrowRight />}>
+                  {t("plan.seePlans")}
+                </ButtonLink>
+              ) : billing?.manages ? (
+                <button type="button" className={buttonClass("secondary", "md")} onClick={manage} disabled={opening} aria-busy={opening}>
+                  {opening ? t("plan.opening") : t("plan.manage")}
+                </button>
+              ) : null}
             </div>
-            {entitlement && entitlement.features.length > 0 ? (
+            {entitlement.features.length > 0 ? (
               <div className={styles.row}>
                 <div className={styles.rowMain}>
                   <span className={styles.rowTitle}>{t("plan.features")}</span>
@@ -205,13 +262,41 @@ export function AccountView() {
                 </div>
                 <div className={styles.actions}>
                   {plan === "free" ? (
-                    <SubscribeButton plan="pro">{t("subscribe.pro", { price: formatPrice(locale, planById("pro").priceCents ?? 0) })}</SubscribeButton>
+                    <SubscribeButton plan="pro">{t("subscribe.pro", { price: formatPlanPrice(locale, "pro") })}</SubscribeButton>
                   ) : null}
                   <SubscribeButton plan="team" variant="secondary">
-                    {t("subscribe.team", { price: formatPrice(locale, planById("team").priceCents ?? 0) })}
+                    {t("subscribe.team", { price: formatPlanPrice(locale, "team") })}
                   </SubscribeButton>
                 </div>
               </div>
+            </div>
+          </section>
+        ) : null}
+
+        {billing && billing.teams.length > 0 ? (
+          <section aria-labelledby="g-teams">
+            <h2 id="g-teams" className={styles.groupTitle}>
+              {t("teams.title")}
+            </h2>
+            <div className={styles.teams}>
+              {billing.teams.map((team) =>
+                team.seats ? (
+                  <TeamMembers
+                    key={team.id}
+                    team={team}
+                    userId={user.id}
+                    onChanged={reloadBilling}
+                    onStatus={setStatus}
+                    relative={(iso) => relative(locale, iso)}
+                  />
+                ) : (
+                  <div key={team.id} className={styles.box}>
+                    <div className={styles.row}>
+                      <span className={styles.rowText}>{t("teams.member", { name: team.name, plan: t(`plan.${team.subscription.plan}`) })}</span>
+                    </div>
+                  </div>
+                ),
+              )}
             </div>
           </section>
         ) : null}
