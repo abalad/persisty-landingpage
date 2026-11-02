@@ -1,0 +1,118 @@
+{
+  "persistentSessions": {
+    "line": "Every session is kept with its folder, its agent and its conversation.",
+    "where": "Session tabs, in each workspace"
+  },
+  "recovery": {
+    "line": "After a freeze or a restart, Persisty relaunches what it can and says what it could not bring back.",
+    "where": "When Persisty opens › Restore all"
+  },
+  "projects": {
+    "line": "Work split by business project, with several workspaces in each.",
+    "where": "Projects sidebar"
+  },
+  "agentStates": {
+    "line": "Which agent is working, which one is waiting for you and which one asks for permission.",
+    "where": "Session tabs and workspace cards"
+  },
+  "editorGit": {
+    "line": "Editor, git changes, commits, branches and notes without leaving the app.",
+    "where": "Side panel › Code and Changes"
+  },
+  "gitHosting": {
+    "line": "GitHub, GitLab and Bitbucket connected, with more than one account, and workspaces added from the repository.",
+    "where": "Settings › Integrations"
+  },
+  "usage": {
+    "line": "Each session's spend and context, and the live 5-hour and 7-day windows.",
+    "where": "Status bar and Settings › AI usage"
+  },
+  "notifications": {
+    "line": "An in-app notice, with sound, and a system notification when an agent needs you.",
+    "where": "Settings › Notifications"
+  },
+  "voice": {
+    "line": "Dictate into the terminal or the editor. The voice model runs on this computer.",
+    "where": "Settings › Voice (⌘⇧D)"
+  },
+  "trackers": {
+    "line": "Start a session from a Linear, Jira, ClickUp or GitHub issue and finish it there.",
+    "where": "Settings › Integrations and Project settings › Tasks"
+  },
+  "agentTools": {
+    "line": "Claude Code sessions get tools that read the project, the other sessions and the tasks' output.",
+    "where": "Settings › Agents"
+  },
+  "networkLog": {
+    "line": "Every network call the app makes shows up in a list.",
+    "where": "Settings › Privacy & network"
+  },
+  "noAccount": {
+    "line": "The core works without an account and without internet.",
+    "where": "From the first time you open it"
+  },
+  "issueToSession": {
+    "line": "A label on the issue opens the session on its branch, with the request queued."
+  },
+  "bestOfN": {
+    "line": "The same request in 2 to 4 sessions, each in its own folder, so you keep the best one."
+  },
+  "crossReview": {
+    "line": "Another agent reviews the changes and leaves its findings in the session."
+  },
+  "accountRotation": {
+    "line": "New sessions go to the Claude Code account with the most room. One that reaches the limit you chose sits out.",
+    "where": "Settings › AI accounts › Rotate between accounts"
+  },
+  "requestQueue": {
+    "line": "Write the next request now. It goes when the agent is free, when the 5-hour window renews or from a set time.",
+    "where": "Side panel › Request queue"
+  },
+  "restorePoints": {
+    "line": "Each request saves the folder's state before the agent starts. Going back is one click.",
+    "where": "Side panel › Restore points"
+  },
+  "verifyOnFinish": {
+    "line": "When the agent stops after changing files, your test command runs by itself.",
+    "where": "Workspace commands › Check on finish with…"
+  },
+  "worktrees": {
+    "line": "A branch and a folder for the session alone, so two agents never edit the same files.",
+    "where": "New session › Own folder (worktree)"
+  },
+  "offlineLicense": {
+    "line": "The license works 14 days without internet, on up to 5 computers.",
+    "where": "Settings › Account"
+  },
+  "remote": {
+    "line": "Your open sessions on your phone and the web: the live terminal, approve or deny, the queue and the accounts."
+  },
+  "autopilot": {
+    "line": "Per project, what the agent does alone, what stays blocked and what asks for you, with secrets masked."
+  },
+  "nightShift": {
+    "line": "With Persisty open, requests use the quota your accounts have left and you get a summary."
+  },
+  "sessionXray": {
+    "line": "Each session's timeline, with the cost per step, per task and per PR."
+  },
+  "teamBilling": {
+    "line": "One bill with a seat per person, invites by e-mail and everything in Pro for each of them.",
+    "where": "My account › Team, on the website"
+  },
+  "teamBoard": {
+    "line": "Who is running what right now, which agent is waiting for someone, and handing a session to a teammate."
+  },
+  "budgets": {
+    "line": "A spend limit per project, a warning at 80%, the queue paused at the limit and the models each project may use."
+  },
+  "observability": {
+    "line": "Cost per merged PR and per project, and how much of the work was accepted or abandoned. No individual productivity metric."
+  },
+  "teamMemory": {
+    "line": "The team's conventions and decisions go into every session. What an agent learns becomes a suggestion to approve."
+  },
+  "policies": {
+    "line": "Team rules for the agents and a record the agent cannot erase."
+  }
+}

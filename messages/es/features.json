@@ -1,0 +1,118 @@
+{
+  "persistentSessions": {
+    "line": "Cada sesión queda registrada con su carpeta, su agente y su conversación.",
+    "where": "Pestañas de las sesiones, en cada workspace"
+  },
+  "recovery": {
+    "line": "Después de un cuelgue o un reinicio, Persisty relanza lo que puede y dice lo que no pudo traer.",
+    "where": "Al abrir Persisty › Restaurar todo"
+  },
+  "projects": {
+    "line": "El trabajo separado por proyecto del negocio, con varios workspaces en cada uno.",
+    "where": "Barra lateral de proyectos"
+  },
+  "agentStates": {
+    "line": "Qué agente está trabajando, cuál te espera y cuál pide permiso.",
+    "where": "Pestañas de las sesiones y tarjetas de los workspaces"
+  },
+  "editorGit": {
+    "line": "Editor, cambios de git, commits, branches y notas sin salir de la app.",
+    "where": "Panel lateral › Código y Cambios"
+  },
+  "gitHosting": {
+    "line": "GitHub, GitLab y Bitbucket conectados, con más de una cuenta, y workspaces creados desde el repositorio.",
+    "where": "Configuración › Integraciones"
+  },
+  "usage": {
+    "line": "Gasto y contexto de cada sesión, y las ventanas de 5 h y 7 días en vivo.",
+    "where": "Barra de estado y Configuración › Uso de IA"
+  },
+  "notifications": {
+    "line": "Un aviso en la app, con sonido, y una notificación del sistema cuando un agente te necesita.",
+    "where": "Configuración › Notificaciones"
+  },
+  "voice": {
+    "line": "Dicta en la terminal o en el editor. El modelo de voz corre en esta computadora.",
+    "where": "Configuración › Voz (⌘⇧D)"
+  },
+  "trackers": {
+    "line": "Empieza una sesión desde una issue de Linear, Jira, ClickUp o GitHub y conclúyela ahí.",
+    "where": "Configuración › Integraciones y Ajustes del proyecto › Tareas"
+  },
+  "agentTools": {
+    "line": "Las sesiones de Claude Code ganan herramientas que leen el proyecto, las otras sesiones y la salida de las tareas.",
+    "where": "Configuración › Agentes"
+  },
+  "networkLog": {
+    "line": "Cada llamada de red que hace la app aparece en una lista.",
+    "where": "Configuración › Privacidad y red"
+  },
+  "noAccount": {
+    "line": "El núcleo funciona sin cuenta y sin internet.",
+    "where": "Desde la primera vez que lo abres"
+  },
+  "issueToSession": {
+    "line": "Una etiqueta en la issue abre la sesión en su branch, con el pedido en la cola."
+  },
+  "bestOfN": {
+    "line": "El mismo pedido en 2 a 4 sesiones, cada una en su carpeta, para que te quedes con la mejor."
+  },
+  "crossReview": {
+    "line": "Otro agente revisa los cambios y deja lo que encontró en la sesión."
+  },
+  "accountRotation": {
+    "line": "Las sesiones nuevas van a la cuenta de Claude Code con más margen. La que llega al límite que elegiste queda afuera.",
+    "where": "Configuración › Cuentas de IA › Rotación entre cuentas"
+  },
+  "requestQueue": {
+    "line": "Escribe el próximo pedido ahora. Sale cuando el agente quede libre, cuando la ventana de 5 h se renueve o a partir de una hora.",
+    "where": "Panel lateral › Cola de pedidos"
+  },
+  "restorePoints": {
+    "line": "Cada pedido guarda el estado de la carpeta antes de que el agente empiece. Volver es un clic.",
+    "where": "Panel lateral › Puntos de restauración"
+  },
+  "verifyOnFinish": {
+    "line": "Cuando el agente se detiene después de cambiar archivos, tu comando de prueba corre solo.",
+    "where": "Comandos del workspace › Verificar al terminar con…"
+  },
+  "worktrees": {
+    "line": "Un branch y una carpeta solo de la sesión, para que dos agentes nunca editen los mismos archivos.",
+    "where": "Nueva sesión › Carpeta propia (worktree)"
+  },
+  "offlineLicense": {
+    "line": "La licencia vale 14 días sin internet, en hasta 5 computadoras.",
+    "where": "Configuración › Cuenta"
+  },
+  "remote": {
+    "line": "Las sesiones abiertas en el celular y en la web: la terminal en vivo, aprobar o negar, la cola y las cuentas."
+  },
+  "autopilot": {
+    "line": "Por proyecto, lo que el agente hace solo, lo que queda bloqueado y lo que te pide a ti, con secretos ocultos."
+  },
+  "nightShift": {
+    "line": "Con Persisty abierto, los pedidos usan la cuota que les sobra a las cuentas y recibes un resumen."
+  },
+  "sessionXray": {
+    "line": "La línea de tiempo de cada sesión, con el costo por paso, por tarea y por PR."
+  },
+  "teamBilling": {
+    "line": "Una factura con un asiento por persona, invitaciones por e-mail y todo lo de Pro para cada una.",
+    "where": "Mi cuenta › Equipo, en el sitio"
+  },
+  "teamBoard": {
+    "line": "Quién está corriendo qué ahora, qué agente espera a alguien, y pasarle una sesión a un colega."
+  },
+  "budgets": {
+    "line": "Límite de gasto por proyecto, aviso al 80%, la cola en pausa en el límite y los modelos permitidos en cada proyecto."
+  },
+  "observability": {
+    "line": "Costo por PR fusionado y por proyecto, y cuánto del trabajo se aceptó o se abandonó. Sin métrica individual de productividad."
+  },
+  "teamMemory": {
+    "line": "Las convenciones y decisiones del equipo entran en cada sesión. Lo que un agente aprende se vuelve una sugerencia para aprobar."
+  },
+  "policies": {
+    "line": "Reglas del equipo para los agentes y un registro que el agente no puede borrar."
+  }
+}
