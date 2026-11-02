@@ -123,5 +123,42 @@
       "title": "Empieza con el plan gratis y suscríbete cuando te haga falta una función de Pro.",
       "body": "El núcleo de Persisty funciona sin cuenta. Pro llega a la app solo en cuanto te suscribes."
     }
+  },
+  "free": {
+    "meta": {
+      "title": "Gratis",
+      "description": "Persisty gratis: sesiones que vuelven después de un cuelgue, proyectos, estados de los agentes, editor, git, voz y tareas, sin cuenta."
+    },
+    "hero": {
+      "title": "Sesiones que vuelven, proyectos en orden y el estado de cada agente, sin pagar nada.",
+      "body": "Descárgalo y úsalo sin cuenta y sin internet: recuperación después de un cuelgue, proyectos con varios workspaces, estados de los agentes, editor y git, dictado por voz, tareas e issues, y el registro de cada llamada de red."
+    },
+    "alsoTitle": "También en el plan gratis",
+    "alsoBody": "El resto de lo que trae el plan gratis, sin cuenta y sin plazo.",
+    "faq": {
+      "title": "Preguntas sobre el plan gratis",
+      "items": [
+        {
+          "q": "¿El plan gratis vence?",
+          "a": "No. Recuperación, proyectos, estados de los agentes, editor, git, voz, tareas y uso de IA siguen gratis, sin cuenta y sin plazo."
+        },
+        {
+          "q": "¿Necesito crear una cuenta?",
+          "a": "No. La cuenta de Persisty sirve para los planes pagos y para recibir el e-mail de versiones nuevas. Sin ella, nada del plan gratis cambia."
+        },
+        {
+          "q": "¿Funciona en Windows y en Linux?",
+          "a": "Mac es el sistema principal, con la app firmada y notarizada por Apple. Windows y Linux salen como vista previa: sin firma y todavía sin pruebas en máquinas reales."
+        },
+        {
+          "q": "¿Mi código sale de la computadora?",
+          "a": "No. El código, la salida de la terminal y los pedidos quedan en tu máquina, y cada llamada de red que hace la app aparece en Configuración › Privacidad y red."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Descárgalo ahora y no pierdas más una sesión por un cuelgue.",
+      "body": "Gratis, sin cuenta y sin plazo. Pro queda a un clic para cuando lo necesites."
+    }
   }
 }

@@ -123,5 +123,42 @@
       "title": "Start with the free plan and subscribe when you miss a Pro feature.",
       "body": "Persisty's core works without an account. Pro reaches the app by itself as soon as you subscribe."
     }
+  },
+  "free": {
+    "meta": {
+      "title": "Free",
+      "description": "Persisty for free: sessions that come back after a freeze, projects, agent states, the editor, git, voice and tasks, with no account."
+    },
+    "hero": {
+      "title": "Sessions that come back, projects in order and every agent's state, without paying anything.",
+      "body": "Download and use it with no account and no internet: recovery after a freeze, projects with several workspaces, agent states, the editor and git, voice dictation, tasks and issues, and a log of every network call."
+    },
+    "alsoTitle": "Also in the free plan",
+    "alsoBody": "The rest of what the free plan brings, with no account and no time limit.",
+    "faq": {
+      "title": "Questions about the free plan",
+      "items": [
+        {
+          "q": "Does the free plan expire?",
+          "a": "No. Recovery, projects, agent states, the editor, git, voice, tasks and AI usage stay free, with no account and no time limit."
+        },
+        {
+          "q": "Do I need to create an account?",
+          "a": "No. A Persisty account is for the paid plans and for the new-version e-mail. Without one, nothing in the free plan changes."
+        },
+        {
+          "q": "Does it work on Windows and Linux?",
+          "a": "The Mac is the main system, with the app signed and notarised by Apple. Windows and Linux ship as previews: unsigned and not yet tested on real machines."
+        },
+        {
+          "q": "Does my code leave my computer?",
+          "a": "No. Code, terminal output and requests stay on your machine, and every network call the app makes shows up in Settings › Privacy & network."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Download it now and stop losing sessions to a freeze.",
+      "body": "Free, with no account and no time limit. Pro is one click away for when you need it."
+    }
   }
 }

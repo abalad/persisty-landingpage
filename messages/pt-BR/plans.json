@@ -123,5 +123,42 @@
       "title": "Comece pelo grátis e assine quando um recurso do Pro fizer falta.",
       "body": "O núcleo do Persisty funciona sem conta. O Pro chega ao app sozinho assim que você assina."
     }
+  },
+  "free": {
+    "meta": {
+      "title": "Grátis",
+      "description": "O Persisty grátis: sessões que voltam depois de um travamento, projetos, estados dos agentes, editor, git, voz e tarefas, sem conta."
+    },
+    "hero": {
+      "title": "Sessões que voltam, projetos em ordem e o estado de cada agente, sem pagar nada.",
+      "body": "Baixe e use sem conta e sem internet: recuperação depois de um travamento, projetos com vários workspaces, estados dos agentes, editor e git, ditado por voz, tarefas e issues, e o registro de cada chamada de rede."
+    },
+    "alsoTitle": "Também no grátis",
+    "alsoBody": "O resto do que o plano grátis traz, sem conta e sem prazo.",
+    "faq": {
+      "title": "Dúvidas sobre o plano grátis",
+      "items": [
+        {
+          "q": "O plano grátis tem prazo?",
+          "a": "Não. Recuperação, projetos, estados dos agentes, editor, git, voz, tarefas e uso de IA continuam grátis, sem conta e sem prazo."
+        },
+        {
+          "q": "Preciso criar uma conta?",
+          "a": "Não. A conta do Persisty serve para os planos pagos e para receber o e-mail de versões novas. Sem ela, nada do grátis muda."
+        },
+        {
+          "q": "Funciona no Windows e no Linux?",
+          "a": "O Mac é o sistema principal, com o app assinado e notarizado pela Apple. Windows e Linux saem como prévia: sem assinatura e ainda sem teste em máquina real."
+        },
+        {
+          "q": "Meu código sai do computador?",
+          "a": "Não. O código, a saída do terminal e os pedidos ficam na sua máquina, e cada chamada de rede que o app faz aparece em Configurações › Privacidade e rede."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Baixe agora e não perca mais uma sessão para um travamento.",
+      "body": "Grátis, sem conta e sem prazo. O Pro fica a um clique para quando você precisar."
+    }
   }
 }
