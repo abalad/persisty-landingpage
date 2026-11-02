@@ -87,12 +87,51 @@ function rehypeLocalLinks(locale: Locale) {
   };
 }
 
+const element = (tagName: string, properties: Record<string, unknown>, children: HastNode[] = []): HastNode => ({ type: "element", tagName, properties, children });
+
+/**
+ * A clip of the app at work, written as a picture of an `.mp4`
+ * (`![what it shows](/changelog/0.9.0/voz.mp4)`), alone in its paragraph:
+ * a muted looping video over its poster (the `.jpg` beside it, a lazy
+ * picture, since a video's own poster always loads), which the page plays
+ * while it is on screen. Controls stay for readers without the script and
+ * for those who reduce motion; the poster stands in where video does not play.
+ */
+function rehypeClips() {
+  return (tree: HastNode) => {
+    const walk = (node: HastNode) => {
+      node.children = node.children?.map((child) => {
+        const parts = child.tagName === "p" ? (child.children ?? []).filter((c) => !(c.type === "text" && !String((c as { value?: string }).value ?? "").trim())) : [];
+        const img = parts.length === 1 && parts[0].tagName === "img" ? parts[0] : null;
+        const src = img?.properties?.src;
+        if (!img || typeof src !== "string" || !src.endsWith(".mp4")) {
+          walk(child);
+          return child;
+        }
+        const alt = String(img.properties?.alt ?? "");
+        const poster = src.replace(/\.mp4$/, ".jpg");
+        return element("figure", { className: ["clip"] }, [
+          element("img", { src: poster, alt: "", loading: "lazy", decoding: "async", width: 1600, height: 1000 }),
+          element("video", { dataClip: "", muted: true, loop: true, playsInline: true, preload: "none", controls: true, ariaLabel: alt, width: 1600, height: 1000 }, [element("source", { src, type: "video/mp4" })]),
+        ]);
+      });
+    };
+    walk(tree);
+  };
+}
+
+/** Site-relative media (clips, posters) with the site's address, for readers outside the site (the feed). */
+export function absoluteMedia(html: string, site: string): string {
+  return html.replace(/\s(src|poster)="\/(?!\/)/g, ` $1="${site}/`);
+}
+
 export async function renderMarkdown(markdown: string, locale: Locale): Promise<string> {
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeLocalLinks(locale))
+    .use(rehypeClips)
     .use(rehypeSlug)
     .use(rehypeShiki, { theme: "github-dark-default" })
     .use(rehypeStringify, { allowDangerousHtml: true })

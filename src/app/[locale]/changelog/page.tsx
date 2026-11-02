@@ -1,6 +1,7 @@
 import { Rss } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ClipPlayer } from "@/components/site/ClipPlayer";
 import { PageHeader } from "@/components/site/PageHeader";
 import type { Locale } from "@/i18n/routing";
 import { listChangelog } from "@/lib/content";
@@ -53,6 +54,7 @@ export default async function ChangelogPage({ params }: PageProps<"/[locale]/cha
           </li>
         ))}
       </ol>
+      <ClipPlayer />
     </>
   );
 }

@@ -30,6 +30,42 @@
   scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
+/* The entry's text keeps its reading width; its clips (rehypeClips) take the whole column. */
+.entry article {
+  container-type: inline-size;
+}
+
+.entry :global(.clip) {
+  position: relative;
+  width: 100cqi;
+  max-width: none;
+  margin: 1.6em 0 1.9em;
+  border-radius: 12px;
+  background: #0b0d12;
+  box-shadow: 0 24px 60px -30px rgb(0 0 0 / 0.75);
+}
+
+.entry :global(.clip) > * {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+}
+
+/* The poster lies under the video until its first frame covers it. */
+.entry :global(.clip) > img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+}
+
+.entry :global(.clip) > video {
+  position: relative;
+  border: 1px solid var(--site-hairline);
+  cursor: pointer;
+}
+
 .meta {
   display: grid;
   align-content: start;

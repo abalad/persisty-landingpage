@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { routing, type Locale } from "@/i18n/routing";
-import { listChangelog } from "@/lib/content";
+import { absoluteMedia, listChangelog } from "@/lib/content";
 import { localizedPath } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 
@@ -24,7 +24,7 @@ export async function GET(_req: Request, { params }: RouteContext<"/[locale]/cha
       <link>${page}#${e.id}</link>
       <guid isPermaLink="false">${e.version}</guid>
       <pubDate>${new Date(`${e.date}T12:00:00Z`).toUTCString()}</pubDate>
-      <description>${escape(e.html)}</description>
+      <description>${escape(absoluteMedia(e.html, SITE_URL))}</description>
     </item>`,
     )
     .join("\n");
