@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { FEATURE_ICONS } from "../src/components/plans/featureIcons";
 import { loadMessages } from "../src/i18n/messages";
 import { routing } from "../src/i18n/routing";
 import { MENU_FEATURES, PLANS, SHOWN_PLAN_IDS, SHOWN_PLANS, featureHref, findFeature, planById, type ShownPlanId } from "../src/lib/plans";
@@ -133,5 +134,10 @@ describe("plan catalog", () => {
         }
       }
     }
+  });
+
+  it("has an icon for every shown feature", () => {
+    const missing = SHOWN_PLANS.flatMap((p) => p.features.map((f) => f.id)).filter((id) => !FEATURE_ICONS[id]);
+    expect(missing).toEqual([]);
   });
 });

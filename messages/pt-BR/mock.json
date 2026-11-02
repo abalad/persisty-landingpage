@@ -383,5 +383,38 @@
         }
       ]
     }
+  },
+  "glimpse": {
+    "auto": "Nova sessão · Automática · rodízio",
+    "worktreeFolder": "~/.persist/worktrees/api-frete-cep",
+    "recoveryTitle": "Relatório de restauração",
+    "recoveryRows": [
+      {
+        "name": "api",
+        "note": "Restaurada"
+      },
+      {
+        "name": "web",
+        "note": "Restaurada"
+      },
+      {
+        "name": "worker",
+        "note": "Não voltou · pasta sumiu",
+        "tone": "warn"
+      }
+    ],
+    "teamName": "Produto",
+    "teamSeats": "3 de 5 assentos",
+    "teamPeople": [
+      {
+        "name": "Ana Souza",
+        "note": "Dono"
+      },
+      {
+        "name": "bruno@rota.example",
+        "note": "Convite pendente"
+      }
+    ],
+    "teamInvite": "Convidar por e-mail · copiar o link"
   }
 }

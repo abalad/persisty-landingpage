@@ -383,5 +383,38 @@
         }
       ]
     }
+  },
+  "glimpse": {
+    "auto": "New session · Automatic · rotation",
+    "worktreeFolder": "~/.persist/worktrees/api-shipping",
+    "recoveryTitle": "Restore report",
+    "recoveryRows": [
+      {
+        "name": "api",
+        "note": "Restored"
+      },
+      {
+        "name": "web",
+        "note": "Restored"
+      },
+      {
+        "name": "worker",
+        "note": "Not back · folder gone",
+        "tone": "warn"
+      }
+    ],
+    "teamName": "Product",
+    "teamSeats": "3 of 5 seats",
+    "teamPeople": [
+      {
+        "name": "Ana Souza",
+        "note": "Owner"
+      },
+      {
+        "name": "bruno@rota.example",
+        "note": "Invite pending"
+      }
+    ],
+    "teamInvite": "Invite by e-mail · copy the link"
   }
 }

@@ -383,5 +383,38 @@
         }
       ]
     }
+  },
+  "glimpse": {
+    "auto": "Nueva sesión · Automática · rotación",
+    "worktreeFolder": "~/.persist/worktrees/api-envio-cp",
+    "recoveryTitle": "Informe de restauración",
+    "recoveryRows": [
+      {
+        "name": "api",
+        "note": "Restaurada"
+      },
+      {
+        "name": "web",
+        "note": "Restaurada"
+      },
+      {
+        "name": "worker",
+        "note": "No volvió · la carpeta no está",
+        "tone": "warn"
+      }
+    ],
+    "teamName": "Producto",
+    "teamSeats": "3 de 5 asientos",
+    "teamPeople": [
+      {
+        "name": "Ana Souza",
+        "note": "Dueño"
+      },
+      {
+        "name": "bruno@rota.example",
+        "note": "Invitación pendiente"
+      }
+    ],
+    "teamInvite": "Invitar por e-mail · copiar el enlace"
   }
 }
