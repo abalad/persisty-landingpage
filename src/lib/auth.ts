@@ -1,5 +1,6 @@
 import { routing, type Locale } from "@/i18n/routing";
 import type { DesktopPlatform } from "./releases";
+import { SITE_URL } from "./site";
 
 export const CODE_MIN = 6;
 export const CODE_MAX = 10;
@@ -18,13 +19,23 @@ export function isValidEmail(raw: string): boolean {
 }
 
 const LOCALE_PREFIX = new RegExp(`^/(${routing.locales.join("|")})(?=/|$)`);
+// The URL parser drops tabs and newlines, so "/\t/evil.example" would become "//evil.example".
+const CONTROL = /[\u0000-\u001f\u007f]/;
+const ORIGIN = new URL(SITE_URL).origin;
 
 /**
  * Only paths on this site; anything that could leave it goes to the account.
  * A language prefix is dropped because the locale-aware router adds it again.
  */
 export function safeNext(next: string | null | undefined): string {
-  if (!next || !next.startsWith("/") || next.startsWith("//") || next.includes("\\")) return "/account";
+  if (!next || !next.startsWith("/") || next.startsWith("//") || next.includes("\\") || CONTROL.test(next)) return "/account";
+  let url: URL;
+  try {
+    url = new URL(next, ORIGIN);
+  } catch {
+    return "/account";
+  }
+  if (url.origin !== ORIGIN) return "/account";
   return next.replace(LOCALE_PREFIX, "") || "/";
 }
 

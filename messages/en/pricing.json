@@ -118,6 +118,7 @@
       "invalid": "Check the team name and seats and try again.",
       "forbidden": "Only the team's owner or an admin manages the subscription.",
       "noCustomer": "Nothing has been bought on this account yet.",
+      "teamHasPlan": "This team already has a plan. Manage it from My account.",
       "unknown": "We couldn't open checkout right now. Try again in a moment."
     }
   }

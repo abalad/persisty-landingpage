@@ -16,14 +16,16 @@ interface Props {
   error: string | null;
   onSubmit: (order: TeamOrder) => void;
   onBack: () => void;
+  /** Where the form starts: a team subscribed again keeps its name and members. */
+  initial?: TeamOrder;
 }
 
 /** The team's name and seats before Stripe, with the month's total in the visitor's currency. */
-export function TeamCheckoutForm({ busy, error, onSubmit, onBack }: Props) {
+export function TeamCheckoutForm({ busy, error, onSubmit, onBack, initial }: Props) {
   const t = useTranslations("pricing.checkout");
   const locale = useLocale() as Locale;
-  const [name, setName] = useState("");
-  const [seats, setSeats] = useState(String(DEFAULT_SEATS));
+  const [name, setName] = useState(initial?.name ?? "");
+  const [seats, setSeats] = useState(String(initial?.seats ?? DEFAULT_SEATS));
   const [shown, setShown] = useState(false);
 
   const order: TeamOrder = { name, seats: Number(seats) };

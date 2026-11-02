@@ -118,6 +118,7 @@
       "invalid": "Revisa el nombre del equipo y los asientos e intenta de nuevo.",
       "forbidden": "Solo el dueño o un admin del equipo gestiona la suscripción.",
       "noCustomer": "Todavía no hay compras en esta cuenta.",
+      "teamHasPlan": "Este equipo ya tiene un plan. Gestiónalo desde Mi cuenta.",
       "unknown": "No pudimos abrir el pago ahora. Intenta de nuevo en un momento."
     }
   }

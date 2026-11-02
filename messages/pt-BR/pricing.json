@@ -118,6 +118,7 @@
       "invalid": "Confira o nome do time e os assentos e tente de novo.",
       "forbidden": "Só o dono ou um admin do time gerencia a assinatura.",
       "noCustomer": "Ainda não há compra nesta conta.",
+      "teamHasPlan": "Esse time já tem um plano. Gerencie a assinatura em Minha conta.",
       "unknown": "Não conseguimos abrir o pagamento agora. Tente de novo em instantes."
     }
   }

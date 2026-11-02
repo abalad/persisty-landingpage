@@ -7,6 +7,7 @@ import { Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import auth from "@/components/account/auth.module.css";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { onPageRestored } from "@/lib/bfcache";
 import { subscribe, type BillingErrorKey, type Navigation, type TeamOrder } from "@/lib/billing";
 import type { PaidPlan } from "@/lib/pricing";
 import { buttonClass, type ButtonVariant } from "./Button";
@@ -17,6 +18,8 @@ interface Props {
   plan: PaidPlan;
   variant?: ButtonVariant;
   children: ReactNode;
+  /** Team only: subscribing an existing team again, the form starts from it and the checkout names it. */
+  prefill?: Required<TeamOrder>;
 }
 
 /**
@@ -38,7 +41,7 @@ export function SubscribeButton(props: Props) {
   );
 }
 
-function Subscribe({ plan, variant = "primary", children }: Props) {
+function Subscribe({ plan, variant = "primary", children, prefill }: Props) {
   const t = useTranslations("pricing.checkout");
   const locale = useLocale() as Locale;
   const router = useRouter();
@@ -65,22 +68,33 @@ function Subscribe({ plan, variant = "primary", children }: Props) {
     }
   }
 
+  // Back from Stripe can bring the page back exactly as it was left: busy.
+  useEffect(
+    () =>
+      onPageRestored(() => {
+        running.current = false;
+        setBusy(false);
+      }),
+    [],
+  );
+
   useEffect(() => {
-    if (resumed.current || query.get("plan") !== plan) return;
+    if (prefill || resumed.current || query.get("plan") !== plan) return;
     resumed.current = true;
     // Back from Stripe should not start the checkout again.
     window.history.replaceState(null, "", window.location.pathname);
     void start();
     // Once, when the page opens with this plan chosen.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query, plan]);
+  }, [query, plan, prefill]);
 
   if (form) {
     return (
       <TeamCheckoutForm
         busy={busy}
         error={error ? t(`errors.${error}`) : null}
-        onSubmit={(order) => void start(order)}
+        initial={prefill}
+        onSubmit={(order) => void start(prefill ? { ...order, orgId: prefill.orgId } : order)}
         onBack={() => {
           setForm(false);
           setError(null);

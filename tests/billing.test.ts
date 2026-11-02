@@ -200,7 +200,7 @@ function teamAccount(role: "owner" | "member") {
     error: null,
   };
   db.tables.subscriptions = {
-    data: [{ org_id: TEAM, plan: "team", status: "active", seats: 3, current_period_end: future, cancel_at_period_end: true }],
+    data: [{ org_id: TEAM, plan: "team", status: "active", seats: 3, current_period_end: future, cancel_at_period_end: true, stripe_subscription_id: "sub_team" }],
     error: null,
   };
   db.tables.org_invites = { data: [{ id: "i1", email: "bia@example.com", created_at: "2026-11-01T00:00:00Z" }], error: null };
@@ -239,6 +239,7 @@ describe("loadBilling", () => {
     expect(state.teams[0].seats).toEqual({ seats: 3, members: 2, pending: 1 });
     expect(state.teams[0].invites.map((i) => i.email)).toEqual(["bia@example.com"]);
     expect(state.teams[0].members.map((m) => m.display_name ?? m.email)).toEqual(["Ana", "bruno@example.com"]);
+    expect(state.teams[0].portal).toBe(true);
     expect(db.rpc).toContain("team_seats");
     expect(db.rpc).toContain("team_members");
   });
@@ -256,7 +257,123 @@ describe("loadBilling", () => {
     teamAccount("owner");
     db.tables.subscriptions = { data: [], error: null };
     db.rpcs.my_entitlement = { data: [], error: null };
-    expect((await billing.loadBilling(ME)).teams).toEqual([]);
+    const state = await billing.loadBilling(ME);
+    expect(state.teams).toEqual([]);
+    expect(state.lapsedTeams).toEqual([]);
+  });
+
+  it("keeps a personal Pro with its own portal when the effective plan is a team", async () => {
+    teamAccount("member");
+    db.tables.subscriptions = {
+      data: [
+        { org_id: TEAM, plan: "team", status: "active", seats: 3, current_period_end: future, cancel_at_period_end: false, stripe_subscription_id: "sub_team" },
+        { org_id: PERSONAL, plan: "pro", status: "past_due", seats: 1, current_period_end: future, cancel_at_period_end: false, stripe_subscription_id: "sub_pro" },
+      ],
+      error: null,
+    };
+    const state = await billing.loadBilling(ME);
+    expect(state.entitlement.plan).toBe("team");
+    expect(state.manages).toBe(false);
+    expect(state.personal).toMatchObject({ org_id: PERSONAL, plan: "pro", stripe_subscription_id: "sub_pro" });
+    expect(state.teams[0].portal).toBe(false);
+  });
+
+  it("offers no portal for a plan granted by hand", async () => {
+    db.rpcs.my_entitlement = { data: [{ plan: "pro", org_id: PERSONAL, org_name: "ana@example.com", features: [], period_end: null }], error: null };
+    db.tables.org_members = { data: [{ org_id: PERSONAL, role: "owner", user_id: ME, created_at: "2026-10-01T00:00:00Z" }], error: null };
+    db.tables.orgs = { data: [{ id: PERSONAL, kind: "personal", name: "ana@example.com" }], error: null };
+    db.tables.subscriptions = {
+      data: [{ org_id: PERSONAL, plan: "pro", status: "active", seats: 1, current_period_end: null, cancel_at_period_end: false, stripe_subscription_id: null }],
+      error: null,
+    };
+    const state = await billing.loadBilling(ME);
+    expect(state.subscription?.plan).toBe("pro");
+    expect(state.manages).toBe(false);
+    expect(state.personal).toBeNull();
+  });
+
+  it("gives a hand-granted team no portal, even to its owner", async () => {
+    teamAccount("owner");
+    db.tables.subscriptions = {
+      data: [{ org_id: TEAM, plan: "team", status: "active", seats: 3, current_period_end: future, cancel_at_period_end: false, stripe_subscription_id: null }],
+      error: null,
+    };
+    const state = await billing.loadBilling(ME);
+    expect(state.manages).toBe(false);
+    expect(state.teams[0].portal).toBe(false);
+  });
+
+  it("shows the owner a team whose Stripe subscription ended, to subscribe again", async () => {
+    teamAccount("owner");
+    db.rpcs.my_entitlement = { data: [], error: null };
+    db.rpcs.team_seats = { data: [{ seats: 0, members: 3, pending: 0 }], error: null };
+    db.tables.subscriptions = {
+      data: [{ org_id: TEAM, plan: "team", status: "canceled", seats: 3, current_period_end: future, cancel_at_period_end: false, stripe_subscription_id: "sub_old" }],
+      error: null,
+    };
+    const state = await billing.loadBilling(ME);
+    expect(state.teams).toEqual([]);
+    expect(state.lapsedTeams).toEqual([{ id: TEAM, name: "Produto", members: 3 }]);
+  });
+
+  it("does not offer to subscribe again to an admin, nor for a team that never had Stripe", async () => {
+    for (const [role, stripe] of [["admin", "sub_old"], ["owner", null]] as const) {
+      teamAccount("owner");
+      db.tables.org_members.data = [
+        { org_id: PERSONAL, role: "owner", user_id: ME, created_at: "2026-10-01T00:00:00Z" },
+        { org_id: TEAM, role, user_id: ME, created_at: "2026-10-02T00:00:00Z" },
+      ];
+      db.rpcs.my_entitlement = { data: [], error: null };
+      db.tables.subscriptions = {
+        data: [{ org_id: TEAM, plan: "team", status: "unpaid", seats: 3, current_period_end: future, cancel_at_period_end: false, stripe_subscription_id: stripe }],
+        error: null,
+      };
+      expect((await billing.loadBilling(ME)).lapsedTeams, `${role} ${stripe}`).toEqual([]);
+    }
+  });
+});
+
+describe("subscribing a team again", () => {
+  it("starts from the team's name and one seat per member, at least one", () => {
+    expect(billing.renewOrder({ id: TEAM, name: "Produto", members: 3 })).toEqual({ name: "Produto", seats: 3, orgId: TEAM });
+    expect(billing.renewOrder({ id: TEAM, name: "Produto", members: 0 })).toEqual({ name: "Produto", seats: 1, orgId: TEAM });
+  });
+
+  it("sends the team's organisation to the checkout", async () => {
+    db.functions["create-checkout"] = ok("https://checkout.stripe.com/c/pay/cs_test_3");
+    expect(await billing.subscribe("team", nav(), { name: "Produto", seats: 3, orgId: TEAM })).toBe("checkout");
+    expect(db.invoke[0].body).toEqual({ plan: "team", locale: "pt-BR", team_name: "Produto", seats: 3, org_id: TEAM });
+  });
+
+  it("says when the team already has a plan again", async () => {
+    db.functions["create-checkout"] = fails(409, "team_has_plan");
+    const n = nav();
+    expect(await billing.subscribe("team", n, { name: "Produto", seats: 3, orgId: TEAM })).toEqual({ error: "teamHasPlan" });
+    expect(db.invoke.map((c) => c.name)).toEqual(["create-checkout"]);
+  });
+
+  it("has the button's words in every language", async () => {
+    const words = { "pt-BR": "Assinar de novo", en: "Subscribe again", es: "Suscribirse de nuevo" } as const;
+    for (const [locale, text] of Object.entries(words)) {
+      const m = (await loadMessages(locale as keyof typeof words)) as { auth: { account: { teams: { subscribeAgain: string } } } };
+      expect(m.auth.account.teams.subscribeAgain).toBe(text);
+    }
+  });
+});
+
+describe("TeamCheckoutForm", async () => {
+  const { TeamCheckoutForm } = await import("../src/components/site/TeamCheckoutForm");
+  const messages = await loadMessages("pt-BR");
+  type ProviderProps = ComponentProps<typeof NextIntlClientProvider>;
+
+  it("opens with the team's name and seats when subscribing again", () => {
+    const props = { busy: false, error: null, onSubmit: () => {}, onBack: () => {}, initial: { name: "Produto", seats: 3 } };
+    const html = renderToStaticMarkup(
+      createElement(NextIntlClientProvider, { locale: "pt-BR", messages, timeZone: "America/Sao_Paulo" } as ProviderProps, createElement(TeamCheckoutForm, props)),
+    );
+    expect(html).toMatch(/name="team_name"[^>]*value="Produto"/);
+    expect(html).toMatch(/name="seats"[^>]*value="3"/);
+    expect(html).toContain("R$\u00a059,70 por mês");
   });
 });
 
@@ -273,12 +390,13 @@ describe("TeamMembers", async () => {
   const messages = await loadMessages("pt-BR");
   type ProviderProps = ComponentProps<typeof NextIntlClientProvider>;
 
-  function render(seats: { seats: number; members: number; pending: number }) {
+  function render(seats: { seats: number; members: number; pending: number }, portal = true) {
     const team = {
       id: TEAM,
       name: "Produto",
       role: "owner" as const,
-      subscription: { org_id: TEAM, plan: "team" as const, status: "active", seats: seats.seats, current_period_end: future, cancel_at_period_end: false },
+      subscription: { org_id: TEAM, plan: "team" as const, status: "active", seats: seats.seats, current_period_end: future, cancel_at_period_end: false, stripe_subscription_id: portal ? "sub_team" : null },
+      portal,
       seats,
       members: [
         { user_id: ME, role: "owner" as const, joined_at: "2026-10-02T00:00:00Z", display_name: "Ana", email: "ana@example.com" },
@@ -317,5 +435,12 @@ describe("TeamMembers", async () => {
     expect(html).toContain("bia@example.com");
     expect(html).toContain("Cancelar convite");
     expect(html).toContain("/sign-in?next=/account");
+  });
+
+  it("has no portal buttons for a team granted by hand", () => {
+    const html = render({ seats: 3, members: 2, pending: 1 }, false);
+    expect(html).not.toContain("Gerenciar assinatura");
+    expect(html).not.toContain("Comprar assentos");
+    expect(inviteButton(html)).toContain("disabled");
   });
 });

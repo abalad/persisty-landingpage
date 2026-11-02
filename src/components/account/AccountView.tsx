@@ -11,7 +11,8 @@ import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { intentFromQuery, mergeIntent } from "@/lib/auth";
 import { intentQuery } from "@/lib/intentQuery";
-import { FREE, loadBilling, openPortal, type BillingState } from "@/lib/billing";
+import { onPageRestored } from "@/lib/bfcache";
+import { FREE, loadBilling, openPortal, renewOrder, type BillingState } from "@/lib/billing";
 import { formatPlanPrice } from "@/lib/pricing";
 import { supabase } from "@/lib/supabase";
 import styles from "./account.module.css";
@@ -56,7 +57,8 @@ export function AccountView() {
   const [user, setUser] = useState<User | null>(null);
   const [billing, setBilling] = useState<BillingState | null>(null);
   const [notice, setNotice] = useState<CheckoutNotice | null>(null);
-  const [opening, setOpening] = useState(false);
+  /** The portal being opened: the entitlement's (`"plan"`) or the personal one (`"personal"`). */
+  const [opening, setOpening] = useState<"plan" | "personal" | null>(null);
   const [devices, setDevices] = useState<Device[]>([]);
   const [loadFailed, setLoadFailed] = useState(false);
   const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null);
@@ -141,15 +143,19 @@ export function AccountView() {
     if (next.failed) setLoadFailed(true);
   }
 
-  async function manage() {
+  // Back from Stripe's portal can bring the page back with its button still busy.
+  useEffect(() => onPageRestored(() => setOpening(null)), []);
+
+  /** The portal of the plan in effect, or of the personal subscription (no `org_id`). */
+  async function manage(which: "plan" | "personal") {
     if (opening || !billing) return;
-    setOpening(true);
+    setOpening(which);
     const orgId = billing.entitlement.org_id ?? undefined;
-    const personal = !billing.teams.some((team) => team.id === orgId);
-    const error = await openPortal({ locale, go: () => {} }, personal ? undefined : orgId);
+    const team = which === "plan" && billing.teams.some((x) => x.id === orgId);
+    const error = await openPortal({ locale, go: () => {} }, team ? orgId : undefined);
     if (error) {
       setStatus({ ok: false, text: billingError(error) });
-      setOpening(false);
+      setOpening(null);
     }
   }
 
@@ -173,6 +179,9 @@ export function AccountView() {
   const ends = subscription?.cancel_at_period_end === true;
   const periodEnd = subscription?.current_period_end ?? entitlement.period_end;
   const dateFormat = new Intl.DateTimeFormat(locale, { dateStyle: "long" });
+  // A personal Pro still billing while a team's plan is the one in effect.
+  const personal = billing?.personal && billing.personal.org_id !== entitlement.org_id ? billing.personal : null;
+  const lapsedTeams = billing?.lapsedTeams ?? [];
   const notifying = meta.notify_release === true;
   const platforms = (Array.isArray(meta.notify_platforms) ? (meta.notify_platforms as string[]) : []).map((p) => PLATFORM_NAME[p] ?? p);
   const interests = Array.isArray(meta.interests) ? (meta.interests as string[]) : [];
@@ -230,11 +239,33 @@ export function AccountView() {
                   {t("plan.seePlans")}
                 </ButtonLink>
               ) : billing?.manages ? (
-                <button type="button" className={buttonClass("secondary", "md")} onClick={manage} disabled={opening} aria-busy={opening}>
-                  {opening ? t("plan.opening") : t("plan.manage")}
+                <button type="button" className={buttonClass("secondary", "md")} onClick={() => manage("plan")} disabled={opening !== null} aria-busy={opening === "plan"}>
+                  {opening === "plan" ? t("plan.opening") : t("plan.manage")}
                 </button>
               ) : null}
             </div>
+            {personal ? (
+              <div className={styles.row}>
+                <div className={styles.rowMain}>
+                  <span className={styles.rowTitle}>{t("plan.personal", { plan: t(`plan.${personal.plan}`) })}</span>
+                  {personal.current_period_end ? (
+                    <span className={styles.rowText}>
+                      {t(personal.cancel_at_period_end ? "plan.ends" : "plan.renews", { date: dateFormat.format(new Date(personal.current_period_end)) })}
+                    </span>
+                  ) : null}
+                  {personal.status === "past_due" ? <span className={`${styles.rowText} ${styles.statusError}`}>{t("plan.pastDue")}</span> : null}
+                </div>
+                <button
+                  type="button"
+                  className={buttonClass("secondary", "md")}
+                  onClick={() => manage("personal")}
+                  disabled={opening !== null}
+                  aria-busy={opening === "personal"}
+                >
+                  {opening === "personal" ? t("plan.opening") : t("plan.manage")}
+                </button>
+              </div>
+            ) : null}
             {entitlement.features.length > 0 ? (
               <div className={styles.row}>
                 <div className={styles.rowMain}>
@@ -273,7 +304,7 @@ export function AccountView() {
           </section>
         ) : null}
 
-        {billing && billing.teams.length > 0 ? (
+        {billing && (billing.teams.length > 0 || lapsedTeams.length > 0) ? (
           <section aria-labelledby="g-teams">
             <h2 id="g-teams" className={styles.groupTitle}>
               {t("teams.title")}
@@ -297,6 +328,19 @@ export function AccountView() {
                   </div>
                 ),
               )}
+              {lapsedTeams.map((team) => (
+                <div key={team.id} className={styles.box}>
+                  <div className={styles.row}>
+                    <div className={styles.rowMain}>
+                      <span className={styles.rowTitle}>{team.name}</span>
+                      <span className={styles.rowText}>{t("teams.lapsed")}</span>
+                    </div>
+                    <SubscribeButton plan="team" variant="secondary" prefill={renewOrder(team)}>
+                      {t("teams.subscribeAgain")}
+                    </SubscribeButton>
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
         ) : null}

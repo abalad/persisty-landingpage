@@ -27,6 +27,23 @@ describe("safeNext", () => {
   it("keeps an internal path", () => expect(safeNext("/download")).toBe("/download"));
   it("refuses another site", () => expect(safeNext("https://evil.com")).toBe("/account"));
   it("refuses a protocol-relative address", () => expect(safeNext("//evil.com")).toBe("/account"));
+  it("refuses a tab that the URL parser drops, turning the path into another host", () => {
+    expect(new URL("/\t/evil.example/x", "https://persisty.app").origin).toBe("https://evil.example");
+    expect(safeNext("/\t/evil.example")).toBe("/account");
+    expect(safeNext("/\t/evil.example/x")).toBe("/account");
+  });
+  it("refuses any control character or DEL", () => {
+    for (const c of ["\n", "\r", "\u0000", "\u001f", "\u007f"]) expect(safeNext(`/${c}/evil.example`), JSON.stringify(c)).toBe("/account");
+  });
+  it("refuses the other ways out", () => {
+    expect(safeNext("//evil.example")).toBe("/account");
+    expect(safeNext("/\\evil.example")).toBe("/account");
+    expect(safeNext("https://evil.example")).toBe("/account");
+  });
+  it("keeps the pricing page with a plan, and the account", () => {
+    expect(safeNext("/pricing?plan=pro")).toBe("/pricing?plan=pro");
+    expect(safeNext("/account")).toBe("/account");
+  });
   it("refuses a backslash trick", () => expect(safeNext("/\\evil.com")).toBe("/account"));
   it("falls back to the account without a value", () => expect(safeNext(null)).toBe("/account"));
   it("drops a language prefix the router adds again", () => {

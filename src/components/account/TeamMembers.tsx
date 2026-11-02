@@ -2,10 +2,11 @@
 
 import { Copy, UserPlus } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { buttonClass, ButtonIcon } from "@/components/site/Button";
 import type { Locale } from "@/i18n/routing";
 import { isValidEmail } from "@/lib/auth";
+import { onPageRestored } from "@/lib/bfcache";
 import { freeSeats, inviteErrorKey, inviteLink, inviteMember, openPortal, removeMember, revokeInvite, type Team } from "@/lib/billing";
 import auth from "./auth.module.css";
 import styles from "./account.module.css";
@@ -30,6 +31,9 @@ export function TeamMembers({ team, userId, onChanged, onStatus, relative }: Pro
   const [email, setEmail] = useState("");
   const [busy, setBusy] = useState<string | null>(null);
   const [confirming, setConfirming] = useState<string | null>(null);
+
+  // Back from Stripe's portal can bring the page back with "Opening…" still on.
+  useEffect(() => onPageRestored(() => setBusy((b) => (b === "portal" ? null : b))), []);
 
   const seats = team.seats ?? { seats: team.subscription.seats, members: team.members.length, pending: team.invites.length };
   const full = freeSeats(seats) === 0;
@@ -84,9 +88,11 @@ export function TeamMembers({ team, userId, onChanged, onStatus, relative }: Pro
           <span className={styles.rowTitle}>{team.name}</span>
           <span className={styles.rowText}>{t("seats", { used, seats: seats.seats })}</span>
         </div>
-        <button type="button" className={buttonClass("secondary", "md")} onClick={portal} disabled={busy !== null} aria-busy={busy === "portal"}>
-          {busy === "portal" ? plan("opening") : plan("manage")}
-        </button>
+        {team.portal ? (
+          <button type="button" className={buttonClass("secondary", "md")} onClick={portal} disabled={busy !== null} aria-busy={busy === "portal"}>
+            {busy === "portal" ? plan("opening") : plan("manage")}
+          </button>
+        ) : null}
       </div>
 
       {team.members.map((m) => {
@@ -178,9 +184,11 @@ export function TeamMembers({ team, userId, onChanged, onStatus, relative }: Pro
         {full ? (
           <div className={styles.full}>
             <span className={styles.rowText}>{t("full")}</span>
-            <button type="button" className={buttonClass("secondary", "md")} onClick={portal} disabled={busy !== null}>
-              {t("buySeats")}
-            </button>
+            {team.portal ? (
+              <button type="button" className={buttonClass("secondary", "md")} onClick={portal} disabled={busy !== null}>
+                {t("buySeats")}
+              </button>
+            ) : null}
           </div>
         ) : null}
       </div>

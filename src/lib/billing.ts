@@ -8,11 +8,13 @@ export const MAX_SEATS = 100;
 export const TEAM_NAME_MAX = 80;
 export const DEFAULT_SEATS = 2;
 
-export type BillingErrorKey = "network" | "invalid" | "forbidden" | "noCustomer" | "unknown";
+export type BillingErrorKey = "network" | "invalid" | "forbidden" | "noCustomer" | "teamHasPlan" | "unknown";
 
 export interface TeamOrder {
   name: string;
   seats: number;
+  /** A team that had a plan before, subscribed again under the same organisation. */
+  orgId?: string;
 }
 
 export type TeamProblem = "name" | "nameLong" | "seats";
@@ -51,6 +53,7 @@ function errorKey(err: unknown): BillingErrorKey {
   if (err.code === "bad_request") return "invalid";
   if (err.code === "forbidden") return "forbidden";
   if (err.code === "no_customer") return "noCustomer";
+  if (err.code === "team_has_plan") return "teamHasPlan";
   return "unknown";
 }
 
@@ -107,7 +110,7 @@ export async function subscribe(plan: PaidPlan, nav: Navigation, team?: TeamOrde
   const leave = nav.leave ?? leaveDefault;
   try {
     const body: Record<string, unknown> = { plan, locale: nav.locale };
-    if (plan === "team" && team) Object.assign(body, { team_name: team.name.trim(), seats: team.seats });
+    if (plan === "team" && team) Object.assign(body, { team_name: team.name.trim(), seats: team.seats }, team.orgId ? { org_id: team.orgId } : {});
     leave(await call("create-checkout", body));
     return "checkout";
   } catch (err) {
@@ -154,6 +157,8 @@ export interface Subscription {
   seats: number;
   current_period_end: string | null;
   cancel_at_period_end: boolean;
+  /** `null` for a plan granted by hand, which has no Stripe portal. */
+  stripe_subscription_id: string | null;
 }
 
 export interface Seats {
@@ -182,10 +187,19 @@ export interface Team {
   name: string;
   role: OrgRole;
   subscription: Subscription;
+  /** Owners and admins open Stripe's portal, when the plan came through Stripe. */
+  portal: boolean;
   /** Only for owners and admins, who manage the team. */
   seats: Seats | null;
   members: TeamMember[];
   invites: TeamInvite[];
+}
+
+/** A team whose Stripe subscription ended; its owner can subscribe it again. */
+export interface LapsedTeam {
+  id: string;
+  name: string;
+  members: number;
 }
 
 export interface BillingState {
@@ -194,7 +208,10 @@ export interface BillingState {
   subscription: Subscription | null;
   /** Whether this account opens the portal for the entitlement's organisation. */
   manages: boolean;
+  /** The personal organisation's live Stripe subscription, managed on its own even when a team's plan wins. */
+  personal: Subscription | null;
   teams: Team[];
+  lapsedTeams: LapsedTeam[];
   failed: boolean;
 }
 
@@ -204,6 +221,11 @@ const MANAGERS = new Set<OrgRole>(["owner", "admin"]);
 
 export function canManage(role: OrgRole): boolean {
   return MANAGERS.has(role);
+}
+
+/** The team form's start when subscribing a team again: its name and a seat per member. */
+export function renewOrder(team: LapsedTeam): Required<TeamOrder> {
+  return { name: team.name, seats: Math.min(MAX_SEATS, Math.max(1, team.members)), orgId: team.id };
 }
 
 /** Members and pending invites never pass the paid seats. */
@@ -250,7 +272,7 @@ export async function loadBilling(userId: string): Promise<BillingState> {
   const [orgs, subs] = ids.length
     ? await Promise.all([
         db.from("orgs").select("id,kind,name").in("id", ids),
-        db.from("subscriptions").select("org_id,plan,status,seats,current_period_end,cancel_at_period_end").in("org_id", ids),
+        db.from("subscriptions").select("org_id,plan,status,seats,current_period_end,cancel_at_period_end,stripe_subscription_id").in("org_id", ids),
       ])
     : [
         { data: [], error: null },
@@ -259,19 +281,31 @@ export async function loadBilling(userId: string): Promise<BillingState> {
   let failed = Boolean(accepted.error || ent.error || mine.error || orgs.error || subs.error);
 
   const entitlement = (ent.data as Entitlement[] | null)?.[0] ?? FREE;
-  const subscriptions = ((subs.data as Subscription[] | null) ?? []).filter((s) => LIVE.has(s.status));
+  const allSubscriptions = (subs.data as Subscription[] | null) ?? [];
+  const subscriptions = allSubscriptions.filter((s) => LIVE.has(s.status));
   const roleOf = new Map(memberships.map((m) => [m.org_id, m.role]));
   const orgList = (orgs.data as { id: string; kind: "personal" | "team"; name: string }[] | null) ?? [];
   const subscription = entitlement.plan === "free" ? null : (subscriptions.find((s) => s.org_id === entitlement.org_id) ?? null);
   const entitledOrg = orgList.find((o) => o.id === entitlement.org_id);
 
   // A team appears once it has a plan: a checkout left halfway leaves an empty one behind.
+  // One whose Stripe subscription ended comes back to its owner, to subscribe again.
   const teams: Team[] = [];
+  const lapsedTeams: LapsedTeam[] = [];
   for (const org of orgList) {
-    const sub = org.kind === "team" ? subscriptions.find((s) => s.org_id === org.id) : undefined;
     const role = roleOf.get(org.id);
-    if (!sub || !role) continue;
-    const team: Team = { id: org.id, name: org.name, role, subscription: sub, seats: null, members: [], invites: [] };
+    if (org.kind !== "team" || !role) continue;
+    const sub = subscriptions.find((s) => s.org_id === org.id);
+    if (!sub) {
+      const hadStripe = allSubscriptions.some((s) => s.org_id === org.id && s.stripe_subscription_id);
+      if (role !== "owner" || !hadStripe) continue;
+      const seats = await db.rpc("team_seats", { p_org: org.id });
+      failed ||= Boolean(seats.error);
+      lapsedTeams.push({ id: org.id, name: org.name, members: (seats.data as Seats[] | null)?.[0]?.members ?? 1 });
+      continue;
+    }
+    const portal = canManage(role) && Boolean(sub.stripe_subscription_id);
+    const team: Team = { id: org.id, name: org.name, role, subscription: sub, portal, seats: null, members: [], invites: [] };
     if (canManage(role)) {
       const details = await teamDetails(org.id);
       failed ||= details.failed;
@@ -281,8 +315,11 @@ export async function loadBilling(userId: string): Promise<BillingState> {
   }
 
   const role = entitlement.org_id ? roleOf.get(entitlement.org_id) : undefined;
-  const manages = subscription !== null && (entitledOrg?.kind === "personal" || (role !== undefined && canManage(role)));
-  return { entitlement, subscription, manages, teams, failed };
+  const stripeBacked = Boolean(subscription?.stripe_subscription_id);
+  const manages = stripeBacked && (entitledOrg?.kind === "personal" || (role !== undefined && canManage(role)));
+  const personalOrg = orgList.find((o) => o.kind === "personal");
+  const personal = subscriptions.find((s) => s.org_id === personalOrg?.id && s.stripe_subscription_id) ?? null;
+  return { entitlement, subscription, manages, personal, teams, lapsedTeams, failed };
 }
 
 export type MutationResult = { ok: true } | { ok: false; code?: string };
