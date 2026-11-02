@@ -416,5 +416,11 @@
       }
     ],
     "teamInvite": "Invitar por e-mail · copiar el enlace"
+  },
+  "teamBilling": {
+    "label": "Mi cuenta › Equipo, en el sitio: el equipo Producto con 3 de 5 asientos, dos personas, una invitación pendiente y la invitación por e-mail.",
+    "title": "Equipo",
+    "team": "Producto",
+    "when": "hace 2 días"
   }
 }

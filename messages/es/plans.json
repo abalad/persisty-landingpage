@@ -160,5 +160,56 @@
       "title": "Descárgalo ahora y no pierdas más una sesión por un cuelgue.",
       "body": "Gratis, sin cuenta y sin plazo. Pro queda a un clic para cuando lo necesites."
     }
+  },
+  "team": {
+    "meta": {
+      "title": "Team",
+      "description": "Pro para cada persona del equipo, en una sola factura: asientos, invitaciones por e-mail y lo que viene para quien paga las cuentas de IA."
+    },
+    "hero": {
+      "title": "Pro para todo el equipo, en una sola factura.",
+      "body": "Cada persona recibe todo lo de Pro: varias cuentas con rotación, la cola de pedidos, puntos de restauración, verificación al terminar y carpeta propia. Eliges los asientos, invitas por e-mail y pagas {price} por persona, por mes."
+    },
+    "pro": {
+      "title": "Todo lo de Pro para cada persona",
+      "body": "Las cinco funciones de Pro llegan a la app de cada persona en cuanto entra al equipo."
+    },
+    "billing": {
+      "title": "Asientos, invitaciones y una factura",
+      "body": "Ponle nombre al equipo y elige cuántos asientos quieres. En Mi cuenta invitas por e-mail, mandas el enlace de la invitación y ves quién ya entró. Los asientos y la cancelación están en el portal de la suscripción.",
+      "below": "Cada persona se suscribe a su propio Pro, con su propia tarjeta.",
+      "here": "Una factura para el equipo, un asiento por persona.",
+      "link": "Cuenta y licencia, en los docs"
+    },
+    "privacy": {
+      "title": "Metadatos, nunca código",
+      "body": "El servidor de Persisty recibe solo lo que la licencia y el equipo necesitan: cuenta, plan, asientos y computadoras. El código, la salida de la terminal y los pedidos quedan en la máquina de cada persona. Vale hoy y vale para todo lo que venga en Team.",
+      "link": "Seguridad y privacidad"
+    },
+    "faq": {
+      "title": "Preguntas sobre Team",
+      "items": [
+        {
+          "q": "¿Cómo funciona Team?",
+          "a": "Le pones nombre al equipo, eliges cuántos asientos quieres e invitas a las personas por e-mail, en Mi cuenta. Los asientos y la cancelación están en el portal de la suscripción."
+        },
+        {
+          "q": "¿Cómo entra la persona invitada?",
+          "a": "No mandamos e-mails de invitación: copias el enlace en Mi cuenta y se lo mandas. Quien entre con el e-mail invitado ya queda en el equipo y recibe Pro en la app."
+        },
+        {
+          "q": "¿Puedo cambiar la cantidad de asientos?",
+          "a": "Sí, en el portal de la suscripción, desde Mi cuenta. Cada asiento es una persona, de 1 a 100."
+        },
+        {
+          "q": "¿Quién del equipo ve mi trabajo?",
+          "a": "Nadie ve el código, la salida de la terminal ni los pedidos de otra persona. El dueño y los admins ven solo las personas, las invitaciones y los asientos."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Un asiento por persona, una factura para el equipo.",
+      "body": "Todo lo de Pro para cada persona. Lo que es del equipo aparece en esta página con la etiqueta de planificado hasta que sale."
+    }
   }
 }

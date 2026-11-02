@@ -23,7 +23,7 @@ export function PlanSection({ id, plan, title, body, diff, link, narrow, childre
   const p = useTranslations("pricing.plans");
   const below = plan === "team" ? "pro" : "free";
   return (
-    <Feature id={id} title={title} body={body} link={link} narrow={narrow} meta={plan === "free" ? undefined : <Badge status="pro" />}>
+    <Feature id={id} title={title} body={body} link={link} narrow={narrow} meta={plan === "free" ? undefined : <Badge status={plan} />}>
       {children}
       {diff ? (
         <div className={styles.diff}>

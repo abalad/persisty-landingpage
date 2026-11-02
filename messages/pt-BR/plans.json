@@ -160,5 +160,56 @@
       "title": "Baixe agora e não perca mais uma sessão para um travamento.",
       "body": "Grátis, sem conta e sem prazo. O Pro fica a um clique para quando você precisar."
     }
+  },
+  "team": {
+    "meta": {
+      "title": "Team",
+      "description": "O Pro para cada pessoa do time, numa fatura só: assentos, convites por e-mail e o que vem para quem paga as contas de IA."
+    },
+    "hero": {
+      "title": "O Pro para o time todo, numa fatura só.",
+      "body": "Cada pessoa ganha tudo do Pro: várias contas com rodízio, fila de pedidos, pontos de restauração, verificação ao terminar e pasta própria. Você escolhe os assentos, convida pelo e-mail e paga {price} por pessoa, por mês."
+    },
+    "pro": {
+      "title": "Tudo do Pro para cada pessoa",
+      "body": "Os cinco recursos do Pro chegam ao app de cada pessoa assim que ela entra no time."
+    },
+    "billing": {
+      "title": "Assentos, convites e uma fatura",
+      "body": "Dê um nome ao time e escolha quantos assentos quer. Em Minha conta, você convida pelo e-mail, manda o link do convite e vê quem já entrou. Assentos e cancelamento ficam no portal da assinatura.",
+      "below": "Cada pessoa assina o próprio Pro, com o próprio cartão.",
+      "here": "Uma fatura para o time, um assento por pessoa.",
+      "link": "Conta e licença, nos docs"
+    },
+    "privacy": {
+      "title": "Metadados, nunca código",
+      "body": "O servidor do Persisty recebe só o que a licença e o time precisam: conta, plano, assentos e computadores. Código, saída de terminal e pedidos ficam na máquina de cada pessoa. Vale hoje e vale para tudo que vier no Team.",
+      "link": "Segurança e privacidade"
+    },
+    "faq": {
+      "title": "Dúvidas sobre o Team",
+      "items": [
+        {
+          "q": "Como funciona o Team?",
+          "a": "Você dá um nome ao time, escolhe quantos assentos quer e convida as pessoas pelo e-mail, em Minha conta. Assentos e cancelamento ficam no portal da assinatura."
+        },
+        {
+          "q": "Como a pessoa convidada entra no time?",
+          "a": "Não mandamos e-mail de convite: você copia o link em Minha conta e manda para ela. Quem entrar com o e-mail convidado já fica no time e recebe o Pro no app."
+        },
+        {
+          "q": "Posso mudar o número de assentos?",
+          "a": "Sim, no portal da assinatura, a partir de Minha conta. Cada assento é uma pessoa, de 1 a 100."
+        },
+        {
+          "q": "Quem do time vê o meu trabalho?",
+          "a": "Ninguém vê o código, a saída do terminal ou os pedidos de outra pessoa. O dono e os admins veem só as pessoas, os convites e os assentos."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Um assento por pessoa, uma fatura para o time.",
+      "body": "Tudo do Pro para cada pessoa. O que é do time aparece nesta página com o selo de planejado até sair."
+    }
   }
 }

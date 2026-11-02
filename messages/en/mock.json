@@ -416,5 +416,11 @@
       }
     ],
     "teamInvite": "Invite by e-mail · copy the link"
+  },
+  "teamBilling": {
+    "label": "My account › Team, on the website: the Product team with 3 of 5 seats, two people, a pending invite and the invite by e-mail.",
+    "title": "Team",
+    "team": "Product",
+    "when": "2 days ago"
   }
 }

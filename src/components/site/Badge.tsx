@@ -5,11 +5,11 @@ import styles from "./Badge.module.css";
 export type Availability = "available" | "preview" | "in-development" | "planned";
 
 /** Availability is always spelled out; the dot only repeats it. */
-export function Badge({ status }: { status: Availability | "pro" }) {
+export function Badge({ status }: { status: Availability | "pro" | "team" }) {
   const t = useTranslations("badge");
   return (
     <span className={`${styles.badge} ${styles[status]}`}>
-      {status === "pro" ? null : <span className={styles.dot} aria-hidden="true" />}
+      {status === "pro" || status === "team" ? null : <span className={styles.dot} aria-hidden="true" />}
       {t(status)}
     </span>
   );

@@ -416,5 +416,11 @@
       }
     ],
     "teamInvite": "Convidar por e-mail · copiar o link"
+  },
+  "teamBilling": {
+    "label": "Minha conta › Time, no site: o time Produto com 3 de 5 assentos, duas pessoas, um convite pendente e o convite por e-mail.",
+    "title": "Time",
+    "team": "Produto",
+    "when": "há 2 dias"
   }
 }

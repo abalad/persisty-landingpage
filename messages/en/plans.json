@@ -160,5 +160,56 @@
       "title": "Download it now and stop losing sessions to a freeze.",
       "body": "Free, with no account and no time limit. Pro is one click away for when you need it."
     }
+  },
+  "team": {
+    "meta": {
+      "title": "Team",
+      "description": "Pro for everyone on the team, on one bill: seats, invites by e-mail and what is coming for whoever pays the AI accounts."
+    },
+    "hero": {
+      "title": "Pro for the whole team, on one bill.",
+      "body": "Every person gets everything in Pro: several accounts with rotation, the request queue, restore points, check on finish and an own folder. You choose the seats, invite by e-mail and pay {price} per person, per month."
+    },
+    "pro": {
+      "title": "Everything in Pro for each person",
+      "body": "Pro's five features reach each person's app as soon as they join the team."
+    },
+    "billing": {
+      "title": "Seats, invites and one bill",
+      "body": "Name the team and choose how many seats you want. In My account you invite by e-mail, send the invite link and see who has joined. Seats and cancelling live in the subscription portal.",
+      "below": "Each person subscribes to their own Pro, with their own card.",
+      "here": "One bill for the team, one seat per person.",
+      "link": "Account and license, in the docs"
+    },
+    "privacy": {
+      "title": "Metadata, never code",
+      "body": "Persisty's server gets only what the license and the team need: account, plan, seats and computers. Code, terminal output and requests stay on each person's machine. That holds today and for everything coming to Team.",
+      "link": "Security and privacy"
+    },
+    "faq": {
+      "title": "Questions about Team",
+      "items": [
+        {
+          "q": "How does Team work?",
+          "a": "You name the team, choose how many seats you want and invite people by e-mail, in My account. Seats and cancelling live in the subscription portal."
+        },
+        {
+          "q": "How does an invited person join?",
+          "a": "We do not send invite e-mails: you copy the link in My account and send it to them. Whoever signs in with the invited e-mail is on the team and gets Pro in the app."
+        },
+        {
+          "q": "Can I change the number of seats?",
+          "a": "Yes, in the subscription portal, from My account. Each seat is one person, from 1 to 100."
+        },
+        {
+          "q": "Who on the team sees my work?",
+          "a": "Nobody sees another person's code, terminal output or requests. The owner and admins see only the people, the invites and the seats."
+        }
+      ]
+    },
+    "closing": {
+      "title": "One seat per person, one bill for the team.",
+      "body": "Everything in Pro for each person. What is for the team shows on this page with the planned badge until it ships."
+    }
   }
 }
