@@ -113,7 +113,7 @@
   "pro": {
     "title": "Deja el próximo pedido en la cola",
     "body": "La cola entrega tu pedido cuando el agente queda libre o la cuota se renueva. Cada pedido guarda un punto de restauración.",
-    "link": "Funciones Pro"
+    "link": "Todo lo de Pro"
   },
   "editor": {
     "title": "Editor, git y notas en la misma ventana",

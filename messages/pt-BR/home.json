@@ -113,7 +113,7 @@
   "pro": {
     "title": "Deixe o próximo pedido na fila",
     "body": "A fila entrega o pedido quando o agente ficar livre ou a quota renovar. Cada pedido grava um ponto de restauração.",
-    "link": "Recursos do Pro"
+    "link": "Ver tudo do Pro"
   },
   "editor": {
     "title": "Editor, git e notas na mesma janela",

@@ -144,20 +144,23 @@
     ]
   },
   "accounts": {
-    "label": "Settings › AI accounts: three Claude Code accounts with their 5-hour and 7-day windows, and rotation turned on.",
+    "label": "Settings › AI accounts: three Claude Code accounts with their 5-hour and 7-day windows, rotation on and the switch limit at 90%.",
     "title": "AI accounts",
-    "group": "Claude Code",
+    "group": "Connected accounts",
     "rotation": "Rotate between accounts",
-    "rotationHint": "Each new session goes to the account with the most room in its 5-hour window. Accounts above 90% sit out until they renew.",
+    "rotationHint": "New Claude Code sessions go to the account with the most room. When a session's account reaches the limit, the session moves to another with room as its answer ends and picks up the same conversation.",
     "thisComputer": "This computer",
-    "sitsOut": "sits out until renewal",
-    "renews": "renews in {time}",
     "newSession": "New Claude Code session",
     "goesTo": "goes to",
-    "because": "the one with most room now"
+    "because": "the one with most room now",
+    "rotationLimit": "Switch accounts at",
+    "rotationLimitHint": "Counts for the 5-hour and the weekly window: the fuller one decides. An account at that point also sits out new sessions.",
+    "rotationResume": "Go on with the task after switching",
+    "renewsAt": "5 h renews at {time}",
+    "renewsTime": "2:20 PM"
   },
   "pro": {
-    "label": "The session side panel with the Pro plan features.",
+    "label": "Persisty with a Pro feature open:",
     "tabs": {
       "queue": "Request queue",
       "restore": "Restore points",
@@ -168,30 +171,56 @@
       "text": "Request for the agent",
       "draft": "Review the shipping tests and fix whatever fails",
       "when": "When to send",
-      "whenValue": "When the 5-hour window renews (14:20)",
+      "idle": "As soon as the agent is free",
+      "window": "When the 5-hour window renews (2:20 PM)",
+      "at": "From a chosen time",
       "add": "Queue it",
       "waiting": "Queued",
       "item1": "Raise coupon module coverage to 80%",
-      "item1When": "when the 5-hour window renews (14:20)",
+      "item1When": "when the 5-hour window renews (2:20 PM)",
       "item2": "Update the README with the new shipping endpoint",
-      "item2When": "as soon as the agent is free",
-      "rule": "One at a time, in order, only when the agent is waiting for its next request."
+      "item2When": "when the agent is free"
     },
     "restore": {
       "point1": "Add shipping by postcode",
-      "point1Meta": "10:42 · reverts 3 files and removes 1 created later",
+      "point1Time": "12 min ago",
+      "point1Summary": "Brings back 2 files and deletes 1 created later.",
+      "files": [
+        {
+          "name": "quote.ts",
+          "dir": "src/shipping",
+          "kind": "M"
+        },
+        {
+          "name": "table.ts",
+          "dir": "src/shipping",
+          "kind": "M"
+        },
+        {
+          "name": "postcode.ts",
+          "dir": "src/shipping",
+          "kind": "A"
+        }
+      ],
       "point2": "Change the cart layout",
-      "point2Meta": "09:58 · reverts 5 files",
+      "point2Time": "1 h ago",
       "point3": "Fix the total's rounding",
-      "point3Meta": "yesterday · reverts 1 file",
-      "action": "Restore this point",
-      "note": "Every request to the agent saves the folder's state before it starts."
+      "point3Time": "yesterday",
+      "action": "Restore this point"
     },
     "verify": {
       "chip": "Check",
       "passed": "passed",
-      "failed": "failed (1)",
-      "command": "pnpm test",
+      "menuTitle": "Commands",
+      "group": "package.json",
+      "commands": [
+        "pnpm test",
+        "pnpm lint",
+        "pnpm dev"
+      ],
+      "menu": "Check on finish with {name}",
+      "menuHint": "Runs when the agent stops after changing files.",
+      "addCommand": "Add command…",
       "lines": [
         {
           "kind": "muted",
@@ -220,20 +249,19 @@
           "kind": "answer",
           "text": "      Tests  26 passed (26)"
         }
-      ],
-      "note": "Runs on its own when the agent stops after changing files."
+      ]
     },
     "worktree": {
-      "title": "New session in its own folder",
-      "branch": "Branch",
+      "badge": "worktree",
       "branchValue": "persist/shipping-postcode",
-      "folder": "Folder",
-      "folderValue": "this session's only, outside your checkout",
-      "close": "When the session closes",
+      "title": "Close the api session?",
+      "process": "The running process will be ended.",
+      "dirty": "The worktree folder has 2 uncommitted files.",
+      "ahead": "Branch persist/shipping-postcode keeps 3 commits that main does not have.",
       "keep": "Keep the folder",
-      "leave": "Remove it",
-      "discard": "Remove it and discard 2 uncommitted files",
-      "commits": "The branch keeps 3 commits and is never deleted."
+      "remove": "Remove the folder",
+      "discard": "Discard and remove",
+      "stays": "Branch persist/shipping-postcode stays in the repository."
     }
   },
   "editor": {

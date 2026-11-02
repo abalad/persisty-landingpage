@@ -113,7 +113,7 @@
   "pro": {
     "title": "Line up the next request",
     "body": "The queue delivers your request when the agent is free or the quota renews. Every request saves a restore point.",
-    "link": "Pro features"
+    "link": "Everything in Pro"
   },
   "editor": {
     "title": "Editor, git and notes in the same window",
