@@ -15,6 +15,7 @@ import { NetworkMock } from "@/components/mockups/NetworkMock";
 import { ProTabs } from "@/components/mockups/ProTabs";
 import { EditorWindow, ProjectsWindow, StatesWindow } from "@/components/mockups/tours";
 import { Window } from "@/components/mockups/parts";
+import { CompareTable } from "@/components/pricing/CompareTable";
 import { PlanCards } from "@/components/pricing/PlanCards";
 import { Badge } from "@/components/site/Badge";
 import { ButtonLink } from "@/components/site/Button";
@@ -74,6 +75,9 @@ function HomeContent() {
       <Companies />
       <Feature id="pricing" title={t("pricing.title")} body={t("pricing.body", { price: formatPlanPrice(locale, "pro") })}>
         <PlanCards />
+        <div style={{ marginTop: 40 }}>
+          <CompareTable />
+        </div>
         <div style={{ marginTop: 28 }}>
           <ButtonLink href="/pricing" variant="secondary">
             {t("pricing.cta")}

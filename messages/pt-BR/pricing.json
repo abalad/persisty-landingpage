@@ -77,7 +77,9 @@
     "title": "Compare os planos",
     "feature": "Recurso",
     "yes": "Incluído",
-    "no": "Não incluído"
+    "no": "Não incluído",
+    "current": "este plano",
+    "later": "Planejado, ainda não disponível"
   },
   "faq": {
     "title": "Dúvidas sobre os planos",
