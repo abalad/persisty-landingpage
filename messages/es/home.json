@@ -140,27 +140,27 @@
         "status": "available"
       },
       {
-        "title": "Tablero del equipo",
-        "body": "Quién está corriendo qué ahora mismo, y qué agente está detenido esperando a alguien.",
+        "title": "Panel del equipo en vivo",
+        "body": "Quién está corriendo qué ahora, qué agente espera a alguien, y pasarle una sesión a un colega.",
         "status": "planned"
       },
       {
-        "title": "Gasto de IA por proyecto",
-        "body": "Uso agregado por día, proyecto, modelo y cuenta, sin métricas individuales de productividad.",
+        "title": "Presupuesto y reglas de modelo",
+        "body": "Límite de gasto por proyecto, aviso al 80% y los modelos permitidos en cada proyecto.",
+        "status": "planned"
+      },
+      {
+        "title": "Observabilidad de gestión",
+        "body": "Costo por PR fusionado y por proyecto, y el trabajo aceptado o abandonado, sin métrica individual de productividad.",
         "status": "planned"
       },
       {
         "title": "Políticas con auditoría",
-        "body": "Reglas aplicadas por los hooks de los agentes y un registro que no se borra.",
-        "status": "planned"
-      },
-      {
-        "title": "SSO, SCIM e instalación en la empresa",
-        "body": "Login de la empresa, cuentas aprovisionadas y Persisty Cloud corriendo en tu infraestructura.",
+        "body": "Reglas del equipo para los agentes y un registro que el agente no puede borrar.",
         "status": "planned"
       }
     ],
-    "cta": "Habla con nosotros"
+    "cta": "Conocer Team"
   },
   "pricing": {
     "title": "Empieza gratis",

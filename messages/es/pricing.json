@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Precios",
-    "description": "Gratis sin cuenta, Pro por US$ 4,90 al mes, Team por US$ 9,90 por persona y Enterprise a consultar."
+    "description": "Gratis sin cuenta, Pro por US$ 4,90 al mes y Team por US$ 9,90 por persona."
   },
   "title": "Planes y precios",
   "body": "El núcleo de Persisty es gratis y no pide cuenta. Los planes pagos desbloquean la cola de pedidos, la rotación de cuentas y los puntos de restauración; para equipos, también el control para quien paga.",
@@ -105,10 +105,6 @@
       {
         "q": "¿Cómo funciona Team?",
         "a": "Le das un nombre al equipo, eliges cuántos asientos quieres e invitas a las personas por e-mail desde Mi cuenta. Los asientos y la cancelación están en el portal de la suscripción."
-      },
-      {
-        "q": "¿Cómo funciona Enterprise?",
-        "a": "Acordamos con tu empresa lo que necesita: SSO, instalación propia, gateway de modelos y acceso al código fuente bajo confidencialidad. Estas funciones todavía están planificadas."
       }
     ]
   },

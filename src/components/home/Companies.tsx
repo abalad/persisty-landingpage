@@ -2,14 +2,12 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Badge, type Availability } from "@/components/site/Badge";
 import { ButtonLink } from "@/components/site/Button";
-import { contactHref } from "@/lib/site";
 import { Feature } from "./Feature";
 import styles from "./Companies.module.css";
 
 export function Companies() {
   const t = useTranslations("home.companies");
   const items = t.raw("items") as { title: string; body: string; status: Availability }[];
-  const href = contactHref("enterprise") ?? "/sign-in";
   return (
     <Feature id="companies" title={t("title")} body={t("body")}>
       <ul className={styles.list}>
@@ -22,7 +20,7 @@ export function Companies() {
         ))}
       </ul>
       <div className={styles.cta}>
-        <ButtonLink href={href} variant="secondary" trailingIcon={<ArrowRight />}>
+        <ButtonLink href="/team" variant="secondary" trailingIcon={<ArrowRight />}>
           {t("cta")}
         </ButtonLink>
       </div>

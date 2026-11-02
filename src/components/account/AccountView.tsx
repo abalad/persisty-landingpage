@@ -1,7 +1,7 @@
 "use client";
 
 import type { User } from "@supabase/supabase-js";
-import { ArrowRight, Bell, BellOff, Building2, Loader2, LogOut } from "lucide-react";
+import { ArrowRight, Bell, BellOff, Loader2, LogOut } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -184,8 +184,6 @@ export function AccountView() {
   const lapsedTeams = billing?.lapsedTeams ?? [];
   const notifying = meta.notify_release === true;
   const platforms = (Array.isArray(meta.notify_platforms) ? (meta.notify_platforms as string[]) : []).map((p) => PLATFORM_NAME[p] ?? p);
-  const interests = Array.isArray(meta.interests) ? (meta.interests as string[]) : [];
-  const enterprise = interests.includes("enterprise");
   const listFormat = new Intl.ListFormat(locale, { type: "conjunction" });
 
   return (
@@ -369,31 +367,6 @@ export function AccountView() {
                   {t("notify.download")}
                 </ButtonLink>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section aria-labelledby="g-enterprise">
-          <h2 id="g-enterprise" className={styles.groupTitle}>
-            {t("enterprise.title")}
-          </h2>
-          <div className={styles.box}>
-            <div className={styles.row}>
-              <div className={styles.rowMain}>
-                <span className={styles.rowText}>{enterprise ? t("enterprise.on") : t("enterprise.off")}</span>
-              </div>
-              <button
-                type="button"
-                className={buttonClass(enterprise ? "ghost" : "secondary", "md")}
-                onClick={() => save({ ...meta, interests: enterprise ? interests.filter((i) => i !== "enterprise") : [...interests, "enterprise"] })}
-              >
-                {enterprise ? null : (
-                  <ButtonIcon>
-                    <Building2 />
-                  </ButtonIcon>
-                )}
-                {enterprise ? t("enterprise.undo") : t("enterprise.button")}
-              </button>
             </div>
           </div>
         </section>

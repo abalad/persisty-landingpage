@@ -2,7 +2,7 @@ import { Check, Minus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 import { Badge } from "@/components/site/Badge";
-import { PLANS } from "@/lib/plans";
+import { SHOWN_PLANS } from "@/lib/plans";
 import styles from "./CompareTable.module.css";
 
 /** Every feature, grouped by the plan that introduces it; later plans include earlier ones. */
@@ -15,7 +15,7 @@ export function CompareTable() {
         <thead>
           <tr>
             <th scope="col">{t("compare.feature")}</th>
-            {PLANS.map((p) => (
+            {SHOWN_PLANS.map((p) => (
               <th key={p.id} scope="col">
                 {t(`plans.${p.id}.name`)}
               </th>
@@ -23,10 +23,10 @@ export function CompareTable() {
           </tr>
         </thead>
         <tbody>
-          {PLANS.map((plan, planIndex) => (
+          {SHOWN_PLANS.map((plan, planIndex) => (
             <Fragment key={plan.id}>
               <tr className={styles.group}>
-                <th scope="rowgroup" colSpan={PLANS.length + 1}>
+                <th scope="rowgroup" colSpan={SHOWN_PLANS.length + 1}>
                   {t(`plans.${plan.id}.name`)}
                 </th>
               </tr>
@@ -38,7 +38,7 @@ export function CompareTable() {
                       {f.status === "available" ? null : <Badge status={f.status} />}
                     </span>
                   </th>
-                  {PLANS.map((col, colIndex) => (
+                  {SHOWN_PLANS.map((col, colIndex) => (
                     <td key={col.id}>
                       {colIndex >= planIndex ? (
                         <span className={styles.yes}>

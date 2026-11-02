@@ -30,7 +30,6 @@ O Persisty roda comandos com as suas permissões e abre agentes que usam ferrame
 | Instalador assinado no Windows | Planejado |
 | Auditoria de dependências e vulnerabilidades no CI | Planejado |
 | Auditoria de segurança externa antes do primeiro cliente grande | Planejado |
-| Código-fonte disponível para auditoria no Enterprise, sob confidencialidade | Planejado |
 
 ## Encontrou um problema?
 

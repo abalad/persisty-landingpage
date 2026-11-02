@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Pricing",
-    "description": "Free with no account, Pro for US$ 4.90 a month, Team for US$ 9.90 per person and Enterprise by contact."
+    "description": "Free with no account, Pro for US$ 4.90 a month and Team for US$ 9.90 per person."
   },
   "title": "Plans and pricing",
   "body": "Persisty's core is free and asks for no account. Paid plans unlock the request queue, account rotation and restore points; for teams, also control for whoever pays.",
@@ -105,10 +105,6 @@
       {
         "q": "How does Team work?",
         "a": "You name the team, choose how many seats you want and invite people by e-mail from My account. Seats and cancelling live in the billing portal."
-      },
-      {
-        "q": "How does Enterprise work?",
-        "a": "We agree with your company on what it needs: SSO, your own installation, a model gateway and access to the source code under NDA. These features are still planned."
       }
     ]
   },
