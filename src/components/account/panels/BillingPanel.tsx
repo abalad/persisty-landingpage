@@ -1,12 +1,11 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { buttonClass, ButtonLink } from "@/components/site/Button";
 import { SubscribeButton } from "@/components/site/SubscribeButton";
 import type { Locale } from "@/i18n/routing";
-import { subscribeOptions } from "@/lib/account";
-import { FREE } from "@/lib/billing";
+import { planSummary, subscribeOptions } from "@/lib/account";
 import { formatPlanPrice } from "@/lib/pricing";
 import { useAccount } from "../AccountProvider";
 import styles from "../account.module.css";
@@ -15,17 +14,22 @@ import styles from "../account.module.css";
 export function BillingPanel() {
   const t = useTranslations("auth.account");
   const locale = useLocale() as Locale;
-  const { billing, manage, opening } = useAccount();
+  const { billing, notice, manage, opening } = useAccount();
+  const summary = planSummary(billing, notice === "waiting");
 
-  const entitlement = billing?.entitlement ?? FREE;
-  const plan = entitlement.plan;
-  const subscription = billing?.subscription ?? null;
-  const ends = subscription?.cancel_at_period_end === true;
-  const periodEnd = subscription?.current_period_end ?? entitlement.period_end;
+  if (!summary) {
+    return (
+      <p className={styles.loading} role="status" style={{ marginTop: 0 }}>
+        <Loader2 aria-hidden="true" />
+        {t("loading")}
+      </p>
+    );
+  }
+
+  const { plan, viaTeam, periodEnd, ends, pastDue, manages, personal } = summary;
   const dateFormat = new Intl.DateTimeFormat(locale, { dateStyle: "long" });
-  // A personal Pro still billing while a team's plan is the one in effect.
-  const personal = billing?.personal && billing.personal.org_id !== entitlement.org_id ? billing.personal : null;
-  const options = subscribeOptions(plan);
+  // Back from checkout, nothing is offered until the new plan arrives.
+  const options = notice === "waiting" ? [] : subscribeOptions(plan);
 
   return (
     <section aria-labelledby="p-billing" className={styles.panel}>
@@ -38,19 +42,19 @@ export function BillingPanel() {
             <span className={styles.planName}>{t(`plan.${plan}`)}</span>
             <span className={styles.rowText}>
               {[
-                entitlement.org_name && billing?.teams.some((team) => team.id === entitlement.org_id) ? t("plan.org", { name: entitlement.org_name }) : null,
+                viaTeam ? t("plan.org", { name: viaTeam }) : null,
                 periodEnd && plan !== "free" ? t(ends ? "plan.ends" : "plan.renews", { date: dateFormat.format(new Date(periodEnd)) }) : null,
               ]
                 .filter(Boolean)
                 .join(" · ") || (plan === "free" ? t("plan.none") : "")}
             </span>
-            {subscription?.status === "past_due" ? <span className={`${styles.rowText} ${styles.statusError}`}>{t("plan.pastDue")}</span> : null}
+            {pastDue ? <span className={`${styles.rowText} ${styles.statusError}`}>{t("plan.pastDue")}</span> : null}
           </div>
           {plan === "free" ? (
             <ButtonLink href="/pricing" variant="secondary" trailingIcon={<ArrowRight />}>
               {t("plan.seePlans")}
             </ButtonLink>
-          ) : billing?.manages ? (
+          ) : manages ? (
             <button type="button" className={buttonClass("secondary", "md")} onClick={() => void manage("plan")} disabled={opening !== null} aria-busy={opening === "plan"}>
               {opening === "plan" ? t("plan.opening") : t("plan.manage")}
             </button>

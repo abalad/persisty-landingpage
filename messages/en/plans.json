@@ -183,7 +183,7 @@
     },
     "privacy": {
       "title": "Metadata, never code",
-      "body": "Persisty's server gets only what the license and the team need: account, plan, seats and computers. Code, terminal output and requests stay on each person's machine. That holds today and for everything coming to Team.",
+      "body": "Today, Persisty's server gets only what the license and the team need: account, plan, seats and computers. Code, terminal output and requests never leave each person's machine, today and in everything Team gains.",
       "link": "Security and privacy"
     },
     "faq": {

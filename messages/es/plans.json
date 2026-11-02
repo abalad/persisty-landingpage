@@ -183,7 +183,7 @@
     },
     "privacy": {
       "title": "Metadatos, nunca código",
-      "body": "El servidor de Persisty recibe solo lo que la licencia y el equipo necesitan: cuenta, plan, asientos y computadoras. El código, la salida de la terminal y los pedidos quedan en la máquina de cada persona. Vale hoy y vale para todo lo que venga en Team.",
+      "body": "Hoy, el servidor de Persisty recibe solo lo que la licencia y el equipo necesitan: cuenta, plan, asientos y computadoras. El código, la salida de la terminal y los pedidos nunca salen de la máquina de cada persona, hoy y en todo lo que Team sume.",
       "link": "Seguridad y privacidad"
     },
     "faq": {

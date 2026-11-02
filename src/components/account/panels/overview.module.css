@@ -38,6 +38,16 @@
   font-feature-settings: "tnum";
 }
 
+.planNote {
+  color: var(--site-body);
+  font-size: var(--small);
+}
+
+.inline {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
 /* Every state carries its word; the dot only repeats it. */
 .dot {
   display: inline-block;

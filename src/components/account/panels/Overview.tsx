@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { createElement } from "react";
 import { FEATURE_ICONS } from "@/components/plans/featureIcons";
@@ -10,8 +10,7 @@ import { buttonClass, ButtonLink } from "@/components/site/Button";
 import { SubscribeButton } from "@/components/site/SubscribeButton";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
-import { unlockedFor, upsellFor } from "@/lib/account";
-import { FREE } from "@/lib/billing";
+import { planSummary, unlockedFor } from "@/lib/account";
 import { featureHref, planById, type PlanFeature, type ShownPlanId } from "@/lib/plans";
 import { formatPlanPrice } from "@/lib/pricing";
 import { useAccount } from "../AccountProvider";
@@ -28,19 +27,23 @@ export function Overview() {
   const v = useTranslations("auth.account.overview");
   const names = useTranslations("pricing.plans");
   const locale = useLocale() as Locale;
-  const { billing, manage, opening } = useAccount();
+  const { billing, notice, manage, opening } = useAccount();
+  const summary = planSummary(billing, notice === "waiting");
 
-  const entitlement = billing?.entitlement ?? FREE;
-  const plan = entitlement.plan;
+  // Until billing arrives the plan is unknown: nothing is shown that a paying customer could take for theirs.
+  if (!summary) {
+    return (
+      <p className={styles.loading} role="status" style={{ marginTop: 0 }}>
+        <Loader2 aria-hidden="true" />
+        {t("loading")}
+      </p>
+    );
+  }
+
+  const { plan, viaTeam, periodEnd, ends, pastDue, manages, showPrice, personal, lapsed, upsell: up } = summary;
   const shown: ShownPlanId = plan === "enterprise" ? "team" : plan;
-  const subscription = billing?.subscription ?? null;
-  const periodEnd = subscription?.current_period_end ?? entitlement.period_end;
-  const ends = subscription?.cancel_at_period_end === true;
-  const pastDue = subscription?.status === "past_due";
   const date = periodEnd ? new Intl.DateTimeFormat(locale, { dateStyle: "long" }).format(new Date(periodEnd)) : null;
-  const viaTeam = entitlement.org_name && billing?.teams.some((team) => team.id === entitlement.org_id) ? entitlement.org_name : null;
   const groups = unlockedFor(plan);
-  const up = upsellFor(plan);
   const planned = planById(shown).features.filter((f) => f.status === "planned");
 
   return (
@@ -61,18 +64,38 @@ export function Overview() {
               </>
             )}
           </p>
-          {plan === "pro" || plan === "team" ? (
+          {showPrice || viaTeam ? (
             <p className={o.planPrice}>
-              {plan === "team" ? v("pricePerson", { price: formatPlanPrice(locale, "team") }) : v("priceMonth", { price: formatPlanPrice(locale, "pro") })}
-              {viaTeam ? ` · ${t("plan.org", { name: viaTeam })}` : null}
+              {[
+                showPrice ? (plan === "team" ? v("pricePerson", { price: formatPlanPrice(locale, "team") }) : v("priceMonth", { price: formatPlanPrice(locale, "pro") })) : null,
+                viaTeam ? t("plan.org", { name: viaTeam }) : null,
+              ]
+                .filter(Boolean)
+                .join(" · ")}
             </p>
           ) : null}
+          {personal ? (
+            <p className={o.planNote}>
+              {t("plan.personal", { plan: t(`plan.${personal.plan}`) })} ·{" "}
+              <Link href="/account/billing" className={o.inline}>
+                {v("personalLink")}
+              </Link>
+            </p>
+          ) : null}
+          {lapsed.map((team) => (
+            <p key={team.id} className={o.planNote}>
+              {v("lapsed", { name: team.name })} ·{" "}
+              <Link href="/account/team" className={o.inline}>
+                {t("teams.subscribeAgain")}
+              </Link>
+            </p>
+          ))}
         </div>
         {plan === "free" ? (
           <ButtonLink href="/pricing" variant="secondary" trailingIcon={<ArrowRight />}>
             {t("plan.seePlans")}
           </ButtonLink>
-        ) : billing?.manages ? (
+        ) : manages ? (
           <button type="button" className={buttonClass("secondary", "md")} onClick={() => void manage("plan")} disabled={opening !== null} aria-busy={opening === "plan"}>
             {opening === "plan" ? t("plan.opening") : t("plan.manage")}
           </button>
