@@ -1,7 +1,7 @@
 ---
 title: Términos de uso
 description: Las reglas para usar la app, el sitio y la cuenta de Persisty.
-updated: 2026-10-22
+updated: 2026-11-02
 ---
 
 Al usar Persisty, el sitio o la cuenta de Persisty Cloud, aceptas estos términos.
@@ -24,7 +24,14 @@ Persisty trabaja con herramientas de terceros, como Claude Code y Codex, usando 
 
 ## Planes pagos
 
-Los precios están en la página de [Precios](/pricing). Las suscripciones abren pronto; las condiciones de cobro y cancelación se mostrarán antes de cualquier pago. La licencia paga vale 14 días sin internet y cubre hasta 5 computadoras por cuenta. Si el plan termina, la app vuelve al plan gratuito.
+Los precios están en la página de [Precios](/pricing):
+
+- **Pro:** US$ 4,90 al mes, o R$ 9,90 al mes en Brasil.
+- **Team:** US$ 9,90 por asiento al mes, o R$ 19,90 por asiento al mes en Brasil.
+
+El cobro es mensual, con tarjeta, a través de Stripe, y la suscripción se renueva sola hasta que la canceles. Cancelas en el portal de la suscripción, desde Mi cuenta: el plan sigue hasta el final del período ya pagado, sin multa, y el período en curso no se reembolsa. En Team, los asientos se cambian en el mismo portal, con cobro proporcional. Si un pago no pasa, el plan sigue unos días y después vuelve al plan gratuito. Los precios pueden cambiar; avisamos antes de la renovación siguiente.
+
+La licencia paga vale 14 días sin internet y cubre hasta 5 computadoras por cuenta. Si el plan termina, la app vuelve al plan gratuito.
 
 ## Licencia del software
 

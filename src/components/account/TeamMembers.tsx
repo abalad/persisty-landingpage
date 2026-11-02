@@ -90,7 +90,7 @@ export function TeamMembers({ team, userId, onChanged, onStatus, relative }: Pro
       </div>
 
       {team.members.map((m) => {
-        const name = m.name || t("noName");
+        const name = m.display_name?.trim() || m.email || t("noName");
         return (
           <div key={m.user_id} className={styles.row}>
             <div className={styles.device}>

@@ -204,7 +204,13 @@ function teamAccount(role: "owner" | "member") {
     error: null,
   };
   db.tables.org_invites = { data: [{ id: "i1", email: "bia@example.com", created_at: "2026-11-01T00:00:00Z" }], error: null };
-  db.tables.profiles = { data: [{ id: ME, display_name: "Ana" }], error: null };
+  db.rpcs.team_members = {
+    data: [
+      { user_id: ME, role: "owner", joined_at: "2026-10-02T00:00:00Z", display_name: "Ana", email: "ana@example.com" },
+      { user_id: "m2", role: "member", joined_at: "2026-10-03T00:00:00Z", display_name: null, email: "bruno@example.com" },
+    ],
+    error: null,
+  };
 }
 
 describe("loadBilling", () => {
@@ -232,7 +238,9 @@ describe("loadBilling", () => {
     expect(state.teams).toHaveLength(1);
     expect(state.teams[0].seats).toEqual({ seats: 3, members: 2, pending: 1 });
     expect(state.teams[0].invites.map((i) => i.email)).toEqual(["bia@example.com"]);
+    expect(state.teams[0].members.map((m) => m.display_name ?? m.email)).toEqual(["Ana", "bruno@example.com"]);
     expect(db.rpc).toContain("team_seats");
+    expect(db.rpc).toContain("team_members");
   });
 
   it("gives a plain member the team's name and plan only", async () => {
@@ -241,6 +249,7 @@ describe("loadBilling", () => {
     expect(state.manages).toBe(false);
     expect(state.teams[0]).toMatchObject({ name: "Produto", role: "member", seats: null, members: [], invites: [] });
     expect(db.rpc).not.toContain("team_seats");
+    expect(db.rpc).not.toContain("team_members");
   });
 
   it("leaves out a team whose checkout was never finished", async () => {
@@ -272,8 +281,8 @@ describe("TeamMembers", async () => {
       subscription: { org_id: TEAM, plan: "team" as const, status: "active", seats: seats.seats, current_period_end: future, cancel_at_period_end: false },
       seats,
       members: [
-        { user_id: ME, role: "owner" as const, name: "Ana", created_at: "2026-10-02T00:00:00Z" },
-        { user_id: "m2", role: "member" as const, name: null, created_at: "2026-10-03T00:00:00Z" },
+        { user_id: ME, role: "owner" as const, joined_at: "2026-10-02T00:00:00Z", display_name: "Ana", email: "ana@example.com" },
+        { user_id: "m2", role: "member" as const, joined_at: "2026-10-03T00:00:00Z", display_name: null, email: "bruno@example.com" },
       ],
       invites: [{ id: "i1", email: "bia@example.com", created_at: "2026-11-01T00:00:00Z" }],
     };
@@ -303,7 +312,8 @@ describe("TeamMembers", async () => {
     const html = render({ seats: 4, members: 2, pending: 1 });
     expect(html.match(/>Remover</g)).toHaveLength(1);
     expect(html).toContain("Ana (você)");
-    expect(html).toContain("Sem nome");
+    expect(html).toContain("bruno@example.com");
+    expect(html).not.toContain("Sem nome");
     expect(html).toContain("bia@example.com");
     expect(html).toContain("Cancelar convite");
     expect(html).toContain("/sign-in?next=/account");

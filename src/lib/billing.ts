@@ -162,11 +162,13 @@ export interface Seats {
   pending: number;
 }
 
+/** A row of `team_members`, which only owners and admins may call. */
 export interface TeamMember {
   user_id: string;
   role: OrgRole;
-  name: string | null;
-  created_at: string;
+  joined_at: string;
+  display_name: string | null;
+  email: string | null;
 }
 
 export interface TeamInvite {
@@ -219,25 +221,19 @@ export function inviteErrorKey(code: string | undefined): InviteErrorKey {
   return "unknown";
 }
 
-const ROLE_ORDER: Record<OrgRole, number> = { owner: 0, admin: 1, member: 2 };
-
 async function teamDetails(orgId: string): Promise<Pick<Team, "seats" | "members" | "invites"> & { failed: boolean }> {
   const db = supabase();
   const [seats, members, invites] = await Promise.all([
     db.rpc("team_seats", { p_org: orgId }),
-    db.from("org_members").select("user_id,role,created_at").eq("org_id", orgId),
+    db.rpc("team_members", { p_org: orgId }),
     db.from("org_invites").select("id,email,created_at").eq("org_id", orgId).is("accepted_at", null).is("revoked_at", null).order("created_at"),
   ]);
-  const rows = (members.data as Omit<TeamMember, "name">[] | null) ?? [];
-  const profiles = rows.length ? await db.from("profiles").select("id,display_name").in("id", rows.map((m) => m.user_id)) : { data: [], error: null };
-  const names = new Map(((profiles.data as { id: string; display_name: string | null }[] | null) ?? []).map((p) => [p.id, p.display_name]));
   return {
     seats: (seats.data as Seats[] | null)?.[0] ?? null,
-    members: rows
-      .map((m) => ({ ...m, name: names.get(m.user_id) ?? null }))
-      .sort((a, b) => ROLE_ORDER[a.role] - ROLE_ORDER[b.role] || a.created_at.localeCompare(b.created_at)),
+    // Already owner first, then by when each one joined.
+    members: (members.data as TeamMember[] | null) ?? [],
     invites: (invites.data as TeamInvite[] | null) ?? [],
-    failed: Boolean(seats.error || members.error || invites.error || profiles.error),
+    failed: Boolean(seats.error || members.error || invites.error),
   };
 }
 
