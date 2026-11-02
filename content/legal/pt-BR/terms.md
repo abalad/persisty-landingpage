@@ -29,7 +29,7 @@ Os preços estão na página de [Preços](/pricing):
 - **Pro:** R$ 9,90 por mês no Brasil, ou US$ 4,90 por mês fora dele.
 - **Team:** R$ 19,90 por assento por mês no Brasil, ou US$ 9,90 por assento por mês fora dele.
 
-A cobrança é mensal, no cartão, pelo Stripe, e a assinatura renova sozinha até você cancelar. Você cancela no portal da assinatura, em Minha conta: o plano continua até o fim do período já pago, sem multa, e o período em curso não é reembolsado. Na primeira compra, você pode desistir em até 7 dias e recebe o valor de volta. No Team, os assentos mudam no mesmo portal, com cobrança proporcional. Se um pagamento não passar, o plano continua por alguns dias e depois volta ao gratuito. Os preços podem mudar; avisamos antes da renovação seguinte.
+A cobrança é mensal, no cartão, pelo Stripe, e a assinatura renova sozinha até você cancelar. Você cancela no portal da assinatura, em Minha conta: o plano continua até o fim do período já pago, sem multa, e o período em curso não é reembolsado. Na primeira compra, você pode desistir em até 7 dias e recebe o valor de volta: é só pedir em [suporte@persisty.app](mailto:suporte@persisty.app). No Team, os assentos mudam no mesmo portal, com cobrança proporcional. Se um pagamento não passar, o plano continua por alguns dias e depois volta ao gratuito. Os preços podem mudar; avisamos antes da renovação seguinte.
 
 A licença paga vale 14 dias sem internet e cobre até 5 computadores por conta. Se o plano terminar, o app volta ao gratuito.
 
