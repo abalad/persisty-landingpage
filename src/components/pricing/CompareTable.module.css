@@ -1,4 +1,6 @@
+/* Positioned so the hidden "included" words stay inside the scroller instead of widening the page on phones. */
 .wrap {
+  position: relative;
   overflow-x: auto;
   border: 1px solid var(--site-hairline);
   border-radius: 14px;
@@ -50,11 +52,25 @@
   font-weight: 500;
 }
 
+/* The current plan's column on its own page: the featured plan's raised night and lime top edge. */
+.table .on {
+  background: #11151c;
+}
+
+.table thead th.on {
+  box-shadow: inset 0 2px 0 var(--color-accent);
+}
+
 .yes {
   color: var(--color-accent);
 }
 
+.later {
+  color: var(--site-muted);
+}
+
 .yes svg,
+.later svg,
 .no svg {
   display: inline-block;
   width: 16px;

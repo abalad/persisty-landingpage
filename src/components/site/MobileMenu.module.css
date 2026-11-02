@@ -39,6 +39,75 @@
   font-variation-settings: "wdth" 104;
 }
 
+.group > summary,
+.plan > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.group > summary::-webkit-details-marker,
+.plan > summary::-webkit-details-marker {
+  display: none;
+}
+
+.group > summary {
+  border-bottom: 1px solid var(--site-hairline);
+  color: var(--site-heading);
+  font-size: 1.25rem;
+  font-weight: 380;
+  font-variation-settings: "wdth" 104;
+}
+
+/* A drawn plus that turns into a minus, like the FAQ's. */
+.group > summary::after,
+.plan > summary::after {
+  content: "+";
+  color: var(--site-muted);
+  font-weight: 300;
+}
+
+.group[open] > summary::after,
+.plan[open] > summary::after {
+  content: "−";
+}
+
+.plan {
+  padding-left: 16px;
+}
+
+.plan > summary {
+  min-height: 48px;
+  border-bottom: 1px solid var(--site-hairline);
+  color: var(--site-body);
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+.plan ul {
+  margin: 0;
+  padding: 4px 0 8px 16px;
+  list-style: none;
+}
+
+.plan .panel a,
+.plan a {
+  min-height: 44px;
+  border-bottom: 0;
+  color: var(--site-body);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  font-variation-settings: "wdth" 100;
+}
+
+.plan a.seeAll {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
 .locale {
   margin-top: 20px;
 }

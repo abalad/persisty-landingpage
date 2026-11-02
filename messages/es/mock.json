@@ -144,54 +144,83 @@
     ]
   },
   "accounts": {
-    "label": "Configuración › Cuentas de IA: tres cuentas de Claude Code con sus ventanas de 5 horas y 7 días, y la rotación activada.",
+    "label": "Configuración › Cuentas de IA: tres cuentas de Claude Code con sus ventanas de 5 horas y 7 días, la rotación activada y el límite de cambio en 90%.",
     "title": "Cuentas de IA",
-    "group": "Claude Code",
+    "group": "Cuentas conectadas",
     "rotation": "Rotación entre cuentas",
-    "rotationHint": "Cada sesión nueva va a la cuenta con más cuota libre en la ventana de 5 h. Las cuentas por encima del 90% quedan fuera hasta renovarse.",
+    "rotationHint": "Las sesiones nuevas de Claude Code van a la cuenta con más cuota libre. Cuando la cuenta de una sesión llega al límite, la sesión pasa a otra con margen al terminar la respuesta y retoma la misma conversación.",
     "thisComputer": "Esta computadora",
-    "sitsOut": "fuera hasta renovar",
-    "renews": "renueva en {time}",
     "newSession": "Nueva sesión de Claude Code",
     "goesTo": "va a",
-    "because": "la de más margen ahora"
+    "because": "la de más margen ahora",
+    "rotationLimit": "Cambiar de cuenta al llegar a",
+    "rotationLimitHint": "Vale para la ventana de 5 h y para la semanal: decide la más llena. Una cuenta en ese punto también queda afuera de las sesiones nuevas.",
+    "rotationResume": "Seguir con la tarea después del cambio",
+    "renewsAt": "5 h se renueva a las {time}",
+    "renewsTime": "14:20"
   },
   "pro": {
-    "label": "El panel lateral de la sesión con las funciones del plan Pro.",
+    "label": "Persisty con una función de Pro abierta:",
     "tabs": {
       "queue": "Cola de pedidos",
       "restore": "Puntos de restauración",
-      "verify": "Verificar al terminar",
+      "verify": "Verificación al terminar",
       "worktree": "Carpeta propia"
     },
     "queue": {
       "text": "Pedido para el agente",
       "draft": "Revisa las pruebas de envío y corrige lo que falle",
       "when": "Cuándo enviar",
-      "whenValue": "Cuando se renueve la ventana de 5 h (14:20)",
+      "idle": "En cuanto el agente quede libre",
+      "window": "Cuando la ventana de 5 h se renueve (14:20)",
+      "at": "A partir de una hora",
       "add": "Poner en la cola",
       "waiting": "En la cola",
       "item1": "Sube la cobertura del módulo de cupones al 80%",
-      "item1When": "cuando se renueve la ventana de 5 h (14:20)",
+      "item1When": "cuando la ventana de 5 h se renueve (14:20)",
       "item2": "Actualiza el README con el nuevo endpoint de envío",
-      "item2When": "en cuanto el agente quede libre",
-      "rule": "Uno a la vez, en orden, solo con el agente esperando el próximo pedido."
+      "item2When": "cuando el agente quede libre"
     },
     "restore": {
       "point1": "Agrega el cálculo de envío por código postal",
-      "point1Meta": "10:42 · revierte 3 archivos y borra 1 creado después",
+      "point1Time": "hace 12 min",
+      "point1Summary": "Vuelve 2 archivos y borra 1 creado después.",
+      "files": [
+        {
+          "name": "quote.ts",
+          "dir": "src/shipping",
+          "kind": "M"
+        },
+        {
+          "name": "table.ts",
+          "dir": "src/shipping",
+          "kind": "M"
+        },
+        {
+          "name": "cp.ts",
+          "dir": "src/shipping",
+          "kind": "A"
+        }
+      ],
       "point2": "Cambia el diseño del carrito",
-      "point2Meta": "09:58 · revierte 5 archivos",
+      "point2Time": "hace 1 h",
       "point3": "Corrige el redondeo del total",
-      "point3Meta": "ayer · revierte 1 archivo",
-      "action": "Restaurar este punto",
-      "note": "Cada pedido al agente guarda el estado de la carpeta antes de que empiece."
+      "point3Time": "ayer",
+      "action": "Restaurar este punto"
     },
     "verify": {
       "chip": "Verificación",
       "passed": "pasó",
-      "failed": "falló (1)",
-      "command": "pnpm test",
+      "menuTitle": "Comandos",
+      "group": "package.json",
+      "commands": [
+        "pnpm test",
+        "pnpm lint",
+        "pnpm dev"
+      ],
+      "menu": "Verificar al terminar con {name}",
+      "menuHint": "Corre cuando el agente se detiene después de cambiar archivos.",
+      "addCommand": "Agregar comando…",
       "lines": [
         {
           "kind": "muted",
@@ -220,20 +249,19 @@
           "kind": "answer",
           "text": "      Tests  26 passed (26)"
         }
-      ],
-      "note": "Corre solo cuando el agente se detiene después de cambiar archivos."
+      ]
     },
     "worktree": {
-      "title": "Nueva sesión en carpeta propia",
-      "branch": "Rama",
+      "badge": "worktree",
       "branchValue": "persist/envio-cp",
-      "folder": "Carpeta",
-      "folderValue": "solo de esta sesión, fuera de tu copia",
-      "close": "Al cerrar la sesión",
-      "keep": "La carpeta se queda",
-      "leave": "Se elimina",
-      "discard": "Se elimina y descarta 2 archivos sin commit",
-      "commits": "La rama guarda 3 commits y nunca se borra."
+      "title": "¿Cerrar la sesión api?",
+      "process": "El proceso en ejecución se va a cerrar.",
+      "dirty": "La carpeta del worktree tiene 2 archivos sin commit.",
+      "ahead": "El branch persist/envio-cp queda con 3 commits que main no tiene.",
+      "keep": "Mantener la carpeta",
+      "remove": "Quitar la carpeta",
+      "discard": "Descartar y quitar",
+      "stays": "El branch persist/envio-cp sigue en el repositorio."
     }
   },
   "editor": {
@@ -355,5 +383,44 @@
         }
       ]
     }
+  },
+  "glimpse": {
+    "auto": "Nueva sesión · Automática · rotación",
+    "worktreeFolder": "~/.persist/worktrees/api-envio-cp",
+    "recoveryTitle": "Informe de restauración",
+    "recoveryRows": [
+      {
+        "name": "api",
+        "note": "Restaurada"
+      },
+      {
+        "name": "web",
+        "note": "Restaurada"
+      },
+      {
+        "name": "worker",
+        "note": "No volvió · la carpeta no está",
+        "tone": "warn"
+      }
+    ],
+    "teamName": "Producto",
+    "teamSeats": "3 de 5 asientos",
+    "teamPeople": [
+      {
+        "name": "Ana Souza",
+        "note": "Dueño"
+      },
+      {
+        "name": "bruno@rota.example",
+        "note": "Invitación pendiente"
+      }
+    ],
+    "teamInvite": "Invitar por e-mail · copiar el enlace"
+  },
+  "teamBilling": {
+    "label": "Mi cuenta › Equipo, en el sitio: el equipo Producto con 3 de 5 asientos, dos personas, una invitación pendiente y la invitación por e-mail.",
+    "title": "Equipo",
+    "team": "Producto",
+    "when": "hace 2 días"
   }
 }

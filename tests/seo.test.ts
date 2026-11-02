@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
+import sitemap from "../src/app/sitemap";
 import { alternatesFor, localizedPath } from "../src/lib/seo";
+import { SITE_URL } from "../src/lib/site";
 
 describe("localizedPath", () => {
   it("leaves Portuguese without a prefix", () => {
@@ -23,5 +25,12 @@ describe("alternatesFor", () => {
       canonical: "/en/pricing",
       languages: { "pt-BR": "/pricing", en: "/en/pricing", es: "/es/pricing", "x-default": "/pricing" },
     });
+  });
+});
+
+describe("sitemap", () => {
+  it("lists the plan pages in every language", () => {
+    const urls = sitemap().map((e) => e.url);
+    for (const u of [`${SITE_URL}/pro`, `${SITE_URL}/en/free`, `${SITE_URL}/es/team`]) expect(urls).toContain(u);
   });
 });

@@ -1,15 +1,15 @@
 import { ArrowDownToLine, Check, CircleDashed } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "@/components/site/Badge";
-import { ButtonLink } from "@/components/site/Button";
+import { ButtonLink, type ButtonSize } from "@/components/site/Button";
 import { SubscribeButton } from "@/components/site/SubscribeButton";
 import type { Locale } from "@/i18n/routing";
-import { PLANS, type Plan } from "@/lib/plans";
+import { SHOWN_PLANS, type Plan } from "@/lib/plans";
 import { currencyFor, formatPlanPrice, formatPrice } from "@/lib/pricing";
 import { contactHref } from "@/lib/site";
 import styles from "./PlanCards.module.css";
 
-/** The four plans side by side. `withFeatures` adds each plan's list (the pricing page). */
+/** The shown plans side by side. `withFeatures` adds each plan's list (the pricing page). */
 export function PlanCards({ withFeatures = false }: { withFeatures?: boolean }) {
   const t = useTranslations("pricing");
   const locale = useLocale() as Locale;
@@ -17,7 +17,7 @@ export function PlanCards({ withFeatures = false }: { withFeatures?: boolean }) 
   return (
     <>
       <div className={styles.grid}>
-        {PLANS.map((plan, i) => (
+        {SHOWN_PLANS.map((plan, i) => (
           <article key={plan.id} className={`${styles.plan} ${plan.id === "pro" ? styles.featured : ""}`} aria-labelledby={`plan-${plan.id}`}>
             <div className={styles.top}>
               <h3 id={`plan-${plan.id}`} className={styles.name}>
@@ -40,7 +40,7 @@ export function PlanCards({ withFeatures = false }: { withFeatures?: boolean }) 
             </div>
             {withFeatures ? (
               <ul className={styles.features}>
-                {i > 0 ? <li className={styles.includes}>{t("includes", { plan: t(`plans.${PLANS[i - 1].id}.name`) })}</li> : null}
+                {i > 0 ? <li className={styles.includes}>{t("includes", { plan: t(`plans.${SHOWN_PLANS[i - 1].id}.name`) })}</li> : null}
                 {plan.features.map((f) => (
                   <li key={f.id} className={styles.feature}>
                     {f.status === "available" ? <Check aria-hidden="true" /> : <CircleDashed aria-hidden="true" style={{ color: "var(--site-muted)" }} />}
@@ -67,23 +67,24 @@ export function PlanCards({ withFeatures = false }: { withFeatures?: boolean }) 
   );
 }
 
-function PlanAction({ plan, label }: { plan: Plan; label: string }) {
+/** A plan's main action: download Free, subscribe to Pro or Team. */
+export function PlanAction({ plan, label, size }: { plan: Plan; label: string; size?: ButtonSize }) {
   if (plan.id === "free") {
     return (
-      <ButtonLink href="/download" variant="secondary" icon={<ArrowDownToLine />}>
+      <ButtonLink href="/download" variant={size === "lg" ? "primary" : "secondary"} size={size} icon={<ArrowDownToLine />}>
         {label}
       </ButtonLink>
     );
   }
   if (plan.id === "enterprise") {
     return (
-      <ButtonLink href={contactHref("enterprise") ?? "/sign-in"} variant="secondary">
+      <ButtonLink href={contactHref("enterprise") ?? "/sign-in"} variant="secondary" size={size}>
         {label}
       </ButtonLink>
     );
   }
   return (
-    <SubscribeButton plan={plan.id} variant={plan.id === "pro" ? "primary" : "secondary"}>
+    <SubscribeButton plan={plan.id} variant={plan.id === "pro" || size === "lg" ? "primary" : "secondary"} size={size}>
       {label}
     </SubscribeButton>
   );

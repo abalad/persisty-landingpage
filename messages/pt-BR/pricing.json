@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Preços",
-    "description": "Gratuito sem conta, Pro por R$ 9,90 por mês, Team por R$ 19,90 por pessoa e Enterprise sob consulta."
+    "description": "Gratuito sem conta, Pro por R$ 9,90 por mês e Team por R$ 19,90 por pessoa."
   },
   "title": "Planos e preços",
   "body": "O núcleo do Persisty é grátis e não pede conta. Os planos pagos liberam a fila de pedidos, o rodízio de contas e os pontos de restauração; para times, também o controle de quem paga.",
@@ -50,21 +50,36 @@
     "verifyOnFinish": "Verificação ao terminar",
     "worktrees": "Pasta própria por sessão (git worktree)",
     "offlineLicense": "Licença que vale 14 dias offline, em 5 aparelhos",
-    "growth": "Métricas do negócio (Growth)",
     "teamBilling": "Cobrança por pessoa, numa fatura só",
-    "teamBoard": "Quadro do time",
-    "finops": "Gasto de IA por projeto, modelo e conta",
+    "teamBoard": "Painel do time ao vivo",
     "policies": "Políticas com auditoria",
     "sso": "SSO e SCIM",
     "modelGateway": "Gateway de modelos",
     "selfHost": "Persisty Cloud na sua infraestrutura",
-    "sourceReview": "Código-fonte para auditoria, sob confidencialidade"
+    "sourceReview": "Código-fonte para auditoria, sob confidencialidade",
+    "gitHosting": "GitHub, GitLab e Bitbucket, com várias contas",
+    "notifications": "Avisos no app e do sistema",
+    "voice": "Ditado por voz, no computador",
+    "trackers": "Começar e concluir sessões numa issue",
+    "agentTools": "Agentes que leem o projeto e as outras sessões",
+    "issueToSession": "Issue que vira sessão",
+    "bestOfN": "Melhor de N: o mesmo pedido em sessões paralelas",
+    "crossReview": "Revisão cruzada ao terminar",
+    "remote": "Persisty Remote, no celular e na web",
+    "autopilot": "Piloto automático com regras",
+    "nightShift": "Turno da noite",
+    "sessionXray": "Raio-X da sessão",
+    "budgets": "Orçamento e regras de modelo",
+    "observability": "Observabilidade de gestão",
+    "teamMemory": "Memória do time"
   },
   "compare": {
     "title": "Compare os planos",
     "feature": "Recurso",
     "yes": "Incluído",
-    "no": "Não incluído"
+    "no": "Não incluído",
+    "current": "este plano",
+    "later": "Planejado, ainda não disponível"
   },
   "faq": {
     "title": "Dúvidas sobre os planos",
@@ -92,10 +107,6 @@
       {
         "q": "Como funciona o Team?",
         "a": "Você dá um nome ao time, escolhe quantos assentos quer e convida as pessoas pelo e-mail, em Minha conta. Assentos e cancelamento ficam no portal da assinatura."
-      },
-      {
-        "q": "Como funciona o Enterprise?",
-        "a": "Combinamos com a sua empresa o que ela precisa: SSO, instalação própria, gateway de modelos e acesso ao código-fonte sob confidencialidade. Esses recursos ainda estão planejados."
       }
     ]
   },

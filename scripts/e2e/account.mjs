@@ -62,13 +62,23 @@ try {
   const text = await b.evaluate("document.body.innerText");
   check("account shows the e-mail", text.includes(email));
   check("account shows the free plan", text.includes("Free"));
-  check("new-version e-mail is on for macOS", text.includes("is out for macOS"));
   await b.shot(`${out}/account.png`);
+
+  await b.evaluate(`[...document.querySelectorAll("nav a")].find((x) => x.getAttribute("href")?.endsWith("/account/notifications")).click()`);
+  await sleep(1500);
+  check("release e-mails have their own address", (await b.evaluate("location.pathname")) === "/en/account/notifications");
+  check("new-version e-mail is on for macOS", (await b.evaluate("document.body.innerText")).includes("is out for macOS"));
+  await b.shot(`${out}/account-notifications.png`);
+
+  await b.send("Page.navigate", { url: `${base}/en/account/devices` });
+  await sleep(3500);
+  const devicesText = await b.evaluate("document.body.innerText");
 
   const user = await (await admin(`users/${userId}`)).json();
   check("notice stored in user metadata", user.user_metadata?.notify_release === true && JSON.stringify(user.user_metadata?.notify_platforms) === '["mac"]', JSON.stringify(user.user_metadata));
 
-  check("device listed", text.includes("MacBook de teste"));
+  check("device listed", devicesText.includes("MacBook de teste"));
+  await b.shot(`${out}/account-devices.png`);
   await b.evaluate(`[...document.querySelectorAll("button")].find((x) => x.textContent.trim() === "Remove").click()`);
   await sleep(400);
   const confirmText = await b.evaluate("document.body.innerText");
@@ -78,11 +88,6 @@ try {
   const left = await (await rest(`devices?id=eq.${deviceId}&select=revoked_at`, { method: "GET" })).json();
   check("device revoked, so the computer is signed out until someone signs in on it", Array.isArray(left) && left.length === 1 && Boolean(left[0].revoked_at), JSON.stringify(left));
   check("device gone from the page", !(await b.evaluate("document.body.innerText")).includes("MacBook de teste"));
-
-  await b.evaluate(`[...document.querySelectorAll("button")].find((x) => x.textContent.includes("Record my interest")).click()`);
-  await sleep(2000);
-  const after = await (await admin(`users/${userId}`)).json();
-  check("Enterprise interest stored", JSON.stringify(after.user_metadata?.interests) === '["enterprise"]', JSON.stringify(after.user_metadata));
 
   await b.evaluate(`[...document.querySelectorAll("button")].find((x) => x.textContent.includes("Sign out")).click()`);
   await sleep(2500);

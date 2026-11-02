@@ -1,7 +1,6 @@
 {
   "tagline": "Seus agentes de IA rodando, organizados por projeto. Feito no Brasil.",
   "product": "Produto",
-  "features": "Funcionalidades",
   "learn": "Aprender",
   "gettingStarted": "Primeiros passos",
   "security": "Segurança",
@@ -11,5 +10,8 @@
   "account": "Minha conta",
   "terms": "Termos de uso",
   "copyright": "© {year} Persisty.",
-  "brand": "Marca"
+  "brand": "Marca",
+  "planFree": "Grátis",
+  "planPro": "Pro",
+  "planTeam": "Team"
 }

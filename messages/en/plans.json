@@ -1,0 +1,215 @@
+{
+  "common": {
+    "comparePlans": "Compare plans",
+    "compareTitle": "Compare the plans",
+    "onThisPage": "On this page",
+    "inPlan": "On {plan}",
+    "docs": "How it works, in the docs",
+    "roadmapTitle": "Coming to {plan}",
+    "roadmapBody": "Planned, not available yet. Each item gets its own design before it is built and shows as available only when it ships in a version.",
+    "freeFine": "No account and no card. The Mac build is signed by Apple; Windows and Linux are previews.",
+    "seePro": "See Pro",
+    "downloadFree": "Download for free",
+    "index": {
+      "free": {
+        "recovery": "Recovery",
+        "projects": "Projects",
+        "states": "Agent states",
+        "editor": "Editor and git",
+        "privacy": "Privacy"
+      },
+      "pro": {
+        "accounts": "Several accounts",
+        "queue": "Request queue",
+        "restore-points": "Restore points",
+        "verify": "Check on finish",
+        "worktree": "Own folder"
+      },
+      "team": {
+        "pro": "Everything in Pro",
+        "billing": "Team billing",
+        "privacy": "Privacy"
+      }
+    },
+    "tried": {
+      "label": "Pro feature",
+      "text": "You tried to use {feature}. It is part of Pro.",
+      "already": "Already subscribed? Sign in with the same account in the app, under Settings › Account.",
+      "price": "{price} a month",
+      "subscribe": "Subscribe to Pro",
+      "close": "Close notice",
+      "names": {
+        "accounts": "several accounts with rotation",
+        "queue": "the request queue",
+        "restore-points": "restore points",
+        "verify": "check on finish",
+        "worktree": "an own folder per session"
+      }
+    }
+  },
+  "pro": {
+    "meta": {
+      "title": "Pro",
+      "description": "Several Claude Code accounts with rotation, a request queue, restore points, check on finish and an own folder per session."
+    },
+    "hero": {
+      "title": "When the quota runs out, the request waits in the queue and the session switches accounts.",
+      "body": "Pro adds to Persisty several Claude Code accounts with rotation, the request queue, a restore point on every request, your tests running when the agent stops and an own folder for each session. For {price} a month."
+    },
+    "sections": {
+      "accounts": {
+        "title": "Several Claude Code accounts, no /login in the middle of the day",
+        "body": "Connect your personal account and your company's. Persisty follows each one's 5-hour and 7-day windows, sends every new session to the one with the most room and, when a session reaches the limit you chose, moves it to another as its answer ends.",
+        "below": "This computer's account, with its live quota.",
+        "here": "As many accounts as you have, with rotation and the switch limit you choose."
+      },
+      "queue": {
+        "title": "The next request already written, waiting its turn",
+        "body": "Write it now and choose when it goes: as soon as the agent is free, when the 5-hour window renews or from a chosen time. One at a time, in order, never in the middle of a job or over a permission prompt.",
+        "below": "You wait for the agent to finish before sending the next one.",
+        "here": "The queue sends the next one when it can, with Persisty open."
+      },
+      "restore-points": {
+        "title": "Take the folder back to before any request",
+        "body": "Each request saves the folder's state before the agent starts. You see what comes back and what would be deleted before you confirm, and restoring keeps the current state as a new point, so you can undo it.",
+        "below": "Points already saved can still be restored.",
+        "here": "A point on every request, up to 50 per session."
+      },
+      "verify": {
+        "title": "Your tests run when the agent stops",
+        "body": "Pick a workspace command, such as pnpm test. When the agent stops after changing files, it runs by itself in the session's folder, and the header says whether it passed, failed or is still running.",
+        "below": "You remember to run the tests after each request.",
+        "here": "The result shows in the session header."
+      },
+      "worktree": {
+        "title": "Two agents in one repository, never in each other's way",
+        "body": "The new session gets a persist/<name> branch in a folder of its own. On closing, Persisty says how many commits the branch keeps and asks whether the folder stays, goes, or goes discarding what was not committed. The branch is never deleted.",
+        "below": "A workspace's sessions edit the same folder.",
+        "here": "A folder and a branch for each session."
+      }
+    },
+    "alsoTitle": "Also in Pro",
+    "alsoBody": "What comes with the subscription.",
+    "allFree": {
+      "name": "Everything in the free plan",
+      "line": "Recovery, projects, agent states, the editor, git, voice, tasks and the network log stay the same."
+    },
+    "faq": {
+      "title": "Questions about Pro",
+      "items": [
+        {
+          "q": "Are queued requests sent while Persisty is closed?",
+          "a": "No. The queue is checked every 10 seconds with Persisty open. With the app closed nothing is sent; when you open it again, the queue carries on where it was."
+        },
+        {
+          "q": "What happens if I stop paying for Pro?",
+          "a": "Persisty goes back to free. Nothing is lost: saved restore points can still be restored and requests already in the queue still count."
+        },
+        {
+          "q": "Do I need internet to use Pro?",
+          "a": "Not all the time. The license is signed and works 14 days offline; the app renews it by itself when there is a connection."
+        },
+        {
+          "q": "On how many computers can I use it?",
+          "a": "On up to 5 computers per account. You see and remove each one in My account."
+        },
+        {
+          "q": "What currency do I pay in?",
+          "a": "Reais in Brazil and dollars elsewhere. You pay by card, through Stripe, and cancel whenever you like in the subscription portal."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Start with the free plan and subscribe when you miss a Pro feature.",
+      "body": "Persisty's core works without an account. Pro reaches the app by itself as soon as you subscribe."
+    }
+  },
+  "free": {
+    "meta": {
+      "title": "Free",
+      "description": "Persisty for free: sessions that come back after a freeze, projects, agent states, the editor, git, voice and tasks, with no account."
+    },
+    "hero": {
+      "title": "Sessions that come back, projects in order and every agent's state, without paying anything.",
+      "body": "Download and use it with no account and no internet: recovery after a freeze, projects with several workspaces, agent states, the editor and git, voice dictation, tasks and issues, and a log of every network call."
+    },
+    "alsoTitle": "Also in the free plan",
+    "alsoBody": "The rest of what the free plan brings, with no account and no time limit.",
+    "faq": {
+      "title": "Questions about the free plan",
+      "items": [
+        {
+          "q": "Does the free plan expire?",
+          "a": "No. Recovery, projects, agent states, the editor, git, voice, tasks and AI usage stay free, with no account and no time limit."
+        },
+        {
+          "q": "Do I need to create an account?",
+          "a": "No. A Persisty account is for the paid plans and for the new-version e-mail. Without one, nothing in the free plan changes."
+        },
+        {
+          "q": "Does it work on Windows and Linux?",
+          "a": "The Mac is the main system, with the app signed and notarised by Apple. Windows and Linux ship as previews: unsigned and not yet tested on real machines."
+        },
+        {
+          "q": "Does my code leave my computer?",
+          "a": "No. Code, terminal output and requests stay on your machine, and every network call the app makes shows up in Settings › Privacy & network."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Download it now and stop losing sessions to a freeze.",
+      "body": "Free, with no account and no time limit. Pro is one click away for when you need it."
+    }
+  },
+  "team": {
+    "meta": {
+      "title": "Team",
+      "description": "Pro for everyone on the team, on one bill: seats, invites by e-mail and what is coming for whoever pays the AI accounts."
+    },
+    "hero": {
+      "title": "Pro for the whole team, on one bill.",
+      "body": "Every person gets everything in Pro: several accounts with rotation, the request queue, restore points, check on finish and an own folder. You choose the seats, invite by e-mail and pay {price} per person, per month."
+    },
+    "pro": {
+      "title": "Everything in Pro for each person",
+      "body": "Pro's five features reach each person's app as soon as they join the team."
+    },
+    "billing": {
+      "title": "Seats, invites and one bill",
+      "body": "Name the team and choose how many seats you want. In My account you invite by e-mail, send the invite link and see who has joined. Seats and cancelling live in the subscription portal.",
+      "below": "Each person subscribes to their own Pro, with their own card.",
+      "here": "One bill for the team, one seat per person.",
+      "link": "Account and license, in the docs"
+    },
+    "privacy": {
+      "title": "Metadata, never code",
+      "body": "Today, Persisty's server gets only what the license and the team need: account, plan, seats and computers. Code, terminal output and requests never leave each person's machine, today and in everything Team gains.",
+      "link": "Security and privacy"
+    },
+    "faq": {
+      "title": "Questions about Team",
+      "items": [
+        {
+          "q": "How does Team work?",
+          "a": "You name the team, choose how many seats you want and invite people by e-mail, in My account. Seats and cancelling live in the subscription portal."
+        },
+        {
+          "q": "How does an invited person join?",
+          "a": "We do not send invite e-mails: you copy the link in My account and send it to them. Whoever signs in with the invited e-mail is on the team and gets Pro in the app."
+        },
+        {
+          "q": "Can I change the number of seats?",
+          "a": "Yes, in the subscription portal, from My account. Each seat is one person, from 1 to 100."
+        },
+        {
+          "q": "Who on the team sees my work?",
+          "a": "Nobody sees another person's code, terminal output or requests. The owner and admins see only the people, the invites and the seats."
+        }
+      ]
+    },
+    "closing": {
+      "title": "One seat per person, one bill for the team.",
+      "body": "Everything in Pro for each person. What is for the team shows on this page with the planned badge until it ships."
+    }
+  }
+}

@@ -46,4 +46,14 @@ describe("site copy", () => {
       expect(Object.keys(crash), locale).not.toContain("closed");
     }
   });
+
+  it("promises Team only that code never leaves the machine, not a fixed list of what the server gets", async () => {
+    const never = { "pt-BR": /nunca saem/, en: /never leave/, es: /nunca salen/ } as const;
+    const tooMuch = /tudo que vier no Team|everything coming to Team|todo lo que venga en Team/;
+    for (const locale of routing.locales) {
+      const body = ((await loadMessages(locale)) as { plans: { team: { privacy: { body: string } } } }).plans.team.privacy.body;
+      expect(body, locale).toMatch(never[locale]);
+      expect(body, locale).not.toMatch(new RegExp(`(conta, plano, assentos e computadores|account, plan, seats and computers|cuenta, plan, asientos y computadoras)[^.]*\\.[^.]*(${tooMuch.source})`));
+    }
+  });
 });

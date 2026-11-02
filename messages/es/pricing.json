@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Precios",
-    "description": "Gratis sin cuenta, Pro por US$ 4,90 al mes, Team por US$ 9,90 por persona y Enterprise a consultar."
+    "description": "Gratis sin cuenta, Pro por US$ 4,90 al mes y Team por US$ 9,90 por persona."
   },
   "title": "Planes y precios",
   "body": "El núcleo de Persisty es gratis y no pide cuenta. Los planes pagos desbloquean la cola de pedidos, la rotación de cuentas y los puntos de restauración; para equipos, también el control para quien paga.",
@@ -50,21 +50,36 @@
     "verifyOnFinish": "Verificación al terminar",
     "worktrees": "Carpeta propia por sesión (git worktree)",
     "offlineLicense": "Licencia válida 14 días sin conexión, en 5 equipos",
-    "growth": "Métricas del negocio (Growth)",
     "teamBilling": "Cobro por persona, en una sola factura",
-    "teamBoard": "Tablero del equipo",
-    "finops": "Gasto de IA por proyecto, modelo y cuenta",
+    "teamBoard": "Panel del equipo en vivo",
     "policies": "Políticas con auditoría",
     "sso": "SSO y SCIM",
     "modelGateway": "Gateway de modelos",
     "selfHost": "Persisty Cloud en tu infraestructura",
-    "sourceReview": "Código fuente para auditoría, bajo confidencialidad"
+    "sourceReview": "Código fuente para auditoría, bajo confidencialidad",
+    "gitHosting": "GitHub, GitLab y Bitbucket, con varias cuentas",
+    "notifications": "Avisos en la app y del sistema",
+    "voice": "Dictado por voz, en tu computadora",
+    "trackers": "Empezar y concluir sesiones en una issue",
+    "agentTools": "Agentes que leen el proyecto y las otras sesiones",
+    "issueToSession": "Issue que se vuelve sesión",
+    "bestOfN": "Mejor de N: el mismo pedido en sesiones paralelas",
+    "crossReview": "Revisión cruzada al terminar",
+    "remote": "Persisty Remote, en el celular y en la web",
+    "autopilot": "Piloto automático con reglas",
+    "nightShift": "Turno de noche",
+    "sessionXray": "Rayos X de la sesión",
+    "budgets": "Presupuesto y reglas de modelo",
+    "observability": "Observabilidad de gestión",
+    "teamMemory": "Memoria del equipo"
   },
   "compare": {
     "title": "Compara los planes",
     "feature": "Función",
     "yes": "Incluido",
-    "no": "No incluido"
+    "no": "No incluido",
+    "current": "este plan",
+    "later": "Planificado, todavía no disponible"
   },
   "faq": {
     "title": "Dudas sobre los planes",
@@ -92,10 +107,6 @@
       {
         "q": "¿Cómo funciona Team?",
         "a": "Le das un nombre al equipo, eliges cuántos asientos quieres e invitas a las personas por e-mail desde Mi cuenta. Los asientos y la cancelación están en el portal de la suscripción."
-      },
-      {
-        "q": "¿Cómo funciona Enterprise?",
-        "a": "Acordamos con tu empresa lo que necesita: SSO, instalación propia, gateway de modelos y acceso al código fuente bajo confidencialidad. Estas funciones todavía están planificadas."
       }
     ]
   },

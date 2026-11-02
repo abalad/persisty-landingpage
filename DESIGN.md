@@ -368,13 +368,28 @@ Grouped items share one container split by hairlines instead of separate cards.
 - **Code field:** JetBrains Mono, 1.375rem, tracked 0.3em, centred.
 
 ### Navigation
-- **Style:** sticky 64px bar on the night ground with a hairline bottom. Logo and wordmark (weight 560, `wdth` 108) left; centred pill links (34px, body grey, hover 4% wash, current page heading-white); locale switcher, ghost sign-in and a medium primary download pill right. Under 900px the links fold into a menu.
+- **Style:** sticky 64px bar on the night ground with a hairline bottom. Logo and wordmark (weight 560, `wdth` 108) left; centred pill links (34px, body grey, hover 4% wash, current page heading-white), "Features" among them as the trigger of the features menu; locale switcher, ghost sign-in and a medium primary download pill right. Under 1000px the links fold into a menu.
 
 ### FAQ
 - **Style:** native disclosure rows between hairlines, 22px vertical padding, question in heading white at 1.0625rem; a drawn plus mark rotates 45 degrees to close. Answer muted, max 68ch.
 
 ### App Window (signature)
 The desktop app redrawn in HTML at full fidelity: macOS traffic lights, top bar with project name and session tabs, project rail (six made-up projects, each with its own logo filling its tile the way an uploaded logo does in the app: Rota, Quintal, Bússola, Maré, Pulso, Vela, invented names and marks, none a real company's; the list is cut at the window's bottom as it scrolls in the app, never stretching the window), terminal in JetBrains Mono, status chips, and a status bar with live 5h and 7d usage bars. Window-ground fill, 1px border, 12-unit radius, window shadow. All sizes in `--u`; it carries `role="img"` with a translated label. Animated states (agents changing state, the crash and recovery sequence, rows returning one by one at 360ms) switch instantly under reduced motion.
+
+### Features menu (nav)
+"Features" in the nav opens a panel hanging 8px under the sticky bar, centred on the page column, on raised night with the popover shadow (it floats) and a 14px corner. Three columns: the plans (Free, Pro, Team) as a vertical tablist, the chosen one on selected night with heading-white text and no side bar; the chosen plan's features in two columns (Lucide icon, name in heading white, one muted line, the Planned badge when it applies) under the plan's name and a lime "Everything in <plan>" arrow link; one feature shown on the right as a glimpse with its title and a line. Hover or arrows switch the plan, Esc closes and gives focus back, a click outside or a route change closes it. Under 1000px it becomes a "Features" group in the mobile menu, one disclosure per plan.
+
+### Plan pages
+`/free`, `/pro` and `/team` open with a two-column head: a page-title statement, a lead, the plan's large action and "Compare plans" on the left; the price on the featured plan's raised panel with its lime top edge on the right. A row of tab-pill links to the page's sections sits under a hairline. Then one section per feature in the home page's pattern (two-column head over the app window), each with the plan's badge and a two-cell strip under the window saying what the plan below gets and what this plan gets. Lists of the rest ("Also in", "Coming to") are hairline rows in two columns, each with an icon, a name and a line; planned rows carry the Planned badge. The comparison (with this plan's column on selected night and a lime top edge in its header), the plan's questions and a centred closing follow. Team's sections carry a "Team" badge styled like Pro's.
+
+### The bar for people the app sent
+`/pro?tried=<anchor>` shows a fixed bar under the nav, on raised night with the popover shadow: what the person tried to use, a line for people who already pay (where to sign in), the price and Subscribe. Anchors scroll below it (`--tried-bar` adds its height to the page's scroll padding). Unknown values show nothing.
+
+### Glimpses
+A glimpse is a cut of the app's interface at 1:1 (the mockup parts with `--u: 1px`): 13px text, chips, meters, list items, on the window ground with an app border and an 8px corner, about 112px tall. Used in the features menu and in My account, decorative to screen readers because the feature's name and line sit beside it as text. Never an illustration or an icon tile.
+
+### My account
+A panel: a 220px menu beside the part shown (overview, plan and billing, team only for people with a team, devices with "n of 5", release e-mails), the current item on selected night with a lime icon; under 900px the menu becomes a row of pill tabs that scrolls sideways. Each part has an h2 title, never an uppercase label. The overview opens with the plan on the featured raised panel (name at page-title weight, the state with a dot and a word, the price), then what the plan unlocks as one hairline-divided panel of rows (glimpse, name, line, where it lives in the app, "How to use it"), what is coming, and the one plan up: Free sees Pro's features as what it would get with Subscribe beside them; Pro sees Team in a quiet raised panel.
 
 ## Do's and Don'ts
 

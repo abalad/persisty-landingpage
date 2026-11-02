@@ -25,6 +25,7 @@ describe("isValidEmail", () => {
 
 describe("safeNext", () => {
   it("keeps an internal path", () => expect(safeNext("/download")).toBe("/download"));
+  it("keeps a part of the account", () => expect(safeNext("/account/devices")).toBe("/account/devices"));
   it("refuses another site", () => expect(safeNext("https://evil.com")).toBe("/account"));
   it("refuses a protocol-relative address", () => expect(safeNext("//evil.com")).toBe("/account"));
   it("refuses a tab that the URL parser drops, turning the path into another host", () => {

@@ -30,7 +30,6 @@ Persisty runs commands with your permissions and opens agents that use tools on 
 | Signed installer on Windows | Planned |
 | Dependency and vulnerability audit in CI | Planned |
 | External security audit before the first large customer | Planned |
-| Source code available for audit on Enterprise, under confidentiality | Planned |
 
 ## Found a problem?
 

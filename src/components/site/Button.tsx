@@ -37,7 +37,7 @@ export function ButtonLink({ href, variant, size, icon, trailingIcon, className,
       {trailingIcon ? <ButtonIcon>{trailingIcon}</ButtonIcon> : null}
     </>
   );
-  if (/^(https?:|mailto:)/.test(href)) {
+  if (/^(https?:|mailto:|#)/.test(href)) {
     return (
       <a className={cls} href={href}>
         {content}

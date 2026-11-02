@@ -30,7 +30,7 @@ export function AccountsMock() {
 
   const accounts: Account[] = [
     { email: "ana@example.com", plan: "Max", five: 34, seven: 61, local: true },
-    { email: "ana@empresa.example", plan: "Team", five: 92, seven: 48, out: t("renews", { time: "1 h 12 min" }) },
+    { email: "ana@empresa.example", plan: "Team", five: 92, seven: 48, out: t("renewsAt", { time: t("renewsTime") }) },
     { email: "dev@rota.example", plan: "Pro", five: placed ? 13 : 12, seven: 22 },
   ];
   const target = 2;
@@ -49,7 +49,7 @@ export function AccountsMock() {
               </span>
               {a.out || a.local ? (
                 <span className={x.boxSub} style={a.out ? { color: "var(--color-warn)" } : undefined}>
-                  {a.out ? `${t("sitsOut")} · ${a.out}` : t("thisComputer")}
+                  {a.out ? a.out : t("thisComputer")}
                 </span>
               ) : null}
             </div>
@@ -75,6 +75,23 @@ export function AccountsMock() {
             <span className={x.boxSub} style={{ whiteSpace: "normal" }}>
               {t("rotationHint")}
             </span>
+          </div>
+          <span className={x.toggle} />
+        </div>
+        <div className={x.boxRow}>
+          <div className={x.boxMain}>
+            <span className={x.boxTitle}>{t("rotationLimit")}</span>
+            <span className={x.boxSub} style={{ whiteSpace: "normal" }}>
+              {t("rotationLimitHint")}
+            </span>
+          </div>
+          <span className={cx(x.field, x.select)} style={{ minWidth: "calc(84 * var(--u))", gap: "calc(8 * var(--u))" }}>
+            90% <span aria-hidden="true">▾</span>
+          </span>
+        </div>
+        <div className={x.boxRow}>
+          <div className={x.boxMain}>
+            <span className={x.boxTitle}>{t("rotationResume")}</span>
           </div>
           <span className={x.toggle} />
         </div>

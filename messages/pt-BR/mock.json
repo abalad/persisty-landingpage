@@ -144,54 +144,83 @@
     ]
   },
   "accounts": {
-    "label": "Configurações › Contas de IA: três contas do Claude Code com as janelas de 5 horas e 7 dias, e o rodízio ligado.",
+    "label": "Configurações › Contas de IA: três contas do Claude Code com as janelas de 5 horas e 7 dias, o rodízio ligado e o limite de troca em 90%.",
     "title": "Contas de IA",
-    "group": "Claude Code",
+    "group": "Contas conectadas",
     "rotation": "Rodízio entre contas",
-    "rotationHint": "Cada sessão nova vai para a conta com mais quota livre na janela de 5 h. Contas acima de 90% ficam de fora até renovar.",
+    "rotationHint": "Sessões novas do Claude Code vão para a conta com mais quota livre. Quando a conta de uma sessão chega ao limite, a sessão passa para outra com folga ao terminar a resposta e retoma a mesma conversa.",
     "thisComputer": "Este computador",
-    "sitsOut": "fora até renovar",
-    "renews": "renova em {time}",
     "newSession": "Nova sessão do Claude Code",
     "goesTo": "vai para",
-    "because": "a de mais folga agora"
+    "because": "a de mais folga agora",
+    "rotationLimit": "Trocar de conta ao chegar em",
+    "rotationLimitHint": "Vale para a janela de 5 h e para a semanal: a mais cheia decide. Uma conta nesse ponto também fica de fora das sessões novas.",
+    "rotationResume": "Continuar a tarefa depois da troca",
+    "renewsAt": "5 h renova às {time}",
+    "renewsTime": "14:20"
   },
   "pro": {
-    "label": "Painel lateral da sessão com os recursos do plano Pro.",
+    "label": "Persisty com um recurso do Pro aberto:",
     "tabs": {
       "queue": "Fila de pedidos",
       "restore": "Pontos de restauração",
-      "verify": "Verificar ao terminar",
+      "verify": "Verificação ao terminar",
       "worktree": "Pasta própria"
     },
     "queue": {
       "text": "Pedido para o agente",
       "draft": "Revise os testes de frete e corrija o que falhar",
       "when": "Quando enviar",
-      "whenValue": "Quando a janela de 5 h renovar (14:20)",
+      "idle": "Assim que o agente ficar livre",
+      "window": "Quando a janela de 5 h renovar (14:20)",
+      "at": "A partir de um horário",
       "add": "Pôr na fila",
       "waiting": "Na fila",
       "item1": "Suba a cobertura do módulo de cupons para 80%",
       "item1When": "quando a janela de 5 h renovar (14:20)",
       "item2": "Atualize o README com o novo endpoint de frete",
-      "item2When": "assim que o agente ficar livre",
-      "rule": "Um por vez, na ordem, só com o agente esperando o próximo pedido."
+      "item2When": "quando o agente ficar livre"
     },
     "restore": {
       "point1": "Adicione o cálculo de frete por CEP",
-      "point1Meta": "10:42 · volta 3 arquivos e apaga 1 criado depois",
+      "point1Time": "há 12 min",
+      "point1Summary": "Volta 2 arquivos e apaga 1 criado depois.",
+      "files": [
+        {
+          "name": "quote.ts",
+          "dir": "src/shipping",
+          "kind": "M"
+        },
+        {
+          "name": "table.ts",
+          "dir": "src/shipping",
+          "kind": "M"
+        },
+        {
+          "name": "cep.ts",
+          "dir": "src/shipping",
+          "kind": "A"
+        }
+      ],
       "point2": "Troque o layout do carrinho",
-      "point2Meta": "09:58 · volta 5 arquivos",
+      "point2Time": "há 1 h",
       "point3": "Corrija o arredondamento do total",
-      "point3Meta": "ontem · volta 1 arquivo",
-      "action": "Restaurar este ponto",
-      "note": "Cada pedido ao agente grava o estado da pasta antes de ele começar."
+      "point3Time": "ontem",
+      "action": "Restaurar este ponto"
     },
     "verify": {
       "chip": "Verificação",
       "passed": "passou",
-      "failed": "falhou (1)",
-      "command": "pnpm test",
+      "menuTitle": "Comandos",
+      "group": "package.json",
+      "commands": [
+        "pnpm test",
+        "pnpm lint",
+        "pnpm dev"
+      ],
+      "menu": "Verificar ao terminar com {name}",
+      "menuHint": "Roda quando o agente para depois de mudar arquivos.",
+      "addCommand": "Adicionar comando…",
       "lines": [
         {
           "kind": "muted",
@@ -220,20 +249,19 @@
           "kind": "answer",
           "text": "      Tests  26 passed (26)"
         }
-      ],
-      "note": "Roda sozinho quando o agente para depois de mudar arquivos."
+      ]
     },
     "worktree": {
-      "title": "Nova sessão em pasta própria",
-      "branch": "Branch",
+      "badge": "worktree",
       "branchValue": "persist/frete-cep",
-      "folder": "Pasta",
-      "folderValue": "só desta sessão, fora da sua cópia",
-      "close": "Ao fechar a sessão",
-      "keep": "A pasta fica",
-      "leave": "Sai",
-      "discard": "Sai e descarta 2 arquivos não commitados",
-      "commits": "O branch guarda 3 commits e nunca é apagado."
+      "title": "Fechar a sessão api?",
+      "process": "O processo em execução será encerrado.",
+      "dirty": "A pasta da worktree tem 2 arquivos não commitados.",
+      "ahead": "O branch persist/frete-cep fica com 3 commits que main não tem.",
+      "keep": "Manter a pasta",
+      "remove": "Remover a pasta",
+      "discard": "Descartar e remover",
+      "stays": "O branch persist/frete-cep continua no repositório."
     }
   },
   "editor": {
@@ -355,5 +383,44 @@
         }
       ]
     }
+  },
+  "glimpse": {
+    "auto": "Nova sessão · Automática · rodízio",
+    "worktreeFolder": "~/.persist/worktrees/api-frete-cep",
+    "recoveryTitle": "Relatório de restauração",
+    "recoveryRows": [
+      {
+        "name": "api",
+        "note": "Restaurada"
+      },
+      {
+        "name": "web",
+        "note": "Restaurada"
+      },
+      {
+        "name": "worker",
+        "note": "Não voltou · pasta sumiu",
+        "tone": "warn"
+      }
+    ],
+    "teamName": "Produto",
+    "teamSeats": "3 de 5 assentos",
+    "teamPeople": [
+      {
+        "name": "Ana Souza",
+        "note": "Dono"
+      },
+      {
+        "name": "bruno@rota.example",
+        "note": "Convite pendente"
+      }
+    ],
+    "teamInvite": "Convidar por e-mail · copiar o link"
+  },
+  "teamBilling": {
+    "label": "Minha conta › Time, no site: o time Produto com 3 de 5 assentos, duas pessoas, um convite pendente e o convite por e-mail.",
+    "title": "Time",
+    "team": "Produto",
+    "when": "há 2 dias"
   }
 }

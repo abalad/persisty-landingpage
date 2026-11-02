@@ -1,0 +1,266 @@
+/*
+ * The panel hangs from the sticky nav bar (its positioned ancestor), centred
+ * on the page column. It floats, so it carries the popover shadow.
+ */
+.root {
+  display: contents;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 34px;
+  padding: 0 10px 0 12px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--site-body);
+  font: inherit;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: color var(--duration-normal) var(--ease-out), background-color var(--duration-normal) var(--ease-out);
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  color: var(--site-heading);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.chevron {
+  width: 15px;
+  height: 15px;
+  color: var(--site-muted);
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.trigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  width: min(var(--page), calc(100vw - 2 * var(--gutter)));
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 236px minmax(0, 1fr);
+  border: 1px solid var(--site-hairline);
+  border-radius: 14px;
+  background: var(--site-ground-raised);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  overflow: hidden;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+/* ---- The plans ------------------------------------------------------------- */
+
+.plans {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+  padding: 10px;
+  border-right: 1px solid var(--site-hairline);
+}
+
+.plan {
+  display: grid;
+  gap: 3px;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--duration-normal) var(--ease-out);
+}
+
+.plan:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.plan[aria-selected="true"] {
+  background: #11151c;
+}
+
+.planName {
+  color: var(--site-body);
+  font-size: 1rem;
+  font-weight: 500;
+  font-variation-settings: "wdth" 104;
+}
+
+.plan[aria-selected="true"] .planName {
+  color: var(--site-heading);
+}
+
+.planLine {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  line-height: 1.45;
+}
+
+/* ---- The chosen plan ------------------------------------------------------- */
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 296px;
+  gap: 24px;
+  padding: 20px 20px 20px 28px;
+}
+
+.body[hidden] {
+  display: none;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--site-hairline);
+}
+
+.headName {
+  color: var(--site-heading);
+  font-size: 1.125rem;
+  font-weight: 450;
+  font-variation-settings: "wdth" 104;
+}
+
+.seeAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent);
+  font-size: var(--small);
+  font-weight: 500;
+}
+
+.seeAll svg {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.seeAll:hover svg {
+  transform: translateX(3px);
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 16px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 10px;
+  border-radius: 10px;
+  transition: background-color var(--duration-normal) var(--ease-out);
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.icon svg {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  color: var(--site-muted);
+}
+
+.item:hover .icon svg {
+  color: var(--site-heading);
+}
+
+.text {
+  display: grid;
+  gap: 3px;
+}
+
+.name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  color: var(--site-heading);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.line {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  line-height: 1.5;
+}
+
+/* ---- One feature, shown ---------------------------------------------------- */
+
+.featured {
+  display: grid;
+  align-self: start;
+  align-content: start;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--site-hairline);
+  border-radius: 12px;
+  background: #11151c;
+  transition: border-color var(--duration-normal) var(--ease-out);
+}
+
+.featured:hover {
+  border-color: var(--pill-secondary-border);
+}
+
+.featuredTitle {
+  margin-top: 8px;
+  color: var(--site-heading);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.featuredBody {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  line-height: 1.5;
+}
+
+@media (max-width: 1160px) {
+  .body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .featured {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger,
+  .chevron,
+  .plan,
+  .item,
+  .seeAll svg,
+  .featured {
+    transition: none;
+  }
+}

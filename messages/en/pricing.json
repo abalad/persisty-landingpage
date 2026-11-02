@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Pricing",
-    "description": "Free with no account, Pro for US$ 4.90 a month, Team for US$ 9.90 per person and Enterprise by contact."
+    "description": "Free with no account, Pro for US$ 4.90 a month and Team for US$ 9.90 per person."
   },
   "title": "Plans and pricing",
   "body": "Persisty's core is free and asks for no account. Paid plans unlock the request queue, account rotation and restore points; for teams, also control for whoever pays.",
@@ -50,21 +50,36 @@
     "verifyOnFinish": "Check on finish",
     "worktrees": "A folder of its own per session (git worktree)",
     "offlineLicense": "Licence valid 14 days offline, on 5 devices",
-    "growth": "Business metrics (Growth)",
     "teamBilling": "Per-person billing on one invoice",
-    "teamBoard": "Team board",
-    "finops": "AI spend by project, model and account",
+    "teamBoard": "Live team board",
     "policies": "Policies with an audit trail",
     "sso": "SSO and SCIM",
     "modelGateway": "Model gateway",
     "selfHost": "Persisty Cloud on your infrastructure",
-    "sourceReview": "Source code for audit, under NDA"
+    "sourceReview": "Source code for audit, under NDA",
+    "gitHosting": "GitHub, GitLab and Bitbucket, with several accounts",
+    "notifications": "In-app and system notifications",
+    "voice": "Voice dictation, on your computer",
+    "trackers": "Start and finish sessions on an issue",
+    "agentTools": "Agents that read the project and the other sessions",
+    "issueToSession": "An issue that becomes a session",
+    "bestOfN": "Best of N: one request in parallel sessions",
+    "crossReview": "Cross-review on finish",
+    "remote": "Persisty Remote, on your phone and the web",
+    "autopilot": "Autopilot with rules",
+    "nightShift": "Night shift",
+    "sessionXray": "Session X-ray",
+    "budgets": "Budgets and model rules",
+    "observability": "Management observability",
+    "teamMemory": "Team memory"
   },
   "compare": {
     "title": "Compare plans",
     "feature": "Feature",
     "yes": "Included",
-    "no": "Not included"
+    "no": "Not included",
+    "current": "this plan",
+    "later": "Planned, not available yet"
   },
   "faq": {
     "title": "Questions about plans",
@@ -92,10 +107,6 @@
       {
         "q": "How does Team work?",
         "a": "You name the team, choose how many seats you want and invite people by e-mail from My account. Seats and cancelling live in the billing portal."
-      },
-      {
-        "q": "How does Enterprise work?",
-        "a": "We agree with your company on what it needs: SSO, your own installation, a model gateway and access to the source code under NDA. These features are still planned."
       }
     ]
   },

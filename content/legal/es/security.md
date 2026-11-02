@@ -30,7 +30,6 @@ Persisty ejecuta comandos con tus permisos y abre agentes que usan herramientas 
 | Instalador firmado en Windows | Planificado |
 | Auditoría de dependencias y vulnerabilidades en el CI | Planificado |
 | Auditoría de seguridad externa antes del primer cliente grande | Planificado |
-| Código fuente disponible para auditoría en Enterprise, bajo confidencialidad | Planificado |
 
 ## ¿Encontraste un problema?
 

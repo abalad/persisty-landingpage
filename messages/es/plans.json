@@ -1,0 +1,215 @@
+{
+  "common": {
+    "comparePlans": "Comparar planes",
+    "compareTitle": "Compara los planes",
+    "onThisPage": "En esta página",
+    "inPlan": "En {plan}",
+    "docs": "Cómo funciona, en los docs",
+    "roadmapTitle": "Lo que viene en {plan}",
+    "roadmapBody": "Planificado, todavía no disponible. Cada punto tiene su propio diseño antes de construirse y aparece como disponible solo cuando sale en una versión.",
+    "freeFine": "Sin cuenta y sin tarjeta. Mac firmado por Apple; Windows y Linux en vista previa.",
+    "seePro": "Conocer Pro",
+    "downloadFree": "Descargar gratis",
+    "index": {
+      "free": {
+        "recovery": "Recuperación",
+        "projects": "Proyectos",
+        "states": "Estados de los agentes",
+        "editor": "Editor y git",
+        "privacy": "Privacidad"
+      },
+      "pro": {
+        "accounts": "Varias cuentas",
+        "queue": "Cola de pedidos",
+        "restore-points": "Puntos de restauración",
+        "verify": "Verificación",
+        "worktree": "Carpeta propia"
+      },
+      "team": {
+        "pro": "Todo lo de Pro",
+        "billing": "Cobro del equipo",
+        "privacy": "Privacidad"
+      }
+    },
+    "tried": {
+      "label": "Función de Pro",
+      "text": "Intentaste usar {feature}. Es parte de Pro.",
+      "already": "¿Ya tienes Pro? Entra con la misma cuenta en la app, en Configuración › Cuenta.",
+      "price": "{price} al mes",
+      "subscribe": "Suscribirme a Pro",
+      "close": "Cerrar aviso",
+      "names": {
+        "accounts": "varias cuentas con rotación",
+        "queue": "la cola de pedidos",
+        "restore-points": "los puntos de restauración",
+        "verify": "la verificación al terminar",
+        "worktree": "la carpeta propia por sesión"
+      }
+    }
+  },
+  "pro": {
+    "meta": {
+      "title": "Pro",
+      "description": "Varias cuentas de Claude Code con rotación, cola de pedidos, puntos de restauración, verificación al terminar y carpeta propia por sesión."
+    },
+    "hero": {
+      "title": "Cuando se acaba la cuota, el pedido espera en la cola y la sesión cambia de cuenta.",
+      "body": "Pro le suma a Persisty varias cuentas de Claude Code con rotación, la cola de pedidos, un punto de restauración en cada pedido, tus pruebas corriendo cuando el agente se detiene y una carpeta propia para cada sesión. Por {price} al mes."
+    },
+    "sections": {
+      "accounts": {
+        "title": "Varias cuentas de Claude Code, sin /login en medio del día",
+        "body": "Conecta tu cuenta personal y la de la empresa. Persisty sigue las ventanas de 5 horas y 7 días de cada una, manda cada sesión nueva a la que tiene más margen y, cuando una sesión llega al límite que elegiste, la pasa a otra al terminar la respuesta.",
+        "below": "La cuenta de esta computadora, con la cuota en vivo.",
+        "here": "Todas las cuentas que tengas, con rotación y el límite de cambio que elijas."
+      },
+      "queue": {
+        "title": "El próximo pedido ya escrito, esperando su turno",
+        "body": "Escríbelo ahora y elige cuándo sale: en cuanto el agente quede libre, cuando la ventana de 5 h se renueve o a partir de una hora. Uno por vez, en orden, nunca en medio de un trabajo ni encima de un pedido de permiso.",
+        "below": "Esperas a que el agente termine para mandar el próximo.",
+        "here": "La cola manda el próximo cuando puede, con Persisty abierto."
+      },
+      "restore-points": {
+        "title": "Vuelve la carpeta a antes de cualquier pedido",
+        "body": "Cada pedido guarda el estado de la carpeta antes de que el agente empiece. Ves lo que vuelve y lo que se borraría antes de confirmar, y restaurar guarda el estado actual como un punto nuevo, para deshacer.",
+        "below": "Los puntos ya guardados se pueden seguir restaurando.",
+        "here": "Un punto en cada pedido, hasta 50 por sesión."
+      },
+      "verify": {
+        "title": "Tus pruebas corren cuando el agente se detiene",
+        "body": "Elige un comando del workspace, como pnpm test. Cuando el agente se detiene después de cambiar archivos, corre solo en la carpeta de la sesión, y el encabezado dice si pasó, si falló o si todavía está en curso.",
+        "below": "Te acuerdas de correr las pruebas después de cada pedido.",
+        "here": "El resultado aparece en el encabezado de la sesión."
+      },
+      "worktree": {
+        "title": "Dos agentes en el mismo repositorio, sin pisarse",
+        "body": "La sesión nueva recibe un branch persist/<nombre> en una carpeta solo suya. Al cerrar, Persisty dice cuántos commits guarda el branch y pregunta si la carpeta queda, sale o sale descartando lo que no tiene commit. El branch nunca se borra.",
+        "below": "Las sesiones de un workspace editan la misma carpeta.",
+        "here": "Una carpeta y un branch para cada sesión."
+      }
+    },
+    "alsoTitle": "También en Pro",
+    "alsoBody": "Lo que viene con la suscripción.",
+    "allFree": {
+      "name": "Todo lo del plan gratis",
+      "line": "Recuperación, proyectos, estados de los agentes, editor, git, voz, tareas y el registro de red siguen igual."
+    },
+    "faq": {
+      "title": "Preguntas sobre Pro",
+      "items": [
+        {
+          "q": "¿Los pedidos de la cola salen con Persisty cerrado?",
+          "a": "No. La cola se revisa cada 10 segundos con Persisty abierto. Con la app cerrada no se envía nada; cuando la abres de nuevo, la cola sigue donde estaba."
+        },
+        {
+          "q": "¿Qué pasa si dejo de pagar Pro?",
+          "a": "Persisty vuelve al plan gratis. No se pierde nada: los puntos de restauración guardados se pueden seguir restaurando y los pedidos que ya estaban en la cola siguen valiendo."
+        },
+        {
+          "q": "¿Necesito internet para usar Pro?",
+          "a": "No todo el tiempo. La licencia está firmada y vale 14 días sin conexión; la app la renueva sola cuando hay red."
+        },
+        {
+          "q": "¿En cuántas computadoras puedo usarlo?",
+          "a": "En hasta 5 computadoras por cuenta. Ves y quitas cada una en Mi cuenta."
+        },
+        {
+          "q": "¿En qué moneda pago?",
+          "a": "En reales en Brasil y en dólares fuera de Brasil. Pagas con tarjeta, por Stripe, y cancelas cuando quieras en el portal de la suscripción."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Empieza con el plan gratis y suscríbete cuando te haga falta una función de Pro.",
+      "body": "El núcleo de Persisty funciona sin cuenta. Pro llega a la app solo en cuanto te suscribes."
+    }
+  },
+  "free": {
+    "meta": {
+      "title": "Gratis",
+      "description": "Persisty gratis: sesiones que vuelven después de un cuelgue, proyectos, estados de los agentes, editor, git, voz y tareas, sin cuenta."
+    },
+    "hero": {
+      "title": "Sesiones que vuelven, proyectos en orden y el estado de cada agente, sin pagar nada.",
+      "body": "Descárgalo y úsalo sin cuenta y sin internet: recuperación después de un cuelgue, proyectos con varios workspaces, estados de los agentes, editor y git, dictado por voz, tareas e issues, y el registro de cada llamada de red."
+    },
+    "alsoTitle": "También en el plan gratis",
+    "alsoBody": "El resto de lo que trae el plan gratis, sin cuenta y sin plazo.",
+    "faq": {
+      "title": "Preguntas sobre el plan gratis",
+      "items": [
+        {
+          "q": "¿El plan gratis vence?",
+          "a": "No. Recuperación, proyectos, estados de los agentes, editor, git, voz, tareas y uso de IA siguen gratis, sin cuenta y sin plazo."
+        },
+        {
+          "q": "¿Necesito crear una cuenta?",
+          "a": "No. La cuenta de Persisty sirve para los planes pagos y para recibir el e-mail de versiones nuevas. Sin ella, nada del plan gratis cambia."
+        },
+        {
+          "q": "¿Funciona en Windows y en Linux?",
+          "a": "Mac es el sistema principal, con la app firmada y notarizada por Apple. Windows y Linux salen como vista previa: sin firma y todavía sin pruebas en máquinas reales."
+        },
+        {
+          "q": "¿Mi código sale de la computadora?",
+          "a": "No. El código, la salida de la terminal y los pedidos quedan en tu máquina, y cada llamada de red que hace la app aparece en Configuración › Privacidad y red."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Descárgalo ahora y no pierdas más una sesión por un cuelgue.",
+      "body": "Gratis, sin cuenta y sin plazo. Pro queda a un clic para cuando lo necesites."
+    }
+  },
+  "team": {
+    "meta": {
+      "title": "Team",
+      "description": "Pro para cada persona del equipo, en una sola factura: asientos, invitaciones por e-mail y lo que viene para quien paga las cuentas de IA."
+    },
+    "hero": {
+      "title": "Pro para todo el equipo, en una sola factura.",
+      "body": "Cada persona recibe todo lo de Pro: varias cuentas con rotación, la cola de pedidos, puntos de restauración, verificación al terminar y carpeta propia. Eliges los asientos, invitas por e-mail y pagas {price} por persona, por mes."
+    },
+    "pro": {
+      "title": "Todo lo de Pro para cada persona",
+      "body": "Las cinco funciones de Pro llegan a la app de cada persona en cuanto entra al equipo."
+    },
+    "billing": {
+      "title": "Asientos, invitaciones y una factura",
+      "body": "Ponle nombre al equipo y elige cuántos asientos quieres. En Mi cuenta invitas por e-mail, mandas el enlace de la invitación y ves quién ya entró. Los asientos y la cancelación están en el portal de la suscripción.",
+      "below": "Cada persona se suscribe a su propio Pro, con su propia tarjeta.",
+      "here": "Una factura para el equipo, un asiento por persona.",
+      "link": "Cuenta y licencia, en los docs"
+    },
+    "privacy": {
+      "title": "Metadatos, nunca código",
+      "body": "Hoy, el servidor de Persisty recibe solo lo que la licencia y el equipo necesitan: cuenta, plan, asientos y computadoras. El código, la salida de la terminal y los pedidos nunca salen de la máquina de cada persona, hoy y en todo lo que Team sume.",
+      "link": "Seguridad y privacidad"
+    },
+    "faq": {
+      "title": "Preguntas sobre Team",
+      "items": [
+        {
+          "q": "¿Cómo funciona Team?",
+          "a": "Le pones nombre al equipo, eliges cuántos asientos quieres e invitas a las personas por e-mail, en Mi cuenta. Los asientos y la cancelación están en el portal de la suscripción."
+        },
+        {
+          "q": "¿Cómo entra la persona invitada?",
+          "a": "No mandamos e-mails de invitación: copias el enlace en Mi cuenta y se lo mandas. Quien entre con el e-mail invitado ya queda en el equipo y recibe Pro en la app."
+        },
+        {
+          "q": "¿Puedo cambiar la cantidad de asientos?",
+          "a": "Sí, en el portal de la suscripción, desde Mi cuenta. Cada asiento es una persona, de 1 a 100."
+        },
+        {
+          "q": "¿Quién del equipo ve mi trabajo?",
+          "a": "Nadie ve el código, la salida de la terminal ni los pedidos de otra persona. El dueño y los admins ven solo las personas, las invitaciones y los asientos."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Un asiento por persona, una factura para el equipo.",
+      "body": "Todo lo de Pro para cada persona. Lo que es del equipo aparece en esta página con la etiqueta de planificado hasta que sale."
+    }
+  }
+}

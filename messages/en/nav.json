@@ -12,5 +12,25 @@
   "menu": "Open menu",
   "close": "Close menu",
   "language": "Language",
-  "account": "My account"
+  "account": "My account",
+  "featuresMenu": {
+    "free": {
+      "line": "The app's core, no account",
+      "seeAll": "Everything in Free",
+      "featuredTitle": "Sessions that come back after a freeze",
+      "featuredBody": "Persisty relaunches what it can and says what it could not bring back."
+    },
+    "pro": {
+      "line": "Accounts, queue and restore points",
+      "seeAll": "Everything in Pro",
+      "featuredTitle": "No more /login in the middle of the day",
+      "featuredBody": "Persisty knows each account's room and sends the new session to the one with the most."
+    },
+    "team": {
+      "line": "Pro for the team, on one bill",
+      "seeAll": "Everything in Team",
+      "featuredTitle": "Seats and invites in My account",
+      "featuredBody": "Everything in Pro for each person, on one bill."
+    }
+  }
 }

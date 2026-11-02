@@ -113,7 +113,7 @@
   "pro": {
     "title": "Line up the next request",
     "body": "The queue delivers your request when the agent is free or the quota renews. Every request saves a restore point.",
-    "link": "Pro features"
+    "link": "Everything in Pro"
   },
   "editor": {
     "title": "Editor, git and notes in the same window",
@@ -140,27 +140,27 @@
         "status": "available"
       },
       {
-        "title": "Team board",
-        "body": "Who is running what right now, and which agent is stuck waiting for someone.",
+        "title": "Live team board",
+        "body": "Who is running what right now, which agent is waiting for someone, and handing a session to a teammate.",
         "status": "planned"
       },
       {
-        "title": "AI spend per project",
-        "body": "Usage aggregated by day, project, model and account, with no individual productivity scores.",
+        "title": "Budgets and model rules",
+        "body": "A spend limit per project, a warning at 80% and the models each project may use.",
+        "status": "planned"
+      },
+      {
+        "title": "Management observability",
+        "body": "Cost per merged PR and per project, and the work accepted or abandoned, with no individual productivity metric.",
         "status": "planned"
       },
       {
         "title": "Policies with an audit trail",
-        "body": "Rules enforced through the agents' hooks and a log that cannot be erased.",
-        "status": "planned"
-      },
-      {
-        "title": "SSO, SCIM and on-premises",
-        "body": "Company sign-in, provisioned accounts and Persisty Cloud running on your own infrastructure.",
+        "body": "Team rules for the agents and a record the agent cannot erase.",
         "status": "planned"
       }
     ],
-    "cta": "Talk to us"
+    "cta": "See Team"
   },
   "pricing": {
     "title": "Start for free",

@@ -113,7 +113,7 @@
   "pro": {
     "title": "Deixe o próximo pedido na fila",
     "body": "A fila entrega o pedido quando o agente ficar livre ou a quota renovar. Cada pedido grava um ponto de restauração.",
-    "link": "Recursos do Pro"
+    "link": "Ver tudo do Pro"
   },
   "editor": {
     "title": "Editor, git e notas na mesma janela",
@@ -140,27 +140,27 @@
         "status": "available"
       },
       {
-        "title": "Quadro do time",
-        "body": "Quem está rodando o quê agora, e qual agente está parado esperando alguém.",
+        "title": "Painel do time ao vivo",
+        "body": "Quem está rodando o quê agora, qual agente espera alguém, e passar uma sessão para um colega.",
         "status": "planned"
       },
       {
-        "title": "Gasto de IA por projeto",
-        "body": "Uso agregado por dia, projeto, modelo e conta, sem métrica individual de produtividade.",
+        "title": "Orçamento e regras de modelo",
+        "body": "Limite de gasto por projeto, aviso em 80% e os modelos permitidos em cada projeto.",
+        "status": "planned"
+      },
+      {
+        "title": "Observabilidade de gestão",
+        "body": "Custo por PR mesclado e por projeto, e o trabalho aceito ou abandonado, sem métrica individual de produtividade.",
         "status": "planned"
       },
       {
         "title": "Políticas com auditoria",
-        "body": "Regras aplicadas pelos hooks dos agentes e um registro que não se apaga.",
-        "status": "planned"
-      },
-      {
-        "title": "SSO, SCIM e instalação na empresa",
-        "body": "Login da empresa, contas provisionadas e o Persisty Cloud rodando na sua infraestrutura.",
+        "body": "Regras do time para os agentes e um registro que o agente não consegue apagar.",
         "status": "planned"
       }
     ],
-    "cta": "Fale com a gente"
+    "cta": "Conhecer o Team"
   },
   "pricing": {
     "title": "Comece grátis",

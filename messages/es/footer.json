@@ -1,7 +1,6 @@
 {
   "tagline": "Tus agentes de IA en marcha, organizados por proyecto. Hecho en Brasil.",
   "product": "Producto",
-  "features": "Funcionalidades",
   "learn": "Aprender",
   "gettingStarted": "Primeros pasos",
   "security": "Seguridad",
@@ -11,5 +10,8 @@
   "account": "Mi cuenta",
   "terms": "Términos de uso",
   "copyright": "© {year} Persisty.",
-  "brand": "Marca"
+  "brand": "Marca",
+  "planFree": "Gratis",
+  "planPro": "Pro",
+  "planTeam": "Team"
 }
