@@ -42,7 +42,7 @@
   list-style: none;
 }
 
-.links a {
+.links > li > a {
   display: inline-flex;
   align-items: center;
   height: 34px;
@@ -53,12 +53,12 @@
   transition: color var(--duration-normal) var(--ease-out), background-color var(--duration-normal) var(--ease-out);
 }
 
-.links a:hover {
+.links > li > a:hover {
   color: var(--site-heading);
   background: rgba(255, 255, 255, 0.04);
 }
 
-.links a[aria-current="page"] {
+.links > li > a[aria-current="page"] {
   color: var(--site-heading);
 }
 

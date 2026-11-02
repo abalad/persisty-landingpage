@@ -1,7 +1,6 @@
 {
   "tagline": "Your AI agents running, organised by project. Made in Brazil.",
   "product": "Product",
-  "features": "Features",
   "learn": "Learn",
   "gettingStarted": "Getting started",
   "security": "Security",
@@ -11,5 +10,8 @@
   "account": "My account",
   "terms": "Terms of use",
   "copyright": "© {year} Persisty.",
-  "brand": "Brand"
+  "brand": "Brand",
+  "planFree": "Free",
+  "planPro": "Pro",
+  "planTeam": "Team"
 }

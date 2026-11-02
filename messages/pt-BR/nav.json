@@ -12,5 +12,25 @@
   "menu": "Abrir menu",
   "close": "Fechar menu",
   "language": "Idioma",
-  "account": "Minha conta"
+  "account": "Minha conta",
+  "featuresMenu": {
+    "free": {
+      "line": "O núcleo do app, sem conta",
+      "seeAll": "Ver tudo do grátis",
+      "featuredTitle": "Sessões que voltam depois de um travamento",
+      "featuredBody": "O Persisty relança o que pode e diz o que não deu para trazer."
+    },
+    "pro": {
+      "line": "Contas, fila e pontos de restauração",
+      "seeAll": "Ver tudo do Pro",
+      "featuredTitle": "Nunca mais um /login no meio do dia",
+      "featuredBody": "O Persisty sabe a folga de cada conta e manda a sessão nova para a que tem mais."
+    },
+    "team": {
+      "line": "O Pro para o time, numa fatura",
+      "seeAll": "Ver tudo do Team",
+      "featuredTitle": "Assentos e convites em Minha conta",
+      "featuredBody": "Tudo do Pro para cada pessoa, numa fatura só."
+    }
+  }
 }

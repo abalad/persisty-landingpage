@@ -13,7 +13,9 @@ export function Footer() {
     {
       title: t("product"),
       links: [
-        { href: "/#product", label: t("features") },
+        { href: "/free", label: t("planFree") },
+        { href: "/pro", label: t("planPro") },
+        { href: "/team", label: t("planTeam") },
         { href: "/pricing", label: nav("pricing") },
         { href: "/download", label: nav("download") },
         { href: "/changelog", label: nav("changelog") },

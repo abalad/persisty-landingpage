@@ -12,5 +12,25 @@
   "menu": "Abrir menú",
   "close": "Cerrar menú",
   "language": "Idioma",
-  "account": "Mi cuenta"
+  "account": "Mi cuenta",
+  "featuresMenu": {
+    "free": {
+      "line": "El núcleo de la app, sin cuenta",
+      "seeAll": "Todo lo del plan gratis",
+      "featuredTitle": "Sesiones que vuelven después de un cuelgue",
+      "featuredBody": "Persisty relanza lo que puede y dice lo que no pudo traer."
+    },
+    "pro": {
+      "line": "Cuentas, cola y puntos de restauración",
+      "seeAll": "Todo lo de Pro",
+      "featuredTitle": "Nunca más un /login en medio del día",
+      "featuredBody": "Persisty conoce el margen de cada cuenta y manda la sesión nueva a la que tiene más."
+    },
+    "team": {
+      "line": "Pro para el equipo, en una factura",
+      "seeAll": "Todo lo de Team",
+      "featuredTitle": "Asientos e invitaciones en Mi cuenta",
+      "featuredBody": "Todo lo de Pro para cada persona, en una sola factura."
+    }
+  }
 }

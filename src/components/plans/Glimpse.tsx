@@ -32,12 +32,12 @@ export function Glimpse({ id }: { id: GlimpseId }) {
         <>
           <div className={styles.row}>
             <AgentGlyph kind="claude" />
-            <span className={styles.name}>ana@example.com</span>
+            <span className={styles.name}>ana@rota.dev</span>
             <Meter label="5 h" value={34} />
           </div>
           <div className={styles.row}>
             <AgentGlyph kind="claude" />
-            <span className={styles.name}>ana@empresa.example</span>
+            <span className={styles.name}>ana@empresa.co</span>
             <Meter label="5 h" value={92} />
           </div>
           <div className={styles.foot}>
