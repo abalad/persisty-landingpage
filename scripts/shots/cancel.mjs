@@ -24,6 +24,12 @@ const key = async (k) => {
 };
 const clickText = (text) => b.evaluate(`(() => { const el = [...document.querySelectorAll("dialog button, dialog label")].find((x) => x.textContent.trim().startsWith(${JSON.stringify(text)})); if (!el) return false; el.click(); return true; })()`);
 const title = () => b.evaluate(`document.getElementById("cancel-title")?.textContent ?? ""`);
+// The step fits its column on a desktop: nothing to scroll inside the dialog.
+const fits = async (width, name) => {
+  if (width !== "desktop") return;
+  const [scroll, client] = JSON.parse(await b.evaluate(`JSON.stringify((() => { const c = document.querySelector("dialog [class*=content]"); return [c.scrollHeight, c.clientHeight]; })())`));
+  check(`desktop: ${name} fits without scrolling`, scroll <= client + 1, `${scroll} of ${client}`);
+};
 
 try {
   for (const width of ["desktop", "mobile"]) {
@@ -33,19 +39,23 @@ try {
     await sleep(1200);
     await clickText("Está caro");
     await captureViewport(b, join(out, `1-reason-${width}.png`));
+    await fits(width, "the reason");
     check(`${width}: no sideways scroll`, (await b.evaluate("document.documentElement.scrollWidth <= window.innerWidth")) === true);
     await clickText("Continuar");
     await sleep(900);
-    check(`${width}: the discount comes second`, /pagar menos/.test(await title()), await title());
+    check(`${width}: the discount comes second`, /25% de desconto/.test(await title()), await title());
     await captureViewport(b, join(out, `2-discount-${width}.png`));
+    await fits(width, "the discount");
     await clickText("Não, continuar cancelando");
     await sleep(900);
     check(`${width}: then the free month`, /30 dias/.test(await title()), await title());
     await captureViewport(b, join(out, `3-free-${width}.png`));
+    await fits(width, "the free month");
     await clickText("Não, cancelar");
     await sleep(900);
     check(`${width}: then the confirmation`, /Cancelar o Pro/.test(await title()), await title());
     await captureViewport(b, join(out, `4-confirm-${width}.png`));
+    await fits(width, "the confirmation");
     await clickText("Confirmar cancelamento");
     await sleep(1400);
     await captureViewport(b, join(out, `5-done-${width}.png`));
@@ -87,7 +97,7 @@ try {
     await captureViewport(b, join(out, `${name}-confirm-desktop.png`));
   }
 
-  // The still picture for browsers without WebGL: the mascot, sad, at twice the size.
+  // The still picture for browsers without WebGL: the mascot, puzzled, at twice the size.
   await b.send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 900, deviceScaleFactor: 2, mobile: false });
   await open(b, `${base}${preview}?open=1`, 4000);
   const r = JSON.parse(await b.evaluate(`JSON.stringify(document.querySelector("dialog canvas")?.getBoundingClientRect() ?? null)`));

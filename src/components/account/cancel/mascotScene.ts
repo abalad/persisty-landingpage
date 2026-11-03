@@ -3,7 +3,11 @@ import { createMascot, type Mascot } from "@/components/studio/mascot";
 import { createMaterials, DARK } from "@/components/studio/parts";
 
 /** How the mascot takes each step of cancelling. */
-export type CancelMood = "sad" | "hopeful" | "pleading" | "goodbye" | "celebrate";
+/**
+ * `puzzled`: asked why, a head tilt and a scratch, wondering rather than sad.
+ * `settled`: the plan is cancelled as the person wanted; neither sad nor glad, a small calm smile and a nod.
+ */
+export type CancelMood = "puzzled" | "hopeful" | "pleading" | "goodbye" | "celebrate" | "settled";
 
 export interface CancelScene {
   setMood(mood: CancelMood): void;
@@ -21,6 +25,10 @@ interface Pose {
   mouth: number;
   /** How open the eyes are. */
   eyes: number;
+  /** One eye opens more than the other, as a raised brow would: 0 even. */
+  squint: number;
+  /** The mouth pushed to one side: 0 centred. */
+  mouthX: number;
   /** How bright the antenna shines, 0–1. */
   glow: number;
   y: number;
@@ -30,11 +38,12 @@ const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 
 /** The still face of each mood; `pose` adds the movement on top. */
 const BASE: Record<CancelMood, Pose> = {
-  sad: { headX: 0.34, headZ: -0.06, armL: [0.06, -0.05], armR: [0.06, 0.05], mouth: -0.8, eyes: 0.55, glow: 0.04, y: -0.015 },
-  hopeful: { headX: -0.14, headZ: 0.12, armL: [-0.32, -0.22], armR: [-0.32, 0.22], mouth: 0.55, eyes: 1.05, glow: 0.9, y: 0 },
-  pleading: { headX: 0.06, headZ: 0.2, armL: [-1.38, 0.32], armR: [-1.38, -0.32], mouth: -0.25, eyes: 1.15, glow: 0.5, y: 0 },
-  goodbye: { headX: 0.2, headZ: -0.08, armL: [0.05, -0.05], armR: [-2.55, 0.42], mouth: -0.55, eyes: 0.75, glow: 0.2, y: -0.01 },
-  celebrate: { headX: -0.22, headZ: 0, armL: [-2.85, -0.5], armR: [-2.85, 0.5], mouth: 1, eyes: 1, glow: 1, y: 0 },
+  puzzled: { headX: -0.08, headZ: 0.26, armL: [0.04, -0.05], armR: [-2.75, -0.42], mouth: -0.12, eyes: 1.02, squint: 0.2, mouthX: 0.035, glow: 0.3, y: 0 },
+  hopeful: { headX: -0.14, headZ: 0.12, armL: [-0.32, -0.22], armR: [-0.32, 0.22], mouth: 0.55, eyes: 1.05, squint: 0, mouthX: 0, glow: 0.9, y: 0 },
+  pleading: { headX: 0.06, headZ: 0.2, armL: [-1.38, 0.32], armR: [-1.38, -0.32], mouth: -0.25, eyes: 1.15, squint: 0, mouthX: 0, glow: 0.5, y: 0 },
+  goodbye: { headX: 0.2, headZ: -0.08, armL: [0.05, -0.05], armR: [-2.55, 0.42], mouth: -0.55, eyes: 0.75, squint: 0, mouthX: 0, glow: 0.2, y: -0.01 },
+  celebrate: { headX: -0.22, headZ: 0, armL: [-2.85, -0.5], armR: [-2.85, 0.5], mouth: 1, eyes: 1, squint: 0, mouthX: 0, glow: 1, y: 0 },
+  settled: { headX: 0.04, headZ: 0.07, armL: [0.02, -0.04], armR: [0.02, 0.04], mouth: 0.32, eyes: 0.88, squint: 0, mouthX: 0, glow: 0.45, y: 0 },
 };
 
 /** The pose at a moment: the mood's face, breathing, and what each mood does over time. */
@@ -43,8 +52,11 @@ function pose(mood: CancelMood, s: number, still: boolean): Pose {
   if (still) return p;
   p.y += Math.sin(s * 2.1) * 0.008;
   switch (mood) {
-    case "sad":
-      p.headZ += Math.sin(s * 0.7) * 0.04;
+    case "puzzled":
+      // The head sways a little, the hand scratches in short bursts and the antenna flickers as if thinking.
+      p.headZ += Math.sin(s * 0.9) * 0.05;
+      if (s % 2.8 < 1.1) p.armR[1] += Math.sin(s * 14) * 0.07;
+      p.glow += Math.max(0, Math.sin(s * 2.4)) * 0.35;
       break;
     case "hopeful":
       p.y += Math.max(0, Math.sin(s * 2.6)) * 0.02;
@@ -62,6 +74,12 @@ function pose(mood: CancelMood, s: number, still: boolean): Pose {
       p.armL[1] += Math.sin(s * 11) * 0.12;
       p.armR[1] -= Math.sin(s * 11) * 0.12;
       break;
+    case "settled": {
+      // One slow nod every few seconds: "done, all set".
+      const t = s % 3.4;
+      if (t < 0.7) p.headX += Math.sin((t / 0.7) * Math.PI) * 0.14;
+      break;
+    }
   }
   return p;
 }
@@ -118,7 +136,7 @@ export function createCancelScene(canvas: HTMLCanvasElement, { reduced }: { redu
   const mascot: Mascot = createMascot(materials);
   scene.add(mascot.group);
 
-  let mood: CancelMood = "sad";
+  let mood: CancelMood = "puzzled";
   let current: Pose = pose(mood, 0, true);
   let frame = 0;
   let asleep = false;
@@ -137,8 +155,11 @@ export function createCancelScene(canvas: HTMLCanvasElement, { reduced }: { redu
     // A smile is the lower half of the ring; a frown, a smaller upper half set a little lower.
     mascot.smile.rotation.z = p.mouth >= 0 ? Math.PI : 0;
     mascot.smile.position.y = p.mouth >= 0 ? -0.06 : -0.11;
+    mascot.smile.position.x = p.mouthX;
     mascot.smile.scale.set(p.mouth >= 0 ? 1 : 0.72, Math.max(0.2, Math.abs(p.mouth) * (p.mouth >= 0 ? 1 : 0.7)), 1);
-    for (const eye of mascot.eyes) eye.scale.y = 1.22 * (blink ? 0.08 : p.eyes);
+    mascot.eyes.forEach((eye, i) => {
+      eye.scale.y = 1.22 * (blink ? 0.08 : p.eyes * (1 + (i === 0 ? p.squint : -p.squint)));
+    });
     mascot.glow.intensity = 0.05 + p.glow * 0.25;
     (mascot.antenna.material as THREE.MeshStandardMaterial).emissiveIntensity = 0.15 + p.glow * 3;
     shadow.scale.setScalar(1 - Math.max(0, p.y) * 2.2);
@@ -159,6 +180,8 @@ export function createCancelScene(canvas: HTMLCanvasElement, { reduced }: { redu
       armR: [lerp(current.armR[0], target.armR[0], k), lerp(current.armR[1], target.armR[1], k)],
       mouth: lerp(current.mouth, target.mouth, k * 1.4),
       eyes: lerp(current.eyes, target.eyes, k),
+      squint: lerp(current.squint, target.squint, k),
+      mouthX: lerp(current.mouthX, target.mouthX, k),
       glow: lerp(current.glow, target.glow, k),
       y: lerp(current.y, target.y, Math.min(1, k * 2)),
     };

@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import styles from "./Button.module.css";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost";
+/** `danger`: the graphite pill in coral, for the button that ends something (a subscription). */
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
 export type ButtonSize = "md" | "lg";
 
 export function buttonClass(variant: ButtonVariant = "primary", size: ButtonSize = "md", extra?: string) {
