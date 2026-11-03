@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { discountedCents, REASONS, retentionErrorKey, steps, type RetentionStatus } from "../src/lib/retention";
+import { discountedCents, readStatus, REASONS, retentionErrorKey, steps, type RetentionStatus } from "../src/lib/retention";
 
-const status = (over: Partial<RetentionStatus> = {}): RetentionStatus => ({ offers: { discount: true, free_month: true }, periodEnd: "2026-12-03T12:00:00.000Z", cancelAtPeriodEnd: false, refund: null, discountUntil: null, price: null, ...over });
+const status = (over: Partial<RetentionStatus> = {}): RetentionStatus => ({ offers: { discount: true, free_month: true }, periodEnd: "2026-12-03T12:00:00.000Z", cancelAtPeriodEnd: false, refund: null, discountUntil: null, price: null, pendingDiscount: null, ...over });
 
 describe("cancelling", () => {
   it("offers the six reasons the function knows", () => {
@@ -27,5 +27,16 @@ describe("cancelling", () => {
     expect(retentionErrorKey(403, "not_refundable")).toBe("not_refundable");
     expect(retentionErrorKey(500, "internal")).toBe("unknown");
     expect(retentionErrorKey(409, "already_cancelling")).toBe("unknown");
+  });
+
+  it("goes straight to the refund for a plan already set to end inside the 7 days", () => {
+    expect(steps(status({ refund: { amount: 990, currency: "BRL" } }), false, true)).toEqual(["confirm"]);
+  });
+
+  it("reads which offer is running, so the account can say the next charge is free", () => {
+    expect(readStatus({ pending_discount: "free_month" }).pendingDiscount).toBe("free_month");
+    expect(readStatus({ pending_discount: "discount" }).pendingDiscount).toBe("discount");
+    expect(readStatus({ pending_discount: "gift" }).pendingDiscount).toBeNull();
+    expect(readStatus({}).pendingDiscount).toBeNull();
   });
 });

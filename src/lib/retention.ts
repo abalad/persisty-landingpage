@@ -21,6 +21,8 @@ export interface RetentionStatus {
   discountUntil: string | null;
   /** What the plan charges now, per seat, in the currency it is paid in. */
   price: { amount: number; currency: Currency } | null;
+  /** The offer from cancelling now running on the plan (no other is offered meanwhile). */
+  pendingDiscount: Offer | null;
 }
 
 /** 25% off the way Stripe rounds a percentage: the discount to the nearest cent, taken off. */
@@ -28,8 +30,13 @@ export function discountedCents(cents: number): number {
   return cents - Math.round(cents * 0.25);
 }
 
-/** The steps of cancelling: the offers left, none for a personal subscription that a team's plan already covers. */
-export function steps(status: RetentionStatus, duplicate: boolean): CancelStep[] {
+/**
+ * The steps of cancelling: the offers left, none for a personal subscription
+ * that a team's plan already covers; `refundOnly` (a plan already set to end,
+ * inside the 7 days) goes straight to the refund.
+ */
+export function steps(status: RetentionStatus, duplicate: boolean, refundOnly = false): CancelStep[] {
+  if (refundOnly) return ["confirm"];
   const offers: CancelStep[] = duplicate ? [] : (["discount", "free_month"] as const).filter((o) => status.offers[o]);
   return ["reason", ...offers, "confirm"];
 }
@@ -83,5 +90,6 @@ export function readStatus(data: Record<string, unknown>): RetentionStatus {
     refund: refund && typeof refund.amount === "number" ? { amount: refund.amount, currency: currency(refund.currency) } : null,
     discountUntil: typeof data.discount_until === "string" ? data.discount_until : null,
     price: price && typeof price.amount === "number" ? { amount: price.amount, currency: currency(price.currency) } : null,
+    pendingDiscount: data.pending_discount === "discount" || data.pending_discount === "free_month" ? data.pending_discount : null,
   };
 }

@@ -7,8 +7,8 @@ import { buttonClass, ButtonLink } from "@/components/site/Button";
 import { SubscribeButton } from "@/components/site/SubscribeButton";
 import type { Locale } from "@/i18n/routing";
 import { planSummary, subscribeOptions } from "@/lib/account";
-import { formatPlanPrice } from "@/lib/pricing";
-import { readStatus, retention } from "@/lib/retention";
+import { formatPlanPrice, formatPrice } from "@/lib/pricing";
+import { readStatus, retention, type RetentionStatus } from "@/lib/retention";
 import { useAccount } from "../AccountProvider";
 import { CancelFlow } from "../cancel/CancelFlow";
 import styles from "../account.module.css";
@@ -19,18 +19,18 @@ export function BillingPanel() {
   const locale = useLocale() as Locale;
   const { billing, notice, manage, opening, reloadBilling, setStatus } = useAccount();
   const summary = planSummary(billing, notice === "waiting");
-  const [flow, setFlow] = useState<{ orgId?: string; plan: "pro" | "team"; duplicate: boolean } | null>(null);
+  const [flow, setFlow] = useState<{ orgId?: string; plan: "pro" | "team"; duplicate: boolean; refundOnly?: boolean } | null>(null);
   const [undoing, setUndoing] = useState<string | null>(null);
-  const [discountUntil, setDiscountUntil] = useState<string | null>(null);
+  const [live, setLive] = useState<RetentionStatus | null>(null);
   const mainOrg = billing?.entitlement.org_id ?? undefined;
   const stripeBacked = Boolean(billing?.manages && billing.subscription?.stripe_subscription_id);
 
-  // Whether an offer from cancelling is running on the plan, to say until when.
+  // What cancelling left running on the plan (an offer), and whether a first-week refund is still owed.
   useEffect(() => {
     if (!stripeBacked) return;
     let alive = true;
     void retention("status", { orgId: mainOrg }).then((res) => {
-      if (alive && res.ok) setDiscountUntil(readStatus(res.data).discountUntil);
+      if (alive && res.ok) setLive(readStatus(res.data));
     });
     return () => {
       alive = false;
@@ -92,8 +92,16 @@ export function BillingPanel() {
                 .join(" · ") || (plan === "free" ? t("plan.none") : "")}
             </span>
             {pastDue ? <span className={`${styles.rowText} ${styles.statusError}`}>{t("plan.pastDue")}</span> : null}
-            {discountUntil && !ends ? <span className={styles.rowText}>{t("cancel.offerActive", { date: dateFormat.format(new Date(discountUntil)) })}</span> : null}
+            {stripeBacked && live?.pendingDiscount === "free_month" && !ends ? <span className={styles.rowText}>{t("cancel.offerFree")}</span> : null}
+            {stripeBacked && live?.pendingDiscount === "discount" && live.discountUntil && !ends ? (
+              <span className={styles.rowText}>{t("cancel.offerActive", { date: dateFormat.format(new Date(live.discountUntil)) })}</span>
+            ) : null}
             {stripeBacked && manages ? cancelControl("plan", ends, () => setFlow({ orgId: mainOrg, plan: paidPlan, duplicate: false }), mainOrg) : null}
+            {stripeBacked && manages && ends && live?.refund ? (
+              <button type="button" className={styles.textAction} onClick={() => setFlow({ orgId: mainOrg, plan: paidPlan, duplicate: false, refundOnly: true })}>
+                {t("cancel.refundOpen", { amount: formatPrice(locale, live.refund.amount, live.refund.currency, { explicit: true }) })}
+              </button>
+            ) : null}
           </div>
           {plan === "free" ? (
             <ButtonLink href="/pricing" variant="secondary" trailingIcon={<ArrowRight />}>
@@ -148,6 +156,7 @@ export function BillingPanel() {
           orgId={flow.orgId}
           plan={flow.plan}
           duplicate={flow.duplicate}
+          refundOnly={flow.refundOnly}
           teamName={viaTeam}
           onClose={(changed) => {
             setFlow(null);

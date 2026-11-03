@@ -25,6 +25,8 @@ interface Props {
   onClose: (changed: boolean) => void;
   /** The retention call; fixtures pass a stand-in so the dialog can be seen without an account. */
   api?: typeof retention;
+  /** A plan already set to end, inside the 7 days of a first purchase: straight to the refund. */
+  refundOnly?: boolean;
 }
 
 /** What the person loses at the period's end, by plan: the catalog's names. */
@@ -41,7 +43,7 @@ const MOOD: Record<CancelStep, CancelMood> = { reason: "sad", discount: "hopeful
  * taking each step. Staying is always the lime button; going on is always a
  * visible link. Escape or the close button leave the plan as it is.
  */
-export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = retention }: Props) {
+export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = retention, refundOnly = false }: Props) {
   const t = useTranslations("auth.account.cancel");
   const plans = useTranslations("pricing.plans");
   const names = useTranslations("pricing.features");
@@ -58,6 +60,11 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
   const [busy, setBusy] = useState<RetentionAction | null>(null);
   const [error, setError] = useState<RetentionErrorKey | null>(null);
   const [done, setDone] = useState<Done | null>(null);
+  /** The refund was refused by the server: the confirmation falls back to cancelling at the period's end. */
+  const [refundRefused, setRefundRefused] = useState(false);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  /** When the current step appeared: the button that ends the plan ignores clicks for a moment, so a double click on "No" never confirms. */
+  const shownAt = useRef(0);
 
   useEffect(() => {
     dialog.current?.showModal();
@@ -72,11 +79,17 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     };
   }, [orgId, api]);
 
-  const flow = status ? steps(status, duplicate) : (["reason"] as CancelStep[]);
+  const flow = status ? steps(status, duplicate, refundOnly) : (["reason"] as CancelStep[]);
   const at = Math.min(index, flow.length - 1);
   const step = flow[at];
   // The offers already on screen up to this step: the final call says which were shown.
   const shown = flow.slice(0, at + 1).filter((s): s is Offer => s === "discount" || s === "free_month");
+
+  // Each step (and the result) takes the focus to its title, so a screen reader hears it and no button carries over.
+  useEffect(() => {
+    shownAt.current = performance.now();
+    titleRef.current?.focus();
+  }, [step, done, status]);
 
   const close = () => {
     dialog.current?.close();
@@ -89,7 +102,10 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     setError(null);
     const res = await api(action, { orgId, reason, details, offers: shown });
     setBusy(null);
-    if (!res.ok) return setError(res.error);
+    if (!res.ok) {
+      if (action === "refund" && res.error === "not_refundable") setRefundRefused(true);
+      return setError(res.error);
+    }
     setDone(outcome);
   }
 
@@ -98,7 +114,12 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
   const money = (cents: number, currency: "BRL" | "USD") => formatPrice(locale, cents, currency, { explicit: true });
   const full = status?.price ?? priceFor(locale, plan === "team" ? "team" : "pro");
   const fullCents = "amount" in full ? full.amount : full.cents;
-  const refund = status?.refund ?? null;
+  const refund = refundRefused ? null : (status?.refund ?? null);
+  /** `at`: the click's own time stamp, on the same clock as `performance.now()`. */
+  const ending = (at: number, action: RetentionAction, outcome: Done) => {
+    if (at - shownAt.current < 450) return;
+    void act(action, outcome);
+  };
 
   const keepButton = (
     <button type="button" className={buttonClass("primary", "lg")} onClick={() => void act("keep", "kept")} disabled={busy !== null} aria-busy={busy === "keep"}>
@@ -119,7 +140,7 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     title = t(`done.${done}`, { plan: planName, date });
     body = done === "cancelled" ? <p className={styles.lead}>{t("undoHint")}</p> : null;
     actions = (
-      <button type="button" className={buttonClass("secondary", "lg")} onClick={close} autoFocus>
+      <button type="button" className={buttonClass("secondary", "lg")} onClick={close}>
         {t("close")}
       </button>
     );
@@ -201,10 +222,12 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     );
   } else {
     title = refund ? t("refundTitle") : t("confirmTitle", { plan: planName });
-    body = duplicate ? (
+    body = refund ? (
+      <p className={styles.lead}>
+        {t("refundBody", { amount: money(refund.amount, refund.currency), plan: planName })} {duplicate ? t("duplicateBody", { name: teamName ?? "" }) : null}
+      </p>
+    ) : duplicate ? (
       <p className={styles.lead}>{t("duplicateBody", { name: teamName ?? "" })}</p>
-    ) : refund ? (
-      <p className={styles.lead}>{t("refundBody", { amount: money(refund.amount, refund.currency), plan: planName })}</p>
     ) : (
       <>
         <p className={styles.lead}>
@@ -220,13 +243,14 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
       <>
         {keepButton}
         <button
+          key="end"
           type="button"
           className={buttonClass("secondary", "lg")}
-          onClick={() => void (refund && !duplicate ? act("refund", "refunded") : act("cancel", "cancelled"))}
+          onClick={(e) => (refund ? ending(e.timeStamp, "refund", "refunded") : ending(e.timeStamp, "cancel", "cancelled"))}
           disabled={busy !== null}
           aria-busy={busy === "cancel" || busy === "refund"}
         >
-          {refund && !duplicate ? t("refundConfirm", { amount: money(refund.amount, refund.currency) }) : t("confirm")}
+          {refund ? t("refundConfirm", { amount: money(refund.amount, refund.currency) }) : t("confirm")}
         </button>
       </>
     );
@@ -255,7 +279,7 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
             </button>
           </div>
           <div className={styles.body} key={done ?? step}>
-            <h2 id="cancel-title" className={styles.title}>
+            <h2 id="cancel-title" className={styles.title} ref={titleRef} tabIndex={-1}>
               {title}
             </h2>
             {body}
@@ -266,7 +290,9 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
               </p>
             ) : null}
           </div>
-          <div className={styles.actions}>{actions}</div>
+          <div className={styles.actions} key={`actions-${done ?? step}`}>
+            {actions}
+          </div>
         </div>
       </div>
     </dialog>

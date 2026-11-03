@@ -62,6 +62,16 @@ try {
   check("Escape closes it", (await b.evaluate(`!document.querySelector("dialog")`)) === true);
   check("focus goes back to what opened it", (await b.evaluate(`document.activeElement?.id`)) === "opener", await b.evaluate(`document.activeElement?.tagName + "#" + document.activeElement?.id`));
 
+  // A double click on "No, cancel" must not land on the button that ends the plan.
+  await open(b, `${base}${preview}?open=1&used=discount`, 3500);
+  await sleep(800);
+  await clickText("Continuar");
+  await sleep(600);
+  await b.evaluate(`(() => { const no = [...document.querySelectorAll("dialog button")].find((x) => x.textContent.trim().startsWith("Não, cancelar")); no.click(); setTimeout(() => { const end = [...document.querySelectorAll("dialog button")].find((x) => x.textContent.trim().startsWith("Confirmar")); end?.click(); }, 60); })()`);
+  await sleep(900);
+  check("a double click on No does not confirm", /Cancelar o Pro/.test(await title()), await title());
+  check("the step's title takes the focus", (await b.evaluate(`document.activeElement?.id`)) === "cancel-title");
+
   for (const [name, query] of [["refund", "refund=1"], ["duplicate", "dup=1"], ["team", "plan=team"]]) {
     await open(b, `${base}${preview}?open=1&${query}`, 3500);
     await sleep(800);
