@@ -35,7 +35,7 @@ const LOSES: Record<"pro" | "team", string[]> = {
   team: ["teamBilling", "accountRotation", "requestQueue"],
 };
 
-const MOOD: Record<CancelStep, CancelMood> = { reason: "sad", discount: "hopeful", free_month: "pleading", confirm: "goodbye" };
+const MOOD: Record<CancelStep, CancelMood> = { reason: "puzzled", discount: "hopeful", free_month: "pleading", confirm: "goodbye" };
 
 /** "28 de outubro", with the year only when it is not this one. */
 function dayOf(locale: Locale, iso: string): string {
@@ -117,7 +117,7 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     setDone(outcome);
   }
 
-  const mood: CancelMood = done ? (done === "cancelled" || done === "refunded" ? "goodbye" : "celebrate") : MOOD[step];
+  const mood: CancelMood = done ? (done === "cancelled" || done === "refunded" ? "settled" : "celebrate") : MOOD[step];
   const date = status?.periodEnd ? new Intl.DateTimeFormat(locale, { dateStyle: "long" }).format(new Date(status.periodEnd)) : "";
   const day = status?.periodEnd ? dayOf(locale, status.periodEnd) : "";
   const money = (cents: number, currency: "BRL" | "USD") => formatPrice(locale, cents, currency, { explicit: true });

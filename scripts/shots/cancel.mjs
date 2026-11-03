@@ -97,7 +97,7 @@ try {
     await captureViewport(b, join(out, `${name}-confirm-desktop.png`));
   }
 
-  // The still picture for browsers without WebGL: the mascot, sad, at twice the size.
+  // The still picture for browsers without WebGL: the mascot, puzzled, at twice the size.
   await b.send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 900, deviceScaleFactor: 2, mobile: false });
   await open(b, `${base}${preview}?open=1`, 4000);
   const r = JSON.parse(await b.evaluate(`JSON.stringify(document.querySelector("dialog canvas")?.getBoundingClientRect() ?? null)`));
