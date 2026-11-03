@@ -19,6 +19,8 @@ export interface RetentionStatus {
   refund: { amount: number; currency: Currency } | null;
   /** When the discount now on the plan ends. */
   discountUntil: string | null;
+  /** What the plan charges now, per seat, in the currency it is paid in. */
+  price: { amount: number; currency: Currency } | null;
 }
 
 /** 25% off the way Stripe rounds a percentage: the discount to the nearest cent, taken off. */
@@ -72,11 +74,14 @@ export async function retention(action: RetentionAction, body: RetentionBody = {
 export function readStatus(data: Record<string, unknown>): RetentionStatus {
   const offers = (data.offers ?? {}) as { discount?: boolean; free_month?: boolean };
   const refund = data.refund as { amount?: number; currency?: string } | null | undefined;
+  const price = data.price as { amount?: number; currency?: string } | null | undefined;
+  const currency = (c: unknown): Currency => (String(c).toUpperCase() === "BRL" ? "BRL" : "USD");
   return {
     offers: { discount: Boolean(offers.discount), free_month: Boolean(offers.free_month) },
     periodEnd: typeof data.period_end === "string" ? data.period_end : null,
     cancelAtPeriodEnd: data.cancel_at_period_end === true,
-    refund: refund && typeof refund.amount === "number" ? { amount: refund.amount, currency: (String(refund.currency).toUpperCase() === "BRL" ? "BRL" : "USD") as Currency } : null,
+    refund: refund && typeof refund.amount === "number" ? { amount: refund.amount, currency: currency(refund.currency) } : null,
     discountUntil: typeof data.discount_until === "string" ? data.discount_until : null,
+    price: price && typeof price.amount === "number" ? { amount: price.amount, currency: currency(price.currency) } : null,
   };
 }

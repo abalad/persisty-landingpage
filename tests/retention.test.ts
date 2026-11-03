@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { discountedCents, REASONS, retentionErrorKey, steps, type RetentionStatus } from "../src/lib/retention";
 
-const status = (over: Partial<RetentionStatus> = {}): RetentionStatus => ({ offers: { discount: true, free_month: true }, periodEnd: "2026-12-03T12:00:00.000Z", cancelAtPeriodEnd: false, refund: null, discountUntil: null, ...over });
+const status = (over: Partial<RetentionStatus> = {}): RetentionStatus => ({ offers: { discount: true, free_month: true }, periodEnd: "2026-12-03T12:00:00.000Z", cancelAtPeriodEnd: false, refund: null, discountUntil: null, price: null, ...over });
 
 describe("cancelling", () => {
   it("offers the six reasons the function knows", () => {
