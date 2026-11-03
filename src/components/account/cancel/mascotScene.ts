@@ -134,9 +134,10 @@ export function createCancelScene(canvas: HTMLCanvasElement, { reduced }: { redu
     mascot.armLeft.rotation.z = -0.18 + p.armL[1];
     mascot.armRight.rotation.x = p.armR[0];
     mascot.armRight.rotation.z = 0.18 + p.armR[1];
+    // A smile is the lower half of the ring; a frown, a smaller upper half set a little lower.
     mascot.smile.rotation.z = p.mouth >= 0 ? Math.PI : 0;
-    mascot.smile.position.y = p.mouth >= 0 ? -0.06 : -0.1;
-    mascot.smile.scale.set(1, Math.max(0.2, Math.abs(p.mouth)), 1);
+    mascot.smile.position.y = p.mouth >= 0 ? -0.06 : -0.11;
+    mascot.smile.scale.set(p.mouth >= 0 ? 1 : 0.72, Math.max(0.2, Math.abs(p.mouth) * (p.mouth >= 0 ? 1 : 0.7)), 1);
     for (const eye of mascot.eyes) eye.scale.y = 1.22 * (blink ? 0.08 : p.eyes);
     mascot.glow.intensity = 0.05 + p.glow * 0.25;
     (mascot.antenna.material as THREE.MeshStandardMaterial).emissiveIntensity = 0.15 + p.glow * 3;
@@ -188,6 +189,13 @@ export function createCancelScene(canvas: HTMLCanvasElement, { reduced }: { redu
       renderer.setPixelRatio(Math.min(dpr, 2));
       renderer.setSize(width, height, false);
       camera.aspect = width / Math.max(1, height);
+      // Fit the whole body (about 1.8 high and 1.3 wide with its arms up) in the column or the phone's band,
+      // standing in the lower part with room above the antenna.
+      const tan = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      const z = Math.max(0.92 / tan, 0.66 / (tan * camera.aspect));
+      const centerY = (z * tan) - 0.28;
+      camera.position.set(0, centerY + 0.08, z);
+      camera.lookAt(0, centerY, 0);
       camera.updateProjectionMatrix();
       draw();
     },

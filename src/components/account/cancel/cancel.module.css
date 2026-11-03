@@ -23,8 +23,8 @@
 .frame {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
-  min-height: 540px;
-  max-height: calc(100dvh - 32px);
+  /* One height for every step, so the dialog does not jump between them. */
+  height: min(720px, calc(100dvh - 32px));
   border: 1px solid var(--site-hairline);
   border-radius: 18px;
   background: var(--site-ground-raised);
@@ -56,9 +56,10 @@
 /* ---- The step -------------------------------------------------------------- */
 
 .content {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
+  min-height: 0;
   padding: 22px 32px 28px;
   overflow-y: auto;
 }
@@ -101,6 +102,7 @@
 }
 
 .body {
+  flex: 1 0 auto;
   display: grid;
   align-content: start;
   gap: 18px;
@@ -166,7 +168,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 11px 14px;
+  padding: 9px 14px;
   color: var(--site-body);
   cursor: pointer;
   transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
@@ -216,7 +218,7 @@
 
 .details {
   width: 100%;
-  min-height: 76px;
+  min-height: 64px;
   padding: 10px 12px;
   border: 1px solid var(--pill-secondary-border);
   border-radius: 10px;
@@ -382,7 +384,7 @@
   .frame {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: 168px minmax(0, 1fr);
-    min-height: 0;
+    height: calc(100dvh - 32px);
   }
 
   .mascot {

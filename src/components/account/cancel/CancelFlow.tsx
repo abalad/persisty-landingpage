@@ -117,6 +117,7 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
 
   if (done) {
     title = t(`done.${done}`, { plan: planName, date });
+    body = done === "cancelled" ? <p className={styles.lead}>{t("undoHint")}</p> : null;
     actions = (
       <button type="button" className={buttonClass("secondary", "lg")} onClick={close} autoFocus>
         {t("close")}
@@ -146,7 +147,7 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
         </fieldset>
         <label className={styles.detailsLabel}>
           {t("detailsLabel")}
-          <textarea className={styles.details} value={details} maxLength={1000} rows={3} onChange={(e) => setDetails(e.target.value)} />
+          <textarea className={styles.details} value={details} maxLength={1000} rows={2} onChange={(e) => setDetails(e.target.value)} />
           <span className={styles.hint}>{t("detailsHint")}</span>
         </label>
       </>
