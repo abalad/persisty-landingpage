@@ -56,4 +56,13 @@ describe("site copy", () => {
       expect(body, locale).not.toMatch(new RegExp(`(conta, plano, assentos e computadores|account, plan, seats and computers|cuenta, plan, asientos y computadoras)[^.]*\\.[^.]*(${tooMuch.source})`));
     }
   });
+
+  it("says the planned Remote needs Persisty open on the computer, and puts the phone first", async () => {
+    const open = { "pt-BR": /Persisty aberto/, en: /Persisty open/, es: /Persisty abierto/ } as const;
+    for (const locale of routing.locales) {
+      const m = (await loadMessages(locale)) as { pricing: { features: Record<string, string> }; features: Record<string, { line: string }> };
+      expect(m.features.remote.line, locale).toMatch(open[locale]);
+      expect(m.pricing.features.remote, locale).toMatch(/iPhone/);
+    }
+  });
 });
