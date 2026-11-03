@@ -1,11 +1,12 @@
 /*
  * The cancelling dialog: it floats, so it carries the window's shadow; the
- * mascot stands in its own column on the selected night, the step on the
- * raised night beside it. Staying is the lime pill, going on a quiet link.
+ * mascot stands in its own column on the selected night with its line in a
+ * bubble over its head, the step on the raised night beside it. Staying is
+ * the lime pill, going on a quiet link, ending the plan the coral pill.
  */
 
 .dialog {
-  width: min(800px, calc(100vw - 2 * var(--gutter)));
+  width: min(840px, calc(100vw - 2 * var(--gutter)));
   max-width: none;
   max-height: calc(100dvh - 32px);
   margin: auto;
@@ -22,9 +23,9 @@
 
 .frame {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  /* One height for every step, so the dialog does not jump between them. */
-  height: min(720px, calc(100dvh - 32px));
+  grid-template-columns: 280px minmax(0, 1fr);
+  /* One height for every step, so the dialog does not jump between them; each step is cut to fill it. */
+  height: min(488px, calc(100dvh - 32px));
   border: 1px solid var(--site-hairline);
   border-radius: 18px;
   background: var(--site-ground-raised);
@@ -35,12 +36,66 @@
   overflow: hidden;
 }
 
-/* ---- The mascot ------------------------------------------------------------ */
+/* ---- The mascot and its line ---------------------------------------------- */
 
 .mascot {
-  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
   border-right: 1px solid var(--site-hairline);
   background: #11151c;
+}
+
+.say {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 108px;
+  padding: 24px 22px 0;
+}
+
+.bubble {
+  position: relative;
+  max-width: 100%;
+  margin: 0;
+  padding: 11px 16px 12px;
+  border: 1px solid var(--pill-secondary-border);
+  border-radius: 14px;
+  background: var(--pill-secondary-bg);
+  color: var(--site-heading);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
+  transform-origin: 50% 100%;
+  animation: say 280ms var(--ease-out);
+}
+
+/* The tail, pointing down at the antenna. */
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-right: 1px solid var(--pill-secondary-border);
+  border-bottom: 1px solid var(--pill-secondary-border);
+  background: var(--pill-secondary-bg);
+  transform: rotate(45deg);
+}
+
+@keyframes say {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.94);
+  }
+}
+
+.stage {
+  position: relative;
+  min-height: 0;
 }
 
 .mascotCanvas,
@@ -50,7 +105,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  object-position: center 70%;
+  object-position: center bottom;
 }
 
 /* ---- The step -------------------------------------------------------------- */
@@ -60,7 +115,7 @@
   flex-direction: column;
   min-width: 0;
   min-height: 0;
-  padding: 22px 32px 28px;
+  padding: 20px 32px 28px;
   overflow-y: auto;
 }
 
@@ -105,9 +160,19 @@
   flex: 1 0 auto;
   display: grid;
   align-content: start;
-  gap: 18px;
-  padding-top: 18px;
+  gap: 14px;
+  padding-top: 12px;
   animation: enter 180ms var(--ease-out);
+}
+
+/* The result: the title, a line and Close, in the middle of the column. */
+.bodyDone {
+  align-content: center;
+  padding-bottom: 48px;
+}
+
+.doneActions {
+  padding-top: 8px;
 }
 
 @keyframes enter {
@@ -118,9 +183,10 @@
 }
 
 .title {
-  max-width: 20ch;
+  max-width: 24ch;
+  margin-bottom: 2px;
   color: var(--site-heading);
-  font-size: clamp(1.5rem, 1.25rem + 0.9vw, 1.875rem);
+  font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
   font-weight: 360;
   font-variation-settings: "wdth" 104;
   letter-spacing: -0.02em;
@@ -136,6 +202,12 @@
   max-width: 52ch;
   color: var(--site-muted);
   line-height: 1.55;
+}
+
+.hint {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  line-height: 1.5;
 }
 
 .loading {
@@ -157,10 +229,11 @@
   }
 }
 
-/* ---- Reasons: one shared panel split by hairlines -------------------------- */
+/* ---- Reasons: one shared panel, two columns split by hairlines ------------- */
 
 .reasons {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0;
   padding: 0;
   border: 1px solid var(--site-hairline);
@@ -171,15 +244,22 @@
 .reason {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 9px 14px;
+  gap: 11px;
+  min-height: 48px;
+  padding: 10px 14px;
   color: var(--site-body);
+  font-size: 0.9375rem;
+  line-height: 1.3;
   cursor: pointer;
   transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
 }
 
-.reason + .reason {
+.reason:nth-of-type(n + 3) {
   border-top: 1px solid var(--site-hairline);
+}
+
+.reason:nth-of-type(even) {
+  border-left: 1px solid var(--site-hairline);
 }
 
 .reason:hover {
@@ -215,9 +295,6 @@
 
 .detailsLabel {
   display: grid;
-  gap: 8px;
-  color: var(--site-body);
-  font-size: var(--small);
 }
 
 .details {
@@ -231,7 +308,11 @@
   font: inherit;
   font-size: 0.9375rem;
   line-height: 1.5;
-  resize: vertical;
+  resize: none;
+}
+
+.details::placeholder {
+  color: var(--site-muted);
 }
 
 .details:focus {
@@ -240,28 +321,29 @@
   box-shadow: 0 0 0 3px rgba(198, 242, 78, 0.18);
 }
 
-.hint {
-  color: var(--site-muted);
-  font-size: var(--tiny);
-}
-
 /* ---- The offers: the featured plan's panel, with its lime top edge -------- */
 
 .offer {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  gap: 8px 20px;
-  padding: 20px 22px;
+  gap: 8px;
+  padding: 16px 22px 18px;
   border: 1px solid var(--site-hairline);
   border-radius: 14px;
   background: #11151c;
   box-shadow: inset 0 2px 0 var(--color-accent);
 }
 
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  margin: 0;
+}
+
 .offerBig {
   color: var(--site-heading);
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 300;
   font-variation-settings: "wdth" 106;
   font-feature-settings: "tnum";
@@ -269,9 +351,54 @@
   line-height: 1;
 }
 
-.offer p {
+.offerHuge {
+  font-size: 4rem;
+  /* The tabular zero is slashed; a lone "30" reads better with the plain one. */
+  font-feature-settings: normal;
+}
+
+.per {
   color: var(--site-body);
+  font-size: 1rem;
+}
+
+.was {
+  margin-left: 6px;
+  color: var(--site-muted);
+  font-size: 1rem;
+  font-feature-settings: "tnum";
+}
+
+.terms {
+  color: var(--site-muted);
+  font-size: var(--small);
   line-height: 1.5;
+}
+
+.gains {
+  display: grid;
+  gap: 14px;
+  margin: 12px 0 0;
+  padding: 18px 0 4px;
+  border-top: 1px solid var(--site-hairline);
+  list-style: none;
+}
+
+.gains li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--site-body);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.gains svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  color: var(--color-accent);
 }
 
 .loses {
@@ -293,41 +420,86 @@
 }
 
 .loses li {
-  display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
+  display: flex;
+  align-items: center;
   gap: 12px;
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--site-hairline);
+  color: var(--site-heading);
+  font-size: var(--small);
+}
+
+.losesIcon {
+  display: inline-flex;
 }
 
 .losesIcon svg {
   width: 16px;
   height: 16px;
-  margin-top: 2px;
   color: var(--site-muted);
 }
 
-.loses b {
-  display: block;
+/* ---- The confirmation: what holds until when, then two facts -------------- */
+
+.sheet {
+  display: grid;
+  margin: 0;
+  border: 1px solid var(--site-hairline);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sheet > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 16px;
+  padding: 14px 16px;
+}
+
+/* Now, on the selected night; what comes after, on the raised one. */
+.sheet > div:first-child {
+  background: #11151c;
+}
+
+.sheet > div + div {
+  border-top: 1px solid var(--site-hairline);
+}
+
+.sheet dt {
+  color: var(--site-muted);
+  font-size: var(--small);
+}
+
+.sheet dd {
+  margin: 0;
   color: var(--site-heading);
   font-size: var(--small);
   font-weight: 500;
 }
 
-.loses li span span {
-  color: var(--site-muted);
-  font-size: var(--tiny);
+.facts {
+  display: grid;
+  gap: 12px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--site-body);
+  font-size: var(--small);
   line-height: 1.5;
 }
 
-.facts {
-  display: grid;
-  gap: 8px;
-  margin: 0;
-  padding: 0 0 0 18px;
-  color: var(--site-body);
-  font-size: var(--small);
-  line-height: 1.55;
+.facts svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  color: var(--site-muted);
 }
 
 .error {
@@ -355,7 +527,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 20px;
-  padding-top: 24px;
+  padding-top: 22px;
 }
 
 .onward {
@@ -383,17 +555,58 @@
   cursor: default;
 }
 
-/* Phones: the mascot becomes a band on top, and the step scrolls under it. */
+/*
+ * Phones: a sheet at the bottom, as tall as its step; the mascot and its
+ * bubble share a band on top, and a step too long for the screen scrolls
+ * under it.
+ */
 @media (max-width: 720px) {
+  .dialog {
+    margin: auto auto 16px;
+  }
+
   .frame {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: 168px minmax(0, 1fr);
-    height: calc(100dvh - 32px);
+    height: auto;
+    max-height: calc(100dvh - 32px);
   }
 
   .mascot {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: "stage say";
     border-right: 0;
     border-bottom: 1px solid var(--site-hairline);
+  }
+
+  .say {
+    grid-area: say;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 14px 18px 14px 6px;
+  }
+
+  .stage {
+    grid-area: stage;
+  }
+
+  .bubble {
+    padding: 10px 13px;
+    font-size: var(--small);
+    text-align: left;
+    transform-origin: 0 50%;
+  }
+
+  /* The tail, pointing left at the mascot. */
+  .bubble::after {
+    left: -7px;
+    top: 50%;
+    bottom: auto;
+    margin: -6px 0 0;
+    border-right: 0;
+    border-left: 1px solid var(--pill-secondary-border);
   }
 
   .content {
@@ -416,10 +629,29 @@
   .offerBig {
     font-size: 2.25rem;
   }
+
+  .offerHuge {
+    font-size: 3.25rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .reasons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reason:nth-of-type(n + 2) {
+    border-top: 1px solid var(--site-hairline);
+  }
+
+  .reason:nth-of-type(even) {
+    border-left: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .body {
+  .body,
+  .bubble {
     animation: none;
   }
 

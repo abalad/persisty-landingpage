@@ -6,11 +6,13 @@ import styles from "./cancel.module.css";
 
 /**
  * The mascot of the cancelling dialog, in full body and in 3D like the rest
- * of the site; three.js loads only once the dialog is open. With reduced
- * motion it holds each face still. Without WebGL, or with Save-Data, a still
- * picture stands in. Decoration: every step says in words what it is.
+ * of the site, with its line for the step in a bubble above its head;
+ * three.js loads only once the dialog is open. With reduced motion it holds
+ * each face still. Without WebGL, or with Save-Data, a still picture stands
+ * in. Decoration: every step says in words what it is, so the column is
+ * hidden from screen readers, bubble included.
  */
-export function CancelMascot({ mood }: { mood: CancelMood }) {
+export function CancelMascot({ mood, line }: { mood: CancelMood; line: string }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const scene = useRef<CancelScene | null>(null);
   const moodRef = useRef(mood);
@@ -52,12 +54,21 @@ export function CancelMascot({ mood }: { mood: CancelMood }) {
 
   return (
     <div className={styles.mascot} aria-hidden="true">
-      {fallback ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img className={styles.mascotStill} src="/art/mascot-cancel.png" alt="" />
-      ) : (
-        <canvas ref={canvas} className={styles.mascotCanvas} />
-      )}
+      <div className={styles.say}>
+        {line ? (
+          <p key={line} className={styles.bubble}>
+            {line}
+          </p>
+        ) : null}
+      </div>
+      <div className={styles.stage}>
+        {fallback ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className={styles.mascotStill} src="/art/mascot-cancel.png" alt="" />
+        ) : (
+          <canvas ref={canvas} className={styles.mascotCanvas} />
+        )}
+      </div>
     </div>
   );
 }

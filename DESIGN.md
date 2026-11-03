@@ -268,7 +268,7 @@ Cool graphite neutrals in two tiers (page and app window), one lime accent, and 
 - **Amber** (status-warn): waiting for you, permission pending, "Preview", "In development", usage bars at 90% or more.
 - **Blue** (status-info): working.
 - **Lime** (lime, same token as the accent): idle, OK, "Available".
-- **Coral** (status-danger): errors and invalid fields.
+- **Coral** (status-danger): errors and invalid fields, and the text and edge of the pill that ends a subscription.
 - **Slate** (status-neutral): "Planned" and neutral app states.
 - Each has a 14% wash for chip and badge fills.
 
@@ -346,6 +346,7 @@ Soft, quiet pills; the lime one is the only bright object on a dark page.
 - **Secondary:** graphite fill with a graphite border and heading-white text; hover lifts fill and border one step.
 - **Ghost:** transparent, body-grey text; hover adds a 4% white wash and heading-white text (nav sign-in).
 - **Arrow link:** lime text, weight 500, trailing arrow that slides 3px on hover.
+- **Danger:** the graphite pill with coral text and a coral edge at 32%; hover fills it with the coral wash. Only for the button that ends something: "Cancel subscription" beside "Manage subscription" on the right of a plan in My account, and the last button of the cancelling dialog.
 
 ### Badges
 - **Style:** 22px pill, 0.75rem weight 500, a 6px dot plus a word. Available (lime on its wash), Preview (amber on its wash, hollow dot: a download that is out but unsigned and not tested on real machines), In development (amber on its wash), Planned (slate wash, hollow dot), Pro (transparent with a 1px lime inset ring at 45%).
@@ -392,7 +393,7 @@ A glimpse is a cut of the app's interface at 1:1 (the mockup parts with `--u: 1p
 A panel: a 220px menu beside the part shown (overview, plan and billing, team only for people with a team, devices with "n of 5", release e-mails), the current item on selected night with a lime icon; under 900px the menu becomes a row of pill tabs that scrolls sideways. Each part has an h2 title, never an uppercase label. The overview opens with the plan on the featured raised panel (name at page-title weight, the state with a dot and a word, the price), then what the plan unlocks as one hairline-divided panel of rows (glimpse, name, line, where it lives in the app, "How to use it"), what is coming, and the one plan up: Free sees Pro's features as what it would get with Subscribe beside them; Pro sees Team in a quiet raised panel.
 
 ### Cancelling dialog
-A native modal dialog on raised night with the window's shadow and an 18px corner, one height for every step: the mascot in full body and in 3D in its own column on selected night (a band of 168px on phones), the step beside it. Moods per step: sad (reason), hopeful (25%), pleading (30 days), goodbye (confirm), celebrate (stays). Staying is always the lime pill; going on is always a visible underlined text link; the button that ends the plan is a graphite pill that ignores clicks for 450ms after its step appears. Each step moves the focus to its title. Reasons are radio rows in one hairline-divided panel, the selected one on the lime wash. Offers sit on the featured panel with the lime top edge; the big number is heading white, never lime. Copy never blames the person (`tests/copy.test.ts`).
+A native modal dialog, 840px wide, on raised night with the window's shadow and an 18px corner, one height for every step (488px) and nothing to scroll on a desktop: each step is cut to fill it (a title, one panel, at most a short list), never a paragraph. The mascot stands in full body and in 3D in its own 280px column on selected night, under a bubble (graphite pill fill and border, 14px corner, heading-white text, a tail pointing at the antenna) with one line of its own per step; the bubble pops in from its tail. On phones the dialog is a sheet at the bottom, as tall as its step, and the mascot and its bubble share a 168px band, the tail pointing left. Moods per step: sad (reason), hopeful (25%), pleading (30 days), goodbye (confirm), celebrate (stays). Staying is always the lime pill; going on is always a visible underlined text link; the button that ends the plan is the coral danger pill and ignores clicks for 450ms after its step appears. Each step moves the focus to its title. Reasons are radio rows in one hairline-divided panel in two columns (one under 520px), the selected one on the lime wash; the optional text is a two-line field with its label as placeholder. Offers sit on the featured panel with the lime top edge; the big figure (the price after the discount at 2.5rem, "30" at 4rem without tabular figures) is heading white, never lime; the free month lists what it means with lime checks. The confirmation is a hairline sheet of what holds until when (now on selected night) and two facts with icons. Copy never blames the person (`tests/copy.test.ts`).
 
 ## Do's and Don'ts
 

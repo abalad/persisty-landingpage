@@ -23,7 +23,7 @@ export function BillingPanel() {
   const summary = planSummary(billing, notice === "waiting");
   const [flow, setFlow] = useState<{ orgId?: string; plan: "pro" | "team"; duplicate: boolean; refundOnly?: boolean; simulated?: boolean } | null>(null);
   const query = useSearchParams();
-  // `?simular=cancelamento`: the dialog with made-up answers, for trying it without a Stripe subscription.
+  // `?simular=cancelamento`: the cancel button opens the dialog with made-up answers, for trying it without a Stripe subscription.
   const simulate = query.get("simular") === "cancelamento";
   const [undoing, setUndoing] = useState<string | null>(null);
   const [live, setLive] = useState<RetentionStatus | null>(null);
@@ -65,17 +65,22 @@ export function BillingPanel() {
     await reloadBilling();
   }
 
-  /** "Cancel subscription", or "Undo cancelling" once it is set to end. */
+  /** "Cancel subscription" in coral beside "Manage subscription", or "Undo cancelling" once it is set to end. */
   const cancelControl = (key: string, ending: boolean, open: () => void, orgId?: string) =>
     ending ? (
-      <button type="button" className={styles.textAction} onClick={() => void undo(key, orgId)} disabled={undoing !== null} aria-busy={undoing === key}>
+      <button type="button" className={buttonClass("secondary", "md")} onClick={() => void undo(key, orgId)} disabled={undoing !== null} aria-busy={undoing === key}>
         {undoing === key ? t("cancel.undoing") : t("cancel.undo")}
       </button>
     ) : (
-      <button type="button" className={styles.textAction} onClick={open}>
+      <button type="button" className={buttonClass("danger", "md")} onClick={open}>
         {t("cancel.open")}
       </button>
     );
+  const manageButton = (key: "plan" | "personal") => (
+    <button type="button" className={buttonClass("secondary", "md")} onClick={() => void manage(key)} disabled={opening !== null} aria-busy={opening === key}>
+      {opening === key ? t("plan.opening") : t("plan.manage")}
+    </button>
+  );
   // Back from checkout, nothing is offered until the new plan arrives.
   const options = notice === "waiting" ? [] : subscribeOptions(plan);
 
@@ -101,12 +106,7 @@ export function BillingPanel() {
             {stripeBacked && live?.pendingDiscount === "discount" && live.discountUntil && !ends ? (
               <span className={styles.rowText}>{t("cancel.offerActive", { date: dateFormat.format(new Date(live.discountUntil)) })}</span>
             ) : null}
-            {stripeBacked && manages ? cancelControl("plan", ends, () => setFlow({ orgId: mainOrg, plan: paidPlan, duplicate: false }), mainOrg) : null}
-            {simulate ? (
-              <button type="button" className={styles.textAction} onClick={() => setFlow({ plan: paidPlan, duplicate: false, simulated: true })}>
-                {t("cancel.simulate")}
-              </button>
-            ) : null}
+            {simulate && plan !== "free" ? <span className={styles.rowText}>{t("cancel.simulate")}</span> : null}
             {stripeBacked && manages && ends && live?.refund ? (
               <button type="button" className={styles.textAction} onClick={() => setFlow({ orgId: mainOrg, plan: paidPlan, duplicate: false, refundOnly: true })}>
                 {t("cancel.refundOpen", { amount: formatPrice(locale, live.refund.amount, live.refund.currency, { explicit: true }) })}
@@ -117,10 +117,15 @@ export function BillingPanel() {
             <ButtonLink href="/pricing" variant="secondary" trailingIcon={<ArrowRight />}>
               {t("plan.seePlans")}
             </ButtonLink>
-          ) : manages ? (
-            <button type="button" className={buttonClass("secondary", "md")} onClick={() => void manage("plan")} disabled={opening !== null} aria-busy={opening === "plan"}>
-              {opening === "plan" ? t("plan.opening") : t("plan.manage")}
-            </button>
+          ) : manages || simulate ? (
+            <div className={styles.actions}>
+              {manages ? manageButton("plan") : null}
+              {simulate
+                ? cancelControl("plan", false, () => setFlow({ plan: paidPlan, duplicate: false, simulated: true }))
+                : stripeBacked && manages
+                  ? cancelControl("plan", ends, () => setFlow({ orgId: mainOrg, plan: paidPlan, duplicate: false }), mainOrg)
+                  : null}
+            </div>
           ) : null}
         </div>
         {personal ? (
@@ -133,11 +138,11 @@ export function BillingPanel() {
                 </span>
               ) : null}
               {personal.status === "past_due" ? <span className={`${styles.rowText} ${styles.statusError}`}>{t("plan.pastDue")}</span> : null}
+            </div>
+            <div className={styles.actions}>
+              {manageButton("personal")}
               {cancelControl("personal", personal.cancel_at_period_end, () => setFlow({ orgId: personal.org_id, plan: personal.plan === "team" ? "team" : "pro", duplicate: true }), personal.org_id)}
             </div>
-            <button type="button" className={buttonClass("secondary", "md")} onClick={() => void manage("personal")} disabled={opening !== null} aria-busy={opening === "personal"}>
-              {opening === "personal" ? t("plan.opening") : t("plan.manage")}
-            </button>
           </div>
         ) : null}
       </div>

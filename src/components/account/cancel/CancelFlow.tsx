@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Loader2, X } from "lucide-react";
+import { AlertCircle, Check, Loader2, ShieldCheck, Undo2, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { createElement, useEffect, useRef, useState, type ReactNode } from "react";
 import { FEATURE_ICONS } from "@/components/plans/featureIcons";
@@ -29,7 +29,7 @@ interface Props {
   refundOnly?: boolean;
 }
 
-/** What the person loses at the period's end, by plan: the catalog's names. */
+/** What the person goes without at the period's end, by plan: the catalog's names. */
 const LOSES: Record<"pro" | "team", string[]> = {
   pro: ["accountRotation", "requestQueue", "restorePoints"],
   team: ["teamBilling", "accountRotation", "requestQueue"],
@@ -37,17 +37,25 @@ const LOSES: Record<"pro" | "team", string[]> = {
 
 const MOOD: Record<CancelStep, CancelMood> = { reason: "sad", discount: "hopeful", free_month: "pleading", confirm: "goodbye" };
 
+/** "28 de outubro", with the year only when it is not this one. */
+function dayOf(locale: Locale, iso: string): string {
+  const date = new Date(iso);
+  const year = date.getFullYear() === new Date().getFullYear() ? undefined : "numeric";
+  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year }).format(date);
+}
+
 /**
  * Cancelling a paid plan, in a dialog: why, then the offers left (25% for
- * two months, then a free month), then the confirmation, with the mascot
- * taking each step. Staying is always the lime button; going on is always a
- * visible link. Escape or the close button leave the plan as it is.
+ * two months, then a free month), then the confirmation. The mascot takes
+ * each step and says one line in its bubble; the step beside it says the
+ * rest in as few words as it can. Staying is always the lime button; going
+ * on is always a visible link. Escape or the close button leave the plan as
+ * it is.
  */
 export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = retention, refundOnly = false }: Props) {
   const t = useTranslations("auth.account.cancel");
   const plans = useTranslations("pricing.plans");
   const names = useTranslations("pricing.features");
-  const lines = useTranslations("features");
   const locale = useLocale() as Locale;
   const dialog = useRef<HTMLDialogElement>(null);
   const planName = plans(`${plan}.name`);
@@ -111,9 +119,11 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
 
   const mood: CancelMood = done ? (done === "cancelled" || done === "refunded" ? "goodbye" : "celebrate") : MOOD[step];
   const date = status?.periodEnd ? new Intl.DateTimeFormat(locale, { dateStyle: "long" }).format(new Date(status.periodEnd)) : "";
+  const day = status?.periodEnd ? dayOf(locale, status.periodEnd) : "";
   const money = (cents: number, currency: "BRL" | "USD") => formatPrice(locale, cents, currency, { explicit: true });
   const full = status?.price ?? priceFor(locale, plan === "team" ? "team" : "pro");
   const fullCents = "amount" in full ? full.amount : full.cents;
+  const fullPrice = money(fullCents, full.currency);
   const refund = refundRefused ? null : (status?.refund ?? null);
   /** `at`: the click's own time stamp, on the same clock as `performance.now()`. */
   const ending = (at: number, action: RetentionAction, outcome: Done) => {
@@ -133,16 +143,22 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
   );
 
   let title = "";
+  let say = "";
   let body: ReactNode = null;
   let actions: ReactNode = null;
 
   if (done) {
     title = t(`done.${done}`, { plan: planName, date });
-    body = done === "cancelled" ? <p className={styles.lead}>{t("undoHint")}</p> : null;
-    actions = (
-      <button type="button" className={buttonClass("secondary", "lg")} onClick={close}>
-        {t("close")}
-      </button>
+    say = t(done === "cancelled" || done === "refunded" ? "say.cancelled" : "say.kept");
+    body = (
+      <>
+        {done === "cancelled" ? <p className={styles.lead}>{t("undoHint")}</p> : null}
+        <div className={styles.doneActions}>
+          <button type="button" className={buttonClass("secondary", "lg")} onClick={close}>
+            {t("close")}
+          </button>
+        </div>
+      </>
     );
   } else if (!status && !loadError) {
     title = t("reasonTitle");
@@ -154,9 +170,9 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     );
   } else if (step === "reason") {
     title = t("reasonTitle");
+    say = t("say.reason");
     body = (
       <>
-        <p className={styles.lead}>{t("reasonBody")}</p>
         <fieldset className={styles.reasons}>
           <legend className="visually-hidden">{t("reasonTitle")}</legend>
           {REASONS.map((r) => (
@@ -167,9 +183,8 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
           ))}
         </fieldset>
         <label className={styles.detailsLabel}>
-          {t("detailsLabel")}
-          <textarea className={styles.details} value={details} maxLength={1000} rows={2} onChange={(e) => setDetails(e.target.value)} />
-          <span className={styles.hint}>{t("detailsHint")}</span>
+          <span className="visually-hidden">{t("detailsLabel")}</span>
+          <textarea className={styles.details} value={details} maxLength={1000} rows={2} placeholder={t("detailsLabel")} onChange={(e) => setDetails(e.target.value)} />
         </label>
       </>
     );
@@ -181,19 +196,32 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     );
   } else if (step === "discount") {
     title = t("discountTitle");
+    say = t("say.discount");
     body = (
       <>
         <div className={styles.offer}>
-          <span className={styles.offerBig}>25%</span>
-          <p>
-            {t("discountBody", {
-              price: money(discountedCents(fullCents), full.currency),
-              full: money(fullCents, full.currency),
-              per: plan === "team" ? t("perSeat") : t("perMonth"),
-            })}
+          <p className={styles.price}>
+            <span className={styles.offerBig}>{money(discountedCents(fullCents), full.currency)}</span>
+            <span className={styles.per}>{plan === "team" ? t("perSeatShort") : t("perMonthShort")}</span>
+            <s className={styles.was} aria-hidden="true">
+              {fullPrice}
+            </s>
           </p>
+          <p className={styles.terms}>{t("discountTerms", { full: fullPrice })}</p>
         </div>
-        <Loses plan={plan} title={t("losesTitle")} names={names} lines={lines} />
+        <div className={styles.loses}>
+          <span className={styles.losesTitle}>{t("losesTitle", { plan: planName })}</span>
+          <ul>
+            {LOSES[plan].map((id) => (
+              <li key={id}>
+                <span className={styles.losesIcon} aria-hidden="true">
+                  {FEATURE_ICONS[id] ? createElement(FEATURE_ICONS[id]) : null}
+                </span>
+                {names(id)}
+              </li>
+            ))}
+          </ul>
+        </div>
       </>
     );
     actions = (
@@ -205,11 +233,29 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
       </>
     );
   } else if (step === "free_month") {
-    title = t("freeTitle");
+    title = t("freeTitle", { plan: planName });
+    say = t("say.free_month");
+    const zero = money(0, full.currency);
     body = (
       <div className={styles.offer}>
-        <span className={styles.offerBig}>30</span>
-        <p>{t("freeBody", { plan: planName })}</p>
+        <p className={styles.price}>
+          <span className={`${styles.offerBig} ${styles.offerHuge}`}>30</span>
+          <span className={styles.per}>{t("freeUnit")}</span>
+        </p>
+        <ul className={styles.gains}>
+          <li>
+            <Check aria-hidden="true" />
+            {day ? t("freeCharge", { date: day, zero }) : t("freeChargeNext", { zero })}
+          </li>
+          <li>
+            <Check aria-hidden="true" />
+            {t("freeKeeps", { plan: planName })}
+          </li>
+          <li>
+            <Check aria-hidden="true" />
+            {t("freeAfter", { full: fullPrice, per: plan === "team" ? t("perSeat") : t("perMonth") })}
+          </li>
+        </ul>
       </div>
     );
     actions = (
@@ -222,20 +268,55 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
     );
   } else {
     title = refund ? t("refundTitle") : t("confirmTitle", { plan: planName });
+    say = t(refund ? "say.refund" : duplicate ? "say.duplicate" : "say.confirm");
     body = refund ? (
-      <p className={styles.lead}>
-        {t("refundBody", { amount: money(refund.amount, refund.currency), plan: planName })} {duplicate ? t("duplicateBody", { name: teamName ?? "" }) : null}
-      </p>
+      <>
+        <p className={styles.lead}>{t("refundWhy")}</p>
+        <dl className={styles.sheet}>
+          <div>
+            <dt>{t("refundBack")}</dt>
+            <dd>{money(refund.amount, refund.currency)}</dd>
+          </div>
+          <div>
+            <dt>{t("refundEnds", { plan: planName })}</dt>
+            <dd>{t("refundNow")}</dd>
+          </div>
+          <div>
+            <dt>{t("chargesLabel")}</dt>
+            <dd>{t("chargesNone")}</dd>
+          </div>
+        </dl>
+        <p className={styles.hint}>
+          {t("refundBank")} {duplicate ? t("duplicateBody", { name: teamName ?? "" }) : null}
+        </p>
+      </>
     ) : duplicate ? (
       <p className={styles.lead}>{t("duplicateBody", { name: teamName ?? "" })}</p>
     ) : (
       <>
-        <p className={styles.lead}>
-          {t("confirmBody", { plan: planName, date })} {plan === "team" && teamName ? t("confirmTeam", { name: teamName }) : null}
-        </p>
+        <dl className={styles.sheet}>
+          <div>
+            <dt>{day ? t("confirmUntil", { date: day }) : t("confirmUntilEnd")}</dt>
+            <dd>{t("confirmUntilValue", { plan: planName })}</dd>
+          </div>
+          <div>
+            <dt>{t("confirmAfter")}</dt>
+            <dd>{plan === "team" && teamName ? t("confirmTeam", { name: teamName }) : t("confirmAfterValue")}</dd>
+          </div>
+          <div>
+            <dt>{t("chargesLabel")}</dt>
+            <dd>{t("chargesNone")}</dd>
+          </div>
+        </dl>
         <ul className={styles.facts}>
-          <li>{t("nothingLost")}</li>
-          <li>{t("undoHint")}</li>
+          <li>
+            <ShieldCheck aria-hidden="true" />
+            {t("nothingLost")}
+          </li>
+          <li>
+            <Undo2 aria-hidden="true" />
+            {day ? t("undoUntil", { date: day }) : t("undoHint")}
+          </li>
         </ul>
       </>
     );
@@ -245,7 +326,7 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
         <button
           key="end"
           type="button"
-          className={buttonClass("secondary", "lg")}
+          className={buttonClass("danger", "lg")}
           onClick={(e) => (refund ? ending(e.timeStamp, "refund", "refunded") : ending(e.timeStamp, "cancel", "cancelled"))}
           disabled={busy !== null}
           aria-busy={busy === "cancel" || busy === "refund"}
@@ -270,15 +351,15 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
       }}
     >
       <div className={styles.frame}>
-        <CancelMascot mood={mood} />
+        <CancelMascot mood={mood} line={say} />
         <div className={styles.content}>
           <div className={styles.top}>
-            <span className={styles.step}>{done || !status ? "" : t("step", { n: Math.min(index, flow.length - 1) + 1, total: flow.length })}</span>
+            <span className={styles.step}>{done || !status ? "" : t("step", { n: at + 1, total: flow.length })}</span>
             <button type="button" className={styles.close} onClick={close} aria-label={t("close")}>
               <X aria-hidden="true" />
             </button>
           </div>
-          <div className={styles.body} key={done ?? step}>
+          <div className={done ? `${styles.body} ${styles.bodyDone}` : styles.body} key={done ?? step}>
             <h2 id="cancel-title" className={styles.title} ref={titleRef} tabIndex={-1}>
               {title}
             </h2>
@@ -290,32 +371,13 @@ export function CancelFlow({ orgId, plan, duplicate, teamName, onClose, api = re
               </p>
             ) : null}
           </div>
-          <div className={styles.actions} key={`actions-${done ?? step}`}>
-            {actions}
-          </div>
+          {actions ? (
+            <div className={styles.actions} key={`actions-${done ?? step}`}>
+              {actions}
+            </div>
+          ) : null}
         </div>
       </div>
     </dialog>
-  );
-}
-
-function Loses({ plan, title, names, lines }: { plan: "pro" | "team"; title: string; names: (k: string) => string; lines: (k: string) => string }) {
-  return (
-    <div className={styles.loses}>
-      <span className={styles.losesTitle}>{title}</span>
-      <ul>
-        {LOSES[plan].map((id) => (
-          <li key={id}>
-            <span className={styles.losesIcon} aria-hidden="true">
-              {FEATURE_ICONS[id] ? createElement(FEATURE_ICONS[id]) : null}
-            </span>
-            <span>
-              <b>{names(id)}</b>
-              <span>{lines(`${id}.line`)}</span>
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }

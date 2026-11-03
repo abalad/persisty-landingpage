@@ -60,6 +60,17 @@
   border-color: #353c4b;
 }
 
+.danger {
+  background: var(--pill-secondary-bg);
+  border-color: rgba(239, 125, 125, 0.32);
+  color: var(--color-danger);
+}
+
+.danger:hover {
+  background: var(--color-danger-bg);
+  border-color: rgba(239, 125, 125, 0.55);
+}
+
 .ghost {
   background: transparent;
   color: var(--site-body);
