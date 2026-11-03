@@ -2,13 +2,15 @@
 
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { buttonClass, ButtonLink } from "@/components/site/Button";
 import { SubscribeButton } from "@/components/site/SubscribeButton";
 import type { Locale } from "@/i18n/routing";
 import { planSummary, subscribeOptions } from "@/lib/account";
-import { formatPlanPrice, formatPrice } from "@/lib/pricing";
+import { currencyFor, formatPlanPrice, formatPrice } from "@/lib/pricing";
 import { readStatus, retention, type RetentionStatus } from "@/lib/retention";
+import { simulatedRetention } from "@/lib/retentionSimulation";
 import { useAccount } from "../AccountProvider";
 import { CancelFlow } from "../cancel/CancelFlow";
 import styles from "../account.module.css";
@@ -19,7 +21,10 @@ export function BillingPanel() {
   const locale = useLocale() as Locale;
   const { billing, notice, manage, opening, reloadBilling, setStatus } = useAccount();
   const summary = planSummary(billing, notice === "waiting");
-  const [flow, setFlow] = useState<{ orgId?: string; plan: "pro" | "team"; duplicate: boolean; refundOnly?: boolean } | null>(null);
+  const [flow, setFlow] = useState<{ orgId?: string; plan: "pro" | "team"; duplicate: boolean; refundOnly?: boolean; simulated?: boolean } | null>(null);
+  const query = useSearchParams();
+  // `?simular=cancelamento`: the dialog with made-up answers, for trying it without a Stripe subscription.
+  const simulate = query.get("simular") === "cancelamento";
   const [undoing, setUndoing] = useState<string | null>(null);
   const [live, setLive] = useState<RetentionStatus | null>(null);
   const mainOrg = billing?.entitlement.org_id ?? undefined;
@@ -97,6 +102,11 @@ export function BillingPanel() {
               <span className={styles.rowText}>{t("cancel.offerActive", { date: dateFormat.format(new Date(live.discountUntil)) })}</span>
             ) : null}
             {stripeBacked && manages ? cancelControl("plan", ends, () => setFlow({ orgId: mainOrg, plan: paidPlan, duplicate: false }), mainOrg) : null}
+            {simulate ? (
+              <button type="button" className={styles.textAction} onClick={() => setFlow({ plan: paidPlan, duplicate: false, simulated: true })}>
+                {t("cancel.simulate")}
+              </button>
+            ) : null}
             {stripeBacked && manages && ends && live?.refund ? (
               <button type="button" className={styles.textAction} onClick={() => setFlow({ orgId: mainOrg, plan: paidPlan, duplicate: false, refundOnly: true })}>
                 {t("cancel.refundOpen", { amount: formatPrice(locale, live.refund.amount, live.refund.currency, { explicit: true }) })}
@@ -157,10 +167,12 @@ export function BillingPanel() {
           plan={flow.plan}
           duplicate={flow.duplicate}
           refundOnly={flow.refundOnly}
+          api={flow.simulated ? simulatedRetention({ plan: flow.plan, currency: currencyFor(locale), periodEnd, refund: query.get("reembolso") === "1" }) : undefined}
           teamName={viaTeam}
           onClose={(changed) => {
+            const simulated = flow.simulated;
             setFlow(null);
-            if (changed) void reloadBilling();
+            if (changed && !simulated) void reloadBilling();
           }}
         />
       ) : null}

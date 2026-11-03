@@ -18,6 +18,9 @@ const PRICES: Record<Currency, Record<PaidPlan, number>> = {
   USD: { pro: 490, team: 990 },
 };
 
+/** The same table, for the cancelling simulation in My account (no Stripe call there). */
+export const PRICES_FOR_SIMULATION = PRICES;
+
 /** Reais in Portuguese (Brazil), dollars everywhere else. */
 export function currencyFor(locale: Locale): Currency {
   return locale === "pt-BR" ? "BRL" : "USD";

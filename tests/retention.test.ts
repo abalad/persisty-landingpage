@@ -40,3 +40,19 @@ describe("cancelling", () => {
     expect(readStatus({}).pendingDiscount).toBeNull();
   });
 });
+
+describe("simulating cancelling", () => {
+  it("answers like the function, with both offers, the plan's price and nothing sent anywhere", async () => {
+    const { simulatedRetention } = await import("../src/lib/retentionSimulation");
+    const api = simulatedRetention({ plan: "pro", currency: "BRL", periodEnd: "2027-10-28T12:00:00.000Z", refund: false, delayMs: 0 });
+    const status = await api("status");
+    expect(status.ok).toBe(true);
+    const read = readStatus(status.ok ? status.data : {});
+    expect(read.offers).toEqual({ discount: true, free_month: true });
+    expect(read.price).toEqual({ amount: 990, currency: "BRL" });
+    expect(read.refund).toBeNull();
+    expect((await api("cancel")).ok).toBe(true);
+    const withRefund = simulatedRetention({ plan: "team", currency: "USD", periodEnd: null, refund: true, delayMs: 0 });
+    expect(readStatus(((await withRefund("status")) as { data: Record<string, unknown> }).data).refund).toEqual({ amount: 990, currency: "USD" });
+  });
+});
