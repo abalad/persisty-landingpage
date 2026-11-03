@@ -1,0 +1,431 @@
+/*
+ * The cancelling dialog: it floats, so it carries the window's shadow; the
+ * mascot stands in its own column on the selected night, the step on the
+ * raised night beside it. Staying is the lime pill, going on a quiet link.
+ */
+
+.dialog {
+  width: min(800px, calc(100vw - 2 * var(--gutter)));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--site-body);
+  overflow: visible;
+}
+
+.dialog::backdrop {
+  background: rgba(5, 6, 9, 0.74);
+}
+
+.frame {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  /* One height for every step, so the dialog does not jump between them. */
+  height: min(720px, calc(100dvh - 32px));
+  border: 1px solid var(--site-hairline);
+  border-radius: 18px;
+  background: var(--site-ground-raised);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 24px 60px -12px rgba(0, 0, 0, 0.7),
+    0 8px 20px -8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* ---- The mascot ------------------------------------------------------------ */
+
+.mascot {
+  position: relative;
+  border-right: 1px solid var(--site-hairline);
+  background: #11151c;
+}
+
+.mascotCanvas,
+.mascotStill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center 70%;
+}
+
+/* ---- The step -------------------------------------------------------------- */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 22px 32px 28px;
+  overflow-y: auto;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+}
+
+.step {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  font-feature-settings: "tnum";
+}
+
+.close {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-right: -8px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--site-muted);
+  cursor: pointer;
+  transition: color var(--duration-normal) var(--ease-out), background var(--duration-normal) var(--ease-out);
+}
+
+.close:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--site-heading);
+}
+
+.close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.body {
+  flex: 1 0 auto;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding-top: 18px;
+  animation: enter 180ms var(--ease-out);
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.title {
+  max-width: 20ch;
+  color: var(--site-heading);
+  font-size: clamp(1.5rem, 1.25rem + 0.9vw, 1.875rem);
+  font-weight: 360;
+  font-variation-settings: "wdth" 104;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.title:focus {
+  outline: none;
+}
+
+.lead {
+  max-width: 52ch;
+  color: var(--site-muted);
+  line-height: 1.55;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--site-muted);
+}
+
+.loading svg {
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Reasons: one shared panel split by hairlines -------------------------- */
+
+.reasons {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--site-hairline);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.reason {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  color: var(--site-body);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}
+
+.reason + .reason {
+  border-top: 1px solid var(--site-hairline);
+}
+
+.reason:hover {
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--site-heading);
+}
+
+.reason input {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  flex: none;
+  border: 1.5px solid var(--pill-secondary-border);
+  border-radius: 50%;
+}
+
+.reason input:checked {
+  border: 5px solid var(--color-accent);
+}
+
+.reason:has(input:checked) {
+  background: var(--color-accent-bg);
+  color: var(--site-heading);
+}
+
+.reason input:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.detailsLabel {
+  display: grid;
+  gap: 8px;
+  color: var(--site-body);
+  font-size: var(--small);
+}
+
+.details {
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 1px solid var(--pill-secondary-border);
+  border-radius: 10px;
+  background: var(--site-ground);
+  color: var(--site-heading);
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.details:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(198, 242, 78, 0.18);
+}
+
+.hint {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+}
+
+/* ---- The offers: the featured plan's panel, with its lime top edge -------- */
+
+.offer {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px 20px;
+  padding: 20px 22px;
+  border: 1px solid var(--site-hairline);
+  border-radius: 14px;
+  background: #11151c;
+  box-shadow: inset 0 2px 0 var(--color-accent);
+}
+
+.offerBig {
+  color: var(--site-heading);
+  font-size: 3rem;
+  font-weight: 300;
+  font-variation-settings: "wdth" 106;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.offer p {
+  color: var(--site-body);
+  line-height: 1.5;
+}
+
+.loses {
+  display: grid;
+  gap: 8px;
+}
+
+.losesTitle {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  font-weight: 500;
+}
+
+.loses ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--site-hairline);
+}
+
+.loses li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--site-hairline);
+}
+
+.losesIcon svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  color: var(--site-muted);
+}
+
+.loses b {
+  display: block;
+  color: var(--site-heading);
+  font-size: var(--small);
+  font-weight: 500;
+}
+
+.loses li span span {
+  color: var(--site-muted);
+  font-size: var(--tiny);
+  line-height: 1.5;
+}
+
+.facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 0 18px;
+  color: var(--site-body);
+  font-size: var(--small);
+  line-height: 1.55;
+}
+
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  font-size: var(--small);
+}
+
+.error svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 2px;
+}
+
+/* ---- Actions --------------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding-top: 24px;
+}
+
+.onward {
+  padding: 8px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--site-body);
+  font: inherit;
+  font-size: var(--small);
+  text-decoration: underline;
+  text-decoration-color: var(--pill-secondary-border);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color var(--duration-normal) var(--ease-out), text-decoration-color var(--duration-normal) var(--ease-out);
+}
+
+.onward:hover {
+  color: var(--site-heading);
+  text-decoration-color: currentColor;
+}
+
+.onward:disabled,
+.close:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* Phones: the mascot becomes a band on top, and the step scrolls under it. */
+@media (max-width: 720px) {
+  .frame {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 168px minmax(0, 1fr);
+    height: calc(100dvh - 32px);
+  }
+
+  .mascot {
+    border-right: 0;
+    border-bottom: 1px solid var(--site-hairline);
+  }
+
+  .content {
+    padding: 14px 20px 20px;
+  }
+
+  .actions {
+    position: sticky;
+    bottom: -20px;
+    margin: 0 -20px -20px;
+    padding: 16px 20px 20px;
+    background: var(--site-ground-raised);
+    border-top: 1px solid var(--site-hairline);
+  }
+
+  .actions > button:first-child {
+    flex: 1 1 100%;
+  }
+
+  .offerBig {
+    font-size: 2.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .body {
+    animation: none;
+  }
+
+  .close,
+  .reason,
+  .onward {
+    transition: none;
+  }
+}

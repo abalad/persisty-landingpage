@@ -391,6 +391,9 @@ A glimpse is a cut of the app's interface at 1:1 (the mockup parts with `--u: 1p
 ### My account
 A panel: a 220px menu beside the part shown (overview, plan and billing, team only for people with a team, devices with "n of 5", release e-mails), the current item on selected night with a lime icon; under 900px the menu becomes a row of pill tabs that scrolls sideways. Each part has an h2 title, never an uppercase label. The overview opens with the plan on the featured raised panel (name at page-title weight, the state with a dot and a word, the price), then what the plan unlocks as one hairline-divided panel of rows (glimpse, name, line, where it lives in the app, "How to use it"), what is coming, and the one plan up: Free sees Pro's features as what it would get with Subscribe beside them; Pro sees Team in a quiet raised panel.
 
+### Cancelling dialog
+A native modal dialog on raised night with the window's shadow and an 18px corner, one height for every step: the mascot in full body and in 3D in its own column on selected night (a band of 168px on phones), the step beside it. Moods per step: sad (reason), hopeful (25%), pleading (30 days), goodbye (confirm), celebrate (stays). Staying is always the lime pill; going on is always a visible underlined text link; the button that ends the plan is a graphite pill that ignores clicks for 450ms after its step appears. Each step moves the focus to its title. Reasons are radio rows in one hairline-divided panel, the selected one on the lime wash. Offers sit on the featured panel with the lime top edge; the big number is heading white, never lime. Copy never blames the person (`tests/copy.test.ts`).
+
 ## Do's and Don'ts
 
 ### Do:

@@ -206,6 +206,32 @@
   line-height: 1.55;
 }
 
+/* A quiet action under a plan: cancelling, or undoing it. Never hidden, never loud. */
+.textAction {
+  justify-self: start;
+  margin-top: 6px;
+  padding: 2px 0;
+  border: 0;
+  background: transparent;
+  color: var(--site-muted);
+  font: inherit;
+  font-size: var(--small);
+  text-decoration: underline;
+  text-decoration-color: var(--pill-secondary-border);
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.textAction:hover {
+  color: var(--site-heading);
+  text-decoration-color: currentColor;
+}
+
+.textAction:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

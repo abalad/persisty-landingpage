@@ -1,7 +1,7 @@
 ---
 title: Terms of use
 description: The rules for using the Persisty app, website and account.
-updated: 2026-11-02
+updated: 2026-11-03
 ---
 
 By using Persisty, the website or the Persisty Cloud account, you agree to these terms.
@@ -29,7 +29,7 @@ Prices are on the [Pricing](/pricing) page:
 - **Pro:** US$ 4.90 a month, or R$ 9.90 a month in Brazil.
 - **Team:** US$ 9.90 per seat per month, or R$ 19.90 per seat per month in Brazil.
 
-You are charged monthly, by card, through Stripe, and the subscription renews automatically until you cancel. You cancel in the subscription portal, from My account: the plan stays until the end of the period already paid, with no fee, and the current period is not refunded. On your first purchase, you may change your mind within 7 days and get your money back: just ask at [suporte@persisty.app](mailto:suporte@persisty.app). On Team, seats are changed in the same portal, with a proportional charge. If a payment fails, the plan stays for a few days and then goes back to the free plan. Prices may change; we give notice before the next renewal.
+You are charged monthly, by card, through Stripe, and the subscription renews automatically until you cancel. You cancel in My account, under Plan and billing: the plan stays until the end of the period already paid, with no fee, and the current period is not refunded. On your first purchase, you may change your mind within 7 days: cancelling in My account within that time sends what you paid back to your card and ends the plan at once. On Team, seats are changed in the subscription portal, from My account, with a proportional charge. If a payment fails, the plan stays for a few days and then goes back to the free plan. Prices may change; we give notice before the next renewal.
 
 The paid licence is valid for 14 days without internet and covers up to 5 computers per account. If the plan ends, the app goes back to the free plan.
 

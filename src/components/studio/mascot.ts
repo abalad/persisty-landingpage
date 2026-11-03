@@ -16,6 +16,9 @@ export interface Mascot {
   feet: [THREE.Object3D, THREE.Object3D];
   antenna: THREE.Mesh;
   glow: THREE.PointLight;
+  /** The mouth (half a torus: a smile; turned over, a frown) and the eyes, for faces beyond typing. */
+  smile: THREE.Mesh;
+  eyes: THREE.Mesh[];
 }
 
 export interface MascotMaterials {
@@ -46,8 +49,10 @@ export function createMascot(m: MascotMaterials): Mascot {
   skull.castShadow = true;
   head.add(skull);
 
+  const eyes: THREE.Mesh[] = [];
   for (const side of [-1, 1]) {
     const eye = new THREE.Mesh(new THREE.SphereGeometry(0.056, 24, 16), m.ink);
+    eyes.push(eye);
     eye.scale.set(0.82, 1.22, 0.55);
     eye.position.set(side * 0.12, 0.05, 0.31);
     head.add(eye);
@@ -103,7 +108,7 @@ export function createMascot(m: MascotMaterials): Mascot {
     return f;
   };
 
-  return { group, head, armLeft: arm(-1), armRight, handRight, feet: [foot(-1), foot(1)], antenna, glow };
+  return { group, head, armLeft: arm(-1), armRight, handRight, feet: [foot(-1), foot(1)], antenna, glow, smile, eyes };
 }
 
 /**

@@ -1,7 +1,7 @@
 ---
 title: Política de privacidad
 description: Qué datos guardan el sitio, la app y Persisty Cloud, dónde quedan, para qué y cómo pedir que se borren.
-updated: 2026-10-29
+updated: 2026-11-03
 ---
 
 Persisty se hizo para guardar lo mínimo. La app funciona sin cuenta y sin internet, y lo que haces en ella se queda en tu máquina.
@@ -43,11 +43,12 @@ Cuando creas una cuenta, guardamos:
 - tu organización personal y, si las hay, las organizaciones de equipo de las que formas parte;
 - las computadoras conectadas: nombre, sistema, versión de la app y último acceso;
 - tu plan y, cuando existan, los datos de la suscripción;
+- si cancelas un plan pago en Mi cuenta: el motivo que elijas, el texto que escribas (si escribes) y lo que hiciste con las ofertas para quedarte;
 - las preferencias que marques, como el e-mail de versiones nuevas (y el idioma en que llega) y los intereses que registres.
 
-Estos datos quedan en Supabase, en la región de São Paulo. Los usamos para mantener la cuenta, emitir la licencia y enviar los avisos que pediste. No vendemos datos ni los usamos para publicidad.
+Estos datos quedan en Supabase, en la región de São Paulo. Los usamos para mantener la cuenta, emitir la licencia, enviar los avisos que pediste y entender por qué las personas cancelan. No vendemos datos ni los usamos para publicidad.
 
-Cuando haya pagos, los procesará Stripe; Persisty no ve ni guarda datos de tarjeta.
+Los pagos los procesa Stripe; Persisty no ve ni guarda datos de tarjeta.
 
 ## Tus derechos
 

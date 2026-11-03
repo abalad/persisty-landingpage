@@ -65,4 +65,16 @@ describe("site copy", () => {
       expect(m.pricing.features.remote, locale).toMatch(/iPhone/);
     }
   });
+
+  it("cancelling never blames the person, and the 7-day refund is no longer asked by e-mail", async () => {
+    const blame = /perder tudo|vai se arrepender|tem certeza que quer desistir|lose everything|regret|perderlo todo|arrepent/i;
+    for (const locale of routing.locales) {
+      const cancel = ((await loadMessages(locale)) as { auth: { account: { cancel?: unknown } } }).auth.account.cancel;
+      expect(cancel, `${locale} auth.account.cancel`).toBeTruthy();
+      const words = JSON.stringify(cancel);
+      expect(words, locale).not.toMatch(blame);
+      const terms = readFileSync(`content/legal/${locale}/terms.md`, "utf8");
+      expect(terms, `${locale} terms`).not.toMatch(/suporte@persisty\.app[^\n]*(reembols|refund)|(reembols|refund)[^\n]*suporte@persisty\.app/i);
+    }
+  });
 });
