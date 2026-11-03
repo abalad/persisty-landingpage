@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
 description: What data the website, the app and Persisty Cloud keep, where it is stored, what it is for and how to ask for it to be deleted.
-updated: 2026-10-29
+updated: 2026-11-03
 ---
 
 Persisty is built to keep as little as possible. The app works without an account and without internet, and what you do in it stays on your machine.
@@ -43,11 +43,12 @@ When you create an account, we keep:
 - your personal organisation and, if there are any, the team organisations you belong to;
 - the connected devices: name, system, app version and last access;
 - your plan and, once they exist, the subscription details;
+- if you cancel a paid plan in My account: the reason you pick, the text you write (if you write one) and what you did with the offers to stay;
 - the preferences you turn on, such as the new-version e-mail (and the language it comes in) and the interests you register.
 
-This data is stored in Supabase, in the São Paulo region. We use it to run the account, issue the licence and send the notices you asked for. We do not sell data and do not use it for advertising.
+This data is stored in Supabase, in the São Paulo region. We use it to run the account, issue the licence, send the notices you asked for and understand why people cancel. We do not sell data and do not use it for advertising.
 
-When payment is available, it will be processed by Stripe; Persisty does not see or store card details.
+Payment is processed by Stripe; Persisty does not see or store card details.
 
 ## Your rights
 
