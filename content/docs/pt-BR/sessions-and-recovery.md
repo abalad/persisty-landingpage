@@ -33,7 +33,7 @@ Para relançar na hora o que ficou para trás, use **Restaurar tudo** (<kbd>⌘<
 
 ## O relatório de restauração
 
-Toda restauração termina num relatório com uma linha por sessão: reanexada, relançada, agente retomado, ignorada ou falhou, com o motivo quando houver. O resumo diz quantas voltaram, quantas falharam e quantas foram ignoradas.
+Toda restauração termina num relatório com uma linha por sessão: reanexada, relançada, agente retomado, ignorada ou falhou, com o motivo quando houver. O resumo diz quantas voltaram, quantas falharam e quantas foram ignoradas. O relatório abre sozinho quando o Persisty relança as sessões ao abrir e depois de **Restaurar tudo**. A paleta de comandos abre de novo o último.
 
 O Persisty nunca diz que uma sessão voltou sem ter voltado. "Agente retomado" sem confirmação quer dizer só que o comando de retomada foi executado.
 
