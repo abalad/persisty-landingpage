@@ -33,7 +33,7 @@ To relaunch what was left behind right away, use **Restore all** (<kbd>⌘</kbd>
 
 ## The restore report
 
-Every restore ends in a report with one line per session: reattached, relaunched, agent resumed, skipped or failed, with the reason when there is one. The summary says how many came back, how many failed and how many were skipped.
+Every restore ends in a report with one line per session: reattached, relaunched, agent resumed, skipped or failed, with the reason when there is one. The summary says how many came back, how many failed and how many were skipped. The report opens on its own when Persisty relaunches your sessions as it starts, and after **Restore all**. The command palette opens the last one again.
 
 Persisty never says a session came back when it did not. "Agent resumed" without confirmation only means the resume command was run.
 

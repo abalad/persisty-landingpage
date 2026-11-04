@@ -33,7 +33,7 @@ Para relanzar en el momento lo que quedó atrás, usa **Restaurar todo** (*Resto
 
 ## El informe de restauración
 
-Toda restauración termina en un informe con una línea por sesión: reconectada, relanzada, agente retomado, omitida o falló, con el motivo cuando lo hay. El resumen dice cuántas volvieron, cuántas fallaron y cuántas se omitieron.
+Toda restauración termina en un informe con una línea por sesión: reconectada, relanzada, agente retomado, omitida o falló, con el motivo cuando lo hay. El resumen dice cuántas volvieron, cuántas fallaron y cuántas se omitieron. El informe se abre solo cuando Persisty relanza tus sesiones al abrirse, y después de **Restaurar todo**. La paleta de comandos abre de nuevo el último.
 
 Persisty nunca dice que una sesión volvió si no volvió. "Agente retomado" sin confirmación solo quiere decir que el comando de retomada se ejecutó.
 
