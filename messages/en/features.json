@@ -85,7 +85,7 @@
     "where": "Settings › Account"
   },
   "remote": {
-    "line": "From your phone, with Persisty open on your computer: approve or deny what is waiting for you, watch each session live, send requests and follow your accounts' quota. End-to-end encrypted."
+    "line": "From your phone, with Persisty open on your computer: approve, deny or answer what is waiting for you, watch each session live, send requests and follow your accounts' quota. End-to-end encrypted."
   },
   "autopilot": {
     "line": "Per project, what the agent does alone, what stays blocked and what asks for you, with secrets masked."
