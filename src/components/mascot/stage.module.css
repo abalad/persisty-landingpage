@@ -15,15 +15,15 @@
   /* Where the browser's top edge is, and where along it the mascot stands (its feet), in units. */
   --edge-y: 214;
   --feet-x: 560;
+  /* The mascot's box scale: 1 on the desk, smaller on a phone so it keeps its share of the window. */
+  --b: 1;
   position: relative;
-  height: calc(600 * var(--u));
+  height: calc(548 * var(--u));
   overflow: hidden;
-  /* Your screen: a wallpaper a step darker than the windows on it (the Window-as-Object rule), lit from the top. */
+  /* Your screen: flat, the page's own ground, so every window on it stays a step above (Window-as-Object). */
   border: 1px solid var(--color-border);
   border-radius: calc(14 * var(--u));
-  background:
-    radial-gradient(120% 90% at 72% -10%, #141a26 0%, rgba(20, 26, 38, 0) 62%),
-    #0a0c10;
+  background: var(--site-ground);
   font-family: var(--font-sans);
   font-size: calc(13 * var(--u));
   line-height: 1.35;
@@ -45,10 +45,10 @@
 
 .behind {
   position: absolute;
-  top: calc(36 * var(--u));
-  left: calc(236 * var(--u));
-  width: calc(860 * var(--u));
-  filter: brightness(0.82) saturate(0.85);
+  top: calc(48 * var(--u));
+  left: calc(214 * var(--u));
+  width: calc(900 * var(--u));
+  filter: brightness(0.93) saturate(0.9);
 }
 
 /* ---- the browser in front -------------------------------------------------------------------- */
@@ -62,7 +62,7 @@
   overflow: hidden;
   border: 1px solid #2a2f3b;
   border-radius: calc(12 * var(--u));
-  background: #f4f1ea;
+  background: #eeeae1;
   box-shadow: var(--shadow-window);
   color: #23261f;
 }
@@ -150,6 +150,12 @@
   color: #5c6157;
 }
 
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: calc(12 * var(--u));
+}
+
 .shopTitle {
   margin: calc(18 * var(--u)) 0 calc(10 * var(--u));
   font-size: calc(22 * var(--u));
@@ -186,58 +192,79 @@
   color: #f4f1ea;
 }
 
+.count {
+  margin-left: auto;
+  align-self: center;
+  color: #6b7064;
+  font-size: calc(12 * var(--u));
+}
+
+/* The catalogue as a list: name and what it needs, the price, a quiet add. */
 .products {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: calc(14 * var(--u));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #ddd7ca;
 }
 
 .product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: calc(18 * var(--u));
+  padding: calc(11 * var(--u)) 0;
+  border-bottom: 1px solid #ddd7ca;
+}
+
+.productText {
   display: flex;
   flex-direction: column;
-  gap: calc(3 * var(--u));
+  gap: calc(2 * var(--u));
   min-width: 0;
 }
 
-.photo {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: calc(118 * var(--u));
-  margin-bottom: calc(6 * var(--u));
-  border-radius: calc(8 * var(--u));
-  background: var(--tint);
-  color: #2f4a2b;
-}
-
-.photo svg {
-  width: calc(58 * var(--u));
-  height: calc(70 * var(--u));
-  stroke-width: 1.4;
-}
-
 .productName {
-  font-size: calc(12.5 * var(--u));
-  font-weight: 550;
+  font-size: calc(14 * var(--u));
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productCare {
+  color: #6b7064;
+  font-size: calc(12 * var(--u));
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .price {
-  color: #5c6157;
-  font-size: calc(12 * var(--u));
+  color: #23261f;
+  font-size: calc(13 * var(--u));
   font-variant-numeric: tabular-nums;
+}
+
+.add {
+  display: inline-flex;
+  align-items: center;
+  height: calc(26 * var(--u));
+  padding: 0 calc(11 * var(--u));
+  border: 1px solid #c9c2b2;
+  border-radius: 999px;
+  color: #2f4a2b;
+  font-size: calc(12 * var(--u));
+  font-weight: 550;
 }
 
 /* ---- the mascot: its 200×200 box, feet on the browser's top edge ------------------------------- */
 
 .box {
   position: absolute;
-  top: calc((var(--edge-y) - 170) * var(--u));
-  left: calc((var(--feet-x) - 100) * var(--u));
-  width: calc(200 * var(--u));
-  height: calc(200 * var(--u));
+  top: calc((var(--edge-y) - 170 * var(--b)) * var(--u));
+  left: calc((var(--feet-x) - 100 * var(--b)) * var(--u));
+  width: calc(200 * var(--b) * var(--u));
+  height: calc(200 * var(--b) * var(--u));
   transition: opacity 240ms var(--ease-out);
 }
 
@@ -278,13 +305,13 @@
 /* What a click lands on: the body, not the whole box. */
 .hit {
   position: absolute;
-  left: calc(52 * var(--u));
-  top: calc(20 * var(--u));
-  width: calc(96 * var(--u));
-  height: calc(158 * var(--u));
+  left: calc(52 * var(--b) * var(--u));
+  top: calc(20 * var(--b) * var(--u));
+  width: calc(96 * var(--b) * var(--u));
+  height: calc(158 * var(--b) * var(--u));
   padding: 0;
   border: 0;
-  border-radius: calc(48 * var(--u));
+  border-radius: calc(48 * var(--b) * var(--u));
   background: transparent;
   cursor: pointer;
 }
@@ -297,8 +324,11 @@
 /* Above the head, its tail towards it (the app's `.mascot__speech`). */
 .speech {
   position: absolute;
-  bottom: calc(100% - 4 * var(--u));
+  bottom: calc(100% - 4 * var(--b) * var(--u));
   left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
   width: max-content;
   max-width: calc(230 * var(--u));
   padding: calc(5 * var(--u)) calc(10 * var(--u));
@@ -332,11 +362,30 @@
   color: var(--color-warn);
 }
 
+.speech svg {
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+}
+
+/* What it says opens the session (here, the Board's section). */
+a.speech {
+  text-decoration: none;
+}
+
+a.speech:hover {
+  border-color: #46506a;
+}
+
+a.speech:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
 /* Who needs you, counted at the head's upper right: the antenna's amber, an ink outline and an ink figure. */
 .badge {
   position: absolute;
-  top: calc(54 * var(--u));
-  right: calc(52 * var(--u));
+  top: calc(54 * var(--b) * var(--u));
+  right: calc(52 * var(--b) * var(--u));
   box-sizing: border-box;
   min-width: calc(18 * var(--u));
   height: calc(18 * var(--u));
@@ -376,8 +425,8 @@
 /* Asleep on the edge: "zzz" rising from the head's upper right. */
 .zzz {
   position: absolute;
-  top: calc(40 * var(--u));
-  left: calc(128 * var(--u));
+  top: calc(40 * var(--b) * var(--u));
+  left: calc(128 * var(--b) * var(--u));
   width: calc(34 * var(--u));
   height: calc(40 * var(--u));
   color: var(--color-fg-muted);
@@ -662,15 +711,16 @@
 @container (max-width: 639px) {
   .desk {
     --u: calc(100cqi / 400);
-    --edge-y: 196;
-    --feet-x: 284;
-    height: calc(540 * var(--u));
+    --edge-y: 168;
+    --feet-x: 292;
+    --b: 0.68;
+    height: calc(512 * var(--u));
   }
 
   .behind {
-    top: calc(24 * var(--u));
-    left: calc(64 * var(--u));
-    width: calc(420 * var(--u));
+    top: calc(20 * var(--u));
+    left: calc(56 * var(--u));
+    width: calc(440 * var(--u));
   }
 
   .browser {
@@ -688,21 +738,23 @@
     display: none;
   }
 
-  .products {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .product:nth-child(n + 3) {
+  .count,
+  .add {
     display: none;
   }
 
+  .product {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  /* As wide as the browser under it, its tail on the mascot. */
   .balloon {
-    left: calc(12 * var(--u));
-    width: calc(376 * var(--u));
+    left: calc(16 * var(--u));
+    width: calc(368 * var(--u));
   }
 
   .balloon::after {
-    left: calc((var(--feet-x) - 12) * var(--u));
+    left: calc((var(--feet-x) - 16) * var(--u));
   }
 }
 

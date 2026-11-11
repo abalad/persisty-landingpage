@@ -33,6 +33,8 @@ interface Card {
 /** The catalogue's agent works, then answers: the one card that changes column. */
 const STEPS = [5200, 6800];
 const ANSWERED = 1;
+/** One card's height and the gap above it, in app pixels: what Answered grows by. */
+const CARD_ROOM = 118;
 /** How long a card takes to glide to its new column (ms). */
 const GLIDE_MS = 520;
 
@@ -290,7 +292,8 @@ const TOUR: TourChapter[] = [
       const working = part(b.col_working);
       const answered = part(b.col_answered);
       if (!working || !answered) return null;
-      const area: Rect = { x: working.x - 8, y: working.y - 6, w: answered.x + answered.w - working.x + 16, h: Math.max(working.h, answered.h) + 12 };
+      // Measured before Answered gets the catalogue's card: room for one more, so its last line is never cut.
+      const area: Rect = { x: working.x - 8, y: working.y - 6, w: answered.x + answered.w - working.x + 16, h: Math.max(working.h, answered.h) + CARD_ROOM };
       // Both columns in view, so the card is seen leaving one and arriving in the other.
       const k = Math.min(READ_ZOOM, view.w / area.w, view.h / area.h);
       return focusShot(view, stage, area, k, "center", 0);

@@ -499,6 +499,14 @@
     "open": "Open",
     "waiting": "Waiting {minutes} min",
     "finished": "Finished",
-    "empty": "Nothing waiting for you."
+    "empty": "Nothing waiting for you.",
+    "count": "24 plants",
+    "add": "Add",
+    "care": [
+      "Partial shade · 15 cm pot",
+      "Indirect light · 21 cm pot",
+      "Low light · 17 cm pot",
+      "Damp shade · 15 cm pot"
+    ]
   }
 }

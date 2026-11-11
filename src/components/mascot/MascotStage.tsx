@@ -1,8 +1,8 @@
 "use client";
 
-import { Bell, BellOff, ChevronDown, EyeOff, Flower2, KeyRound, Leaf, Lock, ShoppingBag, SquareKanban, Sprout, TreePalm } from "lucide-react";
+import { Bell, BellOff, ChevronDown, EyeOff, KeyRound, Lock, MessageCircleQuestion, ShoppingBag, SquareKanban } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { readStudioEnv, wantsLive3d } from "@/components/home/studioMode";
 import { BoardStill } from "@/components/mockups/BoardMock";
 import type { Locale } from "@/i18n/routing";
@@ -168,7 +168,16 @@ export function MascotStage({ boardHref }: { boardHref: string }) {
   // The balloon follows the story until the visitor takes over.
   const open = manual ? manualOpen : phase === "balloon";
   const waiting = waitingIn(phase);
-  const speech = dnd || open || hidden ? null : phase === "ask" ? { tone: "warn", text: t("speech.permission", { title: "checkout" }) } : phase === "ask2" && !manual ? { tone: "warn", text: t("speech.question", { title: t("shipping") }) } : phase === "done" ? { tone: undefined, text: t("speech.done", { title: t("catalog") }) } : null;
+  const speech =
+    dnd || open || hidden
+      ? null
+      : phase === "ask"
+        ? { tone: "warn", kind: "permission", text: t("speech.permission", { title: "checkout" }) }
+        : phase === "ask2" && !manual
+          ? { tone: "warn", kind: "question", text: t("speech.question", { title: t("shipping") }) }
+          : phase === "done"
+            ? { tone: undefined, kind: "done", text: t("speech.done", { title: t("catalog") }) }
+            : null;
   const asleep = live && phase === "rest" && dozing && !hidden;
 
   const toggle = () => {
@@ -220,7 +229,10 @@ export function MascotStage({ boardHref }: { boardHref: string }) {
               </span>
               <ShoppingBag className={styles.cart} />
             </div>
-            <div className={styles.shopTitle}>{t("shopTitle")}</div>
+            <div className={styles.titleRow}>
+              <div className={styles.shopTitle}>{t("shopTitle")}</div>
+              <span className={styles.count}>{t("count")}</span>
+            </div>
             <div className={styles.filters}>
               {(t.raw("filters") as string[]).map((f, i) => (
                 <span key={f} className={i === 0 ? styles.filterOn : undefined}>
@@ -229,17 +241,18 @@ export function MascotStage({ boardHref }: { boardHref: string }) {
                 </span>
               ))}
             </div>
-            <div className={styles.products}>
+            <ul className={styles.products}>
               {PRODUCTS.map((p, i) => (
-                <div key={p.key} className={styles.product}>
-                  <span className={styles.photo} style={{ "--tint": p.tint } as CSSProperties}>
-                    <p.Icon />
+                <li key={p.key} className={styles.product}>
+                  <span className={styles.productText}>
+                    <span className={styles.productName}>{(t.raw("plants") as string[])[i]}</span>
+                    <span className={styles.productCare}>{(t.raw("care") as string[])[i]}</span>
                   </span>
-                  <span className={styles.productName}>{(t.raw("plants") as string[])[i]}</span>
                   <span className={styles.price}>{formatPrice(locale, p.cents, locale === "pt-BR" ? "BRL" : "USD")}</span>
-                </div>
+                  <span className={styles.add}>{t("add")}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
 
@@ -260,9 +273,11 @@ export function MascotStage({ boardHref }: { boardHref: string }) {
             </span>
           ) : null}
           {speech ? (
-            <span key={speech.text} className={styles.speech} data-tone={speech.tone} aria-hidden="true">
+            // What it says opens the session; here, the section that shows the Board.
+            <a key={speech.text} href={boardHref} className={styles.speech} data-tone={speech.tone}>
+              {speech.kind === "permission" ? <KeyRound aria-hidden="true" /> : speech.kind === "question" ? <MessageCircleQuestion aria-hidden="true" /> : null}
               {speech.text}
-            </span>
+            </a>
           ) : null}
           <button type="button" className={styles.hit} aria-expanded={open} aria-controls={ids.balloon} aria-label={t("button", { count: waiting })} onClick={toggle} />
         </div>
@@ -352,8 +367,8 @@ export function MascotStage({ boardHref }: { boardHref: string }) {
 }
 
 const PRODUCTS = [
-  { key: "pothos", Icon: Leaf, tint: "#dfe6d3", cents: 3990 },
-  { key: "monstera", Icon: TreePalm, tint: "#e6e0cf", cents: 7990 },
-  { key: "zz", Icon: Sprout, tint: "#d9e3dc", cents: 5490 },
-  { key: "fern", Icon: Flower2, tint: "#ece3d7", cents: 2990 },
+  { key: "pothos", cents: 3990 },
+  { key: "monstera", cents: 7990 },
+  { key: "zz", cents: 5490 },
+  { key: "fern", cents: 2990 },
 ] as const;

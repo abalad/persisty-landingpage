@@ -499,6 +499,14 @@
     "open": "Abrir",
     "waiting": "Esperando hace {minutes} min",
     "finished": "Terminó",
-    "empty": "Nada te espera."
+    "empty": "Nada te espera.",
+    "count": "24 plantas",
+    "add": "Agregar",
+    "care": [
+      "Media sombra · maceta de 15 cm",
+      "Luz indirecta · maceta de 21 cm",
+      "Poca luz · maceta de 17 cm",
+      "Sombra húmeda · maceta de 15 cm"
+    ]
   }
 }

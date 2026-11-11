@@ -63,7 +63,7 @@ export default function FreePage({ params }: PageProps<"/[locale]/free">) {
     <>
       <PlanHero plan="free" index={[...SECTIONS]} />
       {SECTIONS.map((s) => (
-        <PlanSection key={s.anchor} id={s.anchor} plan="free" title={h(`${s.anchor}.title`)} body={h(`${s.anchor}.body`)} link={{ href: s.anchor === "mascot" ? `${s.docs}#${h("mascot.anchor")}` : s.docs, label: h(`${s.anchor}.link`) }} narrow={s.anchor === "privacy"}>
+        <PlanSection key={s.anchor} id={s.anchor} plan="free" title={h(`${s.anchor}.title`)} body={h(`${s.anchor}.body`)} link={{ href: s.anchor === "mascot" ? `${s.docs}#${h("mascot.anchor")}` : s.docs, label: h(`${s.anchor}.link`) }} narrow={s.anchor === "privacy" || s.anchor === "mascot"}>
           {windows[s.anchor]}
         </PlanSection>
       ))}

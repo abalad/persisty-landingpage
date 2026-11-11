@@ -499,6 +499,14 @@
     "open": "Abrir",
     "waiting": "Esperando há {minutes} min",
     "finished": "Terminou",
-    "empty": "Nada esperando por você."
+    "empty": "Nada esperando por você.",
+    "count": "24 plantas",
+    "add": "Adicionar",
+    "care": [
+      "Meia-sombra · vaso 15 cm",
+      "Luz indireta · vaso 21 cm",
+      "Pouca luz · vaso 17 cm",
+      "Sombra úmida · vaso 15 cm"
+    ]
   }
 }
