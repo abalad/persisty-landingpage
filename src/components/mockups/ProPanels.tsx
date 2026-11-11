@@ -1,24 +1,13 @@
 "use client";
 
-import { Check, Code2, FileCode2, GitCommitHorizontal, Info, ListPlus, NotebookPen, Plus, Search, ShieldCheck, Undo2, X } from "lucide-react";
+import { ArrowUpToLine, Check, ChevronRight, Clock, FileCode2, GripVertical, Loader2, Paperclip, Pause, Pencil, Plus, X } from "lucide-react";
 import { useTranslations } from "next-intl";
-import type { ReactNode } from "react";
-import { Chip, SessionHeader, Terminal, Window, cx, type TermLine } from "./parts";
+import { Chip, SessionHeader, Terminal, ToolBar, Window, cx, type TermLine } from "./parts";
+import s from "./app.module.css";
 import x from "./extra.module.css";
 
-/** The Pro features as the 0.9.0 app shows them: two side-panel tabs, the workspace's commands menu and the close prompt of a session in its own folder. */
+/** The Pro features as the 0.10.0 app shows them: two tools of the session's bar, the workspace's commands menu and the close prompt of a session in its own folder. */
 export type ProPanelId = "queue" | "restore" | "verify" | "worktree";
-
-/** The side panel's tabs, in the app's order (0.9.0). */
-const PANEL_TABS: { id: string; icon: ReactNode }[] = [
-  { id: "changes", icon: <GitCommitHorizontal /> },
-  { id: "restore", icon: <Undo2 /> },
-  { id: "queue", icon: <ListPlus /> },
-  { id: "code", icon: <Code2 /> },
-  { id: "search", icon: <Search /> },
-  { id: "notes", icon: <NotebookPen /> },
-  { id: "details", icon: <Info /> },
-];
 
 interface FileChange {
   name: string;
@@ -29,24 +18,42 @@ interface FileChange {
 /** What the side area of the window shows for one Pro feature. */
 export function ProPanelBody({ panel }: { panel: ProPanelId }) {
   const t = useTranslations("mock.pro");
+  const m = useTranslations("mock");
 
   if (panel === "queue") {
     return (
-      <>
-        <span className={x.panelHeading}>{t("tabs.queue")}</span>
-        <span className={x.label}>{t("queue.text")}</span>
-        <span className={cx(x.field, x.fieldTall)}>{t("queue.draft")}</span>
-        <span className={x.label}>{t("queue.when")}</span>
-        <span className={x.radio}>{t("queue.idle")}</span>
-        <span className={cx(x.radio, x.radioOn)}>{t("queue.window")}</span>
-        <span className={x.radio}>{t("queue.at")}</span>
-        <span className={x.btnRow}>
-          <span className={x.btn}>{t("queue.add")}</span>
+      <div className={x.queue}>
+        <span className={x.queueHead}>
+          <span className={x.queueState}>
+            <Loader2 aria-hidden="true" className={s.spin} />
+            {m("states.working")}
+          </span>
+          <span className={x.ghostBtn}>
+            <Pause aria-hidden="true" />
+            {t("queue.pause")}
+          </span>
         </span>
-        <span className={x.label}>{t("queue.waiting")}</span>
-        <QueueItem title={t("queue.item1")} meta={t("queue.item1When")} />
-        <QueueItem title={t("queue.item2")} meta={t("queue.item2When")} />
-      </>
+        <span className={x.label}>{t("queue.next", { count: 3 })}</span>
+        <QueueCard n={1} next text={t("queue.item1")} when={t("queue.goesAt", { time: "22:53" })} badge={t("queue.nextBadge")} images />
+        <QueueCard n={2} text={t("queue.item2")} when={t("queue.goesIdle")} waits={t("queue.waitsForAt", { time: "22:53" })} />
+        <QueueCard n={3} text={t("queue.item3")} when={t("queue.goesWindow", { time: "23:53" })} waits={t("queue.waitsForAt", { time: "22:53" })} />
+        <span className={x.queueSent}>
+          <ChevronRight aria-hidden="true" />
+          {t("queue.sent", { count: 3 })}
+        </span>
+        <span className={x.queueComposer}>{t("queue.placeholder")}</span>
+        <span className={x.queueFoot}>
+          <Paperclip aria-hidden="true" />
+          <span className={x.queueWhen}>
+            <Clock aria-hidden="true" />
+            {t("queue.goesIdle")}
+          </span>
+          <span className={x.label}>{t("queue.pasteHint")}</span>
+          <span className={x.btn} style={{ marginLeft: "auto" }}>
+            {t("queue.add")} ⌘↵
+          </span>
+        </span>
+      </div>
     );
   }
 
@@ -54,7 +61,6 @@ export function ProPanelBody({ panel }: { panel: ProPanelId }) {
     const files = t.raw("restore.files") as FileChange[];
     return (
       <>
-        <span className={x.panelHeading}>{t("tabs.restore")}</span>
         <span className={cx(x.listItem, x.listItemOn)}>
           <span className={x.listTitle}>{t("restore.point1")}</span>
           <span className={x.listSub}>{t("restore.point1Time")}</span>
@@ -88,7 +94,6 @@ export function ProPanelBody({ panel }: { panel: ProPanelId }) {
     const commands = t.raw("verify.commands") as string[];
     return (
       <>
-        <span className={x.panelHeading}>{t("verify.menuTitle")}</span>
         <span className={x.label}>{t("verify.group")}</span>
         {commands.map((c, i) => (
           <span key={c} className={cx(x.radio, i === 0 && x.radioOn)} style={{ fontFamily: "var(--font-code)" }}>
@@ -113,7 +118,6 @@ export function ProPanelBody({ panel }: { panel: ProPanelId }) {
 
   return (
     <>
-      <span className={x.panelHeading}>{t("worktree.title")}</span>
       <span className={x.note}>{t("worktree.process")}</span>
       <span className={x.note}>{t("worktree.dirty")}</span>
       <span className={x.note}>{t("worktree.ahead")}</span>
@@ -127,14 +131,32 @@ export function ProPanelBody({ panel }: { panel: ProPanelId }) {
   );
 }
 
-function QueueItem({ title, meta }: { title: string; meta: string }) {
+/** One request waiting its turn, as the 0.10.0 queue shows it: its number, the text, when it goes and why it waits. */
+function QueueCard({ n, next, text, when, waits, badge, images }: { n: number; next?: boolean; text: string; when: string; waits?: string; badge?: string; images?: boolean }) {
   return (
-    <span className={x.listItem}>
-      <span className={x.listTitle} style={{ display: "flex", justifyContent: "space-between", gap: "calc(8 * var(--u))" }}>
-        {title}
-        <X aria-hidden="true" style={{ width: "calc(12 * var(--u))", height: "calc(12 * var(--u))", flex: "none", color: "var(--color-fg-subtle)" }} />
+    <span className={x.queueCard}>
+      <GripVertical aria-hidden="true" className={x.queueGrip} />
+      <span className={cx(x.queueNum, next && x.queueNumNext)}>{n}</span>
+      <span className={x.queueText}>
+        <span className={x.queueTitle}>{text}</span>
+        {images ? (
+          <span className={x.queueThumbs}>
+            <span />
+            <span />
+          </span>
+        ) : null}
+        <span className={x.queueMeta}>
+          {badge ? <span className={x.queueBadge}>{badge}</span> : null}
+          <Clock aria-hidden="true" />
+          {when}
+          {waits ? <span>{waits}</span> : null}
+        </span>
       </span>
-      <span className={x.listSub}>{meta}</span>
+      <span className={x.queueActions}>
+        <Pencil aria-hidden="true" />
+        <ArrowUpToLine aria-hidden="true" />
+        <X aria-hidden="true" />
+      </span>
     </span>
   );
 }
@@ -168,28 +190,18 @@ export function ProWindow({ panel }: { panel: ProPanelId }) {
           )
         }
       />
-      <div className={cx(x.split, x.splitFixed)} style={{ ["--side" as string]: 440, ["--h" as string]: 440 }}>
+      {/* The queue is a chat: taller, so the box to write fits under the three waiting requests. */}
+      <div className={cx(x.split, x.splitBar, x.splitFixed)} style={{ ["--side" as string]: 440, ["--h" as string]: panel === "queue" ? 540 : 440 }}>
         <div className={x.splitMain}>
           <Terminal lines={lines} rows={12} />
         </div>
         <div className={x.sideFill}>
-          {inPanel ? (
-            <div className={x.panelTabs}>
-              {PANEL_TABS.map((tb) => (
-                <span key={tb.id} className={cx(x.panelTab, tb.id === panel && x.panelTabOn)}>
-                  {tb.icon}
-                </span>
-              ))}
-            </div>
-          ) : (
-            <div className={x.panelTabs}>
-              <span className={cx(x.panelTab, x.panelTabOn)}>{panel === "verify" ? <ShieldCheck /> : <X />}</span>
-            </div>
-          )}
-          <div className={x.panelBody} key={panel}>
+          <div className={x.panelTitle}>{inPanel ? t(`tabs.${panel}`) : panel === "verify" ? t("verify.menuTitle") : t("worktree.title")}</div>
+          <div className={cx(x.panelBody, panel === "queue" && x.panelBodyFull)} key={panel}>
             <ProPanelBody panel={panel} />
           </div>
         </div>
+        <ToolBar active={panel === "queue" ? "queue" : panel === "restore" ? "restore" : undefined} changes={3} queue={3} />
       </div>
     </Window>
   );

@@ -168,18 +168,21 @@
       "worktree": "Own folder"
     },
     "queue": {
-      "text": "Request for the agent",
-      "draft": "Review the shipping tests and fix whatever fails",
-      "when": "When to send",
-      "idle": "As soon as the agent is free",
-      "window": "When the 5-hour window renews (2:20 PM)",
-      "at": "From a chosen time",
+      "title": "Request queue",
+      "pause": "Pause queue",
+      "next": "Up next ({count})",
+      "sent": "Sent ({count})",
+      "placeholder": "What the agent should do when its turn comes · ⌘↵",
       "add": "Queue it",
-      "waiting": "Queued",
-      "item1": "Raise coupon module coverage to 80%",
-      "item1When": "when the 5-hour window renews (2:20 PM)",
-      "item2": "Update the README with the new shipping endpoint",
-      "item2When": "when the agent is free"
+      "pasteHint": "⌘V pastes an image",
+      "nextBadge": "next",
+      "goesIdle": "as soon as it is free",
+      "goesWindow": "5-hour window · {time}",
+      "goesAt": "from {time}",
+      "waitsForAt": "waiting for no. 1 ({time})",
+      "item1": "Run the integration tests and tell me what failed",
+      "item2": "Update the README with the new deploy command",
+      "item3": "Review checkout: check the rounding errors in shipping"
     },
     "restore": {
       "point1": "Add shipping by postcode",

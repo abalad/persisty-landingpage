@@ -594,6 +594,95 @@
   font-size: calc(12 * var(--u));
 }
 
+/* ---------------------------------------------------------- the session's tool bar (0.10.0) */
+
+/* Under the session header: the terminal (and an open tool's panel), then the bar on the right edge. */
+.sessionBody {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.sessionBody > .terminal {
+  min-width: 0;
+}
+
+.toolBar {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  width: calc(40 * var(--u));
+  padding: calc(8 * var(--u)) 0;
+  border-left: 1px solid var(--color-border);
+  background: var(--color-surface-2);
+}
+
+.toolGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(4 * var(--u));
+  padding: calc(4 * var(--u)) 0;
+}
+
+.toolGroup + .toolGroup {
+  border-top: 1px solid var(--color-border);
+}
+
+.tool {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: calc(30 * var(--u));
+  height: calc(30 * var(--u));
+  border-radius: calc(6 * var(--u));
+  color: var(--color-fg-subtle);
+}
+
+.tool svg {
+  width: calc(16 * var(--u));
+  height: calc(16 * var(--u));
+}
+
+.toolOn {
+  background: var(--color-surface-3);
+  color: var(--color-fg);
+}
+
+/* The open tool, marked on its left like the app's. */
+.toolOn::before {
+  content: "";
+  position: absolute;
+  top: calc(6 * var(--u));
+  bottom: calc(6 * var(--u));
+  left: calc(-5 * var(--u));
+  width: calc(2 * var(--u));
+  border-radius: 999px;
+  background: var(--color-accent);
+}
+
+.toolBadge {
+  position: absolute;
+  top: calc(-3 * var(--u));
+  right: calc(-4 * var(--u));
+  min-width: calc(14 * var(--u));
+  height: calc(14 * var(--u));
+  padding: 0 calc(3 * var(--u));
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+  font-size: calc(9.5 * var(--u));
+  font-weight: 700;
+  line-height: calc(14 * var(--u));
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.toolBadgeWarn {
+  background: var(--color-warn);
+}
+
 /* ---------------------------------------------------------- status bar */
 
 .statusbar {

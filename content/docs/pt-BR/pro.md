@@ -5,19 +5,23 @@ group: work
 order: 2
 ---
 
-Os recursos do Pro ficam no **painel lateral da sessão** (<kbd>⌘</kbd> <kbd>&#92;</kbd>) e no cabeçalho dela. Eles exigem a conta do Persisty com o plano Pro; o que já foi gravado continua utilizável se o plano acabar.
+Os recursos do Pro ficam na **barra da borda direita da sessão** (**Fila** e **Pontos de restauração**) e no cabeçalho dela. Eles exigem a conta do Persisty com o plano Pro; o que já foi gravado continua utilizável se o plano acabar. As contas do Claude, com rodízio, troca pelo rodapé e conta por projeto, estão em [Contas de IA e rodízio](/docs/ai-accounts).
 
 ## Fila de pedidos
 
-Escreva o próximo pedido agora e escolha quando ele vai para o agente:
+A fila funciona como um chat. Escreva o próximo pedido agora e escolha quando ele vai para o agente:
 
 - **assim que o agente ficar livre**;
-- **quando a janela de 5 h renovar**, com o horário lido da quota ao vivo;
+- **quando a janela de 5 h renovar**, com o horário lido da quota ao vivo da conta da própria sessão;
 - **a partir de um horário**.
 
-Os pedidos vão um por vez, na ordem da fila, e só quando o agente está esperando o próximo pedido; nunca no meio de um trabalho nem por cima de um pedido de permissão. Cada pedido vai como uma colagem só, então quebras de linha não mandam pedaços.
+O cabeçalho da fila diz o que o agente está fazendo. Os próximos pedidos aparecem numerados, na ordem em que vão sair, com quando sai cada um e por que os de baixo esperam. Dá para arrastar para mudar a ordem (ou <kbd>⌥</kbd> <kbd>↑</kbd> e <kbd>⌥</kbd> <kbd>↓</kbd>), editar um pedido que ainda não saiu (a fila espera enquanto você edita), enviar um a seguir e tirar da fila. **Pausar fila** segura tudo, também com o app reaberto. Os enviados ficam recolhidos embaixo.
 
-A fila é conferida a cada 10 segundos com o Persisty aberto. Com o app fechado, nada é enviado.
+A caixa de escrever aceita imagens: <kbd>⌘</kbd> <kbd>V</kbd>, arrastar ou o clipe, até 8 por pedido e 10 MB cada (PNG, JPEG, GIF ou WebP). Elas ficam neste computador, e o agente recebe os caminhos no fim do pedido.
+
+Os pedidos vão um por vez, na ordem da fila, e só quando o agente está esperando o próximo pedido; nunca no meio de um trabalho nem por cima de um pedido de permissão. Cada pedido vai exatamente como foi escrito, numa colagem só. Quando a conta fica sem quota, a fila espera a janela renovar; veja [Quando a quota acaba](/docs/ai-accounts#quando-a-quota-acaba-pro).
+
+A fila é conferida a cada 10 segundos com o Persisty aberto. Com o app fechado, nada é enviado. No plano grátis, os pedidos que já estão na fila podem ser pausados, reordenados, enviados a seguir ou tirados.
 
 ## Pontos de restauração
 

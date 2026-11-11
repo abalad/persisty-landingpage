@@ -168,18 +168,21 @@
       "worktree": "Carpeta propia"
     },
     "queue": {
-      "text": "Pedido para el agente",
-      "draft": "Revisa las pruebas de envío y corrige lo que falle",
-      "when": "Cuándo enviar",
-      "idle": "En cuanto el agente quede libre",
-      "window": "Cuando la ventana de 5 h se renueve (14:20)",
-      "at": "A partir de una hora",
+      "title": "Cola de pedidos",
+      "pause": "Pausar cola",
+      "next": "Próximos ({count})",
+      "sent": "Enviados ({count})",
+      "placeholder": "Qué debe hacer el agente cuando llegue su turno · ⌘↵",
       "add": "Poner en la cola",
-      "waiting": "En la cola",
-      "item1": "Sube la cobertura del módulo de cupones al 80%",
-      "item1When": "cuando la ventana de 5 h se renueve (14:20)",
-      "item2": "Actualiza el README con el nuevo endpoint de envío",
-      "item2When": "cuando el agente quede libre"
+      "pasteHint": "⌘V pega una imagen",
+      "nextBadge": "próximo",
+      "goesIdle": "en cuanto quede libre",
+      "goesWindow": "ventana de 5 h · {time}",
+      "goesAt": "a partir de las {time}",
+      "waitsForAt": "esperando el n.º 1 ({time})",
+      "item1": "Ejecuta las pruebas de integración y dime qué falló",
+      "item2": "Actualiza el README con el nuevo comando de deploy",
+      "item3": "Revisa el checkout: comprueba los errores de redondeo en el envío"
     },
     "restore": {
       "point1": "Agrega el cálculo de envío por código postal",

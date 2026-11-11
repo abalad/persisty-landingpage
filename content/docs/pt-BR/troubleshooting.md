@@ -19,12 +19,12 @@ O Persisty lê a quota com a credencial que o Claude Code guarda. Se ela venceu,
 
 ## A fila não enviou o pedido
 
-A fila só envia com o Persisty aberto e com o agente esperando o próximo pedido. Pedidos nunca vão durante um trabalho nem por cima de um pedido de permissão.
+A fila só envia com o Persisty aberto e com o agente esperando o próximo pedido. Pedidos nunca vão durante um trabalho nem por cima de um pedido de permissão. Se o cabeçalho da sessão diz "Sem quota", a fila está esperando a conta renovar; **Soltar a fila agora**, no topo da fila, deixa os pedidos andarem. Confira também se a fila não está pausada.
 
 ## O que o Persisty ainda não faz
 
 - Trocar a conta de uma sessão no meio de um turno. Com o rodízio ligado, a troca acontece quando o turno termina.
 - Integrações com ferramentas de analytics.
 - Divisão do terminal em painéis lado a lado.
-- No editor: autocompletar inteligente, "ir para definição", renomear ou apagar arquivos.
+- No editor: renomear ou apagar arquivos.
 - Instalador assinado no Windows, e Windows e Linux testados em máquinas reais.

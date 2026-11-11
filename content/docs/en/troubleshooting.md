@@ -19,12 +19,12 @@ Persisty reads the quota with the credential Claude Code stores. If that credent
 
 ## The queue did not send the request
 
-The queue only sends while Persisty is open and the agent is waiting for its next request. Requests never go during work or over a permission request.
+The queue only sends while Persisty is open and the agent is waiting for its next request. Requests never go during work or over a permission request. If the session header says "Out of quota", the queue is waiting for the account to renew; **Let the queue go now**, at the top of the queue, lets the requests through. Also check that the queue is not paused.
 
 ## What Persisty does not do yet
 
 - Switch a session's account in the middle of a turn. With rotation on, the switch happens when the turn ends.
 - Integrations with analytics tools.
 - Split the terminal into side-by-side panes.
-- In the editor: smart autocomplete, "go to definition", renaming or deleting files.
+- In the editor: renaming or deleting files.
 - A signed Windows installer, and Windows and Linux tested on real machines.

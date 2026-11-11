@@ -2,12 +2,16 @@ import {
   Bot,
   Check,
   ChevronDown,
+  Code2,
   GitBranch,
+  GitCommitHorizontal,
   Hand,
   History,
+  Info,
+  ListPlus,
+  NotebookPen,
   Loader2,
   PanelLeft,
-  PanelRight,
   Pause,
   Pencil,
   Play,
@@ -20,6 +24,7 @@ import {
   Square,
   TerminalSquare,
   Trash2,
+  Undo2,
   type LucideIcon,
 } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
@@ -189,7 +194,6 @@ export function SessionHeader({ name, kind, status, branch }: { name: string; ki
         <Pencil />
         <History />
         <Trash2 />
-        <PanelRight />
       </span>
     </div>
   );
@@ -375,6 +379,46 @@ export function StatusBar({ spec }: { spec: StatusSpec }) {
       <Meter label="5 h" value={spec.five} />
       <Meter label="7 d" value={spec.seven} />
       <span className={cx(s.statusRight, s.hideNarrow)}>{spec.right}</span>
+    </div>
+  );
+}
+
+export type ToolId = "code" | "search" | "notes" | "changes" | "restore" | "queue" | "details";
+
+const TOOL_GROUPS: { id: ToolId; Icon: LucideIcon }[][] = [
+  [
+    { id: "code", Icon: Code2 },
+    { id: "search", Icon: Search },
+    { id: "notes", Icon: NotebookPen },
+  ],
+  [
+    { id: "changes", Icon: GitCommitHorizontal },
+    { id: "restore", Icon: Undo2 },
+    { id: "queue", Icon: ListPlus },
+  ],
+  [{ id: "details", Icon: Info }],
+];
+
+/**
+ * The session's tools on its right edge (0.10.0): code, search and notes; changes, restore points and the queue;
+ * details. The open one is marked; changes and the queue count what waits even with the panel closed.
+ */
+export function ToolBar({ active, changes, queue }: { active?: ToolId; changes?: number; queue?: number }) {
+  return (
+    <div className={cx(s.toolBar, s.hideNarrow)}>
+      {TOOL_GROUPS.map((group, g) => (
+        <span key={g} className={s.toolGroup}>
+          {group.map(({ id, Icon }) => {
+            const count = id === "changes" ? changes : id === "queue" ? queue : undefined;
+            return (
+              <span key={id} className={cx(s.tool, active === id && s.toolOn)}>
+                <Icon />
+                {count ? <span className={cx(s.toolBadge, id === "queue" && s.toolBadgeWarn)}>{count}</span> : null}
+              </span>
+            );
+          })}
+        </span>
+      ))}
     </div>
   );
 }

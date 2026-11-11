@@ -19,12 +19,12 @@ Persisty lee la cuota con la credencial que guarda Claude Code. Si venció, las 
 
 ## La cola no envió el pedido
 
-La cola solo envía con Persisty abierto y con el agente esperando el próximo pedido. Los pedidos nunca van durante un trabajo ni encima de un pedido de permiso.
+La cola solo envía con Persisty abierto y con el agente esperando el próximo pedido. Los pedidos nunca van durante un trabajo ni encima de un pedido de permiso. Si el encabezado de la sesión dice "Sin cuota", la cola está esperando a que la cuenta se renueve; **Soltar la cola ahora**, arriba de la cola, deja pasar los pedidos. Revisa también que la cola no esté pausada.
 
 ## Lo que Persisty todavía no hace
 
 - Cambiar la cuenta de una sesión en medio de un turno. Con la rotación activada, el cambio ocurre cuando el turno termina.
 - Integraciones con herramientas de analítica.
 - Dividir la terminal en paneles lado a lado.
-- En el editor: autocompletado inteligente, "ir a la definición", renombrar o borrar archivos.
+- En el editor: renombrar o borrar archivos.
 - Instalador firmado en Windows, y Windows y Linux probados en máquinas reales.
