@@ -80,7 +80,7 @@
   max-width: 100%;
   padding: 7px 8px;
   border: 1px solid var(--color-border);
-  border-radius: 9px;
+  border-radius: 10px;
   background: var(--color-surface);
   box-shadow: var(--shadow-popover);
   color: var(--color-fg);
@@ -216,7 +216,7 @@
 }
 
 .deny:hover {
-  border-color: #46506a;
+  border-color: var(--color-fg-subtle);
 }
 
 .answer {
