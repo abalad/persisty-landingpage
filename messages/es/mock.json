@@ -345,23 +345,6 @@
         }
       ]
     },
-    "states": {
-      "label": "Capítulos del recorrido por la ventana de agentes",
-      "chapters": [
-        {
-          "title": "Vista general",
-          "body": "Proyectos y agentes a la izquierda, la sesión elegida a la derecha."
-        },
-        {
-          "title": "Agentes",
-          "body": "Todos los agentes de todos los proyectos, con el estado de cada uno."
-        },
-        {
-          "title": "Pedido de permiso",
-          "body": "El agente muestra el comando que quiere ejecutar y las opciones."
-        }
-      ]
-    },
     "editor": {
       "label": "Capítulos del recorrido por la ventana del editor",
       "chapters": [
@@ -380,6 +363,27 @@
         {
           "title": "Cambios",
           "body": "Lo que cambió, el mensaje y el commit, sin salir de la sesión."
+        }
+      ]
+    },
+    "board": {
+      "label": "Capítulos del recorrido por el Tablero",
+      "chapters": [
+        {
+          "title": "Vista general",
+          "body": "Las sesiones de todos los proyectos, en cuatro columnas."
+        },
+        {
+          "title": "Te necesita",
+          "body": "La espera más larga va primero, destacada, y la tecla A la abre."
+        },
+        {
+          "title": "Cambió de columna",
+          "body": "El agente del catálogo terminó: su tarjeta pasa a Respondió, con el final de la respuesta."
+        },
+        {
+          "title": "Resumen",
+          "body": "Cuántas te necesitan, cuántas trabajan y cuántas todavía no leíste."
         }
       ]
     }
@@ -422,5 +426,79 @@
     "title": "Equipo",
     "team": "Producto",
     "when": "hace 2 días"
+  },
+  "board": {
+    "label": "El Tablero de Persisty: las sesiones de agente de todos los proyectos en cuatro columnas, con la espera más larga destacada.",
+    "title": "Tablero",
+    "scopeAll": "Todos los proyectos",
+    "scopeProject": "Este proyecto",
+    "needsYou": "{count, plural, one {# te necesita} other {# te necesitan}}",
+    "working": "{count} trabajando",
+    "unread": "{count} sin leer",
+    "close": "Volver a la terminal",
+    "columns": {
+      "needs_you": "Te necesita",
+      "working": "Trabajando",
+      "answered": "Respondió",
+      "error": "Error"
+    },
+    "openHint": "abre esta",
+    "parked": "{count, plural, one {# sesión detenida} other {# sesiones detenidas}}",
+    "now": "ahora",
+    "minutes": "hace {count} min",
+    "names": {
+      "shipping": "envío",
+      "migration": "migración",
+      "report": "informe"
+    },
+    "shippingAsks": "¿Calculo el envío por el código postal de origen del pedido o por el del almacén más cercano?",
+    "apiAsks": "¿Puedo quitar la ruta /v1/pedidos, o algún cliente todavía la usa?",
+    "editing": "Editando",
+    "running": "Ejecutando",
+    "catalogSaid": "Los filtros por talla y color están listos, y las pruebas pasaron.",
+    "docsSaid": "Actualicé la guía de instalación y arreglé los enlaces de la página de atajos.",
+    "loginSaid": "El inicio de sesión por código ahora reenvía el correo después de 30 segundos.",
+    "rateLimit": "Límite de uso alcanzado"
+  },
+  "mascot": {
+    "label": "Una ventana de navegador delante de Persisty, y la mascota de pie en su borde, avisando que dos sesiones te necesitan.",
+    "path": "plantas",
+    "nav": [
+      "Plantas",
+      "Macetas",
+      "Herramientas"
+    ],
+    "shopTitle": "Plantas de interior",
+    "filters": [
+      "Tamaño",
+      "Color",
+      "Precio"
+    ],
+    "plants": [
+      "Potus",
+      "Costilla de Adán",
+      "Zamioculca",
+      "Helecho"
+    ],
+    "speech": {
+      "permission": "{title} pide permiso",
+      "question": "{title} hizo una pregunta",
+      "done": "{title} terminó"
+    },
+    "shipping": "envío",
+    "catalog": "catálogo",
+    "shippingAsks": "¿Envío por el código postal de origen o del almacén?",
+    "button": "{count, plural, =0 {Persisty: nada te espera} one {Persisty: # sesión te necesita} other {Persisty: # sesiones te necesitan}}",
+    "openBoard": "Abrir el Tablero",
+    "dnd": "No molestar",
+    "dndOff": "Volver a avisar",
+    "hide": "Ocultar mascota",
+    "show": "Mostrar la mascota",
+    "needsYou": "Te necesita",
+    "notices": "Avisos",
+    "open": "Abrir",
+    "waiting": "Esperando hace {minutes} min",
+    "finished": "Terminó",
+    "empty": "Nada te espera."
   }
 }

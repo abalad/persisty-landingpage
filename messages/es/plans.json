@@ -14,7 +14,8 @@
       "free": {
         "recovery": "Recuperación",
         "projects": "Proyectos",
-        "states": "Estados de los agentes",
+        "mascot": "Mascota",
+        "states": "Tablero",
         "editor": "Editor y git",
         "privacy": "Privacidad"
       },

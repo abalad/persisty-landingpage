@@ -1,0 +1,326 @@
+/*
+ * The Board, as the app draws it (apps/desktop/src/features/board/board.css), in app pixels (`--u`): a header, then
+ * four columns that are not boxes, a hairline under each name and the cards on the ground. Three steps of weight in a
+ * card: the name and how long ago, what it wants, where it lives.
+ */
+
+.board {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: calc(432 * var(--u));
+  background: var(--color-bg);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--u));
+  padding: calc(12 * var(--u)) calc(14 * var(--u)) calc(10 * var(--u)) calc(18 * var(--u));
+}
+
+.title {
+  font-size: calc(15 * var(--u));
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.scope {
+  display: inline-flex;
+  padding: calc(2 * var(--u));
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-2);
+}
+
+.scope > span {
+  display: inline-flex;
+  align-items: center;
+  height: calc(20 * var(--u));
+  padding: 0 calc(10 * var(--u));
+  border-radius: 999px;
+  color: var(--color-fg-muted);
+  font-size: calc(11 * var(--u));
+  font-weight: 500;
+}
+
+.scope > .scopeOn {
+  background: var(--color-surface-3);
+  color: var(--color-fg);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  flex: 1;
+  min-width: 0;
+}
+
+.oldest {
+  opacity: 0.8;
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  color: var(--color-fg-muted);
+  font-size: calc(12 * var(--u));
+  white-space: nowrap;
+}
+
+.close svg {
+  width: calc(13 * var(--u));
+  height: calc(13 * var(--u));
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: calc(20 * var(--u));
+  flex: 1;
+  padding: calc(4 * var(--u)) calc(18 * var(--u)) calc(16 * var(--u));
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Each column by name, for the phone's tour to find. */
+.col_needs_you,
+.col_working,
+.col_answered,
+.col_error {
+  isolation: isolate;
+}
+
+.columnHead {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--u));
+  padding: calc(6 * var(--u)) calc(2 * var(--u)) calc(10 * var(--u));
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-fg-muted);
+  font-size: calc(12 * var(--u));
+  font-weight: 600;
+}
+
+.columnDot {
+  flex-shrink: 0;
+  width: calc(7 * var(--u));
+  height: calc(7 * var(--u));
+  border-radius: 50%;
+  background: var(--tone);
+}
+
+.columnName {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Keyed by the number, so a new count rolls in once. */
+.count {
+  color: var(--color-fg-subtle);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  animation: count 160ms var(--ease-out);
+}
+
+@keyframes count {
+  from {
+    opacity: 0;
+    transform: translateY(calc(4 * var(--u)));
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: calc(6 * var(--u));
+  margin: 0;
+  padding: calc(10 * var(--u)) 0 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: calc(4 * var(--u));
+  padding: calc(10 * var(--u)) calc(12 * var(--u));
+  border: 1px solid var(--color-border);
+  border-radius: calc(6 * var(--u));
+  background: var(--color-surface);
+}
+
+/* The one `A` opens: the only amber frame on the board. */
+.focal {
+  border-color: color-mix(in srgb, var(--color-warn) 70%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-warn) 45%, transparent);
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
+  gap: calc(6 * var(--u));
+  min-width: 0;
+}
+
+.unreadDot {
+  flex-shrink: 0;
+  align-self: center;
+  width: calc(6 * var(--u));
+  height: calc(6 * var(--u));
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-fg);
+  font-size: calc(13 * var(--u));
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.unread {
+  font-weight: 650;
+}
+
+.time {
+  flex-shrink: 0;
+  color: var(--color-fg-subtle);
+  font-size: calc(11 * var(--u));
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.focal .time {
+  color: var(--color-warn);
+}
+
+/* What it wants: one line for a command or an activity, two for words. Muted, so the name leads. */
+.what {
+  display: flex;
+  align-items: baseline;
+  gap: calc(6 * var(--u));
+  min-width: 0;
+  color: var(--color-fg-muted);
+  font-size: calc(12 * var(--u));
+  line-height: 1.45;
+}
+
+.what svg {
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+  margin-top: 0.2em;
+  color: var(--color-fg-subtle);
+}
+
+.danger {
+  color: var(--color-danger);
+}
+
+.danger svg {
+  color: inherit;
+}
+
+.tool {
+  flex-shrink: 0;
+}
+
+.code {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-fg-subtle);
+  font-family: var(--font-code);
+  font-size: calc(11 * var(--u));
+  font-variant-ligatures: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Where it lives: the quietest line. */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  min-width: 0;
+  color: var(--color-fg-subtle);
+  font-size: calc(11 * var(--u));
+  white-space: nowrap;
+}
+
+.where {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hint {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: calc(4 * var(--u));
+  margin-left: auto;
+}
+
+.hint kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: calc(15 * var(--u));
+  height: calc(15 * var(--u));
+  padding: 0 calc(3 * var(--u));
+  border: 1px solid var(--color-border-strong);
+  border-radius: calc(3 * var(--u));
+  background: var(--color-surface-3);
+  color: var(--color-fg-muted);
+  font-family: var(--font-sans);
+  font-size: calc(10 * var(--u));
+  line-height: 1;
+}
+
+.parked {
+  display: flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  margin-top: calc(14 * var(--u));
+  padding: calc(4 * var(--u)) calc(2 * var(--u));
+  color: var(--color-fg-subtle);
+  font-size: calc(12 * var(--u));
+}
+
+.parked svg {
+  width: calc(10 * var(--u));
+  height: calc(10 * var(--u));
+}
+
+/* The Board's toggle beside the commands, pressed while it is open. */
+.toggle {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, transparent) !important;
+  background: var(--color-accent-bg) !important;
+  color: var(--color-accent) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .count {
+    animation: none;
+  }
+}

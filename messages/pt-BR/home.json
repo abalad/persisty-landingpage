@@ -107,8 +107,14 @@
   },
   "states": {
     "title": "Você sabe qual agente precisa de você",
-    "body": "Trabalhando, aguardando você, pedindo permissão, parado. O estado vem dos hooks do Claude Code, não de um palpite sobre a tela.",
+    "body": "O Quadro junta as sessões de todos os projetos em quatro colunas, e cada cartão diz o que a sessão quer. O estado vem dos hooks do Claude Code, não de um palpite sobre a tela.",
     "link": "Agentes e estados"
+  },
+  "mascot": {
+    "title": "Um aviso que fica em cima das suas janelas",
+    "body": "No macOS, o mascote fica em pé na janela em que você está. Quando uma sessão pede você, ele sobe e diz qual, e um clique mostra o que cada uma quer.",
+    "link": "O mascote fora do app",
+    "anchor": "o-mascote-fora-do-app"
   },
   "pro": {
     "title": "Deixe o próximo pedido na fila",

@@ -345,23 +345,6 @@
         }
       ]
     },
-    "states": {
-      "label": "Chapters of the tour of the agents window",
-      "chapters": [
-        {
-          "title": "Overview",
-          "body": "Projects and agents on the left, the chosen session on the right."
-        },
-        {
-          "title": "Agents",
-          "body": "Every agent across your projects, with the state of each."
-        },
-        {
-          "title": "Permission request",
-          "body": "The agent shows the command it wants to run and your options."
-        }
-      ]
-    },
     "editor": {
       "label": "Chapters of the tour of the editor window",
       "chapters": [
@@ -380,6 +363,27 @@
         {
           "title": "Changes",
           "body": "What changed, the message and the commit, without leaving the session."
+        }
+      ]
+    },
+    "board": {
+      "label": "Chapters of the Board tour",
+      "chapters": [
+        {
+          "title": "Overview",
+          "body": "Every project's sessions, in four columns."
+        },
+        {
+          "title": "Needs you",
+          "body": "The longest wait comes first, highlighted, and the A key opens it."
+        },
+        {
+          "title": "Changed column",
+          "body": "The catalog's agent finished: its card moves to Answered, with the end of its answer."
+        },
+        {
+          "title": "Summary",
+          "body": "How many need you, how many are working and how many you have not read yet."
         }
       ]
     }
@@ -422,5 +426,79 @@
     "title": "Team",
     "team": "Product",
     "when": "2 days ago"
+  },
+  "board": {
+    "label": "Persisty's Board: every project's agent sessions in four columns, the longest wait highlighted.",
+    "title": "Board",
+    "scopeAll": "All projects",
+    "scopeProject": "This project",
+    "needsYou": "{count, plural, one {# needs you} other {# need you}}",
+    "working": "{count} working",
+    "unread": "{count} unread",
+    "close": "Back to the terminal",
+    "columns": {
+      "needs_you": "Needs you",
+      "working": "Working",
+      "answered": "Answered",
+      "error": "Error"
+    },
+    "openHint": "opens this one",
+    "parked": "{count, plural, one {# stopped session} other {# stopped sessions}}",
+    "now": "now",
+    "minutes": "{count} min ago",
+    "names": {
+      "shipping": "shipping",
+      "migration": "migration",
+      "report": "report"
+    },
+    "shippingAsks": "Do I work out shipping from the order's origin postcode or from the nearest warehouse?",
+    "apiAsks": "Can I remove the /v1/orders route, or does a client still use it?",
+    "editing": "Editing",
+    "running": "Running",
+    "catalogSaid": "The size and colour filters are done, and the tests pass.",
+    "docsSaid": "I updated the install guide and fixed the links on the shortcuts page.",
+    "loginSaid": "Code sign-in now resends the e-mail after 30 seconds.",
+    "rateLimit": "Usage limit reached"
+  },
+  "mascot": {
+    "label": "A browser window in front of Persisty, and the mascot standing on its edge, saying two sessions need you.",
+    "path": "plants",
+    "nav": [
+      "Plants",
+      "Pots",
+      "Tools"
+    ],
+    "shopTitle": "Indoor plants",
+    "filters": [
+      "Size",
+      "Colour",
+      "Price"
+    ],
+    "plants": [
+      "Pothos",
+      "Monstera",
+      "ZZ plant",
+      "Fern"
+    ],
+    "speech": {
+      "permission": "{title} asks for permission",
+      "question": "{title} asked a question",
+      "done": "{title} finished"
+    },
+    "shipping": "shipping",
+    "catalog": "catalog",
+    "shippingAsks": "Shipping from the origin postcode or the warehouse?",
+    "button": "{count, plural, =0 {Persisty: nothing waiting for you} one {Persisty: # session needs you} other {Persisty: # sessions need you}}",
+    "openBoard": "Open the Board",
+    "dnd": "Do not disturb",
+    "dndOff": "Notify me again",
+    "hide": "Hide mascot",
+    "show": "Show the mascot",
+    "needsYou": "Needs you",
+    "notices": "Notices",
+    "open": "Open",
+    "waiting": "Waiting {minutes} min",
+    "finished": "Finished",
+    "empty": "Nothing waiting for you."
   }
 }

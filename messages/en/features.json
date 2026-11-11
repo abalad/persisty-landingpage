@@ -15,6 +15,10 @@
     "line": "Which agent is working, which one is waiting for you and which one asks for permission.",
     "where": "Session tabs and workspace cards"
   },
+  "board": {
+    "line": "Every project's agent sessions on one screen, with what each one asks and how long it has waited.",
+    "where": "Button beside the tabs (⌘⇧O)"
+  },
   "editorGit": {
     "line": "Editor, git changes, commits, branches and notes without leaving the app.",
     "where": "Side panel › Code and Changes"
@@ -30,6 +34,10 @@
   "notifications": {
     "line": "An in-app notice, with sound, and a system notification when an agent needs you.",
     "where": "Settings › Notifications"
+  },
+  "mascot": {
+    "line": "On macOS, the mascot stands on the window you are in and rises when a session needs you.",
+    "where": "Settings › Appearance › Mascot outside the app"
   },
   "voice": {
     "line": "Dictate into the terminal or the editor. The voice model runs on this computer.",

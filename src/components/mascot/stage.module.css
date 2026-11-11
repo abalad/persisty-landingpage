@@ -1,0 +1,717 @@
+/*
+ * A desk with two windows: Persisty behind, with its Board, and a browser in front, where you are working. The mascot
+ * lives on the browser's top edge, in its 200×200 box (the app's mascot.css), and its balloon opens over the page.
+ * Everything is written in app pixels (`--u`) against a 1040-wide desk, or a 400-wide one in a narrow container.
+ */
+
+.stage {
+  container-type: inline-size;
+  width: 100%;
+  margin: 0;
+}
+
+.desk {
+  --u: clamp(0.62px, calc(100cqi / 1040), 1px);
+  /* Where the browser's top edge is, and where along it the mascot stands (its feet), in units. */
+  --edge-y: 214;
+  --feet-x: 560;
+  position: relative;
+  height: calc(600 * var(--u));
+  overflow: hidden;
+  /* Your screen: a wallpaper a step darker than the windows on it (the Window-as-Object rule), lit from the top. */
+  border: 1px solid var(--color-border);
+  border-radius: calc(14 * var(--u));
+  background:
+    radial-gradient(120% 90% at 72% -10%, #141a26 0%, rgba(20, 26, 38, 0) 62%),
+    #0a0c10;
+  font-family: var(--font-sans);
+  font-size: calc(13 * var(--u));
+  line-height: 1.35;
+  font-variation-settings: "wdth" 100;
+  color: var(--color-fg);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.desk svg {
+  display: inline-block;
+  flex: none;
+  width: calc(14 * var(--u));
+  height: calc(14 * var(--u));
+  stroke-width: 1.75;
+}
+
+/* ---- Persisty, behind: its Board, the top of it showing over the browser ---------------------- */
+
+.behind {
+  position: absolute;
+  top: calc(36 * var(--u));
+  left: calc(236 * var(--u));
+  width: calc(860 * var(--u));
+  filter: brightness(0.82) saturate(0.85);
+}
+
+/* ---- the browser in front -------------------------------------------------------------------- */
+
+.browser {
+  position: absolute;
+  top: calc(var(--edge-y) * var(--u));
+  left: calc(48 * var(--u));
+  width: calc(720 * var(--u));
+  height: calc(420 * var(--u));
+  overflow: hidden;
+  border: 1px solid #2a2f3b;
+  border-radius: calc(12 * var(--u));
+  background: #f4f1ea;
+  box-shadow: var(--shadow-window);
+  color: #23261f;
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--u));
+  height: calc(40 * var(--u));
+  padding: 0 calc(14 * var(--u));
+  border-bottom: 1px solid #2a2f3b;
+  background: var(--color-surface-2);
+  color: var(--color-fg-muted);
+}
+
+.lights {
+  display: inline-flex;
+  gap: calc(8 * var(--u));
+}
+
+.lights > span {
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+  border-radius: 50%;
+  background: #ef6b5e;
+}
+
+.lights > span:nth-child(2) {
+  background: #f4bf4f;
+}
+
+.lights > span:nth-child(3) {
+  background: #61c554;
+}
+
+.address {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: calc(6 * var(--u));
+  max-width: calc(380 * var(--u));
+  height: calc(26 * var(--u));
+  margin: 0 auto;
+  border-radius: calc(6 * var(--u));
+  background: var(--color-surface);
+  color: var(--color-fg-muted);
+  font-size: calc(12 * var(--u));
+}
+
+.address svg {
+  width: calc(11 * var(--u));
+  height: calc(11 * var(--u));
+}
+
+/* Quintal's shop at localhost: the page the catalogue's agent is building. Its own paper and ink, not Persisty's. */
+.page {
+  padding: calc(18 * var(--u)) calc(28 * var(--u));
+}
+
+.shopHead {
+  display: flex;
+  align-items: center;
+  gap: calc(22 * var(--u));
+  padding-bottom: calc(14 * var(--u));
+  border-bottom: 1px solid #e2ddd1;
+}
+
+.shopName {
+  font-size: calc(17 * var(--u));
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: #2f4a2b;
+}
+
+.shopNav {
+  display: flex;
+  gap: calc(16 * var(--u));
+  color: #5c6157;
+  font-size: calc(12.5 * var(--u));
+}
+
+.cart {
+  margin-left: auto;
+  color: #5c6157;
+}
+
+.shopTitle {
+  margin: calc(18 * var(--u)) 0 calc(10 * var(--u));
+  font-size: calc(22 * var(--u));
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.filters {
+  display: flex;
+  gap: calc(8 * var(--u));
+  margin-bottom: calc(16 * var(--u));
+}
+
+.filters > span {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(5 * var(--u));
+  height: calc(26 * var(--u));
+  padding: 0 calc(11 * var(--u));
+  border: 1px solid #d9d3c4;
+  border-radius: 999px;
+  color: #3f443a;
+  font-size: calc(12 * var(--u));
+}
+
+.filters svg {
+  width: calc(11 * var(--u));
+  height: calc(11 * var(--u));
+}
+
+.filters > .filterOn {
+  border-color: #2f4a2b;
+  background: #2f4a2b;
+  color: #f4f1ea;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: calc(14 * var(--u));
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: calc(3 * var(--u));
+  min-width: 0;
+}
+
+.photo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: calc(118 * var(--u));
+  margin-bottom: calc(6 * var(--u));
+  border-radius: calc(8 * var(--u));
+  background: var(--tint);
+  color: #2f4a2b;
+}
+
+.photo svg {
+  width: calc(58 * var(--u));
+  height: calc(70 * var(--u));
+  stroke-width: 1.4;
+}
+
+.productName {
+  font-size: calc(12.5 * var(--u));
+  font-weight: 550;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  color: #5c6157;
+  font-size: calc(12 * var(--u));
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- the mascot: its 200×200 box, feet on the browser's top edge ------------------------------- */
+
+.box {
+  position: absolute;
+  top: calc((var(--edge-y) - 170) * var(--u));
+  left: calc((var(--feet-x) - 100) * var(--u));
+  width: calc(200 * var(--u));
+  height: calc(200 * var(--u));
+  transition: opacity 240ms var(--ease-out);
+}
+
+.box[data-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.still,
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* White clay over the windows: a thin edge of shadow keeps it apart (the app's own), on the picture too. */
+.still,
+.canvas {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.28));
+}
+
+.canvas {
+  opacity: 0;
+  transition: opacity 280ms var(--ease-out);
+}
+
+.box[data-live="true"] .canvas {
+  opacity: 1;
+}
+
+.box[data-live="true"] .still {
+  visibility: hidden;
+  transition: visibility 0s 280ms;
+}
+
+/* What a click lands on: the body, not the whole box. */
+.hit {
+  position: absolute;
+  left: calc(52 * var(--u));
+  top: calc(20 * var(--u));
+  width: calc(96 * var(--u));
+  height: calc(158 * var(--u));
+  padding: 0;
+  border: 0;
+  border-radius: calc(48 * var(--u));
+  background: transparent;
+  cursor: pointer;
+}
+
+.hit:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Above the head, its tail towards it (the app's `.mascot__speech`). */
+.speech {
+  position: absolute;
+  bottom: calc(100% - 4 * var(--u));
+  left: 50%;
+  width: max-content;
+  max-width: calc(230 * var(--u));
+  padding: calc(5 * var(--u)) calc(10 * var(--u));
+  border: 1px solid var(--color-border-strong);
+  border-radius: calc(10 * var(--u));
+  background: var(--color-surface-3);
+  box-shadow: var(--shadow-popover);
+  color: var(--color-fg);
+  font-size: calc(12 * var(--u));
+  line-height: 1.3;
+  text-align: center;
+  translate: -50% 0;
+  animation: say 240ms var(--ease-out) both;
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(-5 * var(--u));
+  width: calc(8 * var(--u));
+  height: calc(8 * var(--u));
+  margin-left: calc(-4 * var(--u));
+  border-right: 1px solid var(--color-border-strong);
+  border-bottom: 1px solid var(--color-border-strong);
+  background: var(--color-surface-3);
+  transform: rotate(45deg);
+}
+
+.speech[data-tone="warn"] {
+  color: var(--color-warn);
+}
+
+/* Who needs you, counted at the head's upper right: the antenna's amber, an ink outline and an ink figure. */
+.badge {
+  position: absolute;
+  top: calc(54 * var(--u));
+  right: calc(52 * var(--u));
+  box-sizing: border-box;
+  min-width: calc(18 * var(--u));
+  height: calc(18 * var(--u));
+  padding: 0 calc(4 * var(--u));
+  border: 1px solid #15171c;
+  border-radius: 999px;
+  background: #e3b24a;
+  color: #15171c;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: calc(11 * var(--u));
+  font-weight: 800;
+  line-height: calc(16 * var(--u));
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  animation: call 2400ms ease-out infinite;
+}
+
+@keyframes call {
+  0% {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(227, 178, 74, 0.6);
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  60%,
+  100% {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 calc(6 * var(--u)) rgba(227, 178, 74, 0);
+    transform: scale(1);
+  }
+}
+
+/* Asleep on the edge: "zzz" rising from the head's upper right. */
+.zzz {
+  position: absolute;
+  top: calc(40 * var(--u));
+  left: calc(128 * var(--u));
+  width: calc(34 * var(--u));
+  height: calc(40 * var(--u));
+  color: var(--color-fg-muted);
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.zzz > span {
+  position: absolute;
+  animation: zzz 2400ms ease-out infinite both;
+}
+
+.zzz > span:nth-child(1) {
+  left: 0;
+  bottom: 0;
+  font-size: calc(9 * var(--u));
+}
+
+.zzz > span:nth-child(2) {
+  left: calc(10 * var(--u));
+  bottom: calc(12 * var(--u));
+  font-size: calc(11 * var(--u));
+  animation-delay: 400ms;
+}
+
+.zzz > span:nth-child(3) {
+  left: calc(21 * var(--u));
+  bottom: calc(25 * var(--u));
+  font-size: calc(13 * var(--u));
+  animation-delay: 800ms;
+}
+
+@keyframes zzz {
+  0% {
+    opacity: 0;
+    transform: translate(-3px, 5px);
+  }
+  30%,
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes say {
+  from {
+    opacity: 0;
+    transform: translateY(calc(4 * var(--u))) scale(0.96);
+  }
+}
+
+/* ---- the balloon: under the mascot, over the page, its tail up at the mascot ------------------- */
+
+.balloon {
+  position: absolute;
+  top: calc((var(--edge-y) + 6) * var(--u));
+  left: calc((var(--feet-x) - 380) * var(--u));
+  width: calc(420 * var(--u));
+  border: 1px solid var(--color-border);
+  border-radius: calc(10 * var(--u));
+  background: var(--color-surface);
+  box-shadow: var(--shadow-popover);
+  color: var(--color-fg);
+  font-size: calc(12 * var(--u));
+  animation: balloon 160ms var(--ease-out) both;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  top: calc(-7 * var(--u));
+  left: calc(380 * var(--u));
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+  margin-left: calc(-6 * var(--u));
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  background: var(--color-surface);
+  transform: rotate(45deg);
+}
+
+@keyframes balloon {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-4 * var(--u))) scale(0.98);
+  }
+}
+
+.balloonHead {
+  display: flex;
+  align-items: center;
+  gap: calc(2 * var(--u));
+  padding: calc(6 * var(--u)) calc(6 * var(--u)) calc(6 * var(--u)) calc(12 * var(--u));
+  border-bottom: 1px solid var(--color-border);
+}
+
+.balloonTitle {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: calc(12 * var(--u));
+  font-weight: 600;
+}
+
+/* The balloon's buttons are real: the Board opens the section above, the bell and the eye do what they say here. */
+.ghost,
+.icon,
+.openBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(6 * var(--u));
+  height: calc(24 * var(--u));
+  border: 1px solid transparent;
+  border-radius: calc(6 * var(--u));
+  background: transparent;
+  color: var(--color-fg-muted);
+  font: inherit;
+  font-size: calc(12 * var(--u));
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 120ms var(--ease-out), color 120ms var(--ease-out), border-color 120ms var(--ease-out);
+}
+
+.ghost {
+  padding: 0 calc(8 * var(--u));
+  text-decoration: none;
+}
+
+.ghost svg,
+.icon svg {
+  width: calc(13 * var(--u));
+  height: calc(13 * var(--u));
+}
+
+.icon {
+  width: calc(24 * var(--u));
+  padding: 0;
+}
+
+.icon[aria-pressed="true"] {
+  color: var(--color-warn);
+}
+
+.openBtn {
+  flex-shrink: 0;
+  padding: 0 calc(10 * var(--u));
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-3);
+  color: var(--color-fg);
+  text-decoration: none;
+}
+
+.ghost:hover,
+.icon:hover {
+  background: var(--color-surface-3);
+  color: var(--color-fg);
+}
+
+.openBtn:hover {
+  border-color: #46506a;
+}
+
+.ghost:focus-visible,
+.icon:focus-visible,
+.openBtn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.balloonBody {
+  padding: calc(4 * var(--u)) 0 calc(6 * var(--u));
+}
+
+.label {
+  margin: 0;
+  padding: calc(6 * var(--u)) calc(12 * var(--u)) calc(2 * var(--u));
+  color: var(--color-fg-subtle);
+  font-size: calc(11 * var(--u));
+  font-weight: 600;
+}
+
+.labelWarn {
+  color: var(--color-warn);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--u));
+  padding: calc(6 * var(--u)) calc(8 * var(--u)) calc(6 * var(--u)) calc(12 * var(--u));
+}
+
+.item + .item {
+  border-top: 1px solid var(--color-border);
+}
+
+.itemText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: calc(1 * var(--u));
+  min-width: 0;
+}
+
+.itemLine {
+  display: flex;
+  align-items: baseline;
+  gap: calc(6 * var(--u));
+  min-width: 0;
+}
+
+.itemName {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemProject,
+.since {
+  flex-shrink: 0;
+  color: var(--color-fg-subtle);
+  font-size: calc(11 * var(--u));
+}
+
+.itemWhat {
+  overflow: hidden;
+  color: var(--color-fg-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code {
+  color: var(--color-fg-subtle);
+  font-family: var(--font-code);
+  font-size: calc(11 * var(--u));
+  font-variant-ligatures: none;
+}
+
+.noticeKind {
+  color: var(--color-ok);
+}
+
+/* Hidden by its own button: a quiet pill brings it back where it stood. */
+.bringBack {
+  position: absolute;
+  top: calc((var(--edge-y) - 40) * var(--u));
+  left: calc((var(--feet-x) - 90) * var(--u));
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  height: calc(28 * var(--u));
+  padding: 0 calc(12 * var(--u));
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: var(--color-surface-3);
+  color: var(--color-fg);
+  font: inherit;
+  font-size: calc(12 * var(--u));
+  cursor: pointer;
+  animation: say 240ms var(--ease-out) both;
+}
+
+.bringBack:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ---- narrow: the browser alone, the mascot on its edge, the balloon across the page ------------- */
+
+@container (max-width: 639px) {
+  .desk {
+    --u: calc(100cqi / 400);
+    --edge-y: 196;
+    --feet-x: 284;
+    height: calc(540 * var(--u));
+  }
+
+  .behind {
+    top: calc(24 * var(--u));
+    left: calc(64 * var(--u));
+    width: calc(420 * var(--u));
+  }
+
+  .browser {
+    left: calc(16 * var(--u));
+    width: calc(368 * var(--u));
+    height: calc(380 * var(--u));
+  }
+
+  .address {
+    max-width: none;
+  }
+
+  .shopNav,
+  .cart {
+    display: none;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product:nth-child(n + 3) {
+    display: none;
+  }
+
+  .balloon {
+    left: calc(12 * var(--u));
+    width: calc(376 * var(--u));
+  }
+
+  .balloon::after {
+    left: calc((var(--feet-x) - 12) * var(--u));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .speech,
+  .badge,
+  .zzz > span,
+  .balloon,
+  .bringBack {
+    animation: none;
+  }
+}

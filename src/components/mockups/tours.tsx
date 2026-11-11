@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { EditorMock } from "./EditorMock";
-import { ProjectsMock, StatesMock } from "./ProjectsMock";
+import { ProjectsMock } from "./ProjectsMock";
 import { Window } from "./parts";
 import { focusShot, READ_ZOOM, type Rect, type Shot, type Size } from "./tour";
 import { TOUR_QUERY, WindowTour, type TourChapter, type TourCopy } from "./WindowTour";
@@ -41,20 +41,6 @@ const PROJECTS: TourChapter[] = [
       return card ? focusShot(view, stage, card, READ_ZOOM) : null;
     },
   },
-];
-
-const STATES: TourChapter[] = [
-  { key: "overview", ms: 2400 },
-  {
-    key: "agents",
-    ms: 3200,
-    // The agents' list under the projects, three rows and its heading.
-    frame: (view, stage, part) => {
-      const agent = part(x.agent);
-      return agent ? focusShot(view, stage, { x: 0, y: agent.y - 36, w: view.w, h: agent.h * 3 + 36 }, 1, "start", 0) : null;
-    },
-  },
-  { key: "permission", ms: 3400, frame: session },
 ];
 
 const EDITOR: TourChapter[] = [
@@ -97,17 +83,6 @@ export function ProjectsWindow() {
     <Toured copy={m.raw("tours.projects") as TourCopy} chapters={PROJECTS}>
       <Window label={m("projects.label")}>
         <ProjectsMock />
-      </Window>
-    </Toured>
-  );
-}
-
-export function StatesWindow() {
-  const m = useTranslations("mock");
-  return (
-    <Toured copy={m.raw("tours.states") as TourCopy} chapters={STATES}>
-      <Window label={m("projects.label")}>
-        <StatesMock />
       </Window>
     </Toured>
   );

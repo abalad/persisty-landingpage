@@ -107,8 +107,14 @@
   },
   "states": {
     "title": "Sabes qué agente te necesita",
-    "body": "Trabajando, esperándote, pidiendo permiso, detenido. El estado viene de los hooks de Claude Code, no de adivinar la pantalla.",
+    "body": "El Tablero pone las sesiones de todos los proyectos en cuatro columnas, y cada tarjeta dice qué quiere la sesión. El estado viene de los hooks de Claude Code, no de adivinar la pantalla.",
     "link": "Agentes y estados"
+  },
+  "mascot": {
+    "title": "Un aviso que queda encima de tus ventanas",
+    "body": "En macOS, la mascota se queda de pie en la ventana en la que trabajas. Cuando una sesión te necesita, sube y dice cuál, y un clic muestra qué quiere cada una.",
+    "link": "La mascota fuera de la app",
+    "anchor": "la-mascota-fuera-de-la-app"
   },
   "pro": {
     "title": "Deja el próximo pedido en la cola",

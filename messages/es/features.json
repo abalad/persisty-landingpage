@@ -15,6 +15,10 @@
     "line": "Qué agente está trabajando, cuál te espera y cuál pide permiso.",
     "where": "Pestañas de las sesiones y tarjetas de los workspaces"
   },
+  "board": {
+    "line": "Las sesiones de agente de todos los proyectos en una pantalla, con lo que pide cada una y cuánto lleva esperando.",
+    "where": "Botón junto a las pestañas (⌘⇧O)"
+  },
   "editorGit": {
     "line": "Editor, cambios de git, commits, branches y notas sin salir de la app.",
     "where": "Panel lateral › Código y Cambios"
@@ -30,6 +34,10 @@
   "notifications": {
     "line": "Un aviso en la app, con sonido, y una notificación del sistema cuando un agente te necesita.",
     "where": "Configuración › Notificaciones"
+  },
+  "mascot": {
+    "line": "En macOS, la mascota se queda de pie en la ventana en la que estás y sube cuando una sesión te necesita.",
+    "where": "Configuración › Apariencia › Mascota fuera de la app"
   },
   "voice": {
     "line": "Dicta en la terminal o en el editor. El modelo de voz corre en esta computadora.",

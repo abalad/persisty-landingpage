@@ -87,7 +87,7 @@ describe("plan catalog", () => {
     const anchors = (id: ShownPlanId) => planById(id).features.filter((f) => f.status === "available").map((f) => f.anchor);
     expect(anchors("pro")).toEqual(["accounts", "queue", "restore-points", "verify", "worktree", "license"]);
     expect(anchors("team")).toEqual(["billing"]);
-    expect(new Set(anchors("free"))).toEqual(new Set(["recovery", "projects", "states", "editor", "git", "usage", "notifications", "voice", "issues", "agents", "privacy", "offline"]));
+    expect(new Set(anchors("free"))).toEqual(new Set(["recovery", "projects", "states", "editor", "git", "usage", "notifications", "mascot", "voice", "issues", "agents", "privacy", "offline"]));
   });
 
   it("gives every available feature an anchor and no planned one", () => {

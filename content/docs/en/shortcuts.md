@@ -11,6 +11,7 @@ The list is also in **Settings › Shortcuts**.
 | --- | --- |
 | Search | <kbd>⌘</kbd> <kbd>K</kbd> |
 | Project bar | <kbd>⌘</kbd> <kbd>B</kbd> |
+| Session board | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> |
 | Show or hide the side panel | <kbd>⌘</kbd> <kbd>&#92;</kbd> |
 | Open file by name | <kbd>⌘</kbd> <kbd>P</kbd> |
 | Search all files | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |

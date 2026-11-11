@@ -17,7 +17,27 @@ Persisty recognises agents in two ways: when you open the session as Claude Code
 | Idle | Open, with no request in progress. |
 | Ended | The conversation is over. |
 
-States show on the tab, on the workspace card, in the project bar and in the agent list. They always come with an icon and a word, never with colour alone.
+States show on the tab, on the workspace card, in the project bar, in the agent list and on the Board. They always come with an icon and a word, never with colour alone.
+
+## The Board
+
+With several sessions running, the Board answers who is waiting for you, for how long and what they want. It shows the agent sessions of every project in four columns: **Needs you**, **Working**, **Answered** and **Error**. Open it with the button beside the tabs or with <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd>.
+
+Each card says in one line what the session wants: the command waiting for permission, the question the agent asked, the end of its answer or the error, such as "Usage limit reached". An answer that ends in a question goes to **Needs you**, and a permission you approved in the terminal itself leaves the column on its own within a few seconds. Answers and errors you have not opened yet show in bold, with a dot.
+
+The session that has waited longest gets the amber frame, and the <kbd>A</kbd> key opens it. Clicking a card opens the session, and <kbd>Esc</kbd> goes back to the terminal. At the top you can switch **All projects** to **This project**.
+
+On Windows and Linux the shortcut is Ctrl+Shift+O. With the **WebStorm (macOS)** keymap, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> with the cursor in the code opens a file by name; there, use the button.
+
+## The mascot outside the app
+
+On macOS, the mascot can leave the terminal's corner and stand on your windows, on top of any app. That way it tells you things while you are in your editor or browser, without you having to look at Persisty. It starts off: turn it on in **Settings › Appearance › Mascot outside the app**.
+
+When a session asks for you, it rises, shows how many are waiting and says which one, such as "checkout asks for permission". Clicking what it says opens the session. A click on the mascot opens a balloon with who is waiting, for how long and what they asked for, with shortcuts to the session and to the Board. Clicking or dragging the mascot does not take the focus away from the app you are in.
+
+It stands on top of the front window, rides along when the window moves and falls when it goes away; when nothing is happening, it sits down and dozes. Drag it anywhere, on any display, and it remembers where. To keep it only where you put it, turn off **The mascot walks on your windows** on the same screen. In the balloon, **Do not disturb** stops it rising and speaking, but the count goes on.
+
+With the mascot outside the app, the one in the terminal goes away. Quitting Persisty closes the mascot.
 
 ## Where the state comes from
 
