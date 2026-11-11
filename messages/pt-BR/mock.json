@@ -168,18 +168,21 @@
       "worktree": "Pasta própria"
     },
     "queue": {
-      "text": "Pedido para o agente",
-      "draft": "Revise os testes de frete e corrija o que falhar",
-      "when": "Quando enviar",
-      "idle": "Assim que o agente ficar livre",
-      "window": "Quando a janela de 5 h renovar (14:20)",
-      "at": "A partir de um horário",
+      "title": "Fila de pedidos",
+      "pause": "Pausar fila",
+      "next": "Próximos ({count})",
+      "sent": "Enviados ({count})",
+      "placeholder": "O que o agente deve fazer quando chegar a vez · ⌘↵",
       "add": "Pôr na fila",
-      "waiting": "Na fila",
-      "item1": "Suba a cobertura do módulo de cupons para 80%",
-      "item1When": "quando a janela de 5 h renovar (14:20)",
-      "item2": "Atualize o README com o novo endpoint de frete",
-      "item2When": "quando o agente ficar livre"
+      "pasteHint": "⌘V cola imagem",
+      "nextBadge": "próximo",
+      "goesIdle": "assim que ficar livre",
+      "goesWindow": "janela de 5 h · {time}",
+      "goesAt": "a partir de {time}",
+      "waitsForAt": "esperando o nº 1 ({time})",
+      "item1": "Rode os testes de integração e me diga o que falhou",
+      "item2": "Atualize o README com o novo comando de deploy",
+      "item3": "Revise o checkout: confira os erros de arredondamento no frete"
     },
     "restore": {
       "point1": "Adicione o cálculo de frete por CEP",

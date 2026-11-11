@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { buttonClass, ButtonIcon } from "@/components/site/Button";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
-import { AgentGlyph, Chip, Rail, Terminal, TopBar, Window, cx, type AgentKind, type TermLine, type Tone } from "./parts";
+import { AgentGlyph, Chip, Rail, Terminal, ToolBar, TopBar, Window, cx, type AgentKind, type TermLine, type Tone } from "./parts";
 import s from "./app.module.css";
 import c from "./crash.module.css";
 
@@ -161,7 +161,10 @@ export function CrashDemo() {
                       </span>
                       <Chip tone="info" icon="working" label={t("states.working")} />
                     </div>
-                    <Terminal lines={lines} rows={11} />
+                    <div className={s.sessionBody}>
+                      <Terminal lines={lines} rows={11} />
+                      <ToolBar />
+                    </div>
                   </>
                 )}
               </div>

@@ -60,13 +60,13 @@
     "sections": {
       "accounts": {
         "title": "Several Claude Code accounts, no /login in the middle of the day",
-        "body": "Connect your personal account and your company's. Persisty follows each one's 5-hour and 7-day windows, sends every new session to the one with the most room and, when a session reaches the limit you chose, moves it to another as its answer ends.",
+        "body": "Connect your personal account and your company's. Persisty follows each one's 5-hour and 7-day windows, sends every new session to the one with the most room and, at the limit you chose, moves a session to another as its answer ends. From the footer you switch a session's account, and a project can be pinned to the company's account.",
         "below": "This computer's account, with its live quota.",
-        "here": "As many accounts as you have, with rotation and the switch limit you choose."
+        "here": "As many accounts as you have, with rotation, switching from the footer and an account per project."
       },
       "queue": {
         "title": "The next request already written, waiting its turn",
-        "body": "Write it now and choose when it goes: as soon as the agent is free, when the 5-hour window renews or from a chosen time. One at a time, in order, never in the middle of a job or over a permission prompt.",
+        "body": "Write it now and choose when it goes: as soon as the agent is free, when the 5-hour window renews or from a chosen time. One at a time, in order, never in the middle of a job. Out of quota, the queue waits, and the conversation carries on by itself when the window renews, with Persisty open.",
         "below": "You wait for the agent to finish before sending the next one.",
         "here": "The queue sends the next one when it can, with Persisty open."
       },

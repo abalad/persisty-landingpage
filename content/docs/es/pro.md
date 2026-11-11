@@ -5,19 +5,23 @@ group: work
 order: 2
 ---
 
-Las funciones Pro están en el **panel lateral de la sesión** (<kbd>⌘</kbd> <kbd>&#92;</kbd>) y en su encabezado. Requieren la cuenta de Persisty con el plan Pro; lo que ya se guardó se puede seguir usando si el plan termina.
+Las funciones Pro están en la **barra del borde derecho de la sesión** (**Cola** y **Puntos de restauración**) y en su encabezado. Requieren la cuenta de Persisty con el plan Pro; lo que ya se guardó se puede seguir usando si el plan termina. Las cuentas de Claude, con rotación, cambio desde el pie y cuenta por proyecto, están en [Cuentas de IA y rotación](/docs/ai-accounts).
 
 ## Cola de pedidos
 
-Escribe el próximo pedido ahora y elige cuándo va al agente:
+La cola funciona como un chat. Escribe el próximo pedido ahora y elige cuándo va al agente:
 
-- **en cuanto el agente quede libre** (*As soon as the agent is free*);
-- **cuando se renueve la ventana de 5 h** (*When the 5-hour window renews*), con la hora leída de la cuota en vivo;
-- **a partir de una hora** (*From a chosen time*).
+- **en cuanto el agente quede libre**;
+- **cuando la ventana de 5 h se renueve**, con la hora leída de la cuota en vivo de la cuenta de la propia sesión;
+- **a partir de una hora**.
 
-Los pedidos van uno a la vez, en el orden de la cola, y solo cuando el agente está esperando el próximo pedido; nunca en medio de un trabajo ni encima de un pedido de permiso. Cada pedido se pega de una sola vez, así que los saltos de línea no lo envían en pedazos.
+El encabezado de la cola dice qué está haciendo el agente. Los próximos pedidos aparecen numerados, en el orden en que van a salir, con cuándo sale cada uno y por qué esperan los de abajo. Puedes arrastrar para reordenar (o <kbd>⌥</kbd> <kbd>↑</kbd> y <kbd>⌥</kbd> <kbd>↓</kbd>), editar un pedido que todavía no salió (la cola espera mientras editas), enviar uno a continuación y sacarlo de la cola. **Pausar cola** (*Pause queue*) retiene todo, también con la app reabierta. Los enviados quedan plegados abajo.
 
-La cola se revisa cada 10 segundos con Persisty abierto. Con la app cerrada, no se envía nada.
+La caja de texto acepta imágenes: <kbd>⌘</kbd> <kbd>V</kbd>, arrastrar o el clip, hasta 8 por pedido y 10 MB cada una (PNG, JPEG, GIF o WebP). Se quedan en esta computadora, y el agente recibe sus rutas al final del pedido.
+
+Los pedidos van de a uno, en el orden de la cola, y solo cuando el agente espera el próximo pedido; nunca en medio de un trabajo ni encima de un pedido de permiso. Cada pedido va tal como se escribió, en un solo pegado. Cuando la cuenta se queda sin cuota, la cola espera a que la ventana se renueve; mira [Cuando la cuota se acaba](/docs/ai-accounts#cuando-la-cuota-se-acaba-pro).
+
+La cola se revisa cada 10 segundos con Persisty abierto. Con la app cerrada, no se envía nada. En el plan gratis, los pedidos que ya están en la cola se pueden pausar, reordenar, enviar a continuación o sacar.
 
 ## Puntos de restauración
 

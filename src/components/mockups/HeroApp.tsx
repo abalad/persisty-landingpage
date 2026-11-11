@@ -10,7 +10,7 @@ import { useTimeline } from "@/hooks/useTimeline";
 import { Buddy } from "./Buddy";
 import { focusShot, READ_ZOOM } from "./tour";
 import { TOUR_QUERY, WindowTour, type TourChapter, type TourCopy } from "./WindowTour";
-import { Chip, CommandButtons, Rail, SessionHeader, StatusBar, Terminal, TopBar, Window, WorkspaceStrip, type TermLine } from "./parts";
+import { Chip, CommandButtons, Rail, SessionHeader, StatusBar, Terminal, ToolBar, TopBar, Window, WorkspaceStrip, type TermLine } from "./parts";
 import s from "./app.module.css";
 
 /** ms per step: the prompt, each tool call and result, then the answer held for a while. */
@@ -113,9 +113,12 @@ function HeroWindow({ step, animate }: { step: number; animate: boolean }) {
             branch="main"
             status={done ? <Chip tone="warn" icon="waiting" label={t("states.waiting")} /> : <Chip tone="info" icon="working" label={t("states.working")} />}
           />
-          <Terminal lines={shown} rows={12} caret={done} animateFrom={animate ? step : Infinity}>
-            <Buddy mood={done ? "done" : "working"} />
-          </Terminal>
+          <div className={s.sessionBody}>
+            <Terminal lines={shown} rows={12} caret={done} animateFrom={animate ? step : Infinity}>
+              <Buddy mood={done ? "done" : "working"} />
+            </Terminal>
+            <ToolBar changes={step >= 4 ? 2 : undefined} />
+          </div>
           <WorkspaceStrip
             title={t("workspaces.title")}
             count={3}

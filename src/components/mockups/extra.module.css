@@ -6,6 +6,11 @@
   min-height: calc(var(--h, 380) * var(--u));
 }
 
+/* Terminal, the open tool's panel, and the session's bar on the right edge (0.10.0). */
+.splitBar {
+  grid-template-columns: minmax(0, 1fr) calc(var(--side, 400) * var(--u)) calc(40 * var(--u));
+}
+
 .splitFixed {
   height: calc(var(--h, 380) * var(--u));
   min-height: 0;
@@ -632,4 +637,231 @@
     grid-template-columns: auto minmax(0, 1fr) calc(36 * var(--u));
     padding-left: calc(24 * var(--u));
   }
+}
+
+/* ---- an open tool's panel: its title as the app writes it, small and spaced */
+.panelTitle {
+  flex: none;
+  padding: calc(12 * var(--u)) calc(14 * var(--u)) calc(10 * var(--u));
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-fg-subtle);
+  font-size: calc(11 * var(--u));
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.panelBodyFull {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- the 0.10.0 queue: like a chat, the next ones numbered, the box to write at the bottom */
+.queue {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: calc(8 * var(--u));
+  min-height: 0;
+}
+
+.queueHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: calc(8 * var(--u));
+  border-bottom: 1px solid var(--color-border);
+}
+
+.queueState {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  color: var(--color-fg);
+}
+
+.queueState svg {
+  width: calc(13 * var(--u));
+  height: calc(13 * var(--u));
+  color: var(--color-info);
+}
+
+.ghostBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  height: calc(24 * var(--u));
+  padding: 0 calc(9 * var(--u));
+  border: 1px solid var(--color-border-strong);
+  border-radius: calc(6 * var(--u));
+  background: var(--color-surface);
+  color: var(--color-fg);
+  font-size: calc(11.5 * var(--u));
+}
+
+.ghostBtn svg {
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+}
+
+.queueCard {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: calc(7 * var(--u));
+  padding: calc(9 * var(--u)) calc(10 * var(--u)) calc(9 * var(--u)) calc(6 * var(--u));
+  border: 1px solid var(--color-border);
+  border-radius: calc(7 * var(--u));
+  background: var(--color-surface);
+}
+
+.queueGrip {
+  width: calc(12 * var(--u)) !important;
+  height: calc(12 * var(--u)) !important;
+  margin-top: calc(2 * var(--u));
+  color: var(--color-fg-subtle);
+}
+
+.queueNum {
+  display: grid;
+  place-items: center;
+  width: calc(17 * var(--u));
+  height: calc(17 * var(--u));
+  border-radius: 50%;
+  color: var(--color-fg-subtle);
+  font-size: calc(10.5 * var(--u));
+  font-variant-numeric: tabular-nums;
+}
+
+.queueNumNext {
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+  font-weight: 700;
+}
+
+.queueText {
+  display: grid;
+  gap: calc(5 * var(--u));
+  min-width: 0;
+}
+
+.queueTitle {
+  color: var(--color-fg);
+  font-size: calc(12.5 * var(--u));
+  line-height: 1.35;
+}
+
+/* Two pasted screenshots, as the queue shows them before the request goes. */
+.queueThumbs {
+  display: flex;
+  gap: calc(5 * var(--u));
+}
+
+.queueThumbs > span {
+  width: calc(42 * var(--u));
+  height: calc(30 * var(--u));
+  border: 1px solid var(--color-border-strong);
+  border-radius: calc(4 * var(--u));
+  background:
+    linear-gradient(var(--color-info) 0 0) calc(4 * var(--u)) calc(4 * var(--u)) / calc(32 * var(--u)) calc(3 * var(--u)) no-repeat,
+    linear-gradient(#c9ced8 0 0) calc(4 * var(--u)) calc(11 * var(--u)) / calc(24 * var(--u)) calc(2 * var(--u)) no-repeat,
+    linear-gradient(#c9ced8 0 0) calc(4 * var(--u)) calc(16 * var(--u)) / calc(20 * var(--u)) calc(2 * var(--u)) no-repeat,
+    #eef0f4;
+}
+
+.queueThumbs > span + span {
+  background:
+    linear-gradient(var(--color-ok) 0 0) calc(4 * var(--u)) calc(4 * var(--u)) / calc(32 * var(--u)) calc(3 * var(--u)) no-repeat,
+    linear-gradient(#c9ced8 0 0) calc(4 * var(--u)) calc(11 * var(--u)) / calc(26 * var(--u)) calc(2 * var(--u)) no-repeat,
+    linear-gradient(#c9ced8 0 0) calc(4 * var(--u)) calc(16 * var(--u)) / calc(18 * var(--u)) calc(2 * var(--u)) no-repeat,
+    #eef0f4;
+}
+
+.queueMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  color: var(--color-fg-subtle);
+  font-size: calc(11 * var(--u));
+}
+
+.queueMeta svg {
+  width: calc(11 * var(--u));
+  height: calc(11 * var(--u));
+}
+
+.queueBadge {
+  padding: 0 calc(6 * var(--u));
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+  font-weight: 650;
+  line-height: calc(16 * var(--u));
+}
+
+.queueActions {
+  display: inline-flex;
+  gap: calc(8 * var(--u));
+  color: var(--color-fg-subtle);
+}
+
+.queueActions svg {
+  width: calc(12 * var(--u));
+  height: calc(12 * var(--u));
+}
+
+.queueSent {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(5 * var(--u));
+  color: var(--color-fg-muted);
+  font-size: calc(11.5 * var(--u));
+  font-weight: 600;
+}
+
+.queueSent svg {
+  width: calc(11 * var(--u));
+  height: calc(11 * var(--u));
+}
+
+.queueComposer {
+  margin-top: auto;
+  min-height: calc(46 * var(--u));
+  padding: calc(9 * var(--u)) calc(10 * var(--u));
+  border: 1px solid var(--color-border-strong);
+  border-radius: calc(7 * var(--u));
+  background: var(--color-surface);
+  color: var(--color-fg-subtle);
+}
+
+.queueFoot {
+  display: flex;
+  align-items: center;
+  gap: calc(8 * var(--u));
+  color: var(--color-fg-subtle);
+}
+
+.queueFoot > svg {
+  width: calc(14 * var(--u));
+  height: calc(14 * var(--u));
+}
+
+.queueWhen {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(5 * var(--u));
+  height: calc(24 * var(--u));
+  padding: 0 calc(8 * var(--u));
+  border: 1px solid var(--color-border-strong);
+  border-radius: calc(6 * var(--u));
+  color: var(--color-fg-muted);
+  font-size: calc(11.5 * var(--u));
+}
+
+.queueWhen svg {
+  width: calc(11 * var(--u));
+  height: calc(11 * var(--u));
 }

@@ -48,9 +48,9 @@ export function Glimpse({ id }: { id: GlimpseId }) {
 
       {id === "requestQueue" ? (
         <>
-          <span className={styles.label}>{pro("queue.waiting")}</span>
-          <QueueRow title={pro("queue.item1")} when={pro("queue.item1When")} />
-          <QueueRow title={pro("queue.item2")} when={pro("queue.item2When")} />
+          <span className={styles.label}>{pro("queue.next", { count: 3 })}</span>
+          <QueueRow title={`1 · ${pro("queue.item1")}`} when={`${pro("queue.nextBadge")} · ${pro("queue.goesAt", { time: "22:53" })}`} />
+          <QueueRow title={`2 · ${pro("queue.item2")}`} when={pro("queue.goesIdle")} />
         </>
       ) : null}
 

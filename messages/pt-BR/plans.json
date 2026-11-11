@@ -60,13 +60,13 @@
     "sections": {
       "accounts": {
         "title": "Várias contas do Claude Code, sem /login no meio do dia",
-        "body": "Conecte a conta pessoal e a da empresa. O Persisty acompanha as janelas de 5 horas e 7 dias de cada uma, manda cada sessão nova para a que tem mais folga e, quando uma sessão chega ao limite que você escolheu, passa para outra ao terminar a resposta.",
+        "body": "Conecte a conta pessoal e a da empresa. O Persisty acompanha as janelas de 5 horas e 7 dias de cada uma, manda cada sessão nova para a que tem mais folga e, no limite que você escolheu, passa a sessão para outra ao terminar a resposta. Pelo rodapé, você troca a conta de uma sessão, e um projeto pode ficar preso à conta da empresa.",
         "below": "A conta deste computador, com a quota ao vivo.",
-        "here": "Quantas contas você tiver, com rodízio e o limite de troca que você escolher."
+        "here": "Quantas contas você tiver, com rodízio, troca pelo rodapé e conta por projeto."
       },
       "queue": {
         "title": "O próximo pedido já escrito, esperando a vez",
-        "body": "Escreva agora e escolha quando vai: assim que o agente ficar livre, quando a janela de 5 h renovar ou a partir de um horário. Um por vez, na ordem, nunca no meio de um trabalho nem por cima de um pedido de permissão.",
+        "body": "Escreva agora e escolha quando vai: assim que o agente ficar livre, quando a janela de 5 h renovar ou a partir de um horário. Um por vez, na ordem, nunca no meio de um trabalho. Sem quota, a fila espera, e a conversa continua sozinha quando a janela renova, com o Persisty aberto.",
         "below": "Você espera o agente terminar para mandar o próximo.",
         "here": "A fila manda o próximo quando der, com o Persisty aberto."
       },

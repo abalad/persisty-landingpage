@@ -5,19 +5,23 @@ group: work
 order: 2
 ---
 
-The Pro features live in the **session side panel** (<kbd>⌘</kbd> <kbd>&#92;</kbd>) and in the session header. They require a Persisty account on the Pro plan; what has already been saved stays usable if the plan ends.
+The Pro features live in the **bar on the session's right edge** (**Queue** and **Restore points**) and in the session header. They require a Persisty account on the Pro plan; what has already been saved stays usable if the plan ends. Claude accounts, with rotation, switching from the footer and an account per project, are in [AI accounts and rotation](/docs/ai-accounts).
 
 ## Request queue
 
-Write the next request now and choose when it goes to the agent:
+The queue works like a chat. Write the next request now and choose when it goes to the agent:
 
 - **as soon as the agent is free**;
-- **when the 5-hour window renews**, with the time read from the live quota;
-- **from a chosen time**.
+- **when the 5-hour window renews**, with the time read from the live quota of the session's own account;
+- **from a time on**.
 
-Requests go one at a time, in queue order, and only when the agent is waiting for its next request; never in the middle of work or over a permission request. Each request goes as a single paste, so line breaks do not send it in pieces.
+The queue's header says what the agent is doing. The next requests are numbered, in the order they will go, with when each one goes and why the ones below are waiting. You can drag to reorder (or <kbd>⌥</kbd> <kbd>↑</kbd> and <kbd>⌥</kbd> <kbd>↓</kbd>), edit a request that has not gone yet (the queue waits while you edit), send one next and take one out. **Pause queue** holds everything, also after the app reopens. Sent requests fold away at the bottom.
 
-The queue is checked every 10 seconds while Persisty is open. With the app closed, nothing is sent.
+The text box takes images: <kbd>⌘</kbd> <kbd>V</kbd>, drag or the paperclip, up to 8 per request and 10 MB each (PNG, JPEG, GIF or WebP). They stay on this computer, and the agent gets their paths at the end of the request.
+
+Requests go one at a time, in queue order, and only when the agent is waiting for its next request; never in the middle of work or over a permission request. Each request goes exactly as written, as a single paste. When the account runs out of quota, the queue waits for the window to renew; see [When the quota runs out](/docs/ai-accounts#when-the-quota-runs-out-pro).
+
+The queue is checked every 10 seconds while Persisty is open. With the app closed, nothing is sent. On the free plan, requests already in the queue can be paused, reordered, sent next or taken out.
 
 ## Restore points
 

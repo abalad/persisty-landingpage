@@ -1,6 +1,6 @@
 import { ListFilter, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { AgentGlyph, Lights, SessionHeader, Chip, Terminal, WorkspaceStrip, cx, type TermLine } from "./parts";
+import { AgentGlyph, Lights, SessionHeader, Chip, Terminal, ToolBar, WorkspaceStrip, cx, type TermLine } from "./parts";
 import { ProjectLogo, projectName } from "./logos";
 import s from "./app.module.css";
 import x from "./extra.module.css";
@@ -104,7 +104,10 @@ export function ProjectsMock() {
           </span>
         </div>
         <SessionHeader name="checkout" kind="claude" branch="feat/checkout" status={<Chip tone="warn" icon="permission" label={t("states.permission")} />} />
-        <Terminal lines={(t.raw("projects.permissionLines") as TermLine[]).slice(2)} rows={6} />
+        <div className={s.sessionBody}>
+          <Terminal lines={(t.raw("projects.permissionLines") as TermLine[]).slice(2)} rows={6} />
+          <ToolBar changes={2} />
+        </div>
         <WorkspaceStrip
           title={t("workspaces.title")}
           count={3}

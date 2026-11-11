@@ -1,7 +1,7 @@
 import { ChevronDown, FileCode2, Folder, GitCommitHorizontal } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
-import { Lights, cx } from "./parts";
+import { Lights, ToolBar, cx } from "./parts";
 import s from "./app.module.css";
 import x from "./extra.module.css";
 
@@ -91,6 +91,7 @@ export function EditorMock() {
             </span>
           </div>
         </div>
+        <ToolBar active="changes" changes={3} />
       </div>
     </>
   );
