@@ -27,12 +27,24 @@ import {
   ShieldCheck,
   Smartphone,
   Split,
+  SquareKanban,
   Tag,
   Undo2,
   Wallet,
   WifiOff,
+  createLucideIcon,
   type LucideIcon,
 } from "lucide-react";
+
+/** The mascot, drawn on Lucide's grid and stroke: the antenna, the round head with its eyes, the body under it. */
+const Mascot = createLucideIcon("persisty-mascot", [
+  ["path", { d: "M12 5.5V4", key: "antenna" }],
+  ["circle", { cx: "12", cy: "3", r: "1", key: "tip" }],
+  ["circle", { cx: "12", cy: "10.5", r: "5", key: "head" }],
+  ["path", { d: "M10.25 10v1", key: "eye-l" }],
+  ["path", { d: "M13.75 10v1", key: "eye-r" }],
+  ["path", { d: "M8 21.5a4 4 0 0 1 8 0", key: "body" }],
+]);
 
 /** One Lucide icon per feature of the shown plans; the Pro ones match the app's own (side panel, commands menu). */
 export const FEATURE_ICONS: Record<string, LucideIcon> = {
@@ -40,10 +52,12 @@ export const FEATURE_ICONS: Record<string, LucideIcon> = {
   recovery: RotateCcw,
   projects: FolderKanban,
   agentStates: Activity,
+  board: SquareKanban,
   editorGit: Code2,
   gitHosting: GitBranch,
   usage: Gauge,
   notifications: Bell,
+  mascot: Mascot,
   voice: Mic,
   trackers: ListTodo,
   agentTools: Bot,

@@ -6,7 +6,9 @@ import { FaqSection } from "@/components/home/FaqSection";
 import { CrashDemo } from "@/components/mockups/CrashDemo";
 import { NetworkMock } from "@/components/mockups/NetworkMock";
 import { Window } from "@/components/mockups/parts";
-import { EditorWindow, ProjectsWindow, StatesWindow } from "@/components/mockups/tours";
+import { BoardWindow } from "@/components/mockups/BoardMock";
+import { EditorWindow, ProjectsWindow } from "@/components/mockups/tours";
+import { MascotStage } from "@/components/mascot/MascotStage";
 import { AlsoList } from "@/components/plans/AlsoList";
 import { PlanHero } from "@/components/plans/PlanHero";
 import { PlanClosing, PlanCompare, Roadmap } from "@/components/plans/PlanParts";
@@ -25,8 +27,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/free">):
 /** The free features that have a window on the home page get one here too; the rest are listed. */
 const SECTIONS = [
   { anchor: "recovery", icon: "recovery", docs: "/docs/sessions-and-recovery" },
+  { anchor: "states", icon: "board", docs: "/docs/agents" },
   { anchor: "projects", icon: "projects", docs: "/docs/projects-and-workspaces" },
-  { anchor: "states", icon: "agentStates", docs: "/docs/agents" },
+  { anchor: "mascot", icon: "mascot", docs: "/docs/agents" },
   { anchor: "editor", icon: "editorGit", docs: "/docs/editor-and-git" },
   { anchor: "privacy", icon: "networkLog", docs: "/security" },
 ] as const;
@@ -45,7 +48,8 @@ export default function FreePage({ params }: PageProps<"/[locale]/free">) {
   const windows: Record<(typeof SECTIONS)[number]["anchor"], ReactNode> = {
     recovery: <CrashDemo />,
     projects: <ProjectsWindow />,
-    states: <StatesWindow />,
+    states: <BoardWindow />,
+    mascot: <MascotStage boardHref="#states" />,
     editor: <EditorWindow />,
     privacy: (
       <Window label={m("network.label")} designWidth={860}>
@@ -59,7 +63,7 @@ export default function FreePage({ params }: PageProps<"/[locale]/free">) {
     <>
       <PlanHero plan="free" index={[...SECTIONS]} />
       {SECTIONS.map((s) => (
-        <PlanSection key={s.anchor} id={s.anchor} plan="free" title={h(`${s.anchor}.title`)} body={h(`${s.anchor}.body`)} link={{ href: s.docs, label: h(`${s.anchor}.link`) }} narrow={s.anchor === "privacy"}>
+        <PlanSection key={s.anchor} id={s.anchor} plan="free" title={h(`${s.anchor}.title`)} body={h(`${s.anchor}.body`)} link={{ href: s.anchor === "mascot" ? `${s.docs}#${h("mascot.anchor")}` : s.docs, label: h(`${s.anchor}.link`) }} narrow={s.anchor === "privacy" || s.anchor === "mascot"}>
           {windows[s.anchor]}
         </PlanSection>
       ))}

@@ -107,8 +107,14 @@
   },
   "states": {
     "title": "You know which agent needs you",
-    "body": "Working, waiting for you, asking for permission, stopped. The state comes from Claude Code's own hooks, not a guess at the screen.",
+    "body": "The Board puts every project's sessions in four columns, and each card says what the session wants. The state comes from Claude Code's own hooks, not a guess at the screen.",
     "link": "Agents and states"
+  },
+  "mascot": {
+    "title": "A notice that stays on top of your windows",
+    "body": "On macOS, the mascot stands on the window you are working in. When a session asks for you, it rises and says which, and a click shows what each one wants.",
+    "link": "The mascot outside the app",
+    "anchor": "the-mascot-outside-the-app"
   },
   "pro": {
     "title": "Line up the next request",

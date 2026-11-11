@@ -32,6 +32,11 @@
   -webkit-user-select: none;
 }
 
+/* A window drawn smaller than its design (behind another one): it scales all the way down, no floor. */
+.unclamped .window {
+  --u: calc(100cqi / var(--design-width, 1120));
+}
+
 .window svg {
   display: inline-block;
   flex: none;

@@ -17,7 +17,27 @@ O Persisty reconhece agentes de duas formas: quando você abre a sessão como Cl
 | Ocioso | Aberto, sem pedido em andamento. |
 | Encerrada | A conversa terminou. |
 
-Os estados aparecem na aba, no cartão do workspace, na barra de projetos e na lista de agentes. Eles sempre vêm com ícone e palavra, nunca só com cor.
+Os estados aparecem na aba, no cartão do workspace, na barra de projetos, na lista de agentes e no Quadro. Eles sempre vêm com ícone e palavra, nunca só com cor.
+
+## O Quadro
+
+Com várias sessões rodando, o Quadro responde quem está esperando por você, há quanto tempo e o que ela quer. Ele mostra as sessões de agente de todos os projetos em quatro colunas: **Precisa de você**, **Trabalhando**, **Respondeu** e **Erro**. Abra pelo botão ao lado das abas ou com <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd>.
+
+Cada cartão diz em uma linha o que a sessão quer: o comando que espera permissão, a pergunta que o agente fez, o fim da resposta ou o erro, como "Limite de uso atingido". Uma resposta que termina em pergunta vai para **Precisa de você**, e uma permissão que você aprovou no próprio terminal sai da coluna sozinha em poucos segundos. Respostas e erros que você ainda não abriu aparecem em negrito, com um ponto.
+
+A sessão que espera há mais tempo ganha a moldura âmbar, e a tecla <kbd>A</kbd> abre essa. Clicar num cartão abre a sessão, e <kbd>Esc</kbd> volta ao terminal. No topo, dá para trocar **Todos os projetos** por **Este projeto**.
+
+No Windows e no Linux, o atalho é Ctrl+Shift+O. Com o mapa de teclas **WebStorm (macOS)**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> com o cursor no código abre um arquivo pelo nome; ali, use o botão.
+
+## O mascote fora do app
+
+No macOS, o mascote pode sair do canto do terminal e ficar em pé sobre as suas janelas, por cima de qualquer app. Assim ele avisa enquanto você está no editor ou no navegador, sem que você precise olhar para o Persisty. Ele vem desligado: ligue em **Configurações › Aparência › Mascote fora do app**.
+
+Quando uma sessão pede você, ele sobe, mostra quantas estão esperando e diz qual, como "checkout pede permissão". Clicar na fala abre a sessão. Um clique nele abre um balão com quem espera, há quanto tempo e o que pediu, com atalhos para a sessão e para o Quadro. Clicar ou arrastar o mascote não tira o foco do app em que você está.
+
+Ele fica no topo da janela da frente, vai junto quando ela se mexe e cai quando ela some; quando nada acontece, senta e cochila. Arraste-o para qualquer lugar, em qualquer monitor, e ele lembra a posição. Para ele ficar só onde você deixar, desligue **O mascote anda sobre as janelas**, na mesma tela. No balão, **Não perturbe** faz ele parar de subir e de falar, mas a contagem continua.
+
+Com o mascote fora do app, o do terminal some. Fechar o Persisty fecha o mascote.
 
 ## De onde vem o estado
 

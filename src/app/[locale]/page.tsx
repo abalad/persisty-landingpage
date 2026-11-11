@@ -13,7 +13,8 @@ import { AccountsMock } from "@/components/mockups/AccountsMock";
 import { CrashDemo } from "@/components/mockups/CrashDemo";
 import { NetworkMock } from "@/components/mockups/NetworkMock";
 import { ProTabs } from "@/components/mockups/ProTabs";
-import { EditorWindow, ProjectsWindow, StatesWindow } from "@/components/mockups/tours";
+import { BoardWindow } from "@/components/mockups/BoardMock";
+import { EditorWindow, ProjectsWindow } from "@/components/mockups/tours";
 import { Window } from "@/components/mockups/parts";
 import { CompareTable } from "@/components/pricing/CompareTable";
 import { PlanCards } from "@/components/pricing/PlanCards";
@@ -59,7 +60,7 @@ function HomeContent() {
         </Window>
       </Feature>
       <Feature id="states" title={t("states.title")} body={t("states.body")} link={{ href: "/docs/agents", label: t("states.link") }}>
-        <StatesWindow />
+        <BoardWindow />
       </Feature>
       <Feature id="pro" title={t("pro.title")} body={t("pro.body")} meta={pro} link={{ href: "/pro", label: t("pro.link") }}>
         <ProTabs />

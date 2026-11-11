@@ -345,23 +345,6 @@
         }
       ]
     },
-    "states": {
-      "label": "Capítulos do tour pela janela de agentes",
-      "chapters": [
-        {
-          "title": "Visão geral",
-          "body": "Projetos e agentes à esquerda, a sessão escolhida à direita."
-        },
-        {
-          "title": "Agentes",
-          "body": "Todos os agentes de todos os projetos, com o estado de cada um."
-        },
-        {
-          "title": "Pedido de permissão",
-          "body": "O agente mostra o comando que quer rodar e as opções."
-        }
-      ]
-    },
     "editor": {
       "label": "Capítulos do tour pela janela do editor",
       "chapters": [
@@ -380,6 +363,27 @@
         {
           "title": "Alterações",
           "body": "O que mudou, a mensagem e o commit, sem sair da sessão."
+        }
+      ]
+    },
+    "board": {
+      "label": "Capítulos do tour pelo Quadro",
+      "chapters": [
+        {
+          "title": "Visão geral",
+          "body": "As sessões de todos os projetos, em quatro colunas."
+        },
+        {
+          "title": "Precisa de você",
+          "body": "Quem espera há mais tempo vem primeiro, em destaque, e a tecla A abre essa."
+        },
+        {
+          "title": "Mudou de coluna",
+          "body": "O agente do catálogo terminou: o cartão vai para Respondeu, com o fim da resposta."
+        },
+        {
+          "title": "Resumo",
+          "body": "Quantas precisam de você, quantas trabalham e quantas você ainda não leu."
         }
       ]
     }
@@ -422,5 +426,87 @@
     "title": "Time",
     "team": "Produto",
     "when": "há 2 dias"
+  },
+  "board": {
+    "label": "O Quadro do Persisty: as sessões de agente de todos os projetos em quatro colunas, a que espera há mais tempo em destaque.",
+    "title": "Quadro",
+    "scopeAll": "Todos os projetos",
+    "scopeProject": "Este projeto",
+    "needsYou": "{count, plural, one {# precisa de você} other {# precisam de você}}",
+    "working": "{count} trabalhando",
+    "unread": "{count, plural, one {# não lida} other {# não lidas}}",
+    "close": "Voltar ao terminal",
+    "columns": {
+      "needs_you": "Precisa de você",
+      "working": "Trabalhando",
+      "answered": "Respondeu",
+      "error": "Erro"
+    },
+    "openHint": "abre esta",
+    "parked": "{count, plural, one {# sessão parada} other {# sessões paradas}}",
+    "now": "agora",
+    "minutes": "há {count} min",
+    "names": {
+      "shipping": "frete",
+      "migration": "migração",
+      "report": "relatório"
+    },
+    "shippingAsks": "Calculo o frete pelo CEP de origem do pedido ou pelo do estoque mais perto?",
+    "apiAsks": "Posso remover a rota /v1/pedidos, ou algum cliente ainda usa?",
+    "editing": "Editando",
+    "running": "Rodando",
+    "catalogSaid": "Os filtros por tamanho e cor estão prontos, e os testes passaram.",
+    "docsSaid": "Atualizei o guia de instalação e corrigi os links da página de atalhos.",
+    "loginSaid": "O login por código agora reenvia o e-mail depois de 30 segundos.",
+    "rateLimit": "Limite de uso atingido"
+  },
+  "mascot": {
+    "label": "Uma janela de navegador na frente do Persisty, e o mascote em pé na borda dela, avisando que duas sessões precisam de você.",
+    "path": "plantas",
+    "nav": [
+      "Plantas",
+      "Vasos",
+      "Ferramentas"
+    ],
+    "shopTitle": "Plantas de interior",
+    "filters": [
+      "Tamanho",
+      "Cor",
+      "Preço"
+    ],
+    "plants": [
+      "Jiboia",
+      "Costela-de-adão",
+      "Zamioculca",
+      "Samambaia"
+    ],
+    "speech": {
+      "permission": "{title} pede permissão",
+      "question": "{title} fez uma pergunta",
+      "done": "{title} terminou"
+    },
+    "shipping": "frete",
+    "catalog": "catálogo",
+    "shippingAsks": "Calculo o frete pelo CEP de origem ou do estoque?",
+    "button": "{count, plural, =0 {Persisty: nada esperando por você} one {Persisty: # sessão precisa de você} other {Persisty: # sessões precisam de você}}",
+    "openBoard": "Abrir o Quadro",
+    "dnd": "Não perturbe",
+    "dndOff": "Voltar a avisar",
+    "hide": "Esconder mascote",
+    "show": "Mostrar o mascote",
+    "needsYou": "Precisa de você",
+    "notices": "Avisos",
+    "open": "Abrir",
+    "waiting": "Esperando há {minutes} min",
+    "finished": "Terminou",
+    "empty": "Nada esperando por você.",
+    "count": "24 plantas",
+    "add": "Adicionar",
+    "care": [
+      "Meia-sombra · vaso 15 cm",
+      "Luz indireta · vaso 21 cm",
+      "Pouca luz · vaso 17 cm",
+      "Sombra úmida · vaso 15 cm"
+    ]
   }
 }

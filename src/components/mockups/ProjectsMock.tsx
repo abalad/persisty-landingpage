@@ -139,17 +139,3 @@ export function ProjectsMock() {
     </div>
   );
 }
-
-/** The agent list beside a session that is asking for permission. */
-export function StatesMock() {
-  const t = useTranslations("mock");
-  return (
-    <div className={x.frameFit} style={{ display: "flex" }}>
-      <ProjectsSidebar />
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-        <SessionHeader name="checkout" kind="claude" branch="feat/checkout" status={<Chip tone="warn" icon="permission" label={t("states.permission")} />} />
-        <Terminal lines={[...(t.raw("projects.checkoutLines") as TermLine[]), ...(t.raw("projects.permissionLines") as TermLine[])]} rows={10} />
-      </div>
-    </div>
-  );
-}
