@@ -87,7 +87,7 @@ describe("changelog", () => {
       const versions = entries.map((e) => e.version);
       expect([...versions].sort(compareVersions).reverse(), locale).toEqual(versions);
     }
-    expect((await listChangelog("pt-BR")).map((e) => e.version)).toEqual(["0.9.4", "0.9.3", "0.9.2", "0.9.1", "0.9.0", "0.8.0", "0.7.0", "0.6.0", "0.5.0", "0.4.0", "0.3.0", "0.2.0", "0.1.0"]);
+    expect((await listChangelog("pt-BR")).map((e) => e.version)).toEqual(["0.10.0", "0.9.4", "0.9.3", "0.9.2", "0.9.1", "0.9.0", "0.8.0", "0.7.0", "0.6.0", "0.5.0", "0.4.0", "0.3.0", "0.2.0", "0.1.0"]);
   });
 
   it("keeps the date", async () => {
