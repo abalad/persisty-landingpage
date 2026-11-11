@@ -88,7 +88,23 @@
         "title": "Comandos con un clic",
         "body": "Persisty lee los comandos de cada carpeta, como pnpm dev y las pruebas."
       }
-    ]
+    ],
+    "live": {
+      "workspaces": "4 workspaces",
+      "roles": [
+        "front",
+        "back",
+        "app",
+        "landing"
+      ],
+      "asks": "checkout pide permiso",
+      "allow": "Permitir",
+      "deny": "Denegar",
+      "allowed": "Permitido. El agente sigue.",
+      "denied": "Denegado. El agente te espera.",
+      "running": "Ejecutando…",
+      "passed": "14 pruebas pasaron"
+    }
   },
   "recovery": {
     "title": "Sesiones que vuelven después de un cuelgue",

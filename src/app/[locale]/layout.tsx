@@ -21,7 +21,7 @@ function clientMessages(all: Messages): Messages {
     download,
     auth,
     features,
-    home: { hero: (home as Messages).hero },
+    home: { hero: (home as Messages).hero, studio: { live: ((home as Messages).studio as Messages).live } },
     pricing: { checkout: (pricing as Messages).checkout, features: (pricing as Messages).features, plans: (pricing as Messages).plans },
     plans: { common: { tried: ((plans as Messages).common as Messages).tried } },
   };
