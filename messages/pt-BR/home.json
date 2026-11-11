@@ -88,7 +88,23 @@
         "title": "Comandos com um clique",
         "body": "O Persisty lê os comandos de cada pasta, como pnpm dev e os testes."
       }
-    ]
+    ],
+    "live": {
+      "workspaces": "4 workspaces",
+      "roles": [
+        "front",
+        "back",
+        "app",
+        "landing"
+      ],
+      "asks": "checkout pede permissão",
+      "allow": "Permitir",
+      "deny": "Negar",
+      "allowed": "Permitido. O agente continua.",
+      "denied": "Negado. O agente espera você.",
+      "running": "Rodando…",
+      "passed": "14 testes passaram"
+    }
   },
   "recovery": {
     "title": "Sessões que voltam depois de um travamento",

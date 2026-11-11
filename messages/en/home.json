@@ -88,7 +88,23 @@
         "title": "Commands in one click",
         "body": "Persisty reads each folder's commands, like pnpm dev and the tests."
       }
-    ]
+    ],
+    "live": {
+      "workspaces": "4 workspaces",
+      "roles": [
+        "front",
+        "back",
+        "app",
+        "landing"
+      ],
+      "asks": "checkout asks for permission",
+      "allow": "Allow",
+      "deny": "Deny",
+      "allowed": "Allowed. The agent carries on.",
+      "denied": "Denied. The agent waits for you.",
+      "running": "Running…",
+      "passed": "14 tests passed"
+    }
   },
   "recovery": {
     "title": "Sessions that come back after a crash",
