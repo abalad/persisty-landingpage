@@ -26,5 +26,4 @@ The queue only sends while Persisty is open and the agent is waiting for its nex
 - Switch a session's account in the middle of a turn. With rotation on, the switch happens when the turn ends.
 - Integrations with analytics tools.
 - Split the terminal into side-by-side panes.
-- In the editor: renaming or deleting files.
 - A signed Windows installer, and Windows and Linux tested on real machines.

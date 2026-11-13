@@ -1,6 +1,6 @@
 ---
 title: Editor, changes and notes
-description: The editor beside the terminal, with suggestions and errors from the project, the git changes tab, project search and notes.
+description: The editor beside the terminal, with the file tree, suggestions and errors from the project, the git changes tab, project search and notes.
 group: work
 order: 3
 ---
@@ -9,7 +9,7 @@ The session's tools sit in a thin bar on its right edge: **Code**, **Search** an
 
 ## Code
 
-The editor opens the session's folder as a tree. Files git ignores are dimmed. The Files list changes width: drag the divider, or use the arrows with it in focus; a double click restores the default. Right-clicking a file or folder has **Show in Finder**.
+The editor opens the session's folder as a tree. Files git ignores are dimmed. The Files list changes width: drag the divider, or use the arrows with it in focus; a double click restores the default. The tree creates, renames, moves, copies and deletes files; see [Files](#files).
 
 - <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> searches every file, <kbd>⌘</kbd> <kbd>F</kbd> finds and replaces in the open file and <kbd>⌘</kbd> <kbd>S</kbd> saves. To open a file by name, use <kbd>⌘</kbd> <kbd>P</kbd> outside the code, or your keymap's key inside it (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> in WebStorm).
 - Syntax highlighting, loaded on demand, in the terminal's theme.
@@ -18,6 +18,22 @@ The editor opens the session's folder as a tree. Files git ignores are dimmed. T
 - Images open in the editor (PNG, JPG, GIF, WebP, BMP and ICO), fitted to the panel, with their dimensions and size; a click shows the actual size. An SVG opens as code and gets a preview, like Markdown (the eye button, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd>), drawn as an image and running no script.
 
 Other binary files and files over 5 MB do not open.
+
+## Files
+
+Right-clicking a file or folder opens the file menu; with the tree in focus, <kbd>⇧</kbd> <kbd>F10</kbd> opens it too. <kbd>⌘</kbd> + click and <kbd>⇧</kbd> + click select several items, the arrows move through the tree and <kbd>↵</kbd> opens the file.
+
+**New** creates a file or a folder. TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile and EditorConfig files start with a minimal template. **Rename** edits the name in the row itself, and open tabs follow the file with their unsaved text and undo. **Move to…** and **Copy to…** pick the folder from a list with search. Dragging an item onto a folder moves it too, and with <kbd>⌥</kbd> it copies. With the tree in focus, <kbd>⌘</kbd> <kbd>X</kbd>, <kbd>⌘</kbd> <kbd>C</kbd> and <kbd>⌘</kbd> <kbd>V</kbd> cut, copy and paste files, to and from the Finder as well.
+
+**Delete** always asks first and sends to the Trash. For 10 seconds, **Undo** in the notice or <kbd>⌘</kbd> <kbd>Z</kbd> brings the file back. When the name already exists at the destination, Persisty asks once: rename, replace (the old one goes to the Trash) or skip, and it can do the same for the rest. A file with unsaved changes is never replaced without your say-so. Large copies show their progress and can be cancelled without leaving anything half done. If a move or copy stops partway, what already went stays, and the notice says which item failed.
+
+**Open in** takes the file to the Finder, a terminal in its folder, the default app, the browser, your IDE at the current line or its page on GitHub, GitLab or Bitbucket. The IDE is the one you choose in **Settings › General**. **Copy Path** gives the absolute path, the path from the project or from the repository root, the name, the `file:line` reference and the file's link on the forge. **Reload from Disk** reads again what changed outside the editor. **Change File Type** reads a file as another language, such as a `.env` as Shell, and the choice follows the file when it moves.
+
+Right-clicking an editor tab has every way to close: the tab, the others, all, the unmodified ones, and those to the left or right. Only tabs with unsaved changes ask first, in a single question. The same menu renames the file, changes its type, copies its path, opens it elsewhere and reloads it from disk.
+
+In the WebStorm keymaps, the keys are the IDE's: <kbd>⇧</kbd> <kbd>F6</kbd> renames, <kbd>F6</kbd> moves, <kbd>F5</kbd> copies to another folder, <kbd>⌫</kbd> deletes, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> copies the path, <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> copies the reference and <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> syncs the tree with the folder. In the VS Code keymap, these actions are in the menu. **Settings › Shortcuts** has a **Files** group, with where each key works: in the tree, on the tab or in the editor.
+
+On Windows and Linux, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, and <kbd>Delete</kbd> deletes. Pasting files to and from the system and undoing a delete are still being checked in use on those platforms.
 
 ## Suggestions, documentation and errors
 

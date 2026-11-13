@@ -26,5 +26,4 @@ A fila só envia com o Persisty aberto e com o agente esperando o próximo pedid
 - Trocar a conta de uma sessão no meio de um turno. Com o rodízio ligado, a troca acontece quando o turno termina.
 - Integrações com ferramentas de analytics.
 - Divisão do terminal em painéis lado a lado.
-- No editor: renomear ou apagar arquivos.
 - Instalador assinado no Windows, e Windows e Linux testados em máquinas reais.

@@ -31,3 +31,20 @@ The full list, with the keys of the editor keymap you chose, is in **Settings �
 | Settings | <kbd>⌘</kbd> <kbd>,</kbd> |
 
 Inside the code, the keymap's keys come first: in WebStorm, for example, <kbd>⌘</kbd> <kbd>B</kbd> on a name goes to its definition and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> opens a file by name. Where the keymap's action does not apply, the key goes on to the app.
+
+## Files
+
+These keys answer with the file tree in focus. Opening the menu, cut, copy, paste and undo work in every keymap; the others belong to the WebStorm keymaps, and in the VS Code keymap these actions are in the right-click menu. See [Files](/docs/editor-and-git#files).
+
+| Action | Shortcut |
+| --- | --- |
+| Open the file menu | <kbd>⇧</kbd> <kbd>F10</kbd> |
+| Rename | <kbd>⇧</kbd> <kbd>F6</kbd> |
+| Move to another folder | <kbd>F6</kbd> |
+| Copy to another folder | <kbd>F5</kbd> |
+| Cut, copy and paste files | <kbd>⌘</kbd> <kbd>X</kbd> <kbd>⌘</kbd> <kbd>C</kbd> <kbd>⌘</kbd> <kbd>V</kbd> |
+| Delete to the Trash | <kbd>⌫</kbd> |
+| Undo the delete (while the notice shows) | <kbd>⌘</kbd> <kbd>Z</kbd> |
+| Copy path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
+| Copy reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
+| Sync the tree with the folder | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
