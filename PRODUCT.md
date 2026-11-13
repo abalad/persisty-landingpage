@@ -53,12 +53,13 @@ Available today (in the app; public download since 0.8.0):
   - The mascot outside the app, macOS only on the site, off by default: it stands on your windows and rises when a session needs you. Quitting Persisty closes it.
   - Editor keymaps (WebStorm, WebStorm (macOS), VS Code) and code intelligence in TypeScript, JavaScript and Rust through language servers (suggestions, hover docs, errors, go to definition).
   - MCP servers in Settings › MCP servers.
-  - The session's tool bar on its right edge, the resizable Files list, Show in Finder, images and SVG preview in the editor, and terminal path and www links.
+  - The session's tool bar on its right edge, the resizable Files list, images and SVG preview in the editor, and terminal path and www links.
 - Since 0.10.0, Pro:
   - Switching a session's account from its footer.
   - A project pinned to a Claude account, and an account reserved for its pinned projects.
   - The queue holding at the quota limit, and the cut conversation resuming when the window renews (with the app open).
   - The chat-like request queue, with reorder, edit, send next and images. On Free, requests already queued can be paused, reordered, sent next or taken out.
+- Since 0.11.0 and 0.12.0 (2026-11-12), free: the editor's file tree works like an IDE's. New (with templates), Rename, Move to and Copy to, drag to move, cut/copy/paste (also with the Finder), Delete to the Trash with Undo, one question on name conflicts, Open in (Finder, terminal, default app, browser, IDE, forge page), Copy Path and Reference, Reload from Disk, Change File Type, multi-select, Shift+F10, and every way to close on the tab menu. The file keys (Shift+F6, F6, F5, ⌘⇧C, ⌥⌘Y) are the WebStorm keymaps'; the VS Code keymap uses the menu. Pasting with the system and undoing a delete are still being checked on Windows and Linux.
 - Growth is a preview tab in the app with nothing connected; the site does not list it as a feature.
 
 Not true today, must not be claimed: moving a running session to another account in the middle of a turn (since 0.8.0, with rotation on, a session moves when its turn ends at the limit); signed Windows builds; Windows or Linux tested on real machines; Team features beyond billing (live team board, budgets, management observability, team memory, policies with audit); Enterprise features (SSO, SCIM, model gateway, self-host); Growth integrations; mobile app (Persisty Remote is in internal beta, planned); remote runner; the mascot outside the app on Windows or Linux (it ships there unverified); the Board answering a permission or a question (it only opens the session).

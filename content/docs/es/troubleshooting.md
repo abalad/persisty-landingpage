@@ -26,5 +26,4 @@ La cola solo envía con Persisty abierto y con el agente esperando el próximo p
 - Cambiar la cuenta de una sesión en medio de un turno. Con la rotación activada, el cambio ocurre cuando el turno termina.
 - Integraciones con herramientas de analítica.
 - Dividir la terminal en paneles lado a lado.
-- En el editor: renombrar o borrar archivos.
 - Instalador firmado en Windows, y Windows y Linux probados en máquinas reales.

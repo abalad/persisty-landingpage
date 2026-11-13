@@ -31,3 +31,20 @@ A lista completa, com as teclas do mapa do editor que você escolheu, está em *
 | Configurações | <kbd>⌘</kbd> <kbd>,</kbd> |
 
 Dentro do código, as teclas do mapa vêm primeiro: no WebStorm, por exemplo, <kbd>⌘</kbd> <kbd>B</kbd> sobre um nome vai à definição e <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> abre um arquivo pelo nome. Quando a ação do mapa não se aplica ali, a tecla segue para o app.
+
+## Arquivos
+
+Estas teclas valem com a árvore de arquivos em foco. Abrir o menu, recortar, copiar, colar e desfazer funcionam em qualquer mapa; as outras são dos mapas WebStorm, e no mapa do VS Code essas ações ficam no menu do botão direito. Veja [Arquivos](/docs/editor-and-git#arquivos).
+
+| Ação | Atalho |
+| --- | --- |
+| Abrir o menu de arquivos | <kbd>⇧</kbd> <kbd>F10</kbd> |
+| Renomear | <kbd>⇧</kbd> <kbd>F6</kbd> |
+| Mover para outra pasta | <kbd>F6</kbd> |
+| Copiar para outra pasta | <kbd>F5</kbd> |
+| Recortar, copiar e colar arquivos | <kbd>⌘</kbd> <kbd>X</kbd> <kbd>⌘</kbd> <kbd>C</kbd> <kbd>⌘</kbd> <kbd>V</kbd> |
+| Excluir para a Lixeira | <kbd>⌫</kbd> |
+| Desfazer a exclusão (enquanto o aviso aparece) | <kbd>⌘</kbd> <kbd>Z</kbd> |
+| Copiar caminho (também na aba e no código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
+| Copiar referência (também na aba e no código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
+| Sincronizar a árvore com a pasta | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |

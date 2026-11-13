@@ -1,6 +1,6 @@
 ---
 title: Editor, cambios y notas
-description: El editor junto a la terminal, con sugerencias y errores del proyecto, la pestaña de cambios de git, la búsqueda en el proyecto y las notas.
+description: El editor junto a la terminal, con el árbol de archivos, sugerencias y errores del proyecto, la pestaña de cambios de git, la búsqueda en el proyecto y las notas.
 group: work
 order: 3
 ---
@@ -9,7 +9,7 @@ Las herramientas de la sesión quedan en una barra fina en su borde derecho: **C
 
 ## Código
 
-El editor abre la carpeta de la sesión como árbol. Los archivos que git ignora aparecen atenuados. La lista de Archivos cambia de ancho: arrastra el divisor, o usa las flechas con él en foco; un doble clic vuelve al ancho por defecto. El clic derecho en un archivo o carpeta tiene **Mostrar en el Finder**.
+El editor abre la carpeta de la sesión como árbol. Los archivos que git ignora aparecen atenuados. La lista de Archivos cambia de ancho: arrastra el divisor, o usa las flechas con él en foco; un doble clic vuelve al ancho por defecto. El árbol crea, renombra, mueve, copia y borra archivos; mira [Archivos](#archivos).
 
 - <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> busca en todos los archivos, <kbd>⌘</kbd> <kbd>F</kbd> busca y reemplaza en el archivo abierto y <kbd>⌘</kbd> <kbd>S</kbd> guarda. Para abrir un archivo por nombre, usa <kbd>⌘</kbd> <kbd>P</kbd> fuera del código, o la tecla de tu mapa dentro de él (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> en WebStorm).
 - Resaltado por lenguaje, cargado bajo demanda, con el tema de la terminal.
@@ -18,6 +18,22 @@ El editor abre la carpeta de la sesión como árbol. Los archivos que git ignora
 - Las imágenes se abren en el editor (PNG, JPG, GIF, WebP, BMP e ICO), ajustadas al panel, con sus dimensiones y su tamaño; un clic las muestra en tamaño real. Un SVG se abre como código y gana la vista previa, como el Markdown (el botón del ojo, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd>), dibujada como imagen y sin ejecutar scripts.
 
 Otros archivos binarios y los archivos de más de 5 MB no se abren.
+
+## Archivos
+
+El clic derecho en un archivo o una carpeta abre el menú de archivos; con el árbol en foco, <kbd>⇧</kbd> <kbd>F10</kbd> también lo abre. <kbd>⌘</kbd> + clic y <kbd>⇧</kbd> + clic seleccionan varios elementos, las flechas recorren el árbol y <kbd>↵</kbd> abre el archivo.
+
+**Nuevo** (*New*) crea un archivo o una carpeta. Los archivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile y EditorConfig nacen con la plantilla mínima. **Renombrar** (*Rename*) edita el nombre en la propia fila, y las pestañas abiertas siguen al archivo con el texto sin guardar y el deshacer. **Mover a…** (*Move to…*) y **Copiar a…** (*Copy to…*) eligen la carpeta en una lista con búsqueda. Arrastrar un elemento sobre una carpeta también lo mueve, y con <kbd>⌥</kbd> lo copia. Con el árbol en foco, <kbd>⌘</kbd> <kbd>X</kbd>, <kbd>⌘</kbd> <kbd>C</kbd> y <kbd>⌘</kbd> <kbd>V</kbd> cortan, copian y pegan archivos, también desde y hacia el Finder.
+
+**Eliminar** (*Delete*) siempre pide confirmación y manda a la Papelera. Durante 10 segundos, **Deshacer** (*Undo*) en el aviso o <kbd>⌘</kbd> <kbd>Z</kbd> trae el archivo de vuelta. Cuando el nombre ya existe en el destino, Persisty pregunta una sola vez: renombrar, reemplazar (el anterior va a la Papelera) u omitir, y puede hacer lo mismo con los siguientes. Un archivo con cambios sin guardar nunca se reemplaza sin que lo confirmes. Las copias grandes muestran el avance y se pueden cancelar sin dejar nada a medias. Si mover o copiar se detiene a mitad de camino, lo que ya pasó se queda, y el aviso dice qué elemento falló.
+
+**Abrir en** (*Open in*) lleva el archivo al Finder, a una terminal en su carpeta, a la app por defecto, al navegador, a tu IDE en la línea actual o a su página en GitHub, GitLab o Bitbucket. La IDE es la que eliges en **Configuración › General**. **Copiar ruta** (*Copy Path*) da la ruta absoluta, la ruta desde el proyecto o desde la raíz del repositorio, el nombre, la referencia `archivo:línea` y el enlace del archivo en la forja. **Recargar del disco** (*Reload from Disk*) lee de nuevo lo que cambió fuera del editor. **Cambiar tipo de archivo** (*Change File Type*) lee un archivo como otro lenguaje, por ejemplo un `.env` como Shell, y la elección sigue al archivo cuando se mueve.
+
+El clic derecho en una pestaña del editor tiene todas las formas de cerrar: la pestaña, las otras, todas, las no modificadas, y las que están a la izquierda o a la derecha. Solo las pestañas con cambios sin guardar piden confirmación, en una sola pregunta. El mismo menú renombra el archivo, cambia su tipo, copia su ruta, lo abre en otro lugar y lo recarga del disco.
+
+En los mapas WebStorm, las teclas son las de la IDE: <kbd>⇧</kbd> <kbd>F6</kbd> renombra, <kbd>F6</kbd> mueve, <kbd>F5</kbd> copia a otra carpeta, <kbd>⌫</kbd> elimina, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> copia la ruta, <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> copia la referencia y <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> sincroniza el árbol con la carpeta. En el mapa de VS Code, esas acciones están en el menú. **Configuración › Atajos** tiene el grupo **Archivos** (*Files*), con dónde vale cada tecla: en el árbol, en la pestaña o en el editor.
+
+En Windows y Linux, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, y <kbd>Supr</kbd> elimina. Pegar archivos desde y hacia el sistema y deshacer una eliminación todavía se están comprobando en uso en esas plataformas.
 
 ## Sugerencias, documentación y errores
 
