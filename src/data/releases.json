@@ -1,5 +1,47 @@
 [
   {
+    "version": "0.13.0",
+    "date": "2026-11-16",
+    "files": [
+      {
+        "platform": "mac",
+        "kind": "dmg",
+        "arch": "universal",
+        "name": "Persisty_0.13.0_universal.dmg",
+        "url": "https://github.com/abalad/persisty-releases/releases/download/v0.13.0/Persisty_0.13.0_universal.dmg",
+        "size": 38283134,
+        "sha256": "f419f2a32b30612fe72dcdb3137f7b3840e72f6394dd0af0f092df41f853fc51"
+      },
+      {
+        "platform": "windows",
+        "kind": "nsis",
+        "arch": "x64",
+        "name": "Persisty_0.13.0_x64-setup.exe",
+        "url": "https://github.com/abalad/persisty-releases/releases/download/v0.13.0/Persisty_0.13.0_x64-setup.exe",
+        "size": 11230923,
+        "sha256": "7a1d30807fb252c7ea509023995316854519c17b2d53678239f6b2319af61757"
+      },
+      {
+        "platform": "linux",
+        "kind": "appimage",
+        "arch": "x64",
+        "name": "Persisty_0.13.0_amd64.AppImage",
+        "url": "https://github.com/abalad/persisty-releases/releases/download/v0.13.0/Persisty_0.13.0_amd64.AppImage",
+        "size": 97692152,
+        "sha256": "2e96712ff562773cd6c17ff4f007ed3c3c872e05b0c4de57042d429ed172e089"
+      },
+      {
+        "platform": "linux",
+        "kind": "deb",
+        "arch": "x64",
+        "name": "Persisty_0.13.0_amd64.deb",
+        "url": "https://github.com/abalad/persisty-releases/releases/download/v0.13.0/Persisty_0.13.0_amd64.deb",
+        "size": 21347252,
+        "sha256": "df78bd5567765a17c3a1101733c9146b3f62dff50aaa6a35bb32b4f5b5b1443e"
+      }
+    ]
+  },
+  {
     "version": "0.12.0",
     "date": "2026-11-12",
     "files": [
