@@ -477,6 +477,9 @@ Deno.test("a retry after Stripe finished does not end or refund twice and still 
 // GET /subscriptions/sub_1 → { status: "canceled" }; invoices paid NOW-1d 990 brl; charge already refunded ⇒
 // no "DELETE /subscriptions", no "POST /refunds", no void; deletions happen; the confirmation mail text matches /R\$\s9,90/ (locale pt-BR)
 Deno.test("a confirmation that does not go out does not undo the deletion", ...); // send → false ⇒ 200 { ok: true, confirmation_sent: false }, deleteUser:u1 logged
+Deno.test("a refund owed with no card payment to refund is not promised", ...);
+// invoices paid NOW-1d 990 brl, GET /charges → { data: [] } ⇒ no POST /refunds, the subscription still ends, deletion goes on,
+// and the confirmation text has no "voltam para o cartão"
 Deno.test("each person is told in their language, or the owner's", ...);
 // swept locale "en" ⇒ notice subject "Your Persisty account was deleted"; locale null with body locale "es" ⇒ "Tu cuenta de Persisty fue eliminada"
 Deno.test("someone who only belongs to teams of others keeps them", ...);
@@ -494,7 +497,9 @@ Leia o token, o corpo e os erros como `retention/handler.ts` (`json`, `fail`, `t
 
 Em cada assinatura de `subscriptions([scope.personalOrg, ...scope.ownedTeams.map((t) => t.id)])`:
 1. `owed = await refundOwed(sub, await deps.hadEarlierSubscription(sub.orgId, sub.id), deps.stripe, deps.now())`;
-2. se houver `owed`, `refundPayments(sub, owed, sub.orgId, deps.stripe)`, e o valor entra em `gone.refunds`;
+2. se houver `owed`, `refundPayments(sub, owed, sub.orgId, deps.stripe)`. O valor só entra em `gone.refunds` se `found > 0`.
+   - Com `found === 0`, o pagamento não foi por cartão (marcado como pago fora do Stripe), e não há o que o Stripe devolver sozinho.
+   - Nesse caso: `console.error("[delete-account] refund owed without a card payment", sub.id)`, e a confirmação não promete reembolso. É o único caso que precisa de uma pessoa;
 3. `GET /subscriptions/<id>`. Se o `status` não for `canceled`:
    - anule cada fatura de `GET /invoices { subscription: <id>, status: "open" }` com `POST /invoices/<id>/void`, chave `delete-void-<invoice>`;
    - depois `DELETE /subscriptions/<id> { invoice_now: "false", prorate: "false" }`.
