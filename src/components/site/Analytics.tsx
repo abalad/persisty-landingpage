@@ -1,0 +1,74 @@
+"use client";
+
+import { usePathname, useSearchParams } from "next/navigation";
+import Script from "next/script";
+import { Suspense, useEffect, useState, useSyncExternalStore } from "react";
+import { pageView, startAnalytics, stopAnalytics } from "@/lib/analytics";
+import { analyticsCookieNames, consentCookie, expiredCookies, OPEN_NOTICE_EVENT, readConsent, type Consent } from "@/lib/consent";
+import { CookieNotice } from "./CookieNotice";
+
+/*
+ * The saved answer lives in a cookie; components re-read it when the notice
+ * writes a new one. Before hydration it is unknown, so the server and the
+ * first client render agree and the notice appears only in the browser.
+ */
+const listeners = new Set<() => void>();
+const subscribe = (listener: () => void) => {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+};
+const savedChoice = (): Consent | null => readConsent(document.cookie);
+const beforeHydration = (): "unknown" => "unknown";
+
+/**
+ * The cookie notice and, only after Accept, Google Analytics. The layout
+ * mounts this on the production deployment alone (`analyticsEnabled`).
+ */
+export function Analytics({ measurementId }: { measurementId: string }) {
+  const choice = useSyncExternalStore(subscribe, savedChoice, beforeHydration);
+  const [reopened, setReopened] = useState(false);
+
+  useEffect(() => {
+    const reopen = () => setReopened(true);
+    window.addEventListener(OPEN_NOTICE_EVENT, reopen);
+    return () => window.removeEventListener(OPEN_NOTICE_EVENT, reopen);
+  }, []);
+
+  function choose(next: Consent) {
+    const before = savedChoice();
+    document.cookie = consentCookie(next, window.location.protocol === "https:");
+    if (next === "denied" && before === "granted") {
+      stopAnalytics(measurementId);
+      for (const cookie of expiredCookies(analyticsCookieNames(document.cookie, measurementId), window.location.hostname)) document.cookie = cookie;
+    }
+    setReopened(false);
+    for (const listener of listeners) listener();
+  }
+
+  return (
+    <>
+      {choice === "granted" ? (
+        <>
+          <Script id="google-analytics" src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`} strategy="lazyOnload" />
+          <Suspense fallback={null}>
+            <PageViews measurementId={measurementId} />
+          </Suspense>
+        </>
+      ) : null}
+      {choice === null || reopened ? <CookieNotice onChoice={choose} /> : null}
+    </>
+  );
+}
+
+/** One page view per address the App Router shows; `pageView` skips repeats of the same clean address. */
+function PageViews({ measurementId }: { measurementId: string }) {
+  const pathname = usePathname();
+  const search = useSearchParams().toString();
+  useEffect(() => {
+    startAnalytics(measurementId);
+    pageView();
+  }, [measurementId, pathname, search]);
+  return null;
+}

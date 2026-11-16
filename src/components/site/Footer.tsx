@@ -1,11 +1,13 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { contactHref } from "@/lib/site";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 import styles from "./Footer.module.css";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { Logo } from "./Logo";
 
-export function Footer() {
+/** `analytics`: the production site measures, so "Cookies" reopens the cookie notice. */
+export function Footer({ analytics = false }: { analytics?: boolean }) {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
   const contact = contactHref("contact");
@@ -29,6 +31,7 @@ export function Footer() {
         { href: "/security", label: t("security") },
         { href: "/privacy", label: t("privacy") },
       ],
+      cookies: analytics,
     },
     {
       title: t("company"),
@@ -58,6 +61,11 @@ export function Footer() {
                     {/^(https?:|mailto:)/.test(l.href) ? <a href={l.href}>{l.label}</a> : <Link href={l.href}>{l.label}</Link>}
                   </li>
                 ))}
+                {"cookies" in c && c.cookies ? (
+                  <li>
+                    <CookieSettingsButton label={t("cookies")} className={styles.linkButton} />
+                  </li>
+                ) : null}
               </ul>
             </div>
           ))}

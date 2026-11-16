@@ -3,10 +3,11 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { jetbrains, mona } from "@/app/fonts";
+import { Analytics } from "@/components/site/Analytics";
 import { Footer } from "@/components/site/Footer";
 import { Nav } from "@/components/site/Nav";
 import { routing } from "@/i18n/routing";
-import { SITE_URL } from "@/lib/site";
+import { analyticsEnabled, GOOGLE_ANALYTICS_ID, SITE_URL } from "@/lib/site";
 import "@/styles/globals.css";
 
 type Messages = Record<string, Record<string, unknown>>;
@@ -52,6 +53,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = clientMessages(await getMessages());
+  const analytics = analyticsEnabled();
 
   return (
     <html lang={locale} className={`${mona.variable} ${jetbrains.variable}`}>
@@ -59,7 +61,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <NextIntlClientProvider messages={messages}>
           <Nav />
           <main id="main">{children}</main>
-          <Footer />
+          <Footer analytics={analytics} />
+          {analytics ? <Analytics measurementId={GOOGLE_ANALYTICS_ID} /> : null}
         </NextIntlClientProvider>
       </body>
     </html>
