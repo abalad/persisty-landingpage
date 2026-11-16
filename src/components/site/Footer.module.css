@@ -47,6 +47,21 @@
   color: var(--site-heading);
 }
 
+/* "Cookies" is a button (it opens the notice) dressed as the links around it. */
+.linkButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--site-muted);
+  font: inherit;
+  cursor: pointer;
+  transition: color var(--duration-normal) var(--ease-out);
+}
+
+.linkButton:hover {
+  color: var(--site-heading);
+}
+
 .bottom {
   display: flex;
   flex-wrap: wrap;

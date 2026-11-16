@@ -1,7 +1,7 @@
 ---
 title: Política de privacidad
 description: Qué datos guardan el sitio, la app y Persisty Cloud, dónde quedan, para qué y cómo pedir que se borren.
-updated: 2026-11-03
+updated: 2026-11-16
 ---
 
 Persisty se hizo para guardar lo mínimo. La app funciona sin cuenta y sin internet, y lo que haces en ella se queda en tu máquina.
@@ -28,10 +28,24 @@ La búsqueda ocurre al abrir la app, cada 6 horas con ella abierta y cuando hace
 
 ## En el sitio
 
-El sitio no usa analítica ni cookies de rastreo. Guarda dos tipos de cookie, los dos necesarios para que funcione:
+El sitio usa Google Analytics solo si aceptas en el aviso de cookies. Sin esa respuesta, o si rechazas, no se carga nada de Google.
+
+Con tu aceptación, Google Analytics mide:
+
+- las páginas vistas y de dónde vino la visita (el sitio anterior y la campaña, cuando la hay);
+- dispositivo, navegador y región aproximada;
+- cómo usas la página: desplazamiento, clics en enlaces a otros sitios, descargas de archivos y uso de formularios (sin lo que escribes);
+- cinco acciones: descargar la app, crear una cuenta, iniciar sesión, empezar una suscripción y completar una suscripción.
+
+La dirección de la página llega a Google sin los parámetros que podrían tener datos personales. Tu e-mail, tu nombre y lo que escribes nunca se envían. Google Analytics guarda las cookies `_ga` y `_ga_<id>` hasta 13 meses, y los datos quedan 14 meses en nuestra cuenta. Google trata estos datos como encargado, y pueden transferirse a Estados Unidos.
+
+Para cambiar de opinión, usa **Cookies** en el pie de cualquier página. Si rechazas después de aceptar, el sitio deja de enviar datos y borra las cookies de Google.
+
+Además, el sitio guarda tres cookies necesarias para que funcione:
 
 - el idioma que elegiste;
-- la sesión de tu cuenta, cuando entras.
+- la sesión de tu cuenta, cuando entras;
+- tu respuesta al aviso de cookies (`persisty_consent`, por 12 meses).
 
 El sitio está alojado en Vercel, que recibe los datos normales de cualquier visita a un sitio (dirección IP, navegador, página pedida).
 

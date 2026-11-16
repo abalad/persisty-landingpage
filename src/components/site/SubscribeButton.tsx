@@ -7,6 +7,7 @@ import { Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import auth from "@/components/account/auth.module.css";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
+import { track } from "@/lib/analytics";
 import { onPageRestored } from "@/lib/bfcache";
 import { subscribe, type BillingErrorKey, type Navigation, type TeamOrder } from "@/lib/billing";
 import type { PaidPlan } from "@/lib/pricing";
@@ -60,6 +61,7 @@ function Subscribe({ plan, variant = "primary", size = "md", children, prefill }
     setError(null);
     const nav: Navigation = { locale, go: (path) => router.push(path) };
     const result = await subscribe(plan, nav, team);
+    if (result === "checkout") track({ name: "begin_checkout", params: { plan } });
     if (result === "teamForm") setForm(true);
     if (typeof result === "object") setError(result.error);
     // Stripe is loading: the button stays busy so it is not pressed twice.
