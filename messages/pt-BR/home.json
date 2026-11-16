@@ -202,11 +202,11 @@
       },
       {
         "q": "Meu código passa pelos servidores de vocês?",
-        "a": "Não. Código, saída do terminal e prompts ficam na sua máquina. O app só fala com fora para ler a quota do Claude Code, entrar na conta e renovar a licença, usar as integrações e os remotos git que você conectar e procurar versões novas. Cada chamada aparece em Configurações › Privacidade e rede."
+        "a": "Não. Código, saída do terminal e prompts ficam na sua máquina, fora os commits que você mesmo envia. O app só fala com fora para ler a quota do Claude Code, entrar na conta e renovar a licença, usar as integrações e os remotos git que você conectar, baixar servidores de linguagem, o modelo de voz e as atualizações, buscar servidores MCP e procurar versões novas. Cada chamada aparece em Configurações › Privacidade e rede."
       },
       {
         "q": "Quais agentes funcionam?",
-        "a": "O Claude Code tem suporte completo: estados pelos hooks, retomada depois de reiniciar e várias contas. O Codex tem sessões e estados; a retomada dele ainda não foi confirmada. Qualquer outro programa de terminal roda numa sessão persistente."
+        "a": "O Claude Code tem suporte completo: estados pelos hooks, retomada depois de reiniciar e várias contas. O Codex abre e persiste como qualquer sessão; o estado e a retomada dele ainda não funcionam. Qualquer outro programa de terminal roda numa sessão persistente."
       },
       {
         "q": "O que acontece se o computador reiniciar?",
