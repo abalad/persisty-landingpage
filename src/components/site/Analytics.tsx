@@ -3,7 +3,7 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { Suspense, useEffect, useState, useSyncExternalStore } from "react";
-import { pageView, startAnalytics, stopAnalytics } from "@/lib/analytics";
+import { downloadOf, pageView, startAnalytics, stopAnalytics, track } from "@/lib/analytics";
 import { analyticsCookieNames, consentCookie, expiredCookies, OPEN_NOTICE_EVENT, readConsent, type Consent } from "@/lib/consent";
 import { CookieNotice } from "./CookieNotice";
 
@@ -35,6 +35,18 @@ export function Analytics({ measurementId }: { measurementId: string }) {
     window.addEventListener(OPEN_NOTICE_EVENT, reopen);
     return () => window.removeEventListener(OPEN_NOTICE_EVENT, reopen);
   }, []);
+
+  // A click on an installer link (the download page, All versions) counts as a download.
+  useEffect(() => {
+    if (choice !== "granted") return;
+    const onClick = (event: MouseEvent) => {
+      const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null;
+      const download = link ? downloadOf(link.href) : null;
+      if (download) track({ name: "download", params: download });
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, [choice]);
 
   function choose(next: Consent) {
     const before = savedChoice();

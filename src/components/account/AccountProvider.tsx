@@ -7,6 +7,7 @@ import { createContext, useCallback, useContext, useEffect, useState, type React
 import { usePathname, useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { signInPath } from "@/lib/account";
+import { track } from "@/lib/analytics";
 import { intentFromQuery, mergeIntent } from "@/lib/auth";
 import { onPageRestored } from "@/lib/bfcache";
 import { loadBilling, openPortal, type BillingState } from "@/lib/billing";
@@ -145,7 +146,10 @@ export function AccountProvider({ children, fallback }: { children: ReactNode; f
         setBilling(latest);
         if (latest.entitlement.plan !== first) break;
       }
-      if (alive) setNotice(latest.entitlement.plan !== "free" ? "done" : "late");
+      if (!alive) return;
+      const paid = latest.entitlement.plan !== "free";
+      setNotice(paid ? "done" : "late");
+      track({ name: "checkout_done", params: paid ? { plan: latest.entitlement.plan } : {} });
     })();
     return () => {
       alive = false;
