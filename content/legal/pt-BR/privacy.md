@@ -1,7 +1,7 @@
 ---
 title: Política de privacidade
 description: Que dados o site, o app e o Persisty Cloud guardam, onde ficam, para quê e como pedir que sejam apagados.
-updated: 2026-11-03
+updated: 2026-11-16
 ---
 
 O Persisty foi feito para guardar o mínimo. O app funciona sem conta e sem internet, e o que você faz nele fica na sua máquina.
@@ -28,10 +28,23 @@ A procura acontece ao abrir o app, a cada 6 horas com ele aberto e quando você 
 
 ## No site
 
-O site não usa analytics nem cookies de rastreamento. Ele guarda dois tipos de cookie, os dois necessários para funcionar:
+O site usa o Google Analytics só se você aceitar no aviso de cookies. Sem essa resposta, ou se você recusar, nada do Google carrega.
+
+Com o seu aceite, o Google Analytics mede:
+
+- as páginas vistas e de onde a visita veio (o site anterior e a campanha, quando houver);
+- aparelho, navegador e região aproximada;
+- quatro ações: baixar o app, criar conta, começar uma assinatura e concluir uma assinatura.
+
+O endereço da página vai ao Google sem os parâmetros que podem ter dado pessoal. Seu e-mail, seu nome e o que você digita nunca vão. O Google Analytics guarda os cookies `_ga` e `_ga_<id>` por até 13 meses, e os dados ficam 14 meses na nossa conta. O Google trata esses dados como operador, e eles podem ser transferidos para os Estados Unidos.
+
+Para mudar de ideia, use **Cookies** no rodapé de qualquer página. Se você recusar depois de ter aceitado, o site para de enviar dados e apaga os cookies do Google.
+
+Além desses, o site guarda três cookies necessários para funcionar:
 
 - o idioma que você escolheu;
-- a sessão da sua conta, quando você entra.
+- a sessão da sua conta, quando você entra;
+- a sua resposta ao aviso de cookies (`persisty_consent`, por 12 meses).
 
 O site é hospedado pela Vercel, que recebe os dados normais de qualquer acesso a um site (endereço IP, navegador, página pedida).
 
