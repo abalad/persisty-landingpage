@@ -34,7 +34,8 @@ Com o seu aceite, o Google Analytics mede:
 
 - as páginas vistas e de onde a visita veio (o site anterior e a campanha, quando houver);
 - aparelho, navegador e região aproximada;
-- quatro ações: baixar o app, criar conta, começar uma assinatura e concluir uma assinatura.
+- como você usa a página: rolagem, cliques em links para outros sites, downloads de arquivos e uso de formulários (sem o que você digita);
+- cinco ações: baixar o app, criar conta, entrar na conta, começar uma assinatura e concluir uma assinatura.
 
 O endereço da página vai ao Google sem os parâmetros que podem ter dado pessoal. Seu e-mail, seu nome e o que você digita nunca vão. O Google Analytics guarda os cookies `_ga` e `_ga_<id>` por até 13 meses, e os dados ficam 14 meses na nossa conta. O Google trata esses dados como operador, e eles podem ser transferidos para os Estados Unidos.
 

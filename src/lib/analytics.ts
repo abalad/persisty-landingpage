@@ -32,6 +32,9 @@ export interface GtagWindow {
 
 const configured = new WeakMap<GtagWindow, string>();
 const lastSent = new WeakMap<GtagWindow, string>();
+/** The allowed parameters of the address the visit landed on, kept in memory only. */
+const landings = new WeakMap<GtagWindow, string>();
+const campaignSent = new WeakSet<GtagWindow>();
 
 const browserWindow = (): GtagWindow | undefined => (typeof window === "undefined" ? undefined : (window as unknown as GtagWindow));
 
@@ -51,11 +54,16 @@ export function cleanLocation(href: string): string {
   return `${url.origin}${url.pathname}${query ? `?${query}` : ""}`;
 }
 
-/** Only the site the visitor came from, never the page or its search. */
+/**
+ * Only the site the visitor came from, never the page or its search. Coming
+ * back from Stripe (checkout or billing portal) is not a new origin: crediting
+ * it would hand every subscription to `checkout.stripe.com / referral`.
+ */
 export function cleanReferrer(referrer: string): string {
   try {
-    const origin = new URL(referrer).origin;
-    return origin === "null" ? "" : origin;
+    const url = new URL(referrer);
+    if (url.origin === "null" || /(^|\.)stripe\.com$/.test(url.hostname)) return "";
+    return url.origin;
   } catch {
     return "";
   }
@@ -83,11 +91,26 @@ export function downloadOf(href: string): { platform: DesktopPlatform; kind: Fil
   return installer ? { platform: installer[1], kind: installer[2], version } : null;
 }
 
+/** `checkout_done` on arrival back from Stripe; the plan only when it is already paid. */
+export function checkoutDone(plan: string): AnalyticsEvent {
+  return { name: "checkout_done", params: plan !== "free" ? { plan } : {} };
+}
+
 /** An account created in the last ten minutes counts as a sign-up, not a sign-in. */
 export function isNewAccount(createdAt: string | undefined, now: number = Date.now()): boolean {
   if (!createdAt) return false;
   const created = Date.parse(createdAt);
   return Number.isFinite(created) && now - created <= NEW_ACCOUNT_MS;
+}
+
+/**
+ * Remembers the campaign of the address the visit landed on (nothing is sent).
+ * The notice never blocks the page, so people often accept a page or two
+ * later, when `utm_*` and `gclid` are no longer in the address.
+ */
+export function rememberLanding(win: GtagWindow | undefined = browserWindow()): void {
+  if (!win || landings.has(win)) return;
+  landings.set(win, new URL(cleanLocation(win.location.href) || "http://x/").search.slice(1));
 }
 
 /** Sets up `dataLayer` and `gtag` once per window, and turns measuring back on after a stop. */
@@ -125,9 +148,13 @@ export function stopAnalytics(id: string, win: GtagWindow | undefined = browserW
  */
 export function pageView(win: GtagWindow | undefined = browserWindow()): void {
   if (!win?.gtag) return;
-  const page_location = cleanLocation(win.location.href);
-  if (!page_location || lastSent.get(win) === page_location) return;
-  lastSent.set(win, page_location);
+  const address = cleanLocation(win.location.href);
+  if (!address || lastSent.get(win) === address) return;
+  lastSent.set(win, address);
+  // The first page view carries the landing campaign when this address has none of its own.
+  const landing = campaignSent.has(win) ? "" : (landings.get(win) ?? "");
+  campaignSent.add(win);
+  const page_location = landing && !address.includes("?") ? `${address}?${landing}` : address;
   const page = { page_location, page_referrer: cleanReferrer(win.document.referrer) };
   win.gtag("set", page);
   win.gtag("event", "page_view", page);
@@ -138,3 +165,6 @@ export function track(event: AnalyticsEvent, win: GtagWindow | undefined = brows
   if (!win?.gtag) return;
   win.gtag("event", event.name, { ...event.params, page_location: cleanLocation(win.location.href) });
 }
+
+// The landing address, as early as this module loads (the layout's first render).
+rememberLanding();

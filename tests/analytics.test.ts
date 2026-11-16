@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cleanLocation, cleanReferrer, downloadOf, isNewAccount, pageView, startAnalytics, stopAnalytics, track, type GtagWindow } from "../src/lib/analytics";
+import { checkoutDone, cleanLocation, cleanReferrer, downloadOf, isNewAccount, pageView, rememberLanding, startAnalytics, stopAnalytics, track, type GtagWindow } from "../src/lib/analytics";
 
 const ID = "G-ABC123";
 
@@ -23,6 +23,18 @@ describe("cleanReferrer", () => {
     expect(cleanReferrer("https://www.google.com/search?q=persisty")).toBe("https://www.google.com");
     expect(cleanReferrer("")).toBe("");
     expect(cleanReferrer("not a url")).toBe("");
+  });
+
+  it("does not credit Stripe for coming back from checkout or the billing portal", () => {
+    expect(cleanReferrer("https://checkout.stripe.com/c/pay/cs_live_x")).toBe("");
+    expect(cleanReferrer("https://billing.stripe.com/p/session/x")).toBe("");
+  });
+});
+
+describe("checkoutDone", () => {
+  it("names the plan when it is already paid on arrival, and nothing otherwise", () => {
+    expect(checkoutDone("pro")).toEqual({ name: "checkout_done", params: { plan: "pro" } });
+    expect(checkoutDone("free")).toEqual({ name: "checkout_done", params: {} });
   });
 });
 
@@ -115,6 +127,27 @@ describe("gtag", () => {
     expect(win[`ga-disable-${ID}`]).toBe(false);
     pageView(win);
     expect(pageViews(win)).toHaveLength(2);
+  });
+
+  it("the first page view after a late Accept keeps the landing page's campaign", () => {
+    const win = fakeWindow("https://persisty.app/?utm_source=newsletter&next=%2Fx");
+    rememberLanding(win);
+    win.location.href = "https://persisty.app/pricing";
+    startAnalytics(ID, win);
+    pageView(win);
+    expect(pageViews(win)[0][2]).toMatchObject({ page_location: "https://persisty.app/pricing?utm_source=newsletter" });
+    win.location.href = "https://persisty.app/download";
+    pageView(win);
+    expect(pageViews(win)[1][2]).toMatchObject({ page_location: "https://persisty.app/download" });
+  });
+
+  it("a page with its own campaign keeps it over the landing one", () => {
+    const win = fakeWindow("https://persisty.app/?utm_source=newsletter");
+    rememberLanding(win);
+    win.location.href = "https://persisty.app/pricing?utm_source=ad";
+    startAnalytics(ID, win);
+    pageView(win);
+    expect(pageViews(win)[0][2]).toMatchObject({ page_location: "https://persisty.app/pricing?utm_source=ad" });
   });
 
   it("events carry their params and the clean location, never anything else", () => {

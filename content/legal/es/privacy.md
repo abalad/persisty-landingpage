@@ -34,7 +34,8 @@ Con tu aceptación, Google Analytics mide:
 
 - las páginas vistas y de dónde vino la visita (el sitio anterior y la campaña, cuando la hay);
 - dispositivo, navegador y región aproximada;
-- cuatro acciones: descargar la app, crear una cuenta, empezar una suscripción y completar una suscripción.
+- cómo usas la página: desplazamiento, clics en enlaces a otros sitios, descargas de archivos y uso de formularios (sin lo que escribes);
+- cinco acciones: descargar la app, crear una cuenta, iniciar sesión, empezar una suscripción y completar una suscripción.
 
 La dirección de la página llega a Google sin los parámetros que podrían tener datos personales. Tu e-mail, tu nombre y lo que escribes nunca se envían. Google Analytics guarda las cookies `_ga` y `_ga_<id>` hasta 13 meses, y los datos quedan 14 meses en nuestra cuenta. Google trata estos datos como encargado, y pueden transferirse a Estados Unidos.
 

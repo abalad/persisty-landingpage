@@ -7,7 +7,7 @@ import { createContext, useCallback, useContext, useEffect, useState, type React
 import { usePathname, useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { signInPath } from "@/lib/account";
-import { track } from "@/lib/analytics";
+import { checkoutDone, track } from "@/lib/analytics";
 import { intentFromQuery, mergeIntent } from "@/lib/auth";
 import { onPageRestored } from "@/lib/bfcache";
 import { loadBilling, openPortal, type BillingState } from "@/lib/billing";
@@ -136,6 +136,8 @@ export function AccountProvider({ children, fallback }: { children: ReactNode; f
       if (query.get("checkout") !== "done") return;
       window.history.replaceState(null, "", window.location.pathname);
       const first = bill.entitlement.plan;
+      // On arrival, not after the wait below: whoever leaves during "Payment received…" still counts.
+      track(checkoutDone(first));
       let latest = bill;
       setNotice("waiting");
       for (let i = 0; i < CHECKOUT_POLLS; i++) {
@@ -146,10 +148,7 @@ export function AccountProvider({ children, fallback }: { children: ReactNode; f
         setBilling(latest);
         if (latest.entitlement.plan !== first) break;
       }
-      if (!alive) return;
-      const paid = latest.entitlement.plan !== "free";
-      setNotice(paid ? "done" : "late");
-      track({ name: "checkout_done", params: paid ? { plan: latest.entitlement.plan } : {} });
+      if (alive) setNotice(latest.entitlement.plan !== "free" ? "done" : "late");
     })();
     return () => {
       alive = false;

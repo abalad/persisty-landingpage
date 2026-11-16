@@ -51,7 +51,11 @@ const NOTICE = "document.querySelector('svg.lucide-cookie')?.closest('section')"
 const noticeShown = () => b.evaluate(`!!(${NOTICE})`);
 /** 0 = Decline, 1 = Accept. */
 const answer = (i) => b.evaluate(`(() => { const s = ${NOTICE}; if (!s) return false; s.querySelectorAll('button')[${i}].click(); return true; })()`);
-const reopen = () => b.evaluate("(() => { const el = document.querySelector('footer ul button'); if (!el) return false; el.click(); return true; })()");
+// Focused first, as a keyboard user reaches it.
+const reopen = () => b.evaluate("(() => { const el = document.querySelector('footer ul button'); if (!el) return false; el.focus(); el.click(); return true; })()");
+const focusInNotice = () => b.evaluate(`(() => { const s = ${NOTICE}; return Boolean(s && s.contains(document.activeElement)); })()`);
+const focusOnCookies = () => b.evaluate("document.activeElement === document.querySelector('footer ul button')");
+const savedByServer = () => b.evaluate("performance.getEntriesByType('resource').some((e) => e.name.endsWith('/api/consent'))");
 /** Client-side navigation through a page link (not the footer's), as a visitor would. */
 const follow = (suffix) =>
   b.evaluate(`(() => { const a = [...document.querySelectorAll('a[href$="${suffix}"]')].find((x) => !x.closest('footer')) ?? document.querySelector('a[href$="${suffix}"]'); if (!a) return false; a.click(); return true; })()`);
@@ -68,13 +72,17 @@ try {
   await sleep(500);
   check("the notice goes away after Decline", !(await noticeShown()));
   check("Decline is saved", /persisty_consent=denied/.test(await b.evaluate("document.cookie")));
+  check("the answer is also saved by the server (Safari keeps script cookies 7 days)", await savedByServer());
   await goto("/en/pricing");
   check("after Decline, nothing reaches Google", google.length === 0, `${google.length} requests`);
   check("after Decline, the notice stays away", !(await noticeShown()));
 
   // 3. Footer › Cookies › Accept: gtag loads and the page view carries a clean address.
   check("Cookies in the footer reopens the notice", (await reopen()) && (await sleep(300), await noticeShown()));
+  check("reopening moves the focus into the notice", await focusInNotice());
   check("Accept is clickable", await answer(1));
+  await sleep(300);
+  check("after answering, the focus goes back to Cookies", await focusOnCookies());
   await settle(4000);
   check("after Accept, gtag.js is downloaded", google.some((r) => /gtag\/js\?id=G-/.test(r.url)));
   check("after Accept, a page view is sent", await until(() => pageViews().some((e) => /\/en\/pricing$/.test(e.dl))), JSON.stringify(pageViews().map((e) => e.dl)));

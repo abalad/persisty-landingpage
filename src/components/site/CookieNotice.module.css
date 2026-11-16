@@ -24,6 +24,11 @@
   animation: rise var(--duration-normal) var(--ease-out);
 }
 
+.notice:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
 .icon {
   flex: none;
   width: 18px;
