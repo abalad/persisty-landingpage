@@ -5,7 +5,7 @@ group: reference
 order: 1
 ---
 
-A lista completa, com as teclas do mapa do editor que você escolheu, está em **Configurações › Atalhos**, com busca. As teclas dentro do código dependem do mapa (WebStorm, WebStorm (macOS) ou VS Code); veja [Mapa de teclas](/docs/editor-and-git#mapa-de-teclas). No Mac, os atalhos do app usam só o <kbd>⌘</kbd>.
+A lista completa, com as teclas do mapa do editor que você escolheu, está em **Configurações › Atalhos**, com busca. As teclas dentro do código dependem do mapa (WebStorm, WebStorm (macOS) ou VS Code); veja [Mapa de teclas](/docs/editor-and-git#mapa-de-teclas). No Mac, os atalhos do app sempre levam o <kbd>⌘</kbd>; o <kbd>⌃</kbd> fica para o terminal e para o mapa do editor.
 
 | Ação | Atalho |
 | --- | --- |
@@ -17,20 +17,25 @@ A lista completa, com as teclas do mapa do editor que você escolheu, está em *
 | Buscar em todos os arquivos | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
 | Alterações do git | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
 | Salvar arquivo | <kbd>⌘</kbd> <kbd>S</kbd> |
+| Pré-visualizar Markdown (no editor) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
 | Novo terminal no workspace atual | <kbd>⌘</kbd> <kbd>N</kbd> |
 | Escolher o que abrir | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
+| Nova sessão com o agente padrão | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> |
+| Ditar (com o ditado ligado) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> |
 | Restaurar tudo | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> |
 | Detalhes | <kbd>⌘</kbd> <kbd>I</kbd> |
 | Recolher workspaces | <kbd>⌘</kbd> <kbd>J</kbd> |
-| Executar ou parar comando | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
+| Executar / parar comando | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
 | Saída do comando | <kbd>⌘</kbd> <kbd>E</kbd> |
-| Sessão anterior ou próxima (fora do código) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
+| Sessão anterior / próxima (fora do código) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
 | Fechar a aba do editor (no painel Código, fora do texto) | <kbd>⌘</kbd> <kbd>W</kbd> |
-| Alternador de abas | <kbd>⌃</kbd> <kbd>Tab</kbd> |
-| Projeto 1 a 9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
+| Alternar entre abas | <kbd>⌃</kbd> <kbd>Tab</kbd> |
+| Projeto 1–9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
 | Configurações | <kbd>⌘</kbd> <kbd>,</kbd> |
 
-Dentro do código, as teclas do mapa vêm primeiro: no WebStorm, por exemplo, <kbd>⌘</kbd> <kbd>B</kbd> sobre um nome vai à definição e <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> abre um arquivo pelo nome. Quando a ação do mapa não se aplica ali, a tecla segue para o app.
+<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> é a tecla padrão de **Ditar**. Ela muda em **Configurações › Voz**, e só aparece em **Configurações › Atalhos** com o **Ditado por voz** ligado.
+
+Dentro do código, as teclas do mapa vêm primeiro. No WebStorm, <kbd>⌘</kbd> <kbd>B</kbd> sobre um nome vai à declaração e <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> abre um arquivo pelo nome. No WebStorm (macOS), quem abre um arquivo pelo nome é <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd>, no lugar do Quadro de sessões, e <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> é **Localizar anterior**. Quando a ação do mapa não se aplica ali, a tecla segue para o app.
 
 ## Arquivos
 
@@ -48,3 +53,14 @@ Estas teclas valem com a árvore de arquivos em foco. Abrir o menu, recortar, co
 | Copiar caminho (também na aba e no código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referência (também na aba e no código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar a árvore com a pasta | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+
+## Abas e grupos
+
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> e <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> valem em qualquer mapa, com a aba em foco. As outras teclas são dos mapas WebStorm; no mapa do VS Code, essas ações ficam na paleta e no menu da aba. Veja [Abas e grupos](/docs/editor-and-git#abas-e-grupos).
+
+| Ação | Atalho |
+| --- | --- |
+| Mover a aba para a esquerda ou a direita | <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> |
+| Maximizar o editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
+| Próximo grupo e grupo anterior | <kbd>⌥</kbd> <kbd>Tab</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
+| Abrir o arquivo à direita (na árvore) | <kbd>⇧</kbd> <kbd>↵</kbd> |

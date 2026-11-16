@@ -5,7 +5,7 @@ group: reference
 order: 1
 ---
 
-The full list, with the keys of the editor keymap you chose, is in **Settings › Shortcuts**, searchable. Keys inside the code depend on the keymap (WebStorm, WebStorm (macOS) or VS Code); see [Keymap](/docs/editor-and-git#keymap). On the Mac, the app's shortcuts use <kbd>⌘</kbd> only.
+The full list, with the keys of the editor keymap you chose, is in **Settings › Shortcuts**, searchable. Keys inside the code depend on the keymap (WebStorm, WebStorm (macOS) or VS Code); see [Keymap](/docs/editor-and-git#keymap). On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is left to the terminal and the editor keymap.
 
 | Action | Shortcut |
 | --- | --- |
@@ -17,20 +17,25 @@ The full list, with the keys of the editor keymap you chose, is in **Settings �
 | Search all files | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
 | Git changes | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
 | Save file | <kbd>⌘</kbd> <kbd>S</kbd> |
+| Preview Markdown (in the editor) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
 | New terminal in the current workspace | <kbd>⌘</kbd> <kbd>N</kbd> |
 | Choose what to open | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
+| New session with the default agent | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> |
+| Dictate (with dictation on) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> |
 | Restore all | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> |
 | Details | <kbd>⌘</kbd> <kbd>I</kbd> |
 | Collapse workspaces | <kbd>⌘</kbd> <kbd>J</kbd> |
-| Run or stop command | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
+| Run / stop command | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
 | Command output | <kbd>⌘</kbd> <kbd>E</kbd> |
-| Previous or next session (outside the code) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
+| Previous / next session (outside the code) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
 | Close the editor tab (in the Code panel, outside the text) | <kbd>⌘</kbd> <kbd>W</kbd> |
-| Tab switcher | <kbd>⌃</kbd> <kbd>Tab</kbd> |
-| Project 1 to 9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
+| Switcher | <kbd>⌃</kbd> <kbd>Tab</kbd> |
+| Project 1–9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
 | Settings | <kbd>⌘</kbd> <kbd>,</kbd> |
 
-Inside the code, the keymap's keys come first: in WebStorm, for example, <kbd>⌘</kbd> <kbd>B</kbd> on a name goes to its definition and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> opens a file by name. Where the keymap's action does not apply, the key goes on to the app.
+<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> is the default key for **Dictate**. You can change it in **Settings › Voice**, and it shows in **Settings › Shortcuts** only with **Voice dictation** on.
+
+Inside the code, the keymap's keys come first. In WebStorm, <kbd>⌘</kbd> <kbd>B</kbd> on a name goes to its declaration and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> opens a file by name. In WebStorm (macOS), <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> opens a file by name instead of the session board, and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> is **Find Previous**. Where the keymap's action does not apply, the key goes on to the app.
 
 ## Files
 
@@ -48,3 +53,14 @@ These keys answer with the file tree in focus. Opening the menu, cut, copy, past
 | Copy path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copy reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sync the tree with the folder | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+
+## Tabs and groups
+
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> and <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> work in every keymap, with the tab in focus. The other keys belong to the WebStorm keymaps; in the VS Code keymap, these actions are in the palette and the tab menu. See [Tabs and groups](/docs/editor-and-git#tabs-and-groups).
+
+| Action | Shortcut |
+| --- | --- |
+| Move the tab left or right | <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> |
+| Maximize the editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
+| Next and previous group | <kbd>⌥</kbd> <kbd>Tab</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
+| Open the file on the right (in the tree) | <kbd>⇧</kbd> <kbd>↵</kbd> |

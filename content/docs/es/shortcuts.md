@@ -5,7 +5,7 @@ group: reference
 order: 1
 ---
 
-La lista completa, con las teclas del mapa del editor que elegiste, está en **Configuración › Atajos** (*Settings › Shortcuts*), con búsqueda. Las teclas dentro del código dependen del mapa (WebStorm, WebStorm (macOS) o VS Code); mira [Mapa de teclas](/docs/editor-and-git#mapa-de-teclas). En Mac, los atajos de la app usan solo <kbd>⌘</kbd>.
+La lista completa, con las teclas del mapa del editor que elegiste, está en **Configuración › Atajos** (*Settings › Shortcuts*), con búsqueda. Las teclas dentro del código dependen del mapa (WebStorm, WebStorm (macOS) o VS Code); mira [Mapa de teclas](/docs/editor-and-git#mapa-de-teclas). En Mac, los atajos de la app siempre llevan <kbd>⌘</kbd>; el <kbd>⌃</kbd> queda para la terminal y para el mapa del editor.
 
 | Acción | Atajo |
 | --- | --- |
@@ -17,20 +17,25 @@ La lista completa, con las teclas del mapa del editor que elegiste, está en **C
 | Buscar en todos los archivos | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
 | Cambios de git | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
 | Guardar archivo | <kbd>⌘</kbd> <kbd>S</kbd> |
+| Vista previa de Markdown (en el editor) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
 | Nueva terminal en el workspace actual | <kbd>⌘</kbd> <kbd>N</kbd> |
 | Elegir qué abrir | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
+| Nueva sesión con el agente por defecto | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> |
+| Dictar (con el dictado activado) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> |
 | Restaurar todo | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> |
 | Detalles | <kbd>⌘</kbd> <kbd>I</kbd> |
 | Contraer workspaces | <kbd>⌘</kbd> <kbd>J</kbd> |
-| Ejecutar o detener comando | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
+| Ejecutar / detener comando | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
 | Salida del comando | <kbd>⌘</kbd> <kbd>E</kbd> |
-| Sesión anterior o siguiente (fuera del código) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
+| Sesión anterior / siguiente (fuera del código) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
 | Cerrar la pestaña del editor (en el panel Código, fuera del texto) | <kbd>⌘</kbd> <kbd>W</kbd> |
-| Selector de pestañas | <kbd>⌃</kbd> <kbd>Tab</kbd> |
-| Proyecto 1 a 9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
+| Alternar entre pestañas | <kbd>⌃</kbd> <kbd>Tab</kbd> |
+| Proyecto 1–9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
 | Configuración | <kbd>⌘</kbd> <kbd>,</kbd> |
 
-Dentro del código, las teclas del mapa van primero: en WebStorm, por ejemplo, <kbd>⌘</kbd> <kbd>B</kbd> sobre un nombre va a la definición y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> abre un archivo por nombre. Cuando la acción del mapa no aplica ahí, la tecla pasa a la app.
+<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> es la tecla por defecto de **Dictar** (*Dictate*). Se cambia en **Configuración › Voz** (*Settings › Voice*), y solo aparece en **Configuración › Atajos** con el **Dictado por voz** (*Voice dictation*) activado.
+
+Dentro del código, las teclas del mapa van primero. En WebStorm, <kbd>⌘</kbd> <kbd>B</kbd> sobre un nombre va a la declaración y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> abre un archivo por nombre. En WebStorm (macOS), el que abre un archivo por nombre es <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd>, en lugar del tablero de sesiones, y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> es **Buscar anterior** (*Find Previous*). Cuando la acción del mapa no aplica ahí, la tecla pasa a la app.
 
 ## Archivos
 
@@ -48,3 +53,14 @@ Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, co
 | Copiar ruta (también en la pestaña y en el código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referencia (también en la pestaña y en el código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar el árbol con la carpeta | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+
+## Pestañas y grupos
+
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> valen en cualquier mapa, con la pestaña en foco. Las demás teclas son de los mapas WebStorm; en el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. Mira [Pestañas y grupos](/docs/editor-and-git#pestañas-y-grupos).
+
+| Acción | Atajo |
+| --- | --- |
+| Mover la pestaña a la izquierda o a la derecha | <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> |
+| Maximizar el editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
+| Grupo siguiente y anterior | <kbd>⌥</kbd> <kbd>Tab</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
+| Abrir el archivo a la derecha (en el árbol) | <kbd>⇧</kbd> <kbd>↵</kbd> |

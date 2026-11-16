@@ -202,11 +202,11 @@
       },
       {
         "q": "Does my code go through your servers?",
-        "a": "No. Code, terminal output and prompts stay on your machine. The app only reaches out to read Claude Code's quota, sign in and renew the licence, use the integrations and git remotes you connect, and look for new versions. Every call shows up in Settings › Privacy & network."
+        "a": "No. Code, terminal output and prompts stay on your machine, apart from the commits you push yourself. The app only reaches out to read Claude Code's quota, sign in and renew the licence, use the integrations and git remotes you connect, download language servers, the voice model and updates, search for MCP servers, and look for new versions. Every call shows up in Settings › Privacy & network."
       },
       {
         "q": "Which agents work?",
-        "a": "Claude Code has full support: states from hooks, resume after a restart and several accounts. Codex has sessions and states; its resume is not confirmed yet. Any other terminal program runs in a persistent session."
+        "a": "Claude Code has full support: states from hooks, resume after a restart and several accounts. Codex opens and persists like any session; its state and resume don't work yet. Any other terminal program runs in a persistent session."
       },
       {
         "q": "What happens if the computer restarts?",

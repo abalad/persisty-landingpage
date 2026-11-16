@@ -7,11 +7,15 @@ order: 2
 
 ## The agent's state shows as unknown
 
-Claude Code shows the folder trust prompt before any hook. Answer it in the terminal and the state appears. In Codex, approve the hooks with `/hooks` inside Codex.
+Claude Code shows the folder trust prompt before any hook. Answer it in the terminal and the state appears.
+
+Persisty does not read Codex's state yet. It does not write `~/.codex/hooks.json` or show what to put in it, so a Codex session stays **Idle**, the queue header says **Agent state unknown** and the queue sends it no requests.
 
 ## I typed `claude` in a terminal and the session did not become an agent
 
-Terminals opened before a Persisty update do not have the wrapper that Persisty uses to adopt Claude Code. Open a new terminal.
+Persisty's terminals put the app's own `claude` first on the `PATH`, and it opens your Claude Code with Persisty's hooks. The app refreshes that `claude` every time it opens, in terminals that stayed open too. The session becomes an agent at the first hook, which only comes after the folder trust prompt: answer that first.
+
+If nothing changes after that, the `claude` you typed did not go through Persisty's. That happens with an alias or a function of that name in your shell's configuration, with the program's full path, or with a shell other than zsh or bash that reorders the `PATH` when it starts. `type claude` shows which one applies. Only Claude Code is adopted this way; a `codex` typed by hand leaves the session a terminal.
 
 ## The quota shows as unavailable
 
@@ -19,11 +23,15 @@ Persisty reads the quota with the credential Claude Code stores. If that credent
 
 ## The queue did not send the request
 
-The queue only sends while Persisty is open and the agent is waiting for its next request. Requests never go during work or over a permission request. If the session header says "Out of quota", the queue is waiting for the account to renew; **Let the queue go now**, at the top of the queue, lets the requests through. Also check that the queue is not paused.
+The queue only sends while Persisty is open and the agent is waiting for its next request. Requests never go during work or over a permission request.
+
+If the session header says "Out of quota", the queue is waiting for the account to renew. If it says "The last turn failed", the queue waits until a turn ends well. Either way, **Let the queue go now**, at the top of the queue, lets the requests through.
+
+Requests go in order, and the ones below show "waiting for no. 1". If no. 1 is set to **From a chosen time** or **When the 5-hour window renews**, the whole queue waits for that time. The queue also waits while you edit a request ("Editing no. 2: the queue waits"; after 15 minutes untouched, it moves again) and while an account switch is pending (the footer says **switches when the answer ends**). In a session of a project pinned to an account, nothing goes while the session runs on another account, and **Let the queue go now** does not change that. Also check that the queue is not paused.
 
 ## What Persisty does not do yet
 
-- Switch a session's account in the middle of a turn. With rotation on, the switch happens when the turn ends.
+- Switch a session's account in the middle of a turn. A switch, by rotation or by hand from the footer, waits for the answer to end and for what it left running in the background, such as subagents and commands.
 - Integrations with analytics tools.
 - Split the terminal into side-by-side panes.
 - A signed Windows installer, and Windows and Linux tested on real machines.

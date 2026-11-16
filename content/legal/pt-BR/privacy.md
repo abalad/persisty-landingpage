@@ -8,15 +8,21 @@ O Persisty foi feito para guardar o mínimo. O app funciona sem conta e sem inte
 
 ## No app
 
-Projetos, sessões, histórico de terminal, notas e uso de IA ficam num banco local no seu computador. O Persisty não envia código, saída de terminal nem prompts para lugar nenhum e não tem telemetria.
+Projetos, sessões, histórico de terminal, notas e uso de IA ficam num banco local no seu computador. O Persisty não envia código, saída de terminal nem prompts para lugar nenhum, fora os commits que você mesmo manda enviar ao remoto dos seus repositórios git, e não tem telemetria.
 
 O app só fala com fora para:
 
 - ler a quota do Claude Code, com a credencial que o Claude Code já guarda;
 - entrar na conta do Persisty Cloud e renovar a licença;
 - falar com o GitHub, o GitLab ou o Bitbucket, nas integrações que você conectar;
+- ler as issues do Linear, do Jira, do ClickUp e do GitHub, nas integrações de tarefas que você conectar, e, quando você conclui uma tarefa e confirma, escrever na issue o comentário que você revisou e o novo status;
 - clonar, buscar, puxar e enviar commits no remoto dos seus repositórios git. Para mostrar o que falta puxar e enviar, a busca também acontece sozinha ao abrir e a cada 5 minutos com o app na tela;
+- baixar um servidor de linguagem que o editor precisa e que não está no seu computador, de `nodejs.org`, de `registry.npmjs.org` ou do GitHub;
+- baixar o modelo de voz do ditado, de `huggingface.co`, quando você pede;
+- buscar servidores no registro oficial de MCP (`registry.modelcontextprotocol.io`) e testar os servidores remotos que você configurar;
 - procurar versões novas do app (veja abaixo).
+
+Nos downloads de servidores de linguagem e do modelo de voz, o serviço de origem vê o endereço IP do seu computador; nenhum dado da sua conta ou dos seus projetos vai junto.
 
 Cada chamada aparece em **Configurações › Privacidade e rede**, com destino, motivo, tamanho e resultado.
 

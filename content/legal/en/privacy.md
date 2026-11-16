@@ -8,15 +8,21 @@ Persisty is built to keep as little as possible. The app works without an accoun
 
 ## In the app
 
-Projects, sessions, terminal history, notes and AI usage stay in a local database on your computer. Persisty does not send code, terminal output or prompts anywhere, and it has no telemetry.
+Projects, sessions, terminal history, notes and AI usage stay in a local database on your computer. Persisty does not send code, terminal output or prompts anywhere, apart from the commits you yourself push to your git repositories' remotes, and it has no telemetry.
 
 The app only reaches out to:
 
 - read Claude Code's quota, with the credential Claude Code already stores;
 - sign in to the Persisty Cloud account and renew the licence;
 - talk to GitHub, GitLab or Bitbucket, for the integrations you connect;
+- read issues from Linear, Jira, ClickUp and GitHub, for the task integrations you connect, and, when you finish a task and confirm, write the comment you reviewed and the new status to the issue;
 - clone, fetch, pull and push commits on your git repositories' remotes. To show what is left to pull and push, it also fetches on its own when it opens and every 5 minutes while the app is on screen;
+- download a language server the editor needs and your computer does not have, from `nodejs.org`, `registry.npmjs.org` or GitHub;
+- download the dictation voice model from `huggingface.co`, when you ask for it;
+- search the official MCP registry (`registry.modelcontextprotocol.io`) for servers, and test the remote servers you set up;
 - look for new versions of the app (see below).
+
+When it downloads language servers or the voice model, the source service sees your computer's IP address; no data from your account or your projects goes with it.
 
 Every call shows up in **Settings › Privacy & network**, with its destination, purpose, size and result.
 

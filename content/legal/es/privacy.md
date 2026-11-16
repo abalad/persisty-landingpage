@@ -8,15 +8,21 @@ Persisty se hizo para guardar lo mínimo. La app funciona sin cuenta y sin inter
 
 ## En la app
 
-Los proyectos, las sesiones, el historial de la terminal, las notas y el uso de IA quedan en una base de datos local en tu computadora. Persisty no envía código, salida de la terminal ni prompts a ninguna parte y no tiene telemetría.
+Los proyectos, las sesiones, el historial de la terminal, las notas y el uso de IA quedan en una base de datos local en tu computadora. Persisty no envía código, salida de la terminal ni prompts a ninguna parte, salvo los commits que tú mismo envías al remoto de tus repositorios git, y no tiene telemetría.
 
 La app solo habla con afuera para:
 
 - leer la cuota de Claude Code, con la credencial que Claude Code ya guarda;
 - entrar a la cuenta de Persisty Cloud y renovar la licencia;
 - hablar con GitHub, GitLab o Bitbucket, en las integraciones que conectes;
+- leer las issues de Linear, Jira, ClickUp y GitHub, en las integraciones de tareas que conectes, y, cuando terminas una tarea y confirmas, escribir en la issue el comentario que revisaste y el nuevo estado;
 - clonar, buscar, traer y enviar commits en el remoto de tus repositorios git. Para mostrar lo que falta traer y enviar, la búsqueda también ocurre sola al abrir y cada 5 minutos con la app en pantalla;
+- descargar un servidor de lenguaje que el editor necesita y que no está en tu computadora, de `nodejs.org`, de `registry.npmjs.org` o de GitHub;
+- descargar el modelo de voz del dictado de `huggingface.co`, cuando lo pides;
+- buscar servidores en el registro oficial de MCP (`registry.modelcontextprotocol.io`) y probar los servidores remotos que configures;
 - buscar versiones nuevas de la app (ver abajo).
+
+En las descargas de servidores de lenguaje y del modelo de voz, el servicio de origen ve la dirección IP de tu computadora; ningún dato de tu cuenta ni de tus proyectos va junto.
 
 Cada llamada aparece en **Configuración › Privacidad y red** (*Settings › Privacy & network*), con destino, motivo, tamaño y resultado.
 
