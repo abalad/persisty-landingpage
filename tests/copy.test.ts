@@ -66,6 +66,30 @@ describe("site copy", () => {
     }
   });
 
+  it("the privacy policy says Google Analytics runs only after Accept, and how to change it", () => {
+    const consent = { "pt-BR": /só se você aceitar/, en: /only if you accept/, es: /solo si aceptas/ } as const;
+    for (const locale of routing.locales) {
+      const text = readFileSync(`content/legal/${locale}/privacy.md`, "utf8");
+      expect(text, locale).toMatch(/Google Analytics/);
+      expect(text, locale).toMatch(consent[locale]);
+      expect(text, locale).toMatch(/persisty_consent/);
+      expect(text, locale).toMatch(/_ga/);
+      expect(text, locale).not.toMatch(/não usa analytics|uses no analytics|no usa analítica/);
+    }
+  });
+
+  it("the privacy policy lists everything Google Analytics measures: signing in, and scrolls, outbound clicks and forms", () => {
+    const lists = {
+      "pt-BR": [/entrar na conta/, /rolagem/, /links para outros sites/, /formulários/],
+      en: [/signing in/, /scrolling/, /links to other sites/, /forms/],
+      es: [/iniciar sesión/, /desplazamiento/, /enlaces a otros sitios/, /formularios/],
+    } as const;
+    for (const locale of routing.locales) {
+      const text = readFileSync(`content/legal/${locale}/privacy.md`, "utf8");
+      for (const item of lists[locale]) expect(text, locale).toMatch(item);
+    }
+  });
+
   it("cancelling never blames the person, and the 7-day refund is no longer asked by e-mail", async () => {
     const blame = /perder tudo|vai se arrepender|tem certeza que quer desistir|lose everything|regret|perderlo todo|arrepent/i;
     for (const locale of routing.locales) {

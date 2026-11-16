@@ -15,10 +15,14 @@ export async function openBrowser({ width = 1280, height = 900 } = {}) {
   await new Promise((r) => ws.addEventListener("open", r, { once: true }));
   let id = 0;
   const pending = new Map();
+  const handlers = new Map();
   ws.addEventListener("message", (e) => {
     const m = JSON.parse(e.data);
     if (m.id && pending.has(m.id)) { pending.get(m.id)(m); pending.delete(m.id); }
+    if (m.method && handlers.has(m.method)) handlers.get(m.method)(m.params);
   });
+  /** Listens to one CDP event (e.g. `Fetch.requestPaused`); a second call replaces the first. */
+  const on = (method, handler) => handlers.set(method, handler);
   const send = (method, params = {}) => new Promise((r) => { const i = ++id; pending.set(i, r); ws.send(JSON.stringify({ id: i, method, params })); });
   await send("Page.enable");
   await send("Runtime.enable");
@@ -26,7 +30,7 @@ export async function openBrowser({ width = 1280, height = 900 } = {}) {
   const evaluate = async (expression) => (await send("Runtime.evaluate", { expression, awaitPromise: true, returnByValue: true })).result?.result?.value;
   const shot = async (file) => writeFileSync(file, Buffer.from((await send("Page.captureScreenshot", { format: "png" })).result.data, "base64"));
   const close = () => { ws.close(); chrome.kill(); };
-  return { send, evaluate, shot, close };
+  return { send, evaluate, shot, close, on };
 }
 
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

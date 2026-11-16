@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import { buttonClass } from "@/components/site/Button";
 import { Link, useRouter } from "@/i18n/navigation";
+import { isNewAccount, track } from "@/lib/analytics";
 import { authErrorKey, intentFromQuery, isValidCode, isValidEmail, normalizeCode, safeNext, type AuthErrorKey } from "@/lib/auth";
 import { intentQuery } from "@/lib/intentQuery";
 import { supabase } from "@/lib/supabase";
@@ -67,11 +68,12 @@ export function SignInForm() {
     if (!isValidCode(token)) return setError("invalidCode");
     setBusy(true);
     setError(null);
-    const { error: err } = await supabase().auth.verifyOtp({ email: email.trim(), token, type: "email" });
+    const { data, error: err } = await supabase().auth.verifyOtp({ email: email.trim(), token, type: "email" });
     if (err) {
       setBusy(false);
       return setError(authErrorKey(err));
     }
+    track({ name: isNewAccount(data.user?.created_at) ? "sign_up" : "login", params: { method: "email" } });
     router.replace(next);
   }
 

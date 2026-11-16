@@ -3,17 +3,18 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { jetbrains, mona } from "@/app/fonts";
+import { Analytics } from "@/components/site/Analytics";
 import { Footer } from "@/components/site/Footer";
 import { Nav } from "@/components/site/Nav";
 import { routing } from "@/i18n/routing";
-import { SITE_URL } from "@/lib/site";
+import { analyticsEnabled, GOOGLE_ANALYTICS_ID, SITE_URL } from "@/lib/site";
 import "@/styles/globals.css";
 
 type Messages = Record<string, Record<string, unknown>>;
 
 /** Only what interactive components read goes to the browser. */
 function clientMessages(all: Messages): Messages {
-  const { nav, badge, mock, download, auth, home, pricing, features, plans } = all;
+  const { nav, badge, mock, download, auth, home, pricing, features, plans, consent } = all;
   return {
     nav,
     badge,
@@ -21,6 +22,7 @@ function clientMessages(all: Messages): Messages {
     download,
     auth,
     features,
+    consent,
     home: { hero: (home as Messages).hero, studio: { live: ((home as Messages).studio as Messages).live } },
     pricing: { checkout: (pricing as Messages).checkout, features: (pricing as Messages).features, plans: (pricing as Messages).plans },
     plans: { common: { tried: ((plans as Messages).common as Messages).tried } },
@@ -51,6 +53,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = clientMessages(await getMessages());
+  const analytics = analyticsEnabled();
 
   return (
     <html lang={locale} className={`${mona.variable} ${jetbrains.variable}`}>
@@ -58,7 +61,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <NextIntlClientProvider messages={messages}>
           <Nav />
           <main id="main">{children}</main>
-          <Footer />
+          <Footer analytics={analytics} />
+          {analytics ? <Analytics measurementId={GOOGLE_ANALYTICS_ID} /> : null}
         </NextIntlClientProvider>
       </body>
     </html>
