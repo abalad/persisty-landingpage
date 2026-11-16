@@ -5,7 +5,7 @@ group: work
 order: 3
 ---
 
-The session's tools sit in a thin bar on its right edge: **Code**, **Search** and **Notes** at the top, then **Changes**, **Restore points** and **Queue**, and **Details** last. A click opens that tool's panel beside the bar, and the same click closes it; <kbd>⌘</kbd> <kbd>&#92;</kbd> opens and closes it too. With the panel closed, Changes shows how many files changed and the Queue how many requests are waiting. The divider between the terminal and the panel can be dragged.
+The session's tools sit in a thin bar on its right edge: **Code**, **Search** and **Notes** at the top, then **Changes**, **Restore points** and **Request queue**, and **Details** last. A click opens that tool's panel beside the bar, and the same click closes it; <kbd>⌘</kbd> <kbd>&#92;</kbd> opens and closes it too. Whether the panel is open or closed, Changes shows how many files changed and, in agent sessions, the Request queue shows how many requests are waiting. The divider between the terminal and the panel can be dragged.
 
 ## Code
 
@@ -57,34 +57,36 @@ The **Git** submenu, on the right-click menu of the tree and the tab, has **Show
 
 ## Suggestions, documentation and errors
 
-In TypeScript, JavaScript and Rust, the editor talks to the language server. Suggestions come from the project, with each one's type and documentation, and picking a function from another file writes the `import` for you. Resting the pointer on a name shows its documentation, opening the `(` of a call shows its parameters, and errors are underlined. In Rust, `cargo check`'s errors refresh every time you save.
+In TypeScript, JavaScript and Rust, the editor talks to the language server. Suggestions come from the project, with each one's type and documentation, and picking a function from another file writes the `import` for you. To ask for suggestions, use **Basic Completion**: <kbd>⌃</kbd> <kbd>Space</kbd> in every keymap, or <kbd>⌥</kbd> <kbd>Esc</kbd> on the Mac. By default macOS uses <kbd>⌃</kbd> <kbd>Space</kbd> to switch the keyboard; when it does, **Settings › Shortcuts** warns you and says where to turn it off. Resting the pointer on a name shows its documentation, opening the `(` of a call shows its parameters, and errors are underlined. In Rust, `cargo check`'s errors refresh every time you save.
 
-When the language server is not on the computer, the app downloads it. The status bar shows its state (downloading, indexing, ready or stopped) and how many errors and warnings the file has; clicking there restarts the server or shows its log.
+When the language server is not on the computer, the app downloads it. That first download needs the internet; offline, the status bar says "no server: offline". The status bar shows the server's state (downloading, indexing, ready or stopped) and how many errors and warnings the file has; clicking there restarts the server or shows its log.
 
-Go to definition works into other files too. A definition in the standard library or in a dependency outside the project opens read-only, with a lock on the tab and "Outside the project · read-only" in the status bar: you can browse and read, but nothing is edited. In Rust, the standard library needs its source in your toolchain (`rustup component add rust-src`); the app never changes the toolchain on its own.
+Files over 2 MB or 50,000 lines, and minified files, stay away from the server: the status bar says "file too big for the server", and the file opens without suggestions or errors. For the same file open in two groups, see [Tabs and groups](#tabs-and-groups).
+
+**Go to Declaration** works into other files too. A definition in the standard library or in a dependency outside the project opens read-only, with a lock on the tab and "Outside the project · read-only" in the status bar: you can browse and read, but nothing is edited. In Rust, the standard library needs its source in your toolchain (`rustup component add rust-src`); the app never changes the toolchain on its own.
 
 ## Keymap
 
-In **Settings › Editor › Keymap**, pick **WebStorm** (default), **WebStorm (macOS)** or **VS Code**. The keymap applies inside the code; its tab and find-action keys work across the app. Each key does the real action, and where the action does not apply, the key goes on to the app. **Settings › Shortcuts** lists every key of the chosen keymap and of Persisty, searchable.
+In **Settings › Editor › Keymap**, pick **WebStorm** (default), **WebStorm (macOS)** or **VS Code**. The keymap applies inside the code; its tab and find-action keys work across the app, and in the terminal only the ones a shell doesn't use. Each key does the real action, and where the action does not apply, the key goes on to the app. **Settings › Shortcuts** lists every key of the chosen keymap and of Persisty, searchable, under the same names as the table below.
 
-In WebStorm (default):
+The keys of the two WebStorm keymaps on the Mac:
 
-| Action | Key |
-| --- | --- |
-| Go to definition | <kbd>⌘</kbd> <kbd>B</kbd> or <kbd>⌘</kbd> + click |
-| Call parameters | <kbd>⌘</kbd> <kbd>P</kbd> |
-| Documentation | <kbd>⌃</kbd> <kbd>J</kbd> |
-| Back and forward through the places you visited | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>←</kbd> and <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>→</kbd> |
-| Next and previous error | <kbd>F2</kbd> and <kbd>⇧</kbd> <kbd>F2</kbd> |
-| Open file by name | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
-| Duplicate the line | <kbd>⌘</kbd> <kbd>D</kbd> |
-| Delete the line | <kbd>⌘</kbd> <kbd>Y</kbd> |
-| Go to a line | <kbd>⌘</kbd> <kbd>G</kbd> |
-| Start and end of the block | <kbd>⌘</kbd> <kbd>[</kbd> and <kbd>⌘</kbd> <kbd>]</kbd> |
-| Move the statement, with the comments above it | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> |
-| Find action | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> |
+| Action | WebStorm | WebStorm (macOS) |
+| --- | --- | --- |
+| Go to Declaration | <kbd>⌘</kbd> <kbd>B</kbd> or <kbd>⌘</kbd> + click | <kbd>⌘</kbd> <kbd>B</kbd> or <kbd>⌘</kbd> + click |
+| Parameter Info | <kbd>⌘</kbd> <kbd>P</kbd> | <kbd>⌘</kbd> <kbd>P</kbd> |
+| Quick Documentation | <kbd>⌃</kbd> <kbd>J</kbd> | <kbd>F1</kbd> or <kbd>⌃</kbd> <kbd>J</kbd> |
+| Back / Forward | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>←</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>→</kbd> | <kbd>⌘</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>]</kbd>, or <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>←</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>→</kbd> |
+| Next / Previous Highlighted Error | <kbd>F2</kbd> / <kbd>⇧</kbd> <kbd>F2</kbd> | <kbd>F2</kbd> / <kbd>⇧</kbd> <kbd>F2</kbd> |
+| Go to File | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> |
+| Duplicate Line or Selection | <kbd>⌘</kbd> <kbd>D</kbd> | <kbd>⌘</kbd> <kbd>D</kbd> |
+| Delete Line | <kbd>⌘</kbd> <kbd>Y</kbd> | <kbd>⌘</kbd> <kbd>⌫</kbd> |
+| Go to Line | <kbd>⌘</kbd> <kbd>G</kbd> | <kbd>⌘</kbd> <kbd>L</kbd> |
+| Move Caret to Code Block Start / End | <kbd>⌘</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>]</kbd> | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>]</kbd> |
+| Move Statement Up / Down, with the comments above it | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> |
+| Find Action | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> |
 
-The VS Code keymap keeps its own keys, such as <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> to find an action and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>T</kbd> to reopen the last closed tab. In every keymap, <kbd>⌃</kbd> <kbd>Tab</kbd> opens the tab switcher, in the order you used them, and <kbd>⌘</kbd> <kbd>K</kbd> also lists the editor's actions. On Windows and Linux the same actions use <kbd>Ctrl</kbd>.
+The VS Code keymap keeps its own keys, such as <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> to find an action and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>T</kbd> to reopen the last closed tab. In every keymap, <kbd>⌃</kbd> <kbd>Tab</kbd> opens the **Switcher**, in the order you used the tabs, and <kbd>⌘</kbd> <kbd>K</kbd> also lists the editor's actions. On Windows and Linux, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, and both WebStorm keymaps use the keys of the WebStorm column, with one difference: **Quick Documentation** is <kbd>Ctrl</kbd> <kbd>Q</kbd>.
 
 ## Changes
 
@@ -100,4 +102,4 @@ The history shows what has not been pushed yet and the files in each commit. If 
 
 ## Notes
 
-Each project has Markdown notes, saved on their own in Persisty's local database. Notes keep their old keys, with no keymap.
+Each project has Markdown notes, saved on their own in Persisty's local database. Every session of the project opens the same notes, and the header shows **Notes ·** with the project's name. Notes keep their old keys, with no keymap.

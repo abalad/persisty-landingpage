@@ -31,18 +31,20 @@ The app looks for new versions when it opens and every 6 hours. When one is out,
 
 A **project** is one of your products or clients, not a folder. Inside it are the **workspaces**: that product's folders and repositories.
 
-1. Click the **+** in the project bar, on the left, and give it a name.
-2. Drag a folder from Finder onto the marked area, or click and choose one. It becomes the first workspace. If it is a git repository, Persisty shows the branch and the changes.
-3. Repeat for the product's other repositories (API, app, website).
+1. Click **Create first project**, which shows the first time you open Persisty, or the **+** in the project bar, on the left. Give it a name.
+2. The project opens empty. Drag a folder from Finder onto **Add workspace**, or click and choose one. It becomes the first workspace. If it is a git repository, Persisty shows the branch and the changes. For a repository that is not on your computer yet, use **Clone a repository**: it downloads from GitHub, GitLab, Bitbucket or any git link and adds it as a workspace.
+3. The product's other repositories (API, app, website) come in through the **Add workspace** card at the end of the bottom strip, which can clone too. The drop area only shows while the project is empty.
 
 ## Open a session
 
-With the workspace selected, press <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> and choose what to open:
+With the workspace selected, press <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>. In **New session**, choose what to open and click **Create and open**:
 
-- **Claude Code** or **Codex**, for an agent session;
+- **Claude Code** or **Codex CLI**, for an agent session;
 - **Terminal**, for a plain shell (dev server, tests, whatever you like).
 
-The session shows as a tab at the top and as a row in the workspace card at the bottom. The agent's state shows on the tab: working, waiting for you, asking permission or stopped.
+The default agent comes already chosen. To skip the dialog, <kbd>⌘</kbd> <kbd>N</kbd> opens a terminal and <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> opens the default agent, both in the current workspace. In a workspace with no sessions, the screen lists `terminal`, `claude` and `codex`, and the keys <kbd>1</kbd>, <kbd>2</kbd> and <kbd>3</kbd> open each one.
+
+The session shows as a tab at the top and as a row in the workspace card at the bottom. The tab shows the agent's state as a coloured dot, with the word in its tooltip when you hover over it: **Working**, **Done**, **Permission pending**, **Idle** or **Ended**. The session header and the workspace card show the word directly.
 
 ## Next steps
 

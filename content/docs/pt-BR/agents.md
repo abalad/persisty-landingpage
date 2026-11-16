@@ -5,19 +5,25 @@ group: start
 order: 4
 ---
 
-O Persisty reconhece agentes de duas formas: quando você abre a sessão como Claude Code ou Codex, e quando você digita `claude` num terminal comum aberto pelo Persisty. Nos dois casos a sessão ganha o ícone do agente, o estado e o custo.
+O Persisty reconhece agentes de duas formas: quando você abre a sessão como Claude Code ou Codex CLI, e quando você digita `claude` num terminal comum aberto pelo Persisty. Nos dois casos a sessão ganha o ícone do agente. O estado e o custo vêm do Claude Code; o que funciona e o que ainda não funciona no Codex está em [Codex CLI](#codex-cli).
 
 ## Os estados
 
 | Estado | Quer dizer |
 | --- | --- |
 | Trabalhando | O agente recebeu um pedido e ainda não terminou, inclusive o que ele deixou rodando em segundo plano, como subagentes. |
-| Aguardando você | Terminou o turno e espera o próximo pedido. |
+| Concluído | Terminou o turno e espera o próximo pedido. |
 | Permissão pendente | Quer rodar algo e espera o seu "sim" no terminal. |
-| Ocioso | Aberto, sem pedido em andamento. |
-| Encerrada | A conversa terminou. |
+| Parado | Aberto, sem pedido em andamento, ou com o estado ainda desconhecido. |
+| Encerrado | A conversa terminou. |
 
-Os estados aparecem na aba, no cartão do workspace, na barra de projetos, na lista de agentes e no Quadro. Eles sempre vêm com ícone e palavra, nunca só com cor.
+A palavra aparece no cabeçalho da sessão, na linha da sessão no cartão do workspace, na lista de **Agentes** da barra de projetos expandida e no painel **Detalhes**. A aba mostra o ícone do agente e um ponto colorido; a palavra fica na dica, ao passar o mouse. Recolhida, a barra de projetos mostra um ponto por projeto, explicado em [Barra de projetos](/docs/projects-and-workspaces#barra-de-projetos). O Quadro separa as sessões em colunas.
+
+Num terminal comum, a sessão mostra **Executando**, com o nome do comando, enquanto algo roda, e **Parado** de volta no prompt. Uma sessão sem processo mostra o estado do processo, como **Interrompida**, **Encerrada** ou **Falhou**.
+
+## Notificações
+
+Quando um agente termina o turno ou pede permissão, o Persisty avisa, a menos que você já esteja olhando aquela sessão. Com a janela do Persisty em foco, aparece um alerta no canto, com o botão **Ver**; com outra janela na frente, vem a notificação do sistema. Os dois vêm com um som curto. Avisos e som vêm ligados. Para mudar, use **Configurações › Notificações**, onde **Enviar teste** mostra como fica.
 
 ## O Quadro
 
@@ -43,12 +49,24 @@ Com o mascote fora do app, o do terminal some. Fechar o Persisty fecha o mascote
 
 No Claude Code, o estado vem dos **hooks** do próprio Claude: eventos que ele dispara ao começar, ao receber um pedido, ao parar e ao pedir permissão. O Persisty injeta esses hooks em cada sessão com `--settings`, num arquivo só dele. O seu `~/.claude/settings.json` nunca é alterado.
 
-Se o Claude Code mostrar o aviso de confiança da pasta ("Yes, I trust this folder"), ele aparece antes de qualquer hook. O Persisty não pula esse aviso: o estado fica desconhecido até você responder no terminal.
+Se o Claude Code mostrar o aviso de confiança da pasta ("Yes, I trust this folder"), ele aparece antes de qualquer hook. O Persisty não pula esse aviso: o estado fica desconhecido até você responder no terminal. Enquanto isso, a sessão aparece como **Parado**, e o Quadro diz **Sem notícias do agente**.
 
-## Codex
+## Codex CLI
 
-O Codex abre e persiste como qualquer sessão. Os hooks dele precisam ser aprovados por você dentro do próprio Codex (`/hooks`). Sem essa aprovação, o estado fica desconhecido. A retomada depois de um reinício ainda não foi confirmada, e o Persisty marca isso.
+O Codex CLI abre e persiste como qualquer sessão: ganha aba e linha no cartão do workspace, e o Persisty reanexa o terminal quando você reabre o app com ele ainda rodando.
+
+Duas coisas ainda não funcionam. A primeira é o estado: o Persisty não altera a configuração do Codex e não recebe os eventos dele, então a sessão aparece como **Parado** enquanto roda e não gera notificações. A segunda é retomar a conversa: depois de um reinício do computador, a sessão volta como um terminal comum na pasta dela, sem o Codex, e o relatório de restauração diz **Relançada**. Em **Configurações › Agentes**, o Codex CLI aparece com a retomada e o status marcados como **Não verificado**.
 
 ## Modelo por sessão
 
-O rodapé da sessão tem um seletor de modelo. A escolha fica guardada e é passada com `--model` em cada lançamento e retomada. Numa sessão já aberta, o Persisty digita `/model` por você.
+No Claude Code, o rodapé da sessão tem um seletor de modelo. A escolha fica guardada e é passada com `--model` em cada lançamento e retomada. Numa sessão já aberta, o Persisty digita `/model` por você. No Codex CLI, o rodapé mostra só o nome do agente, sem seletor.
+
+## Agente padrão
+
+<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> abre direto uma sessão com o agente padrão no workspace atual, e em <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> ele já vem escolhido. O padrão é o Claude Code; troque em **Configurações › Agentes › Agente padrão**. Se o escolhido não estiver instalado, vale o primeiro agente instalado.
+
+## Ferramentas para os agentes
+
+**Ferramentas do Persisty nos agentes**, em **Configurações › Agentes**, dá às sessões do Claude Code ferramentas que leem o projeto, as sessões dele e a saída dos comandos do workspace. Nenhuma delas digita em outro terminal. Vem desligado e vale para as sessões que começarem ou reiniciarem depois de ligar; **Verificar instalação** testa se funciona. Para o Codex CLI, a mesma tela mostra um comando para você rodar uma vez no terminal, porque o Persisty não altera a configuração do Codex; esse caminho está marcado como **Não verificado**.
+
+Outros servidores MCP, como GitHub, Sentry ou Supabase, você instala em **Configurações › Servidores MCP** e liga por projeto em **Ajustes do projeto › Servidores MCP**. Eles valem só para as sessões do Claude Code que começarem ou reiniciarem depois.

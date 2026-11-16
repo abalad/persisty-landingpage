@@ -33,18 +33,20 @@ La app busca versiones nuevas al abrirse y cada 6 horas. Cuando sale una, aparec
 
 Un **proyecto** es un producto o un cliente tuyo, no una carpeta. Dentro de él están los **workspaces**: las carpetas y los repositorios de ese producto.
 
-1. Haz clic en el **+** de la barra de proyectos, a la izquierda, y ponle un nombre.
-2. Arrastra una carpeta del Finder al área indicada, o haz clic y elígela. Se convierte en el primer workspace. Si es un repositorio git, Persisty muestra la rama y los cambios.
-3. Repite para los otros repositorios del mismo producto (API, app, sitio).
+1. Haz clic en **Crear primer proyecto** (*Create first project*), que aparece la primera vez que abres Persisty, o en el **+** de la barra de proyectos, a la izquierda. Ponle un nombre.
+2. El proyecto se abre vacío. Arrastra una carpeta del Finder a **Agregar workspace** (*Add workspace*), o haz clic y elígela. Se convierte en el primer workspace. Si es un repositorio git, Persisty muestra la rama y los cambios. Para un repositorio que todavía no está en tu computadora, usa **Clonar repositorio** (*Clone a repository*): lo descarga de GitHub, GitLab, Bitbucket o cualquier enlace git y lo agrega como workspace.
+3. Los otros repositorios del mismo producto (API, app, sitio) entran por la tarjeta **Agregar workspace**, al final de la franja de abajo, que también clona. El área para soltar carpetas solo aparece con el proyecto vacío.
 
 ## Abrir una sesión
 
-Con el workspace seleccionado, presiona <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> y elige qué abrir:
+Con el workspace seleccionado, presiona <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>. En **Nueva sesión** (*New session*), elige qué abrir y haz clic en **Crear y abrir** (*Create and open*):
 
-- **Claude Code** o **Codex**, para una sesión de agente;
+- **Claude Code** o **Codex CLI**, para una sesión de agente;
 - **Terminal**, para un shell común (servidor de desarrollo, pruebas, lo que quieras).
 
-La sesión aparece como pestaña arriba y como línea en la tarjeta del workspace, abajo. El estado del agente aparece en la pestaña: trabajando, esperándote, pidiendo permiso o detenido.
+El agente por defecto ya viene elegido. Sin pasar por el diálogo, <kbd>⌘</kbd> <kbd>N</kbd> abre una terminal y <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> abre el agente por defecto, los dos en el workspace actual. En un workspace sin sesiones, la pantalla lista `terminal`, `claude` y `codex`, y las teclas <kbd>1</kbd>, <kbd>2</kbd> y <kbd>3</kbd> abren cada uno.
+
+La sesión aparece como pestaña arriba y como línea en la tarjeta del workspace, abajo. La pestaña muestra el estado del agente con un punto de color, y la palabra está en la sugerencia que aparece al pasar el puntero: **Trabajando** (*Working*), **Concluido** (*Done*), **Permiso pendiente** (*Permission pending*), **Inactivo** (*Idle*) o **Terminado** (*Ended*). El encabezado de la sesión y la tarjeta del workspace muestran la palabra directamente.
 
 ## Próximos pasos
 

@@ -5,7 +5,7 @@ group: work
 order: 3
 ---
 
-Las herramientas de la sesión quedan en una barra fina en su borde derecho: **Código**, **Búsqueda** y **Notas** arriba, después **Cambios**, **Puntos de restauración** y **Cola**, y al final **Detalles**. Un clic abre el panel de esa herramienta junto a la barra, y el mismo clic lo cierra; <kbd>⌘</kbd> <kbd>&#92;</kbd> también lo abre y lo cierra. Con el panel cerrado, Cambios muestra cuántos archivos cambiaron y la Cola cuántos pedidos esperan. El divisor entre la terminal y el panel se puede arrastrar.
+Las herramientas de la sesión quedan en una barra fina en su borde derecho: **Código**, **Búsqueda** y **Notas** arriba, después **Cambios**, **Puntos de restauración** y **Cola de pedidos**, y al final **Detalles**. Un clic abre el panel de esa herramienta junto a la barra, y el mismo clic lo cierra; <kbd>⌘</kbd> <kbd>&#92;</kbd> también lo abre y lo cierra. Con el panel abierto o cerrado, Cambios muestra cuántos archivos cambiaron y, en las sesiones con agente, la Cola de pedidos muestra cuántos pedidos esperan. El divisor entre la terminal y el panel se puede arrastrar.
 
 ## Código
 
@@ -57,34 +57,36 @@ El submenú **Git**, en el clic derecho del árbol y de la pestaña, tiene **Mos
 
 ## Sugerencias, documentación y errores
 
-En TypeScript, JavaScript y Rust, el editor habla con el servidor del lenguaje. Las sugerencias vienen del proyecto, con el tipo y la documentación de cada una, y elegir una función de otro archivo ya escribe el `import`. Dejar el puntero sobre un nombre muestra su documentación, abrir el `(` de una llamada muestra los parámetros, y los errores aparecen subrayados. En Rust, los errores de `cargo check` se actualizan cada vez que guardas.
+En TypeScript, JavaScript y Rust, el editor habla con el servidor del lenguaje. Las sugerencias vienen del proyecto, con el tipo y la documentación de cada una, y elegir una función de otro archivo ya escribe el `import`. Para pedir las sugerencias, usa **Completar código** (*Basic Completion*): <kbd>⌃</kbd> <kbd>Espacio</kbd> en cualquier mapa, o <kbd>⌥</kbd> <kbd>Esc</kbd> en Mac. Por defecto, macOS usa <kbd>⌃</kbd> <kbd>Espacio</kbd> para cambiar el teclado; en ese caso, **Configuración › Atajos** avisa y dice dónde desactivarlo. Dejar el puntero sobre un nombre muestra su documentación, abrir el `(` de una llamada muestra los parámetros, y los errores aparecen subrayados. En Rust, los errores de `cargo check` se actualizan cada vez que guardas.
 
-Cuando el servidor del lenguaje no está en la computadora, la app lo descarga sola. La barra de estado muestra su estado (descargando, indexando, listo o detenido) y cuántos errores y avisos tiene el archivo; un clic ahí reinicia el servidor o muestra el log.
+Cuando el servidor del lenguaje no está en la computadora, la app lo descarga sola. Esa primera descarga necesita internet; sin conexión, la barra de estado dice "sin servidor: sin conexión" (*no server: offline*). La barra de estado muestra el estado del servidor (descargando, indexando, listo o detenido) y cuántos errores y avisos tiene el archivo; un clic ahí reinicia el servidor o muestra el log.
 
-Ir a la definición funciona también en otro archivo. Una definición en la biblioteca estándar o en una dependencia fuera del proyecto se abre como solo lectura, con un candado en la pestaña y "Fuera del proyecto · solo lectura" en la barra de estado: puedes navegar y leer, pero nada se edita. En Rust, la biblioteca estándar necesita su código fuente en tu toolchain (`rustup component add rust-src`); la app nunca cambia el toolchain por su cuenta.
+Los archivos de más de 2 MB o de 50 mil líneas, y los archivos minificados, quedan fuera del servidor: la barra de estado dice "archivo demasiado grande para el servidor" (*file too big for the server*), y el archivo se abre sin sugerencias ni errores. Para el mismo archivo abierto en dos grupos, mira [Pestañas y grupos](#pestañas-y-grupos).
+
+**Ir a la declaración** (*Go to Declaration*) funciona también en otro archivo. Una definición en la biblioteca estándar o en una dependencia fuera del proyecto se abre como solo lectura, con un candado en la pestaña y "Fuera del proyecto · solo lectura" en la barra de estado: puedes navegar y leer, pero nada se edita. En Rust, la biblioteca estándar necesita su código fuente en tu toolchain (`rustup component add rust-src`); la app nunca cambia el toolchain por su cuenta.
 
 ## Mapa de teclas
 
-En **Configuración › Editor › Mapa de teclas**, elige **WebStorm** (por defecto), **WebStorm (macOS)** o **VS Code**. El mapa vale dentro del código; sus teclas de pestañas y de buscar acción valen en toda la app. Cada tecla hace la acción de verdad, y cuando la acción no aplica ahí, la tecla pasa a la app. **Configuración › Atajos** lista todas las teclas del mapa elegido y las de Persisty, con búsqueda.
+En **Configuración › Editor › Mapa de teclas**, elige **WebStorm** (por defecto), **WebStorm (macOS)** o **VS Code**. El mapa vale dentro del código; sus teclas de pestañas y de buscar acción valen en toda la app, y en la terminal solo las que el shell no usa. Cada tecla hace la acción de verdad, y cuando la acción no aplica ahí, la tecla pasa a la app. **Configuración › Atajos** lista todas las teclas del mapa elegido y las de Persisty, con búsqueda; en la tabla, el nombre en cursiva es el de la app en inglés.
 
-En WebStorm (por defecto):
+Las teclas de los dos mapas WebStorm en Mac:
 
-| Acción | Tecla |
-| --- | --- |
-| Ir a la definición | <kbd>⌘</kbd> <kbd>B</kbd> o <kbd>⌘</kbd> + clic |
-| Parámetros de la llamada | <kbd>⌘</kbd> <kbd>P</kbd> |
-| Documentación | <kbd>⌃</kbd> <kbd>J</kbd> |
-| Retroceder y avanzar por los lugares visitados | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>←</kbd> y <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>→</kbd> |
-| Error siguiente y anterior | <kbd>F2</kbd> y <kbd>⇧</kbd> <kbd>F2</kbd> |
-| Abrir archivo por nombre | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
-| Duplicar la línea | <kbd>⌘</kbd> <kbd>D</kbd> |
-| Borrar la línea | <kbd>⌘</kbd> <kbd>Y</kbd> |
-| Ir a una línea | <kbd>⌘</kbd> <kbd>G</kbd> |
-| Inicio y final del bloque | <kbd>⌘</kbd> <kbd>[</kbd> y <kbd>⌘</kbd> <kbd>]</kbd> |
-| Mover la instrucción, con los comentarios encima | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> |
-| Buscar acción | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> |
+| Acción | WebStorm | WebStorm (macOS) |
+| --- | --- | --- |
+| Ir a la declaración (*Go to Declaration*) | <kbd>⌘</kbd> <kbd>B</kbd> o <kbd>⌘</kbd> + clic | <kbd>⌘</kbd> <kbd>B</kbd> o <kbd>⌘</kbd> + clic |
+| Información de parámetros (*Parameter Info*) | <kbd>⌘</kbd> <kbd>P</kbd> | <kbd>⌘</kbd> <kbd>P</kbd> |
+| Documentación rápida (*Quick Documentation*) | <kbd>⌃</kbd> <kbd>J</kbd> | <kbd>F1</kbd> o <kbd>⌃</kbd> <kbd>J</kbd> |
+| Atrás / Adelante (*Back / Forward*) | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>←</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>→</kbd> | <kbd>⌘</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>]</kbd>, o <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>←</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>→</kbd> |
+| Error siguiente / anterior (*Next / Previous Highlighted Error*) | <kbd>F2</kbd> / <kbd>⇧</kbd> <kbd>F2</kbd> | <kbd>F2</kbd> / <kbd>⇧</kbd> <kbd>F2</kbd> |
+| Ir al archivo (*Go to File*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> |
+| Duplicar línea o selección (*Duplicate Line or Selection*) | <kbd>⌘</kbd> <kbd>D</kbd> | <kbd>⌘</kbd> <kbd>D</kbd> |
+| Borrar línea (*Delete Line*) | <kbd>⌘</kbd> <kbd>Y</kbd> | <kbd>⌘</kbd> <kbd>⌫</kbd> |
+| Ir a la línea (*Go to Line*) | <kbd>⌘</kbd> <kbd>G</kbd> | <kbd>⌘</kbd> <kbd>L</kbd> |
+| Ir al inicio / al final del bloque de código (*Move Caret to Code Block Start / End*) | <kbd>⌘</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>]</kbd> | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>]</kbd> |
+| Mover instrucción arriba / abajo, con los comentarios encima (*Move Statement Up / Down*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> |
+| Buscar acción (*Find Action*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> |
 
-El mapa de VS Code mantiene sus propias teclas, como <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> para buscar una acción y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>T</kbd> para reabrir la última pestaña cerrada. En todos los mapas, <kbd>⌃</kbd> <kbd>Tab</kbd> abre el selector de pestañas, en el orden en que las usaste, y <kbd>⌘</kbd> <kbd>K</kbd> también lista las acciones del editor. En Windows y Linux, las mismas acciones usan <kbd>Ctrl</kbd>.
+El mapa de VS Code mantiene sus propias teclas, como <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> para buscar una acción y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>T</kbd> para reabrir la última pestaña cerrada. En todos los mapas, <kbd>⌃</kbd> <kbd>Tab</kbd> hace **Alternar entre pestañas** (*Switcher*), en el orden en que las usaste, y <kbd>⌘</kbd> <kbd>K</kbd> también lista las acciones del editor. En Windows y Linux, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, y los dos mapas WebStorm usan las teclas de la columna WebStorm, con una diferencia: **Documentación rápida** (*Quick Documentation*) es <kbd>Ctrl</kbd> <kbd>Q</kbd>.
 
 ## Cambios
 
@@ -100,4 +102,4 @@ El historial muestra lo que todavía no se envió y los archivos de cada commit.
 
 ## Notas
 
-Cada proyecto tiene notas en Markdown, guardadas solas en la base de datos local de Persisty. Las notas mantienen las teclas de antes, sin mapa.
+Cada proyecto tiene notas en Markdown, guardadas solas en la base de datos local de Persisty. Todas las sesiones del proyecto abren las mismas notas, y el encabezado muestra **Notas ·** (*Notes ·*) con el nombre del proyecto. Las notas mantienen las teclas de antes, sin mapa.
