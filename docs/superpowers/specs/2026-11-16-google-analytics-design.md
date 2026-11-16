@@ -56,7 +56,7 @@ O usuário quer medir o site (persisty.app) no Google Analytics: quantas pessoas
 - Propriedade **"Persisty Site"**, fuso America/Sao_Paulo, moeda BRL.
 - Fluxo web **"Persisty Web"**, `https://persisty.app`. Na medição otimizada, "Alterações de página com base no histórico do navegador" fica desligada, porque a troca de página sai do código, com o endereço limpo (como no Kora).
 - Retenção dos dados em 14 meses (o padrão é 2). Google Signals desligado.
-- Key events: `download`, `sign_up`, `begin_checkout`, `checkout_done`. Eles aparecem no GA depois do primeiro envio. Eu marco depois do deploy, quando eu mesmo aceitar e testar no site publicado.
+- Key events: `download`, `sign_up`, `begin_checkout`, `checkout_done`. São criados pelo nome em "Eventos principais › Novo evento principal", antes do primeiro envio.
 - O ID `G-…` é público e fica no código (`src/lib/site.ts`, como `GOOGLE_ANALYTICS_ID`), igual no site do Kora.
 
 ### O aviso
@@ -97,7 +97,7 @@ Uma barra presa ao pé da tela, no painel elevado (fundo night elevado, linha fi
 - `gtag('config', ID, { send_page_view: false, allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 34128000 /* 13 meses */ })`.
 - **Página vista:** um `page_view` por endereço, disparado pelo código na troca de rota do App Router. O endereço vai com a origem e o caminho, mais só os parâmetros liberados: `utm_*`, `gclid`, `gbraid`, `wbraid`, `fbclid`, `ref`. Esse mesmo endereço limpo vai como `page_location` de todo evento. `page_referrer` leva só a origem do site anterior.
 - **Eventos:**
-  - `download` com `platform` (`macos`, `windows`, `linux`), no clique dos links que baixam o instalador (`/download/latest/<platform>`).
+  - `download` com `platform` (`mac`, `windows`, `linux`), `kind` (`dmg`, `nsis`, `appimage`, `deb`) e `version`, no clique dos links que baixam o instalador. No site, esses links apontam direto para o arquivo no GitHub (`…/persisty-releases/releases/download/v<versão>/<arquivo>`).
   - `sign_up` (conta nova) ou `login` (conta existente), com `method: "email"`, depois do `verifyOtp` que deu certo. Conta nova = `created_at` do usuário nos últimos 10 minutos.
   - `begin_checkout` com `plan`, quando o `SubscribeButton` começa o checkout.
   - `checkout_done` com `plan` (quando der para saber), quando Minha conta abre com `?checkout=done`. Só uma vez por chegada.
@@ -130,7 +130,7 @@ A data de atualização da política muda. O usuário decide se manda o aviso po
   3. "Aceitar": `gtag.js` baixado e `page_view` com o endereço limpo;
   4. navegação pelo App Router: um `page_view` por página;
   5. "Cookies" → "Recusar": envios param e `_ga` some.
-- Depois do deploy, aceito o aviso no persisty.app, confiro o Tempo real do GA e marco os key events.
+- Depois do deploy, aceito o aviso no persisty.app e confiro o Tempo real do GA.
 
 ## Fica para quem constrói
 
