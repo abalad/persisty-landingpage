@@ -13,7 +13,7 @@ O editor abre a pasta da sessão, em árvore. Arquivos ignorados pelo git aparec
 
 - <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> busca em todos os arquivos, <kbd>⌘</kbd> <kbd>F</kbd> busca e substitui no arquivo aberto e <kbd>⌘</kbd> <kbd>S</kbd> salva. Para abrir um arquivo pelo nome, use <kbd>⌘</kbd> <kbd>P</kbd> fora do código, ou a tecla do seu mapa dentro dele (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> no WebStorm).
 - Destaque por linguagem, carregado sob demanda, no mesmo tema do terminal.
-- Marcas do git na margem e diff contra o HEAD.
+- Marcas do git na margem e diff contra o HEAD. Quem mudou cada linha e o histórico do arquivo estão em [Git no arquivo](#git-no-arquivo).
 - Se o arquivo mudar no disco (o agente editou), o Persisty avisa: recarregar ou manter a sua versão. Abas sem alteração recarregam sozinhas.
 - Imagens abrem no editor (PNG, JPG, GIF, WebP, BMP e ICO), ajustadas ao painel, com as dimensões e o tamanho; um clique mostra no tamanho real. Um SVG abre como código e ganha a pré-visualização, como o Markdown (o botão de olho, ou <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd>), desenhada como imagem e sem rodar script.
 
@@ -34,6 +34,26 @@ O botão direito na aba do editor tem todas as formas de fechar: a aba, as outra
 Nos mapas WebStorm, as teclas são as da IDE: <kbd>⇧</kbd> <kbd>F6</kbd> renomeia, <kbd>F6</kbd> move, <kbd>F5</kbd> copia para outra pasta, <kbd>⌫</kbd> exclui, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> copia o caminho, <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> copia a referência e <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> sincroniza a árvore com a pasta. No mapa do VS Code, essas ações ficam no menu. **Configurações › Atalhos** tem o grupo **Arquivos**, com onde cada tecla vale: na árvore, na aba ou no editor.
 
 No Windows e no Linux, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> fazem o papel de <kbd>⌘</kbd> e <kbd>⌥</kbd>, e <kbd>Delete</kbd> exclui. Colar arquivos de e para o sistema e o Desfazer da exclusão ainda estão sendo conferidos em uso nessas plataformas.
+
+## Abas e grupos
+
+O editor se divide em até quatro grupos, lado a lado ou empilhados, cada um com as suas abas. **Dividir à direita** e **Dividir embaixo** estão no botão direito da aba e na paleta (<kbd>⌘</kbd> <kbd>K</kbd>). Arrastar uma aba muda a ordem, leva a aba a outro grupo ou, solta na borda de um grupo, cria um novo. O mesmo arquivo pode ficar aberto em dois grupos: o texto acompanha e cada lado tem o seu desfazer, mas só um deles mostra as sugestões e os erros do servidor da linguagem. **Maximizar o editor** esconde o terminal para caber mais, e o mesmo comando volta ao tamanho de antes.
+
+**Fixar aba**, no botão direito da aba, põe a aba à esquerda, com um alfinete. Uma aba fixada não fecha com **Fechar as outras abas**, **Fechar todas as abas** nem pelo limite de abas. Com a aba em foco, <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> e <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> mudam a aba de lugar, e **Mover a aba para o próximo grupo** está na paleta.
+
+Em **Configurações › Editor › Abas**, escolha o limite de abas (20 por padrão; abrir uma a mais fecha a menos usada, e as fixadas e as não gravadas ficam), para onde ir ao fechar (a aba usada antes ou a vizinha), onde abrir a aba nova (no fim ou logo depois da atual), se a pasta aparece em nomes repetidos e como marcar a aba não gravada (ponto ou nome em itálico). A **Aba de prévia**, desligada por padrão, faz o clique na árvore abrir uma aba que o próximo clique troca; editar, ou clicar duas vezes na aba, a mantém. **Configurar as abas**, no botão direito da aba, leva direto a essa tela.
+
+Nos mapas WebStorm, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> maximiza o editor, <kbd>⌥</kbd> <kbd>Tab</kbd> e <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> vão ao próximo grupo e ao anterior, e <kbd>⇧</kbd> <kbd>↵</kbd> na árvore abre o arquivo à direita. No mapa do VS Code, essas ações ficam na paleta e no menu da aba. No Windows e no Linux, mover a aba é <kbd>Alt</kbd> <kbd>⇧</kbd> com as setas, maximizar é <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>F12</kbd>, e trocar de grupo fica na paleta.
+
+## Git no arquivo
+
+No fim da linha do cursor, depois de um instante parado, o editor mostra quem mudou a linha, quando e com que mensagem. Passar o ponteiro abre o cartão do commit, com **Copiar hash**, **Mostrar o commit** e **Abrir na forja**; pelo teclado, use **Mostrar o cartão do commit da linha**, na paleta. Em **Configurações › Editor**, **Autor da linha (git blame)** desliga a informação, escolhe o que aparece (autor, data, mensagem) e quanto tempo esperar.
+
+**Anotar com o git blame** põe na margem o autor e a data de cada linha, com a cor pela idade do commit. O menu da anotação mostra o diff do commit, anota a revisão anterior ou fecha a anotação. Arquivos com mais de 20 mil linhas não são anotados.
+
+O submenu **Git**, no botão direito da árvore e da aba, tem **Mostrar diff**, **Mostrar histórico**, **Mostrar histórico da seleção** (com as linhas selecionadas no código), **Comparar com branch…**, **Comparar com commit…**, **Preparar**, **Tirar da preparação**, **Descartar alterações** e **Anotar com o git blame**. Os diffs e o histórico abrem em abas só de leitura. Todas essas ações estão também na paleta.
+
+**Descartar alterações** pergunta antes e grava um ponto de restauração, "Antes de descartar alterações". Para trazer o arquivo de volta, use o painel **Pontos de restauração**; isso vale também no plano grátis.
 
 ## Sugestões, documentação e erros
 
@@ -68,9 +88,15 @@ O mapa do VS Code mantém as teclas dele, como <kbd>⌘</kbd> <kbd>⇧</kbd> <kb
 
 ## Alterações
 
-A aba **Alterações** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd>) mostra os arquivos mudados com as letras de estado do git. Prepare ou remova por arquivo ou tudo, escreva a mensagem e faça o commit com <kbd>⌘</kbd> <kbd>↵</kbd>, ou use **Commit e enviar**. O histórico mostra o que ainda não foi enviado e os arquivos de cada commit.
+A aba **Alterações** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd>) mostra os arquivos mudados com as letras de estado do git, e um clique mostra o diff; **Abrir no editor** leva ao arquivo. Prepare ou remova por arquivo ou tudo, escreva a mensagem e faça o commit com <kbd>⌘</kbd> <kbd>↵</kbd>, ou use **Commit e enviar**. Sem nada preparado, **Commit de tudo** prepara todas as alterações e faz o commit. Em **Mais ações de commit**, **Corrigir último commit** junta o que está preparado ao último commit, e **Desfazer último commit** tira o commit e devolve as alterações, preparadas, com a mensagem na caixa. Se esse commit já foi enviado, o Persisty avisa que o próximo envio vai precisar ser forçado.
 
-Descartar alterações e resolver conflitos ficam no terminal ao lado. Se o git pedir senha para enviar, o Persisty mostra a recusa como o git escreveu.
+O botão direito num arquivo descarta as alterações, com um ponto de restauração antes, como no editor. Ali também dá para ignorar o arquivo, a pasta ou tudo com o mesmo nome (o Persisty escreve no `.gitignore`), copiar o caminho e mostrar no Finder.
+
+O painel mostra se a branch está em dia com o remoto e oferece puxar ou enviar o que falta, **Publicar branch** quando ela ainda não existe lá e **Buscar do remoto**. Em **Mais ações de sincronização** ficam **Puxar com rebase**, **Puxar com merge** e **Enviar forçado**, que só substitui o remoto se ninguém tiver enviado nada desde a última busca. Quando os dois lados têm commits novos, o Persisty pergunta como juntar: merge ou rebase.
+
+Durante um merge, rebase, cherry-pick ou reversão, o painel mostra a operação e os arquivos em conflito. Em cada um, escolha **Aceitar a versão atual** ou **Aceitar a versão que chega**, ou edite e use **Marcar como resolvido**. Depois, **Continuar** conclui, e **Abortar** volta tudo a como estava antes de começar.
+
+O histórico mostra o que ainda não foi enviado e os arquivos de cada commit. Se o git pedir senha para enviar, o Persisty mostra a recusa como o git escreveu.
 
 ## Notas
 

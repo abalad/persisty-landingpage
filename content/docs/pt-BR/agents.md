@@ -11,7 +11,7 @@ O Persisty reconhece agentes de duas formas: quando você abre a sessão como Cl
 
 | Estado | Quer dizer |
 | --- | --- |
-| Trabalhando | O agente recebeu um pedido e ainda não terminou. |
+| Trabalhando | O agente recebeu um pedido e ainda não terminou, inclusive o que ele deixou rodando em segundo plano, como subagentes. |
 | Aguardando você | Terminou o turno e espera o próximo pedido. |
 | Permissão pendente | Quer rodar algo e espera o seu "sim" no terminal. |
 | Ocioso | Aberto, sem pedido em andamento. |

@@ -48,3 +48,14 @@ These keys answer with the file tree in focus. Opening the menu, cut, copy, past
 | Copy path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copy reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sync the tree with the folder | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+
+## Tabs and groups
+
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> and <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> work in every keymap, with the tab in focus. The other keys belong to the WebStorm keymaps; in the VS Code keymap, these actions are in the palette and the tab menu. See [Tabs and groups](/docs/editor-and-git#tabs-and-groups).
+
+| Action | Shortcut |
+| --- | --- |
+| Move the tab left or right | <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> |
+| Maximize the editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
+| Next and previous group | <kbd>⌥</kbd> <kbd>Tab</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
+| Open the file on the right (in the tree) | <kbd>⇧</kbd> <kbd>↵</kbd> |

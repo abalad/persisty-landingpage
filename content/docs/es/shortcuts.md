@@ -48,3 +48,14 @@ Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, co
 | Copiar ruta (también en la pestaña y en el código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referencia (también en la pestaña y en el código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar el árbol con la carpeta | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+
+## Pestañas y grupos
+
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> valen en cualquier mapa, con la pestaña en foco. Las demás teclas son de los mapas WebStorm; en el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. Mira [Pestañas y grupos](/docs/editor-and-git#pestañas-y-grupos).
+
+| Acción | Atajo |
+| --- | --- |
+| Mover la pestaña a la izquierda o a la derecha | <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> |
+| Maximizar el editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
+| Grupo siguiente y anterior | <kbd>⌥</kbd> <kbd>Tab</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
+| Abrir el archivo a la derecha (en el árbol) | <kbd>⇧</kbd> <kbd>↵</kbd> |

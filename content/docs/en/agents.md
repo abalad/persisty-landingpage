@@ -11,7 +11,7 @@ Persisty recognises agents in two ways: when you open the session as Claude Code
 
 | State | Meaning |
 | --- | --- |
-| Working | The agent received a request and has not finished yet. |
+| Working | The agent received a request and has not finished yet, including what it left running in the background, such as subagents. |
 | Waiting for you | It finished its turn and is waiting for the next request. |
 | Permission pending | It wants to run something and is waiting for your "yes" in the terminal. |
 | Idle | Open, with no request in progress. |

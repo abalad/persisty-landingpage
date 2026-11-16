@@ -11,7 +11,7 @@ Persisty reconoce agentes de dos formas: cuando abres la sesión como Claude Cod
 
 | Estado | Qué quiere decir |
 | --- | --- |
-| Trabajando | El agente recibió un pedido y todavía no terminó. |
+| Trabajando | El agente recibió un pedido y todavía no terminó, incluido lo que dejó en marcha en segundo plano, como subagentes. |
 | Esperándote | Terminó su turno y espera el próximo pedido. |
 | Permiso pendiente | Quiere ejecutar algo y espera tu "sí" en la terminal. |
 | Inactivo | Abierto, sin ningún pedido en curso. |
