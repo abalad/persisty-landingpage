@@ -60,6 +60,15 @@ describe("gtag", () => {
     expect(win[`ga-disable-${ID}`]).toBe(false);
   });
 
+  it("turns the tag's own page view off before the config, where `send_page_view` in the config alone does not", () => {
+    // Measured on 2026-11-16: with only the config option, the Google tag still sent a page_view with the raw address.
+    const win = fakeWindow();
+    startAnalytics(ID, win);
+    const order = calls(win).map((c) => c[0]);
+    expect(calls(win)[0]).toEqual(["set", "send_page_view", false]);
+    expect(order.indexOf("set")).toBeLessThan(order.indexOf("config"));
+  });
+
   it("one page_view per clean address", () => {
     const win = fakeWindow("https://persisty.app/account?checkout=done", "https://www.google.com/search?q=persisty");
     startAnalytics(ID, win);

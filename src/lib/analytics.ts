@@ -101,6 +101,10 @@ export function startAnalytics(id: string, win: GtagWindow | undefined = browser
     // eslint-disable-next-line prefer-rest-params
     layer.push(arguments);
   };
+  // `send_page_view: false` in the config alone does not stop the Google tag's own page
+  // view on load, which carries the raw address (measured on 2026-11-16). Set globally
+  // first, it does; our `pageView` sends the clean one.
+  win.gtag("set", "send_page_view", false);
   win.gtag("js", new Date());
   win.gtag("config", id, { ...CONFIG });
   configured.set(win, id);
