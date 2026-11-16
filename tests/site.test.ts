@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { contactHref } from "../src/lib/site";
+import { analyticsEnabled, contactHref, GOOGLE_ANALYTICS_ID } from "../src/lib/site";
 
 describe("contactHref", () => {
   it("opens an e-mail about Enterprise when an address is configured", () => {
@@ -23,5 +23,18 @@ describe("SITE_URL", () => {
   it("is the persisty.app domain unless the environment says otherwise", async () => {
     const { SITE_URL } = await import("../src/lib/site");
     expect(SITE_URL).toBe(process.env.NEXT_PUBLIC_SITE_URL ?? "https://persisty.app");
+  });
+});
+
+describe("analyticsEnabled", () => {
+  it("only in Vercel production with an ID", () => {
+    expect(analyticsEnabled("production", "G-ABC123")).toBe(true);
+    expect(analyticsEnabled("preview", "G-ABC123")).toBe(false);
+    expect(analyticsEnabled(undefined, "G-ABC123")).toBe(false);
+    expect(analyticsEnabled("production", "")).toBe(false);
+  });
+
+  it("has the Persisty Site measurement ID", () => {
+    expect(GOOGLE_ANALYTICS_ID).toMatch(/^G-[A-Z0-9]{6,}$/);
   });
 });
