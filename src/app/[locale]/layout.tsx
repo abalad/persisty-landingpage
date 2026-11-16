@@ -13,7 +13,7 @@ type Messages = Record<string, Record<string, unknown>>;
 
 /** Only what interactive components read goes to the browser. */
 function clientMessages(all: Messages): Messages {
-  const { nav, badge, mock, download, auth, home, pricing, features, plans } = all;
+  const { nav, badge, mock, download, auth, home, pricing, features, plans, consent } = all;
   return {
     nav,
     badge,
@@ -21,6 +21,7 @@ function clientMessages(all: Messages): Messages {
     download,
     auth,
     features,
+    consent,
     home: { hero: (home as Messages).hero, studio: { live: ((home as Messages).studio as Messages).live } },
     pricing: { checkout: (pricing as Messages).checkout, features: (pricing as Messages).features, plans: (pricing as Messages).plans },
     plans: { common: { tried: ((plans as Messages).common as Messages).tried } },
