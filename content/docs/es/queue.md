@@ -9,13 +9,13 @@ La cola guarda los próximos pedidos a un agente y los entrega de a uno, cuando 
 
 ## Poner un pedido en la cola
 
-Escribe el pedido en la caja, elige cuándo sale y haz clic en **Poner en la cola** (*Queue it*), o usa <kbd>⌘</kbd> <kbd>↵</kbd>. En Windows y Linux, las teclas de esta página usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd> y <kbd>Alt</kbd> en lugar de <kbd>⌥</kbd>.
+Escribe el pedido en la caja, elige cuándo sale y haz clic en **Poner en la cola** (*Queue it*), o usa <kbd>⌘</kbd> <kbd>↵</kbd>. En Windows y Linux, que están en versión preliminar, las teclas de esta página usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd> y <kbd>Alt</kbd> en lugar de <kbd>⌥</kbd>.
 
 El encabezado de la cola dice qué está haciendo el agente, como **Trabajando** (*Working*), **Terminó, listo para el siguiente** (*Done, ready for the next one*) o **Pidiendo permiso** (*Asking for permission*). Los pedidos que esperan aparecen numerados en **Próximos** (*Up next*), en el orden en que van a salir, con cuándo sale cada uno y por qué esperan los de abajo, como "esperando el n.º 1" (*waiting for no. 1*). El primero tiene la marca **próximo** (*next*). Los enviados quedan plegados abajo, en **Enviados** (*Sent*). En la barra de la sesión, el ícono de la cola muestra cuántos pedidos esperan, también con el panel cerrado.
 
 ## Cuándo sale cada pedido
 
-Junto a la caja, elige cuándo va el pedido: **En cuanto el agente quede libre** (*As soon as the agent is free*), **Cuando la ventana de 5 h se renueve** (*When the 5-hour window renews*) o **A partir de una hora** (*From a chosen time*), que tú marcas. La ventana de 5 h usa la hora leída de la cuota en vivo de la cuenta de la propia sesión; mientras esa hora no se conoce, la opción queda desactivada.
+Junto a la caja, elige cuándo va el pedido: **En cuanto el agente quede libre** (*As soon as the agent is free*), **Cuando la ventana de 5 h se renueve** (*When the 5-hour window renews*) o **A partir de una hora** (*From a chosen time*), que tú marcas. La [ventana de 5 h](/docs/usage-and-quota#ventanas-de-5-h-y-7-d) usa la hora leída de la cuota en vivo de la cuenta de la propia sesión; mientras esa hora no se conoce, la opción queda desactivada.
 
 La hora marcada es solo lo más temprano: el pedido igual espera a que el agente quede libre y a que salgan los pedidos de arriba.
 
@@ -39,6 +39,6 @@ Cuando la cuenta se queda sin cuota, la cola espera a que la ventana se renueve;
 
 ## Plan y límites
 
-Solo escribir, editar y adjuntar imágenes son Pro. En el plan gratis, los pedidos que ya están en la cola siguen saliendo y se pueden pausar, reanudar, reordenar, enviar a continuación o sacar, y **Soltar la cola ahora** (*Let the queue go now*) también funciona.
+Solo escribir, editar y adjuntar imágenes son [Pro](/docs/pro). En el plan gratis, los pedidos que ya están en la cola siguen saliendo y se pueden pausar, reanudar, reordenar, enviar a continuación o sacar, y **Soltar la cola ahora** (*Let the queue go now*) también funciona.
 
-La cola se revisa cada 10 segundos con Persisty abierto. Con la app cerrada, no se envía nada. La cola es solo para sesiones de agente. Si la sesión termina, los pedidos que esperaban salen de la cola con la nota **la sesión terminó antes** (*the session ended first*). En Codex CLI, Persisty todavía no recibe el estado del agente, así que no sabe cuándo está libre, y los pedidos no salen.
+La cola se revisa cada 10 segundos con Persisty abierto. Con la app cerrada, no se envía nada. La cola es solo para sesiones de agente. Si la sesión termina, los pedidos que esperaban salen de la cola con la nota **la sesión terminó antes** (*the session ended first*). Por defecto, Persisty no recibe el estado de Codex CLI, así que no sabe cuándo está libre, y los pedidos no salen.

@@ -5,21 +5,21 @@ group: agents
 order: 5
 ---
 
-En **Configuración › Cuentas de IA** (*Settings › AI accounts*) están las cuentas de Claude Code de esta computadora: la que ya tenía el login hecho y las que conectes desde Persisty. Las sesiones en cuentas diferentes corren al mismo tiempo, y cada una gasta la cuota de su cuenta.
+En [**Configuración › Cuentas de IA**](/docs/settings#cuentas-de-ia) (*Settings › AI accounts*) están las cuentas de Claude Code de esta computadora: la que ya tenía el login hecho y las que conectes desde Persisty. Las sesiones en cuentas diferentes corren al mismo tiempo, y cada una gasta la cuota de su cuenta.
 
 ## Cuentas conectadas
 
-Cada cuenta aparece con el e-mail, la organización, el plan de Claude, cuántas sesiones tiene abiertas y las ventanas de **5 h** y **7 d**. La cuenta que ya estaba en la computadora tiene la marca **Esta computadora** (*This computer*). El mismo e-mail en dos organizaciones aparece como dos cuentas. Una cuenta sin login muestra **Sin login** (*Not signed in*), y una cuota que no se pudo leer, **Cuota no disponible** (*Quota unavailable*).
+Cada cuenta aparece con el e-mail, la organización, el plan de Claude, cuántas sesiones tiene abiertas y las [ventanas](/docs/usage-and-quota#ventanas-de-5-h-y-7-d) de **5 h** y **7 d**. La cuenta que ya estaba en la computadora tiene la marca **Esta computadora** (*This computer*). El mismo e-mail en dos organizaciones aparece como dos cuentas. Una cuenta sin login muestra **Sin login** (*Not signed in*), y una cuota que no se pudo leer, **Cuota no disponible** (*Quota unavailable*).
 
 Las barras vienen del mismo lugar que el `/usage` de Claude Code, con la credencial que Claude Code ya guarda en la máquina. Persisty consulta como máximo una vez por minuto por cuenta (el servicio rechaza consultas más frecuentes) y mantiene los últimos números en pantalla entre una consulta y otra. Ver las cuentas y sus cuotas es del plan gratis.
 
 ## Conectar una cuenta
 
-Conectar otra cuenta es Pro. Sin él, **Conectar cuenta** (*Connect account*) queda desactivado y usas la cuenta de esta computadora.
+Conectar otra cuenta es [Pro](/docs/pro). Sin él, **Conectar cuenta** (*Connect account*) queda desactivado y usas la cuenta de esta computadora.
 
 1. En la fila **Otra cuenta** (*Another account*), haz clic en **Conectar cuenta**. Si quieres, escribe el e-mail en **E-mail de la cuenta (opcional)** (*Account e-mail (optional)*): solo viene completado en la pantalla de login. Después haz clic en **Entrar con el navegador** (*Sign in with the browser*).
 2. Persisty ejecuta el login del propio Claude Code (`claude auth login`) para una carpeta solo de esa cuenta, y se abre el navegador.
-3. Completa el login en el navegador. La cuenta aparece sola. Si el navegador muestra un código en vez de volver a la app, pégalo en **Código del navegador** (*Code from the browser*) y haz clic en **Enviar código** (*Send code*).
+3. Completa el login en el navegador. La cuenta aparece sola. Si el navegador muestra un código en vez de volver a la app, pégalo en **Código del navegador** (*Code from the browser*) y haz clic en **Enviar código** (*Send code*). Mientras Persisty espera, **Abrir el login de nuevo** (*Open the sign-in again*) abre otra vez la página de login, y la **×**, **Cancelar** (*Cancel*), desiste.
 
 Persisty nunca ve tu contraseña ni guarda la credencial: quien la guarda es Claude Code.
 
@@ -53,7 +53,7 @@ En **Configuración › Cuentas de IA**, **Usar solo en los proyectos fijados en
 
 ## Cuando la cuota se acaba
 
-Si la cuenta llega al límite y no hay otra con margen, el encabezado de la sesión muestra "Sin cuota · vuelve a las 19:14 en la cuenta …" (*Out of quota · back at 19:14 on …*), y la cola de pedidos espera en todas las sesiones de esa cuenta, incluso con la app reabierta. Un turno que falla por un error del servidor de Anthropic también retiene la cola de esa sesión, con **El último turno falló:** (*The last turn failed:*) y el motivo en el encabezado. **Soltar la cola ahora** (*Let the queue go now*), arriba de la cola, deja pasar los pedidos de esa sesión. Esto vale en cualquier plan, y un aviso te dice cuándo la cuenta se queda sin cuota y cuántas sesiones esperan.
+Si la cuenta llega al límite y no hay otra con margen, el encabezado de la sesión muestra "Sin cuota · vuelve a las 19:14 en la cuenta …" (*Out of quota · back at 19:14 on …*), y la [cola de pedidos](/docs/queue) espera en todas las sesiones de esa cuenta, incluso con la app reabierta. Un turno que falla por un error del servidor de Anthropic también retiene la cola de esa sesión, con **El último turno falló:** (*The last turn failed:*) y el motivo en el encabezado. **Soltar la cola ahora** (*Let the queue go now*), arriba de la cola, deja pasar los pedidos de esa sesión. Esto vale en cualquier plan, y un aviso te dice cuándo la cuenta se queda sin cuota y cuántas sesiones esperan.
 
 ## Seguir con la tarea cortada
 
@@ -62,3 +62,9 @@ En Pro, con **Continuar la tarea cortada por el límite** (*Go on with the task 
 ## Sobre usar varias cuentas
 
 Persisty no crea cuentas ni toca límites. Usa las cuentas que ya tienes, como la personal y la de la empresa, con el login del propio Claude Code. Cumplir los términos de cada cuenta sigue siendo cosa tuya.
+
+## Plan y límites
+
+Ver las cuentas y sus cuotas es del plan gratuito, y la cola espera a que la cuota se renueve en cualquier plan. Conectar otras cuentas, la rotación, cambiar la cuenta de una sesión, fijar un proyecto a una cuenta, reservar una cuenta y seguir con la tarea cortada son Pro.
+
+Las cuentas y la rotación valen solo para Claude Code.

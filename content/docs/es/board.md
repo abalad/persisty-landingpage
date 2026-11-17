@@ -13,7 +13,7 @@ Con varias sesiones en marcha, el Tablero responde quién te está esperando, de
 
 Ábrelo con el botón junto a las pestañas, con <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> o con **Tablero de sesiones** (*Session board*) en la paleta de comandos (<kbd>⌘</kbd> <kbd>K</kbd>). El Tablero ocupa el lugar de la terminal. Para volver, usa **Volver a la terminal** (*Back to the terminal*), <kbd>Esc</kbd> o la misma tecla.
 
-Arriba, cambia **Todos los proyectos** (*All projects*) por **Este proyecto** (*This project*) para ver solo las sesiones del proyecto actual. Al lado hay tres cuentas: cuántas sesiones te necesitan, con la espera más larga; cuántas están trabajando; y cuántas respuestas todavía no leíste. Un clic en la primera abre la sesión que lleva más tiempo esperando.
+Arriba, cambia **Todos los proyectos** (*All projects*) por **Este proyecto** (*This project*) para ver solo las sesiones del proyecto actual. Al lado hay tres cuentas: cuántas sesiones te necesitan, con la espera más larga; cuántas están trabajando; y cuántas tarjetas nuevas todavía no abriste, como **2 no leídas** (*2 unread*). Un clic en la primera abre la sesión que lleva más tiempo esperando.
 
 ## Las columnas
 
@@ -31,7 +31,7 @@ Las respuestas y los errores que todavía no abriste aparecen en negrita, con un
 
 <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> abre y cierra el Tablero. Con él abierto, <kbd>A</kbd> abre la sesión que lleva más tiempo esperando y <kbd>Esc</kbd> vuelve a la terminal. Esas dos no hacen nada mientras escribes en un campo o con una ventana abierta encima.
 
-En Windows y Linux, el atajo es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd>. Con el mapa de teclas **WebStorm (macOS)**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> con el cursor en el código abre un archivo por nombre; ahí, usa el botón.
+En Windows y Linux, que están en versión preliminar, el atajo es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd>. Con el mapa de teclas **WebStorm (macOS)**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> con el cursor en el código abre un archivo por nombre; ahí, usa el botón.
 
 ## Plan y límites
 

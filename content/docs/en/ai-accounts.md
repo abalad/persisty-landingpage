@@ -5,21 +5,21 @@ group: agents
 order: 5
 ---
 
-**Settings › AI accounts** holds this computer's Claude Code accounts: the one that was already signed in and the ones you connect through Persisty. Sessions under different accounts run at the same time, each using its own account's quota.
+[**Settings › AI accounts**](/docs/settings#ai-accounts) holds this computer's Claude Code accounts: the one that was already signed in and the ones you connect through Persisty. Sessions under different accounts run at the same time, each using its own account's quota.
 
 ## Connected accounts
 
-Each account shows its e-mail, organisation, Claude plan, how many sessions are open on it and the **5 h** and **7 d** windows. The account that was already on the computer has the **This computer** tag. The same e-mail in two organisations shows as two accounts. An account that is signed out shows **Not signed in**, and a quota that could not be read, **Quota unavailable**.
+Each account shows its e-mail, organisation, Claude plan, how many sessions are open on it and the **5 h** and **7 d** [windows](/docs/usage-and-quota#the-5-h-and-7-d-windows). The account that was already on the computer has the **This computer** tag. The same e-mail in two organisations shows as two accounts. An account that is signed out shows **Not signed in**, and a quota that could not be read, **Quota unavailable**.
 
 The bars come from the same place as Claude Code's `/usage`, with the credential it already stores on the machine. Persisty checks at most once a minute per account (the service refuses more frequent checks) and keeps the latest numbers on screen between checks. Seeing the accounts and their quotas is on the free plan.
 
 ## Connect an account
 
-Connecting another account is Pro. Without it, **Connect account** is disabled and you use this computer's account.
+Connecting another account is [Pro](/docs/pro). Without it, **Connect account** is disabled and you use this computer's account.
 
 1. On the **Another account** row, click **Connect account**. If you like, type the e-mail under **Account e-mail (optional)**: it only comes filled in on the sign-in page. Then click **Sign in with the browser**.
 2. Persisty runs Claude Code's own sign-in (`claude auth login`) for a folder used only by that account, and the browser opens.
-3. Finish signing in in the browser. The account shows up on its own. If the browser shows a code instead of returning to the app, paste it into **Code from the browser** and click **Send code**.
+3. Finish signing in in the browser. The account shows up on its own. If the browser shows a code instead of returning to the app, paste it into **Code from the browser** and click **Send code**. While Persisty waits, **Open the sign-in again** opens the sign-in page once more, and the **×**, **Cancel**, gives up.
 
 Persisty never sees your password and does not store the credential: Claude Code stores it.
 
@@ -53,7 +53,7 @@ In **Settings › AI accounts**, **Use only for the projects pinned to it** rese
 
 ## When the quota runs out
 
-If the account hits its limit and no other has room, the session header shows "Out of quota · back at 19:14 on …", and the request queue waits in every session on that account, even after the app reopens. A turn that fails with an Anthropic server error also holds that session's queue, with **The last turn failed:** and the reason in the header. **Let the queue go now**, at the top of the queue, lets that session's requests through. This applies on every plan, and a notice tells you when the account runs out of quota and how many sessions are waiting.
+If the account hits its limit and no other has room, the session header shows "Out of quota · back at 19:14 on …", and the [request queue](/docs/queue) waits in every session on that account, even after the app reopens. A turn that fails with an Anthropic server error also holds that session's queue, with **The last turn failed:** and the reason in the header. **Let the queue go now**, at the top of the queue, lets that session's requests through. This applies on every plan, and a notice tells you when the account runs out of quota and how many sessions are waiting.
 
 ## Carry on after the limit
 
@@ -62,3 +62,9 @@ On Pro, with **Go on with the task the limit cut** turned on (in AI accounts, wi
 ## About using several accounts
 
 Persisty does not create accounts or touch limits. It uses the accounts you already have, such as your personal one and your company's, through Claude Code's own sign-in. Following each account's terms stays with you.
+
+## Plan and limits
+
+Seeing the accounts and their quotas is on the free plan, and the queue waits for the quota to renew on any plan. Connecting other accounts, rotation, switching a session's account, pinning a project to an account, reserving an account and carrying on the task the limit cut are Pro.
+
+Accounts and rotation are for Claude Code only.

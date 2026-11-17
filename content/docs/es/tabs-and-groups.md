@@ -9,7 +9,7 @@ Cada archivo abierto en el [editor](/docs/editor) tiene una pestaña. El editor 
 
 ## El menú de la pestaña
 
-El clic derecho en una pestaña, o <kbd>⇧</kbd> <kbd>F10</kbd> con la pestaña en foco, abre su menú. Ahí están todas las formas de cerrar, **Copiar ruta** (*Copy path*), las divisiones del editor, **Fijar pestaña** (*Pin Tab*), **Configurar las pestañas** (*Configure Tabs*), **Maximizar el editor** (*Maximize the editor*), **Cambiar tipo de archivo…** (*Change File Type…*), **Abrir en** (*Open in*), el submenú **Git**, **Renombrar archivo…** (*Rename File…*) y **Recargar del disco** (*Reload from Disk*). Un elemento que no vale para esa pestaña queda atenuado y dice por qué, como "es la única pestaña" (*it is the only tab*). Las pestañas de diff y de historial de Git solo tienen las formas de cerrar.
+El clic derecho en una pestaña, o <kbd>⇧</kbd> <kbd>F10</kbd> con la pestaña en foco, abre su menú. Ahí están todas las formas de cerrar, **Copiar ruta** (*Copy path*), las divisiones del editor, **Fijar pestaña** (*Pin Tab*), **Configurar las pestañas** (*Configure Tabs*), **Maximizar el editor** (*Maximize the editor*), **Cambiar tipo de archivo…** (*Change File Type…*), **Abrir en** (*Open in*), el submenú [**Git**](/docs/git-in-the-editor#el-submenú-git), **Renombrar archivo…** (*Rename File…*) y **Recargar del disco** (*Reload from Disk*). Un elemento que no vale para esa pestaña queda atenuado y dice por qué, como "es la única pestaña" (*it is the only tab*). Las pestañas de diff y de historial de Git solo tienen las formas de cerrar.
 
 ## Cambiar de pestaña
 
@@ -39,17 +39,17 @@ Con el teclado, con la pestaña en foco, <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←<
 
 **Dividir a la derecha** (*Split Right*) y **Dividir abajo** (*Split Down*), en el menú de la pestaña y en la paleta, abren el mismo archivo en un grupo nuevo. **Dividir y mover a la derecha** (*Split and Move Right*) y **Dividir y mover abajo** (*Split and Move Down*) llevan la pestaña al grupo nuevo. Son hasta cuatro grupos; sin espacio en el panel, el elemento dice que maximices el editor. El divisor entre dos grupos se arrastra, o se mueve con las flechas cuando está en foco.
 
-En el árbol, **Abrir a la derecha** (*Open on the Right*) abre el archivo en un grupo a la derecha. **Cerrar el grupo** (*Close Group*) y las acciones que enfocan el grupo de la izquierda, de la derecha, de arriba o de abajo están en la paleta.
+En el [árbol](/docs/files), **Abrir a la derecha** (*Open on the Right*) abre el archivo en un grupo a la derecha. **Cerrar el grupo** (*Close Group*) y las acciones que enfocan el grupo de la izquierda, de la derecha, de arriba o de abajo están en la paleta.
 
 El mismo archivo en dos grupos mantiene el texto sincronizado, y cada lado tiene su deshacer. Solo uno de ellos habla con el servidor del lenguaje: el otro queda sin sugerencias ni errores, y la barra de estado dice "en el otro grupo" (*in the other group*).
 
 ## Maximizar
 
-**Maximizar el editor**, en el botón de la barra de las pestañas, en el menú de la pestaña y en la paleta, oculta la terminal para que quepa más código. El mismo botón, o el mismo comando, devuelve la división de antes.
+**Maximizar el editor**, en el botón de la barra de las pestañas, en el menú de la pestaña y en la paleta, oculta la terminal para que quepa más código. El mismo botón, cuya sugerencia pasa a ser **Volver al tamaño de antes** (*Back to the size it was*), o el mismo comando, devuelve la división de antes.
 
 ## Opciones de las pestañas
 
-En **Configuración › Editor › Pestañas** (*Settings › Editor › Tabs*), el **Límite de pestañas** (*Tab limit*) viene en 20, y puede ser 10, 30, 50 o **Sin límite** (*No limit*). Abrir una pestaña más cierra la menos usada; las fijadas y las sin guardar se quedan, y bajar el límite no cierra nada en el momento. **Al cerrar, ir a** (*On close, go to*) elige entre **La pestaña usada antes** (*The tab used before*), por defecto, y **La pestaña vecina** (*The neighbour tab*). **Abrir pestaña nueva** (*Open new tab*) pone la pestaña **Al final** (*At the end*), por defecto, o **Justo después de la actual** (*Right after the current one*). **Mostrar la carpeta en nombres repetidos** (*Show the folder for repeated names*) viene encendido, y **Marcar pestañas sin guardar** (*Mark unsaved tabs*) usa un **Punto** (*Dot*) o el **Nombre en cursiva** (*Name in italics*).
+En [**Configuración › Editor › Pestañas**](/docs/settings#editor) (*Settings › Editor › Tabs*), el **Límite de pestañas** (*Tab limit*) viene en 20, y puede ser 10, 30, 50 o **Sin límite** (*No limit*). Abrir una pestaña más cierra la menos usada; las fijadas y las sin guardar se quedan, y bajar el límite no cierra nada en el momento. **Al cerrar, ir a** (*On close, go to*) elige entre **La pestaña usada antes** (*The tab used before*), por defecto, y **La pestaña vecina** (*The neighbour tab*). **Abrir pestaña nueva** (*Open new tab*) pone la pestaña **Al final** (*At the end*), por defecto, o **Justo después de la actual** (*Right after the current one*). **Mostrar la carpeta en nombres repetidos** (*Show the folder for repeated names*) viene encendido, y **Marcar pestañas sin guardar** (*Mark unsaved tabs*) usa un **Punto** (*Dot*) o el **Nombre en cursiva** (*Name in italics*).
 
 La **Pestaña de vista previa** (*Preview tab*) viene apagada. Encendida, el clic en el árbol abre una pestaña que el siguiente clic reemplaza; editarla, o hacer doble clic en la pestaña, la conserva. **Configurar las pestañas**, en el menú de la pestaña, lleva directo a esa pantalla.
 
@@ -61,7 +61,7 @@ La **Pestaña de vista previa** (*Preview tab*) viene apagada. Encendida, el cli
 | --- | --- |
 | Maximizar el editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
 | Grupo siguiente y grupo anterior (*Next Group*, *Previous Group*) | <kbd>⌥</kbd> <kbd>Tab</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
-| Abrir el archivo a la derecha (en el árbol) | <kbd>⇧</kbd> <kbd>↵</kbd> |
+| Abrir a la derecha (en el árbol) | <kbd>⇧</kbd> <kbd>↵</kbd> |
 
 En el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. En Windows y Linux, que están en versión preliminar, mover la pestaña es <kbd>Alt</kbd> <kbd>⇧</kbd> con las flechas, maximizar es <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>F12</kbd>, y cambiar de grupo está en la paleta.
 

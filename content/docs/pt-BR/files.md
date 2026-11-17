@@ -19,7 +19,7 @@ Arquivos que o git ignora aparecem esmaecidos, e o `.git` nunca aparece. No topo
 
 ## Renomear, mover e copiar
 
-**Renomear…** edita o nome na própria linha, e as abas abertas seguem o arquivo com o texto não gravado e o desfazer. Na aba do editor, o mesmo fica em **Renomear arquivo…**.
+**Renomear…** edita o nome na própria linha, e as abas abertas seguem o arquivo com o texto não gravado e o desfazer. Na [aba do editor](/docs/tabs-and-groups#o-menu-da-aba), o mesmo fica em **Renomear arquivo…**.
 
 **Refatorar › Mover…** e **Refatorar › Copiar…** escolhem a pasta de destino numa lista com busca. Arrastar itens sobre uma pasta também move, e com <kbd>⌥</kbd> pressionado copia. Durante o arraste, o nome do item vai junto ao ponteiro, a pasta de destino fica destacada, e uma pasta fechada abre se o ponteiro parar sobre ela. Onde não dá para soltar, a árvore diz por quê, como "já está aqui". <kbd>Esc</kbd> cancela o arraste.
 
@@ -39,9 +39,9 @@ Cópias e movimentos grandes mostram o andamento embaixo da árvore e podem ser 
 
 ## Abrir em
 
-**Abrir em**, na árvore e na aba, leva o item a outro lugar: **Mostrar no Finder**, **Terminal na pasta**, que abre uma sessão de terminal nova na pasta do item, **Abrir com o app padrão**, **Abrir no navegador** (só HTML, HTM e SVG), a sua IDE na linha do cursor e a página do arquivo no GitHub, GitLab ou Bitbucket. Numa branch que nunca foi enviada, a página da forja é a do commit atual.
+**Abrir em**, na árvore e na aba, leva o item a outro lugar: **Mostrar no Finder**, **Terminal na pasta**, que abre uma sessão de terminal nova na pasta do item, **Abrir com o app padrão**, **Abrir no navegador** (só HTML, HTM e SVG), a sua IDE na linha do cursor e a [página do arquivo](/docs/forges#abrir-na-forja) no GitHub, GitLab ou Bitbucket. Numa branch que nunca foi enviada, a página da forja é a do commit atual.
 
-A IDE é a que você escolhe em **Configurações › Workspace › IDE padrão**, entre as que o Persisty encontra no computador; o padrão é **Nenhum**. A mesma IDE abre a pasta da sessão pelo menu da aba da sessão, pela paleta e pelo projeto.
+A IDE é a que você escolhe em [**Configurações › Workspace › IDE padrão**](/docs/settings#workspace), entre as que o Persisty encontra no computador; o padrão é **Nenhum**. A mesma IDE abre a pasta da sessão pelo menu da aba da sessão, pela paleta e pelo projeto.
 
 ## Copiar caminho
 
@@ -49,7 +49,7 @@ A IDE é a que você escolhe em **Configurações › Workspace › IDE padrão*
 
 ## Recarregar do disco
 
-**Recarregar do disco** lê de novo o que mudou fora do editor. Num arquivo aberto com alterações não gravadas, ele pergunta antes, porque essas alterações se perdem. Numa pasta, lista de novo o conteúdo dela. Para listar de novo a árvore inteira, use **Atualizar**, no topo da lista.
+**Recarregar do disco** lê de novo o que mudou fora do editor. Num arquivo aberto com alterações não gravadas, ele pergunta antes, porque essas alterações se perdem. Numa pasta, lista de novo o conteúdo dela. Para listar de novo a árvore inteira, use **Atualizar**, no topo da lista. **Sincronizar a árvore**, <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> nos mapas WebStorm, faz o mesmo e ainda confere na hora se os arquivos abertos mudaram no disco.
 
 ## Trocar o tipo do arquivo
 
@@ -72,9 +72,9 @@ Em **Configurações › Arquivos**, **Ocultar arquivos** lista padrões como `*
 | Excluir | <kbd>⌫</kbd> ou <kbd>⌘</kbd> <kbd>⌫</kbd> |
 | Copiar caminho (também na aba e no código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referência (também na aba e no código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
-| Sincronizar a árvore com a pasta | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+| Sincronizar a árvore | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
 
-No mapa do VS Code, essas ações ficam no menu. <kbd>⌘</kbd> <kbd>N</kbd> do WebStorm (macOS) abre o **Novo** só com o foco na árvore; fora dela, abre um terminal novo. **Configurações › Atalhos** tem o grupo **Arquivos**, com onde cada tecla vale: na árvore, na aba ou no editor.
+No mapa do VS Code, essas ações ficam no menu. <kbd>⌘</kbd> <kbd>N</kbd> do WebStorm (macOS) abre o **Novo** só com o foco na árvore; fora dela, abre um terminal novo. [**Configurações › Atalhos**](/docs/shortcuts#arquivos) tem o grupo **Arquivos**, com onde cada tecla vale: na árvore, na aba ou no editor.
 
 No Windows e no Linux, que estão em prévia, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> fazem o papel de <kbd>⌘</kbd> e <kbd>⌥</kbd>, <kbd>Delete</kbd> exclui, e **Novo** é <kbd>Alt</kbd> <kbd>Insert</kbd>. O Finder dá lugar ao Explorador de Arquivos ou ao gerenciador de arquivos.
 

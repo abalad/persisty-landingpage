@@ -15,7 +15,7 @@ The mascot follows the session in focus: it rises when something is pending, suc
 
 In a Persisty terminal, the `persisty` command makes that terminal's mascot react: `persisty celebrate`, `persisty oops`, `persisty wave`, `persisty think` or `persisty say` followed by up to 80 characters of text. A script can use it to say it has finished.
 
-It starts on. To remove it, turn off **Settings › Appearance › Mascot in the terminal**, or right-click it and choose **Hide mascot**.
+It starts on. To remove it, turn off [**Settings › Appearance › Mascot in the terminal**](/docs/settings#appearance), or right-click it and choose **Hide mascot**.
 
 ## Outside the app
 
@@ -29,7 +29,7 @@ It stands on top of the front window, rides along when the window moves and fall
 
 When a session asks for you and Persisty is not in focus, the mascot rises, shows how many are waiting and says which one, such as "checkout asks for permission" or "api asked a question". It also tells you when a session finishes. Clicking what it says opens the session.
 
-A click on the mascot opens a balloon. Under **Needs you** are the sessions that are waiting, from the oldest wait to the newest, with what they asked for, how long ago and an **Open** button; the ones that do not fit go to **+2 on the Board**, for example. Under **Notices** are the sessions that finished or ran into an error, with **Ok** to remove one and **Clear** to remove them all.
+A click on the mascot opens a balloon. Under **Needs you** are the sessions that are waiting, from the oldest wait to the newest, with what they asked for, how long ago and an **Open** button; the ones that do not fit go to the [Board](/docs/board), in an item such as **+2 on the Board**. Under **Notices** are the sessions that finished or ran into an error, with **Ok** to remove one and **Clear** to remove them all.
 
 At the top of the balloon are **Open the Board**, the bell and **Hide mascot**, which turns off the mascot outside the app. The bell turns on **Do not disturb**: the mascot stops rising and speaking, but the count goes on. **Notify me again**, on the same bell, undoes it.
 

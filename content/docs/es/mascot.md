@@ -15,7 +15,7 @@ La mascota sigue a la sesión en foco: sube cuando hay algo pendiente, como un p
 
 En una terminal de Persisty, el comando `persisty` hace reaccionar a la mascota de esa terminal: `persisty celebrate`, `persisty oops`, `persisty wave`, `persisty think` o `persisty say` seguido de un texto de hasta 80 caracteres. Un script puede usarlo para avisar que terminó.
 
-Viene encendida. Para quitarla, apaga **Configuración › Apariencia › Mascota en la terminal** (*Settings › Appearance › Mascot in the terminal*), o haz clic derecho sobre ella y elige **Ocultar mascota** (*Hide mascot*).
+Viene encendida. Para quitarla, apaga [**Configuración › Apariencia › Mascota en la terminal**](/docs/settings#apariencia) (*Settings › Appearance › Mascot in the terminal*), o haz clic derecho sobre ella y elige **Ocultar mascota** (*Hide mascot*).
 
 ## Fuera de la app
 
@@ -29,7 +29,7 @@ Se queda en lo alto de la ventana de delante, va con ella cuando se mueve y se c
 
 Cuando una sesión te necesita y Persisty no está en foco, la mascota sube, muestra cuántas están esperando y dice cuál, como "checkout pide permiso" o "api hizo una pregunta". También avisa cuando una sesión termina. Un clic en lo que dice abre la sesión.
 
-Un clic en la mascota abre un globo. En **Te necesita** (*Needs you*) están las sesiones que esperan, de la espera más antigua a la más nueva, con lo que pidieron, desde hace cuánto y el botón **Abrir** (*Open*); las que no caben van a **+2 en el Tablero** (*+2 on the Board*), por ejemplo. En **Avisos** (*Notices*) están las sesiones que terminaron o dieron error, con **Ok** para quitar una y **Limpiar** (*Clear*) para quitarlas todas.
+Un clic en la mascota abre un globo. En **Te necesita** (*Needs you*) están las sesiones que esperan, de la espera más antigua a la más nueva, con lo que pidieron, desde hace cuánto y el botón **Abrir** (*Open*); las que no caben van al [Tablero](/docs/board), en un elemento como **+2 en el Tablero** (*+2 on the Board*). En **Avisos** (*Notices*) están las sesiones que terminaron o dieron error, con **Ok** para quitar una y **Limpiar** (*Clear*) para quitarlas todas.
 
 Arriba del globo están **Abrir el Tablero** (*Open the Board*), la campana y **Ocultar mascota**, que apaga la mascota fuera de la app. La campana enciende **No molestar** (*Do not disturb*): la mascota deja de subir y de hablar, pero la cuenta sigue. **Volver a avisar** (*Notify me again*), en la misma campana, lo deshace.
 

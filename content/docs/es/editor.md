@@ -11,9 +11,11 @@ El panel **Código** (*Code*) es el editor de la sesión: su carpeta como árbol
 
 Un clic en un archivo del árbol lo abre en una pestaña, y <kbd>⌘</kbd> <kbd>S</kbd> guarda. Para abrir un archivo por nombre, mira [Abrir un archivo por nombre](/docs/search#abrir-un-archivo-por-nombre).
 
-La barra debajo del código muestra la ruta del archivo, la línea y la columna, el lenguaje, el estado del servidor del lenguaje y el fin de línea, LF o CRLF. En un archivo fuera de un repositorio, dice **fuera de git** (*not in git*).
+La barra debajo del código muestra la ruta del archivo, la línea y la columna, el lenguaje, el estado del servidor del lenguaje y el fin de línea, LF o CRLF. En un archivo que no está en el último commit, como un archivo nuevo o fuera de un repositorio, dice **fuera de git** (*not in git*).
 
 Los archivos de texto se abren hasta 5 MB, y las imágenes hasta 10 MB. Los demás archivos binarios no se abren en el editor.
+
+La fuente, el ancho de la tabulación, el ajuste de línea, los números de línea y el modificador del multicursor están en [Configuración › Editor](/docs/settings#editor), con el valor por defecto de cada uno.
 
 ## Guardar automáticamente
 
@@ -47,23 +49,27 @@ El **Minimapa** (*Minimap*) dibuja el archivo entero en una franja a la derecha 
 
 ## Sugerencias, documentación y errores
 
-En TypeScript, JavaScript y Rust, el editor habla con el servidor del lenguaje. Las sugerencias vienen del proyecto, con el tipo y la documentación de cada una, y elegir una función de otro archivo ya escribe el `import`. Para pedir las sugerencias, usa **Completar código** (*Basic Completion*): <kbd>⌃</kbd> <kbd>Espacio</kbd> en cualquier mapa, o <kbd>⌥</kbd> <kbd>Esc</kbd> en Mac. Por defecto, macOS usa <kbd>⌃</kbd> <kbd>Espacio</kbd> para cambiar el teclado; en ese caso, **Configuración › Atajos** (*Settings › Shortcuts*) avisa y dice dónde desactivarlo.
+En TypeScript, JavaScript y Rust, el editor habla con el servidor del lenguaje. Las sugerencias vienen del proyecto, con el tipo y la documentación de cada una, y elegir una función de otro archivo ya escribe el `import`. Para pedir las sugerencias, usa **Completar código** (*Basic Completion*): <kbd>⌃</kbd> <kbd>Espacio</kbd> en cualquier mapa, o <kbd>⌥</kbd> <kbd>Esc</kbd> en Mac. Por defecto, macOS usa <kbd>⌃</kbd> <kbd>Espacio</kbd> para cambiar el teclado; en ese caso, [**Configuración › Atajos**](/docs/shortcuts) (*Settings › Shortcuts*) avisa y dice dónde desactivarlo.
 
 Dejar el puntero sobre un nombre muestra su documentación, abrir el `(` de una llamada muestra los parámetros, y los errores aparecen subrayados. En Rust, los errores de `cargo check` se actualizan cada vez que guardas.
 
-Los archivos de más de 2 MB o de 50 mil líneas, y los archivos minificados, quedan fuera del servidor: la barra de estado dice "archivo demasiado grande para el servidor" (*file too big for the server*), y el archivo se abre sin sugerencias ni errores. El mismo archivo abierto en dos grupos tiene sugerencias y errores en un solo grupo; mira [Dividir el editor](/docs/tabs-and-groups#dividir-el-editor).
+Los archivos de más de 2 MB o de 50 mil líneas, y los archivos minificados, con una de las primeras 50 líneas de más de 5 mil caracteres, quedan fuera del servidor: la barra de estado dice "archivo demasiado grande para el servidor" (*file too big for the server*), y el archivo se abre sin sugerencias ni errores. El mismo archivo abierto en dos grupos tiene sugerencias y errores en un solo grupo; mira [Dividir el editor](/docs/tabs-and-groups#dividir-el-editor).
 
 ## El servidor del lenguaje
 
 Cuando el servidor del lenguaje no está en la computadora, la app lo descarga sola. Esa primera descarga necesita internet; sin conexión, la barra de estado dice "sin servidor: sin conexión" (*no server: offline*).
 
-La barra de estado muestra el estado del servidor (descargando, indexando, listo o detenido) y cuántos errores y avisos tiene el archivo. Un clic ahí reinicia el servidor o muestra el log.
+La barra de estado muestra el estado del servidor (descargando, indexando, listo o detenido) y cuántos errores y avisos tiene el archivo. Un clic ahí reinicia el servidor o muestra el log. Un servidor que pasa 5 minutos sin ninguna pestaña de su lenguaje a la vista se detiene solo y vuelve cuando abres un archivo de ese lenguaje. Si se cae, la app lo reinicia hasta tres veces seguidas; después, queda detenido hasta que lo reinicies desde la barra de estado.
 
 ## Ir a la declaración
 
 **Ir a la declaración** (*Go to Declaration*) funciona también en otro archivo, y <kbd>⌘</kbd> + clic en un nombre hace lo mismo. Una definición en la biblioteca estándar o en una dependencia fuera del proyecto se abre como solo lectura, con un candado en la pestaña y "Fuera del proyecto · solo lectura" (*Outside the project · read-only*) en la barra de estado: puedes navegar y leer, pero nada se edita.
 
 En Rust, la biblioteca estándar necesita su código fuente en tu toolchain (`rustup component add rust-src`); la app nunca cambia el toolchain por su cuenta.
+
+## Accesibilidad
+
+Con **Reducir movimiento** (*Reduce motion*) encendido en los ajustes de accesibilidad del sistema, la app quita las transiciones; en el editor, los números de línea siguen alineados con el código, y un resultado de la búsqueda lleva a la línea correcta. El árbol, las pestañas y los menús funcionan con el teclado, y un lector de pantalla oye cuando una pestaña no está guardada, está en vista previa o está fijada.
 
 ## Mapa de teclas
 
@@ -86,13 +92,9 @@ Las teclas de los dos mapas WebStorm en Mac:
 | Mover instrucción arriba / abajo, con los comentarios encima (*Move Statement Up / Down*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> |
 | Buscar acción (*Find Action*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> |
 
-El mapa de VS Code mantiene sus propias teclas, como <kbd>F12</kbd> para ir a la declaración y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> para buscar una acción. En todos los mapas, <kbd>⌘</kbd> <kbd>K</kbd> también lista las acciones del editor.
+El mapa de VS Code mantiene sus propias teclas, como <kbd>F12</kbd> para ir a la declaración y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> para buscar una acción. <kbd>⌘</kbd> <kbd>K</kbd> abre la paleta, que también lista las acciones del editor. En el mapa de VS Code, con el cursor en el código, <kbd>⌘</kbd> <kbd>K</kbd> empieza sus teclas de dos partes, como <kbd>⌘</kbd> <kbd>K</kbd> <kbd>⌘</kbd> <kbd>C</kbd>, que comenta la línea; ahí, las acciones del editor están en <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd>.
 
 En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, y los dos mapas WebStorm usan las teclas de la columna WebStorm, con una diferencia: **Documentación rápida** es <kbd>Ctrl</kbd> <kbd>Q</kbd>.
-
-## Accesibilidad
-
-Con **Reducir movimiento** (*Reduce motion*) encendido en los ajustes de accesibilidad del sistema, la app quita las transiciones; en el editor, los números de línea siguen alineados con el código, y un resultado de la búsqueda lleva a la línea correcta. El árbol, las pestañas y los menús funcionan con el teclado, y un lector de pantalla oye cuando una pestaña no está guardada, está en vista previa o está fijada.
 
 ## Plan y límites
 

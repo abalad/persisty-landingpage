@@ -11,7 +11,7 @@ El panel **Cambios** (*Changes*) es el git de la carpeta de la sesión, como el 
 
 La lista muestra los archivos en **Preparados** (*Staged*) y en **Cambios**, con la letra de estado de git: M (modificado), A (nuevo), D (borrado), R (renombrado), U (sin seguimiento) o C (en conflicto). El **+** de un archivo lo prepara, y el **−** lo quita de la preparación; en el título de cada grupo, **Preparar todo** (*Stage all*) y **Quitar todo de la preparación** (*Unstage all*) hacen lo mismo con todos.
 
-El **↺** descarta los cambios de un archivo, y **Descartar todos los cambios** (*Discard all changes*), en el título del grupo, los de todos. Persisty pregunta antes y graba un punto de restauración, como en el [editor](/docs/git-in-the-editor#descartar-cambios). Un archivo nuevo descartado se borra.
+El **↺** descarta los cambios de un archivo, y **Descartar todos los cambios** (*Discard all changes*), en el título del grupo, los de todos. Persisty pregunta antes y graba un [punto de restauración](/docs/restore-points#antes-de-descartar), como en el [editor](/docs/git-in-the-editor#descartar-cambios). Un archivo nuevo descartado se borra.
 
 El clic derecho en un archivo, o <kbd>⇧</kbd> <kbd>F10</kbd> con él en foco, ofrece **Abrir archivo** (*Open file*), **Preparar** (*Stage*) o **Quitar de la preparación** (*Unstage*), **Descartar cambios** (*Discard changes*), **Copiar ruta** (*Copy path*), **Copiar ruta relativa** (*Copy relative path*) y **Mostrar en Finder** (*Reveal in Finder*). En un archivo sin seguimiento, el menú también tiene **Ignorar este archivo** (*Ignore this file*), o **Ignorar esta carpeta** (*Ignore this folder*), e **Ignorar todo lo llamado** (*Ignore everything named*) con su nombre; Persisty escribe la regla en el `.gitignore` de la raíz del repositorio.
 
@@ -53,10 +53,12 @@ El grupo **Guardados** (*Stashed*) es el stash de git. **Guardar cambios** (*Sta
 
 Durante un merge, rebase, cherry-pick o revert, el panel muestra la operación, como **Merge en curso** (*Merge in progress*), y los archivos en **Conflictos** (*Conflicts*). En cada archivo, elige **Aceptar la versión actual** (*Accept the current version*) o **Aceptar la versión entrante** (*Accept the incoming version*), o edítalo y usa **Marcar como resuelto** (*Mark as resolved*). Sin conflictos, **Continuar** (*Continue*) termina la operación, y **Abortar** (*Abort*) pregunta antes y deja todo como estaba antes de empezar.
 
+## Teclas
+
+<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> abre y cierra el panel, <kbd>⌘</kbd> <kbd>↵</kbd> hace el commit y <kbd>⇧</kbd> <kbd>F10</kbd> abre el menú del archivo en foco. Con el cursor en el código, en los mapas WebStorm (macOS) y VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> es **Buscar anterior** (*Find Previous*) después de una búsqueda en el archivo; ahí, usa el ícono **Cambios**. En Windows y Linux, que están en versión preliminar, usa <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>.
+
 ## Plan y límites
 
 El panel **Cambios** es del plan gratis, incluido el punto de restauración antes de descartar.
 
 Funciona en carpetas que son repositorios git; fuera de uno, dice "Esta carpeta no está en un repositorio git." (*This folder is not in a git repository.*). Persisty usa las credenciales que git ya tiene en la computadora, como el Llavero y el agente SSH, y nunca pide una contraseña en la terminal: si git necesita preguntar, el rechazo aparece tal como git lo escribió. Con demasiados cambios, la lista avisa que es parcial.
-
-Con el cursor en el código, en los mapas WebStorm (macOS) y VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> es **Buscar anterior** (*Find Previous*); ahí, usa el ícono **Cambios**. En Windows y Linux, que están en versión preliminar, usa <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>.

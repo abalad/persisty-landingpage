@@ -11,13 +11,13 @@ La **Búsqueda** (*Search*) busca un texto en todos los archivos de la carpeta d
 
 Abre la **Búsqueda** con su ícono, en la barra de herramientas del borde derecho de la sesión, o con <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd>, que pone el cursor en el campo **Buscar en todos los archivos** (*Search all files*). La búsqueda empieza con 2 caracteres, apenas dejas de escribir.
 
-Junto al campo están **Distinguir mayúsculas** (*Match case*), **Palabra completa** (*Whole word*) y **Expresión regular** (*Regular expression*). Los resultados vienen agrupados por archivo, con la carpeta, cuántas veces aparece el texto y cada línea con la coincidencia resaltada; el resumen dice, por ejemplo, "12 resultados en 3 archivos" (*12 results in 3 files*). Un clic en una línea abre el archivo en el panel **Código** (*Code*), en esa línea.
+Junto al campo están **Distinguir mayúsculas** (*Match case*), **Palabra completa** (*Whole word*) y **Expresión regular** (*Regular expression*). Los resultados vienen agrupados por archivo, con la carpeta, cuántas veces aparece el texto y cada línea con la coincidencia resaltada; el resumen dice, por ejemplo, "12 resultados en 3 archivos" (*12 results in 3 files*). Un clic en una línea abre el archivo en el panel [**Código**](/docs/editor) (*Code*), en esa línea.
 
 ## Qué queda fuera
 
-La búsqueda salta lo que git ignora, la carpeta `.git`, los patrones de **Ocultar archivos** (*Hide files*, mira [Ocultar archivos](/docs/files#ocultar-archivos)), los archivos de más de 2 MB y los archivos binarios. Los archivos y las carpetas que empiezan con punto entran, siempre que git no los ignore.
+La búsqueda salta lo que git ignora y lo que lista un archivo `.ignore`, la carpeta `.git`, los patrones de **Ocultar archivos** (*Hide files*, mira [Ocultar archivos](/docs/files#ocultar-archivos)), los archivos de más de 2 MB y los archivos binarios. Los archivos y las carpetas que empiezan con punto entran, siempre que git no los ignore.
 
-Se detiene en 2000 resultados, y el resumen dice "lista parcial" (*partial list*). Una expresión regular inválida muestra el error en lugar del resumen.
+Se detiene en 2000 resultados, y el resumen dice "lista parcial" (*partial list*). En cada línea, la búsqueda solo mira los primeros 300 caracteres. Una expresión regular inválida muestra el error en lugar del resumen.
 
 ## Abrir un archivo por nombre
 

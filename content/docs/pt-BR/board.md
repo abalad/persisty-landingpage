@@ -13,7 +13,7 @@ Com várias sessões rodando, o Quadro responde quem está esperando por você, 
 
 Abra pelo botão ao lado das abas, com <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> ou por **Quadro de sessões**, na paleta de comandos (<kbd>⌘</kbd> <kbd>K</kbd>). O Quadro toma o lugar do terminal. Para voltar, use **Voltar ao terminal**, <kbd>Esc</kbd> ou a mesma tecla.
 
-No topo, troque **Todos os projetos** por **Este projeto** para ver só as sessões do projeto atual. Ao lado ficam três contagens: quantas sessões precisam de você, com a espera mais longa; quantas estão trabalhando; e quantas respostas você ainda não leu. Clicar na primeira abre a sessão que espera há mais tempo.
+No topo, troque **Todos os projetos** por **Este projeto** para ver só as sessões do projeto atual. Ao lado ficam três contagens: quantas sessões precisam de você, com a espera mais longa; quantas estão trabalhando; e quantos cartões novos você ainda não abriu, como **2 não lidas**. Clicar na primeira abre a sessão que espera há mais tempo.
 
 ## As colunas
 
@@ -31,7 +31,7 @@ Respostas e erros que você ainda não abriu aparecem em negrito, com um ponto. 
 
 <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> abre e fecha o Quadro. Com ele aberto, <kbd>A</kbd> abre a sessão que espera há mais tempo e <kbd>Esc</kbd> volta ao terminal. Essas duas não valem enquanto você digita num campo ou com uma janela aberta por cima.
 
-No Windows e no Linux, o atalho é <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd>. Com o mapa de teclas **WebStorm (macOS)**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> com o cursor no código abre um arquivo pelo nome; ali, use o botão.
+No Windows e no Linux, que estão em prévia, o atalho é <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd>. Com o mapa de teclas **WebStorm (macOS)**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> com o cursor no código abre um arquivo pelo nome; ali, use o botão.
 
 ## Plano e limites
 

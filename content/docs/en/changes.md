@@ -11,7 +11,7 @@ The **Changes** panel is the git of the session's folder, like an IDE's source c
 
 The list shows the files under **Staged** and **Changes**, with git's status letter: M (modified), A (added), D (deleted), R (renamed), U (untracked) or C (conflicted). A file's **+** stages it, and its **−** unstages it; on each group's title, **Stage all** and **Unstage all** do the same for every file.
 
-The **↺** discards a file's changes, and **Discard all changes**, on the group's title, discards them all. Persisty asks first and records a restore point, as in the [editor](/docs/git-in-the-editor#discard-changes). A new file that is discarded is deleted.
+The **↺** discards a file's changes, and **Discard all changes**, on the group's title, discards them all. Persisty asks first and records a [restore point](/docs/restore-points#before-discarding), as in the [editor](/docs/git-in-the-editor#discard-changes). A new file that is discarded is deleted.
 
 Right-clicking a file, or <kbd>⇧</kbd> <kbd>F10</kbd> with it in focus, offers **Open file**, **Stage** or **Unstage**, **Discard changes**, **Copy path**, **Copy relative path** and **Reveal in Finder**. On an untracked file, the menu also has **Ignore this file** (or **Ignore this folder**) and **Ignore everything named** with its name; Persisty writes the rule to the `.gitignore` at the repository's root.
 
@@ -53,10 +53,12 @@ The **Stashed** group is git's stash. **Stash changes** puts every change aside,
 
 During a merge, rebase, cherry-pick or revert, the panel shows the operation, such as **Merge in progress**, and the files under **Conflicts**. For each file, pick **Accept the current version** or **Accept the incoming version**, or edit it and use **Mark as resolved**. With no conflicts left, **Continue** finishes the operation, and **Abort** asks first and puts everything back as it was before it started.
 
+## Keys
+
+<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> opens and closes the panel, <kbd>⌘</kbd> <kbd>↵</kbd> commits and <kbd>⇧</kbd> <kbd>F10</kbd> opens the menu of the file in focus. With the cursor in the code, in the WebStorm (macOS) and VS Code keymaps, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> is **Find Previous** after a search in the file; there, use the **Changes** icon. On Windows and Linux, which are in preview, use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>.
+
 ## Plan and limits
 
 The **Changes** panel is on the free plan, including the restore point before discarding.
 
 It works in folders that are git repositories; outside one, it says "This folder is not in a git repository." Persisty uses the credentials git already has on the computer, such as the Keychain and the SSH agent, and never asks for a password in the terminal: if git needs to ask, the refusal shows as git wrote it. With too many changes, the list says it is partial.
-
-With the cursor in the code, in the WebStorm (macOS) and VS Code keymaps, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> is **Find Previous**; there, use the **Changes** icon. On Windows and Linux, which are in preview, use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>.

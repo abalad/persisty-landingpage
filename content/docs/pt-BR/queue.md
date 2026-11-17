@@ -9,13 +9,13 @@ A fila guarda os próximos pedidos a um agente e entrega um por vez, quando cheg
 
 ## Pôr um pedido na fila
 
-Escreva o pedido na caixa, escolha quando ele sai e clique em **Pôr na fila**, ou use <kbd>⌘</kbd> <kbd>↵</kbd>. No Windows e no Linux, as teclas desta página usam <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd> e <kbd>Alt</kbd> no lugar de <kbd>⌥</kbd>.
+Escreva o pedido na caixa, escolha quando ele sai e clique em **Pôr na fila**, ou use <kbd>⌘</kbd> <kbd>↵</kbd>. No Windows e no Linux, que estão em prévia, as teclas desta página usam <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd> e <kbd>Alt</kbd> no lugar de <kbd>⌥</kbd>.
 
 O cabeçalho da fila diz o que o agente está fazendo, como **Trabalhando**, **Terminou, pronto para o próximo** ou **Pedindo permissão**. Os pedidos que esperam aparecem numerados em **Próximos**, na ordem em que vão sair, com quando sai cada um e por que os de baixo esperam, como "esperando o nº 1". O primeiro tem a marca **próximo**. Os enviados ficam recolhidos embaixo, em **Enviados**. Na barra da sessão, o ícone da fila mostra quantos pedidos esperam, também com o painel fechado.
 
 ## Quando cada pedido sai
 
-Ao lado da caixa, escolha quando o pedido vai: **Assim que o agente ficar livre**, **Quando a janela de 5 h renovar** ou **A partir de um horário**, que você marca. A janela de 5 h usa o horário lido da quota ao vivo da conta da própria sessão; enquanto esse horário não é conhecido, a opção fica desligada.
+Ao lado da caixa, escolha quando o pedido vai: **Assim que o agente ficar livre**, **Quando a janela de 5 h renovar** ou **A partir de um horário**, que você marca. A [janela de 5 h](/docs/usage-and-quota#janelas-de-5-h-e-7-d) usa o horário lido da quota ao vivo da conta da própria sessão; enquanto esse horário não é conhecido, a opção fica desligada.
 
 A hora marcada é só o mais cedo: o pedido ainda espera o agente ficar livre e os pedidos de cima saírem.
 
@@ -27,7 +27,7 @@ Editar leva o texto de volta à caixa, e a fila espera enquanto você edita. Se 
 
 ## Imagens
 
-A caixa aceita imagens: <kbd>⌘</kbd> <kbd>V</kbd>, arrastar para a caixa ou o clipe, **Anexar imagens**. São até 8 por pedido, de até 10 MB cada, em PNG, JPEG, GIF ou WebP. Elas ficam neste computador, e o agente recebe os caminhos no fim do pedido, numa linha que começa com `Imagens:`. Se uma imagem sumir do disco antes da hora, o pedido não sai, e **Enviados** diz por quê. No Codex CLI, as imagens ainda não foram verificadas.
+A caixa aceita imagens: <kbd>⌘</kbd> <kbd>V</kbd>, arrastar para a caixa ou o clipe, **Anexar imagens**. São até 8 por pedido, de até 10 MB cada, em PNG, JPEG, GIF ou WebP. Elas ficam neste computador, e o agente recebe os caminhos no fim do pedido, numa linha que começa com `Imagens:`, ou `Images:` com o app em inglês. Se uma imagem sumir do disco antes da hora, o pedido não sai, e **Enviados** diz por quê. No Codex CLI, as imagens ainda não foram verificadas.
 
 ## Como os pedidos chegam ao agente
 
@@ -39,6 +39,6 @@ Quando a conta fica sem quota, a fila espera a janela renovar; veja [Quando a qu
 
 ## Plano e limites
 
-Só escrever, editar e anexar imagens são do Pro. No plano grátis, os pedidos que já estão na fila continuam saindo e podem ser pausados, retomados, reordenados, enviados a seguir ou tirados, e **Soltar a fila agora** também funciona.
+Só escrever, editar e anexar imagens são do [Pro](/docs/pro). No plano grátis, os pedidos que já estão na fila continuam saindo e podem ser pausados, retomados, reordenados, enviados a seguir ou tirados, e **Soltar a fila agora** também funciona.
 
-A fila é conferida a cada 10 segundos com o Persisty aberto. Com o app fechado, nada é enviado. A fila é só para sessões de agente. Se a sessão termina, os pedidos que esperavam saem da fila com a nota **a sessão terminou antes**. No Codex CLI, o Persisty ainda não recebe o estado do agente, então não sabe quando ele está livre, e os pedidos não saem.
+A fila é conferida a cada 10 segundos com o Persisty aberto. Com o app fechado, nada é enviado. A fila é só para sessões de agente. Se a sessão termina, os pedidos que esperavam saem da fila com a nota **a sessão terminou antes**. Por padrão, o Persisty não recebe o estado do Codex CLI, então não sabe quando ele está livre, e os pedidos não saem.

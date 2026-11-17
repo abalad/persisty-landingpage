@@ -11,7 +11,7 @@ O rodapé de cada sessão de agente mostra o modelo, o gasto estimado, o context
 
 O painel **Detalhes** (<kbd>⌘</kbd> <kbd>I</kbd>) mostra esses números da sessão em foco e o gasto do projeto no mês, em **IA no mês**. **Uso detalhado**, no mesmo painel, abre a página **Uso de IA** do projeto: requisições, tokens e custo de **Hoje** e **Este mês**, as sessões do Claude Code com custo, contexto e janelas, e as tabelas **Por sessão**, **Por modelo** e **Por provedor**. **Todos os projetos**, no topo, junta tudo e mostra **Por projeto** no lugar de **Por sessão**.
 
-A página também abre por **Uso de IA — todos os projetos**, na paleta de comandos, e por **Abrir uso detalhado**, em **Configurações › Uso de IA**. **Sincronizar** lê os registros de novo, e **Voltar** ou <kbd>Esc</kbd> fecham a página.
+A página também abre por **Uso de IA — todos os projetos**, na paleta de comandos, e por **Abrir uso detalhado**, em [**Configurações › Uso de IA**](/docs/settings#uso-de-ia). **Sincronizar** lê os registros de novo, e **Voltar** ou <kbd>Esc</kbd> fecham a página.
 
 O gasto vem dos registros locais do Claude Code e da status line que ele mesmo calcula. Estimativas por tokens usam preço de lista com data e origem, e **não são a fatura** do provedor.
 
@@ -27,10 +27,14 @@ A mesma tela lista as **Fontes de dados** e quando cada uma foi lida pela últim
 
 As janelas de 5 horas e 7 dias são percentuais da assinatura, não dinheiro. Elas vêm do mesmo serviço que o `/usage` do Claude Code, ao vivo, consultadas no máximo uma vez por minuto por conta. Cada sessão mostra as janelas da conta em que roda, com o e-mail e o plano ao lado; com várias contas, cada sessão tem os seus números. Janelas de 7 dias por modelo, quando a conta tem, aparecem no painel **Detalhes**.
 
-Quando a conta fica sem quota, o cabeçalho da sessão mostra **Sem quota · volta às …** com a hora em que a janela renova. Quando o último turno falha por erro da Anthropic, mostra **O último turno falhou: …** com o motivo. Nos dois casos a fila da sessão espera; veja [Quando a quota acaba](/docs/ai-accounts#quando-a-quota-acaba). No rodapé, clicar na conta abre as contas conectadas para trocar a da sessão (Pro); veja [Contas de IA e rodízio](/docs/ai-accounts).
+Quando a conta fica sem quota, o cabeçalho da sessão mostra **Sem quota · volta às …** com a hora em que a janela renova. Quando o último turno falha por erro da Anthropic, mostra **O último turno falhou: …** com o motivo. Nos dois casos a [fila](/docs/queue) da sessão espera; veja [Quando a quota acaba](/docs/ai-accounts#quando-a-quota-acaba). No rodapé, clicar na conta abre as contas conectadas para trocar a da sessão ([Pro](/docs/pro)); veja [Contas de IA e rodízio](/docs/ai-accounts).
 
 ## Contexto
 
 A porcentagem de contexto é quanto da janela de contexto do modelo a conversa já ocupa, segundo o próprio Claude Code.
 
-Gasto, quota e contexto são do plano grátis.
+## Plano e limites
+
+Gasto, quota, contexto e os alertas de gasto são do plano grátis; trocar a conta de uma sessão pelo rodapé é do Pro.
+
+Os números são estimativas feitas neste computador, não a fatura, e só o Claude Code entra na conta, como diz [Fontes de dados](#fontes-de-dados).

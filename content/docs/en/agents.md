@@ -23,7 +23,7 @@ In a plain terminal, the session shows **Running**, with the command's name, whi
 
 ## Background work
 
-When Claude Code finishes its answer but leaves a subagent or a command in the background, the session stays **Working** until that work is over. The request queue, the done notice and check on finish wait for the same end.
+When Claude Code finishes its answer but leaves a subagent or a command in the background, the session stays **Working** until that work is over. The [request queue](/docs/queue), the done notice and [check on finish](/docs/verify) wait for the same end.
 
 A subagent counts as work while it shows signs of life, for up to 2 hours without news from it. A background command, such as a dev server, sends no news: it counts for 10 minutes after the answer ends. After that, the session shows the state Claude Code stopped in.
 
@@ -37,9 +37,9 @@ If Claude Code shows the folder trust prompt ("Yes, I trust this folder"), the p
 
 ## Codex CLI
 
-Codex CLI opens and persists like any session: it gets a tab and a row in the workspace card, and Persisty reattaches the terminal when you reopen the app with it still running.
+Codex CLI opens and persists like any session: it gets a tab and a row in the workspace card, and, when you reopen Persisty, the terminal is reattached if its process still exists.
 
-Two things do not work yet. The first is the state: Persisty does not change Codex's configuration and does not receive its events, so the session shows as **Idle** while it runs and sends no notifications. The second is resuming the conversation: after the computer restarts, the session comes back as a plain terminal in its folder, without Codex, and the restore report says **Relaunched**.
+By default, two things do not work yet. The first is the state: since Persisty does not change Codex's configuration, it does not receive Codex's events, and the session shows as **Idle** while it runs and sends no notifications. The second is resuming the conversation: after the computer restarts, the session comes back as a plain terminal in its folder, without Codex, and the restore report says **Relaunched**.
 
 ## Model per session
 
@@ -47,7 +47,7 @@ In Claude Code, the session footer has a model picker. Your choice is saved and 
 
 ## Default agent
 
-<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> opens a session with the default agent straight away in the current workspace, and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> comes with it already chosen. In **Settings › Agents › Default agent**, choose between **Claude Code**, the default, **Codex CLI** and **Terminal**. An agent that is not on the computer shows "(not installed)" after its name. If that is the one chosen, Claude Code is used or, without it, Codex CLI; with neither, a terminal opens.
+<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> opens a session with the default agent straight away in the current workspace, and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> comes with it already chosen. In [**Settings › Agents › Default agent**](/docs/settings#agents), choose between **Claude Code**, the default, **Codex CLI** and **Terminal**. An agent that is not on the computer shows "(not installed)" after its name. If that is the one chosen, Claude Code is used or, without it, Codex CLI; with neither, a terminal opens.
 
 ## Detected agents
 
@@ -55,4 +55,10 @@ On the same screen, **Detected agents** shows Claude Code and Codex CLI as Persi
 
 ## Tools for the agents
 
-On the same screen, **Persisty tools in agents** lets Claude Code read the project, the other sessions and the output of the workspace commands; see [Agents that read Persisty](/docs/agent-access). MCP servers from other services, such as GitHub, Sentry or Supabase, are in [MCP servers](/docs/mcp-servers).
+On the same screen, **Persisty tools in agents** lets Claude Code read the project, the other sessions and the output of the [workspace commands](/docs/commands); see [Agents that read Persisty](/docs/agent-access). MCP servers from other services, such as GitHub, Sentry or Supabase, are in [MCP servers](/docs/mcp-servers).
+
+## Plan and limits
+
+Everything on this page is on the free plan.
+
+The state, background work and resuming the conversation rely on Claude Code's hooks. With Codex CLI, by default, Persisty only opens the session and reattaches the terminal; see [Codex CLI](#codex-cli).

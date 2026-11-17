@@ -15,7 +15,7 @@ Uma resposta que deixou trabalho em segundo plano só avisa quando esse trabalho
 
 ## Configurar
 
-Em **Configurações › Notificações** ficam três chaves, todas ligadas de início. **Alertas dentro do app** liga o alerta do canto, e **Tocar som** liga os dois tons. **Silenciar com o Persisty em foco** deixa de fora a notificação do sistema enquanto a janela está em foco; desligada, você recebe o alerta e a notificação ao mesmo tempo.
+Em [**Configurações › Notificações**](/docs/settings#notificações) ficam três chaves, todas ligadas de início. **Alertas dentro do app** liga o alerta do canto, e **Tocar som** liga os dois tons. **Silenciar com o Persisty em foco** deixa de fora a notificação do sistema enquanto a janela está em foco; desligada, você recebe o alerta e a notificação ao mesmo tempo.
 
 ## Enviar um teste
 
@@ -25,4 +25,4 @@ Se a notificação do sistema não aparecer, confira se o Persisty está liberad
 
 ## Plano e limites
 
-As notificações são do plano grátis e saem com o Persisty aberto. Elas dependem dos hooks do Claude Code: o Codex CLI ainda não manda o estado e não gera avisos.
+As notificações são do plano grátis e saem com o Persisty aberto. Elas dependem dos hooks do Claude Code: por padrão, o Codex CLI não manda o estado ao Persisty e não gera avisos.

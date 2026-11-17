@@ -15,7 +15,7 @@ Una respuesta que dejó trabajo en segundo plano solo avisa cuando ese trabajo a
 
 ## Configurar
 
-En **Configuración › Notificaciones** (*Settings › Notifications*) hay tres interruptores, todos encendidos al principio. **Alertas dentro de la app** (*In-app alerts*) enciende la alerta de la esquina, y **Reproducir sonido** (*Play a sound*) enciende los dos tonos. **Silenciar con Persisty en foco** (*Mute while Persisty is focused*) deja fuera la notificación del sistema mientras la ventana está en foco; apagado, recibes la alerta y la notificación a la vez.
+En [**Configuración › Notificaciones**](/docs/settings#notificaciones) (*Settings › Notifications*) hay tres interruptores, todos encendidos al principio. **Alertas dentro de la app** (*In-app alerts*) enciende la alerta de la esquina, y **Reproducir sonido** (*Play a sound*) enciende los dos tonos. **Silenciar con Persisty en foco** (*Mute while Persisty is focused*) deja fuera la notificación del sistema mientras la ventana está en foco; apagado, recibes la alerta y la notificación a la vez.
 
 ## Enviar una prueba
 
@@ -25,4 +25,4 @@ Si la notificación del sistema no aparece, revisa que Persisty esté permitido 
 
 ## Plan y límites
 
-Las notificaciones son del plan gratis y llegan con Persisty abierto. Dependen de los hooks de Claude Code: Codex CLI todavía no envía su estado y no genera avisos.
+Las notificaciones son del plan gratis y llegan con Persisty abierto. Dependen de los hooks de Claude Code: por defecto, Codex CLI no envía su estado a Persisty y no genera avisos.

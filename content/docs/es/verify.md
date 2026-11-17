@@ -9,7 +9,7 @@ La verificación al terminar ejecuta un comando del workspace, como `pnpm test`,
 
 ## Elegir el comando
 
-En el selector de comandos del workspace, junto a las pestañas, elige el comando, por ejemplo `pnpm test`. Abre el selector de nuevo: debajo de la lista aparece **Verificar al terminar con** (*Check on finish with*) seguido de su nombre. Un clic lo activa, con la marca de selección, y otro lo desactiva. El comando vale para todo el workspace: todas sus sesiones de agente usan el mismo. Si ya hay otro comando elegido, el menú muestra **Ahora:** (*Now:*) con él.
+En el selector de [comandos del workspace](/docs/commands), junto a las pestañas, elige el comando, por ejemplo `pnpm test`. Abre el selector de nuevo: debajo de la lista aparece **Verificar al terminar con** (*Check on finish with*) seguido de su nombre. Un clic lo activa, con la marca de selección, y otro lo desactiva. El comando vale para todo el workspace: todas sus sesiones de agente usan el mismo. Si ya hay otro comando elegido, el menú muestra **Ahora:** (*Now:*) con él.
 
 ## Cuándo corre
 
@@ -21,4 +21,4 @@ El encabezado de la sesión muestra **Verificación** (*Check*) con el resultado
 
 ## Plan y límites
 
-La verificación es Pro; sin él, el elemento del menú aparece con la marca **Pro**. Vale para sesiones de Claude Code dentro de un workspace, en carpetas git, porque depende de los hooks que avisan el pedido y el fin del turno. Codex CLI no dispara la verificación.
+La verificación es [Pro](/docs/pro); sin él, el elemento del menú aparece con la marca **Pro**. Vale para sesiones de Claude Code dentro de un workspace, en carpetas git, porque depende de los hooks que avisan el pedido y el fin del turno. Por defecto, Codex CLI no dispara la verificación.

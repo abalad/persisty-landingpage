@@ -13,7 +13,7 @@ With several sessions running, the Board answers who is waiting for you, for how
 
 Open it with the button beside the tabs, with <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> or with **Session board** in the command palette (<kbd>⌘</kbd> <kbd>K</kbd>). The Board takes the terminal's place. To go back, use **Back to the terminal**, <kbd>Esc</kbd> or the same key.
 
-At the top, switch **All projects** to **This project** to see only the current project's sessions. Beside it are three counts: how many sessions need you, with the longest wait; how many are working; and how many answers you have not read yet. Clicking the first one opens the session that has waited longest.
+At the top, switch **All projects** to **This project** to see only the current project's sessions. Beside it are three counts: how many sessions need you, with the longest wait; how many are working; and how many new cards you have not opened yet, such as **2 unread**. Clicking the first one opens the session that has waited longest.
 
 ## The columns
 
@@ -31,7 +31,7 @@ Answers and errors you have not opened yet show in bold, with a dot. The session
 
 <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> opens and closes the Board. With it open, <kbd>A</kbd> opens the session that has waited longest and <kbd>Esc</kbd> goes back to the terminal. Those two do nothing while you type in a field or with a dialog open on top.
 
-On Windows and Linux the shortcut is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd>. With the **WebStorm (macOS)** keymap, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> with the cursor in the code opens a file by name; there, use the button.
+On Windows and Linux, which are in preview, the shortcut is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd>. With the **WebStorm (macOS)** keymap, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> with the cursor in the code opens a file by name; there, use the button.
 
 ## Plan and limits
 

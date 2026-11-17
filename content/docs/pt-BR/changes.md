@@ -11,7 +11,7 @@ O painel **Alterações** é o Git da pasta da sessão, como o controle de vers�
 
 A lista mostra os arquivos em **Preparadas** e em **Alterações**, com a letra de estado do git: M (modificado), A (novo), D (apagado), R (renomeado), U (não rastreado) ou C (em conflito). O **+** de um arquivo o prepara, e o **−** o tira da preparação; no título de cada grupo, **Preparar tudo** e **Remover tudo da preparação** fazem o mesmo com todos.
 
-O **↺** descarta as alterações de um arquivo, e **Descartar todas as alterações**, no título do grupo, as de todos. O Persisty pergunta antes e grava um ponto de restauração, como no [editor](/docs/git-in-the-editor#descartar-alterações). Um arquivo novo descartado é apagado.
+O **↺** descarta as alterações de um arquivo, e **Descartar todas as alterações**, no título do grupo, as de todos. O Persisty pergunta antes e grava um [ponto de restauração](/docs/restore-points#antes-de-descartar), como no [editor](/docs/git-in-the-editor#descartar-alterações). Um arquivo novo descartado é apagado.
 
 O botão direito num arquivo, ou <kbd>⇧</kbd> <kbd>F10</kbd> com ele em foco, abre **Abrir arquivo**, **Preparar** ou **Remover da preparação**, **Descartar alterações**, **Copiar caminho**, **Copiar caminho relativo** e **Mostrar no Finder**. Num arquivo não rastreado, o menu também tem **Ignorar este arquivo** (ou **Ignorar esta pasta**) e **Ignorar tudo chamado** com o nome dele; o Persisty escreve a regra no `.gitignore` da raiz do repositório.
 
@@ -53,10 +53,12 @@ O grupo **Guardadas** é o stash do git. **Guardar alterações** guarda todas a
 
 Durante um merge, rebase, cherry-pick ou reversão, o painel mostra a operação, como **Merge em andamento**, e os arquivos em **Conflitos**. Em cada arquivo, escolha **Aceitar a versão atual** ou **Aceitar a versão que chega**, ou edite e use **Marcar como resolvido**. Sem conflitos, **Continuar** conclui a operação, e **Abortar** pergunta antes e volta tudo a como estava antes de começar.
 
+## Teclas
+
+<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> abre e fecha o painel, <kbd>⌘</kbd> <kbd>↵</kbd> faz o commit e <kbd>⇧</kbd> <kbd>F10</kbd> abre o menu do arquivo em foco. Com o cursor no código, nos mapas WebStorm (macOS) e VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> é **Localizar anterior** depois de uma busca no arquivo; ali, use o ícone **Alterações**. No Windows e no Linux, que estão em prévia, use <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>.
+
 ## Plano e limites
 
 O painel **Alterações** é do plano grátis, inclusive o ponto de restauração antes de descartar.
 
 Ele funciona em pastas que são repositórios git; fora de um, diz "Esta pasta não está num repositório git." O Persisty usa as credenciais que o git já tem no computador, como o Keychain e o agente SSH, e nunca pede senha no terminal: se o git precisar perguntar, a recusa aparece como o git escreveu. Com alterações demais, a lista avisa que é parcial.
-
-Com o cursor no código, nos mapas WebStorm (macOS) e VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> é **Localizar anterior**; ali, use o ícone **Alterações**. No Windows e no Linux, que estão em prévia, use <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>.

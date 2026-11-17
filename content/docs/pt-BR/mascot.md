@@ -15,7 +15,7 @@ O mascote acompanha a sessão em foco: sobe quando há algo pendente, como um pe
 
 Num terminal do Persisty, o comando `persisty` faz o mascote daquele terminal reagir: `persisty celebrate`, `persisty oops`, `persisty wave`, `persisty think` ou `persisty say` seguido de um texto de até 80 caracteres. Um script pode usar isso para avisar que terminou.
 
-Ele vem ligado. Para tirar, desligue **Configurações › Aparência › Mascote no terminal**, ou clique nele com o botão direito e escolha **Esconder mascote**.
+Ele vem ligado. Para tirar, desligue [**Configurações › Aparência › Mascote no terminal**](/docs/settings#aparência), ou clique nele com o botão direito e escolha **Esconder mascote**.
 
 ## Fora do app
 
@@ -29,7 +29,7 @@ Ele fica no topo da janela da frente, vai junto quando ela se mexe e cai quando 
 
 Quando uma sessão pede você e o Persisty não está em foco, o mascote sobe, mostra quantas estão esperando e diz qual, como "checkout pede permissão" ou "api fez uma pergunta". Ele também avisa quando uma sessão termina. Clicar na fala abre a sessão.
 
-Um clique no mascote abre um balão. Em **Precisa de você** ficam as sessões que esperam, da espera mais antiga para a mais nova, com o que pediram, há quanto tempo e o botão **Abrir**; as que não cabem vão para **+2 no Quadro**, por exemplo. Em **Avisos** ficam as sessões que terminaram ou deram erro, com **Ok** para tirar uma e **Limpar** para tirar todas.
+Um clique no mascote abre um balão. Em **Precisa de você** ficam as sessões que esperam, da espera mais antiga para a mais nova, com o que pediram, há quanto tempo e o botão **Abrir**; as que não cabem vão para o [Quadro](/docs/board), num item como **+2 no Quadro**. Em **Avisos** ficam as sessões que terminaram ou deram erro, com **Ok** para tirar uma e **Limpar** para tirar todas.
 
 No topo do balão estão **Abrir o Quadro**, o sino e **Esconder mascote**, que desliga o mascote fora do app. O sino liga o **Não perturbe**: o mascote para de subir e de falar, mas a contagem continua. **Voltar a avisar**, no mesmo sino, desfaz.
 

@@ -5,21 +5,21 @@ group: agents
 order: 5
 ---
 
-Em **Configurações › Contas de IA** ficam as contas do Claude Code deste computador: a que já estava logada e as que você conectar pelo Persisty. Sessões em contas diferentes rodam ao mesmo tempo, cada uma gastando a quota da sua conta.
+Em [**Configurações › Contas de IA**](/docs/settings#contas-de-ia) ficam as contas do Claude Code deste computador: a que já estava logada e as que você conectar pelo Persisty. Sessões em contas diferentes rodam ao mesmo tempo, cada uma gastando a quota da sua conta.
 
 ## Contas conectadas
 
-Cada conta aparece com o e-mail, a organização, o plano do Claude, quantas sessões estão abertas nela e as janelas de **5 h** e **7 d**. A conta que já estava no computador tem a marca **Este computador**. O mesmo e-mail em duas organizações aparece como duas contas. Uma conta sem login mostra **Sem login**, e uma quota que não deu para ler, **Quota indisponível**.
+Cada conta aparece com o e-mail, a organização, o plano do Claude, quantas sessões estão abertas nela e as [janelas](/docs/usage-and-quota#janelas-de-5-h-e-7-d) de **5 h** e **7 d**. A conta que já estava no computador tem a marca **Este computador**. O mesmo e-mail em duas organizações aparece como duas contas. Uma conta sem login mostra **Sem login**, e uma quota que não deu para ler, **Quota indisponível**.
 
 As barras vêm do mesmo lugar que o `/usage` do Claude Code, com a credencial que ele já guarda na máquina. O Persisty consulta no máximo uma vez por minuto por conta (o serviço recusa consultas mais frequentes) e mantém os últimos números na tela entre uma consulta e outra. Ver as contas e as quotas é do plano grátis.
 
 ## Conectar uma conta
 
-Conectar outra conta é do Pro. Sem ele, **Conectar conta** fica desligado e você usa a conta deste computador.
+Conectar outra conta é do [Pro](/docs/pro). Sem ele, **Conectar conta** fica desligado e você usa a conta deste computador.
 
 1. Na linha **Outra conta**, clique em **Conectar conta**. Se quiser, escreva o e-mail em **E-mail da conta (opcional)**: ele só vem preenchido na tela de login. Depois clique em **Entrar pelo navegador**.
 2. O Persisty roda o login do próprio Claude Code (`claude auth login`) para uma pasta só daquela conta, e o navegador abre.
-3. Conclua o login no navegador. A conta aparece sozinha. Se o navegador mostrar um código em vez de voltar ao app, cole-o em **Código do navegador** e clique em **Enviar código**.
+3. Conclua o login no navegador. A conta aparece sozinha. Se o navegador mostrar um código em vez de voltar ao app, cole-o em **Código do navegador** e clique em **Enviar código**. Enquanto o Persisty espera, **Abrir o login de novo** abre a página de login outra vez, e o **×**, **Cancelar**, desiste.
 
 O Persisty nunca vê a sua senha nem guarda a credencial: quem guarda é o Claude Code.
 
@@ -53,7 +53,7 @@ Em **Configurações › Contas de IA**, **Usar só nos projetos fixados nela** 
 
 ## Quando a quota acaba
 
-Se a conta chega ao limite e não há outra com folga, o cabeçalho da sessão mostra "Sem quota · volta às 19:14 na conta …", e a fila de pedidos espera em todas as sessões daquela conta, mesmo com o app reaberto. Um turno que falha por erro do servidor da Anthropic também segura a fila daquela sessão, com **O último turno falhou:** e o motivo no cabeçalho. **Soltar a fila agora**, no topo da fila, deixa os pedidos daquela sessão andarem. Isso vale em qualquer plano, e um aviso diz quando a conta fica sem quota e quantas sessões esperam.
+Se a conta chega ao limite e não há outra com folga, o cabeçalho da sessão mostra "Sem quota · volta às 19:14 na conta …", e a [fila de pedidos](/docs/queue) espera em todas as sessões daquela conta, mesmo com o app reaberto. Um turno que falha por erro do servidor da Anthropic também segura a fila daquela sessão, com **O último turno falhou:** e o motivo no cabeçalho. **Soltar a fila agora**, no topo da fila, deixa os pedidos daquela sessão andarem. Isso vale em qualquer plano, e um aviso diz quando a conta fica sem quota e quantas sessões esperam.
 
 ## Continuar a tarefa cortada
 
@@ -62,3 +62,9 @@ No Pro, com **Continuar a tarefa cortada pelo limite** ligado (em Contas de IA, 
 ## Sobre usar várias contas
 
 O Persisty não cria contas nem mexe em limites. Ele usa as contas que você já tem, como a pessoal e a da empresa, com o login do próprio Claude Code. Seguir os termos de cada conta continua com você.
+
+## Plano e limites
+
+Ver as contas e as quotas é do plano grátis, e a fila espera a quota renovar em qualquer plano. Conectar outras contas, o rodízio, trocar a conta de uma sessão, prender um projeto a uma conta, reservar uma conta e continuar a tarefa cortada são do Pro.
+
+As contas e o rodízio valem só para o Claude Code.

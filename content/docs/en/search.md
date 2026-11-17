@@ -11,13 +11,13 @@ order: 6
 
 Open **Search** from its icon, in the tool bar on the session's right edge, or with <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd>, which puts the cursor in the **Search all files** field. The search starts at 2 characters, as soon as you stop typing.
 
-Beside the field are **Match case**, **Whole word** and **Regular expression**. Results come grouped by file, with the folder, how many times the text appears and each line with the match highlighted; the summary says, for example, "12 results in 3 files". A click on a line opens the file in the **Code** panel, at that line.
+Beside the field are **Match case**, **Whole word** and **Regular expression**. Results come grouped by file, with the folder, how many times the text appears and each line with the match highlighted; the summary says, for example, "12 results in 3 files". A click on a line opens the file in the [**Code**](/docs/editor) panel, at that line.
 
 ## What is left out
 
-The search skips what git ignores, the `.git` folder, the **Hide files** patterns ([Hide files](/docs/files#hide-files)), files over 2 MB and binary files. Files and folders whose names start with a dot are searched, as long as git does not ignore them.
+The search skips what git ignores and what an `.ignore` file lists, the `.git` folder, the **Hide files** patterns ([Hide files](/docs/files#hide-files)), files over 2 MB and binary files. Files and folders whose names start with a dot are searched, as long as git does not ignore them.
 
-It stops at 2,000 results, and the summary says "partial list". An invalid regular expression shows the error in place of the summary.
+It stops at 2,000 results, and the summary says "partial list". In each line, the search only looks at the first 300 characters. An invalid regular expression shows the error in place of the summary.
 
 ## Open a file by name
 

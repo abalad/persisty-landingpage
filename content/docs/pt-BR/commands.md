@@ -31,6 +31,6 @@ Enquanto o comando roda, a aba mostra o terminal dele, ao vivo. Depois que ele t
 
 ## Plano e limites
 
-Os comandos do workspace são do plano grátis. **Verificar ao terminar com…**, no mesmo seletor, é do Pro; veja [Verificar ao terminar](/docs/verify).
+Os comandos do workspace são do plano grátis. **Verificar ao terminar com** e o nome do comando, no mesmo seletor, é do [Pro](/docs/pro); veja [Verificar ao terminar](/docs/verify).
 
 O Persisty só procura comandos na raiz da pasta do workspace, não em subpastas. No Windows e no Linux, que estão em prévia, use <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>.

@@ -11,13 +11,13 @@ A **Busca** procura um texto em todos os arquivos da pasta da sessão e leva voc
 
 Abra a **Busca** pelo ícone dela, na barra de ferramentas da borda direita da sessão, ou com <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd>, que leva o cursor ao campo **Buscar em todos os arquivos**. A busca começa com 2 caracteres, logo que você para de digitar.
 
-Ao lado do campo ficam **Diferenciar maiúsculas**, **Palavra inteira** e **Expressão regular**. Os resultados vêm agrupados por arquivo, com a pasta, quantas vezes o texto aparece e cada linha com o trecho destacado; o resumo diz, por exemplo, "12 resultados em 3 arquivos". Um clique numa linha abre o arquivo no painel **Código**, naquela linha.
+Ao lado do campo ficam **Diferenciar maiúsculas**, **Palavra inteira** e **Expressão regular**. Os resultados vêm agrupados por arquivo, com a pasta, quantas vezes o texto aparece e cada linha com o trecho destacado; o resumo diz, por exemplo, "12 resultados em 3 arquivos". Um clique numa linha abre o arquivo no painel [**Código**](/docs/editor), naquela linha.
 
 ## O que fica de fora
 
-A busca pula o que o git ignora, a pasta `.git`, os padrões de **Ocultar arquivos** ([Esconder arquivos](/docs/files#esconder-arquivos)), arquivos acima de 2 MB e arquivos binários. Arquivos e pastas que começam com ponto entram, desde que o git não os ignore.
+A busca pula o que o git ignora e o que um arquivo `.ignore` lista, a pasta `.git`, os padrões de **Ocultar arquivos** ([Esconder arquivos](/docs/files#esconder-arquivos)), arquivos acima de 2 MB e arquivos binários. Arquivos e pastas que começam com ponto entram, desde que o git não os ignore.
 
-Ela para em 2.000 resultados, e o resumo diz "lista parcial". Uma expressão regular inválida mostra o erro no lugar do resumo.
+Ela para em 2.000 resultados, e o resumo diz "lista parcial". Em cada linha, a busca olha só os primeiros 300 caracteres. Uma expressão regular inválida mostra o erro no lugar do resumo.
 
 ## Abrir arquivo pelo nome
 

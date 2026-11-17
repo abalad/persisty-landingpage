@@ -19,7 +19,7 @@ Files git ignores are dimmed, and `.git` never shows. At the top of the list, **
 
 ## Rename, move and copy
 
-**Rename…** edits the name in the row itself, and open tabs follow the file with their unsaved text and undo. On an editor tab, the same is under **Rename File…**.
+**Rename…** edits the name in the row itself, and open tabs follow the file with their unsaved text and undo. On an [editor tab](/docs/tabs-and-groups#the-tab-menu), the same is under **Rename File…**.
 
 **Refactor › Move…** and **Refactor › Copy…** pick the destination folder from a list with search. Dragging items onto a folder moves them too, and holding <kbd>⌥</kbd> copies them. While you drag, the item's name follows the pointer, the destination folder is highlighted, and a closed folder opens if the pointer rests on it. Where an item cannot be dropped, the tree says why, such as "already here". <kbd>Esc</kbd> cancels the drag.
 
@@ -39,9 +39,9 @@ Large copies and moves show their progress under the tree and can be stopped wit
 
 ## Open in
 
-**Open in**, on the tree and on the tab, takes the item elsewhere: **Reveal in Finder**, **Terminal in folder**, which opens a new terminal session in the item's folder, **Open with the default app**, **Open in the browser** (HTML, HTM and SVG only), your IDE at the cursor's line, and the file's page on GitHub, GitLab or Bitbucket. On a branch that was never pushed, the forge page is the current commit's.
+**Open in**, on the tree and on the tab, takes the item elsewhere: **Reveal in Finder**, **Terminal in folder**, which opens a new terminal session in the item's folder, **Open with the default app**, **Open in the browser** (HTML, HTM and SVG only), your IDE at the cursor's line, and the [file's page](/docs/forges#open-on-the-forge) on GitHub, GitLab or Bitbucket. On a branch that was never pushed, the forge page is the current commit's.
 
-The IDE is the one you choose in **Settings › Workspace › Default IDE**, among those Persisty finds on the computer; the default is **None**. The same IDE opens the session folder from the session tab's menu, the palette and the project.
+The IDE is the one you choose in [**Settings › Workspace › Default IDE**](/docs/settings#workspace), among those Persisty finds on the computer; the default is **None**. The same IDE opens the session folder from the session tab's menu, the palette and the project.
 
 ## Copy path
 
@@ -49,7 +49,7 @@ The IDE is the one you choose in **Settings › Workspace › Default IDE**, amo
 
 ## Reload from Disk
 
-**Reload from Disk** reads again what changed outside the editor. On an open file with unsaved changes, it asks first, because those changes are lost. On a folder, it lists the folder again. To list the whole tree again, use **Refresh**, at the top of the list.
+**Reload from Disk** reads again what changed outside the editor. On an open file with unsaved changes, it asks first, because those changes are lost. On a folder, it lists the folder again. To list the whole tree again, use **Refresh**, at the top of the list. **Synchronize the Tree**, <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> in the WebStorm keymaps, does the same and also checks right away whether the open files changed on disk.
 
 ## Change the file type
 
@@ -72,9 +72,9 @@ In **Settings › Files**, **Hide files** lists patterns such as `**/node_module
 | Delete | <kbd>⌫</kbd> or <kbd>⌘</kbd> <kbd>⌫</kbd> |
 | Copy Path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copy Reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
-| Synchronize the Tree with the folder | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+| Synchronize the Tree | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
 
-In the VS Code keymap, these actions are on the menu. In WebStorm (macOS), <kbd>⌘</kbd> <kbd>N</kbd> opens **New** only with the focus in the tree; elsewhere, it opens a new terminal. **Settings › Shortcuts** has a **Files** group, with where each key works: in the tree, on the tab or in the editor.
+In the VS Code keymap, these actions are on the menu. In WebStorm (macOS), <kbd>⌘</kbd> <kbd>N</kbd> opens **New** only with the focus in the tree; elsewhere, it opens a new terminal. [**Settings › Shortcuts**](/docs/shortcuts#files) has a **Files** group, with where each key works: in the tree, on the tab or in the editor.
 
 On Windows and Linux, which are in preview, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, <kbd>Delete</kbd> deletes, and **New** is <kbd>Alt</kbd> <kbd>Insert</kbd>. The Finder gives way to File Explorer or the file manager.
 

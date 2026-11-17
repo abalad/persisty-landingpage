@@ -19,7 +19,7 @@ As sessões têm página própria, [Sessões e terminais](/docs/sessions). Proje
 
 Cada projeto é um bloco com as duas primeiras letras do nome. Um ponto no canto do bloco diz como está o projeto: amarelo quando um agente terminou e espera você ou pede permissão, azul quando um agente está trabalhando, verde quando há sessões rodando, e um anel vazado quando há sessões a restaurar. O ponto mostra o mais urgente, e passar o mouse diz o mesmo em palavras, como "2 aguardando você".
 
-Aperte <kbd>⌘</kbd> <kbd>B</kbd> para expandir a barra. Expandida, ela mostra o nome e o estado de cada projeto e a lista de **Agentes**, com o estado e o workspace de cada um; o filtro alterna entre **Projeto** e **Todos**. Troque de projeto com <kbd>⌘</kbd> <kbd>1</kbd> a <kbd>⌘</kbd> <kbd>9</kbd>. No Windows e no Linux, use <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>.
+Aperte <kbd>⌘</kbd> <kbd>B</kbd> para expandir a barra. Expandida, ela mostra o nome e o estado de cada projeto e a lista de **Agentes**, com o estado e o workspace de cada um; o filtro alterna entre **Projeto** e **Todos**. Troque de projeto com <kbd>⌘</kbd> <kbd>1</kbd> a <kbd>⌘</kbd> <kbd>9</kbd>. No Windows e no Linux, que estão em prévia, use <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>.
 
 Para criar um projeto, use o **+** da barra. Em **Novo projeto**, dê um **Nome** e, se quiser, uma **Descrição**, e clique em **Criar projeto**. O **Identificador** sai do nome e não muda depois.
 
@@ -27,17 +27,17 @@ Para criar um projeto, use o **+** da barra. Em **Novo projeto**, dê um **Nome*
 
 O botão direito num projeto abre **Ajustes do projeto** ou **Dados do projeto**, duas partes da mesma janela.
 
-Em **Geral** ficam o nome, a descrição e o ícone, que pode ser outras iniciais (até dois caracteres), um símbolo da lista ou uma imagem PNG, JPG, WebP ou SVG de até 5 MB. Ali também estão a **Conta do Claude** do projeto, que é do Pro (veja [Contas de IA e rodízio](/docs/ai-accounts)), e **Arquivar projeto**.
+Em **Geral** ficam o nome, a descrição e o ícone, que pode ser outras iniciais (até dois caracteres), um símbolo da lista ou uma imagem PNG, JPG, WebP ou SVG de até 5 MB; essas mudanças valem quando você clica em **Salvar**. Ali também estão a **Conta do Claude** do projeto, que é do [Pro](/docs/pro) (veja [Contas de IA e rodízio](/docs/ai-accounts)), e **Arquivar projeto**.
 
-**Visão geral** mostra os números do projeto, como workspaces, sessões ativas e sessões a restaurar, e o gasto estimado com IA no mês, com **Abrir uso detalhado**. **Workspaces** e **Sessões** listam as pastas e os terminais do projeto. **Tarefas** escolhe de onde vêm as issues para começar sessões, e **Servidores MCP**, quais servidores as sessões de agente do projeto recebem.
+**Visão geral** mostra os números do projeto, como workspaces, sessões ativas e sessões a restaurar, e o [gasto estimado com IA](/docs/usage-and-quota) no mês, com **Abrir uso detalhado**. **Workspaces** e **Sessões** listam as pastas e os terminais do projeto. **Tarefas** escolhe de onde vêm as [issues](/docs/issues#ligar-ao-projeto) para começar sessões, e **Servidores MCP**, quais [servidores MCP](/docs/mcp-servers#ligar-num-projeto) as sessões de agente do projeto recebem.
 
 ## Arquivar e excluir projetos
 
 **Arquivar projeto**, em **Ajustes do projeto**, tira o projeto da barra lateral; as sessões e os workspaces continuam registrados. Se houver sessões abertas, você escolhe entre **Arquivar e manter abertas** e **Encerrar e arquivar**.
 
-Os arquivados ficam em **Projetos arquivados**, que abre pelo contador abaixo da lista de projetos, com a barra expandida, ou pela paleta (<kbd>⌘</kbd> <kbd>K</kbd>). Ali, **Restaurar** devolve o projeto à barra, com os workspaces e as sessões. Na paleta, escolher um projeto arquivado também o restaura e abre.
+Os arquivados ficam em **Projetos arquivados**, que abre pelo contador abaixo da lista de projetos, com a barra expandida, ou pela paleta (<kbd>⌘</kbd> <kbd>K</kbd>), quando há algum. Ali, **Restaurar** devolve o projeto à barra, com os workspaces e as sessões. Na paleta, escolher um projeto arquivado também o restaura e abre.
 
-**Excluir** tira o projeto do Persisty de vez, com as sessões, os workspaces e os comandos, e encerra as sessões que ainda estiverem rodando. A exclusão pergunta o que fazer com as pastas: **Excluir só do Persisty** deixa tudo no computador, e **Excluir e apagar as pastas** mostra quais vão para a Lixeira antes de confirmar. Uma pasta que outro projeto usa, a sua pasta pessoal, a raiz do disco e os dados do Persisty ficam onde estão.
+Só um projeto arquivado pode ser excluído: **Excluir**, na linha dele em **Projetos arquivados**, tira o projeto do Persisty de vez, com as sessões, os workspaces e os comandos, e encerra as sessões que ainda estiverem rodando. A exclusão pergunta o que fazer com as pastas: **Excluir só do Persisty** deixa tudo no computador, e **Excluir e apagar as pastas** mostra quais vão para a Lixeira antes de confirmar. Uma pasta que outro projeto usa, a sua pasta pessoal, a raiz do disco e os dados do Persisty ficam onde estão.
 
 ## Workspaces
 
@@ -45,19 +45,19 @@ Cada cartão da faixa de baixo é uma pasta do projeto. Quando a pasta é um rep
 
 Um workspace sem sessões mostra o caminho da pasta e os atalhos para abrir uma; veja [Nova sessão](/docs/sessions#nova-sessão). Cada workspace tem também os seus [comandos](/docs/commands), no seletor ao lado das abas.
 
-O cartão **Avulsas** guarda as sessões que não pertencem a nenhum workspace, abertas numa pasta qualquer. <kbd>⌘</kbd> <kbd>J</kbd> recolhe a faixa em ícones quando você quer mais espaço para o terminal.
+O cartão **Avulsas** guarda as sessões que não pertencem a nenhum workspace, abertas numa pasta qualquer, e aparece quando há uma delas ou quando o projeto ainda não tem workspaces. <kbd>⌘</kbd> <kbd>J</kbd> recolhe a faixa em ícones quando você quer mais espaço para o terminal.
 
 Para tirar um workspace do projeto, use **Remover do projeto** no painel **Detalhes**, ou **Remover workspace** na tela de um workspace sem sessões. Os arquivos da pasta não mudam.
 
 ## Adicionar workspace
 
-O cartão **Adicionar workspace**, no fim da faixa, abre a janela de mesmo nome com duas origens: **Pasta do computador** e **Repositório remoto**. Num projeto ainda vazio, a tela do projeto também aceita uma pasta arrastada do Finder; ali, <kbd>1</kbd> escolhe uma pasta e <kbd>4</kbd> vai direto ao repositório remoto.
+O cartão **Adicionar workspace**, no fim da faixa, abre a janela de mesmo nome com duas origens: **Pasta do computador** e **Repositório remoto**. Num projeto ainda vazio, a tela do projeto também aceita uma pasta arrastada do Finder; ali, <kbd>1</kbd> escolhe uma pasta, <kbd>4</kbd> vai direto ao repositório remoto, e <kbd>2</kbd> e <kbd>3</kbd> abrem a **Nova sessão** para um terminal ou um agente avulso.
 
 Com **Pasta do computador**, escreva o caminho completo ou clique em **Escolher pasta…**. No Windows, o caminho começa pela letra do disco, como `C:\`. O Persisty lê a pasta e mostra o que encontrou: **Repositório git** ou **Pasta comum**, o branch e o remoto. O **Nome** é o que aparece nos cartões e nas abas, e **Adicionar workspace** conclui.
 
 ## Clonar um repositório
 
-Com **Repositório remoto**, cole o link do repositório; qualquer endereço git funciona. Sem conta conectada, o campo se chama **Link**, e **Seus repositórios** oferece conectar o GitHub ou o GitLab ali mesmo; o Bitbucket e o GitLab da empresa ficam em **Configurações › Integrações**. Com uma conta conectada, o campo vira **Link ou busca** e lista os seus repositórios, com um filtro por serviço, e os privados também podem ser clonados.
+Com **Repositório remoto**, cole o link do repositório; qualquer endereço git funciona. Sem conta conectada, o campo se chama **Link**, e **Seus repositórios** oferece conectar o GitHub ou o GitLab ali mesmo; o Bitbucket e o GitLab da empresa ficam em [**Configurações › Integrações**](/docs/settings#integrações); veja [GitHub, GitLab e Bitbucket](/docs/forges). Com uma conta conectada, o campo vira **Link ou busca** e lista os seus repositórios, com um filtro por serviço, e os privados também podem ser clonados.
 
 O Persisty mostra o repositório, o branch padrão e a conta que vai clonar. O destino sugerido fica ao lado do último workspace do projeto. Num projeto sem workspaces, é a **Pasta padrão para clones**, que vem como `~/Documents/GitHub` e muda em **Configurações › Integrações**. Se a pasta de destino já tiver esse repositório, ele é só adicionado; se tiver outra coisa, mude o nome ou o lugar.
 

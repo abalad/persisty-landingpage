@@ -9,13 +9,13 @@ O [editor](/docs/editor) mostra o Git do arquivo aberto sem você sair dele: o q
 
 ## Marcas na margem
 
-Num arquivo de um repositório, a margem marca as linhas adicionadas, alteradas e apagadas desde o último commit, e as marcas acompanham enquanto você digita. O botão **Diferenças desde o último commit**, na barra das abas, mostra no próprio editor o diff do arquivo contra o HEAD. Fora de um repositório, o botão fica apagado, e a barra de status diz **fora do git**.
+Num arquivo de um repositório, a margem marca as linhas adicionadas, alteradas e apagadas desde o último commit, e as marcas acompanham enquanto você digita. O botão **Diferenças desde o último commit**, na barra das abas, mostra no próprio editor o diff do arquivo contra o HEAD. Num arquivo que não está no último commit, como um arquivo novo ou fora de um repositório, o botão fica apagado, e a barra de status diz **fora do git**.
 
 ## Autor da linha
 
-No fim da linha do cursor, depois de um instante parado, o editor mostra quem mudou a linha, quando e com que mensagem, como "Ana, há 3 d • Corrige o fuso". Uma linha que ainda não foi commitada diz "Você • não commitado". Passar o ponteiro abre o cartão do commit, com **Copiar hash**, **Mostrar o commit**, que abre o commit no [histórico das Alterações](/docs/changes#histórico), e **Abrir na forja**, que abre o arquivo naquele commit, na mesma linha, no GitHub, GitLab ou Bitbucket. Pelo teclado, use **Mostrar o cartão do commit da linha**, na paleta (<kbd>⌘</kbd> <kbd>K</kbd>).
+No fim da linha do cursor, depois de um instante parado, o editor mostra quem mudou a linha, quando e com que mensagem, como "Ana, há 3 d • Corrige o fuso". Depois de 7 dias, aparecem a data e a hora do commit. Uma linha que ainda não foi commitada diz "Você • não commitado". Passar o ponteiro abre o cartão do commit, com **Copiar hash**, **Mostrar o commit**, que abre o commit no [histórico das Alterações](/docs/changes#histórico), e [**Abrir na forja**](/docs/forges#abrir-na-forja), que abre o arquivo naquele commit, na mesma linha, no GitHub, GitLab ou Bitbucket. Pelo teclado, use **Mostrar o cartão do commit da linha**, na paleta (<kbd>⌘</kbd> <kbd>K</kbd>).
 
-Em **Configurações › Editor › Autor da linha (git blame)**, **Mostrar o autor no fim da linha** vem ligado. Com ele ligado, **Autor**, **Data** e **Mensagem** escolhem o que aparece, e **Atraso**, de 300 a 2000 ms, quanto tempo parado antes de aparecer; o padrão é 600 ms.
+Em [**Configurações › Editor › Autor da linha (git blame)**](/docs/settings#editor), **Mostrar o autor no fim da linha** vem ligado. Com ele ligado, **Autor**, **Data** e **Mensagem** escolhem o que aparece, e **Atraso**, de 300 a 2000 ms, quanto tempo parado antes de aparecer; o padrão é 600 ms.
 
 ## Anotar com o git blame
 
@@ -23,7 +23,7 @@ Em **Configurações › Editor › Autor da linha (git blame)**, **Mostrar o au
 
 ## O submenu Git
 
-O botão direito na árvore e na aba tem o submenu **Git**: **Mostrar diff**, **Mostrar histórico**, **Mostrar histórico da seleção**, **Comparar com branch…**, **Comparar com commit…**, **Preparar**, **Tirar da preparação**, **Descartar alterações** e **Anotar com o git blame**. Todos estão também na paleta.
+O botão direito na [árvore](/docs/files) e na [aba](/docs/tabs-and-groups#o-menu-da-aba) tem o submenu **Git**: **Mostrar diff**, **Mostrar histórico**, **Mostrar histórico da seleção**, **Comparar com branch…**, **Comparar com commit…**, **Preparar**, **Tirar da preparação**, **Descartar alterações** e **Anotar com o git blame**. Todos estão também na paleta.
 
 **Mostrar histórico da seleção** usa as linhas selecionadas no código, por isso vale na aba e na paleta, não na árvore. **Preparar**, **Tirar da preparação** e **Descartar alterações** aceitam vários arquivos e pastas; os outros, um arquivo só. Um item que não vale para o que você escolheu fica apagado e diz por quê, como "arquivo não versionado" ou "sem alterações".
 

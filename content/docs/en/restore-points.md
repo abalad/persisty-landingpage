@@ -9,7 +9,7 @@ A restore point is the state of the files in the session's folder at one moment.
 
 ## What is recorded
 
-Each request to Claude Code records the folder's state before the agent starts, named after the request's first line. If nothing changed since the last point, no new point is recorded. The list shows the points from newest to oldest, each with how long ago it was recorded.
+Each request to Claude Code records the folder's state before the agent starts, named after the request's first line. If nothing changed since the last point, no new point is recorded, and that goes for the points before restoring and before discarding too. The list shows the points from newest to oldest, each with how long ago it was recorded.
 
 A point keeps tracked and new files; whatever `.gitignore` ignores is left out. It is stored as a commit under `refs/persist/checkpoints/`, which a regular `git push` does not send. The git branch, HEAD and index do not change.
 
@@ -21,10 +21,10 @@ Restoring first saves the current state as a new point, **Before restoring**, so
 
 ## Before discarding
 
-Discarding changes, in the **Changes** panel or in the **Git** submenu of the editor's tree and tabs, first saves a point called **Before discarding changes**. If that point cannot be recorded, nothing is discarded. To undo a discard, restore that point.
+Discarding changes, in the [**Changes**](/docs/changes#stage-and-discard) panel or in the [**Git**](/docs/git-in-the-editor#the-git-submenu) submenu of the editor's tree and tabs, first saves a point called **Before discarding changes**. If that point cannot be recorded, nothing is discarded. To undo a discard, restore that point.
 
 ## Plan and limits
 
-Recording a point on every request is Pro. The point before discarding is recorded on every plan, and the list shows and restores saved points on every plan, also after Pro ends.
+Recording a point on every request is [Pro](/docs/pro). The point before discarding is recorded on every plan, and the list shows and restores saved points on every plan, also after Pro ends.
 
-Points only exist in git folders. The points per request rely on the Claude Code hook that reports the request; Codex CLI records none. There are 50 per session, and the oldest go first. Closing the session deletes its points.
+Points only exist in git folders. The points per request rely on the Claude Code hook that reports the request; by default, Codex CLI records none. There are 50 per session, and the oldest go first. Closing the session deletes its points.

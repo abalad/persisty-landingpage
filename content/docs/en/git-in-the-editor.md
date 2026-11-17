@@ -9,13 +9,13 @@ The [editor](/docs/editor) shows the open file's Git without you leaving it: wha
 
 ## Gutter marks
 
-In a file inside a repository, the gutter marks the lines added, changed and deleted since the last commit, and the marks keep up as you type. The **Changes since the last commit** button, on the tab bar, shows the file's diff against HEAD in the editor itself. Outside a repository, the button is greyed out, and the status bar says **not in git**.
+In a file inside a repository, the gutter marks the lines added, changed and deleted since the last commit, and the marks keep up as you type. The **Changes since the last commit** button, on the tab bar, shows the file's diff against HEAD in the editor itself. For a file that is not in the last commit, such as a new file or one outside a repository, the button is greyed out, and the status bar says **not in git**.
 
 ## Line author
 
-At the end of the cursor's line, after a moment's pause, the editor shows who changed the line, when and with what message, such as "Ana, 3 d ago • Fix the time zone". A line not committed yet says "You • not committed". Hovering opens the commit card, with **Copy hash**, **Show the commit**, which opens the commit in the [Changes history](/docs/changes#history), and **Open on the forge**, which opens the file at that commit, on the same line, on GitHub, GitLab or Bitbucket. From the keyboard, use **Show the line's commit card**, in the palette (<kbd>⌘</kbd> <kbd>K</kbd>).
+At the end of the cursor's line, after a moment's pause, the editor shows who changed the line, when and with what message, such as "Ana, 3 d ago • Fix the time zone". After 7 days, the commit's date and time show instead. A line not committed yet says "You • not committed". Hovering opens the commit card, with **Copy hash**, **Show the commit**, which opens the commit in the [Changes history](/docs/changes#history), and [**Open on the forge**](/docs/forges#open-on-the-forge), which opens the file at that commit, on the same line, on GitHub, GitLab or Bitbucket. From the keyboard, use **Show the line's commit card**, in the palette (<kbd>⌘</kbd> <kbd>K</kbd>).
 
-In **Settings › Editor › Line author (git blame)**, **Show the author at the end of the line** is on by default. While it is on, **Author**, **Date** and **Message** choose what shows, and **Delay**, from 300 to 2000 ms, how long you stay still before it shows; the default is 600 ms.
+In [**Settings › Editor › Line author (git blame)**](/docs/settings#editor), **Show the author at the end of the line** is on by default. While it is on, **Author**, **Date** and **Message** choose what shows, and **Delay**, from 300 to 2000 ms, how long you stay still before it shows; the default is 600 ms.
 
 ## Annotate with Git Blame
 
@@ -23,7 +23,7 @@ In **Settings › Editor › Line author (git blame)**, **Show the author at the
 
 ## The Git submenu
 
-Right-clicking the tree or a tab offers the **Git** submenu: **Show Diff**, **Show History**, **Show History for Selection**, **Compare with Branch…**, **Compare with Commit…**, **Stage**, **Unstage**, **Discard Changes** and **Annotate with Git Blame**. They are all in the palette too.
+Right-clicking the [tree](/docs/files) or a [tab](/docs/tabs-and-groups#the-tab-menu) offers the **Git** submenu: **Show Diff**, **Show History**, **Show History for Selection**, **Compare with Branch…**, **Compare with Commit…**, **Stage**, **Unstage**, **Discard Changes** and **Annotate with Git Blame**. They are all in the palette too.
 
 **Show History for Selection** uses the lines selected in the code, so it works from the tab and the palette, not from the tree. **Stage**, **Unstage** and **Discard Changes** take several files and folders; the others, a single file. An item that does not apply to what you picked is greyed out and says why, such as "file not under version control" or "no changes".
 

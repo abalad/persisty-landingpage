@@ -15,7 +15,7 @@ An answer that left work in the background only tells you when that work is over
 
 ## Set them up
 
-**Settings › Notifications** has three switches, all on to begin with. **In-app alerts** turns the corner alert on, and **Play a sound** turns the two tones on. **Mute while Persisty is focused** leaves the system notification out while the window is in focus; turned off, you get the alert and the notification at the same time.
+[**Settings › Notifications**](/docs/settings#notifications) has three switches, all on to begin with. **In-app alerts** turns the corner alert on, and **Play a sound** turns the two tones on. **Mute while Persisty is focused** leaves the system notification out while the window is in focus; turned off, you get the alert and the notification at the same time.
 
 ## Send a test
 
@@ -25,4 +25,4 @@ If the system notification does not show, check that Persisty is allowed in the 
 
 ## Plan and limits
 
-Notifications are on the free plan and come while Persisty is open. They rely on Claude Code's hooks: Codex CLI does not send its state yet and gives no notices.
+Notifications are on the free plan and come while Persisty is open. They rely on Claude Code's hooks: by default, Codex CLI does not send its state to Persisty and gives no notices.

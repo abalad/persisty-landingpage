@@ -9,7 +9,7 @@ Check on finish runs a workspace command, such as `pnpm test`, when the agent en
 
 ## Choose the command
 
-In the workspace command picker, beside the tabs, choose the command, for example `pnpm test`. Open the picker again: below the list is **Check on finish with** followed by its name. One click turns it on, with a tick, and another turns it off. The command applies to the whole workspace: all its agent sessions use the same one. If another command is already chosen, the menu shows **Now:** with it.
+In the [workspace command](/docs/commands) picker, beside the tabs, choose the command, for example `pnpm test`. Open the picker again: below the list is **Check on finish with** followed by its name. One click turns it on, with a tick, and another turns it off. The command applies to the whole workspace: all its agent sessions use the same one. If another command is already chosen, the menu shows **Now:** with it.
 
 ## When it runs
 
@@ -21,4 +21,4 @@ The session header shows **Check** with the result: **running**, **passed**, **f
 
 ## Plan and limits
 
-Check on finish is Pro; without it, the menu item shows the **Pro** tag. It applies to Claude Code sessions inside a workspace, in git folders, because it relies on the hooks that report the request and the end of the turn. Codex CLI does not trigger the check.
+Check on finish is [Pro](/docs/pro); without it, the menu item shows the **Pro** tag. It applies to Claude Code sessions inside a workspace, in git folders, because it relies on the hooks that report the request and the end of the turn. By default, Codex CLI does not trigger the check.

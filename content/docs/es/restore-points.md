@@ -9,7 +9,7 @@ Un punto de restauración es el estado de los archivos de la carpeta de la sesi�
 
 ## Qué se graba
 
-Cada pedido a Claude Code graba el estado de la carpeta antes de que el agente empiece, con la primera línea del pedido como nombre. Si nada cambió desde el último punto, no se graba uno nuevo. La lista muestra los puntos del más nuevo al más antiguo, cada uno con hace cuánto se grabó.
+Cada pedido a Claude Code graba el estado de la carpeta antes de que el agente empiece, con la primera línea del pedido como nombre. Si nada cambió desde el último punto, no se graba uno nuevo, y eso vale también para los puntos de antes de restaurar y de antes de descartar. La lista muestra los puntos del más nuevo al más antiguo, cada uno con hace cuánto se grabó.
 
 Un punto guarda los archivos rastreados y los nuevos; lo que ignora el `.gitignore` queda fuera. Queda como un commit en `refs/persist/checkpoints/`, que un `git push` común no envía. La rama, el HEAD y el índice de git no cambian.
 
@@ -21,10 +21,10 @@ Restaurar guarda antes el estado actual como un punto nuevo, **Antes de restaura
 
 ## Antes de descartar
 
-Descartar cambios, en el panel **Cambios** (*Changes*) o en el submenú **Git** del árbol y de la pestaña del editor, guarda antes un punto llamado **Antes de descartar cambios** (*Before discarding changes*). Si ese punto no se puede grabar, no se descarta nada. Para deshacer un descarte, restaura ese punto.
+Descartar cambios, en el panel [**Cambios**](/docs/changes#preparar-y-descartar) (*Changes*) o en el submenú [**Git**](/docs/git-in-the-editor#el-submenú-git) del árbol y de la pestaña del editor, guarda antes un punto llamado **Antes de descartar cambios** (*Before discarding changes*). Si ese punto no se puede grabar, no se descarta nada. Para deshacer un descarte, restaura ese punto.
 
 ## Plan y límites
 
-Grabar un punto en cada pedido es Pro. El punto antes de descartar se graba en cualquier plan, y la lista muestra y restaura los puntos guardados en cualquier plan, también cuando el Pro termina.
+Grabar un punto en cada pedido es [Pro](/docs/pro). El punto antes de descartar se graba en cualquier plan, y la lista muestra y restaura los puntos guardados en cualquier plan, también cuando el Pro termina.
 
-Los puntos solo existen en carpetas git. Los puntos por pedido dependen del hook de Claude Code que avisa el pedido; Codex CLI no graba ninguno. Son 50 por sesión, y los más antiguos salen primero. Cerrar la sesión borra sus puntos.
+Los puntos solo existen en carpetas git. Los puntos por pedido dependen del hook de Claude Code que avisa el pedido; por defecto, Codex CLI no graba ninguno. Son 50 por sesión, y los más antiguos salen primero. Cerrar la sesión borra sus puntos.

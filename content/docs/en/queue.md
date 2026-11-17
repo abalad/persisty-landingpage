@@ -9,13 +9,13 @@ The queue holds the next requests for an agent and hands them over one at a time
 
 ## Queue a request
 
-Write the request in the box, choose when it goes and click **Queue it**, or use <kbd>⌘</kbd> <kbd>↵</kbd>. On Windows and Linux, the keys on this page use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd> and <kbd>Alt</kbd> instead of <kbd>⌥</kbd>.
+Write the request in the box, choose when it goes and click **Queue it**, or use <kbd>⌘</kbd> <kbd>↵</kbd>. On Windows and Linux, which are in preview, the keys on this page use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd> and <kbd>Alt</kbd> instead of <kbd>⌥</kbd>.
 
 The queue's header says what the agent is doing, such as **Working**, **Done, ready for the next one** or **Asking for permission**. Waiting requests are numbered under **Up next**, in the order they will go, with when each one goes and why the ones below are waiting, such as "waiting for no. 1". The first one has the **next** tag. Sent requests fold away at the bottom, under **Sent**. In the session's bar, the queue icon shows how many requests are waiting, also with the panel closed.
 
 ## When each request goes
 
-Beside the box, choose when the request goes: **As soon as the agent is free**, **When the 5-hour window renews** or **From a chosen time**, which you set. The 5-hour window uses the time read from the live quota of the session's own account; while that time is not known, the option is disabled.
+Beside the box, choose when the request goes: **As soon as the agent is free**, **When the 5-hour window renews** or **From a chosen time**, which you set. The [5-hour window](/docs/usage-and-quota#the-5-h-and-7-d-windows) uses the time read from the live quota of the session's own account; while that time is not known, the option is disabled.
 
 A chosen time is only the earliest: the request still waits for the agent to be free and for the requests above it to go.
 
@@ -27,7 +27,7 @@ Editing puts the text back in the box, and the queue waits while you edit. If yo
 
 ## Images
 
-The box takes images: <kbd>⌘</kbd> <kbd>V</kbd>, dragging onto the box or the paperclip, **Attach images**. Up to 8 per request, of up to 10 MB each, in PNG, JPEG, GIF or WebP. They stay on this computer, and the agent gets their paths at the end of the request, on a line that starts with `Images:`. If an image disappears from the disk before its time, the request does not go, and **Sent** says why. In Codex CLI, images have not been verified yet.
+The box takes images: <kbd>⌘</kbd> <kbd>V</kbd>, dragging onto the box or the paperclip, **Attach images**. Up to 8 per request, of up to 10 MB each, in PNG, JPEG, GIF or WebP. They stay on this computer, and the agent gets their paths at the end of the request, on a line that starts with `Images:`, or `Imagens:` with the app in Portuguese. If an image disappears from the disk before its time, the request does not go, and **Sent** says why. In Codex CLI, images have not been verified yet.
 
 ## How requests reach the agent
 
@@ -39,6 +39,6 @@ When the account runs out of quota, the queue waits for the window to renew; see
 
 ## Plan and limits
 
-Only writing, editing and attaching images are Pro. On the free plan, requests already in the queue still go and can be paused, resumed, reordered, sent next or taken out, and **Let the queue go now** works too.
+Only writing, editing and attaching images are [Pro](/docs/pro). On the free plan, requests already in the queue still go and can be paused, resumed, reordered, sent next or taken out, and **Let the queue go now** works too.
 
-The queue is checked every 10 seconds while Persisty is open. With the app closed, nothing is sent. The queue is for agent sessions only. If the session ends, the requests that were waiting leave the queue with the note **the session ended first**. In Codex CLI, Persisty does not receive the agent's state yet, so it cannot tell when the agent is free, and requests do not go.
+The queue is checked every 10 seconds while Persisty is open. With the app closed, nothing is sent. The queue is for agent sessions only. If the session ends, the requests that were waiting leave the queue with the note **the session ended first**. By default, Persisty does not receive Codex CLI's state, so it cannot tell when the agent is free, and requests do not go.

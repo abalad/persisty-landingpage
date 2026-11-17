@@ -9,7 +9,7 @@ Cada arquivo aberto no [editor](/docs/editor) ganha uma aba. O editor pode se di
 
 ## O menu da aba
 
-O botão direito numa aba, ou <kbd>⇧</kbd> <kbd>F10</kbd> com a aba em foco, abre o menu dela. Nele ficam todas as formas de fechar, **Copiar caminho**, as divisões do editor, **Fixar aba**, **Configurar as abas**, **Maximizar o editor**, **Trocar tipo do arquivo…**, **Abrir em**, o submenu **Git**, **Renomear arquivo…** e **Recarregar do disco**. Um item que não vale para aquela aba fica apagado e diz por quê, como "é a única aba". As abas de diff e de histórico do Git têm só as formas de fechar.
+O botão direito numa aba, ou <kbd>⇧</kbd> <kbd>F10</kbd> com a aba em foco, abre o menu dela. Nele ficam todas as formas de fechar, **Copiar caminho**, as divisões do editor, **Fixar aba**, **Configurar as abas**, **Maximizar o editor**, **Trocar tipo do arquivo…**, **Abrir em**, o submenu [**Git**](/docs/git-in-the-editor#o-submenu-git), **Renomear arquivo…** e **Recarregar do disco**. Um item que não vale para aquela aba fica apagado e diz por quê, como "é a única aba". As abas de diff e de histórico do Git têm só as formas de fechar.
 
 ## Trocar de aba
 
@@ -39,17 +39,17 @@ Pelo teclado, com a aba em foco, <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> e 
 
 **Dividir à direita** e **Dividir embaixo**, no menu da aba e na paleta, abrem o mesmo arquivo num grupo novo. **Dividir e mover à direita** e **Dividir e mover embaixo** levam a aba para o grupo novo. São até quatro grupos; sem espaço no painel, o item diz para maximizar o editor. A divisória entre dois grupos se arrasta, ou anda pelas setas com ela em foco.
 
-Na árvore, **Abrir no lado direito** abre o arquivo num grupo à direita. **Fechar o grupo** e as ações de focar o grupo à esquerda, à direita, de cima ou de baixo estão na paleta.
+Na [árvore](/docs/files), **Abrir no lado direito** abre o arquivo num grupo à direita. **Fechar o grupo** e as ações de focar o grupo à esquerda, à direita, de cima ou de baixo estão na paleta.
 
 O mesmo arquivo em dois grupos tem o texto em sincronia, e cada lado tem o seu desfazer. Só um deles conversa com o servidor da linguagem: o outro fica sem sugestões nem erros, e a barra de status diz "no outro grupo".
 
 ## Maximizar
 
-**Maximizar o editor**, no botão da barra das abas, no menu da aba e na paleta, esconde o terminal para caber mais código. O mesmo botão, ou o mesmo comando, devolve a divisão de antes.
+**Maximizar o editor**, no botão da barra das abas, no menu da aba e na paleta, esconde o terminal para caber mais código. O mesmo botão, então com a dica **Voltar ao tamanho de antes**, ou o mesmo comando, devolve a divisão de antes.
 
 ## Opções das abas
 
-Em **Configurações › Editor › Abas**, o **Limite de abas** vem em 20, e pode ser 10, 30, 50 ou **Sem limite**. Abrir uma aba a mais fecha a menos usada; as fixadas e as não gravadas ficam, e baixar o limite não fecha nada na hora. **Ao fechar, ir para** escolhe entre **A aba usada antes**, o padrão, e **A aba vizinha**. **Abrir aba nova** põe a aba **No fim**, o padrão, ou **Logo depois da atual**. **Mostrar a pasta em nomes repetidos** vem ligado, e **Marcar abas não gravadas** usa um **Ponto** ou o **Nome em itálico**.
+Em [**Configurações › Editor › Abas**](/docs/settings#editor), o **Limite de abas** vem em 20, e pode ser 10, 30, 50 ou **Sem limite**. Abrir uma aba a mais fecha a menos usada; as fixadas e as não gravadas ficam, e baixar o limite não fecha nada na hora. **Ao fechar, ir para** escolhe entre **A aba usada antes**, o padrão, e **A aba vizinha**. **Abrir aba nova** põe a aba **No fim**, o padrão, ou **Logo depois da atual**. **Mostrar a pasta em nomes repetidos** vem ligado, e **Marcar abas não gravadas** usa um **Ponto** ou o **Nome em itálico**.
 
 A **Aba de prévia** vem desligada. Ligada, o clique na árvore abre uma aba que o próximo clique troca; editar, ou clicar duas vezes na aba, a mantém. **Configurar as abas**, no menu da aba, leva direto a essa tela.
 
@@ -61,7 +61,7 @@ A **Aba de prévia** vem desligada. Ligada, o clique na árvore abre uma aba que
 | --- | --- |
 | Maximizar o editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
 | Próximo grupo e grupo anterior | <kbd>⌥</kbd> <kbd>Tab</kbd> e <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
-| Abrir o arquivo à direita (na árvore) | <kbd>⇧</kbd> <kbd>↵</kbd> |
+| Abrir no lado direito (na árvore) | <kbd>⇧</kbd> <kbd>↵</kbd> |
 
 No mapa do VS Code, essas ações ficam na paleta e no menu da aba. No Windows e no Linux, que estão em prévia, mover a aba é <kbd>Alt</kbd> <kbd>⇧</kbd> com as setas, maximizar é <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>F12</kbd>, e trocar de grupo fica na paleta.
 

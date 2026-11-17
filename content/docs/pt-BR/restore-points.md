@@ -9,7 +9,7 @@ Um ponto de restauração é o estado dos arquivos da pasta da sessão num momen
 
 ## O que é gravado
 
-Cada pedido ao Claude Code grava o estado da pasta antes de o agente começar, com a primeira linha do pedido como nome. Se nada mudou desde o último ponto, nenhum ponto novo é gravado. A lista mostra os pontos do mais novo para o mais antigo, cada um com há quanto tempo foi gravado.
+Cada pedido ao Claude Code grava o estado da pasta antes de o agente começar, com a primeira linha do pedido como nome. Se nada mudou desde o último ponto, nenhum ponto novo é gravado, e isso vale também para os pontos de antes de restaurar e de antes de descartar. A lista mostra os pontos do mais novo para o mais antigo, cada um com há quanto tempo foi gravado.
 
 O ponto guarda os arquivos rastreados e os novos; o que o `.gitignore` ignora fica de fora. Ele fica como um commit em `refs/persist/checkpoints/`, que um `git push` comum não envia. Branch, HEAD e índice do git não mudam.
 
@@ -21,10 +21,10 @@ Restaurar guarda antes o estado de agora como um ponto novo, **Antes de restaura
 
 ## Antes de descartar
 
-Descartar alterações, no painel **Alterações** ou no submenu **Git** da árvore e da aba do editor, guarda antes um ponto chamado **Antes de descartar alterações**. Se esse ponto não puder ser gravado, nada é descartado. Para desfazer um descarte, restaure esse ponto.
+Descartar alterações, no painel [**Alterações**](/docs/changes#preparar-e-descartar) ou no submenu [**Git**](/docs/git-in-the-editor#o-submenu-git) da árvore e da aba do editor, guarda antes um ponto chamado **Antes de descartar alterações**. Se esse ponto não puder ser gravado, nada é descartado. Para desfazer um descarte, restaure esse ponto.
 
 ## Plano e limites
 
-Gravar um ponto a cada pedido é do Pro. O ponto antes de descartar é gravado em qualquer plano, e a lista mostra e restaura os pontos guardados em qualquer plano, também depois que o Pro acaba.
+Gravar um ponto a cada pedido é do [Pro](/docs/pro). O ponto antes de descartar é gravado em qualquer plano, e a lista mostra e restaura os pontos guardados em qualquer plano, também depois que o Pro acaba.
 
-Os pontos só existem em pastas git. Os pontos por pedido dependem do hook do Claude Code que avisa o pedido; o Codex CLI não grava. São 50 por sessão, e os mais antigos saem. Fechar a sessão apaga os pontos dela.
+Os pontos só existem em pastas git. Os pontos por pedido dependem do hook do Claude Code que avisa o pedido; por padrão, o Codex CLI não grava. São 50 por sessão, e os mais antigos saem. Fechar a sessão apaga os pontos dela.

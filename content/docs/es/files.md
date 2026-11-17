@@ -19,7 +19,7 @@ Los archivos que git ignora aparecen atenuados, y `.git` nunca aparece. Arriba d
 
 ## Renombrar, mover y copiar
 
-**Renombrar…** (*Rename…*) edita el nombre en la propia fila, y las pestañas abiertas siguen al archivo con el texto sin guardar y el deshacer. En la pestaña del editor, lo mismo está en **Renombrar archivo…** (*Rename File…*).
+**Renombrar…** (*Rename…*) edita el nombre en la propia fila, y las pestañas abiertas siguen al archivo con el texto sin guardar y el deshacer. En la [pestaña del editor](/docs/tabs-and-groups#el-menú-de-la-pestaña), lo mismo está en **Renombrar archivo…** (*Rename File…*).
 
 **Refactorizar › Mover…** (*Refactor › Move…*) y **Refactorizar › Copiar…** (*Refactor › Copy…*) eligen la carpeta de destino en una lista con búsqueda. Arrastrar elementos sobre una carpeta también los mueve, y con <kbd>⌥</kbd> presionado los copia. Mientras arrastras, el nombre del elemento sigue al puntero, la carpeta de destino queda resaltada, y una carpeta cerrada se abre si el puntero se queda sobre ella. Donde no se puede soltar, el árbol dice por qué, como "ya está aquí" (*already here*). <kbd>Esc</kbd> cancela el arrastre.
 
@@ -39,9 +39,9 @@ Las copias y los movimientos grandes muestran el avance debajo del árbol y se p
 
 ## Abrir en
 
-**Abrir en** (*Open in*), en el árbol y en la pestaña, lleva el elemento a otro lugar: **Mostrar en Finder** (*Reveal in Finder*), **Terminal en la carpeta** (*Terminal in folder*), que abre una sesión de terminal nueva en la carpeta del elemento, **Abrir con la app por defecto** (*Open with the default app*), **Abrir en el navegador** (*Open in the browser*, solo HTML, HTM y SVG), tu IDE en la línea del cursor y la página del archivo en GitHub, GitLab o Bitbucket. En una rama que nunca se envió, la página de la forja es la del commit actual.
+**Abrir en** (*Open in*), en el árbol y en la pestaña, lleva el elemento a otro lugar: **Mostrar en Finder** (*Reveal in Finder*), **Terminal en la carpeta** (*Terminal in folder*), que abre una sesión de terminal nueva en la carpeta del elemento, **Abrir con la app por defecto** (*Open with the default app*), **Abrir en el navegador** (*Open in the browser*, solo HTML, HTM y SVG), tu IDE en la línea del cursor y la [página del archivo](/docs/forges#abrir-en-la-forja) en GitHub, GitLab o Bitbucket. En una rama que nunca se envió, la página de la forja es la del commit actual.
 
-La IDE es la que eliges en **Configuración › Workspace › IDE por defecto** (*Settings › Workspace › Default IDE*), entre las que Persisty encuentra en la computadora; por defecto es **Ninguno** (*None*). La misma IDE abre la carpeta de la sesión desde el menú de la pestaña de la sesión, desde la paleta y desde el proyecto.
+La IDE es la que eliges en [**Configuración › Workspace › IDE por defecto**](/docs/settings#workspace) (*Settings › Workspace › Default IDE*), entre las que Persisty encuentra en la computadora; por defecto es **Ninguno** (*None*). La misma IDE abre la carpeta de la sesión desde el menú de la pestaña de la sesión, desde la paleta y desde el proyecto.
 
 ## Copiar ruta
 
@@ -49,7 +49,7 @@ La IDE es la que eliges en **Configuración › Workspace › IDE por defecto** 
 
 ## Recargar del disco
 
-**Recargar del disco** (*Reload from Disk*) lee de nuevo lo que cambió fuera del editor. En un archivo abierto con cambios sin guardar, pregunta antes, porque esos cambios se pierden. En una carpeta, vuelve a listar su contenido. Para volver a listar todo el árbol, usa **Actualizar**, arriba de la lista.
+**Recargar del disco** (*Reload from Disk*) lee de nuevo lo que cambió fuera del editor. En un archivo abierto con cambios sin guardar, pregunta antes, porque esos cambios se pierden. En una carpeta, vuelve a listar su contenido. Para volver a listar todo el árbol, usa **Actualizar**, arriba de la lista. **Sincronizar el árbol** (*Synchronize the Tree*), <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> en los mapas WebStorm, hace lo mismo y además revisa en el momento si los archivos abiertos cambiaron en el disco.
 
 ## Cambiar el tipo de archivo
 
@@ -72,9 +72,9 @@ En **Configuración › Archivos** (*Settings › Files*), **Ocultar archivos** 
 | Eliminar | <kbd>⌫</kbd> o <kbd>⌘</kbd> <kbd>⌫</kbd> |
 | Copiar ruta (también en la pestaña y en el código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referencia (*Copy Reference*; también en la pestaña y en el código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
-| Sincronizar el árbol con la carpeta (*Synchronize the Tree*) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+| Sincronizar el árbol | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
 
-En el mapa de VS Code, esas acciones están en el menú. En WebStorm (macOS), <kbd>⌘</kbd> <kbd>N</kbd> abre **Nuevo** solo con el foco en el árbol; fuera de él, abre una terminal nueva. **Configuración › Atajos** (*Settings › Shortcuts*) tiene el grupo **Archivos**, con dónde vale cada tecla: en el árbol, en la pestaña o en el editor.
+En el mapa de VS Code, esas acciones están en el menú. En WebStorm (macOS), <kbd>⌘</kbd> <kbd>N</kbd> abre **Nuevo** solo con el foco en el árbol; fuera de él, abre una terminal nueva. [**Configuración › Atajos**](/docs/shortcuts#archivos) (*Settings › Shortcuts*) tiene el grupo **Archivos**, con dónde vale cada tecla: en el árbol, en la pestaña o en el editor.
 
 En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, <kbd>Supr</kbd> elimina, y **Nuevo** es <kbd>Alt</kbd> <kbd>Insert</kbd>. El Finder da lugar al Explorador de archivos o al gestor de archivos.
 

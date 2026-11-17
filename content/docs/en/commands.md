@@ -31,6 +31,6 @@ While the command runs, its tab shows the command's terminal, live. Once it ends
 
 ## Plan and limits
 
-Workspace commands are on the free plan. **Check on finish with…**, in the same picker, is Pro; see [Check on finish](/docs/verify).
+Workspace commands are on the free plan. **Check on finish with** and the command's name, in the same picker, is [Pro](/docs/pro); see [Check on finish](/docs/verify).
 
 Persisty only looks for commands at the root of the workspace folder, not in subfolders. On Windows and Linux, which are in preview, use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>.

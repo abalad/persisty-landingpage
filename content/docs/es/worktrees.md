@@ -9,13 +9,13 @@ En carpetas git, una sesión nueva puede recibir una rama `persist/<nombre>` en 
 
 ## Crear la carpeta
 
-En **Nueva sesión** (*New session*), con una carpeta git, activa **Carpeta propia (worktree)** (*Own folder (worktree)*). La pista muestra la rama nueva y desde dónde parte, como "New branch persist/pagamento-pix from main, in a folder for this session only." El nombre sale del nombre de la sesión, en minúsculas y sin acentos, y recibe un número si ya existe; cámbialo en **Rama nueva** (*New branch*). La rama parte de lo que está en uso en la carpeta ahora.
+En [**Nueva sesión**](/docs/sessions#nueva-sesión) (*New session*), con una carpeta git, activa **Carpeta propia (worktree)** (*Own folder (worktree)*). La pista muestra la rama nueva y desde dónde parte, como "New branch persist/pagamento-pix from main, in a folder for this session only." El nombre sale del nombre de la sesión, en minúsculas y sin acentos, y recibe un número si ya existe; cámbialo en **Rama nueva** (*New branch*). La rama parte de lo que está en uso en la carpeta ahora.
 
-La sesión se abre en la carpeta nueva, en la misma subcarpeta que elegiste, y el encabezado muestra la marca `worktree`; al pasar el puntero se ven la carpeta y la rama. Vale para cualquier sesión, de agente o de terminal. La carpeta nueva no trae lo que git ignora, como `node_modules`, `.env` y builds.
+La sesión se abre en la carpeta nueva, en la misma subcarpeta que elegiste, y el encabezado muestra la marca `worktree`; al pasar el puntero se ven la carpeta y la rama. Vale para cualquier sesión, de agente o de terminal. La carpeta nueva solo trae lo que está en el commit de partida: los cambios sin commit y lo que git ignora, como `node_modules`, `.env` y builds, se quedan en la carpeta original.
 
 ## Dónde quedan
 
-Las carpetas quedan en `~/.persist/worktrees`, una por repositorio. Para usar otra, haz clic en **Elegir…** (*Choose…*) en **Configuración › Workspace › Carpeta de los worktrees** (*Settings › Workspace › Worktrees folder*); **Usar la predeterminada** (*Use the default*) vuelve a la de siempre. El cambio vale para worktrees nuevos, y los que ya existen se quedan donde están.
+Las carpetas quedan en `~/.persist/worktrees`, agrupadas en una carpeta por repositorio. Para usar otra, haz clic en **Elegir…** (*Choose…*) en [**Configuración › Workspace › Carpeta de los worktrees**](/docs/settings#workspace) (*Settings › Workspace › Worktrees folder*); **Usar la predeterminada** (*Use the default*) vuelve a la de siempre. El cambio vale para worktrees nuevos, y los que ya existen se quedan donde están.
 
 ## Cerrar la sesión
 
@@ -25,4 +25,4 @@ La rama se queda en el repositorio en todos los casos: Persisty nunca borra la r
 
 ## Plan y límites
 
-La carpeta propia es Pro; sin él, la opción aparece desactivada, con la marca **Pro**. Solo existe en carpetas git.
+La carpeta propia es [Pro](/docs/pro); sin él, la opción aparece desactivada, con la marca **Pro**. Solo existe en carpetas git.

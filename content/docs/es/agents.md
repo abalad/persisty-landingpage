@@ -23,7 +23,7 @@ En una terminal común, la sesión muestra **Ejecutando** (*Running*), con el no
 
 ## Trabajo en segundo plano
 
-Cuando Claude Code termina la respuesta pero deja un subagente o un comando en segundo plano, la sesión se queda en **Trabajando** hasta que ese trabajo acaba. La cola de pedidos, el aviso de concluido y la verificación al terminar esperan ese mismo final.
+Cuando Claude Code termina la respuesta pero deja un subagente o un comando en segundo plano, la sesión se queda en **Trabajando** hasta que ese trabajo acaba. La [cola de pedidos](/docs/queue), el aviso de concluido y la [verificación al terminar](/docs/verify) esperan ese mismo final.
 
 Un subagente cuenta como trabajo mientras da señales de vida, hasta 2 horas sin noticias suyas. Un comando en segundo plano, como un servidor de desarrollo, no da noticias: cuenta durante 10 minutos después de que termina la respuesta. Pasado ese tiempo, la sesión muestra el estado en que se quedó Claude Code.
 
@@ -37,9 +37,9 @@ Si Claude Code muestra el aviso de confianza de la carpeta ("Yes, I trust this f
 
 ## Codex CLI
 
-Codex CLI se abre y persiste como cualquier sesión: tiene pestaña y línea en la tarjeta del workspace, y Persisty reconecta la terminal cuando vuelves a abrir la app con él todavía en marcha.
+Codex CLI se abre y persiste como cualquier sesión: tiene pestaña y línea en la tarjeta del workspace, y, cuando vuelves a abrir Persisty, la terminal se reconecta si su proceso todavía existe.
 
-Dos cosas todavía no funcionan. La primera es el estado: Persisty no modifica la configuración de Codex y no recibe sus eventos, así que la sesión aparece como **Inactivo** mientras corre y no envía notificaciones. La segunda es retomar la conversación: después de un reinicio de la computadora, la sesión vuelve como una terminal común en su carpeta, sin Codex, y el informe de restauración dice **Relanzada** (*Relaunched*).
+Por defecto, dos cosas todavía no funcionan. La primera es el estado: como Persisty no modifica la configuración de Codex, no recibe sus eventos, y la sesión aparece como **Inactivo** mientras corre y no envía notificaciones. La segunda es retomar la conversación: después de un reinicio de la computadora, la sesión vuelve como una terminal común en su carpeta, sin Codex, y el informe de restauración dice **Relanzada** (*Relaunched*).
 
 ## Modelo por sesión
 
@@ -47,7 +47,7 @@ En Claude Code, la barra inferior de la sesión tiene un selector de modelo. La 
 
 ## Agente por defecto
 
-<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> abre directamente una sesión con el agente por defecto en el workspace actual, y en <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> ya viene elegido. En **Configuración › Agentes › Agente por defecto** (*Settings › Agents › Default agent*), elige entre **Claude Code**, que es el predeterminado, **Codex CLI** y **Terminal**. Un agente que no está en la computadora aparece con "(no instalado)" (*not installed*) junto al nombre. Si es el elegido, se usa Claude Code o, sin él, Codex CLI; sin ninguno de los dos, se abre una terminal.
+<kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> abre directamente una sesión con el agente por defecto en el workspace actual, y en <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> ya viene elegido. En [**Configuración › Agentes › Agente por defecto**](/docs/settings#agentes) (*Settings › Agents › Default agent*), elige entre **Claude Code**, que es el predeterminado, **Codex CLI** y **Terminal**. Un agente que no está en la computadora aparece con "(no instalado)" (*not installed*) junto al nombre. Si es el elegido, se usa Claude Code o, sin él, Codex CLI; sin ninguno de los dos, se abre una terminal.
 
 ## Agentes detectados
 
@@ -55,4 +55,10 @@ En la misma pantalla, **Agentes detectados** (*Detected agents*) muestra Claude 
 
 ## Herramientas para los agentes
 
-En la misma pantalla, **Herramientas de Persisty en los agentes** (*Persisty tools in agents*) deja que Claude Code lea el proyecto, las otras sesiones y la salida de los comandos del workspace; mira [Agentes que leen Persisty](/docs/agent-access). Los servidores MCP de otros servicios, como GitHub, Sentry o Supabase, están en [Servidores MCP](/docs/mcp-servers).
+En la misma pantalla, **Herramientas de Persisty en los agentes** (*Persisty tools in agents*) deja que Claude Code lea el proyecto, las otras sesiones y la salida de los [comandos del workspace](/docs/commands); mira [Agentes que leen Persisty](/docs/agent-access). Los servidores MCP de otros servicios, como GitHub, Sentry o Supabase, están en [Servidores MCP](/docs/mcp-servers).
+
+## Plan y límites
+
+Todo lo de esta página es del plan gratuito.
+
+El estado, el trabajo en segundo plano y la retomada de la conversación dependen de los hooks de Claude Code. Con Codex CLI, por defecto, Persisty solo abre la sesión y reconecta la terminal; mira [Codex CLI](#codex-cli).

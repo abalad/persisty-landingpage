@@ -9,7 +9,7 @@ Each file open in the [editor](/docs/editor) gets a tab. The editor can split in
 
 ## The tab menu
 
-Right-clicking a tab, or <kbd>⇧</kbd> <kbd>F10</kbd> with the tab in focus, opens its menu. It holds every way to close, **Copy path**, the editor splits, **Pin Tab**, **Configure Tabs**, **Maximize the editor**, **Change File Type…**, **Open in**, the **Git** submenu, **Rename File…** and **Reload from Disk**. An item that does not apply to that tab is greyed out and says why, such as "it is the only tab". Git diff and history tabs have only the ways to close.
+Right-clicking a tab, or <kbd>⇧</kbd> <kbd>F10</kbd> with the tab in focus, opens its menu. It holds every way to close, **Copy path**, the editor splits, **Pin Tab**, **Configure Tabs**, **Maximize the editor**, **Change File Type…**, **Open in**, the [**Git**](/docs/git-in-the-editor#the-git-submenu) submenu, **Rename File…** and **Reload from Disk**. An item that does not apply to that tab is greyed out and says why, such as "it is the only tab". Git diff and history tabs have only the ways to close.
 
 ## Switch tabs
 
@@ -39,17 +39,17 @@ From the keyboard, with the tab in focus, <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←
 
 **Split Right** and **Split Down**, on the tab menu and in the palette, open the same file in a new group. **Split and Move Right** and **Split and Move Down** take the tab to the new group. There are up to four groups; with no room left in the panel, the item tells you to maximize the editor. The divider between two groups can be dragged, or moved with the arrows while it has focus.
 
-In the tree, **Open on the Right** opens the file in a group on the right. **Close Group** and the actions that focus the group to the left, right, above or below are in the palette.
+In the [tree](/docs/files), **Open on the Right** opens the file in a group on the right. **Close Group** and the actions that focus the group to the left, right, above or below are in the palette.
 
 The same file in two groups keeps its text in step, and each side has its own undo. Only one of them talks to the language server: the other gets no suggestions or errors, and the status bar says "in the other group".
 
 ## Maximize
 
-**Maximize the editor**, on the tab bar's button, on the tab menu and in the palette, hides the terminal to make room for code. The same button, or the same command, brings back the split you had.
+**Maximize the editor**, on the tab bar's button, on the tab menu and in the palette, hides the terminal to make room for code. The same button, whose tooltip then reads **Back to the size it was**, or the same command, brings back the split you had.
 
 ## Tab options
 
-In **Settings › Editor › Tabs**, the **Tab limit** is 20 by default, and can be 10, 30, 50 or **No limit**. Opening one more tab closes the least used one; pinned and unsaved tabs stay, and lowering the limit closes nothing right away. **On close, go to** chooses between **The tab used before**, the default, and **The neighbour tab**. **Open new tab** puts the tab **At the end**, the default, or **Right after the current one**. **Show the folder for repeated names** is on by default, and **Mark unsaved tabs** uses a **Dot** or the **Name in italics**.
+In [**Settings › Editor › Tabs**](/docs/settings#editor), the **Tab limit** is 20 by default, and can be 10, 30, 50 or **No limit**. Opening one more tab closes the least used one; pinned and unsaved tabs stay, and lowering the limit closes nothing right away. **On close, go to** chooses between **The tab used before**, the default, and **The neighbour tab**. **Open new tab** puts the tab **At the end**, the default, or **Right after the current one**. **Show the folder for repeated names** is on by default, and **Mark unsaved tabs** uses a **Dot** or the **Name in italics**.
 
 The **Preview tab** is off by default. On, a click in the tree opens a tab that the next click replaces; editing it, or double-clicking the tab, keeps it. **Configure Tabs**, on the tab menu, goes straight to that screen.
 
@@ -61,7 +61,7 @@ The **Preview tab** is off by default. On, a click in the tree opens a tab that 
 | --- | --- |
 | Maximize the Editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
 | Next Group and Previous Group | <kbd>⌥</kbd> <kbd>Tab</kbd> and <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
-| Open the file on the right (in the tree) | <kbd>⇧</kbd> <kbd>↵</kbd> |
+| Open on the Right (in the tree) | <kbd>⇧</kbd> <kbd>↵</kbd> |
 
 In the VS Code keymap, these actions are in the palette and on the tab menu. On Windows and Linux, which are in preview, moving a tab is <kbd>Alt</kbd> <kbd>⇧</kbd> with the arrows, maximizing is <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>F12</kbd>, and switching groups is in the palette.
 
