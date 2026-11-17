@@ -43,7 +43,7 @@ On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is
 
 The chosen keymap's keys come first; where the keymap's action does not apply, the key goes on to the app. In WebStorm, <kbd>⌘</kbd> <kbd>B</kbd> on a name goes to its declaration and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> opens a file by name. In WebStorm (macOS), <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> opens a file by name instead of the session board. In both WebStorm keymaps, <kbd>⌘</kbd> <kbd>D</kbd> duplicates the line, and <kbd>⌃</kbd> <kbd>G</kbd> adds the next occurrence to the selection.
 
-In WebStorm (macOS) and VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> is **Find Previous** after a search in the file; with no search, the key opens **Git changes**. In every keymap, <kbd>⌘</kbd> <kbd>←</kbd> and <kbd>⌘</kbd> <kbd>→</kbd> move the caret to the start and end of the line; outside the code, they switch sessions.
+In WebStorm (macOS) and VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> is **Find Previous** after a search in the file; with no search, the key opens **Git changes**. On the Mac, in every keymap, <kbd>⌘</kbd> <kbd>←</kbd> and <kbd>⌘</kbd> <kbd>→</kbd> move the caret to the start and end of the line; outside the code, they switch sessions.
 
 The table of each keymap's keys is in [Keymap](/docs/editor#keymap).
 
@@ -93,4 +93,4 @@ In the file tree and on a tab, a keymap key whose action cannot run there shows 
 
 ## Windows and Linux
 
-On Windows and Linux, which are in preview, the app's shortcuts use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>, and dictation is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. In the editor keymaps, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>; see [Keymap](/docs/editor#keymap).
+On Windows and Linux, which are in preview, the app's shortcuts use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>, and dictation is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. In the code, in every keymap, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> move word by word, and <kbd>Home</kbd> and <kbd>End</kbd> go to the start and end of the line. In the terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> go to the shell. In the editor keymaps, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>; see [Keymap](/docs/editor#keymap).

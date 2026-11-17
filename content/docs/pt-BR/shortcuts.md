@@ -43,7 +43,7 @@ No Mac, os atalhos do app sempre levam o <kbd>⌘</kbd>; o <kbd>⌃</kbd> fica p
 
 As teclas do mapa escolhido vêm primeiro; quando a ação do mapa não se aplica ali, a tecla segue para o app. No WebStorm, <kbd>⌘</kbd> <kbd>B</kbd> sobre um nome vai à declaração e <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> abre um arquivo pelo nome. No WebStorm (macOS), quem abre um arquivo pelo nome é <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd>, no lugar do Quadro de sessões. Nos dois mapas WebStorm, <kbd>⌘</kbd> <kbd>D</kbd> duplica a linha, e <kbd>⌃</kbd> <kbd>G</kbd> adiciona à seleção a próxima ocorrência.
 
-No WebStorm (macOS) e no VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> é **Localizar anterior** depois de uma busca no arquivo; sem busca, a tecla abre as **Alterações do git**. Em qualquer mapa, <kbd>⌘</kbd> <kbd>←</kbd> e <kbd>⌘</kbd> <kbd>→</kbd> levam o cursor ao início e ao fim da linha; fora do código, trocam de sessão.
+No WebStorm (macOS) e no VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> é **Localizar anterior** depois de uma busca no arquivo; sem busca, a tecla abre as **Alterações do git**. No Mac, em qualquer mapa, <kbd>⌘</kbd> <kbd>←</kbd> e <kbd>⌘</kbd> <kbd>→</kbd> levam o cursor ao início e ao fim da linha; fora do código, trocam de sessão.
 
 A tabela das teclas de cada mapa está em [Mapa de teclas](/docs/editor#mapa-de-teclas).
 
@@ -93,4 +93,4 @@ Na árvore de arquivos e na aba, uma tecla do mapa cuja ação não pode rodar a
 
 ## Windows e Linux
 
-No Windows e no Linux, que estão em prévia, os atalhos do app usam <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>, e o ditado é <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. Nos mapas do editor, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> fazem o papel de <kbd>⌘</kbd> e <kbd>⌥</kbd>; veja [Mapa de teclas](/docs/editor#mapa-de-teclas).
+No Windows e no Linux, que estão em prévia, os atalhos do app usam <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>, e o ditado é <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. No código, em qualquer mapa, <kbd>Ctrl</kbd> <kbd>←</kbd> e <kbd>Ctrl</kbd> <kbd>→</kbd> andam de palavra em palavra, e <kbd>Home</kbd> e <kbd>End</kbd> levam ao início e ao fim da linha. No terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> e <kbd>Ctrl</kbd> <kbd>→</kbd> ficam com o shell. Nos mapas do editor, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> fazem o papel de <kbd>⌘</kbd> e <kbd>⌥</kbd>; veja [Mapa de teclas](/docs/editor#mapa-de-teclas).
