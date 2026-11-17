@@ -39,7 +39,7 @@ Los tokens quedan en el almacén de contraseñas del sistema, el Keychain en el 
 
 ## Plan y límites
 
-Los servidores MCP son del plan gratis. Persisty solo se los pasa a las sesiones de Claude Code; Codex CLI y las terminales comunes no los reciben. Un servidor que corre en la computadora necesita el programa que lo ejecuta, como `npx`, `uvx` o `docker`, que descarga el paquete de su registro. Cuando un servidor recibe el secreto en la línea de comandos, la ventana avisa que otros programas de la computadora pueden verlo mientras corre.
+Los servidores MCP son del plan gratis. Persisty solo se los pasa a las sesiones de Claude Code; Codex CLI no los recibe. Un servidor que corre en la computadora necesita el programa que lo ejecuta, como `npx`, `uvx` o `docker`, que descarga el paquete de su registro. Cuando un servidor recibe el secreto en la línea de comandos, la ventana avisa que otros programas de la computadora pueden verlo mientras corre.
 
 Con un servidor encendido, quien habla con él es Claude Code, no Persisty: lo que el agente pide o envía por una herramienta va a ese servicio, con el token que le diste o el de tu cuenta de GitHub. Persisty mismo solo hace tres llamadas, que aparecen en [Privacidad y red](/docs/privacy-and-network): la búsqueda en el registro, con lo que escribes; los íconos, de la dirección que declara cada servidor; y **Probar** en un servidor remoto, con su encabezado secreto, si lo tiene.
 
