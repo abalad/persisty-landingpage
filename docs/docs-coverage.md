@@ -57,8 +57,8 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Sessões persistentes em abas, cada uma com o histórico do terminal | sessions#sessões-e-abas | coberto |
 | Restaurar tudo depois de reiniciar o computador, com relatório do que voltou, do que falhou e por quê | sessions-and-recovery#restaurar-tudo | coberto |
 | Rodar a restauração duas vezes não duplica sessões | sessions-and-recovery#restaurar-tudo | coberto |
-| Claude Code com id de sessão escolhido pelo Persisty, estados pelos hooks e retomada com --resume | agents#claude-code | a escrever |
-| Uso de IA: gasto estimado por sessão, projeto, modelo e dia, rotulado como estimativa | usage-and-quota#gasto-estimado | a escrever |
+| Claude Code com id de sessão escolhido pelo Persisty, estados pelos hooks e retomada com --resume | agents#claude-code | coberto |
+| Uso de IA: gasto estimado por sessão, projeto, modelo e dia, rotulado como estimativa | usage-and-quota#gasto-estimado | coberto |
 
 ## 0.2.0
 
@@ -86,30 +86,30 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Configurações › Conta: entrada por código enviado por e-mail, com a conta criada no primeiro acesso | account-and-license#entrar | a escrever |
 | Plano e recursos vêm de uma licença assinada que funciona 14 dias sem internet | account-and-license#licenca | a escrever |
 | Configurações › Rede: cada chamada que o app faz para fora, sem cabeçalhos, corpo ou parâmetros | privacy-and-network#registro-de-rede | a escrever |
-| Janelas de 5 h e 7 d do rodapé ao vivo, do mesmo lugar que o /usage do Claude Code | usage-and-quota#janelas-de-5-h-e-7-d | a escrever |
+| Janelas de 5 h e 7 d do rodapé ao vivo, do mesmo lugar que o /usage do Claude Code | usage-and-quota#janelas-de-5-h-e-7-d | coberto |
 
 ## 0.4.0
 
 | Item | Página | Situação |
 |---|---|---|
-| Fila de pedidos: o pedido vai quando o agente ficar livre, quando a janela de 5 h renovar ou a partir de um horário | queue#quando-sai-cada-pedido | a escrever |
-| Fila de pedidos: um por vez, nunca durante um trabalho nem sobre um pedido de permissão | queue#regras-de-envio | a escrever |
-| Pontos de restauração: cada pedido grava o estado da pasta antes de o agente começar | restore-points#o-que-e-gravado | a escrever |
-| Restaurar mostra antes o que volta e o que é apagado, e guarda o estado atual como um ponto novo | restore-points#restaurar | a escrever |
-| Verificação ao terminar: um comando do workspace roda quando o agente para depois de mudar arquivos | verify#como-funciona | a escrever |
-| O cabeçalho diz se a verificação passou ou falhou | verify#resultado | a escrever |
-| Pasta própria por sessão: branch persist/nome numa pasta só dela, em pastas git | worktrees#criar | a escrever |
-| O branch da pasta própria nunca é apagado | worktrees#limites | a escrever |
+| Fila de pedidos: o pedido vai quando o agente ficar livre, quando a janela de 5 h renovar ou a partir de um horário | queue#quando-cada-pedido-sai | coberto |
+| Fila de pedidos: um por vez, nunca durante um trabalho nem sobre um pedido de permissão | queue#como-os-pedidos-chegam-ao-agente | coberto |
+| Pontos de restauração: cada pedido grava o estado da pasta antes de o agente começar | restore-points#o-que-é-gravado | coberto |
+| Restaurar mostra antes o que volta e o que é apagado, e guarda o estado atual como um ponto novo | restore-points#restaurar | coberto |
+| Verificação ao terminar: um comando do workspace roda quando o agente para depois de mudar arquivos | verify#quando-roda | coberto |
+| O cabeçalho diz se a verificação passou ou falhou | verify#o-resultado | coberto |
+| Pasta própria por sessão: branch persist/nome numa pasta só dela, em pastas git | worktrees#criar-a-pasta | coberto |
+| O branch da pasta própria nunca é apagado | worktrees#fechar-a-sessão | coberto |
 
 ## 0.5.0
 
 | Item | Página | Situação |
 |---|---|---|
-| Configurações › Contas de IA lista a conta deste computador e as conectadas, com organização, plano e janelas de 5 h e 7 d | ai-accounts#contas-conectadas | a escrever |
-| Conectar conta abre o login do Claude Code no navegador; Desconectar faz o logout | ai-accounts#conectar-e-desconectar | a escrever |
-| Rodízio (Pro): cada sessão nova vai para a conta com mais folga; contas acima de 90% ficam de fora | ai-accounts#rodizio | a escrever |
-| Opção Automática no formulário de nova sessão | ai-accounts#conta-automatica | a escrever |
-| Ajustes e instruções são compartilhados entre as contas; login e histórico, nunca | ai-accounts#o-que-e-compartilhado | a escrever |
+| Configurações › Contas de IA lista a conta deste computador e as conectadas, com organização, plano e janelas de 5 h e 7 d | ai-accounts#contas-conectadas | coberto |
+| Conectar conta abre o login do Claude Code no navegador; Desconectar faz o logout | ai-accounts#conectar-uma-conta | coberto |
+| Rodízio (Pro): cada sessão nova vai para a conta com mais folga; contas acima de 90% ficam de fora | ai-accounts#rodízio | coberto |
+| Opção Automática no formulário de nova sessão | ai-accounts#rodízio | coberto |
+| Ajustes e instruções são compartilhados entre as contas; login e histórico, nunca | ai-accounts#o-que-as-contas-compartilham | coberto |
 
 ## 0.6.0
 
@@ -152,22 +152,22 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Aba Arquivos (esconder arquivos por padrão na árvore, na busca e no ⌘P) | files#esconder-arquivos | a escrever |
 | Aba Workspace: salvar sozinho depois de uma pausa e onde ficam as pastas próprias | settings#workspace | a escrever |
 | IDE padrão, com Abrir no IDE na aba, na paleta e no projeto | files#abrir-em | a escrever |
-| Aba Notificações | notifications#configurar | a escrever |
-| Agente padrão, já escolhido no ⌘⇧N e aberto direto no ⌘⌥N | agents#agente-padrao | a escrever |
-| Aviso no app, com som, e notificação do sistema quando um agente espera ou pede permissão | notifications#avisos | a escrever |
-| Botão de teste e onde olhar quando a notificação do sistema não aparece | notifications#teste-e-problemas | a escrever |
+| Aba Notificações | notifications#configurar | coberto |
+| Agente padrão, já escolhido no ⌘⇧N e aberto direto no ⌘⌥N | agents#agente-padrão | coberto |
+| Aviso no app, com som, e notificação do sistema quando um agente espera ou pede permissão | notifications#quando-o-persisty-avisa | coberto |
+| Botão de teste e onde olhar quando a notificação do sistema não aparece | notifications#enviar-um-teste | coberto |
 | Depois de reiniciar, o Claude Code volta na conversa, no mesmo modo de permissão e na pasta própria | sessions-and-recovery#reiniciar-ou-travar-o-computador | coberto |
 | Uma sessão relançada não aparece mais como encerrada por engano | sessions-and-recovery#reiniciar-ou-travar-o-computador | coberto |
 | Arquivar um projeto pergunta o que fazer com as sessões abertas; tela dos arquivados, ⌘K, apagar de vez | projects-and-workspaces#arquivar-e-excluir-projetos | coberto |
 | Projetos, abas de sessão e repositórios na ordem em que você os arrasta | projects-and-workspaces#mudar-a-ordem | coberto |
 | A aba de uma sessão do Claude Code ganha o nome da conversa | sessions#sessões-e-abas | coberto |
-| Rodízio (Pro): escolher em que ponto da quota uma conta sai do rodízio | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
-| Rodízio (Pro): ao fim do turno no limite, a sessão passa para a conta com mais folga e retoma a conversa | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
+| Rodízio (Pro): escolher em que ponto da quota uma conta sai do rodízio | ai-accounts#rodízio | coberto |
+| Rodízio (Pro): ao fim do turno no limite, a sessão passa para a conta com mais folga e retoma a conversa | ai-accounts#rodízio | coberto |
 | Entrar no Persisty Cloud em dois passos, numa janela própria | account-and-license#entrar | a escrever |
 | Uma segunda conta pode entrar no mesmo computador; um computador removido volta ao entrar de novo | account-and-license#computadores | a escrever |
 | ⌘ ou Ctrl + clique abre no navegador um link do terminal | sessions#links-no-terminal | coberto |
 | Criar arquivos e pastas pela lista de arquivos do editor | files#novo | a escrever |
-| Um mascote no canto do terminal acompanha o estado do agente | mascot#no-terminal | a escrever |
+| Um mascote no canto do terminal acompanha o estado do agente | mascot#no-terminal | coberto |
 
 ## 0.9.0
 
@@ -176,7 +176,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Ditado por voz em Configurações › Voz, desligado por padrão, com ⌘⇧D | voice#ditar | a escrever |
 | Tudo roda no computador; o modelo de voz (640 MB) só é baixado quando você pede e pode ser apagado | voice#modelo-de-voz | a escrever |
 | Números falados viram dígitos, termos de programação viram símbolos, substituições próprias | voice#substituicoes | a escrever |
-| O mascote do terminal que recebe o texto pega um microfone | mascot#ditado | a escrever |
+| O mascote do terminal que recebe o texto pega um microfone | mascot#no-terminal | coberto |
 | Configurações › Integrações ganhou Linear, Jira Cloud e ClickUp, e as issues do GitHub vêm da conta já conectada | issues#conectar | a escrever |
 | Cada projeto escolhe o serviço em Ajustes do projeto › Tarefas | issues#escolher-o-servico | a escrever |
 | Começar de uma issue, na Nova sessão | issues#comecar-de-uma-issue | a escrever |
@@ -188,7 +188,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Minimapa, em caracteres ou blocos, com escala e visibilidade ajustáveis | editor#minimapa | a escrever |
 | Mudou no Mac: os programas das sessões não usam mais as permissões de privacidade dadas ao Persisty | privacy-and-network#permissoes-do-macos | a escrever |
 | Mudou no Mac: até o Mac reiniciar, as sessões continuam usando as permissões do Persisty | privacy-and-network#permissoes-do-macos | a escrever |
-| Corrigido: o uso de 5 h e 7 d de cada sessão é o da conta em que ela roda, ao vivo | usage-and-quota#janelas-de-5-h-e-7-d | a escrever |
+| Corrigido: o uso de 5 h e 7 d de cada sessão é o da conta em que ela roda, ao vivo | usage-and-quota#janelas-de-5-h-e-7-d | coberto |
 | Corrigido: com Reduzir movimento, os números de linha ficam alinhados e a busca leva à linha certa | editor#acessibilidade | a escrever |
 | Corrigido: uma atualização parada no download desiste depois de 30 s; Privacidade e rede mostra cada servidor | updates#atualizar-no-app | a escrever |
 | Corrigido: no Linux, o pacote .deb instala ao lado dos programas do sistema | updates#windows-e-linux | a escrever |
@@ -226,15 +226,15 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| O Quadro abre as sessões de todos os projetos, ou só do atual, com ⌘⇧O ou o botão ao lado das abas | board#abrir | a escrever |
-| Quatro colunas: Precisa de você, Trabalhando, Respondeu e Erro | board#colunas | a escrever |
-| Cada cartão diz o que a sessão quer, há quanto tempo espera e se você já viu | board#cartoes | a escrever |
-| A tecla A abre a sessão que espera há mais tempo | board#teclado | a escrever |
-| Mascote fora do app (macOS), por cima de tudo, em pé no topo da janela da frente | mascot#fora-do-app | a escrever |
-| O mascote sobe e avisa quando uma sessão precisa de você; clicar na fala abre a sessão | mascot#avisos | a escrever |
-| Um clique no mascote abre um balão com quem espera, atalhos para a sessão e o Quadro, e o Não perturbe | mascot#balao | a escrever |
-| Clicar ou arrastar o mascote não tira o foco do app em que você está | mascot#fora-do-app | a escrever |
-| Desligar O mascote anda sobre as janelas, em Configurações › Aparência | mascot#janelas | a escrever |
+| O Quadro abre as sessões de todos os projetos, ou só do atual, com ⌘⇧O ou o botão ao lado das abas | board#abrir-o-quadro | coberto |
+| Quatro colunas: Precisa de você, Trabalhando, Respondeu e Erro | board#as-colunas | coberto |
+| Cada cartão diz o que a sessão quer, há quanto tempo espera e se você já viu | board#os-cartões | coberto |
+| A tecla A abre a sessão que espera há mais tempo | board#teclas | coberto |
+| Mascote fora do app (macOS), por cima de tudo, em pé no topo da janela da frente | mascot#fora-do-app | coberto |
+| O mascote sobe e avisa quando uma sessão precisa de você; clicar na fala abre a sessão | mascot#avisos-e-balão | coberto |
+| Um clique no mascote abre um balão com quem espera, atalhos para a sessão e o Quadro, e o Não perturbe | mascot#avisos-e-balão | coberto |
+| Clicar ou arrastar o mascote não tira o foco do app em que você está | mascot#fora-do-app | coberto |
+| Desligar O mascote anda sobre as janelas, em Configurações › Aparência | mascot#fora-do-app | coberto |
 | Inteligência de código em TypeScript, JavaScript e Rust: sugestões, documentação, import, parâmetros e erros | editor#inteligencia-de-codigo | a escrever |
 | Em Rust, os erros do cargo check se atualizam a cada salvamento | editor#inteligencia-de-codigo | a escrever |
 | O app baixa o servidor da linguagem; a barra de status mostra o estado e os erros do arquivo | editor#servidor-da-linguagem | a escrever |
@@ -248,16 +248,16 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | ⌘W não fecha mais a janela: fecha a aba do editor no painel Código | tabs-and-groups#fechar-abas | a escrever |
 | No código de uma sessão, ⌘← e ⌘→ levam ao início e ao fim da linha | shortcuts#mudancas-da-0-10-0 | a escrever |
 | No Mac, os atalhos do app respondem só ao ⌘, não ao ⌃ | shortcuts#mudancas-da-0-10-0 | a escrever |
-| Sem quota, a sessão espera (Pro): cabeçalho com a hora da volta e Soltar a fila agora | ai-accounts#sem-quota | a escrever |
-| Continua sozinha quando a janela renova (Pro), com Continuar a tarefa cortada pelo limite | ai-accounts#continuar-sozinha | a escrever |
-| Trocar a conta de uma sessão pelo rodapé (Pro) | ai-accounts#trocar-pelo-rodape | a escrever |
-| Um projeto preso a uma conta (Pro), em Conta do Claude nas configurações do projeto | ai-accounts#projeto-preso-a-uma-conta | a escrever |
-| Uma conta reservada aos projetos fixados nela (Pro) | ai-accounts#conta-reservada | a escrever |
-| Todas as contas usam a mesma pasta de conversas e memória, com backup do que diferia | ai-accounts#conversas-compartilhadas | a escrever |
-| Fila no jeito de um chat: cabeçalho com o que o agente faz, Pausar fila, pedidos numerados | queue#fila-como-um-chat | a escrever |
-| Arrastar para mudar a ordem, editar um pedido, enviar um a seguir e tirar da fila | queue#reordenar-e-editar | a escrever |
-| A caixa de escrever aceita imagens (até 8 por pedido, 10 MB cada) | queue#imagens | a escrever |
-| No plano grátis, pausar, reordenar, enviar a seguir e tirar da fila também valem | queue#gratis-e-pro | a escrever |
+| Sem quota, a sessão espera (Pro): cabeçalho com a hora da volta e Soltar a fila agora | ai-accounts#quando-a-quota-acaba | coberto |
+| Continua sozinha quando a janela renova (Pro), com Continuar a tarefa cortada pelo limite | ai-accounts#continuar-a-tarefa-cortada | coberto |
+| Trocar a conta de uma sessão pelo rodapé (Pro) | ai-accounts#trocar-a-conta-de-uma-sessão | coberto |
+| Um projeto preso a uma conta (Pro), em Conta do Claude nas configurações do projeto | ai-accounts#uma-conta-para-um-projeto | coberto |
+| Uma conta reservada aos projetos fixados nela (Pro) | ai-accounts#uma-conta-para-um-projeto | coberto |
+| Todas as contas usam a mesma pasta de conversas e memória, com backup do que diferia | ai-accounts#o-que-as-contas-compartilham | coberto |
+| Fila no jeito de um chat: cabeçalho com o que o agente faz, Pausar fila, pedidos numerados | queue#pôr-um-pedido-na-fila | coberto |
+| Arrastar para mudar a ordem, editar um pedido, enviar um a seguir e tirar da fila | queue#mudar-a-ordem-e-editar | coberto |
+| A caixa de escrever aceita imagens (até 8 por pedido, 10 MB cada) | queue#imagens | coberto |
+| No plano grátis, pausar, reordenar, enviar a seguir e tirar da fila também valem | queue#plano-e-limites | coberto |
 | Barra fina de ferramentas da sessão na borda direita, com contagem em Alterações e Fila | sessions#ferramentas-da-sessão | coberto |
 | Servidores MCP em Configurações: 16 servidores oficiais, busca no registro e teste antes de instalar | mcp-servers#catalogo | a escrever |
 | Cada projeto liga os seus servidores MCP em Ajustes do projeto; tokens no Keychain | mcp-servers#por-projeto | a escrever |
@@ -266,11 +266,11 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Imagens abrem no editor, e um SVG ganha a pré-visualização | editor#imagens | a escrever |
 | No terminal, caminhos que existem no disco e endereços www. viram links | sessions#links-no-terminal | coberto |
 | Pro e Team se assinam no site; no plano grátis, Configurações › Conta tem Ver planos | pro#assinar | a escrever |
-| Corrigido: a troca de conta espera um subagente ou comando terminar | ai-accounts#trocar-pelo-rodape | a escrever |
-| Corrigido: Quando a janela de 5 h renovar usa o horário da conta da própria sessão | queue#quando-sai-cada-pedido | a escrever |
-| Corrigido: pedidos da fila e o continue automático ficavam como rascunho no Claude Code | queue#envio-ao-agente | a escrever |
-| Corrigido: pedido muito longo na fila (cerca de 16 mil caracteres) não saía, e um ; no fim sumia | queue#limites | a escrever |
-| Corrigido: Contas de IA avisa quando duas contas entraram com o mesmo e-mail | ai-accounts#mesmo-email | a escrever |
+| Corrigido: a troca de conta espera um subagente ou comando terminar | ai-accounts#trocar-a-conta-de-uma-sessão | coberto |
+| Corrigido: Quando a janela de 5 h renovar usa o horário da conta da própria sessão | queue#quando-cada-pedido-sai | coberto |
+| Corrigido: pedidos da fila e o continue automático ficavam como rascunho no Claude Code | queue#como-os-pedidos-chegam-ao-agente | coberto |
+| Corrigido: pedido muito longo na fila (cerca de 16 mil caracteres) não saía, e um ; no fim sumia | queue#como-os-pedidos-chegam-ao-agente | coberto |
+| Corrigido: Contas de IA avisa quando duas contas entraram com o mesmo e-mail | ai-accounts#conectar-uma-conta | coberto |
 | Corrigido: o contexto fixo ao rolar não mostra um bloco que a linha logo abaixo já fecha | editor#contexto-fixo | a escrever |
 
 ## 0.11.0
@@ -285,7 +285,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Botão direito na aba do editor: fechar a aba, as outras, todas, as não modificadas, à esquerda ou à direita | tabs-and-groups#fechar-abas | a escrever |
 | Só as abas com alterações não gravadas pedem confirmação, numa pergunta só | tabs-and-groups#fechar-abas | a escrever |
 | Configurações › Atalhos ganhou o grupo Arquivos, com onde cada tecla vale | shortcuts#arquivos | a escrever |
-| Corrigido: a fila esperava a renovação seguinte antes de digitar continue | ai-accounts#continuar-sozinha | a escrever |
+| Corrigido: a fila esperava a renovação seguinte antes de digitar continue | ai-accounts#continuar-a-tarefa-cortada | coberto |
 | Corrigido: com o salvamento automático, fechar uma aba grava sem perguntar; com ele desligado, Descartar não grava | editor#salvar | a escrever |
 
 ## 0.12.0
@@ -311,7 +311,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Anotar com o git blame: autor e data na margem, cor pela idade do commit | git-in-the-editor#anotar | a escrever |
 | Submenu Git na árvore e na aba: diff, histórico, comparar, preparar, tirar da preparação, descartar, anotar | git-in-the-editor#submenu-git | a escrever |
 | Diffs e histórico abrem em abas só de leitura | git-in-the-editor#abas-de-leitura | a escrever |
-| Descartar guarda antes um ponto de restauração | restore-points#descartar | a escrever |
+| Descartar guarda antes um ponto de restauração | restore-points#antes-de-descartar | coberto |
 | Dividir o editor à direita e embaixo, em até quatro grupos | tabs-and-groups#dividir | a escrever |
 | Maximizar o editor esconde o terminal | tabs-and-groups#maximizar | a escrever |
 | Arrastar abas para mudar a ordem, levar a outro grupo ou criar outro; Shift + Enter abre à direita | tabs-and-groups#arrastar-abas | a escrever |
@@ -319,8 +319,8 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Fixar aba: fica à esquerda, com um alfinete, e não fecha com Fechar as outras nem pelo limite | tabs-and-groups#fixar | a escrever |
 | Configurações › Editor › Abas: limite, para onde ir ao fechar, onde abrir, pasta, marca de não gravada, aba de prévia | tabs-and-groups#opcoes-das-abas | a escrever |
 | Arrastar na árvore mostra o que vai e para onde | files#arrastar | a escrever |
-| Corrigido: sessão com trabalho em segundo plano continua como Trabalhando até acabar | agents#trabalho-em-segundo-plano | a escrever |
-| Corrigido: a fila e o aviso de concluído esperam o fim do trabalho em segundo plano | queue#regras-de-envio | a escrever |
+| Corrigido: sessão com trabalho em segundo plano continua como Trabalhando até acabar | agents#trabalho-em-segundo-plano | coberto |
+| Corrigido: a fila e o aviso de concluído esperam o fim do trabalho em segundo plano | queue#como-os-pedidos-chegam-ao-agente | coberto |
 | Corrigido: ao trocar de sessão, o que se digita vai para o terminal, nunca para o arquivo do painel Código | sessions#sessões-e-abas | coberto |
 | Corrigido: fechar várias abas não para num conflito, e um aviso diz quais ficaram | tabs-and-groups#fechar-abas | a escrever |
 | Corrigido: um Substituir que falha diz qual item não foi colocado e que a versão antiga foi para a Lixeira | files#quando-algo-falha | a escrever |
@@ -338,18 +338,18 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 |---|---|---|
 | Aparência › Tema (Sistema, claro ou escuro) | settings#aparencia | a escrever |
 | Aparência › Idioma | settings#aparencia | a escrever |
-| Aparência › Mascote no terminal | mascot#no-terminal | a escrever |
-| Aparência › Mascote fora do app | mascot#fora-do-app | a escrever |
-| Aparência › O mascote anda sobre as janelas | mascot#janelas | a escrever |
+| Aparência › Mascote no terminal | mascot#no-terminal | coberto |
+| Aparência › Mascote fora do app | mascot#fora-do-app | coberto |
+| Aparência › O mascote anda sobre as janelas | mascot#fora-do-app | coberto |
 | Workspace › Salvar automaticamente | editor#salvar | a escrever |
 | Workspace › IDE padrão | files#abrir-em | a escrever |
-| Workspace › Pasta dos worktrees | worktrees#onde-ficam | a escrever |
+| Workspace › Pasta dos worktrees | worktrees#onde-ficam | coberto |
 | Workspace › Tamanho dos painéis (Redefinir) | settings#workspace | a escrever |
-| Notificações › Alertas dentro do app | notifications#configurar | a escrever |
-| Notificações › Tocar som | notifications#configurar | a escrever |
-| Notificações › Silenciar com o Persisty em foco | notifications#configurar | a escrever |
-| Notificações › Enviar teste | notifications#teste-e-problemas | a escrever |
-| Notificações › Bloqueadas no sistema | notifications#teste-e-problemas | a escrever |
+| Notificações › Alertas dentro do app | notifications#configurar | coberto |
+| Notificações › Tocar som | notifications#configurar | coberto |
+| Notificações › Silenciar com o Persisty em foco | notifications#configurar | coberto |
+| Notificações › Enviar teste | notifications#enviar-um-teste | coberto |
+| Notificações › Bloqueadas no sistema | notifications#enviar-um-teste | coberto |
 | Editor › Fonte (família, tamanho, peso, altura da linha, ligaduras) | settings#editor | a escrever |
 | Editor › Comportamento (largura da tabulação, inserir espaços, quebrar linhas, números de linha) | settings#editor | a escrever |
 | Editor › Modificador do multicursor | settings#editor | a escrever |
@@ -365,19 +365,19 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Terminal › Teclado (Option como Meta) | settings#terminal | a escrever |
 | Arquivos › Ocultar arquivos (padrões; o .git fica sempre oculto) | files#esconder-arquivos | a escrever |
 | Agentes › Terminais (se os terminais podem abrir) | settings#agentes | a escrever |
-| Agentes › Agentes detectados | agents#agentes-detectados | a escrever |
-| Agentes › Agente padrão | agents#agente-padrao | a escrever |
+| Agentes › Agentes detectados | agents#agentes-detectados | coberto |
+| Agentes › Agente padrão | agents#agente-padrão | coberto |
 | Agentes › Ferramentas do Persisty nos agentes | agent-access#ativar | a escrever |
 | Agentes › Verificar instalação | agent-access#verificar | a escrever |
 | Agentes › Comando do Codex CLI | agent-access#codex | a escrever |
-| Contas de IA › Lista de contas (este computador e conectadas, com quota de 5 h e 7 d) | ai-accounts#contas-conectadas | a escrever |
-| Contas de IA › Conectar conta (e-mail opcional, código do navegador) | ai-accounts#conectar-e-desconectar | a escrever |
-| Contas de IA › Desconectar | ai-accounts#conectar-e-desconectar | a escrever |
-| Contas de IA › Rodízio entre contas | ai-accounts#rodizio | a escrever |
-| Contas de IA › Trocar de conta ao chegar em | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
-| Contas de IA › Continuar a tarefa cortada pelo limite | ai-accounts#continuar-sozinha | a escrever |
-| Contas de IA › Usar só nos projetos fixados nela | ai-accounts#conta-reservada | a escrever |
-| Contas de IA › Aviso de contas com o mesmo e-mail | ai-accounts#mesmo-email | a escrever |
+| Contas de IA › Lista de contas (este computador e conectadas, com quota de 5 h e 7 d) | ai-accounts#contas-conectadas | coberto |
+| Contas de IA › Conectar conta (e-mail opcional, código do navegador) | ai-accounts#conectar-uma-conta | coberto |
+| Contas de IA › Desconectar | ai-accounts#conectar-uma-conta | coberto |
+| Contas de IA › Rodízio entre contas | ai-accounts#rodízio | coberto |
+| Contas de IA › Trocar de conta ao chegar em | ai-accounts#rodízio | coberto |
+| Contas de IA › Continuar a tarefa cortada pelo limite | ai-accounts#continuar-a-tarefa-cortada | coberto |
+| Contas de IA › Usar só nos projetos fixados nela | ai-accounts#uma-conta-para-um-projeto | coberto |
+| Contas de IA › Aviso de contas com o mesmo e-mail | ai-accounts#conectar-uma-conta | coberto |
 | Voz › Ditado por voz (liga e desliga) | voice#ditar | a escrever |
 | Voz › Atalho | voice#ditar | a escrever |
 | Voz › Idioma do ditado | voice#idioma | a escrever |
@@ -394,9 +394,9 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Servidores MCP › Buscar no registro oficial | mcp-servers#registro | a escrever |
 | Servidores MCP › Adicionar manualmente | mcp-servers#manual | a escrever |
 | Servidores MCP › Instalar, token e estado de cada servidor | mcp-servers#instalar | a escrever |
-| Uso de IA › Alertas (gasto diário e mensal em USD) | usage-and-quota#alertas | a escrever |
-| Uso de IA › Fontes de uso | usage-and-quota#fontes | a escrever |
-| Uso de IA › Abrir uso (a página Uso de IA) | usage-and-quota#gasto-estimado | a escrever |
+| Uso de IA › Alertas (gasto diário e mensal em USD) | usage-and-quota#alertas-de-gasto | coberto |
+| Uso de IA › Fontes de uso | usage-and-quota#fontes-de-dados | coberto |
+| Uso de IA › Abrir uso (a página Uso de IA) | usage-and-quota#gasto-estimado | coberto |
 | Privacidade e rede › Privacidade (dados das sessões, integrações externas, telemetria) | privacy-and-network#privacidade | a escrever |
 | Privacidade e rede › Chamadas de rede desde que o app abriu (Atualizar) | privacy-and-network#registro-de-rede | a escrever |
 | Atalhos › Lista de todas as teclas, com busca | shortcuts#lista-completa | a escrever |
@@ -419,3 +419,9 @@ Vídeos de `public/changelog/` conferidos contra a interface da v0.13.0 e deixad
 | `0.1.0/restaurar.mp4` | `sessions-and-recovery` | Mesma interface da 0.9 atrás do relatório: sem a barra de ferramentas da sessão, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. O relatório em si bate com a 0.13.0. |
 | `0.2.0/painel.mp4` | `sessions` | O painel lateral mudou na 0.10.0: as ferramentas eram abas no topo do painel e hoje ficam na barra vertical da borda direita, e o painel abria por um botão no cabeçalho que não existe mais. |
 | `0.8.0/workspace-remoto.mp4` | `projects-and-workspaces` | A janela **Adicionar workspace** bate com a 0.13.0, mas o fundo mostra a sessão da 0.9 (sem a barra de ferramentas, com o botão de painel no cabeçalho) e o botão do Estúdio do projeto no lugar do Quadro. Basta regravar a mesma cena. |
+| `0.1.0/uso.mp4` | `usage-and-quota` | Começa na sessão da 0.9 (sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro) antes de abrir a página **Uso de IA**. A página em si bate com a 0.13.0; basta regravar a abertura. |
+| `0.4.0/fila.mp4` | `queue` | A fila aparece no painel da 0.9: as ferramentas são abas no topo do painel, não a barra vertical da borda direita, o cabeçalho tem o botão de painel e a barra do topo tem o botão do Estúdio do projeto no lugar do Quadro. A fila em si (cabeçalho, **Próximos**, caixa com **Pôr na fila**) bate com a 0.13.0. |
+| `0.4.0/pontos.mp4` | `restore-points` | Mesmo painel da 0.9 do vídeo da fila: abas no topo do painel em vez da barra da borda direita, botão de painel no cabeçalho e botão do Estúdio do projeto no lugar do Quadro. A lista de pontos bate com a 0.13.0. |
+| `0.4.0/pasta-propria.mp4` | `worktrees` | Sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. A marca `worktree` e a pasta em `~/.persist/worktrees` batem com a 0.13.0. |
+| `0.5.0/contas.mp4` | `ai-accounts` | Atrás de Configurações, a sessão da 0.9 (botão de painel no cabeçalho, sem a barra da borda direita, botão do Estúdio do projeto). A tela **Contas de IA** também está desatualizada: com o rodízio desligado, falta a linha **Continuar a tarefa cortada pelo limite**, que na 0.13.0 aparece com ou sem rodízio. |
+| `0.5.0/rodizio.mp4` | `ai-accounts` | A janela **Nova sessão** aparece sobre a sessão da 0.9 (botão de painel no cabeçalho, sem a barra da borda direita, botão do Estúdio do projeto). O campo **Conta do Claude** com **Automática · rodízio** bate com a 0.13.0; basta regravar a mesma cena. |

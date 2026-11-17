@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { listChangelog } from "../src/lib/content";
+import { getDoc, listChangelog } from "../src/lib/content";
 
 // The coverage inventory: every released item and every settings tab, mapped to
 // the doc page that covers it. docs/docs-coverage.md is the map the per-feature
@@ -105,5 +105,23 @@ describe("docs coverage inventory", () => {
       if (r.status.startsWith("sem doc")) continue;
       expect(slugs, `page of ${r.item}`).toContain(r.page.split("#")[0]);
     }
+  });
+
+  // A row marked covered must lead somewhere: the pt-BR page exists and, with an anchor, has that heading.
+  it("points every covered row to a real heading", { timeout: 120_000 }, async () => {
+    const ids = new Map<string, Set<string> | null>();
+    const missing: string[] = [];
+    for (const r of itemRows()) {
+      if (r.status !== "coberto") continue;
+      const [slug, anchor] = r.page.split("#");
+      if (!ids.has(slug)) {
+        const doc = await getDoc("pt-BR", slug);
+        ids.set(slug, doc ? new Set(doc.headings.map((h) => h.id)) : null);
+      }
+      const headings = ids.get(slug);
+      if (!headings) missing.push(`${r.item}: no page ${slug}`);
+      else if (anchor && !headings.has(decodeURIComponent(anchor))) missing.push(`${r.item}: no heading #${anchor} in ${slug}`);
+    }
+    expect(missing).toEqual([]);
   });
 });
