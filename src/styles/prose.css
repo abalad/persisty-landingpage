@@ -58,6 +58,8 @@
   background: var(--site-ground-raised);
   color: var(--site-heading);
   font-size: 0.86em;
+  /* A long path or command breaks inside the line instead of widening a phone's page. */
+  overflow-wrap: anywhere;
 }
 
 .prose pre {

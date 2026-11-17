@@ -55,6 +55,36 @@
   min-width: 0;
 }
 
+/* A clip of the app (rehypeClips), as on the changelog, but as wide as the text column. */
+.article :global(.clip) {
+  position: relative;
+  margin: 1.6em 0 1.9em;
+  border-radius: 12px;
+  background: #0b0d12;
+  box-shadow: 0 24px 60px -30px rgb(0 0 0 / 0.75);
+}
+
+.article :global(.clip) > * {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+}
+
+/* The poster lies under the video until its first frame covers it. */
+.article :global(.clip) > img {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+}
+
+.article :global(.clip) > video {
+  position: relative;
+  border: 1px solid var(--site-hairline);
+  cursor: pointer;
+}
+
 .title {
   font-size: clamp(2rem, 1.4rem + 2vw, 2.75rem);
   font-weight: 340;
