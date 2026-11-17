@@ -92,7 +92,8 @@ describe("docs coverage inventory", () => {
       expect(r.item, "empty item").not.toBe("");
       const noDoc = r.status.startsWith("sem doc: ") && r.status.length > "sem doc: ".length;
       expect(noDoc || r.status === "coberto" || r.status === "a escrever", `status of ${r.item}: ${r.status}`).toBe(true);
-      if (!noDoc) expect(r.page, `page of ${r.item}`).toMatch(/^[a-z][a-z0-9-]*(#[a-z0-9-]+)?$/);
+      // The anchor is the id rehype-slug gives the heading, which keeps accents (`sessões-e-abas`).
+      if (!noDoc) expect(r.page, `page of ${r.item}`).toMatch(/^[a-z][a-z0-9-]*(#[\p{Ll}\p{N}-]+)?$/u);
     }
   });
 

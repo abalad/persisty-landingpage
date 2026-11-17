@@ -53,10 +53,10 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Projetos com vários workspaces, mostrando branch e alterações de cada pasta | projects-and-workspaces#projetos-e-workspaces | a escrever |
-| Sessões persistentes em abas, cada uma com o histórico do terminal | sessions#sessoes-e-abas | a escrever |
-| Restaurar tudo depois de reiniciar o computador, com relatório do que voltou, do que falhou e por quê | sessions-and-recovery#restaurar-tudo | a escrever |
-| Rodar a restauração duas vezes não duplica sessões | sessions-and-recovery#restaurar-tudo | a escrever |
+| Projetos com vários workspaces, mostrando branch e alterações de cada pasta | projects-and-workspaces#workspaces | coberto |
+| Sessões persistentes em abas, cada uma com o histórico do terminal | sessions#sessões-e-abas | coberto |
+| Restaurar tudo depois de reiniciar o computador, com relatório do que voltou, do que falhou e por quê | sessions-and-recovery#restaurar-tudo | coberto |
+| Rodar a restauração duas vezes não duplica sessões | sessions-and-recovery#restaurar-tudo | coberto |
 | Claude Code com id de sessão escolhido pelo Persisty, estados pelos hooks e retomada com --resume | agents#claude-code | a escrever |
 | Uso de IA: gasto estimado por sessão, projeto, modelo e dia, rotulado como estimativa | usage-and-quota#gasto-estimado | a escrever |
 
@@ -64,7 +64,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Painel lateral da sessão (⌘\) com Alterações, Código, Busca, Notas e Detalhes e divisória arrastável | sessions#painel-lateral | a escrever |
+| Painel lateral da sessão (⌘\) com Alterações, Código, Busca, Notas e Detalhes e divisória arrastável | sessions#painel-lateral | coberto |
 | Editor: árvore da pasta da sessão, abas e ⌘S | editor#abrir-e-salvar | a escrever |
 | Editor: aviso quando o arquivo muda no disco | editor#arquivo-mudou-no-disco | a escrever |
 | Editor: destaque por linguagem | editor#destaque-por-linguagem | a escrever |
@@ -115,7 +115,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Tudo de que o Persisty precisa vai dentro do app, sem instalar nada à parte | getting-started#instalar | a escrever |
+| Tudo de que o Persisty precisa vai dentro do app, sem instalar nada à parte | getting-started#instalar | coberto |
 | No Windows, os agentes funcionam sem shell POSIX | troubleshooting#windows-e-linux | a escrever |
 | Instalador para Windows e pacotes .deb e AppImage para Linux, como prévia | updates#sistemas-e-instaladores | a escrever |
 | Corrigido: eventos dos agentes podiam se perder quando uma linha era lida no meio da escrita | — | sem doc: correção interna, sem efeito a descrever |
@@ -126,7 +126,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 |---|---|---|
 | Site em português, inglês e espanhol com planos, download e a conta do Persisty Cloud | account-and-license#conta-no-site | a escrever |
 | Conta pelo site: entrada por código, plano, aparelhos conectados (revogar um), aviso de lançamento, interesse no Enterprise | account-and-license#conta-no-site | a escrever |
-| Docs com o que o app faz hoje e o que ainda não faz | getting-started#o-que-o-app-faz | a escrever |
+| Docs com o que o app faz hoje e o que ainda não faz | getting-started#próximos-passos | coberto |
 | Changelog com feed RSS em cada idioma | updates#novidades-e-feed | a escrever |
 
 ## 0.8.0
@@ -139,7 +139,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Desligar a procura em Configurações › Sobre; cada consulta em Privacidade e rede | updates#desligar-a-procura | a escrever |
 | No Windows e no Linux, aviso antes de instalar com sessões abertas | updates#windows-e-linux | a escrever |
 | Configurações › Integrações com GitHub, GitLab (gitlab.com ou da empresa) e Bitbucket, várias contas | forges#conectar-contas | a escrever |
-| Adicionar workspace a partir de um repositório remoto, com progresso e cancelamento | projects-and-workspaces#repositorio-remoto | a escrever |
+| Adicionar workspace a partir de um repositório remoto, com progresso e cancelamento | projects-and-workspaces#clonar-um-repositório | coberto |
 | Setas ↓ e ↑ ao lado do branch; buscar, puxar, enviar e publicar o branch | changes#sincronizar | a escrever |
 | Descartar alterações, commit de tudo quando nada foi preparado, emendar e desfazer o último commit | changes#commit | a escrever |
 | Branches no painel: trocar, criar, mesclar, renomear e apagar | changes#branches | a escrever |
@@ -156,16 +156,16 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Agente padrão, já escolhido no ⌘⇧N e aberto direto no ⌘⌥N | agents#agente-padrao | a escrever |
 | Aviso no app, com som, e notificação do sistema quando um agente espera ou pede permissão | notifications#avisos | a escrever |
 | Botão de teste e onde olhar quando a notificação do sistema não aparece | notifications#teste-e-problemas | a escrever |
-| Depois de reiniciar, o Claude Code volta na conversa, no mesmo modo de permissão e na pasta própria | sessions-and-recovery#retomar-o-claude-code | a escrever |
-| Uma sessão relançada não aparece mais como encerrada por engano | sessions-and-recovery#estados-depois-de-reiniciar | a escrever |
-| Arquivar um projeto pergunta o que fazer com as sessões abertas; tela dos arquivados, ⌘K, apagar de vez | projects-and-workspaces#arquivar-projetos | a escrever |
-| Projetos, abas de sessão e repositórios na ordem em que você os arrasta | projects-and-workspaces#ordem | a escrever |
-| A aba de uma sessão do Claude Code ganha o nome da conversa | sessions#sessoes-e-abas | a escrever |
+| Depois de reiniciar, o Claude Code volta na conversa, no mesmo modo de permissão e na pasta própria | sessions-and-recovery#reiniciar-ou-travar-o-computador | coberto |
+| Uma sessão relançada não aparece mais como encerrada por engano | sessions-and-recovery#reiniciar-ou-travar-o-computador | coberto |
+| Arquivar um projeto pergunta o que fazer com as sessões abertas; tela dos arquivados, ⌘K, apagar de vez | projects-and-workspaces#arquivar-e-excluir-projetos | coberto |
+| Projetos, abas de sessão e repositórios na ordem em que você os arrasta | projects-and-workspaces#mudar-a-ordem | coberto |
+| A aba de uma sessão do Claude Code ganha o nome da conversa | sessions#sessões-e-abas | coberto |
 | Rodízio (Pro): escolher em que ponto da quota uma conta sai do rodízio | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
 | Rodízio (Pro): ao fim do turno no limite, a sessão passa para a conta com mais folga e retoma a conversa | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
 | Entrar no Persisty Cloud em dois passos, numa janela própria | account-and-license#entrar | a escrever |
 | Uma segunda conta pode entrar no mesmo computador; um computador removido volta ao entrar de novo | account-and-license#computadores | a escrever |
-| ⌘ ou Ctrl + clique abre no navegador um link do terminal | sessions#links-no-terminal | a escrever |
+| ⌘ ou Ctrl + clique abre no navegador um link do terminal | sessions#links-no-terminal | coberto |
 | Criar arquivos e pastas pela lista de arquivos do editor | files#novo | a escrever |
 | Um mascote no canto do terminal acompanha o estado do agente | mascot#no-terminal | a escrever |
 
@@ -198,8 +198,8 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Corrigido: Adicionar workspace aceita a pasta escolhida no Windows (C:\...) | projects-and-workspaces#adicionar-workspace | a escrever |
-| Corrigido: Nova sessão num workspace do Windows é criada normalmente | sessions#sessoes-e-abas | a escrever |
+| Corrigido: Adicionar workspace aceita a pasta escolhida no Windows (C:\...) | projects-and-workspaces#adicionar-workspace | coberto |
+| Corrigido: Nova sessão num workspace do Windows é criada normalmente | sessions#nova-sessão | coberto |
 
 ## 0.9.2
 
@@ -211,10 +211,10 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Sessões voltam sozinhas ao abrir, com Relançar se tiver caído e Relançar sempre | sessions-and-recovery#relancar-ao-abrir | a escrever |
-| Sessões com Só reanexar se estiver viva continuam esperando você pedir | sessions-and-recovery#regras-de-relancar | a escrever |
-| O relatório de restauração abre sozinho depois dessa volta e depois de Restaurar tudo (⌘⇧R) | sessions-and-recovery#relatorio | a escrever |
-| A paleta de comandos abre de novo o último relatório | sessions-and-recovery#relatorio | a escrever |
+| Sessões voltam sozinhas ao abrir, com Relançar se tiver caído e Relançar sempre | sessions-and-recovery#ao-abrir-o-persisty | coberto |
+| Sessões com Só reanexar se estiver viva continuam esperando você pedir | sessions-and-recovery#quando-relançar | coberto |
+| O relatório de restauração abre sozinho depois dessa volta e depois de Restaurar tudo (⌘⇧R) | sessions-and-recovery#o-relatório-de-restauração | coberto |
+| A paleta de comandos abre de novo o último relatório | sessions-and-recovery#o-relatório-de-restauração | coberto |
 
 ## 0.9.4
 
@@ -258,13 +258,13 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Arrastar para mudar a ordem, editar um pedido, enviar um a seguir e tirar da fila | queue#reordenar-e-editar | a escrever |
 | A caixa de escrever aceita imagens (até 8 por pedido, 10 MB cada) | queue#imagens | a escrever |
 | No plano grátis, pausar, reordenar, enviar a seguir e tirar da fila também valem | queue#gratis-e-pro | a escrever |
-| Barra fina de ferramentas da sessão na borda direita, com contagem em Alterações e Fila | sessions#barra-de-ferramentas | a escrever |
+| Barra fina de ferramentas da sessão na borda direita, com contagem em Alterações e Fila | sessions#ferramentas-da-sessão | coberto |
 | Servidores MCP em Configurações: 16 servidores oficiais, busca no registro e teste antes de instalar | mcp-servers#catalogo | a escrever |
 | Cada projeto liga os seus servidores MCP em Ajustes do projeto; tokens no Keychain | mcp-servers#por-projeto | a escrever |
 | A lista de Arquivos muda de largura | files#arvore | a escrever |
 | Botão direito num arquivo ou pasta: Mostrar no Finder | files#abrir-em | a escrever |
 | Imagens abrem no editor, e um SVG ganha a pré-visualização | editor#imagens | a escrever |
-| No terminal, caminhos que existem no disco e endereços www. viram links | sessions#links-no-terminal | a escrever |
+| No terminal, caminhos que existem no disco e endereços www. viram links | sessions#links-no-terminal | coberto |
 | Pro e Team se assinam no site; no plano grátis, Configurações › Conta tem Ver planos | pro#assinar | a escrever |
 | Corrigido: a troca de conta espera um subagente ou comando terminar | ai-accounts#trocar-pelo-rodape | a escrever |
 | Corrigido: Quando a janela de 5 h renovar usa o horário da conta da própria sessão | queue#quando-sai-cada-pedido | a escrever |
@@ -321,7 +321,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Arrastar na árvore mostra o que vai e para onde | files#arrastar | a escrever |
 | Corrigido: sessão com trabalho em segundo plano continua como Trabalhando até acabar | agents#trabalho-em-segundo-plano | a escrever |
 | Corrigido: a fila e o aviso de concluído esperam o fim do trabalho em segundo plano | queue#regras-de-envio | a escrever |
-| Corrigido: ao trocar de sessão, o que se digita vai para o terminal, nunca para o arquivo do painel Código | sessions#foco-ao-trocar-de-sessao | a escrever |
+| Corrigido: ao trocar de sessão, o que se digita vai para o terminal, nunca para o arquivo do painel Código | sessions#sessões-e-abas | coberto |
 | Corrigido: fechar várias abas não para num conflito, e um aviso diz quais ficaram | tabs-and-groups#fechar-abas | a escrever |
 | Corrigido: um Substituir que falha diz qual item não foi colocado e que a versão antiga foi para a Lixeira | files#quando-algo-falha | a escrever |
 | Corrigido: copiar caminho com muitos arquivos pergunta ao Git uma vez; Abrir no GitHub numa branch não enviada aponta para o commit | files#copiar-caminho | a escrever |
@@ -408,3 +408,14 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Sobre › Pasta de dados (Mostrar no Finder) | settings#sobre | a escrever |
 | Sobre › Procurar atualizações | updates#atualizar-no-app | a escrever |
 | Sobre › Procurar atualizações automaticamente | updates#desligar-a-procura | a escrever |
+
+## Mídia para a entrega 2
+
+Vídeos de `public/changelog/` conferidos contra a interface da v0.13.0 e deixados de fora da entrega 1. Cada um precisa ser regravado para a página indicada.
+
+| Vídeo | Página | Motivo |
+|---|---|---|
+| `0.1.0/projetos.mp4` | `projects-and-workspaces` | Gravado na interface da 0.9: a sessão não tem a barra de ferramentas da borda direita (0.10.0), o cabeçalho ainda tem o botão de abrir o painel, que saiu, e no lugar do botão do Quadro está o do Estúdio do projeto, da 0.9. |
+| `0.1.0/restaurar.mp4` | `sessions-and-recovery` | Mesma interface da 0.9 atrás do relatório: sem a barra de ferramentas da sessão, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. O relatório em si bate com a 0.13.0. |
+| `0.2.0/painel.mp4` | `sessions` | O painel lateral mudou na 0.10.0: as ferramentas eram abas no topo do painel e hoje ficam na barra vertical da borda direita, e o painel abria por um botão no cabeçalho que não existe mais. |
+| `0.8.0/workspace-remoto.mp4` | `projects-and-workspaces` | A janela **Adicionar workspace** bate com a 0.13.0, mas o fundo mostra a sessão da 0.9 (sem a barra de ferramentas, com o botão de painel no cabeçalho) e o botão do Estúdio do projeto no lugar do Quadro. Basta regravar a mesma cena. |
