@@ -2,10 +2,10 @@
 title: Archivos
 description: El árbol de la carpeta de la sesión en el panel Código, para crear, renombrar, mover, copiar y eliminar archivos, abrirlos en otra app y copiar sus rutas.
 group: code
-order: 2
+order: 4
 ---
 
-La lista **Archivos** (*Files*), a la izquierda del [editor](/docs/editor), muestra la carpeta de la sesión como árbol. Crea, renombra, mueve, copia y elimina archivos y carpetas sin salir de Persisty. El clic derecho en un elemento abre el menú de archivos; en un espacio vacío de la lista, el menú tiene **Nuevo** (*New*) y **Pegar** (*Paste*) para la carpeta de la sesión.
+La lista **Archivos** (*Files*), a la izquierda del [editor](/docs/editor), muestra la carpeta de la sesión como árbol. Crea, renombra, mueve, copia y elimina archivos y carpetas sin salir de Persisty. El clic derecho en un elemento abre el menú de archivos; en un espacio vacío de la lista, el menú tiene **Nuevo** (*New*), **Pegar** (*Paste*) e **Historial local** (*Local History*) para la carpeta de la sesión.
 
 ## El árbol
 
@@ -46,6 +46,12 @@ La IDE es la que eliges en [**Configuración › Workspace › IDE por defecto**
 ## Copiar ruta
 
 **Copiar ruta** (*Copy path*) da la **Ruta absoluta** (*Absolute path*), la **Ruta desde el proyecto** (*Path from the project*), la **Ruta desde la raíz del repositorio** (*Path from the repository root*), el **Nombre del archivo** (*File name*), la **Referencia** (*Reference*) y el **Enlace en GitHub** (*Link on GitHub*, o GitLab, o Bitbucket), en el commit actual. La referencia es `archivo:línea`, o `archivo:inicio-fin` con líneas seleccionadas en la pestaña. Con varios elementos seleccionados, cada uno va en una línea.
+
+## Favoritos e historial local
+
+El submenú **Favoritos** (*Bookmarks*) tiene **Agregar a favoritos** (*Add to Bookmarks*), para los elementos seleccionados, o **Quitar de favoritos** (*Remove from Bookmarks*), cuando todos ya están ahí. Los favoritos siguen al archivo o a la carpeta cuando se renombran o se mueven, y su lista se abre con una tecla; mira [Favoritos](/docs/code-navigation#favoritos).
+
+El submenú **Historial local** tiene **Mostrar historial** (*Show History*), que en un archivo lista las versiones guardadas y en una carpeta muestra lo que cambió en ella, con lo eliminado, y **Poner etiqueta…** (*Put Label…*). En el espacio vacío de la lista, el mismo submenú vale para toda la carpeta de la sesión. Mira [Historial local](/docs/local-history).
 
 ## Recargar del disco
 

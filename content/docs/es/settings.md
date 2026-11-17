@@ -43,7 +43,7 @@ El grupo **Cuando un agente te necesita** (*When an agent needs you*).
 
 ## Editor
 
-Los grupos, en orden: **Fuente** (*Font*), **Comportamiento** (*Behavior*), **Atajos**, **Markdown**, **Minimapa** (*Minimap*), **Autor de la línea (git blame)** (*Line author (git blame)*) y **Pestañas** (*Tabs*). Los cambios valen al instante en los editores abiertos.
+Los grupos, en orden: **Fuente** (*Font*), **Comportamiento** (*Behavior*), **Atajos**, **Markdown**, **Minimapa** (*Minimap*), **Autor de la línea (git blame)** (*Line author (git blame)*), **Pestañas** (*Tabs*) e **Historial local** (*Local history*). Los cambios valen al instante en los editores abiertos.
 
 | Opción | Por defecto |
 | --- | --- |
@@ -74,6 +74,9 @@ Los grupos, en orden: **Fuente** (*Font*), **Comportamiento** (*Behavior*), **At
 | **Mostrar la carpeta en nombres repetidos** (*Show the folder for repeated names*) | encendido |
 | **Marcar pestañas sin guardar** (*Mark unsaved tabs*) | **Punto** (*Dot*). También **Nombre en cursiva** (*Name in italics*) |
 | **Pestaña de vista previa** (*Preview tab*) | apagado |
+| [**Guardar por (días)**](/docs/local-history#plazo-y-espacio) (*Keep for (days)*) | 5, de 1 a 30. El historial queda solo en esta computadora |
+| **Límite por carpeta (MB)** (*Limit per folder (MB)*) | 200, de 50 a 2.000. Pasado eso, se borran las versiones más antiguas de la carpeta |
+| **Borrar el historial local** (*Clear local history*) | borra, después de confirmar, las versiones guardadas de todas las carpetas |
 
 El **Peso** va de 100 a 900, además de normal y bold. Las opciones del minimapa aparecen con él encendido, y las del autor de la línea, con **Mostrar el autor al final de la línea** encendido.
 

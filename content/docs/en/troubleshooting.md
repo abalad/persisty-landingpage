@@ -50,4 +50,5 @@ Still being checked in real use: on Windows and Linux, pasting files to and from
 - Switch a session's account in the middle of a turn. A switch, by rotation or by hand from the footer, waits for the answer to end and for what it left running in the background, such as subagents and commands; see [Switch a session's account](/docs/ai-accounts#switch-a-sessions-account).
 - Integrations with analytics tools.
 - Split the terminal into side-by-side panes.
+- In the editor, rename or apply a code action that creates, renames or deletes files, and move code to another file; see [Usages, rename and refactor](/docs/usages-and-refactoring#plan-and-limits).
 - A signed Windows installer, and Windows and Linux tested on real machines.

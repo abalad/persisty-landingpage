@@ -2,14 +2,14 @@
 title: Tabs and groups
 description: The editor's tabs, how to switch, close, pin and reorder them, and the editor split into up to four groups side by side or stacked.
 group: code
-order: 3
+order: 5
 ---
 
 Each file open in the [editor](/docs/editor) gets a tab. The editor can split into up to four groups, side by side or stacked, each with its own tabs, and the same file can be open in more than one group.
 
 ## The tab menu
 
-Right-clicking a tab, or <kbd>⇧</kbd> <kbd>F10</kbd> with the tab in focus, opens its menu. It holds every way to close, **Copy path**, the editor splits, **Pin Tab**, **Configure Tabs**, **Maximize the editor**, **Change File Type…**, **Open in**, the [**Git**](/docs/git-in-the-editor#the-git-submenu) submenu, **Rename File…** and **Reload from Disk**. An item that does not apply to that tab is greyed out and says why, such as "it is the only tab". Git diff and history tabs have only the ways to close.
+Right-clicking a tab, or <kbd>⇧</kbd> <kbd>F10</kbd> with the tab in focus, opens its menu. It holds every way to close, **Copy path**, [**Show in Tree**](/docs/code-navigation#show-in-tree), the [**Bookmarks**](/docs/code-navigation#bookmarks) submenu, the editor splits, **Pin Tab**, **Configure Tabs**, **Maximize the editor**, **Change File Type…**, **Open in**, the [**Local History**](/docs/local-history) and [**Git**](/docs/git-in-the-editor#the-git-submenu) submenus, **Rename File…** and **Reload from Disk**. A tab from outside the session's folder has no **Show in Tree** or **Bookmarks**. An item that does not apply to that tab is greyed out and says why, such as "it is the only tab". Git diff and history tabs have only the ways to close.
 
 ## Switch tabs
 

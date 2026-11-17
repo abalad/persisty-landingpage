@@ -21,7 +21,7 @@ Num workspace sem sessões, a tela mostra o caminho da pasta e uma lista curta: 
 
 As abas do topo são as sessões do workspace selecionado. Cada aba tem o ícone do agente, o nome e um ponto com o estado; passar o mouse mostra o estado em palavras (veja [Os estados](/docs/agents#os-estados)). Numa sessão do Claude Code, a aba mostra o nome da conversa enquanto a sessão tiver o nome que o Persisty deu. Um nome que você escolheu fica.
 
-Para renomear, dê um clique duplo na aba ou use **Renomear** no botão direito. O mesmo menu tem **Mover para a esquerda** e **Mover para a direita**, quando a aba pode ir para aquele lado, **Abrir em** com o nome do IDE padrão, como **Abrir em Cursor**, quando há um, **Fechar** e **Fechar todas**. O **×** aparece sobre o ponto ao passar o mouse. Fechar pede confirmação, encerra o processo e remove a sessão; numa sessão com pasta própria, o Persisty pergunta antes o que fazer com a pasta.
+Para renomear, dê um clique duplo na aba ou use **Renomear** no botão direito. O mesmo menu tem **Mover para a esquerda** e **Mover para a direita**, quando a aba pode ir para aquele lado, **Abrir em** com o nome do IDE padrão, como **Abrir em Cursor**, quando há um, **Fechar** e **Fechar todas**. O **×** aparece sobre o ponto ao passar o mouse. Fechar pede confirmação, encerra o processo e remove a sessão; numa sessão com pasta própria, o Persisty pergunta antes o que fazer com a pasta. Não há um botão para parar o processo e manter a sessão: para encerrar o agente, saia dele no próprio terminal ou feche a aba.
 
 Ao lado das abas ficam também o seletor de [comandos do workspace](/docs/commands), o botão **Quadro de sessões**, que abre o [Quadro](/docs/board) (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd>), e, quando o projeto tem sessões sem processo, **Restaurar N** ([Restaurar tudo](/docs/sessions-and-recovery#restaurar-tudo)).
 
@@ -31,17 +31,17 @@ Cada sessão guarda o histórico do terminal, que volta quando o Persisty reanex
 
 ## Cabeçalho da sessão
 
-Acima do terminal, o cabeçalho mostra o nome, o estado em palavras e o branch da pasta. O branch acompanha trocas feitas pelo terminal, e clicar nele abre um seletor com busca para trocar ou criar branches. Conforme a sessão, aparecem também o aviso de **Sem quota**, a marca `worktree` de uma pasta própria, o resultado da [verificação ao terminar](/docs/verify) e a issue de origem.
+Acima do terminal, o cabeçalho mostra só informações da sessão: o nome, o estado em palavras e o branch da pasta. O branch acompanha trocas feitas pelo terminal, e clicar nele abre um seletor com busca para trocar ou criar branches. Conforme a sessão, aparecem também o aviso de **Sem quota**, a marca `worktree` de uma pasta própria, o resultado da [verificação ao terminar](/docs/verify), a issue de origem e, numa sessão sem processo, o motivo.
 
-À direita ficam as ações, em botões com ícone; passar o mouse mostra o nome. **Parar** encerra o processo e mantém a sessão, que passa a mostrar **Sessão sem processo.** e **Tentar de novo**; uma sessão que ainda não iniciou mostra **Iniciar**. **Renomear** troca o nome, **Histórico** mostra os 12 eventos mais recentes da sessão, do mais novo para o mais antigo, como as mudanças de estado e as trocas de conta, e **Remover** encerra o processo e tira a sessão.
+Renomear e fechar ficam na [aba da sessão](#sessões-e-abas), e o histórico, na barra de ferramentas da borda direita. Uma sessão sem processo mostra, no lugar do terminal, **Sessão sem processo.**, o motivo e o botão **Tentar de novo**, que relança a sessão; uma sessão que ainda não iniciou mostra **Iniciar**. Veja [Voltar depois de travar](/docs/sessions-and-recovery#restaurar-tudo).
 
 Na barra de baixo da janela ficam, da sessão em foco, o modelo, o gasto estimado, o contexto, as janelas de 5 h e 7 d, a pasta e o processo; veja [Uso, custo e quota](/docs/usage-and-quota).
 
 ## Ferramentas da sessão
 
-Na borda direita de cada sessão fica uma barra fina com as ferramentas dela, em três grupos: [**Código**](/docs/editor), [**Busca**](/docs/search) e [**Notas**](/docs/notes); [**Alterações**](/docs/changes), [**Pontos de restauração**](/docs/restore-points) e [**Fila de pedidos**](/docs/queue); e **Detalhes**. Um clique abre a ferramenta no painel lateral, e o mesmo clique fecha. O ícone de **Alterações** mostra quantos arquivos mudaram, e o da **Fila de pedidos**, nas sessões de agente, quantos pedidos esperam, também com o painel fechado. Passar o mouse mostra o nome, a contagem e o atalho.
+Na borda direita de cada sessão fica uma barra fina com as ferramentas dela, em três grupos: [**Código**](/docs/editor), [**Busca**](/docs/search) e [**Notas**](/docs/notes); [**Alterações**](/docs/changes), [**Pontos de restauração**](/docs/restore-points) e [**Fila de pedidos**](/docs/queue); e **Histórico** e **Detalhes**. Um clique abre a ferramenta no painel lateral, e o mesmo clique fecha. O ícone de **Alterações** mostra quantos arquivos mudaram, e o da **Fila de pedidos**, nas sessões de agente, quantos pedidos esperam, também com o painel fechado. Passar o mouse mostra o nome, a contagem e o atalho.
 
-**Detalhes** resume a sessão, o workspace e o projeto: o agente, o modelo, o custo estimado, o contexto usado, as janelas de 5 h e 7 d, o processo e a regra **Ao reabrir**; a pasta, o branch e as alterações, com **Remover do projeto**; e o gasto com IA no mês e as sessões ativas, com **Uso detalhado** e **Ajustes do projeto**.
+**Histórico** mostra os 12 eventos mais recentes da sessão, do mais novo para o mais antigo, como as mudanças de estado e as trocas de conta. **Detalhes** resume a sessão, o workspace e o projeto: o agente, o modelo, o custo estimado, o contexto usado, as janelas de 5 h e 7 d, o processo e a regra **Ao reabrir**; a pasta, o branch e as alterações, com **Remover do projeto**; e o gasto com IA no mês e as sessões ativas, com **Uso detalhado** e **Ajustes do projeto**.
 
 As sessões, o painel e os links são do plano grátis. Na **Fila de pedidos**, escrever pedidos é do Pro; nos **Pontos de restauração**, gravar um ponto a cada pedido também.
 

@@ -2,7 +2,7 @@
 title: Git in the editor
 description: Each file's Git inside the editor, with gutter marks, the author of each line, git blame annotation, diffs and history, and the Git submenu of the tree and the tab.
 group: code
-order: 4
+order: 7
 ---
 
 The [editor](/docs/editor) shows the open file's Git without you leaving it: what changed since the last commit, who changed each line and the file's history. To commit, push and switch branches, use the [Changes](/docs/changes) panel.

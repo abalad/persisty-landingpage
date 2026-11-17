@@ -1,11 +1,11 @@
 ---
 title: Editor
-description: O editor de cada sessão, ao lado do terminal, com destaque por linguagem, pré-visualização de Markdown e imagens, sugestões e erros do projeto e o mapa de teclas que você escolhe.
+description: O editor de cada sessão, ao lado do terminal, com destaque por linguagem, pré-visualização de Markdown e imagens, sugestões e erros do projeto, o painel de baixo, a seleção em coluna e o mapa de teclas que você escolhe.
 group: code
 order: 1
 ---
 
-O painel **Código** é o editor da sessão: a pasta dela em árvore, à esquerda, e os arquivos abertos em abas, ao lado do terminal. Ele abre pelo ícone **Código**, na barra de ferramentas da borda direita da sessão. A árvore, as abas e o Git de cada arquivo têm páginas próprias: [Arquivos](/docs/files), [Abas e grupos](/docs/tabs-and-groups) e [Git no editor](/docs/git-in-the-editor).
+O painel **Código** é o editor da sessão: a pasta dela em árvore, à esquerda, e os arquivos abertos em abas, ao lado do terminal. Ele abre pelo ícone **Código**, na barra de ferramentas da borda direita da sessão. A árvore, as abas e o Git de cada arquivo têm páginas próprias: [Arquivos](/docs/files), [Abas e grupos](/docs/tabs-and-groups) e [Git no editor](/docs/git-in-the-editor). As ações que andam pelo código e as que mudam o código pelo servidor da linguagem estão em [Navegar pelo código](/docs/code-navigation) e [Usos, renomear e refatorar](/docs/usages-and-refactoring), e as versões que o editor guarda, em [Histórico local](/docs/local-history).
 
 ## Abrir e salvar
 
@@ -67,6 +67,22 @@ A barra de status mostra o estado do servidor (baixando, indexando, pronto ou pa
 
 Em Rust, a biblioteca padrão precisa do código-fonte dela no seu toolchain (`rustup component add rust-src`); o app nunca muda o toolchain sozinho.
 
+## Painel de baixo
+
+Embaixo do código, acima da barra de status, o editor tem um painel com as abas **Usos** e **Problemas**. **Problemas** lista os erros, os avisos e as informações dos servidores da linguagem, por arquivo, e um clique abre o arquivo na linha. Clicar na contagem de erros e avisos da barra de status abre essa aba. **Usos** mostra o último resultado de [Encontrar usos](/docs/usages-and-refactoring#encontrar-usos), da implementação ou do tipo.
+
+Arraste a borda de cima do painel para mudar a altura, ou use <kbd>↑</kbd> e <kbd>↓</kbd> com ela em foco; um clique duplo volta à altura padrão. Cada sessão guarda se o painel estava aberto, em que aba e com que altura.
+
+No código, nos dois mapas WebStorm, <kbd>⌘</kbd> <kbd>3</kbd> abre **Usos** e <kbd>⌘</kbd> <kbd>6</kbd> abre **Problemas**, no lugar de escolher o projeto 3 ou 6. No mapa do VS Code, **Problemas** é <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>M</kbd>, e **Usos** abre pela paleta. A tecla leva o foco à lista, e <kbd>Esc</kbd> fecha o painel e devolve o foco ao código. No Windows e no Linux, que estão em prévia, as teclas são <kbd>Alt</kbd> <kbd>3</kbd> e <kbd>Alt</kbd> <kbd>6</kbd>, ou <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>M</kbd> no VS Code.
+
+## Seleção em coluna e cursores
+
+**Modo de seleção em coluna** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>8</kbd> nos mapas WebStorm) liga o modo, e a barra de status mostra **Coluna**. Com ele ligado, <kbd>⇧</kbd> e as setas fazem um retângulo, com um cursor por linha na mesma coluna, e arrastar com o mouse desenha o retângulo. Numa linha curta, o cursor fica no fim, e a coluna volta numa linha mais longa. Digitar escreve em todas as linhas, e o desfazer volta tudo num passo. <kbd>Esc</kbd> ou a mesma tecla desligam o modo.
+
+Para pôr outro cursor acima ou abaixo, aperte <kbd>⌥</kbd> duas vezes, segure na segunda e use <kbd>↑</kbd> ou <kbd>↓</kbd>, nos mapas WebStorm. **Adicionar cursor acima** e **Adicionar cursor abaixo** ficam também em <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>↑</kbd> e <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>↓</kbd>, em qualquer mapa; nos mapas WebStorm, com a aba **Usos** mostrando um resultado, essas teclas andam pelos usos.
+
+No mapa do VS Code, o modo de coluna fica na paleta, e não há o gesto. No Windows e no Linux, o modo é <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>, o gesto usa <kbd>Ctrl</kbd> no lugar de <kbd>⌥</kbd>, e adicionar cursor é <kbd>Ctrl</kbd> <kbd>Alt</kbd> com as setas.
+
 ## Acessibilidade
 
 Com **Reduzir movimento** ligado nos ajustes de acessibilidade do sistema, o app tira as transições; no editor, os números de linha continuam alinhados ao código, e um resultado da busca leva à linha certa. A árvore, as abas e os menus funcionam pelo teclado, e um leitor de tela ouve quando uma aba não foi gravada, está em prévia ou foi fixada.
@@ -96,8 +112,10 @@ O mapa do VS Code mantém as teclas dele, como <kbd>F12</kbd> para ir à declara
 
 No Windows e no Linux, que estão em prévia, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> fazem o papel de <kbd>⌘</kbd> e <kbd>⌥</kbd>, e os dois mapas WebStorm usam as teclas da coluna WebStorm, com uma diferença: **Documentação rápida** é <kbd>Ctrl</kbd> <kbd>Q</kbd>.
 
+As teclas de navegação, de usos e de refatoração de cada mapa estão em [Navegar pelo código](/docs/code-navigation#teclas) e [Usos, renomear e refatorar](/docs/usages-and-refactoring#teclas), e a lista das teclas que mudam de sentido no código, em [Atalhos](/docs/shortcuts#dentro-do-código).
+
 ## Plano e limites
 
 O editor é do plano grátis, com tudo desta página.
 
-Sugestões, documentação, erros e **Ir para a declaração** existem só em TypeScript, JavaScript e Rust; nas outras linguagens, o editor tem o destaque. O primeiro download de cada servidor precisa de internet. Arquivos de texto acima de 5 MB e imagens acima de 10 MB não abrem.
+Sugestões, documentação, erros, **Ir para a declaração**, o painel **Problemas** e as ações que pedem o servidor da linguagem existem só em TypeScript, JavaScript e Rust; nas outras linguagens, o editor tem o destaque. O primeiro download de cada servidor precisa de internet. Arquivos de texto acima de 5 MB e imagens acima de 10 MB não abrem.

@@ -2,7 +2,7 @@
 title: Notes
 description: One Markdown notepad per project, saved on its own and the same in every session of the project.
 group: code
-order: 7
+order: 10
 ---
 
 **Notes** is one Markdown notepad per project, for what you want at hand while you work: a plan, a list of what is left, commands you always forget. Every session of the project opens the same notes.

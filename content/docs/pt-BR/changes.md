@@ -2,7 +2,7 @@
 title: Alterações e commits
 description: O painel Alterações da sessão, para preparar, ver o diff, fazer o commit, sincronizar com o remoto, trocar de branch, guardar alterações e resolver conflitos.
 group: code
-order: 5
+order: 8
 ---
 
 O painel **Alterações** é o Git da pasta da sessão, como o controle de versão de uma IDE. Ele abre pelo ícone **Alterações**, na barra de ferramentas da borda direita da sessão, ou com <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd>. O ícone mostra quantos arquivos mudaram, também com o painel fechado.

@@ -2,7 +2,7 @@
 title: Comandos do workspace
 description: Os comandos que o Persisty encontra na pasta do workspace e os seus, para rodar com uma tecla e ver a saída de cada um numa aba abaixo do terminal.
 group: code
-order: 8
+order: 11
 ---
 
 Cada workspace tem os seus comandos, como `pnpm dev` ou `cargo test`, num seletor ao lado das abas das sessões. Um comando roda num terminal à parte, na pasta do workspace, e a saída fica numa aba abaixo do terminal da sessão.
@@ -15,13 +15,13 @@ Comandos que não aparecem ali entram por **Adicionar comando…**: escreva o **
 
 ## Executar
 
-O botão de play ao lado do seletor, ou <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd>, executa o comando escolhido e abre a saída. Enquanto ele roda, o mesmo botão e a mesma tecla param o comando.
+O botão de play ao lado do seletor, ou <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> fora do código, executa o comando escolhido e abre a saída. Enquanto ele roda, o mesmo botão e a mesma tecla param o comando.
 
 Ao lado do seletor, o estado aparece escrito: **Executando**, **Concluído**, **Falhou · código N**, **Parado** ou **Encerrado**. Um clique nele abre ou recolhe a saída.
 
 ## A saída do comando
 
-A **Saída do comando** fica abaixo do terminal da sessão, com uma aba por comando executado e um ponto com o estado de cada um. <kbd>⌘</kbd> <kbd>E</kbd>, ou a seta no canto, abre e recolhe a saída; recolhida, ela continua mostrando as abas.
+A **Saída do comando** fica abaixo do terminal da sessão, com uma aba por comando executado e um ponto com o estado de cada um. <kbd>⌘</kbd> <kbd>E</kbd> fora do código, ou a seta no canto, abre e recolhe a saída; recolhida, ela continua mostrando as abas.
 
 Enquanto o comando roda, a aba mostra o terminal dele, ao vivo. Depois que ele termina, a aba mostra as últimas 400 linhas, com **Executar de novo**. Executar o mesmo comando outra vez troca a aba antiga pela nova, e o **×** de uma aba terminada a fecha.
 

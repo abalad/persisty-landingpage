@@ -2,7 +2,7 @@
 title: Comandos del workspace
 description: Los comandos que Persisty encuentra en la carpeta del workspace y los tuyos, para ejecutarlos con una tecla y ver la salida de cada uno en una pestaña debajo de la terminal.
 group: code
-order: 8
+order: 11
 ---
 
 Cada workspace tiene sus comandos, como `pnpm dev` o `cargo test`, en un selector junto a las pestañas de las sesiones. Un comando corre en una terminal aparte, en la carpeta del workspace, y su salida queda en una pestaña debajo de la terminal de la sesión.
@@ -15,13 +15,13 @@ Los comandos que no aparecen ahí entran por **Agregar comando…** (*Add comman
 
 ## Ejecutar
 
-El botón de reproducir junto al selector, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd>, ejecuta el comando elegido y abre la salida. Mientras corre, el mismo botón y la misma tecla lo detienen.
+El botón de reproducir junto al selector, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> fuera del código, ejecuta el comando elegido y abre la salida. Mientras corre, el mismo botón y la misma tecla lo detienen.
 
 Junto al selector, el estado aparece escrito: **Ejecutando** (*Running*), **Concluido** (*Done*), **Falló · código N** (*Failed · code N*), **Detenido** (*Stopped*) o **Terminado** (*Ended*). Un clic en él abre o contrae la salida.
 
 ## La salida del comando
 
-La **Salida del comando** (*Command output*) queda debajo de la terminal de la sesión, con una pestaña por comando ejecutado y un punto con el estado de cada uno. <kbd>⌘</kbd> <kbd>E</kbd>, o la flecha de la esquina, abre y contrae la salida; contraída, sigue mostrando las pestañas.
+La **Salida del comando** (*Command output*) queda debajo de la terminal de la sesión, con una pestaña por comando ejecutado y un punto con el estado de cada uno. <kbd>⌘</kbd> <kbd>E</kbd> fuera del código, o la flecha de la esquina, abre y contrae la salida; contraída, sigue mostrando las pestañas.
 
 Mientras el comando corre, su pestaña muestra la terminal del comando, en vivo. Cuando termina, la pestaña muestra sus últimas 400 líneas, con **Ejecutar de nuevo** (*Run again*). Ejecutar el mismo comando otra vez reemplaza la pestaña anterior por la nueva, y la **×** de una pestaña terminada la cierra.
 

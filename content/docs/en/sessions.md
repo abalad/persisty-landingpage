@@ -21,7 +21,7 @@ In a workspace with no sessions, the screen shows the folder's path and a short 
 
 The tabs at the top are the sessions of the selected workspace. Each tab has the agent's icon, the name and a dot with the state; hovering shows the state in words (see [The states](/docs/agents#the-states)). In a Claude Code session, the tab shows the conversation's name for as long as the session keeps the name Persisty gave it. A name you chose stays.
 
-To rename, double-click the tab or use **Rename** on its right-click menu. The same menu has **Move left** and **Move right**, when the tab can go that way, **Open in** with your default IDE's name, such as **Open in Cursor**, when there is one, **Close** and **Close all**. The **×** shows over the dot when you hover. Closing asks for confirmation, ends the process and removes the session; for a session with its own folder, Persisty first asks what to do with the folder.
+To rename, double-click the tab or use **Rename** on its right-click menu. The same menu has **Move left** and **Move right**, when the tab can go that way, **Open in** with your default IDE's name, such as **Open in Cursor**, when there is one, **Close** and **Close all**. The **×** shows over the dot when you hover. Closing asks for confirmation, ends the process and removes the session; for a session with its own folder, Persisty first asks what to do with the folder. There is no button to stop the process and keep the session: to end the agent, exit it in the terminal itself or close the tab.
 
 Beside the tabs are also the [workspace commands](/docs/commands) picker, the **Session board** button, which opens the [Board](/docs/board) (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd>), and, when the project has sessions with no process, **Restore N** ([Restore all](/docs/sessions-and-recovery#restore-all)).
 
@@ -31,17 +31,17 @@ Each session keeps its terminal history, which comes back when Persisty reattach
 
 ## Session header
 
-Above the terminal, the header shows the name, the state in words and the folder's branch. The branch follows switches made in the terminal, and clicking it opens a picker with search to switch or create branches. Depending on the session, it also shows the **Out of quota** notice, the `worktree` mark of a session with its own folder, the result of the [check on finish](/docs/verify) and the issue it started from.
+Above the terminal, the header shows only the session's information: the name, the state in words and the folder's branch. The branch follows switches made in the terminal, and clicking it opens a picker with search to switch or create branches. Depending on the session, it also shows the **Out of quota** notice, the `worktree` mark of a session with its own folder, the result of the [check on finish](/docs/verify), the issue it started from and, for a session with no process, the reason.
 
-The actions sit on the right, as icon buttons; hovering shows the name. **Stop** ends the process and keeps the session, which then shows **Session has no process.** and **Try again**; a session that has not started yet shows **Start**. **Rename** changes the name, **History** shows the session's 12 most recent events, newest first, such as state changes and account switches, and **Remove** ends the process and removes the session.
+Renaming and closing are on the [session's tab](#sessions-and-tabs), and the history is in the tool bar on the right edge. A session with no process shows, in place of the terminal, **Session has no process.**, the reason and a **Try again** button that relaunches it; a session that has not started yet shows **Start**. See [Coming back after a crash](/docs/sessions-and-recovery#restore-all).
 
 The bar at the bottom of the window shows, for the focused session, the model, the estimated spend, the context, the 5 h and 7 d windows, the folder and the process; see [Usage, cost and quota](/docs/usage-and-quota).
 
 ## Session tools
 
-Down the right edge of every session runs a thin bar with its tools, in three groups: [**Code**](/docs/editor), [**Search**](/docs/search) and [**Notes**](/docs/notes); [**Changes**](/docs/changes), [**Restore points**](/docs/restore-points) and [**Request queue**](/docs/queue); and **Details**. One click opens the tool in the side panel, and the same click closes it. The **Changes** icon shows how many files changed and, in agent sessions, the **Request queue** icon shows how many requests are waiting, even with the panel closed. Hovering shows the name, the count and the shortcut.
+Down the right edge of every session runs a thin bar with its tools, in three groups: [**Code**](/docs/editor), [**Search**](/docs/search) and [**Notes**](/docs/notes); [**Changes**](/docs/changes), [**Restore points**](/docs/restore-points) and [**Request queue**](/docs/queue); and **History** and **Details**. One click opens the tool in the side panel, and the same click closes it. The **Changes** icon shows how many files changed and, in agent sessions, the **Request queue** icon shows how many requests are waiting, even with the panel closed. Hovering shows the name, the count and the shortcut.
 
-**Details** sums up the session, the workspace and the project: the agent, the model, the estimated cost, the context used, the 5 h and 7 d windows, the process and the **On reopen** rule; the folder, the branch and the changes, with **Remove from project**; and this month's AI spend and the active sessions, with **Usage details** and **Project settings**.
+**History** shows the session's 12 most recent events, newest first, such as state changes and account switches. **Details** sums up the session, the workspace and the project: the agent, the model, the estimated cost, the context used, the 5 h and 7 d windows, the process and the **On reopen** rule; the folder, the branch and the changes, with **Remove from project**; and this month's AI spend and the active sessions, with **Usage details** and **Project settings**.
 
 Sessions, the panel and links are on the free plan. In the **Request queue**, writing requests is a Pro feature; in **Restore points**, so is recording a point on every request.
 
