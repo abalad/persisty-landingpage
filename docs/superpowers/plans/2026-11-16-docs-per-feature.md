@@ -60,7 +60,7 @@ A entrega 2 (gravações novas) terá um plano próprio, depois que esta for pub
 
 ---
 
-### Tarefa 1: inventário de cobertura
+### Task 1: inventário de cobertura
 
 **Arquivos:**
 - Criar: `docs/docs-coverage.md`
@@ -110,7 +110,7 @@ Mesmo comando. Esperado: PASS.
 
 ---
 
-### Tarefa 2: grupos, redirecionamento e testes de links
+### Task 2: grupos, redirecionamento e testes de links
 
 **Arquivos:**
 - Modificar: `src/lib/content.ts` (`DOC_GROUPS`)
@@ -223,7 +223,7 @@ Rodar `node_modules/.bin/vitest run --testTimeout=60000`. Esperado: PASS, inclus
 
 ---
 
-### Tarefa 9: revisão independente e conferência visual
+### Task 9: revisão independente e conferência visual
 
 **Arquivos:** os de `content/docs/**` que a revisão mandar corrigir.
 
@@ -258,7 +258,7 @@ Releia o código antes de cada correção, para não aceitar um achado errado. D
 
 ---
 
-### Tarefa 10: publicar a entrega 1
+### Task 10: publicar a entrega 1
 
 **Arquivos:**
 - Modificar: `PRODUCT.md`, uma linha: as docs passam a ser por recurso, com inventário em `docs/docs-coverage.md`.
