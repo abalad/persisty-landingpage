@@ -7,8 +7,10 @@
   "body": "Como usar o Persisty, do primeiro projeto aos recursos do Pro. Tudo aqui descreve o app como ele é hoje, inclusive o que ele ainda não faz.",
   "groups": {
     "start": "Começar",
-    "work": "Trabalhar com agentes",
-    "account": "Conta e privacidade",
+    "agents": "Agentes",
+    "code": "Código",
+    "integrations": "Integrações",
+    "account": "Conta",
     "reference": "Referência"
   },
   "onThisPage": "Nesta página",

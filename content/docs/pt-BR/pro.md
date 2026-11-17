@@ -1,8 +1,8 @@
 ---
 title: Recursos do Pro
 description: Fila de pedidos, pontos de restauração, verificação ao terminar e pasta própria por sessão.
-group: work
-order: 2
+group: account
+order: 1
 ---
 
 A fila e os pontos de restauração ficam na **barra da borda direita da sessão** (**Fila de pedidos** e **Pontos de restauração**). A pasta própria se escolhe na **Nova sessão**, e a verificação ao terminar, no menu do comando do workspace, à direita das abas. Os recursos do Pro exigem a conta do Persisty com o plano Pro; o que já foi gravado continua utilizável se o plano acabar. As contas do Claude, com rodízio, troca pelo rodapé e conta por projeto, estão em [Contas de IA e rodízio](/docs/ai-accounts).

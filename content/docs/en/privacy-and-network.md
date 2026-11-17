@@ -2,7 +2,7 @@
 title: Privacy and the network log
 description: What stays on your machine, what goes out, and how to check every network call Persisty makes.
 group: account
-order: 2
+order: 3
 ---
 
 Persisty is local: projects, sessions, history, notes and usage stay in a SQLite database on your machine. There is no telemetry.

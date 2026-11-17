@@ -1,8 +1,8 @@
 ---
 title: Editor, changes and notes
 description: The editor beside the terminal, with the file tree, suggestions and errors from the project, the git changes tab, project search and notes.
-group: work
-order: 3
+group: code
+order: 1
 ---
 
 The session's tools sit in a thin bar on its right edge: **Code**, **Search** and **Notes** at the top, then **Changes**, **Restore points** and **Request queue**, and **Details** last. A click opens that tool's panel beside the bar, and the same click closes it; <kbd>⌘</kbd> <kbd>&#92;</kbd> opens and closes it too. Whether the panel is open or closed, Changes shows how many files changed and, in agent sessions, the Request queue shows how many requests are waiting. The divider between the terminal and the panel can be dragged.

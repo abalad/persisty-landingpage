@@ -2,7 +2,7 @@
 title: Cuenta, planes y licencia
 description: Para qué sirve la cuenta de Persisty, cómo funciona la licencia sin conexión y cuántas computadoras cubre.
 group: account
-order: 1
+order: 2
 ---
 
 El plan gratuito no pide cuenta. La cuenta de Persisty Cloud existe para los planes pagos y para los avisos que pidas.

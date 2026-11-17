@@ -1,8 +1,8 @@
 ---
 title: Usage, cost and quota
 description: Spend per session, context used and the 5-hour and 7-day windows, with what each number means.
-group: work
-order: 4
+group: agents
+order: 3
 ---
 
 The footer of every agent session shows the model, the spend, the context used and the 5 h and 7 d windows. In a Claude Code session, the footer's model is a picker; see [Model per session](/docs/agents#model-per-session).

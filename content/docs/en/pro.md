@@ -1,8 +1,8 @@
 ---
 title: Pro features
 description: Request queue, restore points, check on finish and own folder per session.
-group: work
-order: 2
+group: account
+order: 1
 ---
 
 The queue and restore points live in the **bar on the session's right edge** (**Request queue** and **Restore points**). The own folder is chosen in **New session**, and check on finish in the workspace command menu, to the right of the tabs. The Pro features require a Persisty account on the Pro plan; what has already been saved stays usable if the plan ends. Claude accounts, with rotation, switching from the footer and an account per project, are in [AI accounts and rotation](/docs/ai-accounts).

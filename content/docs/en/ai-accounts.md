@@ -1,8 +1,8 @@
 ---
 title: AI accounts and rotation
 description: Connect several Claude Code accounts, follow each one's quota live, choose each session's account and let the queue wait when the quota runs out.
-group: work
-order: 1
+group: agents
+order: 2
 ---
 
 **Settings › AI accounts** holds this computer's Claude Code accounts: the one that was already signed in and the ones you connect through Persisty. Each one shows its organisation, plan and the **5-hour** and **7-day** windows. The same e-mail in two organisations shows as two accounts, with the organisation's name beside it.

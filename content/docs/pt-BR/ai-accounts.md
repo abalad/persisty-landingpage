@@ -1,8 +1,8 @@
 ---
 title: Contas de IA e rodízio
 description: Conecte várias contas do Claude Code, acompanhe a quota de cada uma ao vivo, escolha a conta de cada sessão e deixe a fila esperar quando a quota acaba.
-group: work
-order: 1
+group: agents
+order: 2
 ---
 
 Em **Configurações › Contas de IA** ficam as contas do Claude Code deste computador: a que já estava logada e as que você conectar pelo Persisty. Cada uma mostra organização, plano e as janelas de **5 horas** e **7 dias**. O mesmo e-mail em duas organizações aparece como duas contas, com o nome da organização ao lado.

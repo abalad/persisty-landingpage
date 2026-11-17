@@ -1,8 +1,8 @@
 ---
 title: Editor, cambios y notas
 description: El editor junto a la terminal, con el árbol de archivos, sugerencias y errores del proyecto, la pestaña de cambios de git, la búsqueda en el proyecto y las notas.
-group: work
-order: 3
+group: code
+order: 1
 ---
 
 Las herramientas de la sesión quedan en una barra fina en su borde derecho: **Código**, **Búsqueda** y **Notas** arriba, después **Cambios**, **Puntos de restauración** y **Cola de pedidos**, y al final **Detalles**. Un clic abre el panel de esa herramienta junto a la barra, y el mismo clic lo cierra; <kbd>⌘</kbd> <kbd>&#92;</kbd> también lo abre y lo cierra. Con el panel abierto o cerrado, Cambios muestra cuántos archivos cambiaron y, en las sesiones con agente, la Cola de pedidos muestra cuántos pedidos esperan. El divisor entre la terminal y el panel se puede arrastrar.

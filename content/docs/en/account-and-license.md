@@ -2,7 +2,7 @@
 title: Account, plans and licence
 description: What the Persisty account is for, how the offline licence works and how many computers it covers.
 group: account
-order: 1
+order: 2
 ---
 
 The free plan needs no account. The Persisty Cloud account exists for the paid plans and for the notices you ask for.

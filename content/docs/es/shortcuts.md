@@ -5,7 +5,7 @@ group: reference
 order: 1
 ---
 
-La lista completa, con las teclas del mapa del editor que elegiste, está en **Configuración › Atajos** (*Settings › Shortcuts*), con búsqueda. Las teclas dentro del código dependen del mapa (WebStorm, WebStorm (macOS) o VS Code); mira [Mapa de teclas](/docs/editor-and-git#mapa-de-teclas). En Mac, los atajos de la app siempre llevan <kbd>⌘</kbd>; el <kbd>⌃</kbd> queda para la terminal y para el mapa del editor.
+La lista completa, con las teclas del mapa del editor que elegiste, está en **Configuración › Atajos** (*Settings › Shortcuts*), con búsqueda. Las teclas dentro del código dependen del mapa (WebStorm, WebStorm (macOS) o VS Code); mira [Mapa de teclas](/docs/editor#mapa-de-teclas). En Mac, los atajos de la app siempre llevan <kbd>⌘</kbd>; el <kbd>⌃</kbd> queda para la terminal y para el mapa del editor.
 
 | Acción | Atajo |
 | --- | --- |
@@ -39,7 +39,7 @@ Dentro del código, las teclas del mapa van primero. En WebStorm, <kbd>⌘</kbd>
 
 ## Archivos
 
-Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, copiar, pegar y deshacer funcionan en cualquier mapa; las demás son de los mapas WebStorm, y en el mapa de VS Code esas acciones están en el menú del clic derecho. Mira [Archivos](/docs/editor-and-git#archivos).
+Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, copiar, pegar y deshacer funcionan en cualquier mapa; las demás son de los mapas WebStorm, y en el mapa de VS Code esas acciones están en el menú del clic derecho. Mira [Archivos](/docs/editor#archivos).
 
 | Acción | Atajo |
 | --- | --- |
@@ -56,7 +56,7 @@ Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, co
 
 ## Pestañas y grupos
 
-<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> valen en cualquier mapa, con la pestaña en foco. Las demás teclas son de los mapas WebStorm; en el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. Mira [Pestañas y grupos](/docs/editor-and-git#pestañas-y-grupos).
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> valen en cualquier mapa, con la pestaña en foco. Las demás teclas son de los mapas WebStorm; en el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. Mira [Pestañas y grupos](/docs/editor#pestañas-y-grupos).
 
 | Acción | Atajo |
 | --- | --- |

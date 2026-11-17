@@ -1,8 +1,8 @@
 ---
 title: Uso, costo y cuota
 description: Gasto por sesión, contexto usado y las ventanas de 5 horas y 7 días, con lo que quiere decir cada número.
-group: work
-order: 4
+group: agents
+order: 3
 ---
 
 La barra inferior de cada sesión de agente muestra el modelo, el gasto, el contexto usado y las ventanas de 5 h y 7 d. En una sesión de Claude Code, el modelo de la barra inferior es un selector; mira [Modelo por sesión](/docs/agents#modelo-por-sesión).

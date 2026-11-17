@@ -5,7 +5,7 @@ group: reference
 order: 1
 ---
 
-The full list, with the keys of the editor keymap you chose, is in **Settings › Shortcuts**, searchable. Keys inside the code depend on the keymap (WebStorm, WebStorm (macOS) or VS Code); see [Keymap](/docs/editor-and-git#keymap). On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is left to the terminal and the editor keymap.
+The full list, with the keys of the editor keymap you chose, is in **Settings › Shortcuts**, searchable. Keys inside the code depend on the keymap (WebStorm, WebStorm (macOS) or VS Code); see [Keymap](/docs/editor#keymap). On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is left to the terminal and the editor keymap.
 
 | Action | Shortcut |
 | --- | --- |
@@ -39,7 +39,7 @@ Inside the code, the keymap's keys come first. In WebStorm, <kbd>⌘</kbd> <kbd>
 
 ## Files
 
-These keys answer with the file tree in focus. Opening the menu, cut, copy, paste and undo work in every keymap; the others belong to the WebStorm keymaps, and in the VS Code keymap these actions are in the right-click menu. See [Files](/docs/editor-and-git#files).
+These keys answer with the file tree in focus. Opening the menu, cut, copy, paste and undo work in every keymap; the others belong to the WebStorm keymaps, and in the VS Code keymap these actions are in the right-click menu. See [Files](/docs/editor#files).
 
 | Action | Shortcut |
 | --- | --- |
@@ -56,7 +56,7 @@ These keys answer with the file tree in focus. Opening the menu, cut, copy, past
 
 ## Tabs and groups
 
-<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> and <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> work in every keymap, with the tab in focus. The other keys belong to the WebStorm keymaps; in the VS Code keymap, these actions are in the palette and the tab menu. See [Tabs and groups](/docs/editor-and-git#tabs-and-groups).
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> and <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> work in every keymap, with the tab in focus. The other keys belong to the WebStorm keymaps; in the VS Code keymap, these actions are in the palette and the tab menu. See [Tabs and groups](/docs/editor#tabs-and-groups).
 
 | Action | Shortcut |
 | --- | --- |

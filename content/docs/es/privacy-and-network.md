@@ -2,7 +2,7 @@
 title: Privacidad y registro de red
 description: Qué se queda en tu máquina, qué sale y cómo revisar cada llamada de red de Persisty.
 group: account
-order: 2
+order: 3
 ---
 
 Persisty es local: proyectos, sesiones, historial, notas y uso quedan en una base de datos SQLite en tu máquina. No hay telemetría.

@@ -1,8 +1,8 @@
 ---
 title: Agentes y estados
 description: Cómo reconoce Persisty a Claude Code y a Codex y muestra quién está trabajando, quién te espera y quién pide permiso.
-group: start
-order: 4
+group: agents
+order: 1
 ---
 
 Persisty reconoce agentes de dos formas: cuando abres la sesión como Claude Code o Codex CLI, y cuando escribes `claude` en una terminal común abierta por Persisty. En los dos casos la sesión recibe el ícono del agente. El estado y el costo vienen de Claude Code; lo que funciona y lo que todavía no funciona en Codex está en [Codex CLI](#codex-cli).

@@ -1,8 +1,8 @@
 ---
 title: Funciones Pro
 description: Cola de pedidos, puntos de restauración, verificación al terminar y carpeta propia por sesión.
-group: work
-order: 2
+group: account
+order: 1
 ---
 
 La cola y los puntos de restauración están en la **barra del borde derecho de la sesión**, en **Cola de pedidos** (*Request queue*) y **Puntos de restauración** (*Restore points*). La carpeta propia se elige en **Nueva sesión** (*New session*), y la verificación al terminar, en el menú del comando del workspace, a la derecha de las pestañas. Las funciones Pro requieren la cuenta de Persisty con el plan Pro; lo que ya se guardó se puede seguir usando si el plan termina. Las cuentas de Claude, con rotación, cambio desde el pie y cuenta por proyecto, están en [Cuentas de IA y rotación](/docs/ai-accounts).

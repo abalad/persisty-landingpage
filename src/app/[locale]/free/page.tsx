@@ -30,7 +30,7 @@ const SECTIONS = [
   { anchor: "states", icon: "board", docs: "/docs/agents" },
   { anchor: "projects", icon: "projects", docs: "/docs/projects-and-workspaces" },
   { anchor: "mascot", icon: "mascot", docs: "/docs/agents" },
-  { anchor: "editor", icon: "editorGit", docs: "/docs/editor-and-git" },
+  { anchor: "editor", icon: "editorGit", docs: "/docs/editor" },
   { anchor: "privacy", icon: "networkLog", docs: "/security" },
 ] as const;
 

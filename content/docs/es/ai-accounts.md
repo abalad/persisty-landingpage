@@ -1,8 +1,8 @@
 ---
 title: Cuentas de IA y rotación
 description: Conecta varias cuentas de Claude Code, sigue en vivo la cuota de cada una, elige la cuenta de cada sesión y deja que la cola espere cuando se acaba la cuota.
-group: work
-order: 1
+group: agents
+order: 2
 ---
 
 En **Configuración › Cuentas de IA** (*Settings › AI accounts*) están las cuentas de Claude Code de esta computadora: la que ya tenía el login hecho y las que conectes desde Persisty. Cada una muestra organización, plan y las ventanas de **5 horas** y **7 días**. El mismo e-mail en dos organizaciones aparece como dos cuentas, con el nombre de la organización al lado.

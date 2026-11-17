@@ -1,8 +1,8 @@
 ---
 title: Uso, custo e quota
 description: Gasto por sessão, contexto usado e as janelas de 5 horas e 7 dias, com o que cada número quer dizer.
-group: work
-order: 4
+group: agents
+order: 3
 ---
 
 O rodapé de cada sessão de agente mostra o modelo, o gasto, o contexto usado e as janelas de 5 h e 7 d. Numa sessão do Claude Code, o modelo do rodapé é um seletor; veja [Modelo por sessão](/docs/agents#modelo-por-sessão).
