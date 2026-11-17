@@ -1,0 +1,410 @@
+# Inventário de cobertura das docs
+
+Mapa de tudo o que o Persisty entregou (changelog do site, versões 0.1.0 a 0.13.0) e de cada aba e opção de Configurações (app v0.13.0) para a página e a seção das docs que o cobrem. Fonte do design: `docs/superpowers/specs/2026-11-16-docs-per-feature-design.md`.
+
+Como ler:
+- **Item:** o item como está em `content/changelog/pt-BR/<versão>.md`, ou a opção de Configurações no formato `Aba › Opção`.
+- **Página:** `slug#ancora` em pt-BR, ou `—` quando não há doc. A âncora é a proposta para a seção; quem escrever a página pode ajustá-la e corrige aqui.
+- **Situação:** `a escrever` (nenhuma página cobre ainda), `coberto` ou `sem doc: <motivo>`.
+- Fora do inventário, por decisão do design: as opções do Persisty Remote que ficam atrás de um sinalizador de prévia.
+
+## Páginas
+
+Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário acrescentou `agent-access` (ver o relatório da Tarefa 1).
+
+| Slug | Grupo | Título pt-BR |
+|---|---|---|
+| `getting-started` | `start` | Primeiros passos |
+| `projects-and-workspaces` | `start` | Projetos e workspaces |
+| `sessions` | `start` | Sessões e terminais |
+| `sessions-and-recovery` | `start` | Voltar depois de travar |
+| `agents` | `agents` | Agentes e estados |
+| `board` | `agents` | Quadro |
+| `mascot` | `agents` | Mascote |
+| `notifications` | `agents` | Notificações |
+| `ai-accounts` | `agents` | Contas de IA e rodízio |
+| `usage-and-quota` | `agents` | Uso, custo e quota |
+| `queue` | `agents` | Fila de pedidos |
+| `restore-points` | `agents` | Pontos de restauração |
+| `worktrees` | `agents` | Pasta própria |
+| `verify` | `agents` | Verificar ao terminar |
+| `editor` | `code` | Editor |
+| `files` | `code` | Arquivos |
+| `tabs-and-groups` | `code` | Abas e grupos |
+| `git-in-the-editor` | `code` | Git no editor |
+| `changes` | `code` | Alterações e commits |
+| `search` | `code` | Busca |
+| `notes` | `code` | Notas |
+| `commands` | `code` | Comandos do workspace |
+| `issues` | `integrations` | Issues: Linear, Jira, ClickUp e GitHub |
+| `forges` | `integrations` | GitHub, GitLab e Bitbucket |
+| `mcp-servers` | `integrations` | Servidores MCP |
+| `agent-access` | `integrations` | Agentes que leem o Persisty |
+| `voice` | `integrations` | Ditado por voz |
+| `pro` | `account` | Planos e recursos do Pro |
+| `account-and-license` | `account` | Conta e licença |
+| `privacy-and-network` | `account` | Privacidade e rede |
+| `updates` | `account` | Atualizações |
+| `shortcuts` | `reference` | Atalhos |
+| `settings` | `reference` | Configurações, tela por tela |
+| `troubleshooting` | `reference` | Problemas e limitações |
+
+## 0.1.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Projetos com vários workspaces, mostrando branch e alterações de cada pasta | projects-and-workspaces#projetos-e-workspaces | a escrever |
+| Sessões persistentes em abas, cada uma com o histórico do terminal | sessions#sessoes-e-abas | a escrever |
+| Restaurar tudo depois de reiniciar o computador, com relatório do que voltou, do que falhou e por quê | sessions-and-recovery#restaurar-tudo | a escrever |
+| Rodar a restauração duas vezes não duplica sessões | sessions-and-recovery#restaurar-tudo | a escrever |
+| Claude Code com id de sessão escolhido pelo Persisty, estados pelos hooks e retomada com --resume | agents#claude-code | a escrever |
+| Uso de IA: gasto estimado por sessão, projeto, modelo e dia, rotulado como estimativa | usage-and-quota#gasto-estimado | a escrever |
+
+## 0.2.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Painel lateral da sessão (⌘\) com Alterações, Código, Busca, Notas e Detalhes e divisória arrastável | sessions#painel-lateral | a escrever |
+| Editor: árvore da pasta da sessão, abas e ⌘S | editor#abrir-e-salvar | a escrever |
+| Editor: aviso quando o arquivo muda no disco | editor#arquivo-mudou-no-disco | a escrever |
+| Editor: destaque por linguagem | editor#destaque-por-linguagem | a escrever |
+| Editor: ⌘P (abrir arquivo pelo nome) | search#abrir-arquivo-pelo-nome | a escrever |
+| Editor: ⌘⇧F (busca em todos os arquivos) | search#buscar-nos-arquivos | a escrever |
+| Editor: marcas do git na margem | git-in-the-editor#marcas-na-margem | a escrever |
+| Alterações: preparar e remover por arquivo | changes#preparar-e-remover | a escrever |
+| Alterações: commit com ⌘↵ e Commit e enviar | changes#commit | a escrever |
+| Alterações: diff por arquivo | changes#diff | a escrever |
+| Alterações: histórico do que não foi enviado | changes#historico | a escrever |
+| Branch no cabeçalho da sessão, com busca, branches locais e remotos e Criar branch | changes#branches | a escrever |
+| Gaveta de comandos: cada comando do workspace vira uma aba com o estado escrito | commands#gaveta | a escrever |
+| Parar um comando manda Ctrl-C e mantém a saída | commands#parar | a escrever |
+
+## 0.3.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Configurações › Conta: entrada por código enviado por e-mail, com a conta criada no primeiro acesso | account-and-license#entrar | a escrever |
+| Plano e recursos vêm de uma licença assinada que funciona 14 dias sem internet | account-and-license#licenca | a escrever |
+| Configurações › Rede: cada chamada que o app faz para fora, sem cabeçalhos, corpo ou parâmetros | privacy-and-network#registro-de-rede | a escrever |
+| Janelas de 5 h e 7 d do rodapé ao vivo, do mesmo lugar que o /usage do Claude Code | usage-and-quota#janelas-de-5-h-e-7-d | a escrever |
+
+## 0.4.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Fila de pedidos: o pedido vai quando o agente ficar livre, quando a janela de 5 h renovar ou a partir de um horário | queue#quando-sai-cada-pedido | a escrever |
+| Fila de pedidos: um por vez, nunca durante um trabalho nem sobre um pedido de permissão | queue#regras-de-envio | a escrever |
+| Pontos de restauração: cada pedido grava o estado da pasta antes de o agente começar | restore-points#o-que-e-gravado | a escrever |
+| Restaurar mostra antes o que volta e o que é apagado, e guarda o estado atual como um ponto novo | restore-points#restaurar | a escrever |
+| Verificação ao terminar: um comando do workspace roda quando o agente para depois de mudar arquivos | verify#como-funciona | a escrever |
+| O cabeçalho diz se a verificação passou ou falhou | verify#resultado | a escrever |
+| Pasta própria por sessão: branch persist/nome numa pasta só dela, em pastas git | worktrees#criar | a escrever |
+| O branch da pasta própria nunca é apagado | worktrees#limites | a escrever |
+
+## 0.5.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Configurações › Contas de IA lista a conta deste computador e as conectadas, com organização, plano e janelas de 5 h e 7 d | ai-accounts#contas-conectadas | a escrever |
+| Conectar conta abre o login do Claude Code no navegador; Desconectar faz o logout | ai-accounts#conectar-e-desconectar | a escrever |
+| Rodízio (Pro): cada sessão nova vai para a conta com mais folga; contas acima de 90% ficam de fora | ai-accounts#rodizio | a escrever |
+| Opção Automática no formulário de nova sessão | ai-accounts#conta-automatica | a escrever |
+| Ajustes e instruções são compartilhados entre as contas; login e histórico, nunca | ai-accounts#o-que-e-compartilhado | a escrever |
+
+## 0.6.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Tudo de que o Persisty precisa vai dentro do app, sem instalar nada à parte | getting-started#instalar | a escrever |
+| No Windows, os agentes funcionam sem shell POSIX | troubleshooting#windows-e-linux | a escrever |
+| Instalador para Windows e pacotes .deb e AppImage para Linux, como prévia | updates#sistemas-e-instaladores | a escrever |
+| Corrigido: eventos dos agentes podiam se perder quando uma linha era lida no meio da escrita | — | sem doc: correção interna, sem efeito a descrever |
+
+## 0.7.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Site em português, inglês e espanhol com planos, download e a conta do Persisty Cloud | account-and-license#conta-no-site | a escrever |
+| Conta pelo site: entrada por código, plano, aparelhos conectados (revogar um), aviso de lançamento, interesse no Enterprise | account-and-license#conta-no-site | a escrever |
+| Docs com o que o app faz hoje e o que ainda não faz | — | sem doc: as próprias docs |
+| Changelog com feed RSS em cada idioma | updates#novidades-e-feed | a escrever |
+
+## 0.8.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Instalador: Mac assinado e notarizado; Windows e Linux como prévia | updates#sistemas-e-instaladores | a escrever |
+| Página de download e Todas as versões, com data, tamanho e SHA-256 | updates#baixar | a escrever |
+| O app procura versões novas ao abrir e a cada 6 horas, e instala com um clique | updates#atualizar-no-app | a escrever |
+| Desligar a procura em Configurações › Sobre; cada consulta em Privacidade e rede | updates#desligar-a-procura | a escrever |
+| No Windows e no Linux, aviso antes de instalar com sessões abertas | updates#windows-e-linux | a escrever |
+| Configurações › Integrações com GitHub, GitLab (gitlab.com ou da empresa) e Bitbucket, várias contas | forges#conectar-contas | a escrever |
+| Adicionar workspace a partir de um repositório remoto, com progresso e cancelamento | projects-and-workspaces#repositorio-remoto | a escrever |
+| Setas ↓ e ↑ ao lado do branch; buscar, puxar, enviar e publicar o branch | changes#sincronizar | a escrever |
+| Descartar alterações, commit de tudo quando nada foi preparado, emendar e desfazer o último commit | changes#commit | a escrever |
+| Branches no painel: trocar, criar, mesclar, renomear e apagar | changes#branches | a escrever |
+| Stash para guardar alterações e trazê-las de volta | changes#stash | a escrever |
+| Conflitos e operações paradas no meio mostram como seguir ou desistir | changes#conflitos | a escrever |
+| Aba Aparência | settings#aparencia | a escrever |
+| Aba Sobre | settings#sobre | a escrever |
+| Aba Terminal (fonte, cursor, exibição e teclado) | settings#terminal | a escrever |
+| Aba Editor (fonte, indentação, quebra de linha, números de linha, vários cursores) | settings#editor | a escrever |
+| Aba Arquivos (esconder arquivos por padrão na árvore, na busca e no ⌘P) | files#esconder-arquivos | a escrever |
+| Aba Workspace: salvar sozinho depois de uma pausa e onde ficam as pastas próprias | settings#workspace | a escrever |
+| IDE padrão, com Abrir no IDE na aba, na paleta e no projeto | files#abrir-em | a escrever |
+| Aba Notificações | notifications#configurar | a escrever |
+| Agente padrão, já escolhido no ⌘⇧N e aberto direto no ⌘⌥N | agents#agente-padrao | a escrever |
+| Aviso no app, com som, e notificação do sistema quando um agente espera ou pede permissão | notifications#avisos | a escrever |
+| Botão de teste e onde olhar quando a notificação do sistema não aparece | notifications#teste-e-problemas | a escrever |
+| Depois de reiniciar, o Claude Code volta na conversa, no mesmo modo de permissão e na pasta própria | sessions-and-recovery#retomar-o-claude-code | a escrever |
+| Uma sessão relançada não aparece mais como encerrada por engano | sessions-and-recovery#estados-depois-de-reiniciar | a escrever |
+| Arquivar um projeto pergunta o que fazer com as sessões abertas; tela dos arquivados, ⌘K, apagar de vez | projects-and-workspaces#arquivar-projetos | a escrever |
+| Projetos, abas de sessão e repositórios na ordem em que você os arrasta | projects-and-workspaces#ordem | a escrever |
+| A aba de uma sessão do Claude Code ganha o nome da conversa | sessions#sessoes-e-abas | a escrever |
+| Rodízio (Pro): escolher em que ponto da quota uma conta sai do rodízio | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
+| Rodízio (Pro): ao fim do turno no limite, a sessão passa para a conta com mais folga e retoma a conversa | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
+| Entrar no Persisty Cloud em dois passos, numa janela própria | account-and-license#entrar | a escrever |
+| Uma segunda conta pode entrar no mesmo computador; um computador removido volta ao entrar de novo | account-and-license#computadores | a escrever |
+| ⌘ ou Ctrl + clique abre no navegador um link do terminal | sessions#links-no-terminal | a escrever |
+| Criar arquivos e pastas pela lista de arquivos do editor | files#novo | a escrever |
+| Um mascote no canto do terminal acompanha o estado do agente | mascot#no-terminal | a escrever |
+
+## 0.9.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Ditado por voz em Configurações › Voz, desligado por padrão, com ⌘⇧D | voice#ditar | a escrever |
+| Tudo roda no computador; o modelo de voz (640 MB) só é baixado quando você pede e pode ser apagado | voice#modelo-de-voz | a escrever |
+| Números falados viram dígitos, termos de programação viram símbolos, substituições próprias | voice#substituicoes | a escrever |
+| O mascote do terminal que recebe o texto pega um microfone | mascot#ditado | a escrever |
+| Configurações › Integrações ganhou Linear, Jira Cloud e ClickUp, e as issues do GitHub vêm da conta já conectada | issues#conectar | a escrever |
+| Cada projeto escolhe o serviço em Ajustes do projeto › Tarefas | issues#escolher-o-servico | a escrever |
+| Começar de uma issue, na Nova sessão | issues#comecar-de-uma-issue | a escrever |
+| Concluir na issue: comentário sugerido e novo status, nada escrito sem você enviar | issues#concluir | a escrever |
+| Configurações › Agentes: ferramentas que leem o projeto, as outras sessões e a saída das tarefas | agent-access#ativar | a escrever |
+| Verificar instalação testa a conexão de verdade | agent-access#verificar | a escrever |
+| Pré-visualização de Markdown, com ⌘⇧V e a opção de abrir os .md nela | editor#markdown | a escrever |
+| Contexto fixo ao rolar | editor#contexto-fixo | a escrever |
+| Minimapa, em caracteres ou blocos, com escala e visibilidade ajustáveis | editor#minimapa | a escrever |
+| Mudou no Mac: os programas das sessões não usam mais as permissões de privacidade dadas ao Persisty | privacy-and-network#permissoes-do-macos | a escrever |
+| Mudou no Mac: até o Mac reiniciar, as sessões continuam usando as permissões do Persisty | privacy-and-network#permissoes-do-macos | a escrever |
+| Corrigido: o uso de 5 h e 7 d de cada sessão é o da conta em que ela roda, ao vivo | usage-and-quota#janelas-de-5-h-e-7-d | a escrever |
+| Corrigido: com Reduzir movimento, os números de linha ficam alinhados e a busca leva à linha certa | — | sem doc: correção de exibição, sem comportamento a descrever |
+| Corrigido: uma atualização parada no download desiste depois de 30 s; Privacidade e rede mostra cada servidor | updates#atualizar-no-app | a escrever |
+| Corrigido: no Linux, o pacote .deb instala ao lado dos programas do sistema | updates#windows-e-linux | a escrever |
+| Windows e Linux continuam como prévia, sem assinatura | updates#windows-e-linux | a escrever |
+
+## 0.9.1
+
+| Item | Página | Situação |
+|---|---|---|
+| Corrigido: Adicionar workspace aceita a pasta escolhida no Windows (C:\...) | projects-and-workspaces#adicionar-workspace | a escrever |
+| Corrigido: Nova sessão num workspace do Windows é criada normalmente | — | sem doc: correção pontual, o comportamento já é o descrito em sessions |
+
+## 0.9.2
+
+| Item | Página | Situação |
+|---|---|---|
+| Corrigido: no Windows e no Linux, a barra do topo começa na borda da janela | — | sem doc: correção de layout, sem comportamento a descrever |
+
+## 0.9.3
+
+| Item | Página | Situação |
+|---|---|---|
+| Sessões voltam sozinhas ao abrir, com Relançar se tiver caído e Relançar sempre | sessions-and-recovery#relancar-ao-abrir | a escrever |
+| Sessões com Só reanexar se estiver viva continuam esperando você pedir | sessions-and-recovery#regras-de-relancar | a escrever |
+| O relatório de restauração abre sozinho depois dessa volta e depois de Restaurar tudo (⌘⇧R) | sessions-and-recovery#relatorio | a escrever |
+| A paleta de comandos abre de novo o último relatório | sessions-and-recovery#relatorio | a escrever |
+
+## 0.9.4
+
+| Item | Página | Situação |
+|---|---|---|
+| Corrigido: o terminal das sessões não embaralha mais o texto no Windows com a tela em 125% ou 150% | — | sem doc: correção de exibição, sem comportamento a descrever |
+
+## 0.10.0
+
+| Item | Página | Situação |
+|---|---|---|
+| O Quadro abre as sessões de todos os projetos, ou só do atual, com ⌘⇧O ou o botão ao lado das abas | board#abrir | a escrever |
+| Quatro colunas: Precisa de você, Trabalhando, Respondeu e Erro | board#colunas | a escrever |
+| Cada cartão diz o que a sessão quer, há quanto tempo espera e se você já viu | board#cartoes | a escrever |
+| A tecla A abre a sessão que espera há mais tempo | board#teclado | a escrever |
+| Mascote fora do app (macOS), por cima de tudo, em pé no topo da janela da frente | mascot#fora-do-app | a escrever |
+| O mascote sobe e avisa quando uma sessão precisa de você; clicar na fala abre a sessão | mascot#avisos | a escrever |
+| Um clique no mascote abre um balão com quem espera, atalhos para a sessão e o Quadro, e o Não perturbe | mascot#balao | a escrever |
+| Clicar ou arrastar o mascote não tira o foco do app em que você está | mascot#fora-do-app | a escrever |
+| Desligar O mascote anda sobre as janelas, em Configurações › Aparência | mascot#janelas | a escrever |
+| Inteligência de código em TypeScript, JavaScript e Rust: sugestões, documentação, import, parâmetros e erros | editor#inteligencia-de-codigo | a escrever |
+| Em Rust, os erros do cargo check se atualizam a cada salvamento | editor#inteligencia-de-codigo | a escrever |
+| O app baixa o servidor da linguagem; a barra de status mostra o estado e os erros do arquivo | editor#servidor-da-linguagem | a escrever |
+| Ir à definição, com leitura somente na biblioteca padrão e em dependências, e rust-src no toolchain | editor#ir-a-definicao | a escrever |
+| Configurações › Editor › Mapa de teclas: WebStorm (padrão), WebStorm (macOS) ou VS Code | editor#mapa-de-teclas | a escrever |
+| Teclas do WebStorm: definição, parâmetros, documentação, voltar e avançar, próximo erro, abrir pelo nome | shortcuts#mapa-webstorm | a escrever |
+| Abas do editor: ⌘⇧T reabre a última aba fechada (VS Code) e ⌃Tab abre o alternador de abas | tabs-and-groups#alternador | a escrever |
+| A paleta de comandos (⌘K) lista as ações do editor; Localizar ação abre só elas | shortcuts#paleta-de-comandos | a escrever |
+| Configurações › Atalhos lista todas as teclas do mapa e do Persisty, com busca | shortcuts#lista-completa | a escrever |
+| Teclas que mudaram em relação à 0.9.4 no mapa do WebStorm | shortcuts#mudancas-da-0-10-0 | a escrever |
+| ⌘W não fecha mais a janela: fecha a aba do editor no painel Código | tabs-and-groups#fechar-abas | a escrever |
+| No código de uma sessão, ⌘← e ⌘→ levam ao início e ao fim da linha | shortcuts#mudancas-da-0-10-0 | a escrever |
+| No Mac, os atalhos do app respondem só ao ⌘, não ao ⌃ | shortcuts#mudancas-da-0-10-0 | a escrever |
+| Sem quota, a sessão espera (Pro): cabeçalho com a hora da volta e Soltar a fila agora | ai-accounts#sem-quota | a escrever |
+| Continua sozinha quando a janela renova (Pro), com Continuar a tarefa cortada pelo limite | ai-accounts#continuar-sozinha | a escrever |
+| Trocar a conta de uma sessão pelo rodapé (Pro) | ai-accounts#trocar-pelo-rodape | a escrever |
+| Um projeto preso a uma conta (Pro), em Conta do Claude nas configurações do projeto | ai-accounts#projeto-preso-a-uma-conta | a escrever |
+| Uma conta reservada aos projetos fixados nela (Pro) | ai-accounts#conta-reservada | a escrever |
+| Todas as contas usam a mesma pasta de conversas e memória, com backup do que diferia | ai-accounts#conversas-compartilhadas | a escrever |
+| Fila no jeito de um chat: cabeçalho com o que o agente faz, Pausar fila, pedidos numerados | queue#fila-como-um-chat | a escrever |
+| Arrastar para mudar a ordem, editar um pedido, enviar um a seguir e tirar da fila | queue#reordenar-e-editar | a escrever |
+| A caixa de escrever aceita imagens (até 8 por pedido, 10 MB cada) | queue#imagens | a escrever |
+| No plano grátis, pausar, reordenar, enviar a seguir e tirar da fila também valem | queue#gratis-e-pro | a escrever |
+| Barra fina de ferramentas da sessão na borda direita, com contagem em Alterações e Fila | sessions#barra-de-ferramentas | a escrever |
+| Servidores MCP em Configurações: 16 servidores oficiais, busca no registro e teste antes de instalar | mcp-servers#catalogo | a escrever |
+| Cada projeto liga os seus servidores MCP em Ajustes do projeto; tokens no Keychain | mcp-servers#por-projeto | a escrever |
+| A lista de Arquivos muda de largura | files#arvore | a escrever |
+| Botão direito num arquivo ou pasta: Mostrar no Finder | files#abrir-em | a escrever |
+| Imagens abrem no editor, e um SVG ganha a pré-visualização | editor#imagens | a escrever |
+| No terminal, caminhos que existem no disco e endereços www. viram links | sessions#links-no-terminal | a escrever |
+| Pro e Team se assinam no site; no plano grátis, Configurações › Conta tem Ver planos | pro#assinar | a escrever |
+| Corrigido: a troca de conta espera um subagente ou comando terminar | ai-accounts#trocar-pelo-rodape | a escrever |
+| Corrigido: Quando a janela de 5 h renovar usa o horário da conta da própria sessão | queue#quando-sai-cada-pedido | a escrever |
+| Corrigido: pedidos da fila e o continue automático ficavam como rascunho no Claude Code | — | sem doc: correção de envio, sem comportamento a descrever |
+| Corrigido: pedido muito longo na fila (cerca de 16 mil caracteres) não saía, e um ; no fim sumia | queue#limites | a escrever |
+| Corrigido: Contas de IA avisa quando duas contas entraram com o mesmo e-mail | ai-accounts#mesmo-email | a escrever |
+| Corrigido: o contexto fixo ao rolar não mostra um bloco que a linha logo abaixo já fecha | — | sem doc: correção de exibição, sem comportamento a descrever |
+
+## 0.11.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Novo cria arquivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile e EditorConfig com modelo | files#novo | a escrever |
+| Abrir em, na árvore e na aba: Finder, terminal, app padrão, navegador, IDE e a página no GitHub, GitLab ou Bitbucket | files#abrir-em | a escrever |
+| Copiar caminho e Copiar referência, com os atalhos ⌘⇧C e ⌥⌘⇧C | files#copiar-caminho | a escrever |
+| Recarregar do disco, e ⌥⌘Y para sincronizar a árvore | files#recarregar | a escrever |
+| ⌘ + clique e ⇧ + clique selecionam vários itens; o teclado navega pela árvore e abre o menu (⇧F10) | files#selecao-e-teclado | a escrever |
+| Botão direito na aba do editor: fechar a aba, as outras, todas, as não modificadas, à esquerda ou à direita | tabs-and-groups#fechar-abas | a escrever |
+| Só as abas com alterações não gravadas pedem confirmação, numa pergunta só | tabs-and-groups#fechar-abas | a escrever |
+| Configurações › Atalhos ganhou o grupo Arquivos, com onde cada tecla vale | shortcuts#arquivos | a escrever |
+| Corrigido: a fila esperava a renovação seguinte antes de digitar continue | ai-accounts#continuar-sozinha | a escrever |
+| Corrigido: com o salvamento automático, fechar uma aba grava sem perguntar; com ele desligado, Descartar não grava | editor#salvar | a escrever |
+
+## 0.12.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Renomear arquivos e pastas pela árvore e pela aba (Shift + F6) | files#renomear | a escrever |
+| Mover e copiar para outra pasta (F6 e F5), e o submenu Refatorar | files#mover-e-copiar | a escrever |
+| Arrastar na árvore para mover; com Option (Alt), copia | files#arrastar | a escrever |
+| Recortar, copiar e colar arquivos e pastas na árvore, inclusive de e para o Finder | files#recortar-copiar-colar | a escrever |
+| Excluir para a Lixeira, com Desfazer por 10 segundos | files#excluir | a escrever |
+| Uma pergunta só quando o nome já existe: renomear, substituir ou pular | files#nome-que-ja-existe | a escrever |
+| Cópias grandes mostram o andamento e podem ser canceladas | files#copias-grandes | a escrever |
+| Trocar o tipo de um arquivo, pela árvore, pela aba ou pela paleta | files#tipo-do-arquivo | a escrever |
+| Se mover ou copiar parar no meio, o que já foi fica e o Persisty diz qual item falhou | files#quando-algo-falha | a escrever |
+| No Windows e no Linux, colar com o sistema e o Desfazer da exclusão ainda estão sendo conferidos | troubleshooting#windows-e-linux | a escrever |
+
+## 0.13.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Quem mudou cada linha: autor, data e mensagem no fim da linha, cartão do commit com Copiar hash, Mostrar o commit e Abrir na forja | git-in-the-editor#autor-da-linha | a escrever |
+| Anotar com o git blame: autor e data na margem, cor pela idade do commit | git-in-the-editor#anotar | a escrever |
+| Submenu Git na árvore e na aba: diff, histórico, comparar, preparar, tirar da preparação, descartar, anotar | git-in-the-editor#submenu-git | a escrever |
+| Diffs e histórico abrem em abas só de leitura | git-in-the-editor#abas-de-leitura | a escrever |
+| Descartar guarda antes um ponto de restauração | restore-points#descartar | a escrever |
+| Dividir o editor à direita e embaixo, em até quatro grupos | tabs-and-groups#dividir | a escrever |
+| Maximizar o editor esconde o terminal | tabs-and-groups#maximizar | a escrever |
+| Arrastar abas para mudar a ordem, levar a outro grupo ou criar outro; Shift + Enter abre à direita | tabs-and-groups#arrastar-abas | a escrever |
+| Mover a aba pelo teclado e Mover a aba para o próximo grupo pela paleta | tabs-and-groups#mover-pelo-teclado | a escrever |
+| Fixar aba: fica à esquerda, com um alfinete, e não fecha com Fechar as outras nem pelo limite | tabs-and-groups#fixar | a escrever |
+| Configurações › Editor › Abas: limite, para onde ir ao fechar, onde abrir, pasta, marca de não gravada, aba de prévia | tabs-and-groups#opcoes-das-abas | a escrever |
+| Arrastar na árvore mostra o que vai e para onde | files#arrastar | a escrever |
+| Corrigido: sessão com trabalho em segundo plano continua como Trabalhando até acabar | agents#trabalho-em-segundo-plano | a escrever |
+| Corrigido: a fila e o aviso de concluído esperam o fim do trabalho em segundo plano | queue#regras-de-envio | a escrever |
+| Corrigido: ao trocar de sessão, o que se digita vai para o terminal, nunca para o arquivo do painel Código | sessions#foco-ao-trocar-de-sessao | a escrever |
+| Corrigido: fechar várias abas não para num conflito, e um aviso diz quais ficaram | tabs-and-groups#fechar-abas | a escrever |
+| Corrigido: um Substituir que falha diz qual item não foi colocado e que a versão antiga foi para a Lixeira | files#quando-algo-falha | a escrever |
+| Corrigido: copiar caminho com muitos arquivos pergunta ao Git uma vez; Abrir no GitHub numa branch não enviada aponta para o commit | files#copiar-caminho | a escrever |
+| Corrigido: arrastar numa árvore grande ficou bem mais leve | — | sem doc: desempenho, sem comportamento a descrever |
+| Corrigido: uma tecla que não vale naquele lugar diz o motivo | shortcuts#tecla-que-nao-vale | a escrever |
+| Corrigido: detalhes do menu de clique direito, das abas, do histórico do arquivo e da leitura de tela | — | sem doc: ajustes de detalhe, sem comportamento a descrever |
+| No Windows, o Desfazer da Lixeira e os avisos de arquivo em uso ainda estão sendo conferidos | troubleshooting#windows-e-linux | a escrever |
+
+## Configurações
+
+As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Código (Editor, Terminal, Arquivos), Agentes (Agentes, Contas de IA, Voz), Conexões (Integrações, Servidores MCP, Uso de IA, Privacidade e rede), Persisty (Atalhos, Conta, Sobre). A aba Conta só aparece com a sessão iniciada.
+
+| Item | Página | Situação |
+|---|---|---|
+| Aparência › Tema (Sistema, claro ou escuro) | settings#aparencia | a escrever |
+| Aparência › Idioma | settings#aparencia | a escrever |
+| Aparência › Mascote no terminal | mascot#no-terminal | a escrever |
+| Aparência › Mascote fora do app | mascot#fora-do-app | a escrever |
+| Aparência › O mascote anda sobre as janelas | mascot#janelas | a escrever |
+| Workspace › Salvar automaticamente | editor#salvar | a escrever |
+| Workspace › IDE padrão | files#abrir-em | a escrever |
+| Workspace › Pasta dos worktrees | worktrees#onde-ficam | a escrever |
+| Workspace › Tamanho dos painéis (Redefinir) | settings#workspace | a escrever |
+| Notificações › Alertas dentro do app | notifications#configurar | a escrever |
+| Notificações › Tocar som | notifications#configurar | a escrever |
+| Notificações › Silenciar com o Persisty em foco | notifications#configurar | a escrever |
+| Notificações › Enviar teste | notifications#teste-e-problemas | a escrever |
+| Notificações › Bloqueadas no sistema | notifications#teste-e-problemas | a escrever |
+| Editor › Fonte (família, tamanho, peso, altura da linha, ligaduras) | settings#editor | a escrever |
+| Editor › Comportamento (largura da tabulação, inserir espaços, quebrar linhas, números de linha) | settings#editor | a escrever |
+| Editor › Modificador do multicursor | settings#editor | a escrever |
+| Editor › Mapa de teclas | editor#mapa-de-teclas | a escrever |
+| Editor › Contexto fixo ao rolar | editor#contexto-fixo | a escrever |
+| Editor › Minimapa (mostrar, desenho, escala, área visível, esconder até passar o mouse) | editor#minimapa | a escrever |
+| Editor › Markdown (abrir arquivos .md em) | editor#markdown | a escrever |
+| Editor › Autor da linha (git blame): mostrar, atraso, autor, data, mensagem | git-in-the-editor#autor-da-linha | a escrever |
+| Editor › Abas: limite, ao fechar ir para, abrir aba nova, pasta em nomes repetidos, marca de não gravada, aba de prévia | tabs-and-groups#opcoes-das-abas | a escrever |
+| Terminal › Fonte (família, tamanho, peso, peso do negrito, altura da linha) | settings#terminal | a escrever |
+| Terminal › Cursor (estilo, piscar) | settings#terminal | a escrever |
+| Terminal › Exibição (renderizador WebGL ou DOM, linhas de histórico, espaçamento interno) | settings#terminal | a escrever |
+| Terminal › Teclado (Option como Meta) | settings#terminal | a escrever |
+| Arquivos › Ocultar arquivos (padrões; o .git fica sempre oculto) | files#esconder-arquivos | a escrever |
+| Agentes › Terminais (se os terminais podem abrir) | settings#agentes | a escrever |
+| Agentes › Agentes detectados | agents#agentes-detectados | a escrever |
+| Agentes › Agente padrão | agents#agente-padrao | a escrever |
+| Agentes › Ferramentas do Persisty nos agentes | agent-access#ativar | a escrever |
+| Agentes › Verificar instalação | agent-access#verificar | a escrever |
+| Agentes › Comando do Codex CLI | agent-access#codex | a escrever |
+| Contas de IA › Lista de contas (este computador e conectadas, com quota de 5 h e 7 d) | ai-accounts#contas-conectadas | a escrever |
+| Contas de IA › Conectar conta (e-mail opcional, código do navegador) | ai-accounts#conectar-e-desconectar | a escrever |
+| Contas de IA › Desconectar | ai-accounts#conectar-e-desconectar | a escrever |
+| Contas de IA › Rodízio entre contas | ai-accounts#rodizio | a escrever |
+| Contas de IA › Trocar de conta ao chegar em | ai-accounts#trocar-ao-chegar-no-limite | a escrever |
+| Contas de IA › Continuar a tarefa cortada pelo limite | ai-accounts#continuar-sozinha | a escrever |
+| Contas de IA › Usar só nos projetos fixados nela | ai-accounts#conta-reservada | a escrever |
+| Contas de IA › Aviso de contas com o mesmo e-mail | ai-accounts#mesmo-email | a escrever |
+| Voz › Ditado por voz (liga e desliga) | voice#ditar | a escrever |
+| Voz › Atalho | voice#ditar | a escrever |
+| Voz › Idioma do ditado | voice#idioma | a escrever |
+| Voz › Microfone (permissão e entrada) | voice#microfone | a escrever |
+| Voz › Modelo de voz (baixar, apagar, recomeçar) | voice#modelo-de-voz | a escrever |
+| Voz › Substituições (e Experimentar) | voice#substituicoes | a escrever |
+| Integrações › GitHub | forges#github | a escrever |
+| Integrações › GitLab | forges#gitlab | a escrever |
+| Integrações › Bitbucket | forges#bitbucket | a escrever |
+| Integrações › Linear | issues#linear | a escrever |
+| Integrações › Jira Cloud | issues#jira | a escrever |
+| Integrações › ClickUp | issues#clickup | a escrever |
+| Servidores MCP › Instalados e Disponíveis (seleção de servidores oficiais) | mcp-servers#catalogo | a escrever |
+| Servidores MCP › Buscar no registro oficial | mcp-servers#registro | a escrever |
+| Servidores MCP › Adicionar manualmente | mcp-servers#manual | a escrever |
+| Servidores MCP › Instalar, token e estado de cada servidor | mcp-servers#instalar | a escrever |
+| Uso de IA › Alertas (gasto diário e mensal em USD) | usage-and-quota#alertas | a escrever |
+| Uso de IA › Fontes de uso | usage-and-quota#fontes | a escrever |
+| Uso de IA › Abrir uso (a página Uso de IA) | usage-and-quota#gasto-estimado | a escrever |
+| Privacidade e rede › Privacidade (dados das sessões, integrações externas, telemetria) | privacy-and-network#privacidade | a escrever |
+| Privacidade e rede › Chamadas de rede desde que o app abriu (Atualizar) | privacy-and-network#registro-de-rede | a escrever |
+| Atalhos › Lista de todas as teclas, com busca | shortcuts#lista-completa | a escrever |
+| Conta › Entrar, criar conta e sair | account-and-license#entrar | a escrever |
+| Conta › E-mail, plano, assinatura e recursos do plano | account-and-license#plano-e-recursos | a escrever |
+| Conta › Licença (validade, Atualizar licença) | account-and-license#licenca | a escrever |
+| Conta › Ver planos | pro#assinar | a escrever |
+| Sobre › Versão e sistema | settings#sobre | a escrever |
+| Sobre › Pasta de dados (Mostrar no Finder) | settings#sobre | a escrever |
+| Sobre › Procurar atualizações | updates#atualizar-no-app | a escrever |
+| Sobre › Procurar atualizações automaticamente | updates#desligar-a-procura | a escrever |
