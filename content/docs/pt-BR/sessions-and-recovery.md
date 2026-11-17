@@ -35,7 +35,7 @@ Cada sessão tem uma regra, escolhida ao criá-la em **Nova sessão › Mais op�
 
 ## Restaurar tudo
 
-Para relançar na hora o que ficou para trás, use o botão **Restaurar N**, ao lado das abas, ou <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> (**Restaurar tudo** na paleta; <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>R</kbd> no Windows e no Linux, que estão em prévia). Ele relança as sessões que caíram, de todos os projetos, inclusive as de **Só reanexar se estiver viva**, e as que terminaram e têm **Relançar sempre**. Rodar duas vezes não duplica sessões: a que já voltou fica como está. O N do botão conta as sessões sem processo do projeto atual, inclusive as que terminaram, que só voltam com **Relançar sempre** ou com **Tentar de novo**.
+Para relançar na hora o que ficou para trás, use o botão **Restaurar N**, ao lado das abas, ou <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> (**Restaurar tudo** na paleta; <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> no Windows e no Linux, que estão em prévia). Ele relança as sessões que caíram, de todos os projetos, inclusive as de **Só reanexar se estiver viva**, e as que terminaram e têm **Relançar sempre**. Rodar duas vezes não duplica sessões: a que já voltou fica como está. O N do botão conta as sessões sem processo do projeto atual, inclusive as que terminaram, que só voltam com **Relançar sempre** ou com **Tentar de novo**.
 
 Uma sessão sem processo mostra **Sessão sem processo.**, com o motivo, e o botão **Tentar de novo**, que relança só ela, qualquer que seja a regra. É assim que volta uma sessão que terminou ou que você parou.
 

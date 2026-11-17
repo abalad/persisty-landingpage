@@ -141,7 +141,7 @@
   "editor": {
     "title": "Editor, git and notes in the same window",
     "body": "Open the file the agent touched, read the diff, commit and jot down what's left without leaving the session.",
-    "link": "Editor and changes"
+    "link": "Editor"
   },
   "privacy": {
     "title": "Your code stays on your machine",

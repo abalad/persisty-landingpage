@@ -94,7 +94,7 @@ Los grupos, en orden: **Fuente**, **Cursor**, **Visualización** (*Display*) y *
 | **Parpadear** (*Blink*) | encendido |
 | **Espaciado interno (px)** (*Inner spacing (px)*) | 8, de 0 a 40 |
 | **Renderizador** (*Renderer*) | **WebGL**. También **DOM (compatibilidad)** (*DOM (compatibility)*), más lento, pero funciona en cualquier lugar |
-| **Líneas de historial** (*History lines*) | 5000, de 1000 a 50000 |
+| **Líneas de historial** (*History lines*) | 5 000, de 1 000 a 50 000 |
 | **Option como Meta** (*Option as Meta*) | encendido. Apágalo para escribir símbolos con <kbd>⌥</kbd> |
 
 ## Archivos

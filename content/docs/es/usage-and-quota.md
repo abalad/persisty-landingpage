@@ -21,7 +21,7 @@ En **Configuración › Uso de IA**, **Alerta diaria (USD)** (*Daily alert (USD)
 
 ## Fuentes de datos
 
-La misma pantalla lista las **Fuentes de datos** (*Data sources*) y cuándo se leyó cada una por última vez. Hoy los números vienen de dos: los registros locales de Claude Code y su status line. Las demás de la lista, como Codex CLI y las APIs de Anthropic y de OpenAI, aparecen como **No conectado** (*Not connected*), y el gasto de Codex todavía no se cuenta.
+La misma pantalla lista las **Fuentes de datos** (*Data sources*) y cuándo se leyó cada una por última vez. Hoy los números vienen de dos: los registros locales de Claude Code y su status line. Las demás de la lista, como Codex CLI y las APIs de Anthropic y de OpenAI, aparecen como **No conectado** (*Not connected*), y Persisty no lee el gasto de Codex.
 
 ## Ventanas de 5 h y 7 d
 

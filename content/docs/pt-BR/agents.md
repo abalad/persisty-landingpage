@@ -5,7 +5,7 @@ group: agents
 order: 1
 ---
 
-O Persisty reconhece agentes de duas formas: quando você abre a sessão como Claude Code ou Codex CLI, e quando você digita `claude` num terminal comum aberto pelo Persisty. Nos dois casos a sessão ganha o ícone do agente. O estado e o custo vêm do Claude Code; o que funciona e o que ainda não funciona no Codex está em [Codex CLI](#codex-cli).
+O Persisty reconhece agentes de duas formas: quando você abre a sessão como Claude Code ou Codex CLI, e quando você digita `claude` num terminal comum aberto pelo Persisty. Nos dois casos a sessão ganha o ícone do agente. O estado e o custo vêm do Claude Code; o que funciona e o que não funciona no Codex está em [Codex CLI](#codex-cli).
 
 ## Os estados
 
@@ -39,7 +39,7 @@ Se o Claude Code mostrar o aviso de confiança da pasta ("Yes, I trust this fold
 
 O Codex CLI abre e persiste como qualquer sessão: ganha aba e linha no cartão do workspace, e, quando você reabre o Persisty, o terminal é reanexado se o processo dele ainda existir.
 
-Por padrão, duas coisas ainda não funcionam. A primeira é o estado: como o Persisty não altera a configuração do Codex, ele não recebe os eventos do Codex, e a sessão aparece como **Parado** enquanto roda e não gera notificações. A segunda é retomar a conversa: depois de um reinício do computador, a sessão volta como um terminal comum na pasta dela, sem o Codex, e o relatório de restauração diz **Relançada**.
+Por padrão, duas coisas não funcionam. A primeira é o estado: como o Persisty não altera a configuração do Codex, ele não recebe os eventos do Codex, e a sessão aparece como **Parado** enquanto roda e não gera notificações. A segunda é retomar a conversa: depois de um reinício do computador, a sessão volta como um terminal comum na pasta dela, sem o Codex, e o relatório de restauração diz **Relançada**.
 
 ## Modelo por sessão
 

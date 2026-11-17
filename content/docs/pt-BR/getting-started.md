@@ -23,7 +23,7 @@ Na primeira tela, **Nesta máquina** mostra o que o Persisty encontrou: **Sessõ
 
 ### Versões novas
 
-O app procura versões novas ao abrir e a cada 6 horas. Quando sai uma, aparece um aviso com o número dela, **Novidades** e **Instalar e reiniciar**; o **×** do aviso, **Dispensar esta versão**, esconde só aquela. No Mac, o app baixa, instala e reinicia sem perguntar nada, e reanexa as sessões abertas quando volta. No Windows e no Linux, se houver sessões abertas, ele avisa antes que elas podem ser encerradas. Pelo `.deb` do Linux, o aviso leva à página de download. Em [**Configurações › Sobre**](/docs/settings#sobre), você procura na hora ou desliga **Procurar atualizações automaticamente**; o resto está em [Atualizações](/docs/updates).
+O app procura versões novas ao abrir e a cada 6 horas. Quando sai uma, aparece um aviso com o número dela, **Novidades** e **Instalar e reiniciar**; o **×** do aviso, **Dispensar esta versão**, esconde só aquela. Depois que você clica em **Instalar e reiniciar**, no Mac o app baixa, instala e reinicia sem mais nenhuma pergunta, e reanexa as sessões abertas quando volta. No Windows e no Linux, se houver sessões abertas, ele avisa antes que elas podem ser encerradas. Pelo `.deb` do Linux, o aviso leva à página de download. Em [**Configurações › Sobre**](/docs/settings#sobre), você procura na hora ou desliga **Procurar atualizações automaticamente**; o resto está em [Atualizações](/docs/updates).
 
 ## Criar o primeiro projeto
 

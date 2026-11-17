@@ -63,7 +63,7 @@ A **Aba de prévia** vem desligada. Ligada, o clique na árvore abre uma aba que
 | Próximo grupo e grupo anterior | <kbd>⌥</kbd> <kbd>Tab</kbd> e <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
 | Abrir no lado direito (na árvore) | <kbd>⇧</kbd> <kbd>↵</kbd> |
 
-No mapa do VS Code, essas ações ficam na paleta e no menu da aba. No Windows e no Linux, que estão em prévia, mover a aba é <kbd>Alt</kbd> <kbd>⇧</kbd> com as setas, maximizar é <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>F12</kbd>, e trocar de grupo fica na paleta.
+No mapa do VS Code, essas ações ficam na paleta e no menu da aba. No Windows e no Linux, que estão em prévia, mover a aba é <kbd>Alt</kbd> <kbd>Shift</kbd> com as setas, maximizar é <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>F12</kbd>, e trocar de grupo fica na paleta.
 
 ## Plano e limites
 

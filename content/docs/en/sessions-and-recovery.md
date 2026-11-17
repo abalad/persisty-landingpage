@@ -35,7 +35,7 @@ Each session has a rule, chosen when you create it in **New session › More opt
 
 ## Restore all
 
-To relaunch what was left behind right away, use the **Restore N** button beside the tabs, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> (**Restore all** in the palette; <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>R</kbd> on Windows and Linux, which are in preview). It relaunches the sessions that went down, in every project, including those set to **Only reattach if alive**, and the ones that ended and are set to **Always relaunch**. Running it twice does not duplicate sessions: one that is already back stays as it is. The number on the button counts the current project's sessions with no process, including those that ended, which only come back with **Always relaunch** or with **Try again**.
+To relaunch what was left behind right away, use the **Restore N** button beside the tabs, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> (**Restore all** in the palette; <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> on Windows and Linux, which are in preview). It relaunches the sessions that went down, in every project, including those set to **Only reattach if alive**, and the ones that ended and are set to **Always relaunch**. Running it twice does not duplicate sessions: one that is already back stays as it is. The number on the button counts the current project's sessions with no process, including those that ended, which only come back with **Always relaunch** or with **Try again**.
 
 A session with no process shows **Session has no process.**, with the reason, and a **Try again** button that relaunches just that session, whatever its rule. That is how a session that ended, or that you stopped, comes back.
 

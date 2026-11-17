@@ -27,7 +27,7 @@ Editing puts the text back in the box, and the queue waits while you edit. If yo
 
 ## Images
 
-The box takes images: <kbd>⌘</kbd> <kbd>V</kbd>, dragging onto the box or the paperclip, **Attach images**. Up to 8 per request, of up to 10 MB each, in PNG, JPEG, GIF or WebP. They stay on this computer, and the agent gets their paths at the end of the request, on a line that starts with `Images:`, or `Imagens:` with the app in Portuguese. If an image disappears from the disk before its time, the request does not go, and **Sent** says why. In Codex CLI, images have not been verified yet.
+The box takes images: <kbd>⌘</kbd> <kbd>V</kbd>, dragging onto the box or the paperclip, **Attach images**. Up to 8 per request, of up to 10 MB each, in PNG, JPEG, GIF or WebP. They stay on this computer, and the agent gets their paths at the end of the request, on a line that starts with `Images:`, or `Imagens:` with the app in Portuguese. If an image disappears from the disk before its time, the request does not go, and **Sent** says why.
 
 ## How requests reach the agent
 

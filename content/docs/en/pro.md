@@ -17,7 +17,7 @@ The free plan needs no account. Pro adds five features, each explained on its ow
 
 Everything else is on the free plan: [sessions and recovery](/docs/sessions-and-recovery), [agents and states](/docs/agents), the [Board](/docs/board), the [mascot](/docs/mascot), [notifications](/docs/notifications), [usage and quota](/docs/usage-and-quota), the [editor](/docs/editor) and [git](/docs/git-in-the-editor), the integrations with [issues](/docs/issues) and with [GitHub, GitLab and Bitbucket](/docs/forges), [MCP servers](/docs/mcp-servers), [voice dictation](/docs/voice) and the [network log](/docs/privacy-and-network#network-log).
 
-In [**Settings › Account**](/docs/settings#account), **Plan features** lists what your licence turns on, sometimes under another name: **Quota-aware queue** is the request queue, **Worktree per session** is the own folder, and **Several AI accounts** is AI accounts and rotation. **Growth** also shows there: it is a project settings tab that has no source connected yet, so nothing is collected and no numbers appear. On a Team licence, the list also shows a few team tags that do not change anything in the app yet.
+In [**Settings › Account**](/docs/settings#account), **Plan features** lists what your licence turns on, sometimes under another name: **Quota-aware queue** is the request queue, **Worktree per session** is the own folder, and **Several AI accounts** is AI accounts and rotation. **Growth** also shows there: it is a project settings tab that has no source connected, so nothing is collected and no numbers appear. On a Team licence, the list also shows a few team tags that do not change anything in the app.
 
 ## Pro and Team
 
@@ -25,7 +25,7 @@ The paid features are the same in Pro and Team, and these pages only say "Pro". 
 
 ## Subscribe
 
-Pro and Team are bought on the website, on [Pricing](/pricing), which shows each plan's price, or in [My account](/account). You pay by card, through Stripe. In the app, on the free plan, **Settings › Account** has **See plans**, which opens the prices in your browser.
+Pro and Team are bought on the website, on [Pricing](/pricing), which shows each plan's price, or in [My account](/account). You pay by card, through Stripe. In the app, signed in on the free plan, the **Settings › Account** tab has **See plans**, which opens the prices in your browser; signed out, use the Settings footer (**Sign in** or **Create free account**).
 
 Once you have subscribed, sign in to the app with the same e-mail. The plan reaches the computer with the licence, which the app renews when it opens and every 6 hours; **Refresh license** fetches it right away. See [Account and licence](/docs/account-and-license).
 

@@ -21,7 +21,7 @@ In **Settings › AI usage**, **Daily alert (USD)** and **Monthly alert (USD)** 
 
 ## Data sources
 
-The same screen lists the **Data sources** and when each was last read. Today the numbers come from two: Claude Code's local records and its status line. The others on the list, such as Codex CLI and the Anthropic and OpenAI APIs, show as **Not connected**, and Codex's spend is not counted yet.
+The same screen lists the **Data sources** and when each was last read. Today the numbers come from two: Claude Code's local records and its status line. The others on the list, such as Codex CLI and the Anthropic and OpenAI APIs, show as **Not connected**, and Persisty does not read Codex's spend.
 
 ## The 5 h and 7 d windows
 

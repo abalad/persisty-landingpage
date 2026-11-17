@@ -94,7 +94,7 @@ The groups, in order: **Font**, **Cursor**, **Display** and **Keyboard**. Change
 | **Blink** | on |
 | **Inner spacing (px)** | 8, from 0 to 40 |
 | **Renderer** | **WebGL**. Also **DOM (compatibility)**, slower but works everywhere |
-| **History lines** | 5000, from 1000 to 50000 |
+| **History lines** | 5,000, from 1,000 to 50,000 |
 | **Option as Meta** | on. Turn it off to type symbols with <kbd>⌥</kbd> |
 
 ## Files

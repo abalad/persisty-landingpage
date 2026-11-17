@@ -63,7 +63,7 @@ La **Pestaña de vista previa** (*Preview tab*) viene apagada. Encendida, el cli
 | Grupo siguiente y grupo anterior (*Next Group*, *Previous Group*) | <kbd>⌥</kbd> <kbd>Tab</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
 | Abrir a la derecha (en el árbol) | <kbd>⇧</kbd> <kbd>↵</kbd> |
 
-En el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. En Windows y Linux, que están en versión preliminar, mover la pestaña es <kbd>Alt</kbd> <kbd>⇧</kbd> con las flechas, maximizar es <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>F12</kbd>, y cambiar de grupo está en la paleta.
+En el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. En Windows y Linux, que están en versión preliminar, mover la pestaña es <kbd>Alt</kbd> <kbd>Shift</kbd> con las flechas, maximizar es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>F12</kbd>, y cambiar de grupo está en la paleta.
 
 ## Plan y límites
 

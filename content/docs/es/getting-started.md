@@ -25,7 +25,7 @@ En la primera pantalla, **En esta máquina** (*On this machine*) muestra lo que 
 
 ### Versiones nuevas
 
-La app busca versiones nuevas al abrirse y cada 6 horas. Cuando sale una, aparece un aviso con su número, **Novedades** (*What's new*) e **Instalar y reiniciar** (*Install and restart*); la **×** del aviso, **Omitir esta versión** (*Skip this version*), oculta solo esa. En Mac, la app descarga, instala y reinicia sin preguntar nada, y reconecta las sesiones abiertas cuando vuelve. En Windows y Linux, si hay sesiones abiertas, avisa antes que pueden terminarse. Con el `.deb` de Linux, el aviso lleva a la página de descarga. En [**Configuración › Acerca de**](/docs/settings#acerca-de) (*Settings › About*) puedes buscar en el momento o apagar **Buscar actualizaciones automáticamente** (*Check for updates automatically*); el resto está en [Actualizaciones](/docs/updates).
+La app busca versiones nuevas al abrirse y cada 6 horas. Cuando sale una, aparece un aviso con su número, **Novedades** (*What's new*) e **Instalar y reiniciar** (*Install and restart*); la **×** del aviso, **Omitir esta versión** (*Skip this version*), oculta solo esa. Después de hacer clic en **Instalar y reiniciar**, en Mac la app descarga, instala y reinicia sin ninguna pregunta más, y reconecta las sesiones abiertas cuando vuelve. En Windows y Linux, si hay sesiones abiertas, avisa antes que pueden terminarse. Con el `.deb` de Linux, el aviso lleva a la página de descarga. En [**Configuración › Acerca de**](/docs/settings#acerca-de) (*Settings › About*) puedes buscar en el momento o apagar **Buscar actualizaciones automáticamente** (*Check for updates automatically*); el resto está en [Actualizaciones](/docs/updates).
 
 ## Crear el primer proyecto
 

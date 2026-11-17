@@ -23,7 +23,7 @@ On the first screen, **On this machine** shows what Persisty found: **Persistent
 
 ### New versions
 
-The app looks for new versions when it opens and every 6 hours. When one is out, a notice shows its number, **What's new** and **Install and restart**; the notice's **×**, **Skip this version**, hides that version only. On a Mac, the app downloads, installs and restarts without asking anything, and reattaches the open sessions when it comes back. On Windows and Linux, if sessions are open, it warns you first that they may be ended. From the Linux `.deb`, the notice takes you to the download page. In [**Settings › About**](/docs/settings#about) you can check right away or turn off **Check for updates automatically**; the rest is in [Updates](/docs/updates).
+The app looks for new versions when it opens and every 6 hours. When one is out, a notice shows its number, **What's new** and **Install and restart**; the notice's **×**, **Skip this version**, hides that version only. Once you click **Install and restart**, on a Mac the app downloads, installs and restarts with no further question, and reattaches the open sessions when it comes back. On Windows and Linux, if sessions are open, it warns you first that they may be ended. From the Linux `.deb`, the notice takes you to the download page. In [**Settings › About**](/docs/settings#about) you can check right away or turn off **Check for updates automatically**; the rest is in [Updates](/docs/updates).
 
 ## Create your first project
 

@@ -17,7 +17,7 @@ O plano grátis não pede conta. O Pro acrescenta cinco recursos, cada um explic
 
 Todo o resto é do plano grátis: [sessões e recuperação](/docs/sessions-and-recovery), [agentes e estados](/docs/agents), [Quadro](/docs/board), [mascote](/docs/mascot), [notificações](/docs/notifications), [uso e quota](/docs/usage-and-quota), [editor](/docs/editor) e [git](/docs/git-in-the-editor), as integrações com [issues](/docs/issues) e com [GitHub, GitLab e Bitbucket](/docs/forges), [servidores MCP](/docs/mcp-servers), [ditado por voz](/docs/voice) e o [registro de rede](/docs/privacy-and-network#registro-de-rede).
 
-Em [**Configurações › Conta**](/docs/settings#conta), **Recursos do plano** lista o que a sua licença libera, às vezes com outro nome: **Fila pela quota** é a fila de pedidos, **Worktree por sessão** é a pasta própria, e **Várias contas de IA** são as contas de IA e o rodízio. Ali também aparece **Growth**, uma aba dos ajustes do projeto que ainda não tem nenhuma fonte conectada: nada é coletado e nenhum número aparece. Numa licença do Team, a lista mostra também algumas etiquetas do time que ainda não mudam nada no app.
+Em [**Configurações › Conta**](/docs/settings#conta), **Recursos do plano** lista o que a sua licença libera, às vezes com outro nome: **Fila pela quota** é a fila de pedidos, **Worktree por sessão** é a pasta própria, e **Várias contas de IA** são as contas de IA e o rodízio. Ali também aparece **Growth**, uma aba dos ajustes do projeto que não tem nenhuma fonte conectada: nada é coletado e nenhum número aparece. Numa licença do Team, a lista mostra também algumas etiquetas do time que não mudam nada no app.
 
 ## Pro e Team
 
@@ -25,7 +25,7 @@ Os recursos pagos são os mesmos no Pro e no Team, e estas páginas dizem só "P
 
 ## Assinar
 
-Pro e Team se assinam no site, em [Preços](/pricing), que mostra o valor de cada plano, ou em [Minha conta](/account). O pagamento é no cartão, pelo Stripe. No app, no plano grátis, **Configurações › Conta** tem **Ver planos**, que abre os preços no navegador.
+Pro e Team se assinam no site, em [Preços](/pricing), que mostra o valor de cada plano, ou em [Minha conta](/account). O pagamento é no cartão, pelo Stripe. No app, com a conta conectada no plano grátis, a aba **Configurações › Conta** tem **Ver planos**, que abre os preços no navegador; sem conta, use o rodapé de Configurações (**Entrar** ou **Criar conta grátis**).
 
 Depois de assinar, entre no app com o mesmo e-mail. O plano chega ao computador com a licença, que o app renova ao abrir e a cada 6 horas; **Atualizar licença** busca na hora. Veja [Conta e licença](/docs/account-and-license).
 

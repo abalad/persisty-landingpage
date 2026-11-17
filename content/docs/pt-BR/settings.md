@@ -94,7 +94,7 @@ Os grupos, na ordem: **Fonte**, **Cursor**, **Exibição** e **Teclado**. As mud
 | **Piscar** | ligado |
 | **Espaçamento interno (px)** | 8, de 0 a 40 |
 | **Renderizador** | **WebGL**. Também **DOM (compatibilidade)**, mais lento, mas funciona em qualquer lugar |
-| **Linhas de histórico** | 5000, de 1000 a 50000 |
+| **Linhas de histórico** | 5 000, de 1 000 a 50 000 |
 | **Option como Meta** | ligado. Desligue para digitar símbolos com <kbd>⌥</kbd> |
 
 ## Arquivos

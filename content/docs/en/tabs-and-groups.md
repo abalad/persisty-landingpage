@@ -37,7 +37,7 @@ From the keyboard, with the tab in focus, <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←
 
 ## Split the editor
 
-**Split Right** and **Split Down**, on the tab menu and in the palette, open the same file in a new group. **Split and Move Right** and **Split and Move Down** take the tab to the new group. There are up to four groups; with no room left in the panel, the item tells you to maximize the editor. The divider between two groups can be dragged, or moved with the arrows while it has focus.
+**Split Right** and **Split Down**, on the tab menu and in the palette, open the same file in a new group. **Split and Move Right** and **Split and Move Down** take the tab to the new group. There are up to four groups; with no room left in the panel, the item tells you to maximise the editor. The divider between two groups can be dragged, or moved with the arrows while it has focus.
 
 In the [tree](/docs/files), **Open on the Right** opens the file in a group on the right. **Close Group** and the actions that focus the group to the left, right, above or below are in the palette.
 
@@ -63,7 +63,7 @@ The **Preview tab** is off by default. On, a click in the tree opens a tab that 
 | Next Group and Previous Group | <kbd>⌥</kbd> <kbd>Tab</kbd> and <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
 | Open on the Right (in the tree) | <kbd>⇧</kbd> <kbd>↵</kbd> |
 
-In the VS Code keymap, these actions are in the palette and on the tab menu. On Windows and Linux, which are in preview, moving a tab is <kbd>Alt</kbd> <kbd>⇧</kbd> with the arrows, maximizing is <kbd>Ctrl</kbd> <kbd>⇧</kbd> <kbd>F12</kbd>, and switching groups is in the palette.
+In the VS Code keymap, these actions are in the palette and on the tab menu. On Windows and Linux, which are in preview, moving a tab is <kbd>Alt</kbd> <kbd>Shift</kbd> with the arrows, maximising is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>F12</kbd>, and switching groups is in the palette.
 
 ## Plan and limits
 

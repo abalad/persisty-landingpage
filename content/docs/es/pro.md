@@ -17,7 +17,7 @@ El plan gratis no pide cuenta. Pro agrega cinco funciones, cada una explicada en
 
 Todo lo demás es del plan gratis: [sesiones y recuperación](/docs/sessions-and-recovery), [agentes y estados](/docs/agents), [Tablero](/docs/board), [mascota](/docs/mascot), [notificaciones](/docs/notifications), [uso y cuota](/docs/usage-and-quota), [editor](/docs/editor) y [git](/docs/git-in-the-editor), las integraciones con [issues](/docs/issues) y con [GitHub, GitLab y Bitbucket](/docs/forges), [servidores MCP](/docs/mcp-servers), [dictado por voz](/docs/voice) y el [registro de red](/docs/privacy-and-network#registro-de-red).
 
-En [**Configuración › Cuenta**](/docs/settings#cuenta) (*Settings › Account*), **Recursos del plan** (*Plan features*) lista lo que tu licencia desbloquea, a veces con otro nombre: **Cola por la cuota** (*Quota-aware queue*) es la cola de pedidos, **Worktree por sesión** (*Worktree per session*) es la carpeta propia, y **Varias cuentas de IA** (*Several AI accounts*) son las cuentas de IA y la rotación. Ahí también aparece **Growth**, una pestaña de los ajustes del proyecto que todavía no tiene ninguna fuente conectada: no se recopila nada y no aparece ningún número. En una licencia de Team, la lista muestra también algunas etiquetas del equipo que todavía no cambian nada en la app.
+En [**Configuración › Cuenta**](/docs/settings#cuenta) (*Settings › Account*), **Recursos del plan** (*Plan features*) lista lo que tu licencia desbloquea, a veces con otro nombre: **Cola por la cuota** (*Quota-aware queue*) es la cola de pedidos, **Worktree por sesión** (*Worktree per session*) es la carpeta propia, y **Varias cuentas de IA** (*Several AI accounts*) son las cuentas de IA y la rotación. Ahí también aparece **Growth**, una pestaña de los ajustes del proyecto que no tiene ninguna fuente conectada: no se recopila nada y no aparece ningún número. En una licencia de Team, la lista muestra también algunas etiquetas del equipo que no cambian nada en la app.
 
 ## Pro y Team
 
@@ -25,7 +25,7 @@ Las funciones pagas son las mismas en Pro y en Team, y estas páginas dicen solo
 
 ## Suscribirte
 
-Pro y Team se contratan en el sitio, en [Precios](/pricing), que muestra el valor de cada plan, o en [Mi cuenta](/account). Pagas con tarjeta, a través de Stripe. En la app, en el plan gratis, **Configuración › Cuenta** tiene **Ver planes** (*See plans*), que abre los precios en el navegador.
+Pro y Team se contratan en el sitio, en [Precios](/pricing), que muestra el valor de cada plan, o en [Mi cuenta](/account). Pagas con tarjeta, a través de Stripe. En la app, con la sesión iniciada en el plan gratis, la pestaña **Configuración › Cuenta** tiene **Ver planes** (*See plans*), que abre los precios en el navegador; sin cuenta, usa el pie de Configuración (**Entrar** o **Crear cuenta gratis**).
 
 Después de suscribirte, entra en la app con el mismo e-mail. El plan llega a la computadora con la licencia, que la app renueva al abrirse y cada 6 horas; **Actualizar licencia** (*Refresh license*) la busca en el momento. Mira [Cuenta y licencia](/docs/account-and-license).
 

@@ -141,7 +141,7 @@
   "editor": {
     "title": "Editor, git y notas en la misma ventana",
     "body": "Abre el archivo que tocó el agente, mira el diff, haz el commit y anota lo que falta sin salir de la sesión.",
-    "link": "Editor y cambios"
+    "link": "Editor"
   },
   "privacy": {
     "title": "Tu código no sale de tu máquina",

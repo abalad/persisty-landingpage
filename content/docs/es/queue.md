@@ -27,7 +27,7 @@ Editar devuelve el texto a la caja, y la cola espera mientras editas. Si pasas 1
 
 ## Imágenes
 
-La caja acepta imágenes: <kbd>⌘</kbd> <kbd>V</kbd>, arrastrarlas a la caja o el clip, **Adjuntar imágenes** (*Attach images*). Son hasta 8 por pedido, de hasta 10 MB cada una, en PNG, JPEG, GIF o WebP. Se quedan en esta computadora, y el agente recibe sus rutas al final del pedido, en una línea que empieza con `Imagens:` o `Images:`, según el idioma de la app. Si una imagen desaparece del disco antes de tiempo, el pedido no sale, y **Enviados** dice por qué. En Codex CLI, las imágenes todavía no se verificaron.
+La caja acepta imágenes: <kbd>⌘</kbd> <kbd>V</kbd>, arrastrarlas a la caja o el clip, **Adjuntar imágenes** (*Attach images*). Son hasta 8 por pedido, de hasta 10 MB cada una, en PNG, JPEG, GIF o WebP. Se quedan en esta computadora, y el agente recibe sus rutas al final del pedido, en una línea que empieza con `Imagens:` o `Images:`, según el idioma de la app. Si una imagen desaparece del disco antes de tiempo, el pedido no sale, y **Enviados** dice por qué.
 
 ## Cómo llegan los pedidos al agente
 

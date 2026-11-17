@@ -27,7 +27,7 @@ Editar leva o texto de volta à caixa, e a fila espera enquanto você edita. Se 
 
 ## Imagens
 
-A caixa aceita imagens: <kbd>⌘</kbd> <kbd>V</kbd>, arrastar para a caixa ou o clipe, **Anexar imagens**. São até 8 por pedido, de até 10 MB cada, em PNG, JPEG, GIF ou WebP. Elas ficam neste computador, e o agente recebe os caminhos no fim do pedido, numa linha que começa com `Imagens:`, ou `Images:` com o app em inglês. Se uma imagem sumir do disco antes da hora, o pedido não sai, e **Enviados** diz por quê. No Codex CLI, as imagens ainda não foram verificadas.
+A caixa aceita imagens: <kbd>⌘</kbd> <kbd>V</kbd>, arrastar para a caixa ou o clipe, **Anexar imagens**. São até 8 por pedido, de até 10 MB cada, em PNG, JPEG, GIF ou WebP. Elas ficam neste computador, e o agente recebe os caminhos no fim do pedido, numa linha que começa com `Imagens:`, ou `Images:` com o app em inglês. Se uma imagem sumir do disco antes da hora, o pedido não sai, e **Enviados** diz por quê.
 
 ## Como os pedidos chegam ao agente
 
