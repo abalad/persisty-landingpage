@@ -330,6 +330,36 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Corrigido: detalhes do menu de clique direito, das abas, do histórico do arquivo e da leitura de tela | tabs-and-groups#o-menu-da-aba | coberto |
 | No Windows, o Desfazer da Lixeira e os avisos de arquivo em uso ainda estão sendo conferidos | troubleshooting#windows-e-linux | coberto |
 
+## 0.14.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Painel de baixo no editor | editor | a escrever |
+| Encontrar usos | editor | a escrever |
+| Ir para a implementação | editor | a escrever |
+| Destacar usos no arquivo | editor | a escrever |
+| Renomear em todos os arquivos | editor | a escrever |
+| Correções rápidas | editor | a escrever |
+| Extrair e embutir | editor | a escrever |
+| Formatar | editor | a escrever |
+| Substituir nos arquivos | search | a escrever |
+| Histórico local | editor | a escrever |
+| Arquivos recentes | editor | a escrever |
+| Lugares recentes | editor | a escrever |
+| Último lugar editado | editor | a escrever |
+| Estrutura do arquivo | editor | a escrever |
+| Ir para símbolo | editor | a escrever |
+| Próximo e anterior método | editor | a escrever |
+| Mostrar o arquivo na árvore | editor | a escrever |
+| Definição rápida | editor | a escrever |
+| Favoritos de linhas, arquivos e pastas | editor | a escrever |
+| Buscar em tudo | editor | a escrever |
+| Seleção em coluna | editor | a escrever |
+| Clonar cursor | editor | a escrever |
+| O cabeçalho da sessão ficou só com as informações dela | sessions | a escrever |
+| Algumas teclas mudam de sentido só dentro do código | shortcuts | a escrever |
+| No mapa WebStorm macOS, | editor | a escrever |
+
 ## Configurações
 
 As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Código (Editor, Terminal, Arquivos), Agentes (Agentes, Contas de IA, Voz), Conexões (Integrações, Servidores MCP, Uso de IA, Privacidade e rede), Persisty (Atalhos, Conta, Sobre). A aba Conta só aparece com a sessão iniciada.
