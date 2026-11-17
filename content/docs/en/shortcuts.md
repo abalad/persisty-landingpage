@@ -1,11 +1,15 @@
 ---
 title: Keyboard shortcuts
-description: Every Persisty shortcut on macOS.
+description: Persisty's keys on the Mac, the editor keymap's keys inside the code, and where to see the full list in the app.
 group: reference
 order: 1
 ---
 
-The full list, with the keys of the editor keymap you chose, is in **Settings › Shortcuts**, searchable. Keys inside the code depend on the keymap (WebStorm, WebStorm (macOS) or VS Code); see [Keymap](/docs/editor#keymap). On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is left to the terminal and the editor keymap.
+The app's keys work all over Persisty; inside the code, the editor keymap's keys come first. The full list, with the keys of the keymap you chose, is in **Settings › Shortcuts**, searchable.
+
+## App keys
+
+On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is left to the terminal and the editor keymap.
 
 | Action | Shortcut |
 | --- | --- |
@@ -33,9 +37,19 @@ The full list, with the keys of the editor keymap you chose, is in **Settings �
 | Project 1–9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
 | Settings | <kbd>⌘</kbd> <kbd>,</kbd> |
 
-<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> is the default key for **Dictate**. You can change it in **Settings › Voice**, and it shows in **Settings › Shortcuts** only with **Voice dictation** on.
+<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> is the default key for **Dictate**. You can change it in **Settings › Voice**, and it shows in **Settings › Shortcuts** only with **Voice dictation** on; see [Dictation shortcut](/docs/voice#shortcut).
 
-Inside the code, the keymap's keys come first. In WebStorm, <kbd>⌘</kbd> <kbd>B</kbd> on a name goes to its declaration and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> opens a file by name. In WebStorm (macOS), <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> opens a file by name instead of the session board, and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> is **Find Previous**. Where the keymap's action does not apply, the key goes on to the app.
+## Inside the code
+
+The chosen keymap's keys come first; where the keymap's action does not apply, the key goes on to the app. In WebStorm, <kbd>⌘</kbd> <kbd>B</kbd> on a name goes to its declaration and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> opens a file by name. In WebStorm (macOS), <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> opens a file by name instead of the session board. In both WebStorm keymaps, <kbd>⌘</kbd> <kbd>D</kbd> duplicates the line, and <kbd>⌃</kbd> <kbd>G</kbd> adds the next occurrence to the selection.
+
+In WebStorm (macOS) and VS Code, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> is **Find Previous** after a search in the file; with no search, the key opens **Git changes**. In every keymap, <kbd>⌘</kbd> <kbd>←</kbd> and <kbd>⌘</kbd> <kbd>→</kbd> move the caret to the start and end of the line; outside the code, they switch sessions.
+
+The table of each keymap's keys is in [Keymap](/docs/editor#keymap).
+
+## Command palette
+
+<kbd>⌘</kbd> <kbd>K</kbd> opens the palette, which searches sessions, projects and actions. With a file open in the editor, it also lists the editor actions that work there, with the chosen keymap's keys. **Find Action** opens the palette with those actions only: <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> in the WebStorm keymaps, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> or <kbd>F1</kbd> in VS Code. With no file open, it opens the whole palette.
 
 ## Files
 
@@ -64,3 +78,19 @@ These keys answer with the file tree in focus. Opening the menu, cut, copy, past
 | Maximize the editor | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F12</kbd> |
 | Next and previous group | <kbd>⌥</kbd> <kbd>Tab</kbd> <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>Tab</kbd> |
 | Open the file on the right (in the tree) | <kbd>⇧</kbd> <kbd>↵</kbd> |
+
+## The full list
+
+**Settings › Shortcuts** shows every key of the chosen keymap and of Persisty, in words, in groups such as **Navigation**, **Tabs**, **Files** and **Git**; the app's keys are in the **Persisty** group. The search finds an action by its name or by its keys in words, such as `command shift o`, ignoring accents.
+
+Each row says where the key works, such as "in the tree, in the tab, and in the editor". When an app key does something else in the code, the row says both, as in WebStorm: "In the code: Go to Declaration · Outside the code: Project bar". Actions with no key of their own, such as the Git submenu's and the groups', are listed with where to find them: the tree's menu, the tab's or the palette.
+
+At the top, a warning shows for each keymap or app key that macOS uses, such as <kbd>⌃</kbd> <kbd>Space</kbd> to switch the keyboard, with the path in System Settings › Keyboard › Keyboard Shortcuts to turn it off and, when there is one, the action's other key.
+
+## When a key does not work there
+
+In the file tree and on a tab, a keymap key whose action cannot run there shows the reason in a notice, instead of doing nothing: "this key does not work here", "only in the text of a file", "the file has no code analysis" or "the file is read-only".
+
+## Windows and Linux
+
+On Windows and Linux, which are in preview, the app's shortcuts use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>, and dictation is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. In the editor keymaps, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>; see [Keymap](/docs/editor#keymap).

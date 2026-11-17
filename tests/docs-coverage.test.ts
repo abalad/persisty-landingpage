@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { getDoc, listChangelog } from "../src/lib/content";
@@ -105,6 +105,17 @@ describe("docs coverage inventory", () => {
       if (r.status.startsWith("sem doc")) continue;
       expect(slugs, `page of ${r.item}`).toContain(r.page.split("#")[0]);
     }
+  });
+
+  // The page list is the plan for the docs: every slug in it is a page in every language.
+  it("every page in the list exists", () => {
+    const missing: string[] = [];
+    for (const slug of pageSlugs()) {
+      for (const locale of ["pt-BR", "en", "es"]) {
+        if (!existsSync(join(process.cwd(), "content/docs", locale, `${slug}.md`))) missing.push(`${locale}/${slug}`);
+      }
+    }
+    expect(missing).toEqual([]);
   });
 
   // A row marked covered must lead somewhere: the pt-BR page exists and, with an anchor, has that heading.

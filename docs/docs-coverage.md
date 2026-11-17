@@ -116,7 +116,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Item | Página | Situação |
 |---|---|---|
 | Tudo de que o Persisty precisa vai dentro do app, sem instalar nada à parte | getting-started#instalar | coberto |
-| No Windows, os agentes funcionam sem shell POSIX | troubleshooting#windows-e-linux | a escrever |
+| No Windows, os agentes funcionam sem shell POSIX | troubleshooting#windows-e-linux | coberto |
 | Instalador para Windows e pacotes .deb e AppImage para Linux, como prévia | updates#baixar | coberto |
 | Corrigido: eventos dos agentes podiam se perder quando uma linha era lida no meio da escrita | — | sem doc: correção interna, sem efeito a descrever |
 
@@ -145,12 +145,12 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Branches no painel: trocar, criar, mesclar, renomear e apagar | changes#branches | coberto |
 | Stash para guardar alterações e trazê-las de volta | changes#guardar-alterações | coberto |
 | Conflitos e operações paradas no meio mostram como seguir ou desistir | changes#conflitos | coberto |
-| Aba Aparência | settings#aparencia | a escrever |
-| Aba Sobre | settings#sobre | a escrever |
-| Aba Terminal (fonte, cursor, exibição e teclado) | settings#terminal | a escrever |
-| Aba Editor (fonte, indentação, quebra de linha, números de linha, vários cursores) | settings#editor | a escrever |
+| Aba Aparência | settings#aparência | coberto |
+| Aba Sobre | settings#sobre | coberto |
+| Aba Terminal (fonte, cursor, exibição e teclado) | settings#terminal | coberto |
+| Aba Editor (fonte, indentação, quebra de linha, números de linha, vários cursores) | settings#editor | coberto |
 | Aba Arquivos (esconder arquivos por padrão na árvore, na busca e no ⌘P) | files#esconder-arquivos | coberto |
-| Aba Workspace: salvar sozinho depois de uma pausa e onde ficam as pastas próprias | settings#workspace | a escrever |
+| Aba Workspace: salvar sozinho depois de uma pausa e onde ficam as pastas próprias | settings#workspace | coberto |
 | IDE padrão, com Abrir no IDE na aba, na paleta e no projeto | files#abrir-em | coberto |
 | Aba Notificações | notifications#configurar | coberto |
 | Agente padrão, já escolhido no ⌘⇧N e aberto direto no ⌘⌥N | agents#agente-padrão | coberto |
@@ -205,7 +205,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Corrigido: no Windows e no Linux, a barra do topo começa na borda da janela | troubleshooting#windows-e-linux | a escrever |
+| Corrigido: no Windows e no Linux, a barra do topo começa na borda da janela | troubleshooting#windows-e-linux | coberto |
 
 ## 0.9.3
 
@@ -220,7 +220,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Corrigido: o terminal das sessões não embaralha mais o texto no Windows com a tela em 125% ou 150% | troubleshooting#windows-e-linux | a escrever |
+| Corrigido: o terminal das sessões não embaralha mais o texto no Windows com a tela em 125% ou 150% | troubleshooting#windows-e-linux | coberto |
 
 ## 0.10.0
 
@@ -240,14 +240,14 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | O app baixa o servidor da linguagem; a barra de status mostra o estado e os erros do arquivo | editor#o-servidor-da-linguagem | coberto |
 | Ir à definição, com leitura somente na biblioteca padrão e em dependências, e rust-src no toolchain | editor#ir-para-a-declaração | coberto |
 | Configurações › Editor › Mapa de teclas: WebStorm (padrão), WebStorm (macOS) ou VS Code | editor#mapa-de-teclas | coberto |
-| Teclas do WebStorm: definição, parâmetros, documentação, voltar e avançar, próximo erro, abrir pelo nome | shortcuts#mapa-webstorm | a escrever |
+| Teclas do WebStorm: definição, parâmetros, documentação, voltar e avançar, próximo erro, abrir pelo nome | editor#mapa-de-teclas | coberto |
 | Abas do editor: ⌘⇧T reabre a última aba fechada (VS Code) e ⌃Tab abre o alternador de abas | tabs-and-groups#trocar-de-aba | coberto |
-| A paleta de comandos (⌘K) lista as ações do editor; Localizar ação abre só elas | shortcuts#paleta-de-comandos | a escrever |
-| Configurações › Atalhos lista todas as teclas do mapa e do Persisty, com busca | shortcuts#lista-completa | a escrever |
-| Teclas que mudaram em relação à 0.9.4 no mapa do WebStorm | shortcuts#mudancas-da-0-10-0 | a escrever |
+| A paleta de comandos (⌘K) lista as ações do editor; Localizar ação abre só elas | shortcuts#paleta-de-comandos | coberto |
+| Configurações › Atalhos lista todas as teclas do mapa e do Persisty, com busca | shortcuts#lista-completa | coberto |
+| Teclas que mudaram em relação à 0.9.4 no mapa do WebStorm | shortcuts#dentro-do-código | coberto |
 | ⌘W não fecha mais a janela: fecha a aba do editor no painel Código | tabs-and-groups#fechar-abas | coberto |
-| No código de uma sessão, ⌘← e ⌘→ levam ao início e ao fim da linha | shortcuts#mudancas-da-0-10-0 | a escrever |
-| No Mac, os atalhos do app respondem só ao ⌘, não ao ⌃ | shortcuts#mudancas-da-0-10-0 | a escrever |
+| No código de uma sessão, ⌘← e ⌘→ levam ao início e ao fim da linha | shortcuts#dentro-do-código | coberto |
+| No Mac, os atalhos do app respondem só ao ⌘, não ao ⌃ | shortcuts#teclas-do-app | coberto |
 | Sem quota, a sessão espera (Pro): cabeçalho com a hora da volta e Soltar a fila agora | ai-accounts#quando-a-quota-acaba | coberto |
 | Continua sozinha quando a janela renova (Pro), com Continuar a tarefa cortada pelo limite | ai-accounts#continuar-a-tarefa-cortada | coberto |
 | Trocar a conta de uma sessão pelo rodapé (Pro) | ai-accounts#trocar-a-conta-de-uma-sessão | coberto |
@@ -284,7 +284,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | ⌘ + clique e ⇧ + clique selecionam vários itens; o teclado navega pela árvore e abre o menu (⇧F10) | files#a-árvore | coberto |
 | Botão direito na aba do editor: fechar a aba, as outras, todas, as não modificadas, à esquerda ou à direita | tabs-and-groups#fechar-abas | coberto |
 | Só as abas com alterações não gravadas pedem confirmação, numa pergunta só | tabs-and-groups#fechar-abas | coberto |
-| Configurações › Atalhos ganhou o grupo Arquivos, com onde cada tecla vale | shortcuts#arquivos | a escrever |
+| Configurações › Atalhos ganhou o grupo Arquivos, com onde cada tecla vale | shortcuts#lista-completa | coberto |
 | Corrigido: a fila esperava a renovação seguinte antes de digitar continue | ai-accounts#continuar-a-tarefa-cortada | coberto |
 | Corrigido: com o salvamento automático, fechar uma aba grava sem perguntar; com ele desligado, Descartar não grava | editor#salvar-automaticamente | coberto |
 
@@ -301,7 +301,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Cópias grandes mostram o andamento e podem ser canceladas | files#cópias-grandes-e-falhas | coberto |
 | Trocar o tipo de um arquivo, pela árvore, pela aba ou pela paleta | files#trocar-o-tipo-do-arquivo | coberto |
 | Se mover ou copiar parar no meio, o que já foi fica e o Persisty diz qual item falhou | files#cópias-grandes-e-falhas | coberto |
-| No Windows e no Linux, colar com o sistema e o Desfazer da exclusão ainda estão sendo conferidos | troubleshooting#windows-e-linux | a escrever |
+| No Windows e no Linux, colar com o sistema e o Desfazer da exclusão ainda estão sendo conferidos | troubleshooting#windows-e-linux | coberto |
 
 ## 0.13.0
 
@@ -326,9 +326,9 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Corrigido: um Substituir que falha diz qual item não foi colocado e que a versão antiga foi para a Lixeira | files#cópias-grandes-e-falhas | coberto |
 | Corrigido: copiar caminho com muitos arquivos pergunta ao Git uma vez; Abrir no GitHub numa branch não enviada aponta para o commit | files#copiar-caminho | coberto |
 | Corrigido: arrastar numa árvore grande ficou bem mais leve | — | sem doc: desempenho, sem comportamento a descrever |
-| Corrigido: uma tecla que não vale naquele lugar diz o motivo | shortcuts#tecla-que-nao-vale | a escrever |
+| Corrigido: uma tecla que não vale naquele lugar diz o motivo | shortcuts#quando-uma-tecla-não-vale-ali | coberto |
 | Corrigido: detalhes do menu de clique direito, das abas, do histórico do arquivo e da leitura de tela | tabs-and-groups#o-menu-da-aba | coberto |
-| No Windows, o Desfazer da Lixeira e os avisos de arquivo em uso ainda estão sendo conferidos | troubleshooting#windows-e-linux | a escrever |
+| No Windows, o Desfazer da Lixeira e os avisos de arquivo em uso ainda estão sendo conferidos | troubleshooting#windows-e-linux | coberto |
 
 ## Configurações
 
@@ -336,35 +336,35 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 
 | Item | Página | Situação |
 |---|---|---|
-| Aparência › Tema (Sistema, claro ou escuro) | settings#aparencia | a escrever |
-| Aparência › Idioma | settings#aparencia | a escrever |
+| Aparência › Tema (Sistema, claro ou escuro) | settings#aparência | coberto |
+| Aparência › Idioma | settings#aparência | coberto |
 | Aparência › Mascote no terminal | mascot#no-terminal | coberto |
 | Aparência › Mascote fora do app | mascot#fora-do-app | coberto |
 | Aparência › O mascote anda sobre as janelas | mascot#fora-do-app | coberto |
 | Workspace › Salvar automaticamente | editor#salvar-automaticamente | coberto |
 | Workspace › IDE padrão | files#abrir-em | coberto |
 | Workspace › Pasta dos worktrees | worktrees#onde-ficam | coberto |
-| Workspace › Tamanho dos painéis (Redefinir) | settings#workspace | a escrever |
+| Workspace › Tamanho dos painéis (Redefinir) | settings#workspace | coberto |
 | Notificações › Alertas dentro do app | notifications#configurar | coberto |
 | Notificações › Tocar som | notifications#configurar | coberto |
 | Notificações › Silenciar com o Persisty em foco | notifications#configurar | coberto |
 | Notificações › Enviar teste | notifications#enviar-um-teste | coberto |
 | Notificações › Bloqueadas no sistema | notifications#enviar-um-teste | coberto |
-| Editor › Fonte (família, tamanho, peso, altura da linha, ligaduras) | settings#editor | a escrever |
-| Editor › Comportamento (largura da tabulação, inserir espaços, quebrar linhas, números de linha) | settings#editor | a escrever |
-| Editor › Modificador do multicursor | settings#editor | a escrever |
+| Editor › Fonte (família, tamanho, peso, altura da linha, ligaduras) | settings#editor | coberto |
+| Editor › Comportamento (largura da tabulação, inserir espaços, quebrar linhas, números de linha) | settings#editor | coberto |
+| Editor › Modificador do multicursor | settings#editor | coberto |
 | Editor › Mapa de teclas | editor#mapa-de-teclas | coberto |
 | Editor › Contexto fixo ao rolar | editor#contexto-fixo-e-minimapa | coberto |
 | Editor › Minimapa (mostrar, desenho, escala, área visível, esconder até passar o mouse) | editor#contexto-fixo-e-minimapa | coberto |
 | Editor › Markdown (abrir arquivos .md em) | editor#markdown-e-imagens | coberto |
 | Editor › Autor da linha (git blame): mostrar, atraso, autor, data, mensagem | git-in-the-editor#autor-da-linha | coberto |
 | Editor › Abas: limite, ao fechar ir para, abrir aba nova, pasta em nomes repetidos, marca de não gravada, aba de prévia | tabs-and-groups#opções-das-abas | coberto |
-| Terminal › Fonte (família, tamanho, peso, peso do negrito, altura da linha) | settings#terminal | a escrever |
-| Terminal › Cursor (estilo, piscar) | settings#terminal | a escrever |
-| Terminal › Exibição (renderizador WebGL ou DOM, linhas de histórico, espaçamento interno) | settings#terminal | a escrever |
-| Terminal › Teclado (Option como Meta) | settings#terminal | a escrever |
+| Terminal › Fonte (família, tamanho, peso, peso do negrito, altura da linha) | settings#terminal | coberto |
+| Terminal › Cursor (estilo, piscar) | settings#terminal | coberto |
+| Terminal › Exibição (renderizador WebGL ou DOM, linhas de histórico, espaçamento interno) | settings#terminal | coberto |
+| Terminal › Teclado (Option como Meta) | settings#terminal | coberto |
 | Arquivos › Ocultar arquivos (padrões; o .git fica sempre oculto) | files#esconder-arquivos | coberto |
-| Agentes › Terminais (se os terminais podem abrir) | settings#agentes | a escrever |
+| Agentes › Terminais (se os terminais podem abrir) | settings#agentes | coberto |
 | Agentes › Agentes detectados | agents#agentes-detectados | coberto |
 | Agentes › Agente padrão | agents#agente-padrão | coberto |
 | Agentes › Ferramentas do Persisty nos agentes | agent-access#ligar | coberto |
@@ -400,13 +400,13 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Uso de IA › Abrir uso (a página Uso de IA) | usage-and-quota#gasto-estimado | coberto |
 | Privacidade e rede › Privacidade (dados das sessões, integrações externas, telemetria) | privacy-and-network#privacidade | coberto |
 | Privacidade e rede › Chamadas de rede desde que o app abriu (Atualizar) | privacy-and-network#registro-de-rede | coberto |
-| Atalhos › Lista de todas as teclas, com busca | shortcuts#lista-completa | a escrever |
+| Atalhos › Lista de todas as teclas, com busca | shortcuts#lista-completa | coberto |
 | Conta › Entrar, criar conta e sair | account-and-license#entrar | coberto |
 | Conta › E-mail, plano, assinatura e recursos do plano | account-and-license#plano-e-recursos | coberto |
 | Conta › Licença (validade, Atualizar licença) | account-and-license#licença | coberto |
 | Conta › Ver planos | pro#assinar | coberto |
-| Sobre › Versão e sistema | settings#sobre | a escrever |
-| Sobre › Pasta de dados (Mostrar no Finder) | settings#sobre | a escrever |
+| Sobre › Versão e sistema | settings#sobre | coberto |
+| Sobre › Pasta de dados (Mostrar no Finder) | settings#sobre | coberto |
 | Sobre › Procurar atualizações | updates#atualizar-no-app | coberto |
 | Sobre › Procurar atualizações automaticamente | updates#desligar-a-procura-automática | coberto |
 
