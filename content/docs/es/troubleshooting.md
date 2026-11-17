@@ -11,17 +11,17 @@ Situaciones conocidas y qué hacer en cada una. Al final, qué cambia en Windows
 
 Claude Code muestra el aviso de confianza de la carpeta antes de cualquier hook. Responde en la terminal y el estado aparece; mira [Claude Code](/docs/agents#claude-code).
 
-Persisty todavía no lee el estado de Codex. No escribe el `~/.codex/hooks.json` ni muestra qué poner en él, así que la sesión de Codex queda como **Inactivo** (*Idle*), el encabezado de la cola dice **Estado del agente desconocido** (*Agent state unknown*) y la cola no le envía pedidos; mira [Codex CLI](/docs/agents#codex-cli).
+Por defecto, Persisty no recibe el estado de Codex: no escribe el `~/.codex/hooks.json` ni muestra qué poner en él. Así que la sesión de Codex queda como **Inactivo** (*Idle*), el encabezado de la [cola](/docs/queue) dice **Estado del agente desconocido** (*Agent state unknown*) y la cola no le envía pedidos; mira [Codex CLI](/docs/agents#codex-cli).
 
 ## Escribí `claude` en una terminal y la sesión no se volvió agente
 
 Las terminales de Persisty ponen al frente del `PATH` un `claude` propio de la app, que abre tu Claude Code con los hooks de Persisty. La app actualiza ese `claude` cada vez que se abre, también en las terminales que siguieron abiertas. La sesión se vuelve agente con el primer hook, que solo llega después del aviso de confianza de la carpeta: respóndelo antes.
 
-Si aun así nada cambia, el `claude` que escribiste no pasó por el de Persisty. Eso ocurre con un alias o una función con ese nombre en la configuración de tu shell, con la ruta completa del programa, o con un shell que no es zsh ni bash y cambia el orden del `PATH` al abrirse. `type claude` muestra cuál vale. Solo Claude Code se adopta así; un `codex` escrito a mano deja la sesión como terminal.
+Si aun así nada cambia, el `claude` que escribiste no pasó por el de Persisty. Eso ocurre con un alias o una función con ese nombre en la configuración de tu shell, con la ruta completa del programa, o con un shell que no es zsh ni bash y cambia el orden del `PATH` al abrirse. `type claude` muestra cuál vale. Solo Claude Code se adopta así; por defecto, un `codex` escrito a mano deja la sesión como terminal.
 
 ## La cuota aparece como no disponible
 
-Persisty lee la cuota con la credencial que guarda Claude Code. Si venció, las barras usan los números de la propia sesión hasta que Claude Code la renueve. Las cuentas conectadas desde Persisty necesitan el ítem que Claude Code crea en el Keychain al completar el login; mira [Cuentas conectadas](/docs/ai-accounts#cuentas-conectadas).
+Persisty lee la [cuota](/docs/usage-and-quota) con la credencial que guarda Claude Code. Si venció, las barras usan los números de la propia sesión hasta que Claude Code la renueve. En Mac, las cuentas conectadas desde Persisty necesitan el ítem que Claude Code crea en el Keychain al completar el login; mira [Cuentas conectadas](/docs/ai-accounts#cuentas-conectadas).
 
 ## La cola no envió el pedido
 
@@ -41,9 +41,9 @@ En Windows y Linux, la barra superior empieza en el borde de la ventana, sin el 
 
 En Windows, con la pantalla escalada al 125% o al 150%, la terminal de las sesiones podía quedar con más columnas de las que la sesión conocía: las líneas empezaban del lado derecho y quedaban pedazos de pantallas viejas. Desde la 0.9.4, la terminal y la sesión tienen siempre el mismo tamaño; si el texto se desordena, actualiza Persisty.
 
-**Agregar workspace** (*Add workspace*) acepta la carpeta elegida en Windows, como `C:\...`, y una **Nueva sesión** (*New session*) en un workspace de Windows se abre con normalidad desde la 0.9.1.
+[**Agregar workspace**](/docs/projects-and-workspaces#agregar-workspace) (*Add workspace*) acepta la carpeta elegida en Windows, como `C:\...`, y una [**Nueva sesión**](/docs/sessions#nueva-sesión) (*New session*) en un workspace de Windows se abre con normalidad desde la 0.9.1.
 
-Todavía se están revisando en uso real: en Windows y Linux, pegar archivos desde y hacia el sistema y el **Deshacer** (*Undo*) de la eliminación; en Windows, el **Deshacer** de la Papelera de reciclaje y los avisos de archivo en uso. La mascota fuera de la app existe solo en macOS.
+Todavía se están revisando en uso real: en Windows y Linux, pegar archivos desde y hacia el sistema y el **Deshacer** (*Undo*) de la [eliminación](/docs/files#eliminar); en Windows, el **Deshacer** de la Papelera de reciclaje y los avisos de archivo en uso. La [mascota fuera de la app](/docs/mascot#fuera-de-la-app) existe solo en macOS.
 
 ## Lo que Persisty todavía no hace
 

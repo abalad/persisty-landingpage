@@ -5,11 +5,11 @@ group: account
 order: 2
 ---
 
-El plan gratis no pide cuenta. La cuenta de Persisty Cloud sirve para los planes pagos y para los avisos de versión que pidas: entrar con ella en la app trae a esta computadora la licencia de tu plan.
+El plan gratis no pide cuenta. La cuenta de Persisty Cloud sirve para los planes pagos y para los [avisos de versión](/docs/updates#novedades-y-aviso-por-e-mail) que pidas: entrar con ella en la app trae a esta computadora la licencia de tu plan.
 
 ## Entrar
 
-Sin cuenta, el pie de **Configuración** (*Settings*) muestra **Entrar** (*Sign in*) y **Crear cuenta gratis** (*Create free account*). Los dos abren la misma ventana, en dos pasos. En el primero, escribe tu e-mail y haz clic en **Continuar con e-mail** (*Continue with e-mail*). En el segundo, escribe el código de 8 dígitos que llegó por e-mail; con el último dígito, la app entra sola. El código vale por 10 minutos y una sola vez. La cuenta se crea en el primer acceso, sin contraseña.
+Sin cuenta, el pie de [**Configuración**](/docs/settings#cuenta) (*Settings*) muestra **Entrar** (*Sign in*) y **Crear cuenta gratis** (*Create free account*). Los dos abren la misma ventana, en dos pasos. En el primero, escribe tu e-mail y haz clic en **Continuar con e-mail** (*Continue with e-mail*). En el segundo, escribe el código de 8 dígitos que llegó por e-mail; con el último dígito, la app entra sola. El código vale por 10 minutos y una sola vez. La cuenta se crea en el primer acceso, sin contraseña.
 
 Si el código no llega, **Reenviar código** (*Resend code*) manda otro después de 60 segundos, y **Usar otro e-mail** (*Use another e-mail*) vuelve al primer paso. Si ya tienes un código, **Escribir código** (*Enter code*) lleva directo al segundo paso: pedir uno nuevo anularía el que llegó.
 
@@ -31,7 +31,7 @@ La licencia vale 14 días. Con la cuenta conectada y la app abierta, Persisty pi
 
 Una cuenta vale en hasta 5 computadoras. Una computadora entra en la lista de la cuenta la primera vez que entras en ella desde la app, con el nombre que tiene en el sistema. En una sexta, la cuenta entra, pero la licencia no llega, y **Actualizar licencia** dice que la cuenta ya está en 5 computadoras. Quita una en [Mi cuenta](/account/devices) y actualiza de nuevo.
 
-Una computadora quitada en el sitio sale de la cuenta en la próxima renovación de la licencia. Para volver a usarla, basta con entrar en ella otra vez. **Salir de la cuenta** no libera el lugar: la computadora sigue en la lista hasta que la quites.
+Una computadora quitada en el sitio sale de la cuenta en la próxima renovación de la licencia, y la app dice "This computer was signed out from the account. Sign in again." Para volver a usarla, basta con entrar en ella otra vez. **Salir de la cuenta** no libera el lugar: la computadora sigue en la lista hasta que la quites.
 
 Después de que sales, otra cuenta de Persisty puede entrar en la misma computadora, que pasa a contar también entre las 5 de esa cuenta.
 

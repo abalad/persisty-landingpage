@@ -124,7 +124,8 @@
   "states": {
     "title": "Sabes qué agente te necesita",
     "body": "El Tablero pone las sesiones de todos los proyectos en cuatro columnas, y cada tarjeta dice qué quiere la sesión. El estado viene de los hooks de Claude Code, no de adivinar la pantalla.",
-    "link": "Agentes y estados"
+    "link": "Agentes y estados",
+    "boardLink": "Tablero"
   },
   "mascot": {
     "title": "Un aviso que queda encima de tus ventanas",

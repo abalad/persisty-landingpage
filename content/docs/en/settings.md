@@ -99,20 +99,20 @@ The groups, in order: **Font**, **Cursor**, **Display** and **Keyboard**. Change
 
 ## Files
 
-**Hide files** lists patterns such as `**/node_modules`, and whatever matches one of them is left out of the tree, the search and **Open file**. The factory pattern is `**/.DS_Store`. Each pattern has a switch and a button to remove it; **New pattern** and **Add** put in another. `.git` is always hidden. See [Hide files](/docs/files#hide-files).
+**Hide files** lists patterns such as `**/node_modules`, and whatever matches one of them is left out of the tree, the search and **Open file**. The factory pattern is `**/.DS_Store`. Each pattern has a switch and a button to remove it; **New pattern** and **Add** put in another. `.git` is always hidden, and a repeated or invalid pattern is refused with the reason. See [Hide files](/docs/files#hide-files).
 
 ## Agents
 
 | Option | Default |
 | --- | --- |
 | **Terminals and agents** | shows **ready** when terminals can open on this computer |
-| [**Default agent**](/docs/agents#default-agent) | **Claude Code**. Also **Codex CLI** and **Terminal** |
+| [**Default agent**](/docs/agents#default-agent) | **Claude Code**. Also **Codex CLI** and **Terminal**; a missing agent shows "(not installed)" |
 | [**Persisty tools in agents**](/docs/agent-access#turn-it-on) | off |
 | [**Check installation**](/docs/agent-access#check-installation) | tests the server of those tools, step by step |
-| [**Codex CLI**](/docs/agent-access#codex-cli) | the command to run once in a terminal, with **Copy** |
-| [**Detected agents**](/docs/agents#detected-agents) | the version and path of Claude Code and Codex CLI |
+| [**Codex CLI**](/docs/agent-access#codex-cli) | the command to run once in a terminal, with **Copy** and the **Not verified** tag |
+| [**Detected agents**](/docs/agents#detected-agents) | the version and path of Claude Code and Codex CLI and what each one supports, such as **Resume** and **Status via hooks**, with what is **Not verified** or **Not supported** |
 
-If **Terminals and agents** shows **unavailable**, reopen Persisty; if it keeps happening, reinstall the app.
+The three rows for Persisty's tools sit in the **Agent access (MCP)** group. If **Terminals and agents** shows **unavailable**, reopen Persisty; if it keeps happening, reinstall the app.
 
 ## AI accounts
 
@@ -125,6 +125,8 @@ The list shows the Claude Code accounts, with this computer's marked **This comp
 | [**Switch accounts at**](/docs/ai-accounts#rotation) | 90%. Also 80%, 95% and **100% · only at the limit**. Shows with rotation on |
 | [**Go on with the task the limit cut**](/docs/ai-accounts#carry-on-after-the-limit) | on. Pro |
 | [**Use only for the projects pinned to it**](/docs/ai-accounts#one-account-for-a-project) | off, on each connected account. Pro |
+
+Each connected account has a button to disconnect it, which asks you to confirm with **Disconnect**. With rotation on, the account that will get the next session shows **Next in rotation**.
 
 ## Voice
 
@@ -141,19 +143,21 @@ With **Voice dictation** off, the screen shows only that switch; the other optio
 
 ## Integrations
 
-The screen shows the **Connected** services first and then the **Available** ones; click a service to open its page. GitHub, GitLab and Bitbucket connect accounts to list and clone your repositories; see [GitHub, GitLab and Bitbucket](/docs/forges). Linear, Jira and ClickUp bring issues to start sessions from; see [Issues](/docs/issues#connect-the-service). At the bottom, **Cloning › Default folder for clones** starts as `~/Documents/GitHub`; see [Clone folder](/docs/forges#clone-folder).
+The screen shows the **Connected** services first and then the **Available** ones, each with **Connect** or, once connected, the account or the number of accounts; click a service to open its page. GitHub, GitLab and Bitbucket connect accounts to list and clone your repositories; see [GitHub, GitLab and Bitbucket](/docs/forges). Linear, Jira and ClickUp bring issues to start sessions from; see [Issues](/docs/issues#connect-the-service). At the bottom, **Cloning › Default folder for clones** starts as `~/Documents/GitHub`; see [Clone folder](/docs/forges#clone-folder).
 
 ## MCP servers
 
-**Installed** lists the servers you installed, and **Available** holds a selection of 16 official servers. The search also looks in the official MCP registry, and **Add manually** installs a server that is not on the list. Each project picks the servers its sessions get, in the project's settings. See [MCP servers](/docs/mcp-servers).
+**Installed** lists the servers you installed, and **Available** holds a selection of 16 official servers, with a filter by category. The search also looks in the official MCP registry, and **Add manually** installs a server that is not on the list. Each project picks the servers its sessions get, in the project's settings. See [MCP servers](/docs/mcp-servers).
 
 ## AI usage
+
+The **Spend alerts** and **Data sources** groups.
 
 | Option | Default |
 | --- | --- |
 | [**Daily alert (USD)**](/docs/usage-and-quota#spend-alerts) | empty, which turns the alert off |
 | [**Monthly alert (USD)**](/docs/usage-and-quota#spend-alerts) | empty, which turns the alert off |
-| [**Data sources**](/docs/usage-and-quota#data-sources) | each source, with its last read or **Not connected** |
+| [**Data sources**](/docs/usage-and-quota#data-sources) | each source, such as **Claude Code local records**, with "Last sync" and when, **Never synced** or **Not connected** |
 | [**Open detailed usage**](/docs/usage-and-quota#estimated-spend) | opens the **AI usage** page |
 
 ## Privacy & network
@@ -166,15 +170,17 @@ Every key of the editor keymap and of Persisty, in words and searchable. Nothing
 
 ## Account
 
-This tab shows only with the Persisty Cloud account signed in. It shows the **E-mail**, the **Plan**, the **License** and the **Plan features**; on the free plan, the **Subscription** row has **See plans**. Below are **Refresh license** and **Sign out**. Without an account, the Settings footer has **Sign in** and **Create free account**. See [Account and licence](/docs/account-and-license#plan-and-features).
+This tab shows only with the Persisty Cloud account signed in. It shows the **E-mail**, the **Plan**, the **License**, which says **valid** or **attention** and until when it works offline, and the **Plan features**; on the free plan, the **Subscription** row has **See plans**. Below are **Refresh license** and **Sign out**. While you are signed in, the Settings footer shows the e-mail, the plan and **Manage account**, which opens this tab; without an account, it has **Sign in** and **Create free account**. See [Account and licence](/docs/account-and-license#plan-and-features).
 
 ## About
+
+The groups, in order: **This app**, **Updates** and **Learn more**.
 
 | Option | Default |
 | --- | --- |
 | **Version** and **System** | the app's version and the system, such as "macOS · Apple Silicon" |
 | **Data folder** | where the local database, the hooks and the session records live, with **Show in Finder** |
-| [**Check for updates**](/docs/updates#update-in-the-app) | checks right away |
+| [**Check for updates**](/docs/updates#update-in-the-app) | checks right away and says "You're on the newest version" or the new version |
 | [**Check for updates automatically**](/docs/updates#turn-off-the-automatic-check) | on: when the app opens and every 6 hours |
 | **Learn more** | **What's new**, **Documentation**, **Privacy** and **Terms of use**, each with **Open** |
 

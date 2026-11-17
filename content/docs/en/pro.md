@@ -5,7 +5,7 @@ group: account
 order: 1
 ---
 
-The free plan needs no account and has almost all of Persisty. Pro adds five features, each explained on its own page, and Team includes everything in Pro.
+The free plan needs no account. Pro adds five features, each explained on its own page, and Team includes everything in Pro.
 
 ## What Pro adds
 
@@ -15,13 +15,13 @@ The free plan needs no account and has almost all of Persisty. Pro adds five fea
 - [Check on finish](/docs/verify): running a workspace command, such as the tests, when the agent stops after changing files.
 - [AI accounts and rotation](/docs/ai-accounts): connecting other Claude Code accounts, rotation between them, switching a session's account from the footer, an account pinned to a project, a reserved account and **Go on with the task the limit cut**. Seeing the accounts and each one's quota is on the free plan.
 
-Everything else is on the free plan: sessions and recovery, agents and states, the Board, the mascot, notifications, usage and quota, the editor and git, integrations, MCP servers, voice dictation and the network log.
+Everything else is on the free plan: [sessions and recovery](/docs/sessions-and-recovery), [agents and states](/docs/agents), the [Board](/docs/board), the [mascot](/docs/mascot), [notifications](/docs/notifications), [usage and quota](/docs/usage-and-quota), the [editor](/docs/editor) and [git](/docs/git-in-the-editor), the integrations with [issues](/docs/issues) and with [GitHub, GitLab and Bitbucket](/docs/forges), [MCP servers](/docs/mcp-servers), [voice dictation](/docs/voice) and the [network log](/docs/privacy-and-network#network-log).
 
-In **Settings › Account**, **Plan features** lists what your licence turns on, sometimes under another name: **Quota-aware queue** is the request queue, and **Worktree per session** is the own folder. **Growth** also shows there: it is a project settings tab that has no source connected yet, so nothing is collected and no numbers appear.
+In [**Settings › Account**](/docs/settings#account), **Plan features** lists what your licence turns on, sometimes under another name: **Quota-aware queue** is the request queue, **Worktree per session** is the own folder, and **Several AI accounts** is AI accounts and rotation. **Growth** also shows there: it is a project settings tab that has no source connected yet, so nothing is collected and no numbers appear. On a Team licence, the list also shows a few team tags that do not change anything in the app yet.
 
 ## Pro and Team
 
-The paid features are the same in Pro and Team, and these pages only say "Pro". Team brings Pro to each person on the team on a single invoice: one seat per person, with invites by e-mail in [My account](/account).
+The paid features are the same in Pro and Team, and these pages only say "Pro". Team brings Pro to each person on the team on a single invoice, with one seat per person. In [My account](/account), you invite someone by their e-mail and send them the invite link.
 
 ## Subscribe
 

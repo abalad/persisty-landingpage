@@ -11,7 +11,7 @@ Persisty looks for new versions on its own and installs one when you click. The 
 
 The automatic check runs half a minute after the app opens and then every 6 hours while it stays open. When there is a new version, a notice appears in the bottom right corner with its number, such as "Persisty 0.13.0 is available", and the version you are on. **What's new** opens what changed in that version in your browser. **Install and restart** downloads the update showing its progress, checks the file's signature, installs it and opens Persisty on the new version.
 
-To check right away, click **Check for updates** in **Settings › About**. The row then says "Checking…" and then "You're on the newest version" or the new version, with **Install and restart** beside it. If it cannot check, it says "Couldn't check right now". An automatic check that fails shows nothing and tries again next time.
+To check right away, click **Check for updates** in [**Settings › About**](/docs/settings#about). The row then says "Checking…" and then "You're on the newest version" or the new version, with **Install and restart** beside it. If it cannot check, it says "Couldn't check right now". An automatic check that fails shows nothing and tries again next time.
 
 The notice's close button, **Skip this version**, hides the notice for that version; the next version's notice shows as usual. A skipped version stays in **Settings › About**, for you to install whenever you like.
 
@@ -19,7 +19,7 @@ If the download goes 30 seconds without receiving anything, it gives up. When in
 
 ## Open sessions
 
-On a Mac, the app installs and restarts without asking anything, and the open sessions come back with it: when it opens, Persisty reattaches them, as in [Coming back after a crash](/docs/sessions-and-recovery#when-persisty-opens).
+On a Mac, the app installs and restarts without asking anything, and the open sessions' processes are not ended: when it opens, Persisty reattaches each terminal to its process, as in [Coming back after a crash](/docs/sessions-and-recovery#when-persisty-opens).
 
 On Windows and Linux, which are in preview, installing may end the open sessions. With any session open, the app asks first: **Install the new version now?** says how many sessions may be ended, and **Install anyway** goes ahead. When it opens, the ones that ended come back according to [each one's rule](/docs/sessions-and-recovery#when-to-relaunch).
 
@@ -41,7 +41,7 @@ The [download page](/download) offers the latest version for each system: on the
 
 ## What's new and release e-mails
 
-The [changelog](/changelog) says what changed in each version and has an RSS feed in each language. In **Settings › About**, the **What's new** row opens that page. To get an e-mail when a new version is out, turn it on in [My account](/account), under **Release e-mails**.
+The [changelog](/changelog) says what changed in each version and has an RSS feed in each language. In **Settings › About**, **Open** on the **What's new** row opens that page. To get an e-mail when a new version is out, turn it on in [My account](/account), under **Release e-mails**.
 
 ## Plan and limits
 

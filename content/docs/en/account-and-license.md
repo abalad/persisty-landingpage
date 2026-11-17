@@ -5,11 +5,11 @@ group: account
 order: 2
 ---
 
-The free plan needs no account. The Persisty Cloud account is for the paid plans and for the release e-mails you ask for: signing in with it in the app brings your plan's licence to this computer.
+The free plan needs no account. The Persisty Cloud account is for the paid plans and for the [release e-mails](/docs/updates#whats-new-and-release-e-mails) you ask for: signing in with it in the app brings your plan's licence to this computer.
 
 ## Sign in
 
-Without an account, the footer of **Settings** shows **Sign in** and **Create free account**. Both open the same window, in two steps. In the first, type your e-mail and click **Continue with e-mail**. In the second, type the 8-digit code that arrived by e-mail; with the last digit, the app signs you in on its own. The code works for 10 minutes, once. The account is created the first time you sign in, with no password.
+Without an account, the footer of [**Settings**](/docs/settings#account) shows **Sign in** and **Create free account**. Both open the same window, in two steps. In the first, type your e-mail and click **Continue with e-mail**. In the second, type the 8-digit code that arrived by e-mail; with the last digit, the app signs you in on its own. The code works for 10 minutes, once. The account is created the first time you sign in, with no password.
 
 If the code does not arrive, **Resend code** sends another after 60 seconds, and **Use another e-mail** goes back to the first step. If you already have a code, **Enter code** goes straight to the second step: asking for a new one would void the one that arrived.
 
@@ -31,7 +31,7 @@ The licence lasts 14 days. While you are signed in and the app is open, Persisty
 
 An account works on up to 5 computers. A computer joins the account's list the first time you sign in on it from the app, under the name it has on the system. On a sixth, you are signed in but no licence comes, and **Refresh license** says the account is already on 5 computers. Remove one in [My account](/account/devices) and refresh again.
 
-A computer removed on the website leaves the account at the next licence renewal. To use it again, just sign in on it once more. **Sign out** does not free the place: the computer stays on the list until you remove it.
+A computer removed on the website leaves the account at the next licence renewal, and the app says "This computer was signed out from the account. Sign in again." To use it again, just sign in on it once more. **Sign out** does not free the place: the computer stays on the list until you remove it.
 
 Once you sign out, another Persisty account can sign in on the same computer, which then also counts towards that account's 5.
 

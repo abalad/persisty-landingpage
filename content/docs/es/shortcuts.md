@@ -5,7 +5,7 @@ group: reference
 order: 1
 ---
 
-Las teclas de la app valen en todo Persisty; dentro del código, las del mapa del editor van primero. La lista completa, con las teclas del mapa que elegiste, está en **Configuración › Atajos** (*Settings › Shortcuts*), con búsqueda.
+Las teclas de la app valen en todo Persisty; dentro del código, las del mapa del editor van primero. La lista completa, con las teclas del mapa que elegiste, está en [**Configuración › Atajos**](/docs/settings#atajos) (*Settings › Shortcuts*), con búsqueda.
 
 ## Teclas de la app
 
@@ -15,25 +15,25 @@ En Mac, los atajos de la app siempre llevan <kbd>⌘</kbd>; el <kbd>⌃</kbd> qu
 | --- | --- |
 | Buscar | <kbd>⌘</kbd> <kbd>K</kbd> |
 | Barra de proyectos | <kbd>⌘</kbd> <kbd>B</kbd> |
-| Tablero de sesiones | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> |
+| [Tablero de sesiones](/docs/board) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> |
 | Mostrar u ocultar el panel lateral | <kbd>⌘</kbd> <kbd>&#92;</kbd> |
 | Abrir archivo por nombre (fuera del código) | <kbd>⌘</kbd> <kbd>P</kbd> |
-| Buscar en todos los archivos | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
-| Cambios de git | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
+| [Buscar en todos los archivos](/docs/search) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
+| [Cambios de git](/docs/changes) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
 | Guardar archivo | <kbd>⌘</kbd> <kbd>S</kbd> |
 | Vista previa de Markdown (en el editor) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
 | Nueva terminal en el workspace actual | <kbd>⌘</kbd> <kbd>N</kbd> |
 | Elegir qué abrir | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
 | Nueva sesión con el agente por defecto | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> |
 | Dictar (con el dictado activado) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> |
-| Restaurar todo | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> |
+| [Restaurar todo](/docs/sessions-and-recovery#restaurar-todo) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> |
 | Detalles | <kbd>⌘</kbd> <kbd>I</kbd> |
 | Contraer workspaces | <kbd>⌘</kbd> <kbd>J</kbd> |
-| Ejecutar / detener comando | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
+| [Ejecutar / detener comando](/docs/commands) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
 | Salida del comando | <kbd>⌘</kbd> <kbd>E</kbd> |
 | Sesión anterior / siguiente (fuera del código) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
 | Cerrar la pestaña del editor (en el panel Código, fuera del texto) | <kbd>⌘</kbd> <kbd>W</kbd> |
-| Alternar entre pestañas | <kbd>⌃</kbd> <kbd>Tab</kbd> |
+| Alternar entre pestañas | <kbd>⌃</kbd> <kbd>Tab</kbd>; <kbd>⇧</kbd> <kbd>Tab</kbd> vuelve |
 | Proyecto 1–9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
 | Configuración | <kbd>⌘</kbd> <kbd>,</kbd> |
 
@@ -50,6 +50,8 @@ La tabla con las teclas de cada mapa está en [Mapa de teclas](/docs/editor#mapa
 ## Paleta de comandos
 
 <kbd>⌘</kbd> <kbd>K</kbd> abre la paleta, que busca sesiones, proyectos y acciones. Con un archivo abierto en el editor, también lista las acciones del editor que valen ahí, con las teclas del mapa elegido. **Buscar acción** (*Find Action*) abre la paleta solo con esas acciones: <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> en los mapas WebStorm, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> o <kbd>F1</kbd> en VS Code. Sin archivo abierto, abre la paleta entera.
+
+En el mapa de VS Code, con el cursor en el código, <kbd>⌘</kbd> <kbd>K</kbd> empieza sus teclas de dos partes, como <kbd>⌘</kbd> <kbd>K</kbd> <kbd>⌘</kbd> <kbd>C</kbd>, que comenta la línea; ahí, las acciones del editor están en <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd>.
 
 ## Archivos
 
@@ -93,4 +95,4 @@ En el árbol de archivos y en la pestaña, una tecla del mapa cuya acción no pu
 
 ## Windows y Linux
 
-En Windows y Linux, que están en versión preliminar, los atajos de la app usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>, y el dictado es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. En el código, en cualquier mapa, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> avanzan de palabra en palabra, y <kbd>Home</kbd> y <kbd>End</kbd> llevan al inicio y al final de la línea. En la terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> quedan para el shell. En los mapas del editor, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>; mira [Mapa de teclas](/docs/editor#mapa-de-teclas).
+En Windows y Linux, que están en versión preliminar, los atajos de la app usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>, y el dictado es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. En el código, en cualquier mapa, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> avanzan de palabra en palabra, y <kbd>Home</kbd> y <kbd>End</kbd> llevan al inicio y al final de la línea. En la terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> quedan para el shell. En los mapas del editor, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>; mira [Mapa de teclas](/docs/editor#mapa-de-teclas). En el árbol, en los mapas WebStorm, eliminar es <kbd>Delete</kbd> o <kbd>Alt</kbd> <kbd>Delete</kbd>, y cambiar de grupo no tiene tecla.

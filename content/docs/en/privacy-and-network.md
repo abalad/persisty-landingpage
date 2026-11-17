@@ -5,7 +5,7 @@ group: account
 order: 3
 ---
 
-Persisty is local: projects, sessions, history, notes and usage stay in a SQLite database on your machine. There is no telemetry. In **Settings › Privacy & network**, you can check this and see every call the app has made to the outside.
+Persisty is local: [projects](/docs/projects-and-workspaces), [sessions](/docs/sessions), history, [notes](/docs/notes) and [usage](/docs/usage-and-quota) stay in a SQLite database on your machine. There is no telemetry. In [**Settings › Privacy & network**](/docs/settings#privacy--network), you can check this and see every call the app has made to the outside.
 
 ## Privacy
 
@@ -20,14 +20,16 @@ The persisty.app website uses Google Analytics only after you click **Accept** o
 The app only reaches out to:
 
 - read Claude Code's quota (`api.anthropic.com`), with the credential Claude Code already stores; the token is neither saved nor logged;
-- sign in to the Persisty Cloud account and renew the [licence](/docs/account-and-license#licence);
+- sign in to the Persisty Cloud account and renew the [licence](/docs/account-and-license#licence), on the Persisty Cloud server, a `supabase.co` address;
 - talk to GitHub, GitLab or Bitbucket, for the [accounts you connect](/docs/forges);
 - read [issues](/docs/issues) from Linear, Jira, ClickUp and GitHub, for the task integrations you connect; on **Finish**, when you click **Send**, write to the issue the comment you reviewed, if it is not empty, and the new status;
 - clone, fetch, pull and push commits on your git repositories' remotes (it also fetches on its own when it opens and every 5 minutes while the app is on screen, to show what is left to pull and push);
 - download a [language server](/docs/editor#the-language-server) when the editor needs one that is neither in the project nor on the system: Node from `nodejs.org`, npm packages from `registry.npmjs.org` (or from the registry in your `.npmrc`) and rust-analyzer from GitHub;
 - download the dictation [voice model](/docs/voice#voice-model) from `huggingface.co`, when you click **Download** in **Settings › Voice**;
 - in **Settings › MCP servers**, [search the official MCP registry](/docs/mcp-servers#search-the-official-registry) (`registry.modelcontextprotocol.io`) for the name you type and download the servers' icons; on **Test**, ask a remote server to start a connection, with the credentials you gave it;
-- [look for new versions](/docs/updates) on GitHub, when it opens, every 6 hours and when you ask, and download the update when you click **Install and restart**. You can turn the automatic check off in **Settings › About**.
+- [look for new versions](/docs/updates) on GitHub, when it opens, every 6 hours and when you ask, and download the update when you click **Install and restart**. You can turn the automatic check off in [**Settings › About**](/docs/settings#about).
+
+A preview feature you turn on may make other calls, and those also show in the [network log](#network-log).
 
 ## Network log
 

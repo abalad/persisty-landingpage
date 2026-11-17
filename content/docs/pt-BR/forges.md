@@ -5,17 +5,17 @@ group: integrations
 order: 2
 ---
 
-Em **Configurações › Integrações**, você conecta contas do GitHub, do GitLab (o gitlab.com ou o da sua empresa) e do Bitbucket Cloud. Com uma conta conectada, **Adicionar workspace** lista os seus repositórios e clona os privados.
+Em [**Configurações › Integrações**](/docs/settings#integrações), você conecta contas do GitHub, do GitLab (o gitlab.com ou o da sua empresa) e do Bitbucket Cloud. Com uma conta conectada, [**Adicionar workspace**](/docs/projects-and-workspaces#adicionar-workspace) lista os seus repositórios e clona os privados.
 
 ## Conectar contas
 
 A tela **Integrações** mostra primeiro as **Conectadas**, com a conta de cada uma, e depois as **Disponíveis**. Clique num serviço para abrir a página dele: **Conectar conta** faz a primeira conexão, e **Adicionar conta**, as seguintes. Cada serviço aceita várias contas, e cada conta mostra o endereço, se entrou **por código** ou **por token** e desde quando.
 
-O Persisty guarda as contas e os tokens no cofre de senhas do sistema; no Mac, é o item `Persisty Integrations` do Keychain. **Desconectar** faz o Persisty esquecer a conta, mas não revoga o acesso no serviço. O link no pé de cada página leva aonde você revoga: os aplicativos autorizados no GitHub e no gitlab.com, ou os tokens na Atlassian.
+O Persisty guarda as contas e os tokens no cofre de senhas do sistema; no Mac, é o item `Persisty Integrations` do Keychain. **Desconectar** faz o Persisty esquecer a conta, mas não revoga o acesso no serviço. O link no pé de cada página leva aonde você revoga: os aplicativos autorizados no GitHub e no gitlab.com, ou os tokens na Atlassian. Num GitLab da empresa, esse link também abre o gitlab.com; apague o token na página de tokens do seu GitLab.
 
 ## GitHub
 
-**Conectar conta** abre **Conectar ao GitHub** com um código. Clique em **Abrir o GitHub**, entre na conta que quer conectar, confirme o código e autorize o Persisty. A janela espera a confirmação e fecha sozinha; o Persisty nunca vê a sua senha. O acesso pedido cobre os seus repositórios, inclusive os privados e os das suas organizações. Se os de uma organização não aparecem, ela precisa aprovar o Persisty.
+**Conectar conta** abre **Conectar ao GitHub** com um código. Clique em **Abrir o GitHub**, entre na conta que quer conectar, confirme o código e autorize o Persisty. A janela espera a confirmação e fecha sozinha; o Persisty nunca vê a sua senha. O acesso pedido, `repo` e `read:org`, cobre os seus repositórios, inclusive os privados e os das suas organizações, e inclui escrita: o Persisty o usa para listar e clonar e, ao [concluir uma issue](/docs/issues#concluir), para comentar nela e fechá-la. Se os de uma organização não aparecem, ela precisa aprovar o Persisty.
 
 ## GitLab
 
@@ -27,7 +27,7 @@ O Bitbucket Cloud conecta com um token de API da Atlassian. **Abrir tokens da At
 
 ## O que as contas fazem
 
-Em **Adicionar workspace**, com **Repositório remoto**, o campo vira **Link ou busca** e lista os repositórios das contas conectadas, com um filtro por serviço; o passo a passo está em [Clonar um repositório](/docs/projects-and-workspaces#clonar-um-repositório). Um link colado é consultado com as contas daquele serviço, uma a uma, até uma enxergar o repositório. Um clone por HTTPS usa o token dessa conta, só no endereço dela; um clone por SSH usa as suas próprias chaves.
+Em **Adicionar workspace**, com **Repositório remoto**, o campo vira **Link ou busca** e lista os repositórios das contas conectadas, com um filtro por serviço; o passo a passo está em [Clonar um repositório](/docs/projects-and-workspaces#clonar-um-repositório). Um link colado é consultado com as contas daquele serviço, uma a uma, até uma enxergar o repositório; sem conta daquele serviço, a consulta vai sem login, e só um repositório público aparece. Quem clona é o git, direto com o serviço: por HTTPS, com o token dessa conta, só no endereço dela; por SSH, com as suas próprias chaves.
 
 A conta do GitHub também traz as issues dos seus repositórios, para [começar sessões a partir delas](/docs/issues), e serve ao servidor MCP do GitHub; veja [Servidores MCP](/docs/mcp-servers).
 
@@ -37,7 +37,7 @@ No fim da tela **Integrações**, **Clonagem › Pasta padrão para clones** diz
 
 ## Abrir na forja
 
-**Abrir em** e **Copiar caminho**, na árvore de arquivos e na aba, levam à página do arquivo no GitHub, GitLab ou Bitbucket, e o cartão do autor da linha tem **Abrir na forja**. Esses links saem do remoto git da pasta e não precisam de conta conectada. Funcionam no github.com, no gitlab.com e no bitbucket.org; num GitLab da empresa, o item fica indisponível e diz "sem remoto numa forja conhecida". Veja [Abrir em](/docs/files#abrir-em) e [Git no editor](/docs/git-in-the-editor).
+Na árvore de arquivos e na aba, o menu **Abrir em** tem **Abrir no GitHub** (ou no GitLab, ou no Bitbucket), que abre a página do arquivo, e **Copiar caminho** tem **Link no GitHub**, que copia o endereço dela. O cartão do [autor da linha](/docs/git-in-the-editor#autor-da-linha) tem **Abrir na forja**. Esses links saem do remoto git da pasta e não precisam de conta conectada. Funcionam no github.com, no gitlab.com e no bitbucket.org; num GitLab da empresa, o item fica indisponível e diz "sem remoto numa forja conhecida". Veja [Abrir em](/docs/files#abrir-em) e [Copiar caminho](/docs/files#copiar-caminho).
 
 ## Plano e limites
 

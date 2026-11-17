@@ -5,7 +5,7 @@ group: reference
 order: 2
 ---
 
-**Configuración** (*Settings*) se abre con <kbd>⌘</kbd> <kbd>,</kbd>. Las pestañas están en cinco grupos: **Interfaz** (*Interface*), con Apariencia (*Appearance*), Workspace y Notificaciones (*Notifications*); **Código** (*Code*), con Editor, Terminal y Archivos (*Files*); **Agentes** (*Agents*), con Agentes (*Agents*), Cuentas de IA (*AI accounts*) y Voz (*Voice*); **Conexiones** (*Connections*), con Integraciones (*Integrations*), Servidores MCP (*MCP servers*), Uso de IA (*AI usage*) y Privacidad y red (*Privacy & network*); y **Persisty**, con Atajos (*Shortcuts*), Cuenta (*Account*) y Acerca de (*About*). Esta página sigue ese orden; el nombre de una opción lleva a la página que explica la función, cuando la hay. Como la app no está en español, cada opción lleva su nombre en inglés la primera vez que aparece.
+**Configuración** (*Settings*) se abre con <kbd>⌘</kbd> <kbd>,</kbd>. Las pestañas están en cinco grupos: **Interfaz** (*Interface*), con Apariencia (*Appearance*), Workspace y Notificaciones (*Notifications*); **Código** (*Code*), con Editor, Terminal y Archivos (*Files*); **Agentes** (*Agents*), con Agentes, Cuentas de IA (*AI accounts*) y Voz (*Voice*); **Conexiones** (*Connections*), con Integraciones (*Integrations*), Servidores MCP (*MCP servers*), Uso de IA (*AI usage*) y Privacidad y red (*Privacy & network*); y **Persisty**, con Atajos (*Shortcuts*), Cuenta (*Account*) y Acerca de (*About*). Esta página sigue ese orden; el nombre de una opción lleva a la página que explica la función, cuando la hay. Como la app no está en español, cada opción lleva su nombre en inglés la primera vez que aparece.
 
 ## Apariencia
 
@@ -99,20 +99,20 @@ Los grupos, en orden: **Fuente**, **Cursor**, **Visualización** (*Display*) y *
 
 ## Archivos
 
-**Ocultar archivos** (*Hide files*) lista patrones como `**/node_modules`, y lo que coincide con uno de ellos queda fuera del árbol, de la búsqueda y de **Abrir archivo** (*Open file*). El patrón de fábrica es `**/.DS_Store`. Cada patrón tiene un interruptor y un botón para quitarlo; **Nuevo patrón** (*New pattern*) y **Agregar** (*Add*) suman otro. El `.git` queda siempre oculto. Mira [Ocultar archivos](/docs/files#ocultar-archivos).
+**Ocultar archivos** (*Hide files*) lista patrones como `**/node_modules`, y lo que coincide con uno de ellos queda fuera del árbol, de la búsqueda y de **Abrir archivo** (*Open file*). El patrón de fábrica es `**/.DS_Store`. Cada patrón tiene un interruptor y un botón para quitarlo; **Nuevo patrón** (*New pattern*) y **Agregar** (*Add*) suman otro. El `.git` queda siempre oculto, y un patrón repetido o inválido se rechaza con el motivo. Mira [Ocultar archivos](/docs/files#ocultar-archivos).
 
 ## Agentes
 
 | Opción | Por defecto |
 | --- | --- |
 | **Terminales y agentes** (*Terminals and agents*) | muestra **listo** (*ready*) cuando las terminales pueden abrirse en esta computadora |
-| [**Agente por defecto**](/docs/agents#agente-por-defecto) (*Default agent*) | **Claude Code**. También **Codex CLI** y **Terminal** |
+| [**Agente por defecto**](/docs/agents#agente-por-defecto) (*Default agent*) | **Claude Code**. También **Codex CLI** y **Terminal**; un agente que falta aparece con "(not installed)" |
 | [**Herramientas de Persisty en los agentes**](/docs/agent-access#encender) (*Persisty tools in agents*) | apagado |
 | [**Verificar instalación**](/docs/agent-access#verificar-instalación) (*Check installation*) | prueba, paso a paso, el servidor de esas herramientas |
-| [**Codex CLI**](/docs/agent-access#codex-cli) | el comando para correr una vez en la terminal, con **Copiar** (*Copy*) |
-| [**Agentes detectados**](/docs/agents#agentes-detectados) (*Detected agents*) | la versión y la ruta de Claude Code y de Codex CLI |
+| [**Codex CLI**](/docs/agent-access#codex-cli) | el comando para correr una vez en la terminal, con **Copiar** (*Copy*) y la marca **No verificado** (*Not verified*) |
+| [**Agentes detectados**](/docs/agents#agentes-detectados) (*Detected agents*) | la versión y la ruta de Claude Code y de Codex CLI y lo que cada uno soporta, como **Reanudación** (*Resume*) y **Estado por hooks** (*Status via hooks*), con lo que está **No verificado** o **No soportado** (*Not supported*) |
 
-Si **Terminales y agentes** muestra **no disponible** (*unavailable*), vuelve a abrir Persisty; si sigue, reinstala la app.
+Las tres filas de las herramientas de Persisty están en el grupo **Acceso de los agentes (MCP)** (*Agent access (MCP)*). Si **Terminales y agentes** muestra **no disponible** (*unavailable*), vuelve a abrir Persisty; si sigue, reinstala la app.
 
 ## Cuentas de IA
 
@@ -125,6 +125,8 @@ La lista muestra las cuentas de Claude Code, con la de esta computadora marcada 
 | [**Cambiar de cuenta al llegar a**](/docs/ai-accounts#rotación) (*Switch accounts at*) | 90%. También 80%, 95% y **100% · solo en el límite** (*100% · only at the limit*). Aparece con la rotación encendida |
 | [**Continuar la tarea cortada por el límite**](/docs/ai-accounts#seguir-con-la-tarea-cortada) (*Go on with the task the limit cut*) | encendido. Pro |
 | [**Usar solo en los proyectos fijados en ella**](/docs/ai-accounts#una-cuenta-para-un-proyecto) (*Use only for the projects pinned to it*) | apagado, en cada cuenta conectada. Pro |
+
+Cada cuenta conectada tiene un botón para desconectarla, que pide confirmar con **Desconectar** (*Disconnect*). Con la rotación encendida, la cuenta que va a recibir la próxima sesión lleva **Próxima en la rotación** (*Next in rotation*).
 
 ## Voz
 
@@ -141,19 +143,21 @@ Con **Dictado por voz** (*Voice dictation*) apagado, la pantalla muestra solo es
 
 ## Integraciones
 
-La pantalla muestra primero las **Conectadas** (*Connected*) y después las **Disponibles** (*Available*); haz clic en un servicio para abrir su página. GitHub, GitLab y Bitbucket conectan cuentas para listar y clonar tus repositorios; mira [GitHub, GitLab y Bitbucket](/docs/forges). Linear, Jira y ClickUp traen issues para empezar sesiones; mira [Issues](/docs/issues#conectar-el-servicio). Al final, **Clonación › Carpeta por defecto para clones** (*Cloning › Default folder for clones*) viene en `~/Documents/GitHub`; mira [Carpeta de los clones](/docs/forges#carpeta-de-los-clones).
+La pantalla muestra primero las **Conectadas** (*Connected*) y después las **Disponibles** (*Available*), cada una con **Conectar** (*Connect*) o, ya conectada, la cuenta o la cantidad de cuentas; haz clic en un servicio para abrir su página. GitHub, GitLab y Bitbucket conectan cuentas para listar y clonar tus repositorios; mira [GitHub, GitLab y Bitbucket](/docs/forges). Linear, Jira y ClickUp traen issues para empezar sesiones; mira [Issues](/docs/issues#conectar-el-servicio). Al final, **Clonación › Carpeta por defecto para clones** (*Cloning › Default folder for clones*) viene en `~/Documents/GitHub`; mira [Carpeta de los clones](/docs/forges#carpeta-de-los-clones).
 
 ## Servidores MCP
 
-**Instalados** (*Installed*) lista los servidores que instalaste, y **Disponibles** tiene una selección de 16 servidores oficiales. La búsqueda también consulta el registro oficial de MCP, y **Agregar manualmente** (*Add manually*) instala un servidor que no está en la lista. Cada proyecto elige los servidores que reciben sus sesiones, en los ajustes del proyecto. Mira [Servidores MCP](/docs/mcp-servers).
+**Instalados** (*Installed*) lista los servidores que instalaste, y **Disponibles** tiene una selección de 16 servidores oficiales, con filtro por categoría. La búsqueda también consulta el registro oficial de MCP, y **Agregar manualmente** (*Add manually*) instala un servidor que no está en la lista. Cada proyecto elige los servidores que reciben sus sesiones, en los ajustes del proyecto. Mira [Servidores MCP](/docs/mcp-servers).
 
 ## Uso de IA
+
+Los grupos **Alertas de gasto** (*Spend alerts*) y **Fuentes de datos** (*Data sources*).
 
 | Opción | Por defecto |
 | --- | --- |
 | [**Alerta diaria (USD)**](/docs/usage-and-quota#alertas-de-gasto) (*Daily alert (USD)*) | vacío, que apaga la alerta |
 | [**Alerta mensual (USD)**](/docs/usage-and-quota#alertas-de-gasto) (*Monthly alert (USD)*) | vacío, que apaga la alerta |
-| [**Fuentes de datos**](/docs/usage-and-quota#fuentes-de-datos) (*Data sources*) | cada fuente, con la última lectura o **No conectado** (*Not connected*) |
+| [**Fuentes de datos**](/docs/usage-and-quota#fuentes-de-datos) | cada fuente, como **Registros locales de Claude Code** (*Claude Code local records*), con "Last sync" y cuándo, **Nunca sincronizado** (*Never synced*) o **No conectado** (*Not connected*) |
 | [**Abrir uso detallado**](/docs/usage-and-quota#gasto-estimado) (*Open detailed usage*) | abre la página **Uso de IA** |
 
 ## Privacidad y red
@@ -166,17 +170,19 @@ Todas las teclas del mapa del editor y de Persisty, en palabras y con búsqueda.
 
 ## Cuenta
 
-Esta pestaña solo aparece con la cuenta de Persisty Cloud conectada. Muestra el **E-mail**, el **Plan**, la **Licencia** (*License*) y los **Recursos del plan** (*Plan features*); en el plan gratis, la fila **Suscripción** (*Subscription*) tiene **Ver planes** (*See plans*). Abajo están **Actualizar licencia** (*Refresh license*) y **Salir de la cuenta** (*Sign out*). Sin cuenta, el pie de Configuración tiene **Entrar** (*Sign in*) y **Crear cuenta gratis** (*Create free account*). Mira [Cuenta y licencia](/docs/account-and-license#plan-y-recursos).
+Esta pestaña solo aparece con la cuenta de Persisty Cloud conectada. Muestra el **E-mail**, el **Plan**, la **Licencia** (*License*), que dice **válida** (*valid*) o **atención** (*attention*) y hasta cuándo funciona sin internet, y los **Recursos del plan** (*Plan features*); en el plan gratis, la fila **Suscripción** (*Subscription*) tiene **Ver planes** (*See plans*). Abajo están **Actualizar licencia** (*Refresh license*) y **Salir de la cuenta** (*Sign out*). Con la cuenta conectada, el pie de Configuración muestra el e-mail, el plan y **Administrar cuenta** (*Manage account*), que abre esta pestaña; sin cuenta, tiene **Entrar** (*Sign in*) y **Crear cuenta gratis** (*Create free account*). Mira [Cuenta y licencia](/docs/account-and-license#plan-y-recursos).
 
 ## Acerca de
+
+Los grupos, en orden: **Esta aplicación** (*This app*), **Actualizaciones** (*Updates*) y **Saber más** (*Learn more*).
 
 | Opción | Por defecto |
 | --- | --- |
 | **Versión** (*Version*) y **Sistema** | la versión de la app y el sistema, como "macOS · Apple Silicon" |
 | **Carpeta de datos** (*Data folder*) | dónde quedan la base local, los hooks y los registros de las sesiones, con **Mostrar en Finder** (*Show in Finder*) |
-| [**Buscar actualizaciones**](/docs/updates#actualizar-en-la-app) (*Check for updates*) | busca al instante |
+| [**Buscar actualizaciones**](/docs/updates#actualizar-en-la-app) (*Check for updates*) | busca al instante y dice "You're on the newest version" o la versión nueva |
 | [**Buscar actualizaciones automáticamente**](/docs/updates#apagar-la-búsqueda-automática) (*Check for updates automatically*) | encendido: al abrir la app y cada 6 horas |
-| **Saber más** (*Learn more*) | **Novedades** (*What's new*), **Documentación** (*Documentation*), **Privacidad** y **Términos de uso** (*Terms of use*), cada uno con **Abrir** (*Open*) |
+| **Saber más** | **Novedades** (*What's new*), **Documentación** (*Documentation*), **Privacidad** y **Términos de uso** (*Terms of use*), cada uno con **Abrir** (*Open*) |
 
 ## Plan y límites
 

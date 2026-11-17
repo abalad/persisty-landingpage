@@ -5,7 +5,7 @@ group: integrations
 order: 3
 ---
 
-Un servidor MCP le da al agente herramientas de otro servicio, como las issues de GitHub, los errores de Sentry o las tablas de Supabase. En Persisty, instalas el servidor una vez, en **Configuración › Servidores MCP** (*Settings › MCP servers*), y lo enciendes en los proyectos que deben recibirlo. Los servidores valen solo para Claude Code.
+Un servidor MCP le da al agente herramientas de otro servicio, como las issues de GitHub, los errores de Sentry o las tablas de Supabase. En Persisty, instalas el servidor una vez, en [**Configuración › Servidores MCP**](/docs/settings#servidores-mcp) (*Settings › MCP servers*), y lo enciendes en los proyectos que deben recibirlo. Los servidores valen solo para Claude Code.
 
 ## Instalar desde la selección
 
@@ -17,7 +17,7 @@ En **Disponibles** (*Available*) hay una selección de 16 servidores, cada uno p
 
 ## Buscar en el registro oficial
 
-A partir de dos letras, la búsqueda también consulta el registro oficial de MCP, `registry.modelcontextprotocol.io`. Lo que encuentra aparece en **En el registro oficial** (*In the official registry*): los servidores publicados por la propia empresa con ✔, los demás con el nombre del autor. Al instalar uno de estos, la ventana avisa que Persisty no revisó el servidor. Algunos formatos todavía no se pueden instalar, y la tarjeta dice por qué.
+A partir de dos letras, la búsqueda también consulta el registro oficial de MCP, `registry.modelcontextprotocol.io`. Lo que encuentra aparece en **En el registro oficial** (*In the official registry*): los servidores publicados por la propia empresa con ✔, los demás con el nombre del autor. Al instalar uno sin ✔, la ventana avisa que Persisty no revisó el servidor. Los paquetes npm, PyPI y OCI corren con `npx`, `uvx` y `docker`; otros formatos todavía no se pueden instalar, y la tarjeta dice por qué.
 
 ## Agregar manualmente
 
@@ -27,18 +27,20 @@ También puedes pegar la configuración: el JSON que el README manda poner en Cl
 
 ## Encender en un proyecto
 
-Instalar no enciende el servidor en ningún proyecto. En **Ajustes del proyecto › Servidores MCP** (*Project settings › MCP servers*), cada servidor instalado tiene un interruptor, apagado por defecto. Justo después de instalar, **Encender en** (*Switch on in*), seguido del nombre del proyecto en foco, te lleva directo a esa pantalla.
+Instalar no enciende el servidor en ningún proyecto. En [**Ajustes del proyecto › Servidores MCP**](/docs/projects-and-workspaces#ajustes-del-proyecto) (*Project settings › MCP servers*), cada servidor instalado tiene un interruptor, apagado por defecto. Justo después de instalar, **Encender en** (*Switch on in*), seguido del nombre del proyecto en foco, te lleva directo a esa pantalla.
 
 La elección vale para las sesiones de Claude Code que empiecen o se reinicien después. El `claude` que escribes en una terminal de Persisty también recibe los servidores del proyecto, salvo que pases tu propio `--mcp-config`.
 
 ## Servidores instalados
 
-En **Instalados** (*Installed*), cada tarjeta muestra en qué proyectos está encendido el servidor y su estado, como **Listo** (*Ready*), **Falta el token** (*Token missing*) o **Necesita npx** (*Needs npx*). Solo los listos, y los que inician sesión en el navegador en la primera sesión, llegan a las sesiones. **Configurar** (*Configure*) cambia la instalación, y **Poner token** (*Add token*) aparece cuando falta el token. **Instalar otra vez** (*Install again*) crea una segunda instalación con otro nombre, como una base de datos por proyecto. **Quitar** (*Remove*) saca el servidor de todos los proyectos y borra sus secretos.
+En **Instalados** (*Installed*), cada tarjeta muestra en qué proyectos está encendido el servidor y su estado, como **Listo** (*Ready*), **Falta el token** (*Token missing*), **Falta la cuenta de GitHub** (*GitHub account missing*) o **Necesita npx** (*Needs npx*). Solo los listos, y los que muestran **Inicio de sesión en el navegador en la 1.ª sesión** (*Sign-in in the browser in the 1st session*), llegan a las sesiones. **Configurar** (*Configure*) cambia la instalación, y **Poner token** (*Add token*) aparece cuando falta el token. **Instalar otra vez** (*Install again*) crea una segunda instalación con otro nombre, como una base de datos por proyecto. **Quitar** (*Remove*) saca el servidor de todos los proyectos y borra sus secretos.
 
 Los tokens quedan en el almacén de contraseñas del sistema, el Keychain en el Mac, y solo llegan al archivo de configuración de la sesión mientras el agente corre; el archivo se borra cuando la sesión se detiene. Persisty no lee ni cambia tu `~/.claude.json` ni el `.mcp.json`, y los nombres que usa terminan en `-persisty`, para no ocultar un servidor tuyo con el mismo nombre.
 
 ## Plan y límites
 
-Los servidores MCP son del plan gratis. Persisty solo se los pasa a las sesiones de Claude Code; Codex CLI no los recibe. Un servidor que corre en la computadora necesita el programa que lo ejecuta, como `npx`, `uvx` o `docker`. Cuando un servidor recibe el secreto en la línea de comandos, la ventana avisa que otros programas de la computadora pueden verlo mientras corre.
+Los servidores MCP son del plan gratis. Persisty solo se los pasa a las sesiones de Claude Code; por defecto, Codex CLI no los recibe. Un servidor que corre en la computadora necesita el programa que lo ejecuta, como `npx`, `uvx` o `docker`, que descarga el paquete de su registro. Cuando un servidor recibe el secreto en la línea de comandos, la ventana avisa que otros programas de la computadora pueden verlo mientras corre.
 
-La búsqueda en el registro, los íconos y **Probar** en un servidor remoto son llamadas de red que aparecen en [Privacidad y red](/docs/privacy-and-network). Las herramientas del propio Persisty para los agentes están en otra pantalla; mira [Agentes que leen Persisty](/docs/agent-access).
+Con un servidor encendido, quien habla con él es Claude Code, no Persisty: lo que el agente pide o envía por una herramienta va a ese servicio, con el token que le diste o el de tu cuenta de GitHub. Persisty mismo solo hace tres llamadas, que aparecen en [Privacidad y red](/docs/privacy-and-network): la búsqueda en el registro, con lo que escribes; los íconos, de la dirección que declara cada servidor; y **Probar** en un servidor remoto, con su encabezado secreto, si lo tiene.
+
+Las herramientas del propio Persisty para los agentes están en otra pantalla; mira [Agentes que leen Persisty](/docs/agent-access).

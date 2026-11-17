@@ -5,11 +5,11 @@ group: integrations
 order: 5
 ---
 
-With dictation on, you speak and the text goes into the terminal or editor in focus, without pressing Enter. The transcription runs on your computer, and the audio never leaves it.
+With dictation on, you speak and the text goes into the terminal or [editor](/docs/editor) in focus, without pressing Enter. The transcription runs on your computer, and the audio never leaves it.
 
 ## Turn dictation on
 
-In **Settings › Voice**, turn on **Voice dictation**; it starts off. Before your first dictation, download the voice model: under **Voice model**, click **Download**, which shows the size, about 640 MB. The download comes from `huggingface.co` and only happens when you ask for it.
+In [**Settings › Voice**](/docs/settings#voice), turn on **Voice dictation**; it starts off. Before your first dictation, download the voice model: under **Voice model**, click **Download**, which shows the size, about 640 MB. The download comes from `huggingface.co` and only happens when you ask for it.
 
 ## Dictate
 
@@ -17,7 +17,7 @@ Click the terminal or editor that should get the text and press <kbd>⌘</kbd> <
 
 The text goes where the focus was when you started, even if you click elsewhere. In a terminal, it is typed as if by you, without Enter: in an agent, it sits in the prompt waiting for you to send it. In the editor, it goes in at the cursor. A read-only file, or one covered by the Markdown preview, takes no dictation. If the terminal or the file closes first, nothing is inserted, and **Copy text** copies what was transcribed.
 
-A dictation lasts up to 2 minutes. In the last 10 seconds, the indicator counts down, and at the end the text goes in on its own. If Persisty loses focus, the dictation is cancelled. While you speak, the [mascot](/docs/mascot#in-the-terminal) of the terminal that will get the text holds a microphone.
+A dictation lasts up to 2 minutes. In the last 10 seconds, the indicator counts down, and at the end the text goes in on its own. If Persisty loses focus, the dictation is cancelled. When something fails, the indicator says why, such as "No microphone found." or "I heard nothing." While you speak, the [mascot](/docs/mascot#in-the-terminal) of the terminal that will get the text holds a microphone.
 
 ## Language and replacements
 
@@ -27,9 +27,9 @@ Under **Replacements**, **Your replacements** takes one rule per line, in the fo
 
 ## Voice model
 
-The model is Parakeet TDT 0.6B v3, by NVIDIA (CC BY 4.0 licence), converted by the sherpa-onnx project. It comes from `huggingface.co`, is checked by sha256 and shows in the log in [Privacy and the network log](/docs/privacy-and-network). Before you download, the row shows the free space on the disk.
+The model is Parakeet TDT 0.6B v3, by NVIDIA (CC BY 4.0 licence), converted by the sherpa-onnx project. It comes from `huggingface.co`, is checked by sha256 and shows in the log in [Privacy and network](/docs/privacy-and-network). Before you download, the row shows the free space on the disk.
 
-During the download, the row shows the progress and **Cancel**. An interrupted download is **Incomplete**, with **Resume**, which fetches only what is missing, and **Start over**. Once the model is ready, the row shows its size on disk and **Delete**; without the model, dictation stops until you download it again. If the files do not match, the row says **Damaged** and offers **Download again**. The model lives in Persisty's data folder.
+During the download, the row shows the progress and **Cancel**, then **Checking the files…**. An interrupted download is **Incomplete**, with **Resume**, which fetches only what is missing, and **Start over**. Once the model is ready, the row shows its size on disk and **Delete**, which asks first; without the model, dictation stops until you download it again. If the files do not match, the row says **Damaged** and offers **Download again**. The model lives in Persisty's data folder.
 
 ## Microphone
 

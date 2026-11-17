@@ -5,7 +5,7 @@ group: reference
 order: 1
 ---
 
-The app's keys work all over Persisty; inside the code, the editor keymap's keys come first. The full list, with the keys of the keymap you chose, is in **Settings › Shortcuts**, searchable.
+The app's keys work all over Persisty; inside the code, the editor keymap's keys come first. The full list, with the keys of the keymap you chose, is in [**Settings › Shortcuts**](/docs/settings#shortcuts), searchable.
 
 ## App keys
 
@@ -15,25 +15,25 @@ On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is
 | --- | --- |
 | Search | <kbd>⌘</kbd> <kbd>K</kbd> |
 | Project bar | <kbd>⌘</kbd> <kbd>B</kbd> |
-| Session board | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> |
+| [Session board](/docs/board) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> |
 | Show or hide the side panel | <kbd>⌘</kbd> <kbd>&#92;</kbd> |
 | Open file by name (outside the code) | <kbd>⌘</kbd> <kbd>P</kbd> |
-| Search all files | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
-| Git changes | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
+| [Search all files](/docs/search) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
+| [Git changes](/docs/changes) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
 | Save file | <kbd>⌘</kbd> <kbd>S</kbd> |
 | Preview Markdown (in the editor) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
 | New terminal in the current workspace | <kbd>⌘</kbd> <kbd>N</kbd> |
 | Choose what to open | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
 | New session with the default agent | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> |
 | Dictate (with dictation on) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> |
-| Restore all | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> |
+| [Restore all](/docs/sessions-and-recovery#restore-all) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> |
 | Details | <kbd>⌘</kbd> <kbd>I</kbd> |
 | Collapse workspaces | <kbd>⌘</kbd> <kbd>J</kbd> |
-| Run / stop command | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
+| [Run / stop command](/docs/commands) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> |
 | Command output | <kbd>⌘</kbd> <kbd>E</kbd> |
 | Previous / next session (outside the code) | <kbd>⌘</kbd> <kbd>←</kbd> <kbd>⌘</kbd> <kbd>→</kbd> |
 | Close the editor tab (in the Code panel, outside the text) | <kbd>⌘</kbd> <kbd>W</kbd> |
-| Switcher | <kbd>⌃</kbd> <kbd>Tab</kbd> |
+| Switcher | <kbd>⌃</kbd> <kbd>Tab</kbd>; <kbd>⇧</kbd> <kbd>Tab</kbd> goes back |
 | Project 1–9 | <kbd>⌘</kbd> <kbd>1</kbd> … <kbd>⌘</kbd> <kbd>9</kbd> |
 | Settings | <kbd>⌘</kbd> <kbd>,</kbd> |
 
@@ -50,6 +50,8 @@ The table of each keymap's keys is in [Keymap](/docs/editor#keymap).
 ## Command palette
 
 <kbd>⌘</kbd> <kbd>K</kbd> opens the palette, which searches sessions, projects and actions. With a file open in the editor, it also lists the editor actions that work there, with the chosen keymap's keys. **Find Action** opens the palette with those actions only: <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> in the WebStorm keymaps, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> or <kbd>F1</kbd> in VS Code. With no file open, it opens the whole palette.
+
+In the VS Code keymap, with the cursor in the code, <kbd>⌘</kbd> <kbd>K</kbd> starts its two-part keys, such as <kbd>⌘</kbd> <kbd>K</kbd> <kbd>⌘</kbd> <kbd>C</kbd>, which comments the line; there, the editor's actions are on <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd>.
 
 ## Files
 
@@ -93,4 +95,4 @@ In the file tree and on a tab, a keymap key whose action cannot run there shows 
 
 ## Windows and Linux
 
-On Windows and Linux, which are in preview, the app's shortcuts use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>, and dictation is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. In the code, in every keymap, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> move word by word, and <kbd>Home</kbd> and <kbd>End</kbd> go to the start and end of the line. In the terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> go to the shell. In the editor keymaps, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>; see [Keymap](/docs/editor#keymap).
+On Windows and Linux, which are in preview, the app's shortcuts use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>, and dictation is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. In the code, in every keymap, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> move word by word, and <kbd>Home</kbd> and <kbd>End</kbd> go to the start and end of the line. In the terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> go to the shell. In the editor keymaps, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>; see [Keymap](/docs/editor#keymap). In the tree, in the WebStorm keymaps, delete is <kbd>Delete</kbd> or <kbd>Alt</kbd> <kbd>Delete</kbd>, and moving between groups has no key.

@@ -11,7 +11,7 @@ O Persisty procura versões novas sozinho e instala a nova quando você clica. A
 
 A procura automática roda meio minuto depois de o app abrir e, depois, a cada 6 horas com ele aberto. Quando há uma versão nova, um aviso aparece no canto de baixo, à direita, com o número dela, como "Persisty 0.13.0 disponível", e a versão que você usa. **Novidades** abre no navegador o que mudou nessa versão. **Instalar e reiniciar** baixa a atualização mostrando o progresso, confere a assinatura do arquivo, instala e abre o Persisty na versão nova.
 
-Para procurar na hora, clique em **Procurar atualizações** em **Configurações › Sobre**. A linha passa a dizer "Procurando…" e depois "Você está na versão mais recente" ou a versão nova, com **Instalar e reiniciar** ao lado. Se não der para procurar, ela diz "Não deu para procurar agora". A procura automática que falha não mostra nada e tenta de novo na próxima vez.
+Para procurar na hora, clique em **Procurar atualizações** em [**Configurações › Sobre**](/docs/settings#sobre). A linha passa a dizer "Procurando…" e depois "Você está na versão mais recente" ou a versão nova, com **Instalar e reiniciar** ao lado. Se não der para procurar, ela diz "Não deu para procurar agora". A procura automática que falha não mostra nada e tenta de novo na próxima vez.
 
 O botão de fechar do aviso, **Dispensar esta versão**, esconde o aviso daquela versão; o da seguinte aparece normalmente. A versão dispensada continua em **Configurações › Sobre**, para instalar quando você quiser.
 
@@ -19,7 +19,7 @@ Se o download passar 30 segundos sem receber nada, ele desiste. Quando a instala
 
 ## As sessões abertas
 
-No Mac, o app instala e reinicia sem perguntar nada, e as sessões abertas voltam com ele: ao abrir, o Persisty as reanexa, como em [Voltar depois de travar](/docs/sessions-and-recovery#ao-abrir-o-persisty).
+No Mac, o app instala e reinicia sem perguntar nada, e os processos das sessões abertas não são encerrados: ao abrir, o Persisty reanexa o terminal de cada uma ao processo dela, como em [Voltar depois de travar](/docs/sessions-and-recovery#ao-abrir-o-persisty).
 
 No Windows e no Linux, que estão em prévia, instalar pode encerrar as sessões abertas. Com alguma aberta, o app pergunta antes: **Instalar a nova versão agora?** diz quantas sessões podem ser encerradas, e **Instalar mesmo assim** segue. Ao abrir, as que caíram voltam conforme a [regra de cada uma](/docs/sessions-and-recovery#quando-relançar).
 
@@ -41,7 +41,7 @@ A [página de download](/download) oferece a versão mais recente de cada sistem
 
 ## Novidades e aviso por e-mail
 
-O [changelog](/changelog) diz o que mudou em cada versão e tem um feed RSS em cada idioma. Em **Configurações › Sobre**, a linha **Novidades** abre essa página. Para receber um e-mail quando sair uma versão nova, ligue o aviso em [Minha conta](/account), em **Avisos de versão**.
+O [changelog](/changelog) diz o que mudou em cada versão e tem um feed RSS em cada idioma. Em **Configurações › Sobre**, **Abrir**, na linha **Novidades**, abre essa página. Para receber um e-mail quando sair uma versão nova, ligue o aviso em [Minha conta](/account), em **Avisos de versão**.
 
 ## Plano e limites
 

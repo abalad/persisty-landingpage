@@ -5,7 +5,7 @@ group: integrations
 order: 3
 ---
 
-An MCP server gives the agent tools from another service, such as GitHub issues, Sentry errors or Supabase tables. In Persisty, you install a server once, in **Settings › MCP servers**, and switch it on in the projects that should get it. The servers apply to Claude Code only.
+An MCP server gives the agent tools from another service, such as GitHub issues, Sentry errors or Supabase tables. In Persisty, you install a server once, in [**Settings › MCP servers**](/docs/settings#mcp-servers), and switch it on in the projects that should get it. The servers apply to Claude Code only.
 
 ## Install from the selection
 
@@ -17,7 +17,7 @@ An MCP server gives the agent tools from another service, such as GitHub issues,
 
 ## Search the official registry
 
-From two letters on, the search also asks the official MCP registry, `registry.modelcontextprotocol.io`. What it finds shows under **In the official registry**: servers published by the company itself with ✔, the others with their author's name. When you install one of these, the window warns that Persisty has not reviewed the server. Some formats cannot be installed yet, and the card says why.
+From two letters on, the search also asks the official MCP registry, `registry.modelcontextprotocol.io`. What it finds shows under **In the official registry**: servers published by the company itself with ✔, the others with their author's name. When you install one without ✔, the window warns that Persisty has not reviewed the server. npm, PyPI and OCI packages run with `npx`, `uvx` and `docker`; other formats cannot be installed yet, and the card says why.
 
 ## Add manually
 
@@ -27,18 +27,20 @@ You can also paste the configuration: the JSON the README says to put into Claud
 
 ## Switch it on in a project
 
-Installing does not switch the server on in any project. In **Project settings › MCP servers**, each installed server has a switch, off by default. Right after an install, **Switch on in**, followed by the name of the project in focus, takes you straight to that screen.
+Installing does not switch the server on in any project. In [**Project settings › MCP servers**](/docs/projects-and-workspaces#project-settings), each installed server has a switch, off by default. Right after an install, **Switch on in**, followed by the name of the project in focus, takes you straight to that screen.
 
 The choice applies to Claude Code sessions that start or restart afterwards. A `claude` typed in a Persisty terminal also gets the project's servers, unless you pass your own `--mcp-config`.
 
 ## Installed servers
 
-Under **Installed**, each card shows the projects the server is on in and its state, such as **Ready**, **Token missing** or **Needs npx**. Only the ready ones, and those that sign in in the browser in the first session, reach the sessions. **Configure** changes the installation, and **Add token** shows when the token is missing. **Install again** makes a second installation under another name, such as one database per project. **Remove** takes the server out of every project and deletes its secrets.
+Under **Installed**, each card shows the projects the server is on in and its state, such as **Ready**, **Token missing**, **GitHub account missing** or **Needs npx**. Only the ready ones, and those showing **Sign-in in the browser in the 1st session**, reach the sessions. **Configure** changes the installation, and **Add token** shows when the token is missing. **Install again** makes a second installation under another name, such as one database per project. **Remove** takes the server out of every project and deletes its secrets.
 
 The tokens stay in the system's password store, the Keychain on the Mac, and reach the session's configuration file only while the agent runs; the file is deleted when the session stops. Persisty never reads or changes your `~/.claude.json` or `.mcp.json`, and the names it uses end in `-persisty`, so they never hide a server of yours with the same name.
 
 ## Plan and limits
 
-MCP servers are on the free plan. Persisty only passes them to Claude Code sessions; Codex CLI does not get them. A server that runs on this computer needs the program that runs it, such as `npx`, `uvx` or `docker`. When a server takes its secret on the command line, the window warns that other programs on the computer can see it while it runs.
+MCP servers are on the free plan. Persisty only passes them to Claude Code sessions; by default, Codex CLI does not get them. A server that runs on this computer needs the program that runs it, such as `npx`, `uvx` or `docker`, which downloads the package from its registry. When a server takes its secret on the command line, the window warns that other programs on the computer can see it while it runs.
 
-The registry search, the icons and **Test** on a remote server are network calls listed in [Privacy and the network log](/docs/privacy-and-network). Persisty's own tools for the agents are on another screen; see [Agents that read Persisty](/docs/agent-access).
+With a server on, Claude Code talks to it, not Persisty: what the agent asks or sends through a tool goes to that service, with the token you gave it or your GitHub account's. Persisty itself makes only three calls, listed in [Privacy and network](/docs/privacy-and-network): the registry search, with what you type; the icons, from the address each server declares; and **Test** on a remote server, with its secret header if it has one.
+
+Persisty's own tools for the agents are on another screen; see [Agents that read Persisty](/docs/agent-access).

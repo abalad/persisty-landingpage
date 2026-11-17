@@ -124,7 +124,8 @@
   "states": {
     "title": "Você sabe qual agente precisa de você",
     "body": "O Quadro junta as sessões de todos os projetos em quatro colunas, e cada cartão diz o que a sessão quer. O estado vem dos hooks do Claude Code, não de um palpite sobre a tela.",
-    "link": "Agentes e estados"
+    "link": "Agentes e estados",
+    "boardLink": "Quadro"
   },
   "mascot": {
     "title": "Um aviso que fica em cima das suas janelas",

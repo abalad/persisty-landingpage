@@ -124,7 +124,8 @@
   "states": {
     "title": "You know which agent needs you",
     "body": "The Board puts every project's sessions in four columns, and each card says what the session wants. The state comes from Claude Code's own hooks, not a guess at the screen.",
-    "link": "Agents and states"
+    "link": "Agents and states",
+    "boardLink": "Board"
   },
   "mascot": {
     "title": "A notice that stays on top of your windows",

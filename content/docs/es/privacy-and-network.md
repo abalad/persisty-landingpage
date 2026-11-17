@@ -5,7 +5,7 @@ group: account
 order: 3
 ---
 
-Persisty es local: proyectos, sesiones, historial, notas y uso quedan en una base de datos SQLite en tu máquina. No hay telemetría. En **Configuración › Privacidad y red** (*Settings › Privacy & network*), lo compruebas y ves cada llamada que la app hizo hacia afuera.
+Persisty es local: [proyectos](/docs/projects-and-workspaces), [sesiones](/docs/sessions), historial, [notas](/docs/notes) y [uso](/docs/usage-and-quota) quedan en una base de datos SQLite en tu máquina. No hay telemetría. En [**Configuración › Privacidad y red**](/docs/settings#privacidad-y-red) (*Settings › Privacy & network*), lo compruebas y ves cada llamada que la app hizo hacia afuera.
 
 ## Privacidad
 
@@ -20,14 +20,16 @@ El sitio persisty.app usa Google Analytics solo después de que haces clic en **
 La app solo habla con afuera para:
 
 - leer la cuota de Claude Code (`api.anthropic.com`), con la credencial que Claude Code ya guarda; el token no se guarda ni se registra;
-- entrar a la cuenta de Persisty Cloud y renovar la [licencia](/docs/account-and-license#licencia);
+- entrar a la cuenta de Persisty Cloud y renovar la [licencia](/docs/account-and-license#licencia), en el servidor de Persisty Cloud, una dirección `supabase.co`;
 - hablar con GitHub, GitLab o Bitbucket, en las [cuentas que conectes](/docs/forges);
 - leer las [issues](/docs/issues) de Linear, Jira, ClickUp y GitHub, en las integraciones de tareas que conectes; al **Concluir** (*Finish*), cuando haces clic en **Enviar** (*Send*), escribir en la issue el comentario que revisaste, si no está vacío, y el nuevo estado;
 - clonar, buscar, traer y enviar commits en el remoto de tus repositorios git (la búsqueda también ocurre sola al abrir y cada 5 minutos con la app en pantalla, para mostrar lo que falta traer y enviar);
 - descargar un [servidor de lenguaje](/docs/editor#el-servidor-del-lenguaje) cuando el editor necesita uno que no está en el proyecto ni en el sistema: Node de `nodejs.org`, los paquetes de npm de `registry.npmjs.org` (o del registro de tu `.npmrc`) y rust-analyzer de GitHub;
 - descargar el [modelo de voz](/docs/voice#modelo-de-voz) del dictado de `huggingface.co`, cuando haces clic en **Descargar** (*Download*) en **Configuración › Voz** (*Settings › Voice*);
 - en **Configuración › Servidores MCP** (*Settings › MCP servers*), [buscar en el registro oficial de MCP](/docs/mcp-servers#buscar-en-el-registro-oficial) (`registry.modelcontextprotocol.io`) el nombre que escribes y descargar los íconos de los servidores; en **Probar** (*Test*), pedirle a un servidor remoto que inicie la conexión, con las credenciales que le diste;
-- [buscar versiones nuevas](/docs/updates) en GitHub, al abrirse, cada 6 horas y cuando lo pides, y descargar la actualización cuando haces clic en **Instalar y reiniciar** (*Install and restart*). Puedes apagar la búsqueda automática en **Configuración › Acerca de** (*Settings › About*).
+- [buscar versiones nuevas](/docs/updates) en GitHub, al abrirse, cada 6 horas y cuando lo pides, y descargar la actualización cuando haces clic en **Instalar y reiniciar** (*Install and restart*). Puedes apagar la búsqueda automática en [**Configuración › Acerca de**](/docs/settings#acerca-de) (*Settings › About*).
+
+Una función en versión preliminar que actives puede hacer otras llamadas, y esas también aparecen en el [registro de red](#registro-de-red).
 
 ## Registro de red
 

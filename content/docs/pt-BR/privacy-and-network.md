@@ -5,7 +5,7 @@ group: account
 order: 3
 ---
 
-O Persisty é local: projetos, sessões, histórico, notas e uso ficam num banco SQLite na sua máquina. Não há telemetria. Em **Configurações › Privacidade e rede**, você confere isso e vê cada chamada que o app fez para fora.
+O Persisty é local: [projetos](/docs/projects-and-workspaces), [sessões](/docs/sessions), histórico, [notas](/docs/notes) e [uso](/docs/usage-and-quota) ficam num banco SQLite na sua máquina. Não há telemetria. Em [**Configurações › Privacidade e rede**](/docs/settings#privacidade-e-rede), você confere isso e vê cada chamada que o app fez para fora.
 
 ## Privacidade
 
@@ -20,14 +20,16 @@ O site persisty.app usa o Google Analytics só depois que você clica em **Aceit
 O app só fala com fora para:
 
 - ler a quota do Claude Code (`api.anthropic.com`), com a credencial que o Claude Code já guarda; o token não é gravado nem registrado;
-- entrar na conta do Persisty Cloud e renovar a [licença](/docs/account-and-license#licença);
+- entrar na conta do Persisty Cloud e renovar a [licença](/docs/account-and-license#licença), no servidor do Persisty Cloud, um endereço `supabase.co`;
 - falar com o GitHub, o GitLab ou o Bitbucket, nas [contas que você conectar](/docs/forges);
 - ler as [issues](/docs/issues) do Linear, do Jira, do ClickUp e do GitHub, nas integrações de tarefas que você conectar; ao **Concluir**, quando você clica em **Enviar**, escrever na issue o comentário que você revisou, se não estiver vazio, e o novo status;
 - clonar, buscar, puxar e enviar commits no remoto dos seus repositórios git (a busca também acontece sozinha ao abrir e a cada 5 minutos com o app na tela, para mostrar o que falta puxar e enviar);
 - baixar um [servidor de linguagem](/docs/editor#o-servidor-da-linguagem) quando o editor precisa de um que não está no projeto nem no sistema: o Node de `nodejs.org`, os pacotes do npm de `registry.npmjs.org` (ou do registro do seu `.npmrc`) e o rust-analyzer do GitHub;
 - baixar o [modelo de voz](/docs/voice#modelo-de-voz) do ditado de `huggingface.co`, quando você clica em **Baixar** em **Configurações › Voz**;
 - em **Configurações › Servidores MCP**, [buscar no registro oficial de MCP](/docs/mcp-servers#buscar-no-registro-oficial) (`registry.modelcontextprotocol.io`) o nome que você digita e baixar os ícones dos servidores; em **Testar**, pedir a um servidor remoto que inicie a conexão, com as credenciais que você deu a ele;
-- [procurar versões novas](/docs/updates) no GitHub, ao abrir, a cada 6 horas e quando você pede, e baixar a atualização quando você clica em **Instalar e reiniciar**. Dá para desligar a procura automática em **Configurações › Sobre**.
+- [procurar versões novas](/docs/updates) no GitHub, ao abrir, a cada 6 horas e quando você pede, e baixar a atualização quando você clica em **Instalar e reiniciar**. Dá para desligar a procura automática em [**Configurações › Sobre**](/docs/settings#sobre).
+
+Um recurso em prévia que você ligar pode fazer outras chamadas, e elas também aparecem no [registro de rede](#registro-de-rede).
 
 ## Registro de rede
 

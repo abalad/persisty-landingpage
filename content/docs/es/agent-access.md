@@ -9,11 +9,11 @@ Con **Herramientas de Persisty en los agentes** (*Persisty tools in agents*) enc
 
 ## Encender
 
-En **Configuración › Agentes** (*Settings › Agents*), el grupo **Acceso de los agentes (MCP)** (*Agent access (MCP)*) tiene **Herramientas de Persisty en los agentes**, apagado por defecto. El cambio vale para las sesiones de Claude Code que empiecen o se reinicien después; las que ya están abiertas siguen como estaban. Cada sesión recibe una credencial propia, y las herramientas solo responden sobre el proyecto de esa sesión.
+En [**Configuración › Agentes**](/docs/settings#agentes) (*Settings › Agents*), el grupo **Acceso de los agentes (MCP)** (*Agent access (MCP)*) tiene **Herramientas de Persisty en los agentes**, apagado por defecto. El cambio vale para las sesiones de Claude Code que empiecen o se reinicien después; las que ya están abiertas siguen como estaban. Cada sesión recibe una credencial propia, y las herramientas solo responden sobre el proyecto de esa sesión.
 
 ## Qué lee el agente
 
-Son cuatro herramientas, y el agente llama a cada una cuando la necesita. `current_session` dice el nombre de la sesión, el proyecto, el workspace con la carpeta y la rama por defecto, la rama actual y, en una [carpeta propia](/docs/worktrees), su rama y su base. `list_sessions` lista las sesiones del mismo proyecto, con el agente, el estado, la carpeta y la rama de cada una, para que el agente no trabaje en la misma rama que otro. `get_project` muestra el proyecto, los workspaces con el remoto de cada uno y los [comandos del workspace](/docs/commands). `read_task_output` lee las últimas líneas que imprimió uno de esos comandos, en marcha o ya terminado, con el código de salida: 100 por defecto, hasta 500. No lee terminales ni agentes.
+Son cuatro herramientas, y el agente llama a cada una cuando la necesita. `current_session` dice el nombre de la sesión, el proyecto, el workspace con la carpeta y la rama por defecto, la rama actual y, en una [carpeta propia](/docs/worktrees), su rama y su base. `list_sessions` lista las sesiones del mismo proyecto, también las ejecuciones de los comandos, con el agente, el [estado](/docs/agents#los-estados) (trabajando, esperándote, pidiendo permiso, detenido), la carpeta y la rama de cada una, para que el agente no trabaje en la misma rama que otro. `get_project` muestra el nombre y la descripción del proyecto, los workspaces con el remoto y la rama por defecto de cada uno, y los [comandos del workspace](/docs/commands), los que guardaste y los que Persisty encontró, con el comando de cada uno. `read_task_output` lee las últimas líneas que imprimió uno de esos comandos, en marcha o ya terminado, con el código de salida: 100 por defecto, hasta 500. Recibe el id que `list_sessions` le da a la ejecución, y no lee terminales ni agentes.
 
 Las herramientas le preguntan a la app. Con Persisty cerrado, se lo dicen al agente.
 
@@ -27,6 +27,6 @@ Persisty no modifica la configuración de Codex. Por eso, en la misma pantalla, 
 
 ## Plan y límites
 
-Las herramientas de Persisty son del plan gratis. Solo leen, solo responden sobre el proyecto de la sesión y necesitan la app abierta. Valen para las sesiones abiertas como Claude Code; en Codex CLI, dependen del comando de arriba, todavía no verificado.
+Las herramientas de Persisty son del plan gratis. Solo leen, solo responden sobre el proyecto de la sesión y solo hablan con la app en esta computadora, que tiene que estar abierta. Lo que devuelven, como nombres de rama, remotos y la salida de los comandos, entra en la conversación del agente y va adonde ella ya va, al proveedor del agente. Valen para las sesiones abiertas como Claude Code; en Codex CLI, dependen del comando de arriba, todavía no verificado.
 
 Los servidores MCP de otros servicios, como GitHub o Sentry, están en [Servidores MCP](/docs/mcp-servers).

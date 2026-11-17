@@ -5,7 +5,7 @@ group: account
 order: 1
 ---
 
-El plan gratis no pide cuenta y tiene casi todo Persisty. Pro agrega cinco funciones, cada una explicada en su página, y Team incluye todo lo de Pro.
+El plan gratis no pide cuenta. Pro agrega cinco funciones, cada una explicada en su página, y Team incluye todo lo de Pro.
 
 ## Lo que agrega Pro
 
@@ -15,13 +15,13 @@ El plan gratis no pide cuenta y tiene casi todo Persisty. Pro agrega cinco funci
 - [Verificar al terminar](/docs/verify): correr un comando del workspace, como los tests, cuando el agente se detiene después de cambiar archivos.
 - [Cuentas de IA y rotación](/docs/ai-accounts): conectar otras cuentas de Claude Code, la rotación entre ellas, el cambio de cuenta desde la barra inferior de la sesión, la cuenta fijada a un proyecto, la cuenta reservada y **Continuar la tarea cortada por el límite** (*Go on with the task the limit cut*). Ver las cuentas y la cuota de cada una es del plan gratis.
 
-Todo lo demás es del plan gratis: sesiones y recuperación, agentes y estados, Tablero, mascota, notificaciones, uso y cuota, editor y git, integraciones, servidores MCP, dictado por voz y el registro de red.
+Todo lo demás es del plan gratis: [sesiones y recuperación](/docs/sessions-and-recovery), [agentes y estados](/docs/agents), [Tablero](/docs/board), [mascota](/docs/mascot), [notificaciones](/docs/notifications), [uso y cuota](/docs/usage-and-quota), [editor](/docs/editor) y [git](/docs/git-in-the-editor), las integraciones con [issues](/docs/issues) y con [GitHub, GitLab y Bitbucket](/docs/forges), [servidores MCP](/docs/mcp-servers), [dictado por voz](/docs/voice) y el [registro de red](/docs/privacy-and-network#registro-de-red).
 
-En **Configuración › Cuenta** (*Settings › Account*), **Recursos del plan** (*Plan features*) lista lo que tu licencia desbloquea, a veces con otro nombre: **Cola por la cuota** (*Quota-aware queue*) es la cola de pedidos, y **Worktree por sesión** (*Worktree per session*) es la carpeta propia. Ahí también aparece **Growth**, una pestaña de los ajustes del proyecto que todavía no tiene ninguna fuente conectada: no se recopila nada y no aparece ningún número.
+En [**Configuración › Cuenta**](/docs/settings#cuenta) (*Settings › Account*), **Recursos del plan** (*Plan features*) lista lo que tu licencia desbloquea, a veces con otro nombre: **Cola por la cuota** (*Quota-aware queue*) es la cola de pedidos, **Worktree por sesión** (*Worktree per session*) es la carpeta propia, y **Varias cuentas de IA** (*Several AI accounts*) son las cuentas de IA y la rotación. Ahí también aparece **Growth**, una pestaña de los ajustes del proyecto que todavía no tiene ninguna fuente conectada: no se recopila nada y no aparece ningún número. En una licencia de Team, la lista muestra también algunas etiquetas del equipo que todavía no cambian nada en la app.
 
 ## Pro y Team
 
-Las funciones pagas son las mismas en Pro y en Team, y estas páginas dicen solo "Pro". Team lleva Pro a cada persona del equipo en una sola factura: un asiento por persona, con invitaciones por e-mail en [Mi cuenta](/account).
+Las funciones pagas son las mismas en Pro y en Team, y estas páginas dicen solo "Pro". Team lleva Pro a cada persona del equipo en una sola factura, con un asiento por persona. En [Mi cuenta](/account), invitas a alguien por su e-mail y le mandas el enlace de la invitación.
 
 ## Suscribirte
 

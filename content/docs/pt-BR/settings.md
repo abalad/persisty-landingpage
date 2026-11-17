@@ -99,20 +99,20 @@ Os grupos, na ordem: **Fonte**, **Cursor**, **Exibição** e **Teclado**. As mud
 
 ## Arquivos
 
-**Ocultar arquivos** lista padrões como `**/node_modules`, e o que casa com um deles some da árvore, da busca e de **Abrir arquivo**. O padrão de fábrica é `**/.DS_Store`. Cada padrão tem um interruptor e um botão para remover; **Novo padrão** e **Adicionar** incluem outro. O `.git` fica sempre oculto. Veja [Esconder arquivos](/docs/files#esconder-arquivos).
+**Ocultar arquivos** lista padrões como `**/node_modules`, e o que casa com um deles some da árvore, da busca e de **Abrir arquivo**. O padrão de fábrica é `**/.DS_Store`. Cada padrão tem um interruptor e um botão para remover; **Novo padrão** e **Adicionar** incluem outro. O `.git` fica sempre oculto, e um padrão repetido ou inválido é recusado com o motivo. Veja [Esconder arquivos](/docs/files#esconder-arquivos).
 
 ## Agentes
 
 | Opção | Padrão |
 | --- | --- |
 | **Terminais e agentes** | mostra **pronto** quando os terminais podem abrir neste computador |
-| [**Agente padrão**](/docs/agents#agente-padrão) | **Claude Code**. Também **Codex CLI** e **Terminal** |
+| [**Agente padrão**](/docs/agents#agente-padrão) | **Claude Code**. Também **Codex CLI** e **Terminal**; um agente que falta vem com "(não instalado)" |
 | [**Ferramentas do Persisty nos agentes**](/docs/agent-access#ligar) | desligado |
 | [**Verificar instalação**](/docs/agent-access#verificar-instalação) | testa, passo a passo, o servidor dessas ferramentas |
-| [**Codex CLI**](/docs/agent-access#codex-cli) | o comando para rodar uma vez no terminal, com **Copiar** |
-| [**Agentes detectados**](/docs/agents#agentes-detectados) | a versão e o caminho do Claude Code e do Codex CLI |
+| [**Codex CLI**](/docs/agent-access#codex-cli) | o comando para rodar uma vez no terminal, com **Copiar** e a marca **Não verificado** |
+| [**Agentes detectados**](/docs/agents#agentes-detectados) | a versão e o caminho do Claude Code e do Codex CLI e o que cada um suporta, como **Retomada** e **Status por hooks**, com o que é **Não verificado** ou **Não suporta** |
 
-Se **Terminais e agentes** mostrar **indisponível**, reabra o Persisty; se continuar, reinstale o app.
+As três linhas das ferramentas do Persisty ficam no grupo **Acesso dos agentes (MCP)**. Se **Terminais e agentes** mostrar **indisponível**, reabra o Persisty; se continuar, reinstale o app.
 
 ## Contas de IA
 
@@ -125,6 +125,8 @@ A lista mostra as contas do Claude Code, com a deste computador marcada como **E
 | [**Trocar de conta ao chegar em**](/docs/ai-accounts#rodízio) | 90%. Também 80%, 95% e **100% · só no limite**. Aparece com o rodízio ligado |
 | [**Continuar a tarefa cortada pelo limite**](/docs/ai-accounts#continuar-a-tarefa-cortada) | ligado. Pro |
 | [**Usar só nos projetos fixados nela**](/docs/ai-accounts#uma-conta-para-um-projeto) | desligado, em cada conta conectada. Pro |
+
+Cada conta conectada tem um botão para desconectá-la, que pede confirmação em **Desconectar**. Com o rodízio ligado, a conta que vai receber a próxima sessão leva **Próxima no rodízio**.
 
 ## Voz
 
@@ -141,19 +143,21 @@ Com **Ditado por voz** desligado, a tela mostra só ele; as outras opções apar
 
 ## Integrações
 
-A tela mostra primeiro as **Conectadas** e depois as **Disponíveis**; clique num serviço para abrir a página dele. GitHub, GitLab e Bitbucket conectam contas para listar e clonar os seus repositórios; veja [GitHub, GitLab e Bitbucket](/docs/forges). Linear, Jira e ClickUp trazem issues para começar sessões; veja [Issues](/docs/issues#conectar-o-serviço). No fim, **Clonagem › Pasta padrão para clones** vem em `~/Documents/GitHub`; veja [Pasta dos clones](/docs/forges#pasta-dos-clones).
+A tela mostra primeiro as **Conectadas** e depois as **Disponíveis**, cada uma com **Conectar** ou, já conectada, a conta ou o número de contas; clique num serviço para abrir a página dele. GitHub, GitLab e Bitbucket conectam contas para listar e clonar os seus repositórios; veja [GitHub, GitLab e Bitbucket](/docs/forges). Linear, Jira e ClickUp trazem issues para começar sessões; veja [Issues](/docs/issues#conectar-o-serviço). No fim, **Clonagem › Pasta padrão para clones** vem em `~/Documents/GitHub`; veja [Pasta dos clones](/docs/forges#pasta-dos-clones).
 
 ## Servidores MCP
 
-**Instalados** lista os servidores que você instalou, e **Disponíveis** tem uma seleção de 16 servidores oficiais. A busca também consulta o registro oficial de MCP, e **Adicionar manualmente** instala um servidor fora da lista. Cada projeto escolhe os servidores que as sessões dele recebem, nos ajustes do projeto. Veja [Servidores MCP](/docs/mcp-servers).
+**Instalados** lista os servidores que você instalou, e **Disponíveis** tem uma seleção de 16 servidores oficiais, com filtro por categoria. A busca também consulta o registro oficial de MCP, e **Adicionar manualmente** instala um servidor fora da lista. Cada projeto escolhe os servidores que as sessões dele recebem, nos ajustes do projeto. Veja [Servidores MCP](/docs/mcp-servers).
 
 ## Uso de IA
+
+Os grupos **Alertas de gasto** e **Fontes de dados**.
 
 | Opção | Padrão |
 | --- | --- |
 | [**Alerta diário (USD)**](/docs/usage-and-quota#alertas-de-gasto) | vazio, que desliga o alerta |
 | [**Alerta mensal (USD)**](/docs/usage-and-quota#alertas-de-gasto) | vazio, que desliga o alerta |
-| [**Fontes de dados**](/docs/usage-and-quota#fontes-de-dados) | cada fonte, com a última leitura ou **Não conectado** |
+| [**Fontes de dados**](/docs/usage-and-quota#fontes-de-dados) | cada fonte, como **Registros locais do Claude Code**, com "Última sincronização" e quando, **Nunca sincronizado** ou **Não conectado** |
 | [**Abrir uso detalhado**](/docs/usage-and-quota#gasto-estimado) | abre a página **Uso de IA** |
 
 ## Privacidade e rede
@@ -166,15 +170,17 @@ Todas as teclas do mapa do editor e do Persisty, por extenso e com busca. Nada s
 
 ## Conta
 
-Esta aba só aparece com a conta do Persisty Cloud conectada. Ela mostra o **E-mail**, o **Plano**, a **Licença** e os **Recursos do plano**; no plano grátis, a linha **Assinatura** tem **Ver planos**. Embaixo ficam **Atualizar licença** e **Sair da conta**. Sem conta, o rodapé de Configurações tem **Entrar** e **Criar conta grátis**. Veja [Conta e licença](/docs/account-and-license#plano-e-recursos).
+Esta aba só aparece com a conta do Persisty Cloud conectada. Ela mostra o **E-mail**, o **Plano**, a **Licença**, que diz **válida** ou **atenção** e até quando funciona sem internet, e os **Recursos do plano**; no plano grátis, a linha **Assinatura** tem **Ver planos**. Embaixo ficam **Atualizar licença** e **Sair da conta**. Com a conta conectada, o rodapé de Configurações mostra o e-mail, o plano e **Gerenciar conta**, que abre esta aba; sem conta, ele tem **Entrar** e **Criar conta grátis**. Veja [Conta e licença](/docs/account-and-license#plano-e-recursos).
 
 ## Sobre
+
+Os grupos, na ordem: **Este aplicativo**, **Atualizações** e **Saiba mais**.
 
 | Opção | Padrão |
 | --- | --- |
 | **Versão** e **Sistema** | a versão do app e o sistema, como "macOS · Apple Silicon" |
 | **Pasta de dados** | onde ficam o banco local, os hooks e os registros das sessões, com **Mostrar no Finder** |
-| [**Procurar atualizações**](/docs/updates#atualizar-no-app) | procura na hora |
+| [**Procurar atualizações**](/docs/updates#atualizar-no-app) | procura na hora e diz "Você está na versão mais recente" ou a versão nova |
 | [**Procurar atualizações automaticamente**](/docs/updates#desligar-a-procura-automática) | ligado: ao abrir o app e a cada 6 horas |
 | **Saiba mais** | **Novidades**, **Documentação**, **Privacidade** e **Termos de uso**, cada um com **Abrir** |
 

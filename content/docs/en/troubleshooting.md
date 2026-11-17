@@ -11,17 +11,17 @@ Known situations and what to do in each one. At the end, what changes on Windows
 
 Claude Code shows the folder trust prompt before any hook. Answer it in the terminal and the state appears; see [Claude Code](/docs/agents#claude-code).
 
-Persisty does not read Codex's state yet. It does not write `~/.codex/hooks.json` or show what to put in it, so a Codex session stays **Idle**, the queue header says **Agent state unknown** and the queue sends it no requests; see [Codex CLI](/docs/agents#codex-cli).
+By default, Persisty does not receive Codex's state: it does not write `~/.codex/hooks.json` or show what to put in it. So a Codex session stays **Idle**, the [queue](/docs/queue) header says **Agent state unknown** and the queue sends it no requests; see [Codex CLI](/docs/agents#codex-cli).
 
 ## I typed `claude` in a terminal and the session did not become an agent
 
 Persisty's terminals put the app's own `claude` first on the `PATH`, and it opens your Claude Code with Persisty's hooks. The app refreshes that `claude` every time it opens, in terminals that stayed open too. The session becomes an agent at the first hook, which only comes after the folder trust prompt: answer that first.
 
-If nothing changes after that, the `claude` you typed did not go through Persisty's. That happens with an alias or a function of that name in your shell's configuration, with the program's full path, or with a shell other than zsh or bash that reorders the `PATH` when it starts. `type claude` shows which one applies. Only Claude Code is adopted this way; a `codex` typed by hand leaves the session a terminal.
+If nothing changes after that, the `claude` you typed did not go through Persisty's. That happens with an alias or a function of that name in your shell's configuration, with the program's full path, or with a shell other than zsh or bash that reorders the `PATH` when it starts. `type claude` shows which one applies. Only Claude Code is adopted this way; by default, a `codex` typed by hand leaves the session a terminal.
 
 ## The quota shows as unavailable
 
-Persisty reads the quota with the credential Claude Code stores. If that credential has expired, the bars use the session's own numbers until Claude Code renews it. Accounts connected through Persisty need the item Claude Code creates in the Keychain when you finish signing in; see [Connected accounts](/docs/ai-accounts#connected-accounts).
+Persisty reads the [quota](/docs/usage-and-quota) with the credential Claude Code stores. If that credential has expired, the bars use the session's own numbers until Claude Code renews it. On a Mac, accounts connected through Persisty need the item Claude Code creates in the Keychain when you finish signing in; see [Connected accounts](/docs/ai-accounts#connected-accounts).
 
 ## The queue did not send the request
 
@@ -41,9 +41,9 @@ On Windows and Linux, the top bar starts at the window's edge, without the space
 
 On Windows, with the display scaled to 125% or 150%, a session's terminal could end up with more columns than the session knew about: lines started on the right and bits of old screens stayed put. Since 0.9.4, the terminal and the session always have the same size; if the text gets garbled, update Persisty.
 
-**Add workspace** accepts the folder you pick on Windows, such as `C:\...`, and a **New session** in a Windows workspace opens normally since 0.9.1.
+[**Add workspace**](/docs/projects-and-workspaces#add-a-workspace) accepts the folder you pick on Windows, such as `C:\...`, and a [**New session**](/docs/sessions#new-session) in a Windows workspace opens normally since 0.9.1.
 
-Still being checked in real use: on Windows and Linux, pasting files to and from the system and **Undo** after a delete; on Windows, **Undo** from the Recycle Bin and the file-in-use notices. The mascot outside the app exists only on macOS.
+Still being checked in real use: on Windows and Linux, pasting files to and from the system and **Undo** after a [delete](/docs/files#delete); on Windows, **Undo** from the Recycle Bin and the file-in-use notices. The [mascot outside the app](/docs/mascot#outside-the-app) exists only on macOS.
 
 ## What Persisty does not do yet
 

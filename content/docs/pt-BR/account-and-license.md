@@ -5,11 +5,11 @@ group: account
 order: 2
 ---
 
-O plano grátis não pede conta. A conta do Persisty Cloud serve para os planos pagos e para os avisos de versão que você pedir: entrar com ela no app traz para este computador a licença do seu plano.
+O plano grátis não pede conta. A conta do Persisty Cloud serve para os planos pagos e para os [avisos de versão](/docs/updates#novidades-e-aviso-por-e-mail) que você pedir: entrar com ela no app traz para este computador a licença do seu plano.
 
 ## Entrar
 
-Sem conta, o rodapé de **Configurações** mostra **Entrar** e **Criar conta grátis**. Os dois abrem a mesma janela, em dois passos. No primeiro, digite o e-mail e clique em **Continuar com e-mail**. No segundo, digite o código de 8 dígitos que chegou no e-mail; com o último dígito, o app entra sozinho. O código vale por 10 minutos e uma vez só. A conta nasce no primeiro acesso, sem senha.
+Sem conta, o rodapé de [**Configurações**](/docs/settings#conta) mostra **Entrar** e **Criar conta grátis**. Os dois abrem a mesma janela, em dois passos. No primeiro, digite o e-mail e clique em **Continuar com e-mail**. No segundo, digite o código de 8 dígitos que chegou no e-mail; com o último dígito, o app entra sozinho. O código vale por 10 minutos e uma vez só. A conta nasce no primeiro acesso, sem senha.
 
 Se o código não chegar, **Reenviar código** manda outro depois de 60 segundos, e **Usar outro e-mail** volta ao primeiro passo. Se você já tem um código, **Digitar código** leva direto ao segundo passo: pedir um novo invalidaria o que chegou.
 
@@ -31,7 +31,7 @@ A licença vale 14 dias. Com a conta conectada e o app aberto, o Persisty pede u
 
 Uma conta vale em até 5 computadores. Um computador entra na lista da conta na primeira vez que você entra nele pelo app, com o nome que ele tem no sistema. Num sexto, a conta entra, mas a licença não vem, e **Atualizar licença** diz que a conta já está em 5 computadores. Remova um em [Minha conta](/account/devices) e atualize de novo.
 
-Um computador removido no site sai da conta na próxima renovação da licença. Para usá-lo de novo, basta entrar nele outra vez. **Sair da conta** não libera a vaga: o computador continua na lista até você removê-lo.
+Um computador removido no site sai da conta na próxima renovação da licença, e o app diz "Este computador foi desconectado da conta. Entre de novo." Para usá-lo de novo, basta entrar nele outra vez. **Sair da conta** não libera a vaga: o computador continua na lista até você removê-lo.
 
 Depois que você sai, outra conta do Persisty pode entrar no mesmo computador, que passa a contar também entre os 5 dela.
 

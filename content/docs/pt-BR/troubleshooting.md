@@ -11,17 +11,17 @@ Situações conhecidas e o que fazer em cada uma. No fim, o que muda no Windows 
 
 O Claude Code mostra o aviso de confiança da pasta antes de qualquer hook. Responda no terminal e o estado aparece; veja [Claude Code](/docs/agents#claude-code).
 
-O Persisty ainda não lê o estado do Codex. Ele não escreve o `~/.codex/hooks.json` nem mostra o que pôr nele, então a sessão do Codex fica como **Parado**, o cabeçalho da fila diz **Estado do agente desconhecido** e a fila não envia pedidos para ela; veja [Codex CLI](/docs/agents#codex-cli).
+Por padrão, o Persisty não recebe o estado do Codex: ele não escreve o `~/.codex/hooks.json` nem mostra o que pôr nele. Então a sessão do Codex fica como **Parado**, o cabeçalho da [fila](/docs/queue) diz **Estado do agente desconhecido** e a fila não envia pedidos para ela; veja [Codex CLI](/docs/agents#codex-cli).
 
 ## Digitei `claude` num terminal e a sessão não virou agente
 
 Os terminais do Persisty põem na frente do `PATH` um `claude` do próprio app, que abre o seu Claude Code com os hooks do Persisty. O app atualiza esse `claude` a cada abertura, também nos terminais que continuaram abertos. A sessão vira agente no primeiro hook, que só chega depois do aviso de confiança da pasta: responda a ele antes.
 
-Se ainda assim nada mudar, o `claude` que você digitou não passou pelo do Persisty. Isso acontece com um alias ou uma função com esse nome na configuração do seu shell, com o caminho completo do programa, ou com um shell que não é zsh nem bash e muda a ordem do `PATH` ao abrir. `type claude` mostra qual está valendo. Só o Claude Code é adotado assim; um `codex` digitado à mão deixa a sessão como terminal.
+Se ainda assim nada mudar, o `claude` que você digitou não passou pelo do Persisty. Isso acontece com um alias ou uma função com esse nome na configuração do seu shell, com o caminho completo do programa, ou com um shell que não é zsh nem bash e muda a ordem do `PATH` ao abrir. `type claude` mostra qual está valendo. Só o Claude Code é adotado assim; por padrão, um `codex` digitado à mão deixa a sessão como terminal.
 
 ## A quota aparece como indisponível
 
-O Persisty lê a quota com a credencial que o Claude Code guarda. Se ela venceu, as barras usam os números da própria sessão até o Claude Code renová-la. Contas conectadas pelo Persisty precisam do item que o Claude Code cria no Keychain ao concluir o login; veja [Contas conectadas](/docs/ai-accounts#contas-conectadas).
+O Persisty lê a [quota](/docs/usage-and-quota) com a credencial que o Claude Code guarda. Se ela venceu, as barras usam os números da própria sessão até o Claude Code renová-la. No Mac, as contas conectadas pelo Persisty precisam do item que o Claude Code cria no Keychain ao concluir o login; veja [Contas conectadas](/docs/ai-accounts#contas-conectadas).
 
 ## A fila não enviou o pedido
 
@@ -41,9 +41,9 @@ No Windows e no Linux, a barra do topo começa na borda da janela, sem o espaço
 
 No Windows, com a tela em escala de 125% ou 150%, o terminal das sessões podia ficar com mais colunas do que a sessão sabia: linhas começavam do lado direito e pedaços de telas antigas não sumiam. Desde a 0.9.4, o terminal e a sessão ficam do mesmo tamanho; se o texto embaralhar, atualize o Persisty.
 
-**Adicionar workspace** aceita a pasta escolhida no Windows, como `C:\...`, e uma **Nova sessão** num workspace do Windows abre normalmente desde a 0.9.1.
+[**Adicionar workspace**](/docs/projects-and-workspaces#adicionar-workspace) aceita a pasta escolhida no Windows, como `C:\...`, e uma [**Nova sessão**](/docs/sessions#nova-sessão) num workspace do Windows abre normalmente desde a 0.9.1.
 
-Ainda estão sendo conferidos em uso: no Windows e no Linux, colar arquivos de e para o sistema e o **Desfazer** da exclusão; no Windows, o **Desfazer** da Lixeira e os avisos de arquivo em uso. O mascote fora do app existe só no macOS.
+Ainda estão sendo conferidos em uso: no Windows e no Linux, colar arquivos de e para o sistema e o **Desfazer** da [exclusão](/docs/files#excluir); no Windows, o **Desfazer** da Lixeira e os avisos de arquivo em uso. O [mascote fora do app](/docs/mascot#fora-do-app) existe só no macOS.
 
 ## O que o Persisty ainda não faz
 

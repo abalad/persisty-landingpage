@@ -5,11 +5,11 @@ group: integrations
 order: 5
 ---
 
-Com o ditado ligado, você fala e o texto entra no terminal ou no editor em foco, sem apertar Enter. A transcrição roda no computador, e o áudio não sai dele.
+Com o ditado ligado, você fala e o texto entra no terminal ou no [editor](/docs/editor) em foco, sem apertar Enter. A transcrição roda no computador, e o áudio não sai dele.
 
 ## Ligar o ditado
 
-Em **Configurações › Voz**, ligue **Ditado por voz**; ele vem desligado. Antes do primeiro ditado, baixe o modelo de voz: em **Modelo de voz**, clique em **Baixar**, que mostra o tamanho, cerca de 640 MB. O download vem de `huggingface.co` e só acontece quando você pede.
+Em [**Configurações › Voz**](/docs/settings#voz), ligue **Ditado por voz**; ele vem desligado. Antes do primeiro ditado, baixe o modelo de voz: em **Modelo de voz**, clique em **Baixar**, que mostra o tamanho, cerca de 640 MB. O download vem de `huggingface.co` e só acontece quando você pede.
 
 ## Ditar
 
@@ -17,7 +17,7 @@ Clique no terminal ou no editor que deve receber o texto e aperte <kbd>⌘</kbd>
 
 O texto vai para onde estava o foco quando você começou, mesmo que você clique em outro lugar. No terminal, ele é digitado como se fosse você, sem Enter: num agente, fica no prompt esperando você enviar. No editor, entra no cursor. Um arquivo somente leitura, ou coberto pela pré-visualização de Markdown, não recebe ditado. Se o terminal ou o arquivo fechar antes, nada é inserido, e **Copiar texto** copia o que foi transcrito.
 
-Um ditado dura até 2 minutos. Nos últimos 10 segundos, o indicador conta o tempo, e no fim o texto entra sozinho. Se o Persisty sair da frente, o ditado é cancelado. Enquanto você fala, o [mascote](/docs/mascot#no-terminal) do terminal que vai receber o texto segura um microfone.
+Um ditado dura até 2 minutos. Nos últimos 10 segundos, o indicador conta o tempo, e no fim o texto entra sozinho. Se o Persisty sair da frente, o ditado é cancelado. Quando algo falha, o indicador diz o motivo, como "Nenhum microfone encontrado." ou "Não ouvi nada." Enquanto você fala, o [mascote](/docs/mascot#no-terminal) do terminal que vai receber o texto segura um microfone.
 
 ## Idioma e substituições
 
@@ -29,7 +29,7 @@ Em **Substituições**, **Suas substituições** recebe uma regra por linha, no 
 
 O modelo é o Parakeet TDT 0.6B v3, da NVIDIA (licença CC BY 4.0), convertido pelo projeto sherpa-onnx. Ele vem de `huggingface.co`, é conferido por sha256 e aparece no registro de [Privacidade e rede](/docs/privacy-and-network). Antes de baixar, a linha mostra o espaço livre no disco.
 
-Durante o download, a linha mostra o andamento e **Cancelar**. Um download interrompido fica **Incompleto**, com **Continuar**, que baixa só o que falta, e **Recomeçar**. Com o modelo pronto, a linha mostra o tamanho em disco e **Apagar**; sem o modelo, o ditado para até você baixar de novo. Se os arquivos não conferem, a linha diz **Com defeito** e oferece **Baixar de novo**. O modelo fica na pasta de dados do Persisty.
+Durante o download, a linha mostra o andamento e **Cancelar** e, depois, **Conferindo os arquivos…**. Um download interrompido fica **Incompleto**, com **Continuar**, que baixa só o que falta, e **Recomeçar**. Com o modelo pronto, a linha mostra o tamanho em disco e **Apagar**, que pede confirmação; sem o modelo, o ditado para até você baixar de novo. Se os arquivos não conferem, a linha diz **Com defeito** e oferece **Baixar de novo**. O modelo fica na pasta de dados do Persisty.
 
 ## Microfone
 

@@ -5,11 +5,11 @@ group: integrations
 order: 5
 ---
 
-Con el dictado encendido, hablas y el texto entra en la terminal o el editor en foco, sin apretar Enter. La transcripción corre en tu computadora, y el audio no sale de ella.
+Con el dictado encendido, hablas y el texto entra en la terminal o el [editor](/docs/editor) en foco, sin apretar Enter. La transcripción corre en tu computadora, y el audio no sale de ella.
 
 ## Encender el dictado
 
-En **Configuración › Voz** (*Settings › Voice*), enciende **Dictado por voz** (*Voice dictation*); viene apagado. Antes del primer dictado, descarga el modelo de voz: en **Modelo de voz** (*Voice model*), haz clic en **Descargar** (*Download*), que muestra el tamaño, unos 640 MB. La descarga viene de `huggingface.co` y solo ocurre cuando la pides.
+En [**Configuración › Voz**](/docs/settings#voz) (*Settings › Voice*), enciende **Dictado por voz** (*Voice dictation*); viene apagado. Antes del primer dictado, descarga el modelo de voz: en **Modelo de voz** (*Voice model*), haz clic en **Descargar** (*Download*), que muestra el tamaño, unos 640 MB. La descarga viene de `huggingface.co` y solo ocurre cuando la pides.
 
 ## Dictar
 
@@ -17,7 +17,7 @@ Haz clic en la terminal o el editor que debe recibir el texto y aprieta <kbd>⌘
 
 El texto va adonde estaba el foco cuando empezaste, aunque hagas clic en otro lugar. En la terminal, se escribe como si fueras tú, sin Enter: en un agente, queda en el prompt esperando que lo envíes. En el editor, entra en el cursor. Un archivo de solo lectura, o tapado por la vista previa de Markdown, no recibe dictado. Si la terminal o el archivo se cierra antes, no se inserta nada, y **Copiar texto** (*Copy text*) copia lo que se transcribió.
 
-Un dictado dura hasta 2 minutos. En los últimos 10 segundos, el indicador cuenta el tiempo, y al final el texto entra solo. Si Persisty deja de estar al frente, el dictado se cancela. Mientras hablas, la [mascota](/docs/mascot#en-la-terminal) de la terminal que va a recibir el texto sostiene un micrófono.
+Un dictado dura hasta 2 minutos. En los últimos 10 segundos, el indicador cuenta el tiempo, y al final el texto entra solo. Si Persisty deja de estar al frente, el dictado se cancela. Cuando algo falla, el indicador dice el motivo, como "No microphone found." o "I heard nothing." Mientras hablas, la [mascota](/docs/mascot#en-la-terminal) de la terminal que va a recibir el texto sostiene un micrófono.
 
 ## Idioma y sustituciones
 
@@ -29,7 +29,7 @@ En **Sustituciones** (*Replacements*), **Tus sustituciones** (*Your replacements
 
 El modelo es Parakeet TDT 0.6B v3, de NVIDIA (licencia CC BY 4.0), convertido por el proyecto sherpa-onnx. Viene de `huggingface.co`, se comprueba por sha256 y aparece en el registro de [Privacidad y red](/docs/privacy-and-network). Antes de descargar, la fila muestra el espacio libre en el disco.
 
-Durante la descarga, la fila muestra el progreso y **Cancelar** (*Cancel*). Una descarga interrumpida queda **Incompleta** (*Incomplete*), con **Continuar** (*Resume*), que descarga solo lo que falta, y **Empezar de nuevo** (*Start over*). Con el modelo listo, la fila muestra su tamaño en disco y **Borrar** (*Delete*); sin el modelo, el dictado se detiene hasta que lo descargues otra vez. Si los archivos no coinciden, la fila dice **Dañado** (*Damaged*) y ofrece **Descargar de nuevo** (*Download again*). El modelo queda en la carpeta de datos de Persisty.
+Durante la descarga, la fila muestra el progreso y **Cancelar** (*Cancel*) y, después, **Comprobando los archivos…** (*Checking the files…*). Una descarga interrumpida queda **Incompleta** (*Incomplete*), con **Continuar** (*Resume*), que descarga solo lo que falta, y **Empezar de nuevo** (*Start over*). Con el modelo listo, la fila muestra su tamaño en disco y **Borrar** (*Delete*), que pide confirmación; sin el modelo, el dictado se detiene hasta que lo descargues otra vez. Si los archivos no coinciden, la fila dice **Dañado** (*Damaged*) y ofrece **Descargar de nuevo** (*Download again*). El modelo queda en la carpeta de datos de Persisty.
 
 ## Micrófono
 
