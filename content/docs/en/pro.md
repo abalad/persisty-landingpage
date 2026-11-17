@@ -1,49 +1,34 @@
 ---
-title: Pro features
-description: Request queue, restore points, check on finish and own folder per session.
-group: work
-order: 2
+title: Plans and Pro features
+description: What Pro adds to the free plan, the page for each feature, Team and how to subscribe.
+group: account
+order: 1
 ---
 
-The queue and restore points live in the **bar on the session's right edge** (**Request queue** and **Restore points**). The own folder is chosen in **New session**, and check on finish in the workspace command menu, to the right of the tabs. The Pro features require a Persisty account on the Pro plan; what has already been saved stays usable if the plan ends. Claude accounts, with rotation, switching from the footer and an account per project, are in [AI accounts and rotation](/docs/ai-accounts).
+The free plan needs no account. Pro adds five features, each explained on its own page, and Team includes everything in Pro.
 
-## Request queue
+## What Pro adds
 
-The queue works like a chat. Write the next request now and choose when it goes to the agent:
+- [Request queue](/docs/queue): writing, editing and attaching images to the agent's next requests. Requests already in the queue go out on any plan.
+- [Restore points](/docs/restore-points): saving a point for every request to the agent. Viewing and restoring saved points works on any plan.
+- [Own folder](/docs/worktrees): opening the session on a new branch, in a folder of its own.
+- [Check on finish](/docs/verify): running a workspace command, such as the tests, when the agent stops after changing files.
+- [AI accounts and rotation](/docs/ai-accounts): connecting other Claude Code accounts, rotation between them, switching a session's account from the footer, an account pinned to a project, a reserved account and **Go on with the task the limit cut**. Seeing the accounts and each one's quota is on the free plan.
 
-- **as soon as the agent is free**;
-- **when the 5-hour window renews**, with the time read from the live quota of the session's own account;
-- **from a time on**.
+Everything else is on the free plan: [sessions and recovery](/docs/sessions-and-recovery), [agents and states](/docs/agents), the [Board](/docs/board), the [mascot](/docs/mascot), [notifications](/docs/notifications), [usage and quota](/docs/usage-and-quota), the [editor](/docs/editor) and [git](/docs/git-in-the-editor), the integrations with [issues](/docs/issues) and with [GitHub, GitLab and Bitbucket](/docs/forges), [MCP servers](/docs/mcp-servers), [voice dictation](/docs/voice) and the [network log](/docs/privacy-and-network#network-log).
 
-The queue's header says what the agent is doing. The next requests are numbered, in the order they will go, with when each one goes and why the ones below are waiting. You can drag to reorder (or <kbd>⌥</kbd> <kbd>↑</kbd> and <kbd>⌥</kbd> <kbd>↓</kbd>), edit a request that has not gone yet (the queue waits while you edit), send one next and take one out. **Pause queue** holds everything, also after the app reopens. Sent requests fold away at the bottom.
+In [**Settings › Account**](/docs/settings#account), **Plan features** lists what your licence turns on, sometimes under another name: **Quota-aware queue** is the request queue, **Worktree per session** is the own folder, and **Several AI accounts** is AI accounts and rotation. **Growth** also shows there: it is a project settings tab that has no source connected, so nothing is collected and no numbers appear. On a Team licence, the list also shows a few team tags that do not change anything in the app.
 
-The text box takes images: <kbd>⌘</kbd> <kbd>V</kbd>, drag or the paperclip, up to 8 per request and 10 MB each (PNG, JPEG, GIF or WebP). They stay on this computer, and the agent gets their paths at the end of the request.
+## Pro and Team
 
-Requests go one at a time, in queue order, and only when the agent is waiting for its next request; never in the middle of work or over a permission request. Each request goes exactly as written, as a single paste. When the account runs out of quota, the queue waits for the window to renew; see [When the quota runs out](/docs/ai-accounts#when-the-quota-runs-out).
+The paid features are the same in Pro and Team, and these pages only say "Pro". Team brings Pro to each person on the team on a single invoice, with one seat per person. In [My account](/account), you invite someone by their e-mail and send them the invite link.
 
-The queue is checked every 10 seconds while Persisty is open. With the app closed, nothing is sent. Only writing, editing and attaching images are Pro. On the free plan, requests already in the queue still go and can be paused, resumed, reordered, sent next or taken out, and **Let the queue go now** works too.
+## Subscribe
 
-## Restore points
+Pro and Team are bought on the website, on [Pricing](/pricing), which shows each plan's price, or in [My account](/account). You pay by card, through Stripe. In the app, signed in on the free plan, the **Settings › Account** tab has **See plans**, which opens the prices in your browser; signed out, use the Settings footer (**Sign in** or **Create free account**).
 
-Each request to an agent saves the state of the session's folder before the agent starts, named after the request's first line. In the **Restore points** tab you see what would come back and what would be deleted before you confirm. Restoring saves the current state as a new point, so you can undo it.
+Once you have subscribed, sign in to the app with the same e-mail. The plan reaches the computer with the licence, which the app renews when it opens and every 6 hours; **Refresh license** fetches it right away. See [Account and licence](/docs/account-and-license).
 
-Discarding changes also saves a point first, **Before discarding changes**, on the free plan too. The tab lists and restores saved points on every plan; only recording a point on every request is Pro.
+## When Pro ends
 
-- It works in git folders and with agents that report the request through a hook (Claude Code).
-- It saves tracked and new files; whatever `.gitignore` ignores is left out.
-- The git branch, HEAD and index do not change; commits made by the agent are not undone.
-- Points are stored as commits under `refs/persist/checkpoints/`, which a regular `git push` does not send. There are 50 per session.
-
-## Check on finish
-
-In the workspace command menu, to the right of the tabs, pick a command (for example `pnpm test`) and click **Check on finish with** followed by its name. When the agent stops after changing files, the command runs on its own in the session's folder, and the session header shows **Check** with the result: running, passed, failed (with the exit code) or stopped. Clicking it opens the output.
-
-This applies to agent sessions inside a workspace. The result is not sent to the agent.
-
-## Own folder per session
-
-In git folders, a new session can get a `persist/<name>` branch in a folder of its own (a git worktree), so two agents never edit the same files. In **New session**, turn on **Own folder (worktree)**; you can change the branch name under **New branch**.
-
-- The folder lives in `~/.persist/worktrees`, or in the one you choose under **Settings › Workspace › Worktrees folder** (it applies to new worktrees). It does not bring along what git ignores (`node_modules`, `.env`, builds).
-- When you close the session, Persisty says how many uncommitted files the folder has and how many commits the branch has that its base lacks, and offers **Keep the folder** and **Remove the folder**, or **Discard and remove** when there are uncommitted files.
-- The branch is never deleted.
+Persisty goes back to the free plan at the next licence renewal, without deleting anything. Saved points can still be restored, requests already in the queue still go out, and a project pinned to an account stays pinned until you unpin it, which works on any plan. Rotation and the "continue" after the limit stop. Offline, the stored licence lasts up to 14 days; see [Licence](/docs/account-and-license#licence).

@@ -27,10 +27,10 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/free">):
 /** The free features that have a window on the home page get one here too; the rest are listed. */
 const SECTIONS = [
   { anchor: "recovery", icon: "recovery", docs: "/docs/sessions-and-recovery" },
-  { anchor: "states", icon: "board", docs: "/docs/agents" },
+  { anchor: "states", icon: "board", docs: "/docs/board" },
   { anchor: "projects", icon: "projects", docs: "/docs/projects-and-workspaces" },
-  { anchor: "mascot", icon: "mascot", docs: "/docs/agents" },
-  { anchor: "editor", icon: "editorGit", docs: "/docs/editor-and-git" },
+  { anchor: "mascot", icon: "mascot", docs: "/docs/mascot" },
+  { anchor: "editor", icon: "editorGit", docs: "/docs/editor" },
   { anchor: "privacy", icon: "networkLog", docs: "/security" },
 ] as const;
 
@@ -63,7 +63,7 @@ export default function FreePage({ params }: PageProps<"/[locale]/free">) {
     <>
       <PlanHero plan="free" index={[...SECTIONS]} />
       {SECTIONS.map((s) => (
-        <PlanSection key={s.anchor} id={s.anchor} plan="free" title={h(`${s.anchor}.title`)} body={h(`${s.anchor}.body`)} link={{ href: s.anchor === "mascot" ? `${s.docs}#${h("mascot.anchor")}` : s.docs, label: h(`${s.anchor}.link`) }} narrow={s.anchor === "privacy" || s.anchor === "mascot"}>
+        <PlanSection key={s.anchor} id={s.anchor} plan="free" title={h(`${s.anchor}.title`)} body={h(`${s.anchor}.body`)} link={{ href: s.anchor === "mascot" ? `${s.docs}#${h("mascot.anchor")}` : s.docs, label: s.anchor === "states" ? h("states.boardLink") : h(`${s.anchor}.link`) }} narrow={s.anchor === "privacy" || s.anchor === "mascot"}>
           {windows[s.anchor]}
         </PlanSection>
       ))}

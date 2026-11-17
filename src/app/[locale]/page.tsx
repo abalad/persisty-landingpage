@@ -65,7 +65,7 @@ function HomeContent() {
       <Feature id="pro" title={t("pro.title")} body={t("pro.body")} meta={pro} link={{ href: "/pro", label: t("pro.link") }}>
         <ProTabs />
       </Feature>
-      <Feature id="editor" title={t("editor.title")} body={t("editor.body")} link={{ href: "/docs/editor-and-git", label: t("editor.link") }}>
+      <Feature id="editor" title={t("editor.title")} body={t("editor.body")} link={{ href: "/docs/editor", label: t("editor.link") }}>
         <EditorWindow />
       </Feature>
       <Feature id="privacy" title={t("privacy.title")} body={t("privacy.body")} link={{ href: "/security", label: t("privacy.link") }} narrow>

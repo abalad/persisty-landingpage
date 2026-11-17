@@ -1,6 +1,6 @@
 ---
 title: Proyectos y workspaces
-description: Cómo organiza Persisty productos, carpetas, sesiones y agentes en una sola ventana.
+description: Cómo organiza Persisty productos y carpetas, y cómo crear, ajustar, ordenar, archivar y eliminar proyectos y workspaces.
 group: start
 order: 2
 ---
@@ -13,40 +13,56 @@ Persisty organiza el trabajo en tres niveles, del mayor al menor.
 | Workspace | Una carpeta de ese proyecto, con o sin git | Tarjetas en la franja de abajo |
 | Sesión | Una terminal: un agente o un shell | Pestañas arriba |
 
+Las sesiones tienen su propia página, [Sesiones y terminales](/docs/sessions). Los proyectos y los workspaces son del plan gratuito.
+
 ## Barra de proyectos
 
-Cada proyecto es un bloque con las dos primeras letras del nombre. En **Ajustes del proyecto** (*Project settings*) puedes cambiarlas por otras iniciales, un símbolo o una imagen.
+Cada proyecto es un bloque con las dos primeras letras del nombre. Un punto en la esquina del bloque dice cómo está el proyecto: amarillo cuando un agente terminó y te espera o pide permiso, azul cuando un agente está trabajando, verde cuando hay sesiones corriendo, y un anillo hueco cuando hay sesiones por restaurar. El punto muestra lo más urgente, y al pasar el puntero dice lo mismo en palabras, como "2 waiting for you".
 
-Un punto en la esquina del bloque dice cómo está el proyecto: amarillo cuando un agente terminó y te espera o pide permiso, azul cuando un agente está trabajando, verde cuando hay sesiones corriendo, y un anillo hueco cuando hay sesiones por restaurar. El punto muestra lo más urgente, y al pasar el puntero dice lo mismo en palabras, como "2 waiting for you".
+Presiona <kbd>⌘</kbd> <kbd>B</kbd> para expandir la barra. Expandida, muestra el nombre y el estado de cada proyecto y la lista de **Agentes** (*Agents*), con el estado y el workspace de cada uno; el filtro alterna entre **Proyecto** (*Project*) y **Todos** (*All*). Cambia de proyecto con <kbd>⌘</kbd> <kbd>1</kbd> a <kbd>⌘</kbd> <kbd>9</kbd>. En Windows y Linux, que están en versión preliminar, usa <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>.
 
-Presiona <kbd>⌘</kbd> <kbd>B</kbd> para expandir la barra. Expandida, muestra el nombre y el estado de cada proyecto y la lista de **Agentes** (*Agents*), con el estado y el workspace de cada uno. El filtro alterna entre los agentes del proyecto actual y los de todos.
+Para crear un proyecto, usa el **+** de la barra. En **Nuevo proyecto** (*New project*), ponle un **Nombre** (*Name*) y, si quieres, una **Descripción** (*Description*), y haz clic en **Crear proyecto** (*Create project*). El **Identificador** (*Identifier*) sale del nombre y no cambia después.
 
-Cambia de proyecto con <kbd>⌘</kbd> <kbd>1</kbd> a <kbd>⌘</kbd> <kbd>9</kbd>. Para cambiar el orden, arrastra un proyecto, o usa <kbd>⌥</kbd> <kbd>↑</kbd> y <kbd>⌥</kbd> <kbd>↓</kbd> con él en foco.
+## Ajustes del proyecto
 
-Con el clic derecho en un proyecto abres **Ajustes del proyecto** (*Project settings*), con el nombre, la descripción y el ícono, o **Datos del proyecto** (*Project data*), con los números del proyecto y el gasto estimado en IA del mes.
+Con el clic derecho en un proyecto abres **Ajustes del proyecto** (*Project settings*) o **Datos del proyecto** (*Project data*), dos partes de la misma ventana.
+
+En **General** están el nombre, la descripción y el ícono, que puede ser otras iniciales (hasta dos caracteres), un símbolo de la lista o una imagen PNG, JPG, WebP o SVG de hasta 5 MB; esos cambios valen cuando haces clic en **Guardar** (*Save*). Ahí también están la **Cuenta de Claude** (*Claude account*) del proyecto, que es [Pro](/docs/pro) (mira [Cuentas de IA y rotación](/docs/ai-accounts)), y **Archivar proyecto** (*Archive project*).
+
+**Visión general** (*Overview*) muestra los números del proyecto, como workspaces, sesiones activas y sesiones por restaurar, y el [gasto estimado en IA](/docs/usage-and-quota) del mes, con **Abrir uso detallado** (*Open detailed usage*). **Workspaces** y **Sesiones** (*Sessions*) listan las carpetas y las terminales del proyecto. **Tareas** (*Tasks*) elige de dónde vienen las [issues](/docs/issues#vincular-al-proyecto) para empezar sesiones, y **Servidores MCP** (*MCP servers*), qué [servidores MCP](/docs/mcp-servers#encender-en-un-proyecto) reciben las sesiones de agente del proyecto.
 
 ## Archivar y eliminar proyectos
 
-**Archivar proyecto** (*Archive project*), en **Ajustes del proyecto**, saca el proyecto de la barra lateral; las sesiones y los workspaces siguen registrados. Si hay sesiones abiertas, eliges entre **Archivar y mantener abiertas** (*Archive and keep open*) y **Terminar y archivar** (*End and archive*).
+**Archivar proyecto**, en **Ajustes del proyecto**, saca el proyecto de la barra lateral; las sesiones y los workspaces siguen registrados. Si hay sesiones abiertas, eliges entre **Archivar y mantener abiertas** (*Archive and keep open*) y **Terminar y archivar** (*End and archive*).
 
-Los archivados quedan en **Proyectos archivados** (*Archived projects*), que se abre desde el contador debajo de la lista de proyectos, con la barra expandida, o desde la paleta (<kbd>⌘</kbd> <kbd>K</kbd>). Ahí, **Restaurar** (*Restore*) devuelve el proyecto a la barra, con sus workspaces y sesiones, y **Eliminar** (*Delete*) saca el proyecto de Persisty para siempre y termina las sesiones que sigan en marcha. Al eliminar, Persisty pregunta qué hacer con las carpetas: **Eliminar solo de Persisty** (*Delete from Persisty only*) deja todo en tu computadora, y **Eliminar y borrar las carpetas** (*Delete and remove the folders*) muestra cuáles van a la Papelera antes de confirmar. Una carpeta que usa otro proyecto, tu carpeta personal y la raíz del disco se quedan donde están.
+Los archivados quedan en **Proyectos archivados** (*Archived projects*), que se abre desde el contador debajo de la lista de proyectos, con la barra expandida, o desde la paleta (<kbd>⌘</kbd> <kbd>K</kbd>), cuando hay alguno. Ahí, **Restaurar** (*Restore*) devuelve el proyecto a la barra, con sus workspaces y sesiones. En la paleta, elegir un proyecto archivado también lo restaura y lo abre.
+
+Solo se puede eliminar un proyecto archivado: **Eliminar** (*Delete*), en su línea de **Proyectos archivados**, saca el proyecto de Persisty para siempre, con sus sesiones, workspaces y comandos, y termina las sesiones que sigan en marcha. Al eliminar, Persisty pregunta qué hacer con las carpetas: **Eliminar solo de Persisty** (*Delete from Persisty only*) deja todo en tu computadora, y **Eliminar y borrar las carpetas** (*Delete and remove the folders*) muestra cuáles van a la Papelera antes de confirmar. Una carpeta que usa otro proyecto, tu carpeta personal, la raíz del disco y los datos de Persisty se quedan donde están.
 
 ## Workspaces
 
-Cada tarjeta de la franja de abajo es una carpeta del proyecto. Cuando la carpeta es un repositorio git, la tarjeta muestra la rama y cuántos archivos cambiaron. Dentro de la tarjeta están las sesiones de ese workspace, cada una con su estado en palabras.
+Cada tarjeta de la franja de abajo es una carpeta del proyecto. Cuando la carpeta es un repositorio git, la tarjeta muestra la rama y cuántos archivos cambiaron. Dentro de la tarjeta aparecen hasta tres sesiones de ese workspace, cada una con su estado en palabras, y un clic en una de ellas la abre. El pie de la tarjeta dice cuántas sesiones están activas y hace cuánto hubo actividad.
 
-Para agregar otro, usa la tarjeta **Agregar workspace** (*Add workspace*), al final de la franja: acepta una carpeta de tu computadora o clona un repositorio remoto. Arrastra las tarjetas para cambiar el orden, o usa <kbd>⌥</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>→</kbd> con la tarjeta en foco. Para sacar un workspace del proyecto, usa **Quitar del proyecto** (*Remove from project*) en el panel **Detalles** (*Details*), o **Quitar workspace** (*Remove workspace*) en la pantalla de un workspace sin sesiones. Los archivos de la carpeta no cambian.
+Un workspace sin sesiones muestra la ruta de la carpeta y los atajos para abrir una; mira [Nueva sesión](/docs/sessions#nueva-sesión). Cada workspace tiene también sus [comandos](/docs/commands), en el selector junto a las pestañas.
 
-La tarjeta **Sueltas** (*Standalone*) guarda las sesiones que no pertenecen a ningún workspace. <kbd>⌘</kbd> <kbd>J</kbd> contrae la franja a íconos cuando quieres más espacio para la terminal.
+La tarjeta **Sueltas** (*Standalone*) guarda las sesiones que no pertenecen a ningún workspace, abiertas en cualquier carpeta, y aparece cuando hay alguna o cuando el proyecto todavía no tiene workspaces. <kbd>⌘</kbd> <kbd>J</kbd> contrae la franja a íconos cuando quieres más espacio para la terminal.
 
-## Sesiones
+Para sacar un workspace del proyecto, usa **Quitar del proyecto** (*Remove from project*) en el panel **Detalles** (*Details*), o **Quitar workspace** (*Remove workspace*) en la pantalla de un workspace sin sesiones. Los archivos de la carpeta no cambian.
 
-Las pestañas de arriba son las sesiones del workspace seleccionado. El **+** abre una terminal nueva ahí mismo; <kbd>⌘</kbd> <kbd>←</kbd> y <kbd>⌘</kbd> <kbd>→</kbd> pasan a la sesión anterior o a la siguiente. Arrastra una pestaña para cambiar el orden, o usa <kbd>⌥</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>→</kbd> con ella en foco.
+## Agregar workspace
 
-El encabezado de la sesión muestra el nombre, el estado y la rama de la carpeta. La rama sigue los cambios hechos desde la terminal, y al hacer clic en ella se abre un selector con búsqueda para cambiar de rama o crear una.
+La tarjeta **Agregar workspace** (*Add workspace*), al final de la franja, abre la ventana del mismo nombre con dos orígenes: **Carpeta de la computadora** (*Folder on this computer*) y **Repositorio remoto** (*Remote repository*). En un proyecto todavía vacío, la pantalla del proyecto también acepta una carpeta arrastrada desde el Finder; ahí, <kbd>1</kbd> elige una carpeta, <kbd>4</kbd> va directo al repositorio remoto, y <kbd>2</kbd> y <kbd>3</kbd> abren la **Nueva sesión** para una terminal o un agente sueltos.
 
-## Comandos del workspace
+Con **Carpeta de la computadora**, escribe la ruta completa o haz clic en **Elegir carpeta…** (*Choose folder…*). En Windows, la ruta empieza por la letra del disco, como `C:\`. Persisty lee la carpeta y muestra lo que encontró: **Repositorio git** (*Git repository*) o **Carpeta común** (*Plain folder*), la rama y el remoto. El **Nombre** es lo que muestran las tarjetas y las pestañas, y **Agregar workspace** termina.
 
-El selector de comandos, junto a las pestañas, lista lo que Persisty encuentra en la carpeta: los scripts del `package.json` (con el gestor de paquetes que indica el lockfile), Cargo, los objetivos del Makefile, Gradle, Maven, Go, Python y Docker Compose. Solo lee los archivos; no ejecuta nada para descubrirlos. Los comandos que corres siempre y que no aparecen ahí entran por **Agregar comando…** (*Add command…*) y quedan en **Mis comandos** (*My commands*).
+## Clonar un repositorio
 
-<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> ejecuta el comando elegido, o detiene el que está corriendo, y <kbd>⌘</kbd> <kbd>E</kbd> abre y contrae la **Salida del comando** (*Command output*). Cada ejecución se vuelve una pestaña ahí, con el estado escrito: **Ejecutando** (*Running*), **Concluido** (*Done*), **Falló · código N** (*Failed · code N*), **Detenido** (*Stopped*) o **Terminado** (*Ended*). Detener un comando envía Ctrl-C como en la terminal y conserva la salida; si no se detiene en 5 segundos, se termina.
+Con **Repositorio remoto**, pega el enlace del repositorio; cualquier dirección git funciona. Sin cuenta conectada, el campo se llama **Enlace** (*Link*), y **Tus repositorios** (*Your repositories*) ofrece conectar GitHub o GitLab ahí mismo; Bitbucket y el GitLab de una empresa están en [**Configuración › Integraciones**](/docs/settings#integraciones) (*Settings › Integrations*); mira [GitHub, GitLab y Bitbucket](/docs/forges). Con una cuenta conectada, el campo pasa a ser **Enlace o búsqueda** (*Link or search*) y lista tus repositorios, con un filtro por servicio, y también se pueden clonar los privados.
+
+Persisty muestra el repositorio, la rama por defecto y la cuenta que lo va a clonar. El destino sugerido queda junto al último workspace del proyecto. En un proyecto sin workspaces, es la **Carpeta por defecto para clones** (*Default folder for clones*), que viene como `~/Documents/GitHub` y se cambia en **Configuración › Integraciones**. Si la carpeta de destino ya tiene ese repositorio, solo se agrega; si tiene otra cosa, cambia el nombre o el lugar.
+
+**Clonar y agregar** (*Clone and add*) descarga el repositorio y muestra el avance, fase por fase. **Cancelar** (*Cancel*), o cerrar la ventana, interrumpe el clon. Al final, la carpeta se convierte en un workspace del proyecto. Clonar usa el git de tu computadora; sin él, Persisty pide que instales git.
+
+## Cambiar el orden
+
+Los proyectos, los workspaces y las pestañas de sesión quedan en el orden en que los dejas. Arrastra para cambiarlo, o usa el teclado con el elemento en foco: <kbd>⌥</kbd> <kbd>↑</kbd> y <kbd>⌥</kbd> <kbd>↓</kbd> en la barra de proyectos, <kbd>⌥</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>→</kbd> en las tarjetas de workspace y en las pestañas. El clic derecho en una pestaña también tiene **Mover a la izquierda** (*Move left*) y **Mover a la derecha** (*Move right*). Mientras arrastras, <kbd>Esc</kbd> devuelve el elemento a su lugar. La tarjeta **Sueltas** queda siempre al final.

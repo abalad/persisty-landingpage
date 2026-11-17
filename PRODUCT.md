@@ -10,6 +10,8 @@ web
 
 Next.js (App Router) on Vercel, chosen by the user over Astro (2026-10-21) because a logged-in web area will grow here later (account, subscriptions with Stripe). Static rendering for marketing, docs and changelog; the account area runs in the browser against Persisty Cloud (Supabase). Three locales: pt-BR (default, no prefix), en, es.
 
+Docs (since 2026-11-17): one page per feature, 34 pages in six groups (start, agents, code, integrations, account, reference), each checked against the app's released tag. `docs/docs-coverage.md` maps every changelog item and every Settings option to its page; a test fails when a released version has no inventory section, so every release updates the inventory and the pages it touches. The old `/docs/editor-and-git` redirects to `/docs/editor`.
+
 ## Users
 
 From solo developers to companies. The core user keeps several software products at once and works with more than one AI coding agent in terminals (Claude Code first, Codex second), often across several Claude accounts (a personal Max plan and a company Team plan on the same machine). Companies are the buyer for Team (Enterprise is hidden for now): they pay for the AI accounts and want to know what the agents cost, what they did, and that the code never leaves the developer's machine.

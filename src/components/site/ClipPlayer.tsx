@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 /**
- * The changelog's clips (videos marked `data-clip`, see rehypeClips) play
+ * The clips of the changelog and the docs (videos marked `data-clip`, see rehypeClips) play
  * while they are on screen, muted and looping like an animated picture, and
  * stop when scrolled away; a click pauses or plays one. With reduced motion
  * they keep their controls and wait for the reader to press play.

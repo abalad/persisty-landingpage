@@ -15,6 +15,14 @@ describe("docs", () => {
     for (const locale of routing.locales) expect(slugs(locale)).toEqual(reference);
   });
 
+  it("have the same sections in every language", async () => {
+    const sections = async (locale: (typeof routing.locales)[number], slug: string) => (await getDoc(locale, slug))?.headings.filter((h) => h.depth === 2).length;
+    for (const d of listDocs("pt-BR")) {
+      const reference = await sections("pt-BR", d.slug);
+      for (const locale of routing.locales) expect(await sections(locale, d.slug), `${locale}/${d.slug}`).toBe(reference);
+    }
+  }, 60_000);
+
   it("start with getting-started", () => {
     for (const locale of routing.locales) expect(listDocs(locale)[0].slug).toBe("getting-started");
   });

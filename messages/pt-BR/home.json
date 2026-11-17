@@ -124,13 +124,14 @@
   "states": {
     "title": "Você sabe qual agente precisa de você",
     "body": "O Quadro junta as sessões de todos os projetos em quatro colunas, e cada cartão diz o que a sessão quer. O estado vem dos hooks do Claude Code, não de um palpite sobre a tela.",
-    "link": "Agentes e estados"
+    "link": "Agentes e estados",
+    "boardLink": "Quadro"
   },
   "mascot": {
     "title": "Um aviso que fica em cima das suas janelas",
     "body": "No macOS, o mascote fica em pé na janela em que você está. Quando uma sessão pede você, ele sobe e diz qual, e um clique mostra o que cada uma quer.",
     "link": "O mascote fora do app",
-    "anchor": "o-mascote-fora-do-app"
+    "anchor": "fora-do-app"
   },
   "pro": {
     "title": "Deixe o próximo pedido na fila",
@@ -140,7 +141,7 @@
   "editor": {
     "title": "Editor, git e notas na mesma janela",
     "body": "Abra o arquivo que o agente mexeu, veja o diff, faça o commit e anote o que falta sem sair da sessão.",
-    "link": "Editor e alterações"
+    "link": "Editor"
   },
   "privacy": {
     "title": "Seu código não sai da sua máquina",

@@ -6,9 +6,11 @@
   "title": "Documentation",
   "body": "How to use Persisty, from your first project to the Pro features. Everything here describes the app as it is today, including what it does not do yet.",
   "groups": {
-    "start": "Get started",
-    "work": "Working with agents",
-    "account": "Account and privacy",
+    "start": "Getting started",
+    "agents": "Agents",
+    "code": "Code",
+    "integrations": "Integrations",
+    "account": "Account",
     "reference": "Reference"
   },
   "onThisPage": "On this page",

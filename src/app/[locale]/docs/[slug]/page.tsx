@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { DocsNav } from "@/components/docs/DocsNav";
 import styles from "@/components/docs/docs.module.css";
+import { ClipPlayer } from "@/components/site/ClipPlayer";
 import { Link } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { getDoc, listDocs } from "@/lib/content";
@@ -39,6 +40,7 @@ export default async function DocPage({ params }: PageProps<"/[locale]/docs/[slu
         <h1 className={styles.title}>{doc.title}</h1>
         <p className={styles.lede}>{doc.description}</p>
         <div className="prose" dangerouslySetInnerHTML={{ __html: doc.html }} />
+        <ClipPlayer key={slug} />
         <nav className={styles.pager} aria-label={t("nav")}>
           {prev ? (
             <Link href={`/docs/${prev.slug}`}>

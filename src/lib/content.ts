@@ -14,7 +14,7 @@ import { compareVersions, isVersion } from "./semver";
 
 const ROOT = join(process.cwd(), "content");
 
-export const DOC_GROUPS = ["start", "work", "account", "reference"] as const;
+export const DOC_GROUPS = ["start", "agents", "code", "integrations", "account", "reference"] as const;
 export type DocGroup = (typeof DOC_GROUPS)[number];
 
 export interface DocMeta {

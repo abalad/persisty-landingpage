@@ -1,49 +1,34 @@
 ---
-title: Recursos do Pro
-description: Fila de pedidos, pontos de restauração, verificação ao terminar e pasta própria por sessão.
-group: work
-order: 2
+title: Planos e recursos do Pro
+description: O que o Pro acrescenta ao plano grátis, a página de cada recurso, o Team e como assinar.
+group: account
+order: 1
 ---
 
-A fila e os pontos de restauração ficam na **barra da borda direita da sessão** (**Fila de pedidos** e **Pontos de restauração**). A pasta própria se escolhe na **Nova sessão**, e a verificação ao terminar, no menu do comando do workspace, à direita das abas. Os recursos do Pro exigem a conta do Persisty com o plano Pro; o que já foi gravado continua utilizável se o plano acabar. As contas do Claude, com rodízio, troca pelo rodapé e conta por projeto, estão em [Contas de IA e rodízio](/docs/ai-accounts).
+O plano grátis não pede conta. O Pro acrescenta cinco recursos, cada um explicado na sua página, e o Team inclui tudo do Pro.
 
-## Fila de pedidos
+## O que o Pro acrescenta
 
-A fila funciona como um chat. Escreva o próximo pedido agora e escolha quando ele vai para o agente:
+- [Fila de pedidos](/docs/queue): escrever, editar e anexar imagens aos próximos pedidos ao agente. Os pedidos que já estão na fila saem em qualquer plano.
+- [Pontos de restauração](/docs/restore-points): gravar um ponto a cada pedido ao agente. Ver e restaurar os pontos guardados vale em qualquer plano.
+- [Pasta própria](/docs/worktrees): abrir a sessão num branch novo, numa pasta só dela.
+- [Verificar ao terminar](/docs/verify): rodar um comando do workspace, como os testes, quando o agente para depois de mudar arquivos.
+- [Contas de IA e rodízio](/docs/ai-accounts): conectar outras contas do Claude Code, o rodízio entre elas, a troca de conta pelo rodapé da sessão, a conta presa a um projeto, a conta reservada e **Continuar a tarefa cortada pelo limite**. Ver as contas e a quota de cada uma é do plano grátis.
 
-- **assim que o agente ficar livre**;
-- **quando a janela de 5 h renovar**, com o horário lido da quota ao vivo da conta da própria sessão;
-- **a partir de um horário**.
+Todo o resto é do plano grátis: [sessões e recuperação](/docs/sessions-and-recovery), [agentes e estados](/docs/agents), [Quadro](/docs/board), [mascote](/docs/mascot), [notificações](/docs/notifications), [uso e quota](/docs/usage-and-quota), [editor](/docs/editor) e [git](/docs/git-in-the-editor), as integrações com [issues](/docs/issues) e com [GitHub, GitLab e Bitbucket](/docs/forges), [servidores MCP](/docs/mcp-servers), [ditado por voz](/docs/voice) e o [registro de rede](/docs/privacy-and-network#registro-de-rede).
 
-O cabeçalho da fila diz o que o agente está fazendo. Os próximos pedidos aparecem numerados, na ordem em que vão sair, com quando sai cada um e por que os de baixo esperam. Dá para arrastar para mudar a ordem (ou <kbd>⌥</kbd> <kbd>↑</kbd> e <kbd>⌥</kbd> <kbd>↓</kbd>), editar um pedido que ainda não saiu (a fila espera enquanto você edita), enviar um a seguir e tirar da fila. **Pausar fila** segura tudo, também com o app reaberto. Os enviados ficam recolhidos embaixo.
+Em [**Configurações › Conta**](/docs/settings#conta), **Recursos do plano** lista o que a sua licença libera, às vezes com outro nome: **Fila pela quota** é a fila de pedidos, **Worktree por sessão** é a pasta própria, e **Várias contas de IA** são as contas de IA e o rodízio. Ali também aparece **Growth**, uma aba dos ajustes do projeto que não tem nenhuma fonte conectada: nada é coletado e nenhum número aparece. Numa licença do Team, a lista mostra também algumas etiquetas do time que não mudam nada no app.
 
-A caixa de escrever aceita imagens: <kbd>⌘</kbd> <kbd>V</kbd>, arrastar ou o clipe, até 8 por pedido e 10 MB cada (PNG, JPEG, GIF ou WebP). Elas ficam neste computador, e o agente recebe os caminhos no fim do pedido.
+## Pro e Team
 
-Os pedidos vão um por vez, na ordem da fila, e só quando o agente está esperando o próximo pedido; nunca no meio de um trabalho nem por cima de um pedido de permissão. Cada pedido vai exatamente como foi escrito, numa colagem só. Quando a conta fica sem quota, a fila espera a janela renovar; veja [Quando a quota acaba](/docs/ai-accounts#quando-a-quota-acaba).
+Os recursos pagos são os mesmos no Pro e no Team, e estas páginas dizem só "Pro". O Team leva o Pro para cada pessoa do time numa fatura só, com um assento por pessoa. Em [Minha conta](/account), você convida pelo e-mail da pessoa e manda a ela o link do convite.
 
-A fila é conferida a cada 10 segundos com o Persisty aberto. Com o app fechado, nada é enviado. Só escrever, editar e anexar imagens são do Pro. No plano grátis, os pedidos que já estão na fila continuam saindo e podem ser pausados, retomados, reordenados, enviados a seguir ou tirados, e **Soltar a fila agora** também funciona.
+## Assinar
 
-## Pontos de restauração
+Pro e Team se assinam no site, em [Preços](/pricing), que mostra o valor de cada plano, ou em [Minha conta](/account). O pagamento é no cartão, pelo Stripe. No app, com a conta conectada no plano grátis, a aba **Configurações › Conta** tem **Ver planos**, que abre os preços no navegador; sem conta, use o rodapé de Configurações (**Entrar** ou **Criar conta grátis**).
 
-Cada pedido a um agente grava o estado da pasta da sessão antes de ele começar, com a primeira linha do pedido como nome. Na aba **Pontos de restauração** você vê o que voltaria e o que seria apagado antes de confirmar. Restaurar guarda o estado de agora como um ponto novo, para você poder desfazer.
+Depois de assinar, entre no app com o mesmo e-mail. O plano chega ao computador com a licença, que o app renova ao abrir e a cada 6 horas; **Atualizar licença** busca na hora. Veja [Conta e licença](/docs/account-and-license).
 
-Descartar alterações também guarda um ponto antes, **Antes de descartar alterações**, inclusive no plano grátis. A aba lista e restaura os pontos guardados em qualquer plano; só gravar um ponto a cada pedido é do Pro.
+## Quando o Pro acaba
 
-- Funciona em pastas git e com agentes que avisam o pedido por hook (Claude Code).
-- Guarda arquivos rastreados e novos; o que o `.gitignore` ignora fica de fora.
-- Branch, HEAD e índice do git não mudam; commits feitos pelo agente não são desfeitos.
-- Os pontos ficam como commits em `refs/persist/checkpoints/`, que um `git push` comum não envia. São 50 por sessão.
-
-## Verificar ao terminar
-
-No menu do comando do workspace, à direita das abas, escolha um comando (por exemplo `pnpm test`) e clique em **Verificar ao terminar com** seguido do nome dele. Quando o agente para depois de mudar arquivos, o comando roda sozinho na pasta da sessão, e o cabeçalho da sessão mostra **Verificação** com o resultado: rodando, passou, falhou (com o código de saída) ou interrompida. Clicar nele abre a saída.
-
-Vale para sessões de agente dentro de um workspace. O resultado não é enviado ao agente.
-
-## Pasta própria por sessão
-
-Em pastas git, a sessão nova pode ganhar um branch `persist/<nome>` numa pasta só dela (um git worktree), para dois agentes nunca editarem os mesmos arquivos. Na **Nova sessão**, ligue **Pasta própria (worktree)**; o nome do branch pode ser mudado em **Branch novo**.
-
-- A pasta fica em `~/.persist/worktrees`, ou na que você escolher em **Configurações › Workspace › Pasta dos worktrees** (vale para worktrees novos). Ela não traz o que o git ignora (`node_modules`, `.env`, builds).
-- Ao fechar a sessão, o Persisty diz quantos arquivos não commitados a pasta tem e quantos commits o branch tem que a base não tem, e oferece **Manter a pasta** e **Remover a pasta**, ou **Descartar e remover** quando há arquivos não commitados.
-- O branch nunca é apagado.
+O Persisty volta ao plano grátis na próxima renovação da licença, sem apagar nada. Os pontos guardados continuam restauráveis, os pedidos que já estavam na fila continuam saindo, e um projeto preso a uma conta continua preso até você soltá-lo, o que funciona em qualquer plano. O rodízio e o "continue" depois do limite param. Sem internet, a licença guardada vale por até 14 dias; veja [Licença](/docs/account-and-license#licença).
