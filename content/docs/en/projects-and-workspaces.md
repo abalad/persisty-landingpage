@@ -43,7 +43,7 @@ Archived projects are in **Archived projects**, which opens from the counter bel
 
 Each card in the bottom strip is a folder of the project. When the folder is a git repository, the card shows the branch and how many files changed. Inside the card are up to three of that workspace's sessions, each with its state in words, and clicking one opens it. The card's footer says how many sessions are active and how long ago there was activity.
 
-A workspace with no sessions shows the folder's path and the shortcuts to open one; see [New session](/docs/sessions#new-session). Each workspace also has its own commands, in the picker beside the tabs.
+A workspace with no sessions shows the folder's path and the shortcuts to open one; see [New session](/docs/sessions#new-session). Each workspace also has its own [commands](/docs/commands), in the picker beside the tabs.
 
 The **Standalone** card holds sessions that do not belong to any workspace, opened in any folder. <kbd>⌘</kbd> <kbd>J</kbd> collapses the strip into icons when you want more room for the terminal.
 
@@ -66,9 +66,3 @@ Persisty shows the repository, the default branch and the account that will clon
 ## Change the order
 
 Projects, workspaces and session tabs stay in the order you leave them. Drag to change it, or use the keyboard with the item in focus: <kbd>⌥</kbd> <kbd>↑</kbd> and <kbd>⌥</kbd> <kbd>↓</kbd> in the project bar, <kbd>⌥</kbd> <kbd>←</kbd> and <kbd>⌥</kbd> <kbd>→</kbd> on workspace cards and tabs. Right-clicking a tab also offers **Move left** and **Move right**. While dragging, <kbd>Esc</kbd> puts the item back. The **Standalone** card always stays last.
-
-## Workspace commands
-
-The command picker, beside the tabs, lists what Persisty finds in the folder: the `package.json` scripts (with the package manager the lockfile implies), Cargo, Makefile targets, Gradle, Maven, Go, Python and Docker Compose. It only reads the files; nothing runs to find them. Commands you run all the time that are not listed there come in through **Add command…** and go under **My commands**.
-
-<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> runs the chosen command, or stops the one running, and <kbd>⌘</kbd> <kbd>E</kbd> opens and collapses the **Command output**. Each run becomes a tab there, with its state written out: **Running**, **Done**, **Failed · code N**, **Stopped** or **Ended**. Stopping a command sends Ctrl-C, as in the terminal, and keeps the output; if it has not stopped after 5 seconds, it is ended.

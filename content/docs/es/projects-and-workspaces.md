@@ -43,7 +43,7 @@ Los archivados quedan en **Proyectos archivados** (*Archived projects*), que se 
 
 Cada tarjeta de la franja de abajo es una carpeta del proyecto. Cuando la carpeta es un repositorio git, la tarjeta muestra la rama y cuántos archivos cambiaron. Dentro de la tarjeta aparecen hasta tres sesiones de ese workspace, cada una con su estado en palabras, y un clic en una de ellas la abre. El pie de la tarjeta dice cuántas sesiones están activas y hace cuánto hubo actividad.
 
-Un workspace sin sesiones muestra la ruta de la carpeta y los atajos para abrir una; mira [Nueva sesión](/docs/sessions#nueva-sesión). Cada workspace tiene también sus comandos, en el selector junto a las pestañas.
+Un workspace sin sesiones muestra la ruta de la carpeta y los atajos para abrir una; mira [Nueva sesión](/docs/sessions#nueva-sesión). Cada workspace tiene también sus [comandos](/docs/commands), en el selector junto a las pestañas.
 
 La tarjeta **Sueltas** (*Standalone*) guarda las sesiones que no pertenecen a ningún workspace, abiertas en cualquier carpeta. <kbd>⌘</kbd> <kbd>J</kbd> contrae la franja a íconos cuando quieres más espacio para la terminal.
 
@@ -66,9 +66,3 @@ Persisty muestra el repositorio, la rama por defecto y la cuenta que lo va a clo
 ## Cambiar el orden
 
 Los proyectos, los workspaces y las pestañas de sesión quedan en el orden en que los dejas. Arrastra para cambiarlo, o usa el teclado con el elemento en foco: <kbd>⌥</kbd> <kbd>↑</kbd> y <kbd>⌥</kbd> <kbd>↓</kbd> en la barra de proyectos, <kbd>⌥</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>→</kbd> en las tarjetas de workspace y en las pestañas. El clic derecho en una pestaña también tiene **Mover a la izquierda** (*Move left*) y **Mover a la derecha** (*Move right*). Mientras arrastras, <kbd>Esc</kbd> devuelve el elemento a su lugar. La tarjeta **Sueltas** queda siempre al final.
-
-## Comandos del workspace
-
-El selector de comandos, junto a las pestañas, lista lo que Persisty encuentra en la carpeta: los scripts del `package.json` (con el gestor de paquetes que indica el lockfile), Cargo, los objetivos del Makefile, Gradle, Maven, Go, Python y Docker Compose. Solo lee los archivos; no ejecuta nada para descubrirlos. Los comandos que corres siempre y que no aparecen ahí entran por **Agregar comando…** (*Add command…*) y quedan en **Mis comandos** (*My commands*).
-
-<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> ejecuta el comando elegido, o detiene el que está corriendo, y <kbd>⌘</kbd> <kbd>E</kbd> abre y contrae la **Salida del comando** (*Command output*). Cada ejecución se vuelve una pestaña ahí, con el estado escrito: **Ejecutando** (*Running*), **Concluido** (*Done*), **Falló · código N** (*Failed · code N*), **Detenido** (*Stopped*) o **Terminado** (*Ended*). Detener un comando envía Ctrl-C como en la terminal y conserva la salida; si no se detiene en 5 segundos, se termina.

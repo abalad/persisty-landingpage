@@ -43,7 +43,7 @@ Os arquivados ficam em **Projetos arquivados**, que abre pelo contador abaixo da
 
 Cada cartão da faixa de baixo é uma pasta do projeto. Quando a pasta é um repositório git, o cartão mostra o branch e quantos arquivos mudaram. Dentro do cartão aparecem até três sessões daquele workspace, cada uma com o estado em palavras, e um clique numa delas abre a sessão. No rodapé do cartão ficam quantas sessões estão ativas e há quanto tempo houve atividade.
 
-Um workspace sem sessões mostra o caminho da pasta e os atalhos para abrir uma; veja [Nova sessão](/docs/sessions#nova-sessão). Cada workspace tem também os seus comandos, no seletor ao lado das abas.
+Um workspace sem sessões mostra o caminho da pasta e os atalhos para abrir uma; veja [Nova sessão](/docs/sessions#nova-sessão). Cada workspace tem também os seus [comandos](/docs/commands), no seletor ao lado das abas.
 
 O cartão **Avulsas** guarda as sessões que não pertencem a nenhum workspace, abertas numa pasta qualquer. <kbd>⌘</kbd> <kbd>J</kbd> recolhe a faixa em ícones quando você quer mais espaço para o terminal.
 
@@ -66,9 +66,3 @@ O Persisty mostra o repositório, o branch padrão e a conta que vai clonar. O d
 ## Mudar a ordem
 
 Projetos, workspaces e abas de sessão ficam na ordem em que você os deixa. Arraste para mudar, ou use o teclado com o item em foco: <kbd>⌥</kbd> <kbd>↑</kbd> e <kbd>⌥</kbd> <kbd>↓</kbd> na barra de projetos, <kbd>⌥</kbd> <kbd>←</kbd> e <kbd>⌥</kbd> <kbd>→</kbd> nos cartões de workspace e nas abas. O botão direito numa aba também tem **Mover para a esquerda** e **Mover para a direita**. Durante o arraste, <kbd>Esc</kbd> devolve o item ao lugar. O cartão **Avulsas** fica sempre por último.
-
-## Comandos do workspace
-
-O seletor de comandos, ao lado das abas, lista o que o Persisty encontra na pasta: os scripts do `package.json` (com o gerenciador que o lockfile indica), o Cargo, os alvos do Makefile, Gradle, Maven, Go, Python e Docker Compose. Ele só lê os arquivos; nada roda para descobrir. Comandos que você roda sempre e que não aparecem ali entram por **Adicionar comando…** e ficam em **Meus comandos**.
-
-<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> executa o comando escolhido, ou para o que está rodando, e <kbd>⌘</kbd> <kbd>E</kbd> abre e recolhe a **Saída do comando**. Cada execução vira uma aba ali, com o estado escrito: **Executando**, **Concluído**, **Falhou · código N**, **Parado** ou **Encerrado**. Parar um comando manda Ctrl-C como no terminal e mantém a saída; se ele não parar em 5 segundos, é encerrado.

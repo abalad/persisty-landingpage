@@ -39,7 +39,7 @@ Dentro del código, las teclas del mapa van primero. En WebStorm, <kbd>⌘</kbd>
 
 ## Archivos
 
-Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, copiar, pegar y deshacer funcionan en cualquier mapa; las demás son de los mapas WebStorm, y en el mapa de VS Code esas acciones están en el menú del clic derecho. Mira [Archivos](/docs/editor#archivos).
+Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, copiar, pegar y deshacer funcionan en cualquier mapa; las demás son de los mapas WebStorm, y en el mapa de VS Code esas acciones están en el menú del clic derecho. Mira [Archivos](/docs/files#teclas).
 
 | Acción | Atajo |
 | --- | --- |
@@ -56,7 +56,7 @@ Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, co
 
 ## Pestañas y grupos
 
-<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> valen en cualquier mapa, con la pestaña en foco. Las demás teclas son de los mapas WebStorm; en el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. Mira [Pestañas y grupos](/docs/editor#pestañas-y-grupos).
+<kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←</kbd> y <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>→</kbd> valen en cualquier mapa, con la pestaña en foco. Las demás teclas son de los mapas WebStorm; en el mapa de VS Code, esas acciones están en la paleta y en el menú de la pestaña. Mira [Pestañas y grupos](/docs/tabs-and-groups#teclas).
 
 | Acción | Atajo |
 | --- | --- |
