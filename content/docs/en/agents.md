@@ -55,6 +55,4 @@ On the same screen, **Detected agents** shows Claude Code and Codex CLI as Persi
 
 ## Tools for the agents
 
-**Persisty tools in agents**, in **Settings › Agents**, gives Claude Code sessions tools that read the project, its sessions and the output of the workspace commands. None of them types into another terminal. It starts off and applies to sessions that start or restart after you turn it on; **Check installation** tests that it works. For Codex CLI, the same screen shows a command for you to run once in a terminal, because Persisty does not change Codex's configuration; that route is marked **Not verified**.
-
-Other MCP servers, such as GitHub, Sentry or Supabase, are installed in **Settings › MCP servers** and switched on per project in **Project settings › MCP servers**. They only apply to Claude Code sessions that start or restart afterwards.
+On the same screen, **Persisty tools in agents** lets Claude Code read the project, the other sessions and the output of the workspace commands; see [Agents that read Persisty](/docs/agent-access). MCP servers from other services, such as GitHub, Sentry or Supabase, are in [MCP servers](/docs/mcp-servers).

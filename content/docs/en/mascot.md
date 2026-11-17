@@ -11,7 +11,7 @@ The mascot sits in the corner of the session's terminal and reacts to what the a
 
 ## In the terminal
 
-The mascot follows the session in focus: it rises when something is pending, such as a permission request, celebrates when a turn ends and looks sorry when the session's process fails. Its head follows the pointer, and it hops when you click it. With voice dictation on, the mascot of the terminal that will receive the text holds a microphone while you speak and celebrates when the text goes in.
+The mascot follows the session in focus: it rises when something is pending, such as a permission request, celebrates when a turn ends and looks sorry when the session's process fails. Its head follows the pointer, and it hops when you click it. With [voice dictation](/docs/voice) on, the mascot of the terminal that will receive the text holds a microphone while you speak and celebrates when the text goes in.
 
 In a Persisty terminal, the `persisty` command makes that terminal's mascot react: `persisty celebrate`, `persisty oops`, `persisty wave`, `persisty think` or `persisty say` followed by up to 80 characters of text. A script can use it to say it has finished.
 

@@ -11,7 +11,7 @@ O mascote fica no canto do terminal da sessão e reage ao que o agente faz. No m
 
 ## No terminal
 
-O mascote acompanha a sessão em foco: sobe quando há algo pendente, como um pedido de permissão, comemora quando um turno termina e lamenta quando o processo da sessão falha. Ele segue o ponteiro com a cabeça e pula quando você clica nele. Com o ditado por voz ligado, o mascote do terminal que vai receber o texto segura um microfone enquanto você fala e comemora quando o texto entra.
+O mascote acompanha a sessão em foco: sobe quando há algo pendente, como um pedido de permissão, comemora quando um turno termina e lamenta quando o processo da sessão falha. Ele segue o ponteiro com a cabeça e pula quando você clica nele. Com o [ditado por voz](/docs/voice) ligado, o mascote do terminal que vai receber o texto segura um microfone enquanto você fala e comemora quando o texto entra.
 
 Num terminal do Persisty, o comando `persisty` faz o mascote daquele terminal reagir: `persisty celebrate`, `persisty oops`, `persisty wave`, `persisty think` ou `persisty say` seguido de um texto de até 80 caracteres. Um script pode usar isso para avisar que terminou.
 

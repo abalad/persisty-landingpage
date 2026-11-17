@@ -11,7 +11,7 @@ La mascota está en la esquina de la terminal de la sesión y reacciona a lo que
 
 ## En la terminal
 
-La mascota sigue a la sesión en foco: sube cuando hay algo pendiente, como un pedido de permiso, celebra cuando termina un turno y se lamenta cuando falla el proceso de la sesión. Sigue el puntero con la cabeza y salta cuando le haces clic. Con el dictado por voz encendido, la mascota de la terminal que va a recibir el texto sostiene un micrófono mientras hablas y celebra cuando el texto entra.
+La mascota sigue a la sesión en foco: sube cuando hay algo pendiente, como un pedido de permiso, celebra cuando termina un turno y se lamenta cuando falla el proceso de la sesión. Sigue el puntero con la cabeza y salta cuando le haces clic. Con el [dictado por voz](/docs/voice) encendido, la mascota de la terminal que va a recibir el texto sostiene un micrófono mientras hablas y celebra cuando el texto entra.
 
 En una terminal de Persisty, el comando `persisty` hace reaccionar a la mascota de esa terminal: `persisty celebrate`, `persisty oops`, `persisty wave`, `persisty think` o `persisty say` seguido de un texto de hasta 80 caracteres. Un script puede usarlo para avisar que terminó.
 

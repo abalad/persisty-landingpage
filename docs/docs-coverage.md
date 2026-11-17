@@ -138,7 +138,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | O app procura versões novas ao abrir e a cada 6 horas, e instala com um clique | updates#atualizar-no-app | a escrever |
 | Desligar a procura em Configurações › Sobre; cada consulta em Privacidade e rede | updates#desligar-a-procura | a escrever |
 | No Windows e no Linux, aviso antes de instalar com sessões abertas | updates#windows-e-linux | a escrever |
-| Configurações › Integrações com GitHub, GitLab (gitlab.com ou da empresa) e Bitbucket, várias contas | forges#conectar-contas | a escrever |
+| Configurações › Integrações com GitHub, GitLab (gitlab.com ou da empresa) e Bitbucket, várias contas | forges#conectar-contas | coberto |
 | Adicionar workspace a partir de um repositório remoto, com progresso e cancelamento | projects-and-workspaces#clonar-um-repositório | coberto |
 | Setas ↓ e ↑ ao lado do branch; buscar, puxar, enviar e publicar o branch | changes#sincronizar-com-o-remoto | coberto |
 | Descartar alterações, commit de tudo quando nada foi preparado, emendar e desfazer o último commit | changes#fazer-o-commit | coberto |
@@ -173,16 +173,16 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Ditado por voz em Configurações › Voz, desligado por padrão, com ⌘⇧D | voice#ditar | a escrever |
-| Tudo roda no computador; o modelo de voz (640 MB) só é baixado quando você pede e pode ser apagado | voice#modelo-de-voz | a escrever |
-| Números falados viram dígitos, termos de programação viram símbolos, substituições próprias | voice#substituicoes | a escrever |
+| Ditado por voz em Configurações › Voz, desligado por padrão, com ⌘⇧D | voice#ligar-o-ditado | coberto |
+| Tudo roda no computador; o modelo de voz (640 MB) só é baixado quando você pede e pode ser apagado | voice#modelo-de-voz | coberto |
+| Números falados viram dígitos, termos de programação viram símbolos, substituições próprias | voice#idioma-e-substituições | coberto |
 | O mascote do terminal que recebe o texto pega um microfone | mascot#no-terminal | coberto |
-| Configurações › Integrações ganhou Linear, Jira Cloud e ClickUp, e as issues do GitHub vêm da conta já conectada | issues#conectar | a escrever |
-| Cada projeto escolhe o serviço em Ajustes do projeto › Tarefas | issues#escolher-o-servico | a escrever |
-| Começar de uma issue, na Nova sessão | issues#comecar-de-uma-issue | a escrever |
-| Concluir na issue: comentário sugerido e novo status, nada escrito sem você enviar | issues#concluir | a escrever |
-| Configurações › Agentes: ferramentas que leem o projeto, as outras sessões e a saída das tarefas | agent-access#ativar | a escrever |
-| Verificar instalação testa a conexão de verdade | agent-access#verificar | a escrever |
+| Configurações › Integrações ganhou Linear, Jira Cloud e ClickUp, e as issues do GitHub vêm da conta já conectada | issues#conectar-o-serviço | coberto |
+| Cada projeto escolhe o serviço em Ajustes do projeto › Tarefas | issues#ligar-ao-projeto | coberto |
+| Começar de uma issue, na Nova sessão | issues#começar-de-uma-issue | coberto |
+| Concluir na issue: comentário sugerido e novo status, nada escrito sem você enviar | issues#concluir | coberto |
+| Configurações › Agentes: ferramentas que leem o projeto, as outras sessões e a saída das tarefas | agent-access#ligar | coberto |
+| Verificar instalação testa a conexão de verdade | agent-access#verificar-instalação | coberto |
 | Pré-visualização de Markdown, com ⌘⇧V e a opção de abrir os .md nela | editor#markdown-e-imagens | coberto |
 | Contexto fixo ao rolar | editor#contexto-fixo-e-minimapa | coberto |
 | Minimapa, em caracteres ou blocos, com escala e visibilidade ajustáveis | editor#contexto-fixo-e-minimapa | coberto |
@@ -259,8 +259,8 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | A caixa de escrever aceita imagens (até 8 por pedido, 10 MB cada) | queue#imagens | coberto |
 | No plano grátis, pausar, reordenar, enviar a seguir e tirar da fila também valem | queue#plano-e-limites | coberto |
 | Barra fina de ferramentas da sessão na borda direita, com contagem em Alterações e Fila | sessions#ferramentas-da-sessão | coberto |
-| Servidores MCP em Configurações: 16 servidores oficiais, busca no registro e teste antes de instalar | mcp-servers#catalogo | a escrever |
-| Cada projeto liga os seus servidores MCP em Ajustes do projeto; tokens no Keychain | mcp-servers#por-projeto | a escrever |
+| Servidores MCP em Configurações: 16 servidores oficiais, busca no registro e teste antes de instalar | mcp-servers#instalar-da-seleção | coberto |
+| Cada projeto liga os seus servidores MCP em Ajustes do projeto; tokens no Keychain | mcp-servers#ligar-num-projeto | coberto |
 | A lista de Arquivos muda de largura | files#a-árvore | coberto |
 | Botão direito num arquivo ou pasta: Mostrar no Finder | files#abrir-em | coberto |
 | Imagens abrem no editor, e um SVG ganha a pré-visualização | editor#markdown-e-imagens | coberto |
@@ -367,9 +367,9 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Agentes › Terminais (se os terminais podem abrir) | settings#agentes | a escrever |
 | Agentes › Agentes detectados | agents#agentes-detectados | coberto |
 | Agentes › Agente padrão | agents#agente-padrão | coberto |
-| Agentes › Ferramentas do Persisty nos agentes | agent-access#ativar | a escrever |
-| Agentes › Verificar instalação | agent-access#verificar | a escrever |
-| Agentes › Comando do Codex CLI | agent-access#codex | a escrever |
+| Agentes › Ferramentas do Persisty nos agentes | agent-access#ligar | coberto |
+| Agentes › Verificar instalação | agent-access#verificar-instalação | coberto |
+| Agentes › Comando do Codex CLI | agent-access#codex-cli | coberto |
 | Contas de IA › Lista de contas (este computador e conectadas, com quota de 5 h e 7 d) | ai-accounts#contas-conectadas | coberto |
 | Contas de IA › Conectar conta (e-mail opcional, código do navegador) | ai-accounts#conectar-uma-conta | coberto |
 | Contas de IA › Desconectar | ai-accounts#conectar-uma-conta | coberto |
@@ -378,22 +378,23 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Contas de IA › Continuar a tarefa cortada pelo limite | ai-accounts#continuar-a-tarefa-cortada | coberto |
 | Contas de IA › Usar só nos projetos fixados nela | ai-accounts#uma-conta-para-um-projeto | coberto |
 | Contas de IA › Aviso de contas com o mesmo e-mail | ai-accounts#conectar-uma-conta | coberto |
-| Voz › Ditado por voz (liga e desliga) | voice#ditar | a escrever |
-| Voz › Atalho | voice#ditar | a escrever |
-| Voz › Idioma do ditado | voice#idioma | a escrever |
-| Voz › Microfone (permissão e entrada) | voice#microfone | a escrever |
-| Voz › Modelo de voz (baixar, apagar, recomeçar) | voice#modelo-de-voz | a escrever |
-| Voz › Substituições (e Experimentar) | voice#substituicoes | a escrever |
-| Integrações › GitHub | forges#github | a escrever |
-| Integrações › GitLab | forges#gitlab | a escrever |
-| Integrações › Bitbucket | forges#bitbucket | a escrever |
-| Integrações › Linear | issues#linear | a escrever |
-| Integrações › Jira Cloud | issues#jira | a escrever |
-| Integrações › ClickUp | issues#clickup | a escrever |
-| Servidores MCP › Instalados e Disponíveis (seleção de servidores oficiais) | mcp-servers#catalogo | a escrever |
-| Servidores MCP › Buscar no registro oficial | mcp-servers#registro | a escrever |
-| Servidores MCP › Adicionar manualmente | mcp-servers#manual | a escrever |
-| Servidores MCP › Instalar, token e estado de cada servidor | mcp-servers#instalar | a escrever |
+| Voz › Ditado por voz (liga e desliga) | voice#ligar-o-ditado | coberto |
+| Voz › Atalho | voice#atalho | coberto |
+| Voz › Idioma do ditado | voice#idioma-e-substituições | coberto |
+| Voz › Microfone (permissão e entrada) | voice#microfone | coberto |
+| Voz › Modelo de voz (baixar, apagar, recomeçar) | voice#modelo-de-voz | coberto |
+| Voz › Substituições (e Experimentar) | voice#idioma-e-substituições | coberto |
+| Integrações › GitHub | forges#github | coberto |
+| Integrações › GitLab | forges#gitlab | coberto |
+| Integrações › Bitbucket | forges#bitbucket | coberto |
+| Integrações › Clonagem › Pasta padrão para clones | forges#pasta-dos-clones | coberto |
+| Integrações › Linear | issues#conectar-o-serviço | coberto |
+| Integrações › Jira Cloud | issues#conectar-o-serviço | coberto |
+| Integrações › ClickUp | issues#conectar-o-serviço | coberto |
+| Servidores MCP › Instalados e Disponíveis (seleção de servidores oficiais) | mcp-servers#instalar-da-seleção | coberto |
+| Servidores MCP › Buscar no registro oficial | mcp-servers#buscar-no-registro-oficial | coberto |
+| Servidores MCP › Adicionar manualmente | mcp-servers#adicionar-manualmente | coberto |
+| Servidores MCP › Instalar, token e estado de cada servidor | mcp-servers#servidores-instalados | coberto |
 | Uso de IA › Alertas (gasto diário e mensal em USD) | usage-and-quota#alertas-de-gasto | coberto |
 | Uso de IA › Fontes de uso | usage-and-quota#fontes-de-dados | coberto |
 | Uso de IA › Abrir uso (a página Uso de IA) | usage-and-quota#gasto-estimado | coberto |
@@ -431,3 +432,7 @@ Vídeos de `public/changelog/` conferidos contra a interface da v0.13.0 e deixad
 | `0.8.0/git.mp4` | `changes` | A barra de sincronização (↓2, ↑1, **Em dia**) bate com a 0.13.0, mas o painel é o da 0.9: ferramentas em abas no topo do painel, botão de painel no cabeçalho e botão do Estúdio do projeto no lugar do Quadro. |
 | `0.9.0/markdown.mp4` | `editor` | A pré-visualização de Markdown bate com a 0.13.0, mas o painel **Código** é o da 0.9: ferramentas em abas no topo do painel, botão de painel no cabeçalho, botão do Estúdio do projeto, e a barra das abas ainda sem o botão **Maximizar o editor**. |
 | `0.9.0/contexto-fixo.mp4` | `editor` | O contexto fixo e o minimapa batem com a 0.13.0, mas o painel **Código** é o da 0.9: ferramentas em abas no topo do painel, botão de painel no cabeçalho, botão do Estúdio do projeto, e a barra das abas sem o botão **Maximizar o editor**. |
+| `0.8.0/integracoes.mp4` | `forges` | A página do GitHub em **Configurações › Integrações** bate com a 0.13.0 (conta por código, **Adicionar conta**, a nota das issues), mas atrás da janela está a sessão da 0.9: o cabeçalho tem o botão de painel, que saiu, não há a barra de ferramentas da borda direita, e a barra do topo tem o botão do Estúdio do projeto no lugar do Quadro. Basta regravar a mesma cena. |
+| `0.9.0/issue.mp4` | `issues` | A sessão aberta da issue, com o nome `ENG-123 …`, o pedido "Resolva a issue …" e a chave com **Concluir** no cabeçalho, bate com a 0.13.0, mas é a sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |
+| `0.9.0/concluir.mp4` | `issues` | Mesma sessão da 0.9 do vídeo da issue (sem a barra da borda direita, botão de painel no cabeçalho, botão do Estúdio do projeto). A chave, **Concluir** e o branch da pasta própria no cabeçalho batem com a 0.13.0; basta regravar a cena. |
+| `0.9.0/voz.mp4` | `voice` | O ditado no terminal e o aviso "Inserido em terminal api" batem com a 0.13.0, mas a sessão é a da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |

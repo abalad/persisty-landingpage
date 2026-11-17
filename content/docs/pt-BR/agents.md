@@ -55,6 +55,4 @@ Na mesma tela, **Agentes detectados** mostra o Claude Code e o Codex CLI como o 
 
 ## Ferramentas para os agentes
 
-**Ferramentas do Persisty nos agentes**, em **Configurações › Agentes**, dá às sessões do Claude Code ferramentas que leem o projeto, as sessões dele e a saída dos comandos do workspace. Nenhuma delas digita em outro terminal. Vem desligado e vale para as sessões que começarem ou reiniciarem depois de ligar; **Verificar instalação** testa se funciona. Para o Codex CLI, a mesma tela mostra um comando para você rodar uma vez no terminal, porque o Persisty não altera a configuração do Codex; esse caminho está marcado como **Não verificado**.
-
-Outros servidores MCP, como GitHub, Sentry ou Supabase, você instala em **Configurações › Servidores MCP** e liga por projeto em **Ajustes do projeto › Servidores MCP**. Eles valem só para as sessões do Claude Code que começarem ou reiniciarem depois.
+Na mesma tela, **Ferramentas do Persisty nos agentes** deixa o Claude Code ler o projeto, as outras sessões e a saída dos comandos do workspace; veja [Agentes que leem o Persisty](/docs/agent-access). Servidores MCP de outros serviços, como GitHub, Sentry ou Supabase, estão em [Servidores MCP](/docs/mcp-servers).
