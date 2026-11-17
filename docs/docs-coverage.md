@@ -126,7 +126,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 |---|---|---|
 | Site em português, inglês e espanhol com planos, download e a conta do Persisty Cloud | account-and-license#conta-no-site | a escrever |
 | Conta pelo site: entrada por código, plano, aparelhos conectados (revogar um), aviso de lançamento, interesse no Enterprise | account-and-license#conta-no-site | a escrever |
-| Docs com o que o app faz hoje e o que ainda não faz | — | sem doc: as próprias docs |
+| Docs com o que o app faz hoje e o que ainda não faz | getting-started#o-que-o-app-faz | a escrever |
 | Changelog com feed RSS em cada idioma | updates#novidades-e-feed | a escrever |
 
 ## 0.8.0
@@ -189,7 +189,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Mudou no Mac: os programas das sessões não usam mais as permissões de privacidade dadas ao Persisty | privacy-and-network#permissoes-do-macos | a escrever |
 | Mudou no Mac: até o Mac reiniciar, as sessões continuam usando as permissões do Persisty | privacy-and-network#permissoes-do-macos | a escrever |
 | Corrigido: o uso de 5 h e 7 d de cada sessão é o da conta em que ela roda, ao vivo | usage-and-quota#janelas-de-5-h-e-7-d | a escrever |
-| Corrigido: com Reduzir movimento, os números de linha ficam alinhados e a busca leva à linha certa | — | sem doc: correção de exibição, sem comportamento a descrever |
+| Corrigido: com Reduzir movimento, os números de linha ficam alinhados e a busca leva à linha certa | editor#acessibilidade | a escrever |
 | Corrigido: uma atualização parada no download desiste depois de 30 s; Privacidade e rede mostra cada servidor | updates#atualizar-no-app | a escrever |
 | Corrigido: no Linux, o pacote .deb instala ao lado dos programas do sistema | updates#windows-e-linux | a escrever |
 | Windows e Linux continuam como prévia, sem assinatura | updates#windows-e-linux | a escrever |
@@ -199,13 +199,13 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Item | Página | Situação |
 |---|---|---|
 | Corrigido: Adicionar workspace aceita a pasta escolhida no Windows (C:\...) | projects-and-workspaces#adicionar-workspace | a escrever |
-| Corrigido: Nova sessão num workspace do Windows é criada normalmente | — | sem doc: correção pontual, o comportamento já é o descrito em sessions |
+| Corrigido: Nova sessão num workspace do Windows é criada normalmente | sessions#sessoes-e-abas | a escrever |
 
 ## 0.9.2
 
 | Item | Página | Situação |
 |---|---|---|
-| Corrigido: no Windows e no Linux, a barra do topo começa na borda da janela | — | sem doc: correção de layout, sem comportamento a descrever |
+| Corrigido: no Windows e no Linux, a barra do topo começa na borda da janela | troubleshooting#windows-e-linux | a escrever |
 
 ## 0.9.3
 
@@ -220,7 +220,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Corrigido: o terminal das sessões não embaralha mais o texto no Windows com a tela em 125% ou 150% | — | sem doc: correção de exibição, sem comportamento a descrever |
+| Corrigido: o terminal das sessões não embaralha mais o texto no Windows com a tela em 125% ou 150% | troubleshooting#windows-e-linux | a escrever |
 
 ## 0.10.0
 
@@ -268,10 +268,10 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Pro e Team se assinam no site; no plano grátis, Configurações › Conta tem Ver planos | pro#assinar | a escrever |
 | Corrigido: a troca de conta espera um subagente ou comando terminar | ai-accounts#trocar-pelo-rodape | a escrever |
 | Corrigido: Quando a janela de 5 h renovar usa o horário da conta da própria sessão | queue#quando-sai-cada-pedido | a escrever |
-| Corrigido: pedidos da fila e o continue automático ficavam como rascunho no Claude Code | — | sem doc: correção de envio, sem comportamento a descrever |
+| Corrigido: pedidos da fila e o continue automático ficavam como rascunho no Claude Code | queue#envio-ao-agente | a escrever |
 | Corrigido: pedido muito longo na fila (cerca de 16 mil caracteres) não saía, e um ; no fim sumia | queue#limites | a escrever |
 | Corrigido: Contas de IA avisa quando duas contas entraram com o mesmo e-mail | ai-accounts#mesmo-email | a escrever |
-| Corrigido: o contexto fixo ao rolar não mostra um bloco que a linha logo abaixo já fecha | — | sem doc: correção de exibição, sem comportamento a descrever |
+| Corrigido: o contexto fixo ao rolar não mostra um bloco que a linha logo abaixo já fecha | editor#contexto-fixo | a escrever |
 
 ## 0.11.0
 
@@ -327,7 +327,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Corrigido: copiar caminho com muitos arquivos pergunta ao Git uma vez; Abrir no GitHub numa branch não enviada aponta para o commit | files#copiar-caminho | a escrever |
 | Corrigido: arrastar numa árvore grande ficou bem mais leve | — | sem doc: desempenho, sem comportamento a descrever |
 | Corrigido: uma tecla que não vale naquele lugar diz o motivo | shortcuts#tecla-que-nao-vale | a escrever |
-| Corrigido: detalhes do menu de clique direito, das abas, do histórico do arquivo e da leitura de tela | — | sem doc: ajustes de detalhe, sem comportamento a descrever |
+| Corrigido: detalhes do menu de clique direito, das abas, do histórico do arquivo e da leitura de tela | tabs-and-groups#menu-de-clique-direito | a escrever |
 | No Windows, o Desfazer da Lixeira e os avisos de arquivo em uso ainda estão sendo conferidos | troubleshooting#windows-e-linux | a escrever |
 
 ## Configurações

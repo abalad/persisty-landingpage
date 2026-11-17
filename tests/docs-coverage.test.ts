@@ -67,6 +67,16 @@ describe("docs coverage inventory", () => {
     expect(titles).toEqual(released);
   });
 
+  it("has at least one row per changelog item in every version", () => {
+    for (const [title, table] of all) {
+      if (!isVersion(title)) continue;
+      const file = readFileSync(join(process.cwd(), "content/changelog/pt-BR", `${title}.md`), "utf8");
+      const bullets = file.split("\n").filter((l) => l.startsWith("- ")).length;
+      const rows = table.filter((r) => r[0] !== "Item").length;
+      expect(rows, `rows for ${title}`).toBeGreaterThanOrEqual(bullets);
+    }
+  });
+
   it("has a settings section listing every settings tab", () => {
     const tabs = ["Agentes", "Uso de IA", "Atalhos", "Conta", "Contas de IA", "Sobre", "Integrações", "Aparência", "Privacidade e rede", "Terminal", "Arquivos", "Editor", "Workspace", "Notificações", "Voz", "Servidores MCP"];
     const section = all.get("Configurações");
