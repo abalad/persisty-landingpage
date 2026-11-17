@@ -27,9 +27,9 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/free">):
 /** The free features that have a window on the home page get one here too; the rest are listed. */
 const SECTIONS = [
   { anchor: "recovery", icon: "recovery", docs: "/docs/sessions-and-recovery" },
-  { anchor: "states", icon: "board", docs: "/docs/agents" },
+  { anchor: "states", icon: "board", docs: "/docs/board" },
   { anchor: "projects", icon: "projects", docs: "/docs/projects-and-workspaces" },
-  { anchor: "mascot", icon: "mascot", docs: "/docs/agents" },
+  { anchor: "mascot", icon: "mascot", docs: "/docs/mascot" },
   { anchor: "editor", icon: "editorGit", docs: "/docs/editor" },
   { anchor: "privacy", icon: "networkLog", docs: "/security" },
 ] as const;

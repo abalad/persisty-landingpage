@@ -83,9 +83,9 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 
 | Item | Página | Situação |
 |---|---|---|
-| Configurações › Conta: entrada por código enviado por e-mail, com a conta criada no primeiro acesso | account-and-license#entrar | a escrever |
-| Plano e recursos vêm de uma licença assinada que funciona 14 dias sem internet | account-and-license#licenca | a escrever |
-| Configurações › Rede: cada chamada que o app faz para fora, sem cabeçalhos, corpo ou parâmetros | privacy-and-network#registro-de-rede | a escrever |
+| Configurações › Conta: entrada por código enviado por e-mail, com a conta criada no primeiro acesso | account-and-license#entrar | coberto |
+| Plano e recursos vêm de uma licença assinada que funciona 14 dias sem internet | account-and-license#licença | coberto |
+| Configurações › Rede: cada chamada que o app faz para fora, sem cabeçalhos, corpo ou parâmetros | privacy-and-network#registro-de-rede | coberto |
 | Janelas de 5 h e 7 d do rodapé ao vivo, do mesmo lugar que o /usage do Claude Code | usage-and-quota#janelas-de-5-h-e-7-d | coberto |
 
 ## 0.4.0
@@ -117,27 +117,27 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 |---|---|---|
 | Tudo de que o Persisty precisa vai dentro do app, sem instalar nada à parte | getting-started#instalar | coberto |
 | No Windows, os agentes funcionam sem shell POSIX | troubleshooting#windows-e-linux | a escrever |
-| Instalador para Windows e pacotes .deb e AppImage para Linux, como prévia | updates#sistemas-e-instaladores | a escrever |
+| Instalador para Windows e pacotes .deb e AppImage para Linux, como prévia | updates#baixar | coberto |
 | Corrigido: eventos dos agentes podiam se perder quando uma linha era lida no meio da escrita | — | sem doc: correção interna, sem efeito a descrever |
 
 ## 0.7.0
 
 | Item | Página | Situação |
 |---|---|---|
-| Site em português, inglês e espanhol com planos, download e a conta do Persisty Cloud | account-and-license#conta-no-site | a escrever |
-| Conta pelo site: entrada por código, plano, aparelhos conectados (revogar um), aviso de lançamento, interesse no Enterprise | account-and-license#conta-no-site | a escrever |
+| Site em português, inglês e espanhol com planos, download e a conta do Persisty Cloud | account-and-license#conta-no-site | coberto |
+| Conta pelo site: entrada por código, plano, aparelhos conectados (revogar um), aviso de lançamento, interesse no Enterprise | account-and-license#conta-no-site | coberto |
 | Docs com o que o app faz hoje e o que ainda não faz | getting-started#próximos-passos | coberto |
-| Changelog com feed RSS em cada idioma | updates#novidades-e-feed | a escrever |
+| Changelog com feed RSS em cada idioma | updates#novidades-e-aviso-por-e-mail | coberto |
 
 ## 0.8.0
 
 | Item | Página | Situação |
 |---|---|---|
-| Instalador: Mac assinado e notarizado; Windows e Linux como prévia | updates#sistemas-e-instaladores | a escrever |
-| Página de download e Todas as versões, com data, tamanho e SHA-256 | updates#baixar | a escrever |
-| O app procura versões novas ao abrir e a cada 6 horas, e instala com um clique | updates#atualizar-no-app | a escrever |
-| Desligar a procura em Configurações › Sobre; cada consulta em Privacidade e rede | updates#desligar-a-procura | a escrever |
-| No Windows e no Linux, aviso antes de instalar com sessões abertas | updates#windows-e-linux | a escrever |
+| Instalador: Mac assinado e notarizado; Windows e Linux como prévia | updates#baixar | coberto |
+| Página de download e Todas as versões, com data, tamanho e SHA-256 | updates#baixar | coberto |
+| O app procura versões novas ao abrir e a cada 6 horas, e instala com um clique | updates#atualizar-no-app | coberto |
+| Desligar a procura em Configurações › Sobre; cada consulta em Privacidade e rede | updates#desligar-a-procura-automática | coberto |
+| No Windows e no Linux, aviso antes de instalar com sessões abertas | updates#as-sessões-abertas | coberto |
 | Configurações › Integrações com GitHub, GitLab (gitlab.com ou da empresa) e Bitbucket, várias contas | forges#conectar-contas | coberto |
 | Adicionar workspace a partir de um repositório remoto, com progresso e cancelamento | projects-and-workspaces#clonar-um-repositório | coberto |
 | Setas ↓ e ↑ ao lado do branch; buscar, puxar, enviar e publicar o branch | changes#sincronizar-com-o-remoto | coberto |
@@ -163,8 +163,8 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | A aba de uma sessão do Claude Code ganha o nome da conversa | sessions#sessões-e-abas | coberto |
 | Rodízio (Pro): escolher em que ponto da quota uma conta sai do rodízio | ai-accounts#rodízio | coberto |
 | Rodízio (Pro): ao fim do turno no limite, a sessão passa para a conta com mais folga e retoma a conversa | ai-accounts#rodízio | coberto |
-| Entrar no Persisty Cloud em dois passos, numa janela própria | account-and-license#entrar | a escrever |
-| Uma segunda conta pode entrar no mesmo computador; um computador removido volta ao entrar de novo | account-and-license#computadores | a escrever |
+| Entrar no Persisty Cloud em dois passos, numa janela própria | account-and-license#entrar | coberto |
+| Uma segunda conta pode entrar no mesmo computador; um computador removido volta ao entrar de novo | account-and-license#computadores | coberto |
 | ⌘ ou Ctrl + clique abre no navegador um link do terminal | sessions#links-no-terminal | coberto |
 | Criar arquivos e pastas pela lista de arquivos do editor | files#criar-arquivos-e-pastas | coberto |
 | Um mascote no canto do terminal acompanha o estado do agente | mascot#no-terminal | coberto |
@@ -186,13 +186,13 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Pré-visualização de Markdown, com ⌘⇧V e a opção de abrir os .md nela | editor#markdown-e-imagens | coberto |
 | Contexto fixo ao rolar | editor#contexto-fixo-e-minimapa | coberto |
 | Minimapa, em caracteres ou blocos, com escala e visibilidade ajustáveis | editor#contexto-fixo-e-minimapa | coberto |
-| Mudou no Mac: os programas das sessões não usam mais as permissões de privacidade dadas ao Persisty | privacy-and-network#permissoes-do-macos | a escrever |
-| Mudou no Mac: até o Mac reiniciar, as sessões continuam usando as permissões do Persisty | privacy-and-network#permissoes-do-macos | a escrever |
+| Mudou no Mac: os programas das sessões não usam mais as permissões de privacidade dadas ao Persisty | privacy-and-network#permissões-do-macos | coberto |
+| Mudou no Mac: até o Mac reiniciar, as sessões continuam usando as permissões do Persisty | privacy-and-network#permissões-do-macos | coberto |
 | Corrigido: o uso de 5 h e 7 d de cada sessão é o da conta em que ela roda, ao vivo | usage-and-quota#janelas-de-5-h-e-7-d | coberto |
 | Corrigido: com Reduzir movimento, os números de linha ficam alinhados e a busca leva à linha certa | editor#acessibilidade | coberto |
-| Corrigido: uma atualização parada no download desiste depois de 30 s; Privacidade e rede mostra cada servidor | updates#atualizar-no-app | a escrever |
-| Corrigido: no Linux, o pacote .deb instala ao lado dos programas do sistema | updates#windows-e-linux | a escrever |
-| Windows e Linux continuam como prévia, sem assinatura | updates#windows-e-linux | a escrever |
+| Corrigido: uma atualização parada no download desiste depois de 30 s; Privacidade e rede mostra cada servidor | updates#atualizar-no-app | coberto |
+| Corrigido: no Linux, o pacote .deb instala ao lado dos programas do sistema | updates#windows-e-linux | coberto |
+| Windows e Linux continuam como prévia, sem assinatura | updates#windows-e-linux | coberto |
 
 ## 0.9.1
 
@@ -265,7 +265,7 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Botão direito num arquivo ou pasta: Mostrar no Finder | files#abrir-em | coberto |
 | Imagens abrem no editor, e um SVG ganha a pré-visualização | editor#markdown-e-imagens | coberto |
 | No terminal, caminhos que existem no disco e endereços www. viram links | sessions#links-no-terminal | coberto |
-| Pro e Team se assinam no site; no plano grátis, Configurações › Conta tem Ver planos | pro#assinar | a escrever |
+| Pro e Team se assinam no site; no plano grátis, Configurações › Conta tem Ver planos | pro#assinar | coberto |
 | Corrigido: a troca de conta espera um subagente ou comando terminar | ai-accounts#trocar-a-conta-de-uma-sessão | coberto |
 | Corrigido: Quando a janela de 5 h renovar usa o horário da conta da própria sessão | queue#quando-cada-pedido-sai | coberto |
 | Corrigido: pedidos da fila e o continue automático ficavam como rascunho no Claude Code | queue#como-os-pedidos-chegam-ao-agente | coberto |
@@ -398,17 +398,17 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Uso de IA › Alertas (gasto diário e mensal em USD) | usage-and-quota#alertas-de-gasto | coberto |
 | Uso de IA › Fontes de uso | usage-and-quota#fontes-de-dados | coberto |
 | Uso de IA › Abrir uso (a página Uso de IA) | usage-and-quota#gasto-estimado | coberto |
-| Privacidade e rede › Privacidade (dados das sessões, integrações externas, telemetria) | privacy-and-network#privacidade | a escrever |
-| Privacidade e rede › Chamadas de rede desde que o app abriu (Atualizar) | privacy-and-network#registro-de-rede | a escrever |
+| Privacidade e rede › Privacidade (dados das sessões, integrações externas, telemetria) | privacy-and-network#privacidade | coberto |
+| Privacidade e rede › Chamadas de rede desde que o app abriu (Atualizar) | privacy-and-network#registro-de-rede | coberto |
 | Atalhos › Lista de todas as teclas, com busca | shortcuts#lista-completa | a escrever |
-| Conta › Entrar, criar conta e sair | account-and-license#entrar | a escrever |
-| Conta › E-mail, plano, assinatura e recursos do plano | account-and-license#plano-e-recursos | a escrever |
-| Conta › Licença (validade, Atualizar licença) | account-and-license#licenca | a escrever |
-| Conta › Ver planos | pro#assinar | a escrever |
+| Conta › Entrar, criar conta e sair | account-and-license#entrar | coberto |
+| Conta › E-mail, plano, assinatura e recursos do plano | account-and-license#plano-e-recursos | coberto |
+| Conta › Licença (validade, Atualizar licença) | account-and-license#licença | coberto |
+| Conta › Ver planos | pro#assinar | coberto |
 | Sobre › Versão e sistema | settings#sobre | a escrever |
 | Sobre › Pasta de dados (Mostrar no Finder) | settings#sobre | a escrever |
-| Sobre › Procurar atualizações | updates#atualizar-no-app | a escrever |
-| Sobre › Procurar atualizações automaticamente | updates#desligar-a-procura | a escrever |
+| Sobre › Procurar atualizações | updates#atualizar-no-app | coberto |
+| Sobre › Procurar atualizações automaticamente | updates#desligar-a-procura-automática | coberto |
 
 ## Mídia para a entrega 2
 
@@ -436,3 +436,5 @@ Vídeos de `public/changelog/` conferidos contra a interface da v0.13.0 e deixad
 | `0.9.0/issue.mp4` | `issues` | A sessão aberta da issue, com o nome `ENG-123 …`, o pedido "Resolva a issue …" e a chave com **Concluir** no cabeçalho, bate com a 0.13.0, mas é a sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |
 | `0.9.0/concluir.mp4` | `issues` | Mesma sessão da 0.9 do vídeo da issue (sem a barra da borda direita, botão de painel no cabeçalho, botão do Estúdio do projeto). A chave, **Concluir** e o branch da pasta própria no cabeçalho batem com a 0.13.0; basta regravar a cena. |
 | `0.9.0/voz.mp4` | `voice` | O ditado no terminal e o aviso "Inserido em terminal api" batem com a 0.13.0, mas a sessão é a da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |
+| `0.8.0/atualizar.mp4` | `updates` | O aviso de versão nova (**Persisty 0.9.0 disponível**, **Baixando… 100%**, **Novidades** e **Instalar e reiniciar**) bate com a 0.13.0, mas atrás dele está a sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. Basta regravar a mesma cena. |
+| `0.3.0/rede.mp4` | `privacy-and-network` | **Configurações › Privacidade e rede** (o grupo **Privacidade**, a lista de chamadas com **Atualizar** e o rodapé com **Entrar** e **Criar conta grátis**) tem o desenho da 0.13.0, mas as chamadas `GIT` mostram bytes (96 B enviados, 2,0 KB recebidos), e a 0.13.0 registra 0 bytes para elas. Atrás da janela está a sessão da 0.9: o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. Na capa, a lista de abas começa em Código, sem o grupo de Aparência, Workspace e Notificações à vista. |

@@ -24,10 +24,10 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/pro">): 
 /** Section id → the window that shows it (the accounts screen has its own). */
 const SECTIONS: { anchor: string; icon: string; panel?: ProPanelId; docs: string }[] = [
   { anchor: "accounts", icon: "accountRotation", docs: "/docs/ai-accounts" },
-  { anchor: "queue", icon: "requestQueue", panel: "queue", docs: "/docs/pro" },
-  { anchor: "restore-points", icon: "restorePoints", panel: "restore", docs: "/docs/pro" },
-  { anchor: "verify", icon: "verifyOnFinish", panel: "verify", docs: "/docs/pro" },
-  { anchor: "worktree", icon: "worktrees", panel: "worktree", docs: "/docs/pro" },
+  { anchor: "queue", icon: "requestQueue", panel: "queue", docs: "/docs/queue" },
+  { anchor: "restore-points", icon: "restorePoints", panel: "restore", docs: "/docs/restore-points" },
+  { anchor: "verify", icon: "verifyOnFinish", panel: "verify", docs: "/docs/verify" },
+  { anchor: "worktree", icon: "worktrees", panel: "worktree", docs: "/docs/worktrees" },
 ];
 
 export default function ProPage({ params }: PageProps<"/[locale]/pro">) {

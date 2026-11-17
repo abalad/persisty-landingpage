@@ -1,28 +1,44 @@
 ---
-title: Conta, planos e licença
-description: Para que serve a conta do Persisty, como funciona a licença offline e quantos computadores ela cobre.
+title: Conta e licença
+description: Para que serve a conta do Persisty, como entrar, o que Configurações › Conta mostra e como a licença funciona sem internet em até 5 computadores.
 group: account
 order: 2
 ---
 
-O plano gratuito não pede conta. A conta do Persisty Cloud existe para os planos pagos e para os avisos que você pedir.
+O plano grátis não pede conta. A conta do Persisty Cloud serve para os planos pagos e para os avisos de versão que você pedir: entrar com ela no app traz para este computador a licença do seu plano.
 
 ## Entrar
 
-No app, sem conta, o rodapé de **Configurações** mostra **Entrar** e **Criar conta grátis**; os dois seguem o mesmo caminho. A entrada é por código: informe o e-mail, receba um código e digite-o no app ou no [site](/sign-in). A conta nasce no primeiro acesso, sem senha. O código vale por 10 minutos e uma vez só.
+Sem conta, o rodapé de **Configurações** mostra **Entrar** e **Criar conta grátis**. Os dois abrem a mesma janela, em dois passos. No primeiro, digite o e-mail e clique em **Continuar com e-mail**. No segundo, digite o código de 8 dígitos que chegou no e-mail; com o último dígito, o app entra sozinho. O código vale por 10 minutos e uma vez só. A conta nasce no primeiro acesso, sem senha.
 
-No app, a sessão fica guardada no cofre de senhas do sistema: o Keychain no macOS, o Gerenciador de Credenciais no Windows e o Secret Service no Linux.
+Se o código não chegar, **Reenviar código** manda outro depois de 60 segundos, e **Usar outro e-mail** volta ao primeiro passo. Se você já tem um código, **Digitar código** leva direto ao segundo passo: pedir um novo invalidaria o que chegou.
 
-Com a conta conectada, **Configurações › Conta** mostra o e-mail, o **Plano**, a **Licença** ("Funciona sem internet até" e a data) e os **Recursos do plano**. No plano grátis, **Ver planos** abre os preços no site. **Atualizar licença** busca a licença agora, e **Sair da conta** desconecta este computador da conta.
+A sessão da conta fica no cofre de senhas do sistema: o Keychain no macOS e, nas prévias, o Gerenciador de Credenciais no Windows e o Secret Service no Linux. Com a conta conectada, o rodapé de Configurações mostra o e-mail, o plano e **Gerenciar conta**, que abre **Configurações › Conta**. Essa aba só existe com a conta conectada.
+
+## Plano e recursos
+
+**Configurações › Conta** mostra o **E-mail**, o **Plano** (Gratuito, Pro ou Team), a **Licença** e os **Recursos do plano**, cada recurso pago numa etiqueta; no plano grátis, **Nenhum recurso pago**. O que cada etiqueta libera está em [Planos e recursos do Pro](/docs/pro).
+
+No plano grátis, a linha **Assinatura** tem **Ver planos**, que abre os preços no site. Embaixo, **Atualizar licença** busca a licença na hora, e **Sair da conta** encerra a sessão da conta neste computador, que volta ao plano grátis.
 
 ## Licença
 
-Os recursos pagos são liberados por uma licença assinada que o app confere sozinho.
+Os recursos pagos vêm de uma licença assinada, que o app confere sozinho, sem internet. A linha **Licença** mostra **válida** e "Funciona sem internet até", com a data.
 
-- Vale **14 dias sem internet**. Com o app aberto e conexão, ela se renova a cada 6 horas.
-- Cobre até **5 computadores** por conta. Em [Minha conta](/account) você vê os aparelhos e pode revogar um deles.
-- Se o plano acabar, o Persisty volta ao gratuito. Pontos de restauração já gravados continuam restauráveis e pedidos que já estavam na fila continuam sendo entregues. O rodízio entre contas e o "continue" depois do limite param, porque os dois dependem da licença.
+A licença vale 14 dias. Com a conta conectada e o app aberto, o Persisty pede uma nova ao abrir e a cada 6 horas; sem internet, a guardada continua valendo até vencer. Se ela vencer ou não conferir, a linha mostra **atenção** e o motivo, e os recursos pagos param até chegar outra: conecte e clique em **Atualizar licença**.
 
-## Planos
+## Computadores
 
-Veja os planos e o que cada um inclui em [Preços](/pricing). O pagamento é no cartão, pelo Stripe; a assinatura e os convites do time ficam em Minha conta.
+Uma conta vale em até 5 computadores. Um computador entra na lista da conta na primeira vez que você entra nele pelo app, com o nome que ele tem no sistema. Num sexto, a conta entra, mas a licença não vem, e **Atualizar licença** diz que a conta já está em 5 computadores. Remova um em [Minha conta](/account/devices) e atualize de novo.
+
+Um computador removido no site sai da conta na próxima renovação da licença. Para usá-lo de novo, basta entrar nele outra vez. **Sair da conta** não libera a vaga: o computador continua na lista até você removê-lo.
+
+Depois que você sai, outra conta do Persisty pode entrar no mesmo computador, que passa a contar também entre os 5 dela.
+
+## Conta no site
+
+No site, [Entrar](/sign-in) usa o mesmo código por e-mail. Em [Minha conta](/account) você vê o plano, gerencia a assinatura pelo Stripe, convida o time, remove computadores e liga o e-mail que avisa quando sai uma versão nova.
+
+## Plano e limites
+
+Criar a conta é grátis. São até 5 computadores por conta, e a licença vale 14 dias sem internet. Se o cofre de senhas do sistema não estiver disponível, a sessão da conta dura só até você fechar o app, e é preciso entrar de novo ao reabrir.
