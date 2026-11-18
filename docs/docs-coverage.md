@@ -364,7 +364,7 @@ Lista final: 37 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Clonar cursor | editor#seleção-em-coluna-e-cursores | coberto |
 | O cabeçalho da sessão ficou só com as informações dela | sessions#cabeçalho-da-sessão | coberto |
 | Algumas teclas mudam de sentido só dentro do código | shortcuts#dentro-do-código | coberto |
-| No mapa WebStorm macOS, | code-navigation#favoritos | coberto |
+| No mapa WebStorm (macOS), F3 marca um favorito e a busca da próxima fica em ⌘G | code-navigation#favoritos | coberto |
 
 ## Configurações
 
