@@ -66,6 +66,11 @@ const noSideways = async (width, name) => check(`${width}: ${name}, no sideways 
 const shot = (name) => captureViewport(b, join(out, `${name}.png`));
 const FAILED = "Não deu para terminar agora. Sua conta continua aqui. Tente de novo em instantes.";
 const NETWORK = "Não conseguimos falar com o servidor. Confira a internet e tente de novo.";
+const CHANGED = "Agora você está em outra conta. Confira o que é excluído.";
+const lis = async () => JSON.parse(await js(`JSON.stringify([...document.querySelectorAll("dialog li")].map((li) => li.textContent))`));
+/** The site's calls to the functions answered here, before any script of the page runs: nothing reaches a real project. */
+const PREVIEW = { email: "ana@acme.com", computers: 2, fresh: false, subscriptions: [{ plan: "team", team: "Acme", refund: null }], owned_teams: ["Acme"], member_teams: [] };
+const STAND_IN = `(() => { const real = window.fetch; window.fetch = (url, init) => { const u = String(url); if (u.includes("/functions/v1/delete-account")) return Promise.resolve(new Response(${JSON.stringify(JSON.stringify(PREVIEW))}, { headers: { "content-type": "application/json" } })); if (u.includes("/functions/v1/")) return Promise.resolve(new Response('{"error":"not_configured"}', { status: 503, headers: { "content-type": "application/json" } })); return real(url, init); }; })()`;
 const notBusy = async () => (await js(`!document.querySelector("dialog button[aria-busy=true]")`)) === true && (await hasClose()) === true;
 /** On a phone, the room between the step's last line and the footer's hairline, with the sheet scrolled to its end. */
 const room = async (width, name) => {
@@ -188,6 +193,25 @@ try {
     await fits(width, "step 1 with four lines and a refund");
     await room(width, "step 1 with four lines");
     await noSideways(width, "step 1 with four lines");
+
+    // The session turned into another account's (another tab) before the deletion: nothing goes, step 1 again with that account.
+    await visit("fresh=1&changed=1");
+    await press("Continuar");
+    await sleep(900);
+    await press("Excluir conta");
+    await sleep(2600);
+    check(`${width}: the deletion carries the account reviewed`, (await js(`JSON.stringify(window.__deleteEmails ?? [])`)) === '["ana@acme.com"]', await js(`JSON.stringify(window.__deleteEmails ?? [])`));
+    const switched = await lis();
+    check(`${width}: another account in the session: step 1 again, with that account and the reason`, (await title()) === "Excluir sua conta" && /bia@acme\.com/.test(switched[0] ?? "") && (await alertText()) === CHANGED && (await notBusy()), `${await title()} / ${switched[0]} / ${await alertText()}`);
+    await shot(`31-changed-${width}`);
+    await fits(width, "step 1 after the account changed");
+    await room(width, "step 1 after the account changed");
+    await press("Continuar");
+    await sleep(900);
+    await press("Excluir conta");
+    await sleep(2600);
+    check(`${width}: and the next deletion carries the account now shown`, (await js(`JSON.stringify(window.__deleteEmails ?? [])`)) === '["ana@acme.com","bia@acme.com"]' && /\/account-deleted$/.test(await js("location.pathname")), `${await js(`JSON.stringify(window.__deleteEmails ?? [])`)} ${await js("location.pathname")}`);
+    await js(`sessionStorage.clear()`);
   }
 
   await setWidth(b, "desktop");
@@ -232,6 +256,7 @@ try {
   await press("Excluir conta");
   await sleep(5000);
   check("an error with the account gone still ends on the page after", /\/account-deleted$/.test(await js("location.pathname")), await js("location.pathname"));
+  check("and the account was looked for with the token the deletion used", /^[\w-]+\.[\w-]+\.[\w-]+$/.test((await js(`String(window.__stillToken)`)) ?? ""), await js(`String(window.__stillToken).slice(0, 12)`));
   check("and does not say the confirmation went out", !/confirmação foi para/.test(await js(`document.querySelector("h1")?.parentElement?.textContent ?? ""`)));
   await js(`sessionStorage.clear()`);
 
@@ -367,6 +392,21 @@ try {
   await sleep(1000);
   await shot("12-what-en-mobile");
   await noSideways("mobile", "en step 1");
+
+  // Step 1 at its longest, four lines with a refund, in the other two languages, on desktop and phone.
+  for (const width of ["desktop", "mobile"]) {
+    await setWidth(b, width);
+    for (const locale of ["en", "es"]) {
+      await open(b, `${base}/${locale}${preview}?open=1&refund=1&member=1`, 3500);
+      await sleep(1000);
+      const four = await lis();
+      check(`${width}: ${locale}: step 1 has the four lines and the refund`, four.length === 5 && /(9,90|9\.90)/.test(four[1]) && /Beta/.test(four[3]), four.join(" | "));
+      await shot(`30-what-four-${locale}-${width}`);
+      await fits(width, `${locale}: step 1 with four lines and a refund`);
+      await room(width, `${locale}: step 1 with four lines`);
+      await noSideways(width, `${locale}: step 1 with four lines`);
+    }
+  }
   }
 
   // The earlier steps leave the English cookie behind: the rest runs in Portuguese again.
@@ -389,6 +429,16 @@ try {
       await shot(`20-section-${name}-${width}`);
       await noSideways(width, `${name} section`);
     }
+    // An admin of the paid Team: the Team and its plan stay, so the sentence names no subscription and the dialog has no shortcut to cancel it.
+    await open(b, `${base}${preview}?view=account&role=admin`, 3500);
+    const adminText = await js(`document.getElementById("o-delete")?.closest("section")?.textContent ?? ""`);
+    check(`${width}: a Team's admin: the sentence without the subscription`, /^Excluir contaApaga a conta\. O Persisty/.test(adminText), adminText);
+    const { identifier: adminStandIn } = (await b.send("Page.addScriptToEvaluateOnNewDocument", { source: STAND_IN })).result;
+    await open(b, `${base}${preview}?view=account&role=admin&open=1`, 3500);
+    await sleep(800);
+    check(`${width}: a Team's admin: no shortcut to cancel the Team's plan`, (await title()) === "Excluir sua conta" && (await js(`!${button("Só quer parar")}`)) === true, await title());
+    await b.send("Page.removeScriptToEvaluateOnNewDocument", { identifier: adminStandIn });
+
     // The button opens the dialog; the cancelling link hands over to the cancelling dialog.
     await open(b, `${base}${preview}?view=account`, 3500);
     // The section calls the real function: the page's fetch answers the preview in its place.
@@ -399,10 +449,20 @@ try {
     await press("Só quer parar de pagar");
     await sleep(1200);
     check(`${width}: the link to cancelling opens the cancelling dialog`, (await js(`document.querySelector("dialog")?.open === true && !document.getElementById("delete-title")`)) === true);
-    // From /account/delete the dialog is already open.
+    // From /account/delete the dialog is already open. The stand-in answers before the page's first call.
+    const { identifier } = (await b.send("Page.addScriptToEvaluateOnNewDocument", { source: STAND_IN })).result;
     await open(b, `${base}${preview}?view=account&open=1`, 3500);
     await sleep(800);
-    check(`${width}: with open the dialog starts open`, await isOpen());
+    check(`${width}: with open the dialog starts open`, await isOpen() && (await title()) === "Excluir sua conta", await title());
+    // Handing over to cancelling, then closing that: back to My account, so a reload does not open the deletion again.
+    await press("Só quer parar de pagar");
+    await sleep(1200);
+    check(`${width}: from /account/delete the link opens the cancelling dialog`, (await js(`document.querySelector("dialog")?.open === true && !document.getElementById("delete-title")`)) === true);
+    await key("Escape");
+    await sleep(1500);
+    const where = await js("location.pathname + location.search");
+    check(`${width}: closing the cancelling dialog there goes back to My account`, /^\/account$/.test(await js("location.pathname")) || /^\/sign-in\?next=%2Faccount$|^\/sign-in\?next=\/account$/.test(where), where);
+    await b.send("Page.removeScriptToEvaluateOnNewDocument", { identifier });
 
     // The page after.
     for (const [name, value] of [["sent", JSON.stringify({ email: "ana@acme.com", sent: true })], ["empty", null], ["unsent", JSON.stringify({ email: "ana@acme.com", sent: false })]]) {
