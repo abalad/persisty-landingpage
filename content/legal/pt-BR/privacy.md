@@ -70,9 +70,11 @@ Esses dados ficam no Supabase, na região de São Paulo. Usamos para manter a co
 
 O pagamento é processado pela Stripe; o Persisty não vê nem guarda dados de cartão.
 
+Os e-mails, como o código de acesso e os avisos da conta, saem pelo Resend.
+
 ## Seus direitos
 
-Pela LGPD, você pode pedir acesso aos seus dados e a correção deles. A conta você mesmo exclui, a qualquer momento, em Minha conta: os dados pessoais são apagados na hora, e ficam só os registros de pagamento que a lei manda guardar, no Stripe, e números agregados que não identificam ninguém. Consultamos esses registros só para saber se uma compra é a primeira, por causa do reembolso dos 7 dias. Excluir a conta do dono de um Time apaga também o Time e as contas de quem participa só dele; essas pessoas recebem um aviso por e-mail.
+Pela LGPD, você pode pedir acesso aos seus dados e a correção deles. A conta você mesmo exclui, a qualquer momento, em Minha conta: os dados pessoais são apagados na hora, e ficam só os registros de pagamento que a lei manda guardar, no Stripe, e números agregados que não identificam ninguém. Os registros técnicos de acesso e de envio, que o Supabase e o Resend guardam, somem sozinhos no prazo de cada serviço. Consultamos esses registros só para saber se uma compra é a primeira, por causa do reembolso dos 7 dias. Excluir a conta do dono de um Time apaga também o Time e as contas de quem participa só dele; essas pessoas recebem um aviso por e-mail.
 
 {{contact}}
 
