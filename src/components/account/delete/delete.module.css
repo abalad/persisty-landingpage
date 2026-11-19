@@ -11,6 +11,11 @@ div.body {
   padding-top: 8px;
 }
 
+/* Step 1 in the middle of the column: a short one leaves no empty band over the footer; a long one fills the column anyway. */
+div.middle {
+  align-content: center;
+}
+
 /* The title and its lead sit closer than the rest of the step; the lead takes the column's width, at the size of the lines under it. */
 .head {
   display: grid;
@@ -200,6 +205,11 @@ button.solid[aria-busy="true"] {
 @media (max-width: 720px) {
   div.body {
     padding-bottom: 0;
+  }
+
+  /* Room between the step's last line and the footer's hairline, as the sheet scrolls under it. */
+  div.foot {
+    margin-top: 20px;
   }
 
   /* A long address may be wider than a phone: there it breaks where it must. */

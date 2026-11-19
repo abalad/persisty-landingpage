@@ -7,7 +7,7 @@ import { buttonClass } from "@/components/site/Button";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { isValidCode, normalizeCode, type AuthErrorKey } from "@/lib/auth";
-import { DELETED_KEY, deletion, goneLines, isFresh, readPreview, recapItems, supabaseAuth, type DeletionAuth, type DeletionPreview, type GoneLine } from "@/lib/deletion";
+import { DELETED_KEY, deletion, goneLines, isFresh, readPreview, recapItems, supabaseAuth, type DeletionAuth, type DeletionPreview, type DeletionResult, type GoneLine } from "@/lib/deletion";
 import { formatPrice } from "@/lib/pricing";
 import { supabase } from "@/lib/supabase";
 import signIn from "../auth.module.css";
@@ -135,12 +135,36 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
     onClose();
   };
 
-  /** E-mails a code; the wait before another starts when it went out, and when it was refused for asking too often. */
+  /** E-mails a code; the wait before another starts when it went out, and when it was refused for asking too often. A call that throws reads as no network. */
   async function mail(email: string): Promise<AuthErrorKey | null> {
-    const err = await auth.sendCode(email);
+    let err: AuthErrorKey | null;
+    try {
+      err = await auth.sendCode(email);
+    } catch {
+      err = "network";
+    }
     if (!err) sentAt.current = Date.now();
     if (!err || err === "rateLimited") setWait(RESEND_AFTER);
     return err;
+  }
+
+  /** Checks the typed code. Supabase says `otp_expired` for a wrong code and for an old one alike; a call that throws reads as no network. */
+  async function verify(email: string, typed: string): Promise<Problem | null> {
+    try {
+      const err = await auth.verifyCode(email, typed);
+      return err === "expired" || err === "unknown" ? "wrongCode" : err;
+    } catch {
+      return "network";
+    }
+  }
+
+  /** Whether the account is still there; a check that throws leaves it where it was. */
+  async function stillThere(): Promise<boolean> {
+    try {
+      return await stillSignedIn();
+    } catch {
+      return true;
+    }
   }
 
   async function onward() {
@@ -158,6 +182,8 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
       setCode("");
       setProblem(err);
       show("code");
+    } catch {
+      setProblem("network");
     } finally {
       working.current = false;
       setSending(false);
@@ -169,12 +195,15 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
     working.current = true;
     setSending(true);
     setProblem(null);
-    const err = await mail(preview.email);
-    working.current = false;
-    setSending(false);
-    setProblem(err);
-    if (!err) setCode("");
-    codeRef.current?.focus();
+    try {
+      const err = await mail(preview.email);
+      setProblem(err);
+      if (!err) setCode("");
+    } finally {
+      working.current = false;
+      setSending(false);
+      codeRef.current?.focus();
+    }
   }
 
   /** `at`: the event's time stamp; a click that comes too soon after the step appeared is the tail of a double click. */
@@ -184,52 +213,58 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
     working.current = true;
     setBusy(true);
     setProblem(null);
+    /** On its way to the page after: the dialog stays as it is until the page changes. */
+    let leaving = false;
+    try {
+      if (stage === "code") {
+        const err = await verify(preview.email, code);
+        if (err) {
+          setProblem(err);
+          codeRef.current?.focus();
+          codeRef.current?.select();
+          return;
+        }
+      }
 
-    if (stage === "code") {
-      const err = await auth.verifyCode(preview.email, code);
-      if (err) {
-        working.current = false;
+      const res: DeletionResult = await api("delete", locale).catch(() => ({ ok: false, error: "network" }) as const);
+      if (!res.ok && res.error === "stale") {
+        // The recent sign-in ran out with the dialog open: the code form, with a code on its way.
         setBusy(false);
-        // Supabase says `otp_expired` for a wrong code and for an old one alike.
-        setProblem(err === "expired" || err === "unknown" ? "wrongCode" : err);
-        codeRef.current?.focus();
-        codeRef.current?.select();
+        setSending(true);
+        setCode("");
+        show("code");
+        setProblem(await mail(preview.email));
         return;
       }
-    }
-
-    const res = await api("delete", locale);
-    if (!res.ok && res.error === "stale") {
-      // The recent sign-in ran out with the dialog open: the code form, with a code on its way.
-      setBusy(false);
-      setSending(true);
-      setCode("");
-      show("code");
-      const err = await mail(preview.email);
-      working.current = false;
-      setSending(false);
-      setProblem(err);
-      return;
-    }
-    // A failure the server answered may still have deleted the account (the answer lost on the way, say): ask before saying it failed.
-    if (res.ok || !(await stillSignedIn())) {
-      const sent = res.ok && res.data.confirmation_sent === true;
-      try {
-        sessionStorage.setItem(DELETED_KEY, JSON.stringify({ email: preview.email, sent }));
-      } catch {
-        // Private mode: the page after says less.
+      // A failure the server answered may still have deleted the account (the answer lost on the way, say): ask before saying it failed.
+      if (res.ok || !(await stillThere())) {
+        leaving = true;
+        const sent = res.ok && res.data.confirmation_sent === true;
+        try {
+          sessionStorage.setItem(DELETED_KEY, JSON.stringify({ email: preview.email, sent }));
+        } catch {
+          // Private mode: the page after says less.
+        }
+        try {
+          await auth.signOut();
+        } catch {
+          // The account is gone either way; the page after needs no session.
+        }
+        router.replace("/account-deleted");
+        return;
       }
-      try {
-        await auth.signOut();
-      } catch {
-        // The account is gone either way; the page after needs no session.
+      // A code works once, and it has just signed the person in: a retry needs no other, so the form without a code takes over.
+      if (stage === "code") show("confirm");
+      setProblem("failed");
+    } catch {
+      setProblem("failed");
+    } finally {
+      if (!leaving) {
+        working.current = false;
+        setBusy(false);
+        setSending(false);
       }
-      router.replace("/account-deleted");
-      return;
     }
-    working.current = false;
-    setBusy(false);
-    setProblem("failed");
   }
 
   const planName = (plan: "pro" | "team") => plans(`${plan}.name`);
@@ -306,6 +341,8 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
   let last: ReactNode = null;
   let actions: ReactNode = null;
   let centred = false;
+  /** Step 1 sits in the middle of the column: a short one (a free account) leaves no empty band, a long one fills it as it is. */
+  let middle = false;
 
   if (!preview) {
     // A preview that did not load: its title and the reason, in the middle of the column.
@@ -324,12 +361,13 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
       </>
     );
   } else if (stage === "what") {
+    middle = true;
     body = (
       <>
         {heading(t("whatTitle"), t("whatLead"))}
         <div className={local.group}>
           <h3 className={local.groupTitle}>{t("goneTitle")}</h3>
-          <ul className={local.lines}>
+          <ul className={local.lines} role="list">
             {goneLines(preview).map((line, i) => (
               <li key={i}>{goneLine(line)}</li>
             ))}
@@ -339,7 +377,7 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
         {problemAlert ?? (
           <div className={local.group}>
             <h3 className={local.groupTitle}>{t("keptTitle")}</h3>
-            <ul className={local.lines}>
+            <ul className={local.lines} role="list">
               <li>{t("kept")}</li>
             </ul>
           </div>
@@ -402,22 +440,19 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
                   setProblem(null);
                 }}
                 aria-invalid={problem === "wrongCode"}
-                aria-describedby={problem ? "delete-error" : "delete-lead"}
+                aria-describedby={problem ? "delete-error delete-lead" : "delete-lead"}
               />
             </label>
             {problemAlert}
-            {/* After a failure the next step is the same button again, not another code. */}
-            {problem === "failed" ? null : (
-              <p className={local.resend}>
-                {wait > 0 ? (
-                  t("resendIn", { seconds: wait })
-                ) : (
-                  <button type="button" onClick={() => void resend()} disabled={sending || busy}>
-                    {t("resend")}
-                  </button>
-                )}
-              </p>
-            )}
+            <p className={local.resend}>
+              {wait > 0 ? (
+                t("resendIn", { seconds: wait })
+              ) : (
+                <button type="button" onClick={() => void resend()} disabled={sending || busy}>
+                  {t("resend")}
+                </button>
+              )}
+            </p>
           </form>
         </>
       );
@@ -485,7 +520,7 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
               </button>
             )}
           </div>
-          <div className={`${styles.body} ${local.body}${centred ? ` ${styles.bodyDone}` : ""}`} key={preview ? stage : "loading"}>
+          <div className={`${styles.body} ${local.body}${centred ? ` ${styles.bodyDone}` : ""}${middle ? ` ${local.middle}` : ""}`} key={preview ? stage : "loading"}>
             {body}
           </div>
           {last}

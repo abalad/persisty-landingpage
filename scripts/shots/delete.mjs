@@ -63,6 +63,21 @@ const fits = async (width, name) => {
 };
 const noSideways = async (width, name) => check(`${width}: ${name}, no sideways scroll`, (await js("document.documentElement.scrollWidth <= window.innerWidth")) === true);
 const shot = (name) => captureViewport(b, join(out, `${name}.png`));
+const FAILED = "Não deu para terminar agora. Sua conta continua aqui. Tente de novo em instantes.";
+const NETWORK = "Não conseguimos falar com o servidor. Confira a internet e tente de novo.";
+const notBusy = async () => (await js(`!document.querySelector("dialog button[aria-busy=true]")`)) === true && (await hasClose()) === true;
+/** On a phone, the room between the step's last line and the footer's hairline, with the sheet scrolled to its end. */
+const room = async (width, name) => {
+  if (width !== "mobile") return;
+  const gap = await js(`(() => {
+    const c = document.getElementById("delete-title").closest("[class*=content]");
+    c.scrollTop = c.scrollHeight;
+    const foot = c.lastElementChild;
+    return Math.round(foot.getBoundingClientRect().top - foot.previousElementSibling.getBoundingClientRect().bottom);
+  })()`);
+  check(`mobile: ${name}, room above the footer`, gap >= 16, `${gap} px`);
+  await js(`document.getElementById("delete-title").closest("[class*=content]").scrollTop = 0`);
+};
 const visit = async (query, wait = 3500) => {
   await open(b, `${base}${preview}?open=1${query ? `&${query}` : ""}`, wait);
   await sleep(1000);
@@ -79,8 +94,10 @@ try {
     const lines = JSON.parse(await js(`JSON.stringify([...document.querySelectorAll("dialog li")].map((li) => li.textContent))`));
     check(`${width}: the lines of step 1`, lines.length === 4 && /2 computadores/.test(lines[0]) && /sem reembolso/.test(lines[1]) && /Time Acme/.test(lines[2]), lines.join(" | "));
     check(`${width}: the title takes the focus`, (await js(`document.activeElement?.id`)) === "delete-title");
+    check(`${width}: both groups are lists to a screen reader`, (await js(`document.querySelectorAll("dialog ul[role=list]").length`)) === 2);
     await shot(`1-what-${width}`);
     await fits(width, "step 1");
+    await room(width, "step 1");
     await noSideways(width, "step 1");
 
     // Step 2 with a code.
@@ -93,6 +110,7 @@ try {
     await typeCode("4810");
     await shot(`2-code-${width}`);
     await fits(width, "step 2 with a code");
+    await room(width, "step 2 with a code");
     await noSideways(width, "step 2");
 
     // A wrong code.
@@ -103,8 +121,10 @@ try {
     await sleep(900);
     check(`${width}: a wrong code says so`, (await alertText()) === "Esse código não confere. Use o último que chegou.", await alertText());
     check(`${width}: the field turns red`, (await js(`document.querySelector("dialog input[name=code]").getAttribute("aria-invalid")`)) === "true");
+    check(`${width}: the field is described by the error and the lead`, (await js(`document.querySelector("dialog input[name=code]").getAttribute("aria-describedby")`)) === "delete-error delete-lead");
     await shot(`3-wrong-${width}`);
     await fits(width, "the wrong code");
+    await room(width, "the wrong code");
 
     // Deleting: no X, Escape and a click outside do nothing.
     await typeCode("123456");
@@ -135,10 +155,15 @@ try {
     await sleep(150);
     await press("Excluir conta");
     await sleep(2400);
-    check(`${width}: a failure says the account is still here`, (await alertText()) === "Não deu para terminar agora. Sua conta continua aqui. Tente de novo em instantes.", await alertText());
+    check(`${width}: a failure says the account is still here`, (await alertText()) === FAILED, await alertText());
     check(`${width}: and Delete works again`, (await js(`${button("Excluir conta")}.disabled`)) === false && (await hasClose()) === true);
+    check(`${width}: the used code is not asked again: the form without a code`, (await title()) === "Confirme a exclusão" && (await js(`!document.querySelector("dialog input")`)) === true, await title());
     await shot(`5-failed-${width}`);
     await fits(width, "the failure");
+    await room(width, "the failure");
+    await press("Excluir conta");
+    await sleep(2400);
+    check(`${width}: a retry deletes again, with no wrong code`, (await js(`window.__deletes ?? 0`)) === 2 && (await alertText()) === FAILED && /verified$/.test(await js(`document.getElementById("calls").textContent`)), `${await js(`window.__deletes ?? 0`)} deletes, ${await alertText()}, calls ${await js(`document.getElementById("calls").textContent`)}`);
 
     // Signed in with a code a moment ago: step 2 without a code.
     await visit("fresh=1");
@@ -150,12 +175,14 @@ try {
     check(`${width}: the last look lists names and plans`, /Ao confirmar, a conta, a assinatura Team e o Time Acme são excluídos na hora\./.test(await js(`document.querySelector("dialog [class*=last]")?.textContent ?? ""`)));
     await shot(`6-confirm-${width}`);
     await fits(width, "step 2 without a code");
+    await room(width, "step 2 without a code");
 
     // The longest step 1: a refund and a team only joined, four lines.
     await visit("refund=1&member=1");
     check(`${width}: the refund line`, /com os R\$\s9,90 pagos de volta no cartão/.test(await js(`document.querySelector("dialog li:nth-child(2)")?.textContent ?? ""`)), await js(`document.querySelector("dialog li:nth-child(2)")?.textContent ?? ""`));
     await shot(`7-what-refund-member-${width}`);
     await fits(width, "step 1 with four lines and a refund");
+    await room(width, "step 1 with four lines");
     await noSideways(width, "step 1 with four lines");
   }
 
@@ -165,7 +192,18 @@ try {
   await visit("solo=1&nocancel=1");
   check("a free account: one line for the account", (await js(`document.querySelector("dialog li")?.textContent ?? ""`)) === "A conta ana@acme.com e o acesso no computador");
   check("nothing to cancel: no link to cancelling", (await js(`!${button("Só quer parar")}`)) === true);
+  const [above, below] = JSON.parse(
+    await js(`JSON.stringify((() => {
+      const body = document.getElementById("delete-title").closest("[class*=body]");
+      const box = body.getBoundingClientRect();
+      const first = body.firstElementChild.getBoundingClientRect();
+      const last = body.lastElementChild.getBoundingClientRect();
+      return [Math.round(first.top - box.top - parseFloat(getComputedStyle(body).paddingTop)), Math.round(box.bottom - last.bottom)];
+    })())`),
+  );
+  check("a short step 1 sits in the middle of the column, no empty band over the footer", Math.abs(above - below) <= 2 && above > 20, `${above} px above, ${below} px below`);
   await shot("8-what-free-desktop");
+  await fits("desktop", "a free account's step 1");
   await press("Continuar");
   await sleep(900);
   check("one thing goes: the singular", (await js(`document.querySelector("dialog [class*=last]")?.textContent ?? ""`)) === "Ao confirmar, a conta é excluída na hora.");
@@ -246,6 +284,31 @@ try {
   await sleep(900);
   await shot("13-wrong-long-email-desktop");
   await fits("desktop", "a wrong code with a long e-mail");
+
+  // A call that throws instead of answering never leaves the dialog stuck.
+  await visit("throw=delete");
+  await press("Continuar");
+  await sleep(900);
+  await typeCode("123456");
+  await sleep(150);
+  await press("Excluir conta");
+  await sleep(2400);
+  check("a deletion that throws: not stuck, it says it failed", (await notBusy()) && (await alertText()) === FAILED, await alertText());
+  await key("Escape");
+  await sleep(400);
+  check("and Escape closes it again", (await js(`!document.querySelector("dialog")`)) === true);
+  await visit("throw=verify");
+  await press("Continuar");
+  await sleep(900);
+  await typeCode("123456");
+  await sleep(150);
+  await press("Excluir conta");
+  await sleep(900);
+  check("a code check that throws: not stuck, no network", (await notBusy()) && (await alertText()) === NETWORK && (await title()) === "Confirme que é você", await alertText());
+  await visit("throw=send");
+  await press("Continuar");
+  await sleep(900);
+  check("a code that throws on its way: not stuck, step 1 with the reason", (await notBusy()) && (await alertText()) === NETWORK && (await title()) === "Excluir sua conta", `${await title()} / ${await alertText()}`);
 
   // The code does not go out: step 1 stays, with the reason.
   await visit("sendfail=1");
