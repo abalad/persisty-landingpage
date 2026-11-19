@@ -10,7 +10,8 @@ import { join } from "node:path";
 import { openBrowser, sleep, typeInto } from "../e2e/lib.mjs";
 import { captureViewport, open, setWidth } from "./pages.mjs";
 
-const [base, out, preview = "/delete-preview"] = process.argv.slice(2);
+const [base, out, preview = "/delete-preview", only] = process.argv.slice(2);
+const only8 = only === "only8"; // just the section and the page after (Task 8)
 mkdirSync(out, { recursive: true });
 const b = await openBrowser();
 let failed = 0;
@@ -84,6 +85,7 @@ const visit = async (query, wait = 3500) => {
 };
 
 try {
+  if (!only8) {
   for (const width of ["desktop", "mobile"]) {
     await setWidth(b, width);
 
@@ -143,8 +145,10 @@ try {
     check(`${width}: a click outside does not close it while it deletes`, await isOpen());
     await sleep(2200);
     check(`${width}: once deleted, the page after`, /\/account-deleted$/.test(await js("location.pathname")), await js("location.pathname"));
-    const kept = await js(`sessionStorage.getItem("persisty.deleted")`);
-    check(`${width}: the page after gets the e-mail and that the confirmation went out`, kept === JSON.stringify({ email: "ana@acme.com", sent: true }), kept);
+    // The page after reads the e-mail and removes the key: it says where the confirmation went.
+    await sleep(1500);
+    const after = await js(`document.querySelector("h1")?.parentElement?.textContent ?? ""`);
+    check(`${width}: the page after gets the e-mail and that the confirmation went out`, /Sua conta foi excluída/.test(after) && /A confirmação foi para ana@acme.com\./.test(after), after);
     await js(`sessionStorage.clear()`);
 
     // The deletion fails: the account is still there, the button works again.
@@ -226,9 +230,9 @@ try {
   await typeCode("123456");
   await sleep(150);
   await press("Excluir conta");
-  await sleep(2600);
+  await sleep(5000);
   check("an error with the account gone still ends on the page after", /\/account-deleted$/.test(await js("location.pathname")), await js("location.pathname"));
-  check("and does not say the confirmation went out", (await js(`sessionStorage.getItem("persisty.deleted")`)) === JSON.stringify({ email: "ana@acme.com", sent: false }));
+  check("and does not say the confirmation went out", !/confirmação foi para/.test(await js(`document.querySelector("h1")?.parentElement?.textContent ?? ""`)));
   await js(`sessionStorage.clear()`);
 
   // A double click on Continue does not confirm the step after it.
@@ -363,6 +367,59 @@ try {
   await sleep(1000);
   await shot("12-what-en-mobile");
   await noSideways("mobile", "en step 1");
+  }
+
+  // The earlier steps leave the English cookie behind: the rest runs in Portuguese again.
+  await b.send("Network.enable");
+  await b.send("Network.clearBrowserCookies");
+
+  // The section at the end of My account, and the page after the deletion, on desktop and phone.
+  for (const width of ["desktop", "mobile"]) {
+    await setWidth(b, width);
+    for (const [name, query] of [["paid", "view=account"], ["free", "view=account&plan=free"]]) {
+      await open(b, `${base}${preview}?${query}`, 3500);
+      const text = await js(`document.getElementById("o-delete")?.closest("section")?.textContent ?? ""`);
+      check(`${width}: ${name}: the section is the last of My account`, (await js(`document.getElementById("o-delete")?.closest("section") === [...document.querySelectorAll("section")].pop()`)) === true);
+      check(`${width}: ${name}: the sentence for the plan`, name === "paid" ? /encerra a assinatura/.test(text) : /^Excluir contaApaga a conta\. O Persisty/.test(text), text);
+      // Twice: what loads in on the way (pictures, the menu) moves the section.
+      for (let i = 0; i < 2; i++) {
+        await js(`document.getElementById("o-delete").scrollIntoView({ block: "center", behavior: "instant" })`);
+        await sleep(900);
+      }
+      await shot(`20-section-${name}-${width}`);
+      await noSideways(width, `${name} section`);
+    }
+    // The button opens the dialog; the cancelling link hands over to the cancelling dialog.
+    await open(b, `${base}${preview}?view=account`, 3500);
+    // The section calls the real function: the page's fetch answers the preview in its place.
+    await js(`(() => { const real = window.fetch; window.fetch = (url, init) => String(url).includes("delete-account") ? Promise.resolve(new Response(JSON.stringify({ email: "ana@acme.com", computers: 2, fresh: false, subscriptions: [{ plan: "team", team: "Acme", refund: null }], owned_teams: ["Acme"], member_teams: [] }), { headers: { "content-type": "application/json" } })) : real(url, init); })()`);
+    await js(`document.getElementById("o-delete").closest("section").querySelector("button").click()`);
+    await sleep(1500);
+    check(`${width}: the button opens the dialog`, await isOpen());
+    await press("Só quer parar de pagar");
+    await sleep(1200);
+    check(`${width}: the link to cancelling opens the cancelling dialog`, (await js(`document.querySelector("dialog")?.open === true && !document.getElementById("delete-title")`)) === true);
+    // From /account/delete the dialog is already open.
+    await open(b, `${base}${preview}?view=account&open=1`, 3500);
+    await sleep(800);
+    check(`${width}: with open the dialog starts open`, await isOpen());
+
+    // The page after.
+    for (const [name, value] of [["sent", JSON.stringify({ email: "ana@acme.com", sent: true })], ["empty", null], ["unsent", JSON.stringify({ email: "ana@acme.com", sent: false })]]) {
+      await open(b, `${base}/account-deleted`, 1500);
+      await js(value ? `sessionStorage.setItem("persisty.deleted", ${JSON.stringify(value)})` : `sessionStorage.removeItem("persisty.deleted")`);
+      await open(b, `${base}/account-deleted`, 3500);
+      const body = await js(`document.querySelector("h1")?.parentElement?.textContent ?? ""`);
+      check(`${width}: after: ${name}`, /Sua conta foi excluída/.test(body) && /confirmação foi para ana@acme.com/.test(body) === (name === "sent") && /plano grátis/.test(body), body);
+      check(`${width}: after: ${name}: the key is gone`, (await js(`sessionStorage.getItem("persisty.deleted")`)) === null);
+      check(`${width}: after: ${name}: noindex`, (await js(`document.querySelector('meta[name=robots]')?.content ?? ""`)).includes("noindex"));
+      check(`${width}: after: ${name}: the way home`, (await js(`document.querySelector("h1").parentElement.querySelector("a")?.getAttribute("href")`)) === "/");
+      await shot(`20-deleted-${name}-${width}`);
+      await noSideways(width, `after ${name}`);
+    }
+  }
+  await open(b, `${base}/en/account-deleted`, 3000);
+  await shot("20-deleted-en-desktop");
 } finally {
   b.close();
 }

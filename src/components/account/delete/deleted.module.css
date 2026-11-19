@@ -1,0 +1,64 @@
+/*
+ * The page after the account is gone: the mascot at rest on the page's own
+ * ground, the title, a sentence and the way home, centred. Nothing else.
+ */
+
+.page {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-height: min(720px, 80dvh);
+  padding-block: 64px;
+  text-align: center;
+}
+
+/* The dialog's column is a dark panel with a bubble band: here only the canvas shows, on the page. */
+.mascot {
+  width: 160px;
+  height: 200px;
+}
+
+.mascot > div {
+  display: block;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.mascot > div > div:first-child {
+  display: none;
+}
+
+.mascot > div > div:last-child {
+  position: relative;
+  height: 100%;
+}
+
+.title {
+  max-width: 20ch;
+  margin-top: 20px;
+  color: var(--site-heading);
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+  font-weight: 360;
+  font-variation-settings: "wdth" 104;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.body {
+  max-width: 44ch;
+  margin-top: 12px;
+  color: var(--site-muted);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.body strong {
+  color: var(--site-heading);
+  font-weight: 500;
+}
+
+.home {
+  margin-top: 28px;
+}

@@ -14,6 +14,7 @@ import { planSummary, unlockedFor } from "@/lib/account";
 import { featureHref, planById, type PlanFeature, type ShownPlanId } from "@/lib/plans";
 import { formatPlanPrice } from "@/lib/pricing";
 import { useAccount } from "../AccountProvider";
+import { DeleteSection } from "../delete/DeleteSection";
 import styles from "../account.module.css";
 import o from "./overview.module.css";
 
@@ -22,7 +23,7 @@ import o from "./overview.module.css";
  * shows it, what is coming, and the one plan up. Free sees Pro as what it
  * would get; Pro sees Team; Team sees what it has.
  */
-export function Overview() {
+export function Overview({ openDelete }: { openDelete?: boolean }) {
   const t = useTranslations("auth.account");
   const v = useTranslations("auth.account.overview");
   const names = useTranslations("pricing.plans");
@@ -160,6 +161,8 @@ export function Overview() {
           </ButtonLink>
         </section>
       ) : null}
+
+      <DeleteSection open={openDelete} />
     </div>
   );
 }
