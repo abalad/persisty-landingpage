@@ -10,7 +10,8 @@ export const FRESH_MS = 10 * 60_000;
 export const DELETED_KEY = "persisty.deleted";
 
 export type DeletionAction = "preview" | "delete";
-export type DeletionErrorKey = "network" | "stale" | "forbidden" | "unknown";
+/** `changed`: the session is now another account's than the one reviewed (another tab signed in as someone else). */
+export type DeletionErrorKey = "network" | "stale" | "forbidden" | "changed" | "unknown";
 
 export interface DeletionPreview {
   email: string;
@@ -64,14 +65,18 @@ export function deletionErrorKey(status: number, code: string): DeletionErrorKey
   if (status === 0) return "network";
   if (code === "stale_sign_in") return "stale";
   if (code === "forbidden") return "forbidden";
+  if (code === "account_changed") return "changed";
   return "unknown";
 }
 
 export type DeletionResult = { ok: true; data: Record<string, unknown> } | { ok: false; error: DeletionErrorKey };
 
-/** One call to the delete-account function with the person's session. */
-export async function deletion(action: DeletionAction, locale: Locale): Promise<DeletionResult> {
-  const { data, error } = await supabase().functions.invoke("delete-account", { body: { action, locale } });
+/**
+ * One call to the delete-account function with the person's session. `email`, for `delete`: the
+ * account the person reviewed; the function refuses when the session is now another one's.
+ */
+export async function deletion(action: DeletionAction, locale: Locale, email?: string): Promise<DeletionResult> {
+  const { data, error } = await supabase().functions.invoke("delete-account", { body: { action, locale, ...(email ? { email } : {}) } });
   if (!error) return { ok: true, data: (data ?? {}) as Record<string, unknown> };
   const res = (error as { context?: unknown }).context;
   if (!(res instanceof Response)) return { ok: false, error: "network" };
@@ -160,7 +165,23 @@ export const supabaseAuth: DeletionAuth = {
     const { error } = await supabase().auth.verifyOtp({ email, token: normalizeCode(code), type: "email" });
     return error ? authErrorKey(error) : null;
   },
+  // This browser only: the account is gone, so the server has no session left to end.
   signOut: async () => {
-    await supabase().auth.signOut();
+    await supabase().auth.signOut({ scope: "local" });
   },
 };
+
+/**
+ * Whether the account is still there, asked when the deletion answers with an error (it may have
+ * gone all the same). `token` is the one the deletion used: the session itself may need renewing,
+ * and a renewal refused for a deleted account must not read as "still here". Only the server
+ * saying the user no longer exists counts as gone; anything else (no network, say) leaves it.
+ */
+export async function accountStillThere(token: string | null): Promise<boolean> {
+  try {
+    const { data, error } = await supabase().auth.getUser(token ?? undefined);
+    return Boolean(data.user) || error?.code !== "user_not_found";
+  } catch {
+    return true;
+  }
+}

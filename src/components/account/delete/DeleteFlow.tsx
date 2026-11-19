@@ -7,9 +7,8 @@ import { buttonClass } from "@/components/site/Button";
 import { useRouter } from "@/i18n/navigation";
 import type { Locale } from "@/i18n/routing";
 import { isValidCode, normalizeCode, type AuthErrorKey } from "@/lib/auth";
-import { DELETED_KEY, deletion, goneLines, isFresh, readPreview, recapItems, supabaseAuth, type DeletionAuth, type DeletionPreview, type DeletionResult, type GoneLine } from "@/lib/deletion";
+import { accountStillThere, DELETED_KEY, deletion, goneLines, isFresh, readPreview, recapItems, supabaseAuth, type DeletionAuth, type DeletionPreview, type DeletionResult, type GoneLine } from "@/lib/deletion";
 import { formatPrice } from "@/lib/pricing";
-import { supabase } from "@/lib/supabase";
 import signIn from "../auth.module.css";
 import { CancelMascot } from "../cancel/CancelMascot";
 import type { CancelMood } from "../cancel/mascotScene";
@@ -18,7 +17,7 @@ import local from "./delete.module.css";
 
 /** `what`: step 1, what goes and what stays. `code` and `confirm`: step 2, with an e-mailed code or without one after a recent sign-in. */
 type Stage = "what" | "code" | "confirm";
-type Problem = "wrongCode" | "failed" | AuthErrorKey;
+type Problem = "wrongCode" | "failed" | "changed" | AuthErrorKey;
 
 interface Props {
   onClose: () => void;
@@ -28,8 +27,8 @@ interface Props {
   api?: typeof deletion;
   /** The sign-in calls; fixtures pass a stand-in. */
   auth?: DeletionAuth;
-  /** Whether the account still exists, asked when the deletion answers with an error: it may have gone all the same. */
-  stillSignedIn?: () => Promise<boolean>;
+  /** Whether the account still exists, asked with the token the deletion used when it answers with an error: it may have gone all the same. */
+  stillSignedIn?: (token: string | null) => Promise<boolean>;
 }
 
 const RESEND_AFTER = 60;
@@ -40,16 +39,6 @@ const GUARD_MS = 450;
 /** Up to this many characters an e-mail address fits a line whole, on a phone too. */
 const SHORT_ADDRESS = 24;
 const MOOD: Record<Stage, CancelMood> = { what: "puzzled", code: "pleading", confirm: "pleading" };
-
-/** Only the server saying the user no longer exists counts as gone; anything else (no network, say) leaves the account where it was. */
-async function accountStillThere(): Promise<boolean> {
-  try {
-    const { data, error } = await supabase().auth.getUser();
-    return Boolean(data.user) || error?.code !== "user_not_found";
-  } catch {
-    return true;
-  }
-}
 
 /**
  * Deleting the account, in the cancelling dialog's frame: step 1 says what
@@ -82,6 +71,8 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
   const [sending, setSending] = useState(false);
   const [busy, setBusy] = useState(false);
   const [problem, setProblem] = useState<Problem | null>(null);
+  /** Counts the previews asked for: the session turning into another account's asks again. */
+  const [loads, setLoads] = useState(0);
 
   useEffect(() => {
     dialog.current?.showModal();
@@ -97,7 +88,7 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
     return () => {
       alive = false;
     };
-  }, [api, locale]);
+  }, [api, locale, loads]);
 
   useEffect(() => {
     if (wait <= 0) return;
@@ -158,12 +149,21 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
     }
   }
 
-  /** Whether the account is still there; a check that throws leaves it where it was. */
-  async function stillThere(): Promise<boolean> {
+  /** Whether the account is still there, asked with the token the deletion used; a check that throws leaves it where it was. */
+  async function stillThere(token: string | null): Promise<boolean> {
     try {
-      return await stillSignedIn();
+      return await stillSignedIn(token);
     } catch {
       return true;
+    }
+  }
+
+  /** The token the deletion goes with, kept for asking afterwards whether the account is still there. */
+  async function currentToken(): Promise<string | null> {
+    try {
+      return await auth.accessToken();
+    } catch {
+      return null;
     }
   }
 
@@ -226,7 +226,21 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
         }
       }
 
-      const res: DeletionResult = await api("delete", locale).catch(() => ({ ok: false, error: "network" }) as const);
+      const token = await currentToken();
+      // The account reviewed goes with the deletion: the function refuses it for any other.
+      const res: DeletionResult = await api("delete", locale, preview.email).catch(() => ({ ok: false, error: "network" }) as const);
+      if (!res.ok && res.error === "changed") {
+        // The session is now another account's (another tab signed in as someone else): its own preview, from step 1, with the reason.
+        sentAt.current = 0;
+        setWait(0);
+        setCode("");
+        setPreview(null);
+        setLoadFailed(false);
+        show("what");
+        setProblem("changed");
+        setLoads((n) => n + 1);
+        return;
+      }
       if (!res.ok && res.error === "stale") {
         // The recent sign-in ran out with the dialog open: the code form, with a code on its way.
         setBusy(false);
@@ -237,7 +251,7 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
         return;
       }
       // A failure the server answered may still have deleted the account (the answer lost on the way, say): ask before saying it failed.
-      if (res.ok || !(await stillThere())) {
+      if (res.ok || !(await stillThere(token))) {
         leaving = true;
         const sent = res.ok && res.data.confirmation_sent === true;
         try {
@@ -323,7 +337,7 @@ export function DeleteFlow({ onClose, onCancelInstead, api = deletion, auth = su
       {text}
     </p>
   );
-  const problemAlert = problem ? alert(problem === "wrongCode" || problem === "failed" ? t(problem) : signInErrors(problem)) : null;
+  const problemAlert = problem ? alert(problem === "wrongCode" || problem === "failed" || problem === "changed" ? t(problem) : signInErrors(problem)) : null;
   const heading = (text: string, lead: ReactNode) => (
     <div className={local.head}>
       <h2 id="delete-title" className={styles.title} ref={titleRef} tabIndex={-1}>

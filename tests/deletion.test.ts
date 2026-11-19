@@ -1,6 +1,46 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { BillingState, Subscription, Team } from "../src/lib/billing";
-import { cancelTarget, deletionErrorKey, goneLines, isFresh, paysSomething, readPreview, recapItems, signedInAt, type DeletionPreview } from "../src/lib/deletion";
+
+const sb = vi.hoisted(() => ({
+  invoked: [] as { name: string; body: Record<string, unknown> }[],
+  answer: { data: {}, error: null } as { data: unknown; error: unknown },
+  getUser: [] as (string | undefined)[],
+  user: { data: { user: null }, error: null } as { data: { user: unknown }; error: { code?: string } | null },
+  signOut: [] as unknown[],
+}));
+
+/** A stand-in for the browser client: what the deletion calls on it. */
+vi.mock("../src/lib/supabase", () => ({
+  supabase: () => ({
+    functions: {
+      invoke: async (name: string, { body }: { body: Record<string, unknown> }) => {
+        sb.invoked.push({ name, body });
+        return sb.answer;
+      },
+    },
+    auth: {
+      getUser: async (jwt?: string) => {
+        sb.getUser.push(jwt);
+        return sb.user;
+      },
+      signOut: async (options?: unknown) => {
+        sb.signOut.push(options);
+        return { error: null };
+      },
+    },
+  }),
+}));
+
+const { accountStillThere, cancelTarget, deletion, deletionErrorKey, goneLines, isFresh, paysSomething, readPreview, recapItems, signedInAt, supabaseAuth } = await import("../src/lib/deletion");
+type DeletionPreview = import("../src/lib/deletion").DeletionPreview;
+
+beforeEach(() => {
+  sb.invoked = [];
+  sb.answer = { data: {}, error: null };
+  sb.getUser = [];
+  sb.user = { data: { user: null }, error: null };
+  sb.signOut = [];
+});
 
 const b64 = (o: unknown) => Buffer.from(JSON.stringify(o)).toString("base64url");
 const token = (claims: unknown) => `${b64({ alg: "HS256" })}.${b64(claims)}.sig`;
@@ -86,6 +126,44 @@ describe("what deleting takes", () => {
     expect(deletionErrorKey(403, "stale_sign_in")).toBe("stale");
     expect(deletionErrorKey(403, "forbidden")).toBe("forbidden");
     expect(deletionErrorKey(500, "internal")).toBe("unknown");
+    // The session is now another account's: the dialog shows that account's preview again.
+    expect(deletionErrorKey(409, "account_changed")).toBe("changed");
+  });
+});
+
+describe("the calls the deletion makes", () => {
+  it("deleting names the account that was reviewed; the preview names none", async () => {
+    await deletion("delete", "en", "a@example.test");
+    await deletion("preview", "pt-BR");
+    expect(sb.invoked).toEqual([
+      { name: "delete-account", body: { action: "delete", locale: "en", email: "a@example.test" } },
+      { name: "delete-account", body: { action: "preview", locale: "pt-BR" } },
+    ]);
+  });
+
+  it("a 409 account_changed comes back as changed", async () => {
+    sb.answer = { data: null, error: { name: "FunctionsHttpError", context: new Response(JSON.stringify({ error: "account_changed" }), { status: 409 }) } };
+    expect(await deletion("delete", "pt-BR", "a@example.test")).toEqual({ ok: false, error: "changed" });
+  });
+
+  it("asks whether the account is still there with the token the deletion used, not a session that may need renewing", async () => {
+    sb.user = { data: { user: null }, error: { code: "user_not_found" } };
+    expect(await accountStillThere("tok")).toBe(false);
+    expect(sb.getUser).toEqual(["tok"]);
+    // Anything else leaves the account where it was.
+    sb.user = { data: { user: null }, error: { code: "refresh_token_not_found" } };
+    expect(await accountStillThere("tok")).toBe(true);
+    sb.user = { data: { user: { id: "u1" } }, error: null };
+    expect(await accountStillThere("tok")).toBe(true);
+    // No token captured: the session's own user.
+    sb.user = { data: { user: null }, error: { code: "user_not_found" } };
+    expect(await accountStillThere(null)).toBe(false);
+    expect(sb.getUser.at(-1)).toBeUndefined();
+  });
+
+  it("signing out after the deletion only clears this browser: the server has no session left to end", async () => {
+    await supabaseAuth.signOut();
+    expect(sb.signOut).toEqual([{ scope: "local" }]);
   });
 });
 
