@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { BillingState, Subscription } from "../src/lib/billing";
+import type { BillingState, Subscription, Team } from "../src/lib/billing";
 import { cancelTarget, deletionErrorKey, goneLines, isFresh, paysSomething, readPreview, recapItems, signedInAt, type DeletionPreview } from "../src/lib/deletion";
 
 const b64 = (o: unknown) => Buffer.from(JSON.stringify(o)).toString("base64url");
@@ -89,19 +89,61 @@ describe("what deleting takes", () => {
   });
 });
 
+const team = (over: Partial<Team> = {}): Team => ({ id: "team-1", name: "Acme", role: "owner", subscription: sub({ org_id: "team-1", plan: "team" }), portal: true, seats: null, members: [], invites: [], ...over });
+/** The plan in effect is a paid Team's, managed by this account in the role given. */
+const viaTeam = (role: Team["role"], over: Partial<BillingState> = {}) =>
+  billing({
+    entitlement: { plan: "team", org_id: "team-1", org_name: "Acme", features: [], period_end: null },
+    subscription: sub({ org_id: "team-1", plan: "team" }),
+    manages: role !== "member",
+    teams: [team({ role })],
+    ...over,
+  });
+
+describe("what the deletion ends, for the section and the cancel shortcut", () => {
+  it("a Team's owner: the Team's plan ends with the account", () => {
+    expect(paysSomething(viaTeam("owner"))).toBe(true);
+    expect(cancelTarget(viaTeam("owner"))).toEqual({ orgId: "team-1", plan: "team", duplicate: false });
+  });
+
+  it("an admin of a paid Team pays nothing the deletion ends, and gets no shortcut to cancel the Team's plan", () => {
+    expect(paysSomething(viaTeam("admin"))).toBe(false);
+    expect(cancelTarget(viaTeam("admin"))).toBeNull();
+  });
+
+  it("an admin who also pays a personal plan: that plan ends, and the shortcut goes to it", () => {
+    const both = viaTeam("admin", { personal: sub({ org_id: "org-p" }) });
+    expect(paysSomething(both)).toBe(true);
+    expect(cancelTarget(both)).toEqual({ orgId: "org-p", plan: "pro", duplicate: true });
+  });
+
+  it("the owner of another paid Team than the plan in effect: that plan ends too", () => {
+    const other = viaTeam("member", { teams: [team({ role: "member" }), team({ id: "team-2", name: "Beta", role: "owner", subscription: sub({ org_id: "team-2", plan: "team" }) })] });
+    expect(paysSomething(other)).toBe(true);
+  });
+
+  it("a Team granted by hand bills nothing in Stripe", () => {
+    const granted = viaTeam("owner", { subscription: sub({ org_id: "team-1", plan: "team", stripe_subscription_id: null }), teams: [team({ subscription: sub({ org_id: "team-1", plan: "team", stripe_subscription_id: null }) })] });
+    expect(paysSomething(granted)).toBe(false);
+    expect(cancelTarget(granted)).toBeNull();
+  });
+});
+
 describe("cancelling first", () => {
-  it("pays something: a managed Stripe plan or a personal Stripe subscription", () => {
-    expect(paysSomething(billing())).toBe(true);
+  it("pays something: a personal Stripe plan, or a Stripe plan of a Team the account owns", () => {
+    // The personal Pro in effect: `personal` is that same subscription.
+    expect(paysSomething(billing({ personal: sub() }))).toBe(true);
     expect(paysSomething(billing({ manages: false, subscription: sub(), personal: sub({ org_id: "org-p" }) }))).toBe(true);
     expect(paysSomething(billing({ subscription: sub({ stripe_subscription_id: null }) }))).toBe(false);
     expect(paysSomething(billing({ entitlement: { plan: "free", org_id: null, org_name: null, features: [], period_end: null }, subscription: null, manages: false }))).toBe(false);
   });
 
   it("the cancel shortcut goes to the plan in effect, then to the personal subscription, never to one already ending", () => {
-    expect(cancelTarget(billing())).toEqual({ orgId: "org-1", plan: "pro", duplicate: false });
+    expect(cancelTarget(billing({ personal: sub() }))).toEqual({ orgId: "org-1", plan: "pro", duplicate: false });
     const ending = sub({ cancel_at_period_end: true });
     const personal = sub({ org_id: "org-p" });
-    expect(cancelTarget(billing({ subscription: ending, personal }))).toEqual({ orgId: "org-p", plan: "pro", duplicate: true });
+    expect(cancelTarget(viaTeam("owner", { subscription: sub({ org_id: "team-1", plan: "team", cancel_at_period_end: true }), personal }))).toEqual({ orgId: "org-p", plan: "pro", duplicate: true });
+    expect(cancelTarget(billing({ subscription: ending, personal: sub({ org_id: "org-1", cancel_at_period_end: true }) }))).toBeNull();
     expect(cancelTarget(billing({ subscription: ending, personal: sub({ org_id: "org-p", cancel_at_period_end: true }) }))).toBeNull();
   });
 });

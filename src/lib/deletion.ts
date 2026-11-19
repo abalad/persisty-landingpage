@@ -124,15 +124,23 @@ export function recapItems(p: DeletionPreview): RecapItem[] {
   ];
 }
 
-/** Whether the account pays for something Stripe bills: the plan in effect or a personal subscription. */
+/**
+ * Whether deleting the account ends a plan Stripe bills: the personal one, or one of a Team the
+ * account owns. A Team the account only administers stays, and its plan with it.
+ */
 export function paysSomething(billing: BillingState): boolean {
-  return Boolean((billing.manages && billing.subscription?.stripe_subscription_id) || billing.personal?.stripe_subscription_id);
+  return Boolean(billing.personal?.stripe_subscription_id) || billing.teams.some((t) => t.role === "owner" && Boolean(t.subscription.stripe_subscription_id));
 }
 
-/** Where "cancel the subscription first" goes: the plan in effect, else the personal one, never one already ending. */
+/**
+ * Where "cancel the subscription first" goes: the plan in effect when the deletion ends it (the
+ * personal one, or a Team's the account owns), else the personal one; never one already ending.
+ */
 export function cancelTarget(billing: BillingState): { orgId?: string; plan: "pro" | "team"; duplicate: boolean } | null {
-  const { entitlement, subscription, manages } = billing;
-  if (manages && subscription?.stripe_subscription_id && !subscription.cancel_at_period_end) {
+  const { entitlement, subscription } = billing;
+  const endsWithAccount =
+    entitlement.org_id !== null && (billing.personal?.org_id === entitlement.org_id || billing.teams.some((t) => t.id === entitlement.org_id && t.role === "owner"));
+  if (endsWithAccount && subscription?.stripe_subscription_id && !subscription.cancel_at_period_end) {
     return { orgId: entitlement.org_id ?? undefined, plan: entitlement.plan === "team" ? "team" : "pro", duplicate: false };
   }
   const personal = billing.personal && billing.personal.org_id !== entitlement.org_id ? billing.personal : null;
