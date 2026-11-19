@@ -189,10 +189,11 @@ Uma função nova, que neste documento chamo de `delete-account`, faz tudo com a
    - Sessão de celular (`phoneSessionRefusal`) também é recusada.
 2. **Calcula o que sai:**
    - os Times de que a pessoa é dona (`org_members.role = 'owner'` em `orgs.kind = 'team'`);
-   - em cada um, os membros que ficam sem nenhum outro vínculo. "Outro vínculo" é ser membro de qualquer outro Time, ou ter uma assinatura pessoal no Stripe que ainda não terminou (ativa, em teste ou com pagamento atrasado);
+   - em cada um, os membros que ficam sem nenhum outro vínculo. "Outro vínculo" é ser membro de qualquer outro Time, ou ter uma assinatura pessoal no Stripe que ainda pode cobrar: qualquer uma que não esteja `canceled` nem `incomplete_expired` (não paga e pausada contam);
    - as assinaturas a encerrar: a pessoal da pessoa e as dos Times de que ela é dona;
    - os e-mails de quem vai receber o aviso e da própria pessoa, guardados na memória antes de apagar qualquer coisa.
 3. **Encerra cada assinatura no Stripe:**
+   - antes de tudo, expiram os checkouts ainda abertos dos clientes dessas orgs. Um pagamento que chegue depois mesmo assim (um checkout terminado em outra aba) é devolvido inteiro pelo webhook, que anula as faturas em aberto e encerra a assinatura;
    - na hora, sem cobrança proporcional e sem fatura nova;
    - faturas em aberto dessas assinaturas são anuladas, para nada ser cobrado depois;
    - dentro dos 7 dias da primeira compra, reembolsa como `retention` já faz em `refundOwed`.
@@ -206,7 +207,8 @@ Uma função nova, que neste documento chamo de `delete-account`, faz tudo com a
    - `profiles`, a org pessoal e o que ela tem;
    - `org_members`, `devices`, `phones`, `phone_links` e `remote_pairings`;
    - as sessões de login.
-7. **Manda a confirmação** (seção 6) para quem excluiu. Uma falha no envio não desfaz nada nem faz a exclusão parecer falha. A resposta da função diz ao site se a confirmação saiu.
+7. **Apaga o rastro do login** de todos que saíram (`auth.audit_log_entries` guarda o e-mail e o IP de cada login, e a própria exclusão vira uma linha). Isso acontece uma vez, depois da última conta apagada. Uma falha fica no log e não desfaz a exclusão.
+8. **Manda a confirmação** (seção 6) para quem excluiu. Uma falha no envio não desfaz nada nem faz a exclusão parecer falha. A resposta da função diz ao site se a confirmação saiu.
 
 Uma falha em qualquer envio nunca impede a exclusão de seguir.
 
