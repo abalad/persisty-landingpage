@@ -72,7 +72,7 @@ Payment is processed by Stripe; Persisty does not see or store card details.
 
 ## Your rights
 
-Under the LGPD (Brazil's data protection law), you can ask for access to your data and for it to be corrected. You delete the account yourself, at any time, in My account: the personal data is erased at once, and what remains is only the payment records the law requires us to keep, at Stripe, and aggregate numbers that identify no one. We look at those records only to tell whether a purchase is the first one, because of the 7-day refund. Deleting the account of a Team's owner also deletes the Team and the accounts of people who belong only to it; they receive a notice by e-mail.
+Under the LGPD (Brazil's data protection law), you can ask for access to your data and for it to be corrected. You delete the account yourself, at any time, in My account: the personal data is erased at once, and what remains is only the payment records the law requires us to keep (held by Stripe) and aggregate numbers that identify no one. We look at those records only to tell whether a purchase is the first one, because of the 7-day refund. Deleting the account of a Team's owner also deletes the Team and the accounts of people who belong only to it; they receive a notice by e-mail.
 
 {{contact}}
 

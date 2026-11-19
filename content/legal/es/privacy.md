@@ -72,7 +72,7 @@ Los pagos los procesa Stripe; Persisty no ve ni guarda datos de tarjeta.
 
 ## Tus derechos
 
-Según la LGPD (la ley de protección de datos de Brasil), puedes pedir acceso a tus datos y su corrección. La cuenta la eliminas tú mismo, en cualquier momento, en Mi cuenta: los datos personales se borran en el momento, y quedan solo los registros de pago que la ley manda guardar, en Stripe, y números agregados que no identifican a nadie. Consultamos esos registros solo para saber si una compra es la primera, por el reembolso de los 7 días. Eliminar la cuenta del dueño de un Team elimina también el Team y las cuentas de quienes participan solo en él; esas personas reciben un aviso por e-mail.
+Según la LGPD (la ley de protección de datos de Brasil), puedes pedir acceso a tus datos y su corrección. La cuenta la eliminas tú mismo, en cualquier momento, en Mi cuenta: los datos personales se borran en el momento, y quedan solo los registros de pago que la ley manda guardar (en poder de Stripe) y números agregados que no identifican a nadie. Consultamos esos registros solo para saber si una compra es la primera, por el reembolso de los 7 días. Eliminar la cuenta del dueño de un Team elimina también el Team y las cuentas de quienes participan solo en él; esas personas reciben un aviso por e-mail.
 
 {{contact}}
 
