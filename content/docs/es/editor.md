@@ -1,11 +1,11 @@
 ---
 title: Editor
-description: El editor de cada sesión, junto a la terminal, con resaltado por lenguaje, vista previa de Markdown e imágenes, sugerencias y errores del proyecto y el mapa de teclas que elijas.
+description: El editor de cada sesión, junto a la terminal, con resaltado por lenguaje, vista previa de Markdown e imágenes, sugerencias y errores del proyecto, el panel inferior, la selección en columna y el mapa de teclas que elijas.
 group: code
 order: 1
 ---
 
-El panel **Código** (*Code*) es el editor de la sesión: su carpeta como árbol, a la izquierda, y los archivos abiertos en pestañas, junto a la terminal. Se abre con el ícono **Código**, en la barra de herramientas del borde derecho de la sesión. El árbol, las pestañas y el Git de cada archivo tienen sus propias páginas: [Archivos](/docs/files), [Pestañas y grupos](/docs/tabs-and-groups) y [Git en el editor](/docs/git-in-the-editor).
+El panel **Código** (*Code*) es el editor de la sesión: su carpeta como árbol, a la izquierda, y los archivos abiertos en pestañas, junto a la terminal. Se abre con el ícono **Código**, en la barra de herramientas del borde derecho de la sesión. El árbol, las pestañas y el Git de cada archivo tienen sus propias páginas: [Archivos](/docs/files), [Pestañas y grupos](/docs/tabs-and-groups) y [Git en el editor](/docs/git-in-the-editor). Las acciones que recorren el código y las que lo cambian con el servidor del lenguaje están en [Moverse por el código](/docs/code-navigation) y [Usos, renombrar y refactorizar](/docs/usages-and-refactoring), y las versiones que guarda el editor, en [Historial local](/docs/local-history).
 
 ## Abrir y guardar
 
@@ -67,6 +67,22 @@ La barra de estado muestra el estado del servidor (descargando, indexando, listo
 
 En Rust, la biblioteca estándar necesita su código fuente en tu toolchain (`rustup component add rust-src`); la app nunca cambia el toolchain por su cuenta.
 
+## Panel inferior
+
+Debajo del código, encima de la barra de estado, el editor tiene un panel con las pestañas **Usos** (*Usages*) y **Problemas** (*Problems*). **Problemas** lista los errores, los avisos y la información de los servidores del lenguaje, por archivo, y un clic abre el archivo en la línea. Al hacer clic en la cuenta de errores y avisos de la barra de estado se abre esa pestaña. **Usos** muestra el último resultado de [Buscar usos](/docs/usages-and-refactoring#buscar-usos), de la implementación o del tipo.
+
+Arrastra el borde de arriba del panel para cambiar la altura, o usa <kbd>↑</kbd> y <kbd>↓</kbd> con él en foco; un doble clic vuelve a la altura por defecto. Cada sesión recuerda si el panel estaba abierto, en qué pestaña y con qué altura.
+
+En el código, en los dos mapas WebStorm, <kbd>⌘</kbd> <kbd>3</kbd> abre **Usos** y <kbd>⌘</kbd> <kbd>6</kbd> abre **Problemas**, en lugar de elegir el proyecto 3 o 6. En el mapa de VS Code, **Problemas** es <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>M</kbd>, y **Usos** se abre desde la paleta. La tecla lleva el foco a la lista, y <kbd>Esc</kbd> cierra el panel y devuelve el foco al código. En Windows y Linux, que están en versión preliminar, las teclas son <kbd>Alt</kbd> <kbd>3</kbd> y <kbd>Alt</kbd> <kbd>6</kbd>, o <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>M</kbd> en VS Code.
+
+## Selección en columna y cursores
+
+**Modo de selección en columna** (*Column Selection Mode*, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>8</kbd> en los mapas WebStorm) activa el modo, y la barra de estado muestra **Columna** (*Column*). Con él activado, <kbd>⇧</kbd> y las flechas forman un rectángulo, con un cursor por línea en la misma columna, y arrastrar con el ratón dibuja el rectángulo. En una línea corta el cursor queda al final, y la columna vuelve en una línea más larga. Lo que escribes va a todas las líneas, y deshacer lo revierte todo en un paso. <kbd>Esc</kbd> o la misma tecla apagan el modo.
+
+Para poner otro cursor arriba o abajo, pulsa <kbd>⌥</kbd> dos veces, mantenlo en la segunda y usa <kbd>↑</kbd> o <kbd>↓</kbd>, en los mapas WebStorm. **Agregar cursor arriba** (*Clone Caret Above*) y **Agregar cursor abajo** (*Clone Caret Below*) están también en <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>↑</kbd> y <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>↓</kbd>, en cualquier mapa; en los mapas WebStorm, con la pestaña **Usos** mostrando un resultado, esas teclas recorren los usos.
+
+En el mapa de VS Code, el modo de columna está en la paleta, y no hay gesto. En Windows y Linux, el modo es <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>, el gesto usa <kbd>Ctrl</kbd> en lugar de <kbd>⌥</kbd>, y agregar un cursor es <kbd>Ctrl</kbd> <kbd>Alt</kbd> con las flechas.
+
 ## Accesibilidad
 
 Con **Reducir movimiento** (*Reduce motion*) encendido en los ajustes de accesibilidad del sistema, la app quita las transiciones; en el editor, los números de línea siguen alineados con el código, y un resultado de la búsqueda lleva a la línea correcta. El árbol, las pestañas y los menús funcionan con el teclado, y un lector de pantalla oye cuando una pestaña no está guardada, está en vista previa o está fijada.
@@ -96,8 +112,10 @@ El mapa de VS Code mantiene sus propias teclas, como <kbd>F12</kbd> para ir a la
 
 En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, y los dos mapas WebStorm usan las teclas de la columna WebStorm, con una diferencia: **Documentación rápida** es <kbd>Ctrl</kbd> <kbd>Q</kbd>.
 
+Las teclas de navegación, de usos y de refactorización de cada mapa están en [Moverse por el código](/docs/code-navigation#teclas) y [Usos, renombrar y refactorizar](/docs/usages-and-refactoring#teclas), y la lista de las teclas que cambian de sentido en el código, en [Atajos](/docs/shortcuts#dentro-del-código).
+
 ## Plan y límites
 
 El editor es del plan gratis, con todo lo de esta página.
 
-Las sugerencias, la documentación, los errores e **Ir a la declaración** existen solo en TypeScript, JavaScript y Rust; en los demás lenguajes, el editor tiene el resaltado. La primera descarga de cada servidor necesita internet. Los archivos de texto de más de 5 MB y las imágenes de más de 10 MB no se abren.
+Las sugerencias, la documentación, los errores, **Ir a la declaración**, el panel **Problemas** y las acciones que piden el servidor del lenguaje existen solo en TypeScript, JavaScript y Rust; en los demás lenguajes, el editor tiene el resaltado. La primera descarga de cada servidor necesita internet. Los archivos de texto de más de 5 MB y las imágenes de más de 10 MB no se abren.

@@ -2,10 +2,10 @@
 title: Files
 description: The session folder's tree in the Code panel, to create, rename, move, copy and delete files, open them in another app and copy their paths.
 group: code
-order: 2
+order: 4
 ---
 
-The **Files** list, to the left of the [editor](/docs/editor), shows the session's folder as a tree. It creates, renames, moves, copies and deletes files and folders without leaving Persisty. Right-clicking an item opens the file menu; on an empty spot of the list, the menu has **New** and **Paste** for the session folder.
+The **Files** list, to the left of the [editor](/docs/editor), shows the session's folder as a tree. It creates, renames, moves, copies and deletes files and folders without leaving Persisty. Right-clicking an item opens the file menu; on an empty spot of the list, the menu has **New**, **Paste** and **Local History** for the session folder.
 
 ## The tree
 
@@ -46,6 +46,12 @@ The IDE is the one you choose in [**Settings › Workspace › Default IDE**](/d
 ## Copy path
 
 **Copy path** gives the **Absolute path**, the **Path from the project**, the **Path from the repository root**, the **File name**, the **Reference** and the **Link on GitHub** (or GitLab, or Bitbucket), at the current commit. The reference is `file:line`, or `file:start-end` with lines selected on the tab. With several items selected, each goes on its own line.
+
+## Bookmarks and local history
+
+The **Bookmarks** submenu has **Add to Bookmarks**, for the selected items, or **Remove from Bookmarks**, when they are all there already. Bookmarks follow the file or folder when it is renamed or moved, and their list opens from a key; see [Bookmarks](/docs/code-navigation#bookmarks).
+
+The **Local History** submenu has **Show History**, which on a file lists the kept versions and on a folder shows what changed in it, deletions included, and **Put Label…**. On the empty space of the list, the same submenu works on the session's whole folder. See [Local history](/docs/local-history).
 
 ## Reload from Disk
 

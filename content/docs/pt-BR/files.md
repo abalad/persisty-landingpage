@@ -2,10 +2,10 @@
 title: Arquivos
 description: A árvore da pasta da sessão no painel Código, para criar, renomear, mover, copiar e excluir arquivos, abrir em outro app e copiar caminhos.
 group: code
-order: 2
+order: 4
 ---
 
-A lista **Arquivos**, à esquerda do [editor](/docs/editor), mostra a pasta da sessão em árvore. Ela cria, renomeia, move, copia e exclui arquivos e pastas sem sair do Persisty. O botão direito num item abre o menu de arquivos; num espaço vazio da lista, o menu tem **Novo** e **Colar** para a pasta da sessão.
+A lista **Arquivos**, à esquerda do [editor](/docs/editor), mostra a pasta da sessão em árvore. Ela cria, renomeia, move, copia e exclui arquivos e pastas sem sair do Persisty. O botão direito num item abre o menu de arquivos; num espaço vazio da lista, o menu tem **Novo**, **Colar** e **Histórico local** para a pasta da sessão.
 
 ## A árvore
 
@@ -46,6 +46,12 @@ A IDE é a que você escolhe em [**Configurações › Workspace › IDE padrão
 ## Copiar caminho
 
 **Copiar caminho** dá o **Caminho absoluto**, o **Caminho a partir do projeto**, o **Caminho a partir da raiz do repositório**, o **Nome do arquivo**, a **Referência** e o **Link no GitHub** (ou GitLab, ou Bitbucket), no commit atual. A referência é `arquivo:linha`, ou `arquivo:início-fim` com linhas selecionadas na aba. Com vários itens selecionados, cada um vai numa linha.
+
+## Favoritos e histórico local
+
+O submenu **Favoritos** tem **Adicionar aos favoritos**, para os itens selecionados, ou **Tirar dos favoritos**, quando todos eles já estão lá. Os favoritos seguem o arquivo ou a pasta renomeados e movidos, e a lista deles abre pela tecla; veja [Favoritos](/docs/code-navigation#favoritos).
+
+O submenu **Histórico local** tem **Mostrar histórico**, que num arquivo lista as versões guardadas e numa pasta mostra o que mudou nela, com o que foi excluído, e **Colocar rótulo…**. No espaço vazio da lista, o mesmo submenu vale para a pasta inteira da sessão. Veja [Histórico local](/docs/local-history).
 
 ## Recarregar do disco
 

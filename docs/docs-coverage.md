@@ -1,6 +1,6 @@
 # Inventário de cobertura das docs
 
-Mapa de tudo o que o Persisty entregou (changelog do site, versões 0.1.0 a 0.13.0) e de cada aba e opção de Configurações (app v0.13.0) para a página e a seção das docs que o cobrem. Fonte do design: `docs/superpowers/specs/2026-11-16-docs-per-feature-design.md`.
+Mapa de tudo o que o Persisty entregou (changelog do site, versões 0.1.0 a 0.14.0) e de cada aba e opção de Configurações (app v0.14.0) para a página e a seção das docs que o cobrem. Fonte do design: `docs/superpowers/specs/2026-11-16-docs-per-feature-design.md`.
 
 Como ler:
 - **Item:** o item como está em `content/changelog/pt-BR/<versão>.md`, ou a opção de Configurações no formato `Aba › Opção`.
@@ -10,7 +10,7 @@ Como ler:
 
 ## Páginas
 
-Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário acrescentou `agent-access` (ver o relatório da Tarefa 1).
+Lista final: 37 páginas em seis grupos. Parte da lista da spec; o inventário acrescentou `agent-access` (ver o relatório da Tarefa 1), e a 0.14.0 acrescentou `code-navigation`, `usages-and-refactoring` e `local-history`.
 
 | Slug | Grupo | Título pt-BR |
 |---|---|---|
@@ -29,8 +29,11 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | `worktrees` | `agents` | Pasta própria |
 | `verify` | `agents` | Verificar ao terminar |
 | `editor` | `code` | Editor |
+| `code-navigation` | `code` | Navegar pelo código |
+| `usages-and-refactoring` | `code` | Usos, renomear e refatorar |
 | `files` | `code` | Arquivos |
 | `tabs-and-groups` | `code` | Abas e grupos |
+| `local-history` | `code` | Histórico local |
 | `git-in-the-editor` | `code` | Git no editor |
 | `changes` | `code` | Alterações e commits |
 | `search` | `code` | Busca |
@@ -330,6 +333,39 @@ Lista final: 34 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Corrigido: detalhes do menu de clique direito, das abas, do histórico do arquivo e da leitura de tela | tabs-and-groups#o-menu-da-aba | coberto |
 | No Windows, o Desfazer da Lixeira e os avisos de arquivo em uso ainda estão sendo conferidos | troubleshooting#windows-e-linux | coberto |
 
+## 0.14.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Painel de baixo no editor | editor#painel-de-baixo | coberto |
+| Encontrar usos | usages-and-refactoring#encontrar-usos | coberto |
+| Ir para a implementação | usages-and-refactoring#implementação-e-tipo | coberto |
+| Destacar usos no arquivo | usages-and-refactoring#destacar-usos-no-arquivo | coberto |
+| Renomear em todos os arquivos | usages-and-refactoring#renomear-em-todos-os-arquivos | coberto |
+| Correções rápidas | usages-and-refactoring#correções-rápidas | coberto |
+| Extrair e embutir | usages-and-refactoring#extrair-embutir-e-refatorar | coberto |
+| Formatar | usages-and-refactoring#formatar-e-organizar-imports | coberto |
+| Substituir nos arquivos | search#substituir-nos-arquivos | coberto |
+| Histórico local | local-history#o-que-fica-guardado | coberto |
+| Histórico local › Mostrar histórico, na árvore e na aba | local-history#ver-as-versões-de-um-arquivo | coberto |
+| Voltar uma versão ou só um trecho, e numa pasta, recuperar um arquivo excluído | local-history#voltar-uma-versão-ou-um-trecho | coberto |
+| O prazo e o espaço em Configurações › Editor › Histórico local | local-history#prazo-e-espaço | coberto |
+| Arquivos recentes | code-navigation#arquivos-e-lugares-recentes | coberto |
+| Lugares recentes | code-navigation#arquivos-e-lugares-recentes | coberto |
+| Último lugar editado | code-navigation#arquivos-e-lugares-recentes | coberto |
+| Estrutura do arquivo | code-navigation#estrutura-do-arquivo-e-métodos | coberto |
+| Ir para símbolo | code-navigation#ir-para-símbolo-e-classe | coberto |
+| Próximo e anterior método | code-navigation#estrutura-do-arquivo-e-métodos | coberto |
+| Mostrar o arquivo na árvore | code-navigation#mostrar-na-árvore | coberto |
+| Definição rápida | code-navigation#definição-rápida | coberto |
+| Favoritos de linhas, arquivos e pastas | code-navigation#favoritos | coberto |
+| Buscar em tudo | code-navigation#buscar-em-tudo | coberto |
+| Seleção em coluna | editor#seleção-em-coluna-e-cursores | coberto |
+| Clonar cursor | editor#seleção-em-coluna-e-cursores | coberto |
+| O cabeçalho da sessão ficou só com as informações dela | sessions#cabeçalho-da-sessão | coberto |
+| Algumas teclas mudam de sentido só dentro do código | shortcuts#dentro-do-código | coberto |
+| No mapa WebStorm (macOS), F3 marca um favorito e a busca da próxima fica em ⌘G | code-navigation#favoritos | coberto |
+
 ## Configurações
 
 As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Código (Editor, Terminal, Arquivos), Agentes (Agentes, Contas de IA, Voz), Conexões (Integrações, Servidores MCP, Uso de IA, Privacidade e rede), Persisty (Atalhos, Conta, Sobre). A aba Conta só aparece com a sessão iniciada.
@@ -359,6 +395,7 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Editor › Markdown (abrir arquivos .md em) | editor#markdown-e-imagens | coberto |
 | Editor › Autor da linha (git blame): mostrar, atraso, autor, data, mensagem | git-in-the-editor#autor-da-linha | coberto |
 | Editor › Abas: limite, ao fechar ir para, abrir aba nova, pasta em nomes repetidos, marca de não gravada, aba de prévia | tabs-and-groups#opções-das-abas | coberto |
+| Editor › Histórico local: guardar por (dias), limite por pasta (MB), limpar o histórico local | local-history#prazo-e-espaço | coberto |
 | Terminal › Fonte (família, tamanho, peso, peso do negrito, altura da linha) | settings#terminal | coberto |
 | Terminal › Cursor (estilo, piscar) | settings#terminal | coberto |
 | Terminal › Exibição (renderizador WebGL ou DOM, linhas de histórico, espaçamento interno) | settings#terminal | coberto |

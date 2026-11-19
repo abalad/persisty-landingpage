@@ -1,11 +1,11 @@
 ---
 title: Editor
-description: Each session's editor, beside the terminal, with syntax highlighting, Markdown and image previews, suggestions and errors from the project, and the keymap you choose.
+description: Each session's editor, beside the terminal, with syntax highlighting, Markdown and image previews, suggestions and errors from the project, the bottom panel, column selection and the keymap you choose.
 group: code
 order: 1
 ---
 
-The **Code** panel is the session's editor: its folder as a tree on the left, and the open files as tabs, beside the terminal. It opens from the **Code** icon, in the tool bar on the session's right edge. The tree, the tabs and each file's Git have pages of their own: [Files](/docs/files), [Tabs and groups](/docs/tabs-and-groups) and [Git in the editor](/docs/git-in-the-editor).
+The **Code** panel is the session's editor: its folder as a tree on the left, and the open files as tabs, beside the terminal. It opens from the **Code** icon, in the tool bar on the session's right edge. The tree, the tabs and each file's Git have pages of their own: [Files](/docs/files), [Tabs and groups](/docs/tabs-and-groups) and [Git in the editor](/docs/git-in-the-editor). The actions that move through the code and the ones that change it through the language server are in [Move through the code](/docs/code-navigation) and [Usages, rename and refactor](/docs/usages-and-refactoring), and the versions the editor keeps, in [Local history](/docs/local-history).
 
 ## Open and save
 
@@ -67,6 +67,22 @@ The status bar shows the server's state (downloading, indexing, ready or stopped
 
 In Rust, the standard library needs its source in your toolchain (`rustup component add rust-src`); the app never changes the toolchain on its own.
 
+## Bottom panel
+
+Below the code, above the status bar, the editor has a panel with the **Usages** and **Problems** tabs. **Problems** lists the language servers' errors, warnings and info, by file, and a click opens the file at the line. Clicking the error and warning count in the status bar opens that tab. **Usages** shows the last result of [Find Usages](/docs/usages-and-refactoring#find-usages), of the implementation or of the type.
+
+Drag the panel's top edge to change its height, or use <kbd>↑</kbd> and <kbd>↓</kbd> with it in focus; a double-click goes back to the default height. Each session remembers whether the panel was open, on which tab and at what height.
+
+In the code, in both WebStorm keymaps, <kbd>⌘</kbd> <kbd>3</kbd> opens **Usages** and <kbd>⌘</kbd> <kbd>6</kbd> opens **Problems**, instead of choosing project 3 or 6. In the VS Code keymap, **Problems** is <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>M</kbd>, and **Usages** opens from the palette. The key moves the focus to the list, and <kbd>Esc</kbd> closes the panel and gives the focus back to the code. On Windows and Linux, which are in preview, the keys are <kbd>Alt</kbd> <kbd>3</kbd> and <kbd>Alt</kbd> <kbd>6</kbd>, or <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>M</kbd> in VS Code.
+
+## Column selection and carets
+
+**Column Selection Mode** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>8</kbd> in the WebStorm keymaps) turns the mode on, and the status bar shows **Column**. While it is on, <kbd>⇧</kbd> and the arrows grow a rectangle, with one caret per line in the same column, and dragging with the mouse draws the rectangle. On a short line the caret sits at the end, and the column comes back on a longer line. Typing writes on every line, and undo takes it all back in one step. <kbd>Esc</kbd> or the same key turn the mode off.
+
+To add a caret above or below, press <kbd>⌥</kbd> twice, hold it on the second press and use <kbd>↑</kbd> or <kbd>↓</kbd>, in the WebStorm keymaps. **Clone Caret Above** and **Clone Caret Below** are also on <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>↑</kbd> and <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>↓</kbd>, in every keymap; in the WebStorm keymaps, while the **Usages** tab shows a result, those keys walk through the usages.
+
+In the VS Code keymap, column mode is in the palette, and there is no gesture. On Windows and Linux, the mode is <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>, the gesture uses <kbd>Ctrl</kbd> instead of <kbd>⌥</kbd>, and adding a caret is <kbd>Ctrl</kbd> <kbd>Alt</kbd> with the arrows.
+
 ## Accessibility
 
 With **Reduce motion** on in the system's accessibility settings, the app drops its transitions; in the editor, the line numbers stay lined up with the code, and a search result goes to the right line. The tree, the tabs and the menus work from the keyboard, and a screen reader hears when a tab is unsaved, in preview or pinned.
@@ -96,8 +112,10 @@ The VS Code keymap keeps its own keys, such as <kbd>F12</kbd> to go to the decla
 
 On Windows and Linux, which are in preview, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, and both WebStorm keymaps use the keys of the WebStorm column, with one difference: **Quick Documentation** is <kbd>Ctrl</kbd> <kbd>Q</kbd>.
 
+Each keymap's navigation, usages and refactoring keys are in [Move through the code](/docs/code-navigation#keys) and [Usages, rename and refactor](/docs/usages-and-refactoring#keys), and the list of keys whose meaning changes in the code, in [Shortcuts](/docs/shortcuts#inside-the-code).
+
 ## Plan and limits
 
 The editor is on the free plan, with everything on this page.
 
-Suggestions, documentation, errors and **Go to Declaration** exist only in TypeScript, JavaScript and Rust; in other languages, the editor has the highlighting. Each server's first download needs the internet. Text files over 5 MB and images over 10 MB do not open.
+Suggestions, documentation, errors, **Go to Declaration**, the **Problems** panel and the actions that ask the language server exist only in TypeScript, JavaScript and Rust; in other languages, the editor has the highlighting. Each server's first download needs the internet. Text files over 5 MB and images over 10 MB do not open.

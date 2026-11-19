@@ -43,7 +43,7 @@ O grupo **Quando um agente precisa de você**.
 
 ## Editor
 
-Os grupos, na ordem: **Fonte**, **Comportamento**, **Atalhos**, **Markdown**, **Minimapa**, **Autor da linha (git blame)** e **Abas**. As mudanças valem na hora nos editores abertos.
+Os grupos, na ordem: **Fonte**, **Comportamento**, **Atalhos**, **Markdown**, **Minimapa**, **Autor da linha (git blame)**, **Abas** e **Histórico local**. As mudanças valem na hora nos editores abertos.
 
 | Opção | Padrão |
 | --- | --- |
@@ -74,6 +74,9 @@ Os grupos, na ordem: **Fonte**, **Comportamento**, **Atalhos**, **Markdown**, **
 | **Mostrar a pasta em nomes repetidos** | ligado |
 | **Marcar abas não gravadas** | **Ponto**. Também **Nome em itálico** |
 | **Aba de prévia** | desligado |
+| [**Guardar por (dias)**](/docs/local-history#prazo-e-espaço) | 5, de 1 a 30. O histórico fica só neste computador |
+| **Limite por pasta (MB)** | 200, de 50 a 2.000. Passando disso, as versões mais antigas da pasta são apagadas |
+| **Limpar o histórico local** | apaga, depois de confirmar, as versões guardadas de todas as pastas |
 
 O **Peso** vai de 100 a 900, além de normal e bold. As opções do minimapa aparecem com ele ligado, e as do autor da linha, com **Mostrar o autor no fim da linha** ligado.
 

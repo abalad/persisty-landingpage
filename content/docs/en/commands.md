@@ -2,7 +2,7 @@
 title: Workspace commands
 description: The commands Persisty finds in the workspace folder and your own, to run with one key and see each one's output in a tab below the terminal.
 group: code
-order: 8
+order: 11
 ---
 
 Each workspace has its own commands, such as `pnpm dev` or `cargo test`, in a picker beside the session tabs. A command runs in its own terminal, in the workspace folder, and its output goes to a tab below the session's terminal.
@@ -15,13 +15,13 @@ Commands that are not listed come in through **Add command…**: write the **Com
 
 ## Run
 
-The play button beside the picker, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd>, runs the chosen command and opens its output. While it runs, the same button and the same key stop it.
+The play button beside the picker, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd> outside the code, runs the chosen command and opens its output. While it runs, the same button and the same key stop it.
 
 Beside the picker, the state is written out: **Running**, **Done**, **Failed · code N**, **Stopped** or **Ended**. A click on it opens or collapses the output.
 
 ## The command output
 
-The **Command output** sits below the session's terminal, with one tab per command run and a dot with each one's state. <kbd>⌘</kbd> <kbd>E</kbd>, or the arrow in the corner, opens and collapses the output; collapsed, it still shows the tabs.
+The **Command output** sits below the session's terminal, with one tab per command run and a dot with each one's state. <kbd>⌘</kbd> <kbd>E</kbd> outside the code, or the arrow in the corner, opens and collapses the output; collapsed, it still shows the tabs.
 
 While the command runs, its tab shows the command's terminal, live. Once it ends, the tab shows its last 400 lines, with **Run again**. Running the same command again replaces the old tab with the new one, and the **×** of a finished tab closes it.
 

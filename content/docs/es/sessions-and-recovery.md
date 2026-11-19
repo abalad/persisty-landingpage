@@ -31,13 +31,13 @@ Cada sesión tiene una regla, que eliges al crearla en **Nueva sesión › Más 
 | --- | --- |
 | Relanzar si se cayó | Relanza cuando abres Persisty. Es la opción predeterminada. |
 | Solo reconectar si está viva | No relanza por su cuenta; espera a que lo pidas. |
-| Relanzar siempre | Al abrir Persisty, relanza también una sesión que terminó, con error o sin él, incluso si la detuviste con **Detener** (*Stop*). |
+| Relanzar siempre | Al abrir Persisty, relanza también una sesión que terminó, con error o sin él, como después de salir del agente en la terminal. |
 
 ## Restaurar todo
 
-Para relanzar en el momento lo que quedó atrás, usa el botón **Restaurar N** (*Restore N*), junto a las pestañas, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> (**Restaurar todo**, *Restore all*, en la paleta; <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> en Windows y Linux, que están en versión preliminar). Relanza las sesiones que se cayeron, de todos los proyectos, incluidas las de **Solo reconectar si está viva**, y las que terminaron y tienen **Relanzar siempre**. Ejecutarlo dos veces no duplica sesiones: la que ya volvió se queda como está. El número del botón cuenta las sesiones sin proceso del proyecto actual, incluidas las que terminaron, que solo vuelven con **Relanzar siempre** o con **Reintentar** (*Try again*).
+Para relanzar en el momento lo que quedó atrás, usa el botón **Restaurar N** (*Restore N*), junto a las pestañas, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> fuera del código (**Restaurar todo**, *Restore all*, en la paleta; <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> en Windows y Linux, que están en versión preliminar). En el código, en el mapa WebStorm (macOS) y, en Windows y Linux, en los dos mapas WebStorm, esa tecla es [**Reemplazar en archivos**](/docs/search#reemplazar-en-archivos) (*Replace in Files*). Relanza las sesiones que se cayeron, de todos los proyectos, incluidas las de **Solo reconectar si está viva**, y las que terminaron y tienen **Relanzar siempre**. Ejecutarlo dos veces no duplica sesiones: la que ya volvió se queda como está. El número del botón cuenta las sesiones sin proceso del proyecto actual, incluidas las que terminaron, que solo vuelven con **Relanzar siempre** o con **Reintentar** (*Try again*).
 
-Una sesión sin proceso muestra **Sesión sin proceso.** (*Session has no process.*), con el motivo, y el botón **Reintentar**, que relanza solo esa sesión, sea cual sea su regla. Así vuelve una sesión que terminó o que detuviste.
+Una sesión sin proceso muestra **Sesión sin proceso.** (*Session has no process.*), con el motivo, y el botón **Reintentar**, que relanza solo esa sesión, sea cual sea su regla. Así vuelve una sesión que terminó, como después de salir del agente en la terminal.
 
 ## El informe de restauración
 

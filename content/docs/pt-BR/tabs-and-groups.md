@@ -2,14 +2,14 @@
 title: Abas e grupos
 description: As abas do editor, como trocar, fechar, fixar e reordenar, e o editor dividido em até quatro grupos lado a lado ou empilhados.
 group: code
-order: 3
+order: 5
 ---
 
 Cada arquivo aberto no [editor](/docs/editor) ganha uma aba. O editor pode se dividir em até quatro grupos, lado a lado ou empilhados, cada um com as suas abas, e o mesmo arquivo pode estar aberto em mais de um grupo.
 
 ## O menu da aba
 
-O botão direito numa aba, ou <kbd>⇧</kbd> <kbd>F10</kbd> com a aba em foco, abre o menu dela. Nele ficam todas as formas de fechar, **Copiar caminho**, as divisões do editor, **Fixar aba**, **Configurar as abas**, **Maximizar o editor**, **Trocar tipo do arquivo…**, **Abrir em**, o submenu [**Git**](/docs/git-in-the-editor#o-submenu-git), **Renomear arquivo…** e **Recarregar do disco**. Um item que não vale para aquela aba fica apagado e diz por quê, como "é a única aba". As abas de diff e de histórico do Git têm só as formas de fechar.
+O botão direito numa aba, ou <kbd>⇧</kbd> <kbd>F10</kbd> com a aba em foco, abre o menu dela. Nele ficam todas as formas de fechar, **Copiar caminho**, [**Mostrar na árvore**](/docs/code-navigation#mostrar-na-árvore), o submenu [**Favoritos**](/docs/code-navigation#favoritos), as divisões do editor, **Fixar aba**, **Configurar as abas**, **Maximizar o editor**, **Trocar tipo do arquivo…**, **Abrir em**, os submenus [**Histórico local**](/docs/local-history) e [**Git**](/docs/git-in-the-editor#o-submenu-git), **Renomear arquivo…** e **Recarregar do disco**. Uma aba de fora da pasta da sessão não tem **Mostrar na árvore** nem **Favoritos**. Um item que não vale para aquela aba fica apagado e diz por quê, como "é a única aba". As abas de diff e de histórico do Git têm só as formas de fechar.
 
 ## Trocar de aba
 

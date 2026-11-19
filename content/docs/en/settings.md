@@ -43,7 +43,7 @@ The **When an agent needs you** group.
 
 ## Editor
 
-The groups, in order: **Font**, **Behavior**, **Shortcuts**, **Markdown**, **Minimap**, **Line author (git blame)** and **Tabs**. Changes apply right away in open editors.
+The groups, in order: **Font**, **Behavior**, **Shortcuts**, **Markdown**, **Minimap**, **Line author (git blame)**, **Tabs** and **Local history**. Changes apply right away in open editors.
 
 | Option | Default |
 | --- | --- |
@@ -74,6 +74,9 @@ The groups, in order: **Font**, **Behavior**, **Shortcuts**, **Markdown**, **Min
 | **Show the folder for repeated names** | on |
 | **Mark unsaved tabs** | **Dot**. Also **Name in italics** |
 | **Preview tab** | off |
+| [**Keep for (days)**](/docs/local-history#period-and-space) | 5, from 1 to 30. The history stays only on this computer |
+| **Limit per folder (MB)** | 200, from 50 to 2,000. Past that, the folder's oldest versions are deleted |
+| **Clear local history** | deletes, after you confirm, the saved versions of every folder |
 
 **Weight** goes from 100 to 900, plus normal and bold. The minimap's options show with it on, and the line author's with **Show the author at the end of the line** on.
 

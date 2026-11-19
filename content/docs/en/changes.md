@@ -2,7 +2,7 @@
 title: Changes and commits
 description: The session's Changes panel, to stage, see the diff, commit, sync with the remote, switch branches, stash changes and resolve conflicts.
 group: code
-order: 5
+order: 8
 ---
 
 The **Changes** panel is the git of the session's folder, like an IDE's source control. It opens from the **Changes** icon, in the tool bar on the session's right edge, or with <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd>. The icon shows how many files changed, also with the panel closed.

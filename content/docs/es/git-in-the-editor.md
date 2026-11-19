@@ -2,7 +2,7 @@
 title: Git en el editor
 description: El Git de cada archivo dentro del editor, con marcas en el margen, el autor de cada línea, la anotación de git blame, diffs e historial, y el submenú Git del árbol y de la pestaña.
 group: code
-order: 4
+order: 7
 ---
 
 El [editor](/docs/editor) muestra el Git del archivo abierto sin que salgas de él: qué cambió desde el último commit, quién cambió cada línea y el historial del archivo. Para hacer commits, enviar y cambiar de rama, usa el panel [Cambios](/docs/changes).

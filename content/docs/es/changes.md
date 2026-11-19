@@ -2,7 +2,7 @@
 title: Cambios y commits
 description: El panel Cambios de la sesión, para preparar, ver el diff, hacer commits, sincronizar con el remoto, cambiar de rama, guardar cambios y resolver conflictos.
 group: code
-order: 5
+order: 8
 ---
 
 El panel **Cambios** (*Changes*) es el git de la carpeta de la sesión, como el control de versiones de una IDE. Se abre con el ícono **Cambios**, en la barra de herramientas del borde derecho de la sesión, o con <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd>. El ícono muestra cuántos archivos cambiaron, también con el panel cerrado.

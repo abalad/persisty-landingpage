@@ -2,7 +2,7 @@
 title: Notas
 description: Un bloc de notas en Markdown por proyecto, guardado solo y el mismo en todas las sesiones del proyecto.
 group: code
-order: 7
+order: 10
 ---
 
 **Notas** (*Notes*) es un bloc de notas en Markdown por proyecto, para lo que quieres tener a mano mientras trabajas: un plan, una lista de lo que falta, comandos que siempre olvidas. Todas las sesiones del proyecto abren las mismas notas.
