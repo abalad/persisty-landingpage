@@ -16,8 +16,9 @@ type Dialog = "delete" | "cancel" | null;
 /**
  * The last section of My account: one sentence on what deleting does and the
  * button that opens the dialog. `open` starts it open, for `/account/delete`,
- * where closing it goes back to My account. The dialog's link to cancelling
- * instead hands over to the cancelling dialog.
+ * where closing it, or the cancelling dialog it handed over to, goes back to
+ * My account (a reload there would open the deletion again). The dialog's link
+ * to cancelling instead hands over to the cancelling dialog.
  */
 export function DeleteSection({ open }: { open?: boolean }) {
   const t = useTranslations("auth.account.delete");
@@ -56,6 +57,7 @@ export function DeleteSection({ open }: { open?: boolean }) {
           teamName={teamName}
           onClose={(changed) => {
             setDialog(null);
+            if (open) router.replace("/account");
             if (changed) void reloadBilling();
           }}
         />
