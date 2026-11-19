@@ -1,7 +1,7 @@
 ---
 title: Termos de uso
 description: As regras para usar o app, o site e a conta do Persisty.
-updated: 2026-11-03
+updated: 2026-11-19
 ---
 
 Ao usar o Persisty, o site ou a conta do Persisty Cloud, você concorda com estes termos.
@@ -29,7 +29,7 @@ Os preços estão na página de [Preços](/pricing):
 - **Pro:** R$ 9,90 por mês no Brasil, ou US$ 4,90 por mês fora dele.
 - **Team:** R$ 19,90 por assento por mês no Brasil, ou US$ 9,90 por assento por mês fora dele.
 
-A cobrança é mensal, no cartão, pelo Stripe, e a assinatura renova sozinha até você cancelar. Você cancela em Minha conta, em Plano e cobrança: o plano continua até o fim do período já pago, sem multa, e o período em curso não é reembolsado. Na primeira compra, você pode desistir em até 7 dias: cancelando em Minha conta nesse prazo, o valor pago volta para o cartão e o plano termina na hora. No Team, os assentos mudam no portal da assinatura, a partir de Minha conta, com cobrança proporcional. Se um pagamento não passar, o plano continua por alguns dias e depois volta ao gratuito. Os preços podem mudar; avisamos antes da renovação seguinte.
+A cobrança é mensal, no cartão, pelo Stripe, e a assinatura renova sozinha até você cancelar. Você cancela em Minha conta, em Plano e cobrança: o plano continua até o fim do período já pago, sem multa, e o período em curso não é reembolsado. Na primeira compra, você pode desistir em até 7 dias: cancelando em Minha conta nesse prazo, o valor pago volta para o cartão e o plano termina na hora. Você também pode excluir a conta em Minha conta: a assinatura termina na hora, e o período em curso não é reembolsado, salvo nos 7 dias da primeira compra. A primeira compra conta por e-mail, também depois de excluir uma conta. Excluir a conta do dono de um Time exclui também o Time e as contas de quem participa só dele. No Team, os assentos mudam no portal da assinatura, a partir de Minha conta, com cobrança proporcional. Se um pagamento não passar, o plano continua por alguns dias e depois volta ao gratuito. Os preços podem mudar; avisamos antes da renovação seguinte.
 
 A licença paga vale 14 dias sem internet e cobre até 5 computadores por conta. Se o plano terminar, o app volta ao gratuito.
 

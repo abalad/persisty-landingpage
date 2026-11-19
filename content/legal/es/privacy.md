@@ -1,7 +1,7 @@
 ---
 title: Política de privacidad
-description: Qué datos guardan el sitio, la app y Persisty Cloud, dónde quedan, para qué y cómo pedir que se borren.
-updated: 2026-11-16
+description: Qué datos guardan el sitio, la app y Persisty Cloud, dónde quedan, para qué y cómo eliminar la cuenta.
+updated: 2026-11-19
 ---
 
 Persisty se hizo para guardar lo mínimo. La app funciona sin cuenta y sin internet, y lo que haces en ella se queda en tu máquina.
@@ -72,7 +72,7 @@ Los pagos los procesa Stripe; Persisty no ve ni guarda datos de tarjeta.
 
 ## Tus derechos
 
-Según la LGPD (la ley de protección de datos de Brasil), puedes pedir acceso a tus datos, su corrección o la eliminación de la cuenta. Al eliminar la cuenta, los datos personales se borran; solo quedan números agregados que no identifican a nadie.
+Según la LGPD (la ley de protección de datos de Brasil), puedes pedir acceso a tus datos y su corrección. La cuenta la eliminas tú mismo, en cualquier momento, en Mi cuenta: los datos personales se borran en el momento, y quedan solo los registros de pago que la ley manda guardar, en Stripe, y números agregados que no identifican a nadie. Consultamos esos registros solo para saber si una compra es la primera, por el reembolso de los 7 días. Eliminar la cuenta del dueño de un Team elimina también el Team y las cuentas de quienes participan solo en él; esas personas reciben un aviso por e-mail.
 
 {{contact}}
 

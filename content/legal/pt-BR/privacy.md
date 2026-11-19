@@ -1,7 +1,7 @@
 ---
 title: Política de privacidade
-description: Que dados o site, o app e o Persisty Cloud guardam, onde ficam, para quê e como pedir que sejam apagados.
-updated: 2026-11-16
+description: Que dados o site, o app e o Persisty Cloud guardam, onde ficam, para quê e como apagar a conta.
+updated: 2026-11-19
 ---
 
 O Persisty foi feito para guardar o mínimo. O app funciona sem conta e sem internet, e o que você faz nele fica na sua máquina.
@@ -72,7 +72,7 @@ O pagamento é processado pela Stripe; o Persisty não vê nem guarda dados de c
 
 ## Seus direitos
 
-Pela LGPD, você pode pedir acesso aos seus dados, correção ou exclusão da conta. Ao excluir a conta, os dados pessoais são apagados; ficam só números agregados que não identificam ninguém.
+Pela LGPD, você pode pedir acesso aos seus dados e a correção deles. A conta você mesmo exclui, a qualquer momento, em Minha conta: os dados pessoais são apagados na hora, e ficam só os registros de pagamento que a lei manda guardar, no Stripe, e números agregados que não identificam ninguém. Consultamos esses registros só para saber se uma compra é a primeira, por causa do reembolso dos 7 dias. Excluir a conta do dono de um Time apaga também o Time e as contas de quem participa só dele; essas pessoas recebem um aviso por e-mail.
 
 {{contact}}
 
