@@ -15,6 +15,8 @@ A point keeps tracked and new files; whatever `.gitignore` ignores is left out. 
 
 ## Restore
 
+![In Restore points, clicking a point lists the files that go back; Restore this point asks for confirmation, and the state from before becomes the Before restoring point at the top of the list.](/docs-media/restore-points/pontos.mp4)
+
 Click a point to see what restoring changes: how many files come back and how many created later are deleted, with the list of them. **Restore this point** asks for confirmation and puts the files back as they were before that request. If the agent is working in the folder, the confirmation tells you to stop it first, because it may rewrite files during the restore.
 
 Restoring first saves the current state as a new point, **Before restoring**, so you can undo it. Only the folder's files come back: commits made by the agent stay on the branch.

@@ -15,6 +15,8 @@ O ponto guarda os arquivos rastreados e os novos; o que o `.gitignore` ignora fi
 
 ## Restaurar
 
+![Em Pontos de restauração, um clique num ponto mostra os arquivos que voltam; Restaurar este ponto pede confirmação, e o estado de antes vira o ponto Antes de restaurar, no topo da lista.](/docs-media/restore-points/pontos.mp4)
+
 Clique num ponto para ver o que muda ao restaurar: quantos arquivos voltam e quantos criados depois são apagados, com a lista deles. **Restaurar este ponto** pede confirmação e põe os arquivos como estavam antes daquele pedido. Se o agente estiver trabalhando na pasta, a confirmação avisa para pará-lo antes, porque ele pode reescrever arquivos durante a restauração.
 
 Restaurar guarda antes o estado de agora como um ponto novo, **Antes de restaurar**, para você poder desfazer. Só os arquivos da pasta voltam: commits feitos pelo agente continuam no branch.

@@ -15,6 +15,8 @@ As barras vêm do mesmo lugar que o `/usage` do Claude Code, com a credencial qu
 
 ## Conectar uma conta
 
+![Em Configurações › Contas de IA, Conectar conta pede o e-mail; Entrar pelo navegador espera o login, e a conta nova entra na lista com as janelas de 5 h e 7 d.](/docs-media/ai-accounts/contas.mp4)
+
 Conectar outra conta é do [Pro](/docs/pro). Sem ele, **Conectar conta** fica desligado e você usa a conta deste computador.
 
 1. Na linha **Outra conta**, clique em **Conectar conta**. Se quiser, escreva o e-mail em **E-mail da conta (opcional)**: ele só vem preenchido na tela de login. Depois clique em **Entrar pelo navegador**.
@@ -34,6 +36,8 @@ O login e o histórico de prompts ficam separados por conta. Ajustes (`settings.
 As conversas e a memória de cada projeto também ficam numa pasta só, a `~/.claude/projects` da conta deste computador. Por isso uma sessão que troca de conta não perde nada, e o `/resume` de qualquer conta acha a conversa inteira. Uma conta que tinha uma pasta de conversas só dela foi juntada a essa uma vez, sem apagar nada: quando os dois lados tinham um arquivo diferente com o mesmo nome, um ficou e o outro foi para uma pasta de backup.
 
 ## Rodízio
+
+![Em Contas de IA, ligar o Rodízio entre contas marca a Próxima no rodízio; na Nova sessão, o campo Conta do Claude vem com Automática · rodízio.](/docs-media/ai-accounts/rodizio.mp4)
 
 Com o **Rodízio entre contas** ligado, cada sessão nova do Claude Code vai para a conta com mais folga, e a lista marca qual é a **Próxima no rodízio**. Na **Nova sessão**, o campo **Conta do Claude** vem com **Automática · rodízio**; escolha uma conta ali para abrir aquela sessão nela.
 

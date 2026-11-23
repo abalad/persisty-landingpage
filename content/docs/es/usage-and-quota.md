@@ -9,6 +9,8 @@ La barra inferior de cada sesión de agente muestra el modelo, el gasto estimado
 
 ## Gasto estimado
 
+![Desde la paleta de comandos, la página Uso de IA se abre con el gasto estimado del proyecto por período, sesión y modelo; Todos los proyectos lo junta todo y muestra el gasto por proyecto.](/docs-media/usage-and-quota/uso.mp4)
+
 El panel **Detalles** (*Details*, <kbd>⌘</kbd> <kbd>I</kbd>) muestra esos números de la sesión en foco y el gasto del proyecto en el mes, en **IA en el mes** (*AI this month*). **Uso detallado** (*Usage details*), en el mismo panel, abre la página **Uso de IA** (*AI usage*) del proyecto: pedidos, tokens y costo de **Hoy** (*Today*) y **Este mes** (*This month*), las sesiones de Claude Code con su costo, contexto y ventanas, y las tablas **Por sesión** (*By session*), **Por modelo** (*By model*) y **Por proveedor** (*By provider*). **Todos los proyectos** (*All projects*), arriba, reúne todo y muestra **Por proyecto** (*By project*) en lugar de **Por sesión**.
 
 La página también se abre con **Uso de IA — todos los proyectos** (*AI usage — all projects*) en la paleta de comandos, y con **Abrir uso detallado** (*Open detailed usage*) en [**Configuración › Uso de IA**](/docs/settings#uso-de-ia) (*Settings › AI usage*). **Sincronizar** (*Sync*) vuelve a leer los registros, y **Volver** (*Back*) o <kbd>Esc</kbd> cierran la página.

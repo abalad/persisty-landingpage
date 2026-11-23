@@ -47,6 +47,8 @@ Las sesiones, el panel y los enlaces son del plan gratuito. En la **Cola de pedi
 
 ## Panel lateral
 
+![Con Command y barra invertida, el panel lateral se abre junto a la terminal y el divisor lo ensancha; después, Cambios muestra el diff de un archivo, y Command, Shift y F abren la Búsqueda en todos los archivos.](/docs-media/sessions/painel.mp4)
+
 <kbd>⌘</kbd> <kbd>&#92;</kbd> muestra u oculta el panel, en la última herramienta usada, y **Contraer panel** (*Collapse panel*), en su esquina, también lo cierra. Algunas herramientas tienen tecla propia: <kbd>⌘</kbd> <kbd>P</kbd> abre **Código** con la búsqueda de archivo por nombre, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> abre la **Búsqueda**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> abre y cierra **Cambios**, y <kbd>⌘</kbd> <kbd>I</kbd> abre y cierra **Detalles**. Dentro del código, las teclas del mapa del editor van primero; mira [Atajos de teclado](/docs/shortcuts).
 
 El divisor entre la terminal y el panel se arrastra. Con él en foco, <kbd>←</kbd> y <kbd>→</kbd> cambian el ancho de 5 % en 5 %, y <kbd>←</kbd> ensancha el panel. El panel empieza con el 45 % del ancho y va del 20 % al 80 %. Cada sesión recuerda si el panel estaba abierto, en qué herramienta y con qué ancho, también después de volver a abrir la app. **Restablecer** (*Reset*), en [**Configuración › Workspace › Tamaño de los paneles**](/docs/settings#workspace) (*Settings › Workspace › Panel size*), devuelve todas las sesiones a la división por defecto.

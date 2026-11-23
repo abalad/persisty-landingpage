@@ -9,6 +9,8 @@ La cola guarda los próximos pedidos a un agente y los entrega de a uno, cuando 
 
 ## Poner un pedido en la cola
 
+![En la Cola de pedidos, con tres pedidos en Próximos, el nuevo queda para cuando se renueve la ventana de 5 h; Command y Enter lo ponen en la cola, en cuarto lugar.](/docs-media/queue/fila.mp4)
+
 Escribe el pedido en la caja, elige cuándo sale y haz clic en **Poner en la cola** (*Queue it*), o usa <kbd>⌘</kbd> <kbd>↵</kbd>. En Windows y Linux, que están en versión preliminar, las teclas de esta página usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd> y <kbd>Alt</kbd> en lugar de <kbd>⌥</kbd>.
 
 El encabezado de la cola dice qué está haciendo el agente, como **Trabajando** (*Working*), **Terminó, listo para el siguiente** (*Done, ready for the next one*) o **Pidiendo permiso** (*Asking for permission*). Los pedidos que esperan aparecen numerados en **Próximos** (*Up next*), en el orden en que van a salir, con cuándo sale cada uno y por qué esperan los de abajo, como "esperando el n.º 1" (*waiting for no. 1*). El primero tiene la marca **próximo** (*next*). Los enviados quedan plegados abajo, en **Enviados** (*Sent*). En la barra de la sesión, el ícono de la cola muestra cuántos pedidos esperan, también con el panel cerrado.

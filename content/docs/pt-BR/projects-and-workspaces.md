@@ -17,6 +17,8 @@ As sessões têm página própria, [Sessões e terminais](/docs/sessions). Proje
 
 ## Barra de projetos
 
+![Troca da aba da sessão api para a web, depois para o workspace atlas-site, na lista de workspaces, e por fim do projeto Atlas para o Nimbus, na barra de projetos à esquerda.](/docs-media/projects-and-workspaces/projetos.mp4)
+
 Cada projeto é um bloco com as duas primeiras letras do nome. Um ponto no canto do bloco diz como está o projeto: amarelo quando um agente terminou e espera você ou pede permissão, azul quando um agente está trabalhando, verde quando há sessões rodando, e um anel vazado quando há sessões a restaurar. O ponto mostra o mais urgente, e passar o mouse diz o mesmo em palavras, como "2 aguardando você".
 
 Aperte <kbd>⌘</kbd> <kbd>B</kbd> para expandir a barra. Expandida, ela mostra o nome e o estado de cada projeto e a lista de **Agentes**, com o estado e o workspace de cada um; o filtro alterna entre **Projeto** e **Todos**. Troque de projeto com <kbd>⌘</kbd> <kbd>1</kbd> a <kbd>⌘</kbd> <kbd>9</kbd>. No Windows e no Linux, que estão em prévia, use <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>.
@@ -56,6 +58,8 @@ O cartão **Adicionar workspace**, no fim da faixa, abre a janela de mesmo nome 
 Com **Pasta do computador**, escreva o caminho completo ou clique em **Escolher pasta…**. No Windows, o caminho começa pela letra do disco, como `C:\`. O Persisty lê a pasta e mostra o que encontrou: **Repositório git** ou **Pasta comum**, o branch e o remoto. O **Nome** é o que aparece nos cartões e nas abas, e **Adicionar workspace** conclui.
 
 ## Clonar um repositório
+
+![Em Adicionar workspace, Repositório remoto lista os repositórios da conta conectada; escolhido o atlas-landing, aparecem o repositório, o branch padrão e a pasta de destino, e Clonar e adicionar baixa o repositório e abre o workspace novo.](/docs-media/projects-and-workspaces/workspace-remoto.mp4)
 
 Com **Repositório remoto**, cole o link do repositório; qualquer endereço git funciona. Sem conta conectada, o campo se chama **Link**, e **Seus repositórios** oferece conectar o GitHub ou o GitLab ali mesmo; o Bitbucket e o GitLab da empresa ficam em [**Configurações › Integrações**](/docs/settings#integrações); veja [GitHub, GitLab e Bitbucket](/docs/forges). Com uma conta conectada, o campo vira **Link ou busca** e lista os seus repositórios, com um filtro por serviço, e os privados também podem ser clonados.
 

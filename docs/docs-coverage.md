@@ -453,6 +453,16 @@ Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na 
 
 | Vídeo | Página | Seção |
 |---|---|---|
+| `projects-and-workspaces/projetos.mp4` | `projects-and-workspaces` | Barra de projetos |
+| `projects-and-workspaces/workspace-remoto.mp4` | `projects-and-workspaces` | Clonar um repositório |
+| `sessions/painel.mp4` | `sessions` | Painel lateral |
+| `sessions-and-recovery/restaurar.mp4` | `sessions-and-recovery` | Restaurar tudo |
+| `usage-and-quota/uso.mp4` | `usage-and-quota` | Gasto estimado |
+| `queue/fila.mp4` | `queue` | Pôr um pedido na fila |
+| `restore-points/pontos.mp4` | `restore-points` | Restaurar |
+| `worktrees/pasta-propria.mp4` | `worktrees` | Criar a pasta |
+| `ai-accounts/contas.mp4` | `ai-accounts` | Conectar uma conta |
+| `ai-accounts/rodizio.mp4` | `ai-accounts` | Rodízio |
 
 ## Páginas sem vídeo
 

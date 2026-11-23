@@ -17,6 +17,8 @@ Sessions have a page of their own, [Sessions and terminals](/docs/sessions). Pro
 
 ## Project bar
 
+![Switching from the api session tab to web, then to the atlas-site workspace in the workspace list, and finally from the Atlas project to Nimbus in the projects bar on the left.](/docs-media/projects-and-workspaces/projetos.mp4)
+
 Each project is a block with the first two letters of its name. A dot in the corner of the block tells you how the project stands: yellow when an agent has finished and is waiting for you or is asking for permission, blue when an agent is working, green when sessions are running, and a hollow ring when there are sessions to restore. The dot shows the most urgent one, and hovering says the same in words, such as "2 waiting for you".
 
 Press <kbd>⌘</kbd> <kbd>B</kbd> to expand the bar. Expanded, it shows each project's name and state and the **Agents** list, with each agent's state and workspace; the filter switches between **Project** and **All**. Switch projects with <kbd>⌘</kbd> <kbd>1</kbd> to <kbd>⌘</kbd> <kbd>9</kbd>. On Windows and Linux, which are in preview, use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>.
@@ -56,6 +58,8 @@ The **Add workspace** card, at the end of the strip, opens the window of the sam
 With **Folder on this computer**, type the full path or click **Choose folder…**. On Windows, the path starts with the drive letter, such as `C:\`. Persisty reads the folder and shows what it found: **Git repository** or **Plain folder**, the branch and the remote. The **Name** is what the cards and tabs show, and **Add workspace** finishes.
 
 ## Clone a repository
+
+![In Add workspace, Remote repository lists the connected account's repositories; once atlas-landing is chosen, the repository, the default branch and the destination folder appear, and Clone and add downloads it and opens the new workspace.](/docs-media/projects-and-workspaces/workspace-remoto.mp4)
 
 With **Remote repository**, paste the repository's link; any git address works. With no account connected, the field is called **Link**, and **Your repositories** offers to connect GitHub or GitLab right there; Bitbucket and a company's GitLab are in [**Settings › Integrations**](/docs/settings#integrations); see [GitHub, GitLab and Bitbucket](/docs/forges). With an account connected, the field becomes **Link or search** and lists your repositories, with a filter by service, and private ones can be cloned too.
 

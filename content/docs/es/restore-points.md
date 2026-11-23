@@ -15,6 +15,8 @@ Un punto guarda los archivos rastreados y los nuevos; lo que ignora el `.gitigno
 
 ## Restaurar
 
+![En Puntos de restauración, un clic en un punto muestra los archivos que vuelven; Restaurar este punto pide confirmación, y el estado de antes se vuelve el punto Antes de restaurar, arriba de la lista.](/docs-media/restore-points/pontos.mp4)
+
 Haz clic en un punto para ver qué cambia al restaurar: cuántos archivos vuelven y cuántos creados después se borran, con la lista. **Restaurar este punto** (*Restore this point*) pide confirmación y deja los archivos como estaban antes de ese pedido. Si el agente está trabajando en la carpeta, la confirmación avisa que lo detengas antes, porque puede reescribir archivos durante la restauración.
 
 Restaurar guarda antes el estado actual como un punto nuevo, **Antes de restaurar** (*Before restoring*), para que puedas deshacerlo. Solo vuelven los archivos de la carpeta: los commits que hizo el agente se quedan en la rama.
