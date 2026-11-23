@@ -13,6 +13,8 @@ Em [**Configurações › Voz**](/docs/settings#voz), ligue **Ditado por voz**; 
 
 ## Ditar
 
+![Com o terminal api em foco, Command, Shift e D começam o ditado, e o indicador mostra Ouvindo; a mesma tecla encerra, o indicador passa a Transcrevendo…, e o texto entra no prompt com o aviso Inserido em terminal api.](/docs-media/voice/voz.mp4)
+
 Clique no terminal ou no editor que deve receber o texto e aperte <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd>. O indicador embaixo da janela mostra **Ouvindo**. Fale e aperte a mesma tecla de novo: o indicador passa a **Transcrevendo…** e depois diz onde o texto entrou, como "Inserido em terminal api". <kbd>Esc</kbd> cancela.
 
 O texto vai para onde estava o foco quando você começou, mesmo que você clique em outro lugar. No terminal, ele é digitado como se fosse você, sem Enter: num agente, fica no prompt esperando você enviar. No editor, entra no cursor. Um arquivo somente leitura, ou coberto pela pré-visualização de Markdown, não recebe ditado. Se o terminal ou o arquivo fechar antes, nada é inserido, e **Copiar texto** copia o que foi transcrito.

@@ -33,6 +33,8 @@ Um recurso em prévia que você ligar pode fazer outras chamadas, e elas também
 
 ## Registro de rede
 
+![Uma busca por sentry em Servidores MCP consulta o registro oficial; em Privacidade e rede, a lista de chamadas de rede mostra essa chamada, com o destino, o motivo, os bytes enviados e recebidos, a hora e o resultado.](/docs-media/privacy-and-network/rede.mp4)
+
 Embaixo, **Chamadas de rede desde que o app abriu** lista cada chamada com destino, motivo, bytes enviados e recebidos, resultado e hora. Clonar, buscar, puxar e enviar commits aparecem como `GIT`, com 0 bytes: quem transfere é o próprio git, e o app não mede. Uma chamada redirecionada, como a procura e o download de uma atualização, ganha uma linha para cada servidor por onde passou. Cabeçalhos, corpo e parâmetros nunca são mostrados nem guardados. A lista não se atualiza sozinha: **Atualizar** lê de novo.
 
 ## Permissões do macOS

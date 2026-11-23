@@ -23,6 +23,8 @@ Depois, **Trocar** muda a conta ou o escopo, e **Desligar** desfaz o vínculo. S
 
 ## Começar de uma issue
 
+![Na Nova sessão, Escolher issue lista as issues do Linear; a ENG-123 escolhida dá nome à sessão e preenche o Pedido ao agente, e Criar e abrir abre a sessão, com a chave e Concluir no cabeçalho.](/docs-media/issues/issue.mp4)
+
 Na janela [**Nova sessão**](/docs/sessions#nova-sessão) (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>), o grupo **Issue** tem **Começar de uma issue**. **Escolher issue** lista as issues abertas do que você ligou ao projeto, as atualizadas mais recentemente primeiro. **Minhas**, o padrão, mostra só as atribuídas a você, e **Todas abertas** mostra todas. A busca filtra por chave ou título o que já chegou, **Carregar mais** traz a próxima página, e **Atualizar** busca a lista de novo. Num projeto ainda sem serviço, **Ligar um serviço** abre a seção **Tarefas** ali mesmo.
 
 A issue escolhida dá nome à sessão, como `ENG-123 Ajustar o login`, e preenche o **Pedido ao agente** com "Resolva a issue ENG-123: Ajustar o login", o link e a descrição. Edite o pedido se quiser: ele entra como o primeiro pedido, assim que o agente estiver pronto. Num **Terminal**, não há pedido, e a issue fica só vinculada à sessão. Antes de criar a sessão, **Trocar** escolhe outra issue, e **Tirar a issue** desfaz a escolha.
@@ -30,6 +32,8 @@ A issue escolhida dá nome à sessão, como `ENG-123 Ajustar o login`, e preench
 Com a **Pasta própria (worktree)** ligada, o **Branch novo** também vem da issue: o nome que o Linear sugere ou, nos outros serviços, a chave e o título em minúsculas, sem acentos e ligados por hífen, como `eng-123-ajustar-o-login`, cortado numa palavra inteira até 60 caracteres. A pasta própria é do Pro; veja [Pasta própria](/docs/worktrees).
 
 ## Concluir
+
+![Na sessão da issue ENG-123, Concluir abre a janela de conclusão, com o comentário já escrito; o Novo status passa a In Review, e Enviar comenta na issue e muda o status.](/docs-media/issues/concluir.mp4)
 
 A sessão aberta de uma issue mostra a chave no cabeçalho; clicar nela abre a issue no navegador. Ao lado, **Concluir** abre a janela de conclusão. O **Comentário** já vem escrito, com o agente e o branch atual da pasta, como "Feito com o Claude Code, pelo Persisty." e "Branch: eng-123-ajustar-o-login". Numa sessão de **Terminal**, a primeira linha é só "Feito com o Persisty." Mude o texto à vontade; vazio, nada é comentado.
 

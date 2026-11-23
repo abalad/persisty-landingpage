@@ -13,6 +13,8 @@ En [**Configuración › Voz**](/docs/settings#voz) (*Settings › Voice*), enci
 
 ## Dictar
 
+![Con la terminal api en foco, Command, Shift y D empiezan el dictado, y el indicador muestra Escuchando; la misma tecla lo termina, el indicador pasa a Transcribiendo…, y el texto entra en el prompt con el aviso Insertado en terminal api.](/docs-media/voice/voz.mp4)
+
 Haz clic en la terminal o el editor que debe recibir el texto y aprieta <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd>. El indicador en la parte de abajo de la ventana muestra **Escuchando** (*Listening*). Habla y aprieta la misma tecla otra vez: el indicador pasa a **Transcribiendo…** (*Transcribing…*) y después dice dónde entró el texto, como "Inserted into terminal api". <kbd>Esc</kbd> cancela.
 
 El texto va adonde estaba el foco cuando empezaste, aunque hagas clic en otro lugar. En la terminal, se escribe como si fueras tú, sin Enter: en un agente, queda en el prompt esperando que lo envíes. En el editor, entra en el cursor. Un archivo de solo lectura, o tapado por la vista previa de Markdown, no recibe dictado. Si la terminal o el archivo se cierra antes, no se inserta nada, y **Copiar texto** (*Copy text*) copia lo que se transcribió.

@@ -469,6 +469,12 @@ Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na 
 | `commands/comandos.mp4` | `commands` | A saída do comando |
 | `editor/markdown.mp4` | `editor` | Markdown e imagens |
 | `editor/contexto-fixo.mp4` | `editor` | Contexto fixo e minimapa |
+| `forges/integracoes.mp4` | `forges` | GitHub |
+| `issues/issue.mp4` | `issues` | Começar de uma issue |
+| `issues/concluir.mp4` | `issues` | Concluir |
+| `voice/voz.mp4` | `voice` | Ditar |
+| `updates/atualizar.mp4` | `updates` | Atualizar no app |
+| `privacy-and-network/rede.mp4` | `privacy-and-network` | Registro de rede |
 
 ## Páginas sem vídeo
 
