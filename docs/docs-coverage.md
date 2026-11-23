@@ -484,32 +484,18 @@ Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na 
 
 | Página | Motivo |
 |---|---|
-
-## Mídia para a entrega 2
-
-Vídeos de `public/changelog/` conferidos contra a interface da v0.13.0 e deixados de fora da entrega 1. Cada um precisa ser regravado para a página indicada.
-
-| Vídeo | Página | Motivo |
-|---|---|---|
-| `0.1.0/projetos.mp4` | `projects-and-workspaces` | Gravado na interface da 0.9: a sessão não tem a barra de ferramentas da borda direita (0.10.0), o cabeçalho ainda tem o botão de abrir o painel, que saiu, e no lugar do botão do Quadro está o do Estúdio do projeto, da 0.9. |
-| `0.1.0/restaurar.mp4` | `sessions-and-recovery` | Mesma interface da 0.9 atrás do relatório: sem a barra de ferramentas da sessão, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. O relatório em si bate com a 0.13.0. |
-| `0.2.0/painel.mp4` | `sessions` | O painel lateral mudou na 0.10.0: as ferramentas eram abas no topo do painel e hoje ficam na barra vertical da borda direita, e o painel abria por um botão no cabeçalho que não existe mais. |
-| `0.8.0/workspace-remoto.mp4` | `projects-and-workspaces` | A janela **Adicionar workspace** bate com a 0.13.0, mas o fundo mostra a sessão da 0.9 (sem a barra de ferramentas, com o botão de painel no cabeçalho) e o botão do Estúdio do projeto no lugar do Quadro. Basta regravar a mesma cena. |
-| `0.1.0/uso.mp4` | `usage-and-quota` | Começa na sessão da 0.9 (sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro) antes de abrir a página **Uso de IA**. A página em si bate com a 0.13.0; basta regravar a abertura. |
-| `0.4.0/fila.mp4` | `queue` | A fila aparece no painel da 0.9: as ferramentas são abas no topo do painel, não a barra vertical da borda direita, o cabeçalho tem o botão de painel e a barra do topo tem o botão do Estúdio do projeto no lugar do Quadro. A fila em si (cabeçalho, **Próximos**, caixa com **Pôr na fila**) bate com a 0.13.0. |
-| `0.4.0/pontos.mp4` | `restore-points` | Mesmo painel da 0.9 do vídeo da fila: abas no topo do painel em vez da barra da borda direita, botão de painel no cabeçalho e botão do Estúdio do projeto no lugar do Quadro. A lista de pontos bate com a 0.13.0. |
-| `0.4.0/pasta-propria.mp4` | `worktrees` | Sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. A marca `worktree` e a pasta em `~/.persist/worktrees` batem com a 0.13.0. |
-| `0.5.0/contas.mp4` | `ai-accounts` | Atrás de Configurações, a sessão da 0.9 (botão de painel no cabeçalho, sem a barra da borda direita, botão do Estúdio do projeto). A tela **Contas de IA** também está desatualizada: com o rodízio desligado, falta a linha **Continuar a tarefa cortada pelo limite**, que na 0.13.0 aparece com ou sem rodízio. |
-| `0.5.0/rodizio.mp4` | `ai-accounts` | A janela **Nova sessão** aparece sobre a sessão da 0.9 (botão de painel no cabeçalho, sem a barra da borda direita, botão do Estúdio do projeto). O campo **Conta do Claude** com **Automática · rodízio** bate com a 0.13.0; basta regravar a mesma cena. |
-| `0.2.0/commit.mp4` | `changes` | O painel **Alterações** da 0.9: as ferramentas são abas no topo do painel, não a barra vertical da borda direita (0.10.0), o cabeçalho da sessão tem o botão de painel, que saiu, e a barra do topo tem o botão do Estúdio do projeto no lugar do Quadro. A lista, a caixa de commit com **Commit de tudo** e o histórico com o ponto de não enviado batem com a 0.13.0. |
-| `0.2.0/branch.mp4` | `changes` | A lista de branches do cabeçalho bate com a 0.13.0, mas a cena é a sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |
-| `0.2.0/comandos.mp4` | `commands` | A **Saída do comando**, com **Falhou · código 1** e **Executar de novo**, bate com a 0.13.0, mas acima dela está a sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |
-| `0.8.0/git.mp4` | `changes` | A barra de sincronização (↓2, ↑1, **Em dia**) bate com a 0.13.0, mas o painel é o da 0.9: ferramentas em abas no topo do painel, botão de painel no cabeçalho e botão do Estúdio do projeto no lugar do Quadro. |
-| `0.9.0/markdown.mp4` | `editor` | A pré-visualização de Markdown bate com a 0.13.0, mas o painel **Código** é o da 0.9: ferramentas em abas no topo do painel, botão de painel no cabeçalho, botão do Estúdio do projeto, e a barra das abas ainda sem o botão **Maximizar o editor**. |
-| `0.9.0/contexto-fixo.mp4` | `editor` | O contexto fixo e o minimapa batem com a 0.13.0, mas o painel **Código** é o da 0.9: ferramentas em abas no topo do painel, botão de painel no cabeçalho, botão do Estúdio do projeto, e a barra das abas sem o botão **Maximizar o editor**. |
-| `0.8.0/integracoes.mp4` | `forges` | A página do GitHub em **Configurações › Integrações** bate com a 0.13.0 (conta por código, **Adicionar conta**, a nota das issues), mas atrás da janela está a sessão da 0.9: o cabeçalho tem o botão de painel, que saiu, não há a barra de ferramentas da borda direita, e a barra do topo tem o botão do Estúdio do projeto no lugar do Quadro. Basta regravar a mesma cena. |
-| `0.9.0/issue.mp4` | `issues` | A sessão aberta da issue, com o nome `ENG-123 …`, o pedido "Resolva a issue …" e a chave com **Concluir** no cabeçalho, bate com a 0.13.0, mas é a sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |
-| `0.9.0/concluir.mp4` | `issues` | Mesma sessão da 0.9 do vídeo da issue (sem a barra da borda direita, botão de painel no cabeçalho, botão do Estúdio do projeto). A chave, **Concluir** e o branch da pasta própria no cabeçalho batem com a 0.13.0; basta regravar a cena. |
-| `0.9.0/voz.mp4` | `voice` | O ditado no terminal e o aviso "Inserido em terminal api" batem com a 0.13.0, mas a sessão é a da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. |
-| `0.8.0/atualizar.mp4` | `updates` | O aviso de versão nova (**Persisty 0.9.0 disponível**, **Baixando… 100%**, **Novidades** e **Instalar e reiniciar**) bate com a 0.13.0, mas atrás dele está a sessão da 0.9: sem a barra de ferramentas da borda direita, com o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. Basta regravar a mesma cena. |
-| `0.3.0/rede.mp4` | `privacy-and-network` | **Configurações › Privacidade e rede** (o grupo **Privacidade**, a lista de chamadas com **Atualizar** e o rodapé com **Entrar** e **Criar conta grátis**) tem o desenho da 0.13.0, mas as chamadas `GIT` mostram bytes (96 B enviados, 2,0 KB recebidos), e a 0.13.0 registra 0 bytes para elas. Atrás da janela está a sessão da 0.9: o botão de painel no cabeçalho e o botão do Estúdio do projeto no lugar do Quadro. Na capa, a lista de abas começa em Código, sem o grupo de Aparência, Workspace e Notificações à vista. |
+| `getting-started` | Instalar acontece fora do app, no instalador do sistema. Criar o projeto e abrir uma sessão têm vídeo em `projects-and-workspaces` e `worktrees`. |
+| `agents` | Explica os estados e o que o Persisty reconhece de cada agente. Os estados aparecem nos vídeos das sessões, da fila e do Quadro. |
+| `notifications` | A notificação do sistema e o som saem fora da página do app, que é tudo o que o gravador captura. |
+| `verify` | O modo demonstração guarda o comando escolhido, mas não encena um agente parando depois de mudar arquivos, que é quando a verificação roda. O item **Verificar ao terminar** aparece no vídeo de `commands`. |
+| `usages-and-refactoring` | O servidor de linguagem do modo demonstração (`fakeLsp.ts`) responde a sugestões, documentação, definição e assinatura, mas não acha usos nem renomeia. |
+| `local-history` | O modo demonstração (`ipc.mock.ts`) não tem as chamadas do histórico local, como `historyList` e `historyRead`. |
+| `search` | A **Busca** nos arquivos aparece no vídeo do painel lateral, em `sessions`, com a busca por `Header`. |
+| `notes` | Um bloco de texto por projeto: um vídeo mostraria só alguém digitando. |
+| `mcp-servers` | A tela **Servidores MCP**, com a busca no registro oficial, aparece no vídeo de `privacy-and-network`. |
+| `agent-access` | O agente usa essas ferramentas dentro da conversa dele, no terminal, e o modo demonstração não roda um agente de verdade. |
+| `pro` | Lista o que o Pro acrescenta e como assinar. A assinatura acontece no site, e cada recurso tem vídeo na própria página. |
+| `account-and-license` | Entrar usa um código de 8 dígitos enviado por e-mail, e a conta é gerida no site; o modo demonstração mostraria um e-mail e um código inventados. |
+| `shortcuts` | Página de referência das teclas por mapa e plataforma, que os vídeos das outras páginas mostram em uso. |
+| `settings` | Lista de referência das 16 telas. As mais usadas aparecem nos vídeos de `ai-accounts`, `forges` e `privacy-and-network`, e uma imagem por tela envelheceria a cada versão. |
+| `troubleshooting` | Página de referência do que fazer quando algo não funciona, sem uma tela própria no app. |

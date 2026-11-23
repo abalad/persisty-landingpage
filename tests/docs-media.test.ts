@@ -100,7 +100,7 @@ describe("docs media", () => {
     }
   });
 
-  it.todo("every page has a video or says why not", async () => {
+  it("every page has a video or says why not", async () => {
     const withVideo = new Set(mediaRows().map((r) => r.page));
     for (const { slug } of listDocs("pt-BR")) {
       if (clipsOf((await getDoc("pt-BR", slug))!.html).some((src) => APPROVED_CHANGELOG.includes(src))) withVideo.add(slug);
