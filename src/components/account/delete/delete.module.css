@@ -1,0 +1,237 @@
+/*
+ * Deleting the account, in the cancelling dialog's frame (cancel.module.css);
+ * this sheet holds only what is new. Step 1 is two plain groups split by a
+ * hairline, each line opened by a short dash and nothing else. Step 2 is the
+ * sign-in's own code field (auth.module.css), then the last look at what goes,
+ * over the footer. The button that deletes is the coral pill, filled.
+ */
+
+/* A little closer under "1 of 2" than the cancelling steps: these carry more lines. */
+div.body {
+  padding-top: 8px;
+}
+
+/* Step 1 in the middle of the column: a short one leaves no empty band over the footer; a long one fills the column anyway. */
+div.middle {
+  align-content: center;
+}
+
+/* The title and its lead sit closer than the rest of the step; the lead takes the column's width, at the size of the lines under it. */
+.head {
+  display: grid;
+  gap: 6px;
+}
+
+.head > p {
+  max-width: none;
+  font-size: 0.9375rem;
+  text-wrap: balance;
+}
+
+/* An e-mail or a team's name inside a line: brighter, never mono. */
+.em {
+  color: var(--site-heading);
+  font-weight: 500;
+}
+
+/* An e-mail address stays whole; a long one breaks only after its "@" (a <wbr> there), never at a hyphen or a dot. */
+.address > span {
+  white-space: nowrap;
+}
+
+/* ---- Step 1: what goes, what stays ----------------------------------------- */
+
+.group {
+  margin-top: 6px;
+}
+
+.group + .group {
+  margin-top: 2px;
+  padding-top: 14px;
+  border-top: 1px solid var(--site-hairline);
+}
+
+.groupTitle {
+  margin: 0 0 6px;
+  color: var(--site-heading);
+  font-size: 0.9375rem;
+  font-weight: 550;
+  line-height: 1.4;
+}
+
+.lines {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lines li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--site-body);
+  font-size: 0.9375rem;
+  line-height: 1.42;
+  text-wrap: pretty;
+}
+
+.lines li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 7px;
+  height: 1px;
+  background: var(--color-fg-subtle);
+}
+
+/* ---- Step 2: the code and the last look ------------------------------------ */
+
+.form {
+  display: grid;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+/* A code that does not match: coral all through the field, its focus halo, caret and selection included. */
+.codeField[aria-invalid="true"] {
+  caret-color: var(--color-danger);
+}
+
+.codeField[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(239, 125, 125, 0.18);
+}
+
+.codeField[aria-invalid="true"]::selection {
+  background: rgba(239, 125, 125, 0.28);
+}
+
+/* The sign-in's error panel, a step tighter to fit the column. */
+p.alert {
+  padding: 10px 12px;
+  line-height: 1.45;
+}
+
+.resend {
+  margin: 0;
+  color: var(--site-muted);
+  font-size: var(--small);
+}
+
+.resend button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--site-body);
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--pill-secondary-border);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color var(--duration-normal) var(--ease-out), text-decoration-color var(--duration-normal) var(--ease-out);
+}
+
+.resend button:hover {
+  color: var(--site-heading);
+  text-decoration-color: currentColor;
+}
+
+.resend button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* What goes, in one sentence over the footer; in the form without a code, under the lead. */
+.last {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--site-hairline);
+  color: var(--site-body);
+  font-size: var(--small);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+/* ---- The footer ------------------------------------------------------------- */
+
+.foot > :last-child {
+  margin-left: auto;
+}
+
+@media (min-width: 721px) {
+  div.foot {
+    padding-top: 18px;
+  }
+}
+
+/* `button.` so these win over the graphite pill's own rules whatever order the sheets load in. */
+button.solid {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: var(--site-ground);
+}
+
+button.solid:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--color-danger) 86%, #fff);
+  border-color: color-mix(in srgb, var(--color-danger) 86%, #fff);
+}
+
+/* Until the code is complete: the coral wash, the word dimmed. */
+button.solid:disabled {
+  opacity: 1;
+  background: var(--color-danger-bg);
+  border-color: transparent;
+  color: rgba(239, 125, 125, 0.55);
+}
+
+button.solid[aria-busy="true"] {
+  cursor: progress;
+}
+
+.spin {
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Phones: the button across the sheet on top, the quiet link under it; the sheet is as tall as its step, so nothing is centred in it. */
+@media (max-width: 720px) {
+  div.body {
+    padding-bottom: 0;
+  }
+
+  /* Room between the step's last line and the footer's hairline, as the sheet scrolls under it. */
+  div.foot {
+    margin-top: 20px;
+  }
+
+  /* A long address may be wider than a phone: there it breaks where it must. */
+  .long > span {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .foot > :last-child {
+    order: -1;
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+
+  button.act {
+    height: 46px;
+    font-size: 0.96875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resend button {
+    transition: none;
+  }
+}

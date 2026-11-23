@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
-description: What data the website, the app and Persisty Cloud keep, where it is stored, what it is for and how to ask for it to be deleted.
-updated: 2026-11-16
+description: What data the website, the app and Persisty Cloud keep, where it is stored, what it is for and how to delete your account.
+updated: 2026-11-19
 ---
 
 Persisty is built to keep as little as possible. The app works without an account and without internet, and what you do in it stays on your machine.
@@ -70,9 +70,11 @@ This data is stored in Supabase, in the São Paulo region. We use it to run the 
 
 Payment is processed by Stripe; Persisty does not see or store card details.
 
+E-mails, such as the sign-in code and account notices, are sent through Resend.
+
 ## Your rights
 
-Under the LGPD (Brazil's data protection law), you can ask for access to your data, for it to be corrected or for your account to be deleted. When the account is deleted, the personal data is erased; only aggregate numbers that identify no one remain.
+Under the LGPD (Brazil's data protection law), you can ask for access to your data and for it to be corrected. You delete the account yourself, at any time, in My account: the personal data is erased at once, and what remains is only the payment records the law requires us to keep (held by Stripe) and aggregate numbers that identify no one. The technical access and delivery logs that Supabase and Resend keep disappear on their own after each service's retention period. We look at those records only to tell whether a purchase is the first one, because of the 7-day refund. Deleting the account of a Team's owner also deletes the Team and the accounts of people who belong only to it; they receive a notice by e-mail.
 
 {{contact}}
 
