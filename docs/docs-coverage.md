@@ -447,6 +447,18 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Sobre › Procurar atualizações | updates#atualizar-no-app | coberto |
 | Sobre › Procurar atualizações automaticamente | updates#desligar-a-procura-automática | coberto |
 
+## Mídia
+
+Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na interface da versão mais nova. Cada um fica em `public/docs-media/<página>/` e entra logo abaixo do título da seção indicada, nos três idiomas.
+
+| Vídeo | Página | Seção |
+|---|---|---|
+
+## Páginas sem vídeo
+
+| Página | Motivo |
+|---|---|
+
 ## Mídia para a entrega 2
 
 Vídeos de `public/changelog/` conferidos contra a interface da v0.13.0 e deixados de fora da entrega 1. Cada um precisa ser regravado para a página indicada.
