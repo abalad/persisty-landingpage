@@ -59,7 +59,7 @@ Con **Carpeta de la computadora**, escribe la ruta completa o haz clic en **Eleg
 
 ## Clonar un repositorio
 
-![En Agregar workspace, Repositorio remoto lista los repositorios de la cuenta conectada; elegido atlas-landing, aparecen el repositorio, el branch predeterminado y la carpeta de destino, y Clonar y agregar lo descarga y abre el workspace nuevo.](/docs-media/projects-and-workspaces/workspace-remoto.mp4)
+![En Agregar workspace, Repositorio remoto lista los repositorios de la cuenta conectada; elegido atlas-landing, aparecen el repositorio, la rama predeterminada y la carpeta de destino, y Clonar y agregar lo descarga y abre el workspace nuevo.](/docs-media/projects-and-workspaces/workspace-remoto.mp4)
 
 Con **Repositorio remoto**, pega el enlace del repositorio; cualquier dirección git funciona. Sin cuenta conectada, el campo se llama **Enlace** (*Link*), y **Tus repositorios** (*Your repositories*) ofrece conectar GitHub o GitLab ahí mismo; Bitbucket y el GitLab de una empresa están en [**Configuración › Integraciones**](/docs/settings#integraciones) (*Settings › Integrations*); mira [GitHub, GitLab y Bitbucket](/docs/forges). Con una cuenta conectada, el campo pasa a ser **Enlace o búsqueda** (*Link or search*) y lista tus repositorios, con un filtro por servicio, y también se pueden clonar los privados.
 

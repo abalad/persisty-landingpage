@@ -35,6 +35,8 @@ El resaltado de cada lenguaje se carga cuando se abre el primer archivo de ese l
 
 ## Markdown e imágenes
 
+![En un archivo release.md se escribe una tarea nueva en la lista; Command, Shift y V cambian el código por la vista previa, con la tabla, la lista de tareas y el bloque de código.](/docs-media/editor/markdown.mp4)
+
 En un archivo `.md`, el botón del ojo, en la barra de las pestañas, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> alterna entre el código y la vista previa, que ya muestra lo que todavía no guardaste. La vista previa tiene tablas, listas de tareas y bloques de código. Un enlace a un sitio se abre en el navegador, un enlace a un archivo de la carpeta abre ese archivo en el editor, y un enlace `#` lleva al título.
 
 Nada se carga en la vista previa: el HTML aparece como texto, y una imagen de la web se vuelve un enlace que se abre en el navegador. Por encima de 300 mil caracteres, el archivo no se previsualiza. En **Configuración › Editor**, **Abrir archivos .md en** (*Open .md files in*) elige cómo se abre un `.md`: **Código**, por defecto, o **Vista previa** (*Preview*).
@@ -42,6 +44,8 @@ Nada se carga en la vista previa: el HTML aparece como texto, y una imagen de la
 Las imágenes PNG, JPG, GIF, WebP, BMP e ICO se abren en una pestaña, ajustadas al panel, con sus dimensiones y el tamaño del archivo; un clic muestra la imagen en tamaño real, y otro la ajusta de nuevo. Un SVG se abre como código y tiene la misma vista previa que el Markdown, dibujada como imagen, sin ejecutar scripts.
 
 ## Contexto fijo y minimapa
+
+![Al desplazar un archivo TypeScript, la clase, el método y el case en que se está quedan fijos arriba del editor, y el minimapa acompaña a la derecha; un clic en la línea fija del método lleva hasta ella.](/docs-media/editor/contexto-fixo.mp4)
 
 **Contexto fijo al desplazar** (*Sticky scroll*), en **Configuración › Editor**, viene apagado. Encendido, el inicio de la función, la clase o el título en que estás queda arriba del editor, en hasta 5 líneas, y se va cuando la línea que cierra el bloque llega arriba. Un clic en una de esas líneas te lleva a ella.
 

@@ -21,6 +21,8 @@ Junto al selector, el estado aparece escrito: **Ejecutando** (*Running*), **Conc
 
 ## La salida del comando
 
+![En el menú de comandos del workspace se ejecutan test y después dev; cada uno gana una pestaña en la Salida del comando, debajo de la terminal, y la pestaña de test termina con Falló · código 1 y Ejecutar de nuevo.](/docs-media/commands/comandos.mp4)
+
 La **Salida del comando** (*Command output*) queda debajo de la terminal de la sesión, con una pestaña por comando ejecutado y un punto con el estado de cada uno. <kbd>⌘</kbd> <kbd>E</kbd> fuera del código, o la flecha de la esquina, abre y contrae la salida; contraída, sigue mostrando las pestañas.
 
 Mientras el comando corre, su pestaña muestra la terminal del comando, en vivo. Cuando termina, la pestaña muestra sus últimas 400 líneas, con **Ejecutar de nuevo** (*Run again*). Ejecutar el mismo comando otra vez reemplaza la pestaña anterior por la nueva, y la **×** de una pestaña terminada la cierra.

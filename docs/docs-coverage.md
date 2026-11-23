@@ -463,6 +463,12 @@ Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na 
 | `worktrees/pasta-propria.mp4` | `worktrees` | Criar a pasta |
 | `ai-accounts/contas.mp4` | `ai-accounts` | Conectar uma conta |
 | `ai-accounts/rodizio.mp4` | `ai-accounts` | Rodízio |
+| `changes/commit.mp4` | `changes` | Fazer o commit |
+| `changes/git.mp4` | `changes` | Sincronizar com o remoto |
+| `changes/branch.mp4` | `changes` | Branches |
+| `commands/comandos.mp4` | `commands` | A saída do comando |
+| `editor/markdown.mp4` | `editor` | Markdown e imagens |
+| `editor/contexto-fixo.mp4` | `editor` | Contexto fixo e minimapa |
 
 ## Páginas sem vídeo
 

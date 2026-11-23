@@ -21,6 +21,8 @@ Um clique num arquivo mostra o diff ao lado da lista, no texto atual, com as lin
 
 ## Fazer o commit
 
+![No painel Alterações, um clique em App.tsx mostra o diff; o arquivo é preparado, a mensagem é escrita na caixa, e Command e Enter fazem o commit, que aparece no topo do Histórico.](/docs-media/changes/commit.mp4)
+
 Escreva a mensagem na caixa e faça o commit com <kbd>⌘</kbd> <kbd>↵</kbd> ou com o botão **Commit**. Sem nada preparado, o botão vira **Commit de tudo**, que prepara todas as alterações e faz o commit.
 
 **Mais ações de commit**, na seta ao lado do botão, tem **Commit e enviar**, **Corrigir último commit**, que junta o que está preparado ao último commit (com a mensagem vazia, mantém a dele), e **Desfazer último commit**, que tira o commit e devolve as alterações, preparadas, com a mensagem na caixa. Se esse commit já foi enviado, o Persisty avisa antes que o próximo envio vai precisar ser forçado.
@@ -33,6 +35,8 @@ Escreva a mensagem na caixa e faça o commit com <kbd>⌘</kbd> <kbd>↵</kbd> o
 
 ## Sincronizar com o remoto
 
+![A branch main está 2 commits atrás e 1 à frente do remoto; a seta ↓ pergunta como juntar, Rebase: meus commits por cima traz os commits novos, e a seta ↑ envia o que falta, até o painel dizer Em dia.](/docs-media/changes/git.mp4)
+
 Numa branch com remoto, o topo do painel mostra o nome dela e como está em relação ao remoto: **Em dia**, ↓ com os commits a puxar e ↑ com os commits a enviar. Um clique na seta puxa ou envia. Se os dois lados têm commits novos, o Persisty pergunta como juntar: **Merge: um commit de junção** ou **Rebase: meus commits por cima**. Uma branch que ainda não está no remoto mostra **Publicar branch**, que envia a branch e passa a acompanhá-la.
 
 **Buscar do remoto** traz as novidades na hora. **Mais ações de sincronização** tem **Puxar com rebase**, **Puxar com merge** e **Enviar forçado**, que pergunta antes e só substitui o remoto se ninguém tiver enviado nada desde a última busca.
@@ -40,6 +44,8 @@ Numa branch com remoto, o topo do painel mostra o nome dela e como está em rela
 O cabeçalho da sessão mostra as mesmas setas ao lado do nome da branch. Com o app à vista, o Persisty busca as novidades do remoto sozinho a cada 5 minutos, a não ser que alguém tenha buscado há menos de 3.
 
 ## Branches
+
+![Um clique na branch, no cabeçalho da sessão, abre a lista de branches, com o aviso das alterações que vão junto; digitar feat/pagamento-pix oferece Criar branch, e Enter troca o cabeçalho para a branch nova.](/docs-media/changes/branch.mp4)
 
 Um clique na branch, no cabeçalho da sessão, abre **Buscar ou criar branch**: as **Locais**, as **Remotos** e, quando o nome digitado não existe, **Criar branch** com ele. A lista avisa quando há alterações não commitadas que vão junto e quando o agente está trabalhando naquela pasta. O branch do cabeçalho acompanha trocas feitas pelo terminal.
 

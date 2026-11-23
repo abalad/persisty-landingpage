@@ -21,6 +21,8 @@ Ao lado do seletor, o estado aparece escrito: **Executando**, **Concluído**, **
 
 ## A saída do comando
 
+![No menu de comandos do workspace, test e depois dev são executados; cada um ganha uma aba na Saída do comando, abaixo do terminal, e a aba de test termina com Falhou · código 1 e Executar de novo.](/docs-media/commands/comandos.mp4)
+
 A **Saída do comando** fica abaixo do terminal da sessão, com uma aba por comando executado e um ponto com o estado de cada um. <kbd>⌘</kbd> <kbd>E</kbd> fora do código, ou a seta no canto, abre e recolhe a saída; recolhida, ela continua mostrando as abas.
 
 Enquanto o comando roda, a aba mostra o terminal dele, ao vivo. Depois que ele termina, a aba mostra as últimas 400 linhas, com **Executar de novo**. Executar o mesmo comando outra vez troca a aba antiga pela nova, e o **×** de uma aba terminada a fecha.

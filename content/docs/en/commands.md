@@ -21,6 +21,8 @@ Beside the picker, the state is written out: **Running**, **Done**, **Failed · 
 
 ## The command output
 
+![From the workspace command menu, test and then dev are run; each gets a tab in the Command output below the terminal, and the test tab ends with Failed · code 1 and Run again.](/docs-media/commands/comandos.mp4)
+
 The **Command output** sits below the session's terminal, with one tab per command run and a dot with each one's state. <kbd>⌘</kbd> <kbd>E</kbd> outside the code, or the arrow in the corner, opens and collapses the output; collapsed, it still shows the tabs.
 
 While the command runs, its tab shows the command's terminal, live. Once it ends, the tab shows its last 400 lines, with **Run again**. Running the same command again replaces the old tab with the new one, and the **×** of a finished tab closes it.

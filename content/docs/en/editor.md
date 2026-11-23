@@ -35,6 +35,8 @@ Each language's highlighting loads when its first file opens, in the colours of 
 
 ## Markdown and images
 
+![In a release.md file, a new task is written into the list; Command, Shift and V switch the code for the preview, with the table, the task list and the code block.](/docs-media/editor/markdown.mp4)
+
 In a `.md` file, the eye button, on the tab bar, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> switches between the code and the preview, which already shows what you have not saved yet. The preview has tables, task lists and code blocks. A link to a website opens in the browser, a link to a file in the folder opens that file in the editor, and a `#` link goes to its heading.
 
 Nothing loads in the preview: HTML shows as text, and an image from the web becomes a link that opens in the browser. Over 300,000 characters, a file is not previewed. In **Settings › Editor**, **Open .md files in** chooses how a `.md` opens: **Code**, the default, or **Preview**.
@@ -42,6 +44,8 @@ Nothing loads in the preview: HTML shows as text, and an image from the web beco
 PNG, JPG, GIF, WebP, BMP and ICO images open in a tab, fitted to the panel, with their dimensions and file size; a click shows the image at its actual size, and another fits it again. An SVG opens as code and gets the same preview as Markdown, drawn as an image, running no script.
 
 ## Sticky scroll and minimap
+
+![Scrolling a TypeScript file, the class, method and case you are in stay pinned at the top of the editor, with the minimap alongside on the right; clicking the method's pinned line jumps to it.](/docs-media/editor/contexto-fixo.mp4)
 
 **Sticky scroll**, in **Settings › Editor**, is off by default. On, the start of the function, class or heading you are in stays at the top of the editor, in up to 5 lines, and leaves once the line that closes the block reaches the top. A click on one of those lines takes you to it.
 

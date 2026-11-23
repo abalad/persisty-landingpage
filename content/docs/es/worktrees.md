@@ -9,7 +9,7 @@ En carpetas git, una sesión nueva puede recibir una rama `persist/<nombre>` en 
 
 ## Crear la carpeta
 
-![En Nueva sesión, con el nombre Pagamento Pix y la Carpeta propia (worktree) activada, aparece el branch nuevo persist/pagamento-pix; Crear y abrir abre la sesión en la carpeta nueva, con la marca worktree en el encabezado.](/docs-media/worktrees/pasta-propria.mp4)
+![En Nueva sesión, con el nombre Pagamento Pix y la Carpeta propia (worktree) activada, aparece la rama nueva persist/pagamento-pix; Crear y abrir abre la sesión en la carpeta nueva, con la marca worktree en el encabezado.](/docs-media/worktrees/pasta-propria.mp4)
 
 En [**Nueva sesión**](/docs/sessions#nueva-sesión) (*New session*), con una carpeta git, activa **Carpeta propia (worktree)** (*Own folder (worktree)*). La pista muestra la rama nueva y desde dónde parte, como "New branch persist/pagamento-pix from main, in a folder for this session only." El nombre sale del nombre de la sesión, en minúsculas y sin acentos, y recibe un número si ya existe; cámbialo en **Rama nueva** (*New branch*). La rama parte de lo que está en uso en la carpeta ahora.
 
