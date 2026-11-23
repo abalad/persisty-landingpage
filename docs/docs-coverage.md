@@ -449,7 +449,7 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 
 ## Mídia
 
-Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na interface da versão mais nova. Cada um fica em `public/docs-media/<página>/` e entra logo abaixo do título da seção indicada, nos três idiomas.
+Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na interface da versão mais nova. Cada um fica em `public/docs-media/<página>/` e entra logo abaixo do título da seção indicada, nos três idiomas. Fora desta tabela, `board` e `mascot` usam os vídeos `/changelog/0.10.0/quadro.mp4` e `/changelog/0.10.0/mascote.mp4`, que ainda batem com a interface.
 
 | Vídeo | Página | Seção |
 |---|---|---|
@@ -479,23 +479,23 @@ Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na 
 | `tabs-and-groups/dividir.mp4` | `tabs-and-groups` | Dividir o editor |
 | `git-in-the-editor/blame.mp4` | `git-in-the-editor` | Anotar com o git blame |
 | `code-navigation/recentes.mp4` | `code-navigation` | Arquivos e lugares recentes |
+| `account-and-license/entrar.mp4` | `account-and-license` | Entrar |
 
 ## Páginas sem vídeo
 
 | Página | Motivo |
 |---|---|
-| `getting-started` | Instalar acontece fora do app, no instalador do sistema. Criar o projeto e abrir uma sessão têm vídeo em `projects-and-workspaces` e `worktrees`. |
+| `getting-started` | Instalar acontece fora do app, no instalador do sistema. Adicionar um workspace tem vídeo em `projects-and-workspaces`, e abrir uma sessão, em `worktrees`; criar o projeto é um formulário de nome e descrição. |
 | `agents` | Explica os estados e o que o Persisty reconhece de cada agente. Os estados aparecem nos vídeos das sessões, da fila e do Quadro. |
 | `notifications` | A notificação do sistema e o som saem fora da página do app, que é tudo o que o gravador captura. |
 | `verify` | O modo demonstração guarda o comando escolhido, mas não encena um agente parando depois de mudar arquivos, que é quando a verificação roda. O item **Verificar ao terminar** aparece no vídeo de `commands`. |
-| `usages-and-refactoring` | O servidor de linguagem do modo demonstração (`fakeLsp.ts`) responde a sugestões, documentação, definição e assinatura, mas não acha usos nem renomeia. |
+| `usages-and-refactoring` | O servidor de linguagem do modo demonstração (`fakeLsp.ts`) só responde a sugestões e à documentação ao passar o mouse: não acha usos nem renomeia. |
 | `local-history` | O modo demonstração (`ipc.mock.ts`) não tem as chamadas do histórico local, como `historyList` e `historyRead`. |
 | `search` | A **Busca** nos arquivos aparece no vídeo do painel lateral, em `sessions`, com a busca por `Header`. |
 | `notes` | Um bloco de texto por projeto: um vídeo mostraria só alguém digitando. |
 | `mcp-servers` | A tela **Servidores MCP**, com a busca no registro oficial, aparece no vídeo de `privacy-and-network`. |
 | `agent-access` | O agente usa essas ferramentas dentro da conversa dele, no terminal, e o modo demonstração não roda um agente de verdade. |
-| `pro` | Lista o que o Pro acrescenta e como assinar. A assinatura acontece no site, e cada recurso tem vídeo na própria página. |
-| `account-and-license` | Entrar usa um código de 8 dígitos enviado por e-mail, e a conta é gerida no site; o modo demonstração mostraria um e-mail e um código inventados. |
+| `pro` | Lista o que o Pro acrescenta e como assinar. A assinatura acontece no site, fora do app, e os recursos têm vídeo nas próprias páginas, menos **Verificar ao terminar** (veja `verify`). |
 | `shortcuts` | Página de referência das teclas por mapa e plataforma, que os vídeos das outras páginas mostram em uso. |
 | `settings` | Lista de referência das 16 telas. As mais usadas aparecem nos vídeos de `ai-accounts`, `forges` e `privacy-and-network`, e uma imagem por tela envelheceria a cada versão. |
 | `troubleshooting` | Página de referência do que fazer quando algo não funciona, sem uma tela própria no app. |

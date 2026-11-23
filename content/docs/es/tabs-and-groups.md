@@ -37,7 +37,7 @@ Con el teclado, con la pestaña en foco, <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←<
 
 ## Dividir el editor
 
-![Con el editor maximizado, la paleta de comandos encuentra Dividir a la derecha, y App.tsx se abre en un grupo nuevo a la derecha; la barra de estado del grupo de la izquierda pasa a decir en el otro grupo.](/docs-media/tabs-and-groups/dividir.mp4)
+![Con el editor maximizado, la paleta de comandos encuentra Dividir a la derecha, y App.tsx se abre en un grupo nuevo a la derecha; la barra de estado pasa a decir en el otro grupo, porque solo el grupo de la izquierda habla con el servidor del lenguaje.](/docs-media/tabs-and-groups/dividir.mp4)
 
 **Dividir a la derecha** (*Split Right*) y **Dividir abajo** (*Split Down*), en el menú de la pestaña y en la paleta, abren el mismo archivo en un grupo nuevo. **Dividir y mover a la derecha** (*Split and Move Right*) y **Dividir y mover abajo** (*Split and Move Down*) llevan la pestaña al grupo nuevo. Son hasta cuatro grupos; sin espacio en el panel, el elemento dice que maximices el editor. El divisor entre dos grupos se arrastra, o se mueve con las flechas cuando está en foco.
 

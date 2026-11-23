@@ -100,6 +100,20 @@ describe("docs media", () => {
     }
   });
 
+  it("every video sits under the same section in en and es as in pt-BR", () => {
+    /** How many `##` headings come before the video's line in a page; -1 when the line is missing. */
+    const sectionIndex = (locale: string, page: string, video: string) => {
+      const lines = readFileSync(join(process.cwd(), "content/docs", locale, `${page}.md`), "utf8").split("\n");
+      const at = lines.findIndex((l) => l.includes(`(/docs-media/${video}`));
+      return at < 0 ? -1 : lines.slice(0, at).filter((l) => l.startsWith("## ")).length;
+    };
+    for (const { video, page } of mediaRows()) {
+      const reference = sectionIndex("pt-BR", page, video);
+      expect(reference, `${video} in pt-BR`).toBeGreaterThan(0);
+      for (const locale of ["en", "es"]) expect(sectionIndex(locale, page, video), `${locale}/${video}`).toBe(reference);
+    }
+  });
+
   it("every page has a video or says why not", async () => {
     const withVideo = new Set(mediaRows().map((r) => r.page));
     for (const { slug } of listDocs("pt-BR")) {

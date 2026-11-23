@@ -17,7 +17,7 @@ Sessions have a page of their own, [Sessions and terminals](/docs/sessions). Pro
 
 ## Project bar
 
-![Switching from the api session tab to web, then to the atlas-site workspace in the workspace list, and finally from the Atlas project to Nimbus in the projects bar on the left.](/docs-media/projects-and-workspaces/projetos.mp4)
+![Switching from the api session tab to web, then to the atlas-site workspace in the workspace list, and finally from the Atlas project to Nimbus in the project bar on the left.](/docs-media/projects-and-workspaces/projetos.mp4)
 
 Each project is a block with the first two letters of its name. A dot in the corner of the block tells you how the project stands: yellow when an agent has finished and is waiting for you or is asking for permission, blue when an agent is working, green when sessions are running, and a hollow ring when there are sessions to restore. The dot shows the most urgent one, and hovering says the same in words, such as "2 waiting for you".
 

@@ -15,7 +15,7 @@ The bars come from the same place as Claude Code's `/usage`, with the credential
 
 ## Connect an account
 
-![In Settings › AI accounts, Connect account asks for the e-mail; Sign in with the browser waits for the sign-in, and the new account joins the list with its 5-hour and 7-day windows.](/docs-media/ai-accounts/contas.mp4)
+![In Settings › AI accounts, Connect account lets you type the account's e-mail; Sign in with the browser waits for the sign-in, and the new account joins the list with its 5-hour and 7-day windows.](/docs-media/ai-accounts/contas.mp4)
 
 Connecting another account is [Pro](/docs/pro). Without it, **Connect account** is disabled and you use this computer's account.
 

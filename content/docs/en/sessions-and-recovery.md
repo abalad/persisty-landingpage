@@ -35,7 +35,7 @@ Each session has a rule, chosen when you create it in **New session › More opt
 
 ## Restore all
 
-![After the computer restarts, the project's sessions show as interrupted; one click on Restore 4 brings them all back, and the Restore report shows what came back and what failed, session by session.](/docs-media/sessions-and-recovery/restaurar.mp4)
+![After the computer restarts, the project's sessions show as interrupted; one click on Restore 4 relaunches the sessions, and the Restore report shows what came back and what failed, session by session.](/docs-media/sessions-and-recovery/restaurar.mp4)
 
 To relaunch what was left behind right away, use the **Restore N** button beside the tabs, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> outside the code (**Restore all** in the palette; <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> on Windows and Linux, which are in preview). In the code, in the WebStorm (macOS) keymap and, on Windows and Linux, in both WebStorm keymaps, that key is [**Replace in Files**](/docs/search#replace-in-files). It relaunches the sessions that went down, in every project, including those set to **Only reattach if alive**, and the ones that ended and are set to **Always relaunch**. Running it twice does not duplicate sessions: one that is already back stays as it is. The number on the button counts the current project's sessions with no process, including those that ended, which only come back with **Always relaunch** or with **Try again**.
 

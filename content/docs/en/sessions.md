@@ -47,7 +47,7 @@ Sessions, the panel and links are on the free plan. In the **Request queue**, wr
 
 ## Side panel
 
-![Command and backslash open the side panel beside the terminal and the divider widens it; then Changes shows a file's diff, and Command, Shift and F open Search across every file.](/docs-media/sessions/painel.mp4)
+![Command and backslash open the side panel beside the terminal and the divider widens it; then Changes shows a file's diff, and Command, Shift and F run Search all files.](/docs-media/sessions/painel.mp4)
 
 <kbd>⌘</kbd> <kbd>&#92;</kbd> shows or hides the panel, on the last tool you used, and **Collapse panel**, in its corner, closes it too. Some tools have a key of their own: <kbd>⌘</kbd> <kbd>P</kbd> opens **Code** with the search for a file by name, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> opens **Search**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> opens and closes **Changes**, and <kbd>⌘</kbd> <kbd>I</kbd> opens and closes **Details**. Inside the code, the editor keymap's keys come first; see [Keyboard shortcuts](/docs/shortcuts).
 

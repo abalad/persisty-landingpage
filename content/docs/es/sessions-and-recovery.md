@@ -35,7 +35,7 @@ Cada sesión tiene una regla, que eliges al crearla en **Nueva sesión › Más 
 
 ## Restaurar todo
 
-![Después de reiniciar la computadora, las sesiones del proyecto aparecen interrumpidas; un clic en Restaurar 4 las trae todas de vuelta, y el informe de restauración muestra, sesión por sesión, lo que volvió y lo que falló.](/docs-media/sessions-and-recovery/restaurar.mp4)
+![Después de reiniciar la computadora, las sesiones del proyecto aparecen interrumpidas; un clic en Restaurar 4 relanza las sesiones, y el informe de restauración muestra, sesión por sesión, lo que volvió y lo que falló.](/docs-media/sessions-and-recovery/restaurar.mp4)
 
 Para relanzar en el momento lo que quedó atrás, usa el botón **Restaurar N** (*Restore N*), junto a las pestañas, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> fuera del código (**Restaurar todo**, *Restore all*, en la paleta; <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> en Windows y Linux, que están en versión preliminar). En el código, en el mapa WebStorm (macOS) y, en Windows y Linux, en los dos mapas WebStorm, esa tecla es [**Reemplazar en archivos**](/docs/search#reemplazar-en-archivos) (*Replace in Files*). Relanza las sesiones que se cayeron, de todos los proyectos, incluidas las de **Solo reconectar si está viva**, y las que terminaron y tienen **Relanzar siempre**. Ejecutarlo dos veces no duplica sesiones: la que ya volvió se queda como está. El número del botón cuenta las sesiones sin proceso del proyecto actual, incluidas las que terminaron, que solo vuelven con **Relanzar siempre** o con **Reintentar** (*Try again*).
 

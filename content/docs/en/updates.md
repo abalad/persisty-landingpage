@@ -9,7 +9,7 @@ Persisty looks for new versions on its own and installs one when you click. The 
 
 ## Update in the app
 
-![In the bottom right corner, the Persisty 0.14.0 available notice gives the version in use, with What's new and Install and restart; Install and restart downloads the update and shows its progress up to 100%.](/docs-media/updates/atualizar.mp4)
+![In the bottom right corner, the notice Persisty 0.14.0 is available gives the version in use, with What's new and Install and restart; Install and restart downloads the update and shows its progress up to 100%.](/docs-media/updates/atualizar.mp4)
 
 The automatic check runs half a minute after the app opens and then every 6 hours while it stays open. When there is a new version, a notice appears in the bottom right corner with its number, such as "Persisty 0.13.0 is available", and the version you are on. **What's new** opens what changed in that version in your browser. **Install and restart** downloads the update showing its progress, checks the file's signature, installs it and opens Persisty on the new version.
 

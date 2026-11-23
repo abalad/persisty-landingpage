@@ -33,7 +33,7 @@ A preview feature you turn on may make other calls, and those also show in the [
 
 ## Network log
 
-![Searching for sentry in MCP servers queries the official registry; in Privacy & network, the list of network calls shows that call, with its destination, purpose, bytes sent and received, time and result.](/docs-media/privacy-and-network/rede.mp4)
+![In Settings, Sign in and Continue with e-mail ask for the sign-in code; in Privacy & network, the list of network calls shows that request, a POST, with its destination, purpose, bytes sent and received, time and result.](/docs-media/privacy-and-network/rede.mp4)
 
 Below, **Network calls since the app opened** lists every call with destination, reason, bytes sent and received, result and time. Cloning, fetching, pulling and pushing commits show as `GIT`, with 0 bytes: git itself does the transfer, and the app does not measure it. A redirected call, such as the update check and download, gets one line for each server it went through. Headers, body and parameters are never shown or kept. The list does not refresh on its own: **Refresh** reads it again.
 

@@ -15,7 +15,7 @@ As barras vêm do mesmo lugar que o `/usage` do Claude Code, com a credencial qu
 
 ## Conectar uma conta
 
-![Em Configurações › Contas de IA, Conectar conta pede o e-mail; Entrar pelo navegador espera o login, e a conta nova entra na lista com as janelas de 5 h e 7 d.](/docs-media/ai-accounts/contas.mp4)
+![Em Configurações › Contas de IA, Conectar conta deixa escrever o e-mail da conta; Entrar pelo navegador espera o login, e a conta nova entra na lista com as janelas de 5 h e 7 d.](/docs-media/ai-accounts/contas.mp4)
 
 Conectar outra conta é do [Pro](/docs/pro). Sem ele, **Conectar conta** fica desligado e você usa a conta deste computador.
 

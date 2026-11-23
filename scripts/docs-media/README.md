@@ -37,6 +37,10 @@ export const clips = [{ name: "<nome>", query: "…", async run(ui) { … } }];
 
 - De 6 a 12 s, e até 3 MB.
 - Em quadros do começo, do meio e do fim, a interface é a da versão gravada, e os dados do modo demonstração não contradizem as docs.
+- O modo demonstração às vezes abre no projeto Nimbus, numa sessão interrompida, quando a máquina está carregada. Confira no primeiro quadro que a cena começa no Atlas, na sessão api, e grave de novo se não começar.
+- Uma cena com um arquivo TypeScript aberto leva `lsp=fake` na `query`: sem ele, a barra de status diz "sem servidor". Com ele, o cursor parado sobre o código abre a dica do servidor, que prende a roda do mouse; role e espere com o cursor sobre os números de linha (`{ selector: ".cm-scroller", dx: 0.02 }`).
+- O gravador só clica com o botão esquerdo. Uma ação de menu de contexto vai pela paleta (`ui.press("Meta+k")`), com o nome inteiro da ação, para ela ser a única da lista.
+- O registro de rede do modo demonstração dá bytes enviados às chamadas git e GET, e o app registra 0 nelas. Uma cena que mostra o registro faz só chamadas POST.
 - Uma cena que falha com `not found {…}` tem o seletor ajustado aqui, nunca no app. Uma cena que o modo demonstração não monta fica sem vídeo, e a página entra em `## Páginas sem vídeo` com o motivo.
 
 Uma versão que muda uma tela com vídeo regrava a cena dela, no mesmo envio do changelog.
