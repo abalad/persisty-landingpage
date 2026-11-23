@@ -19,6 +19,8 @@ En [**Configuración › Editor › Autor de la línea (git blame)**](/docs/sett
 
 ## Anotar con git blame
 
+![Desde la paleta de comandos, Anotar con git blame pone en el margen de store.ts la fecha y el autor de cada bloque; un clic en una anotación resalta las líneas del mismo commit y abre su tarjeta, con Copiar hash y Mostrar el commit.](/docs-media/git-in-the-editor/blame.mp4)
+
 **Anotar con git blame** (*Annotate with Git Blame*), en el submenú **Git** o en la paleta, pone en el margen el autor y la fecha de cada línea, con el color según la edad del commit. Un clic en la anotación resalta las líneas del mismo commit y abre su tarjeta, y el clic derecho ofrece **Mostrar el diff del commit** (*Show the commit's diff*), **Anotar la revisión anterior** (*Annotate the previous revision*), **Copiar hash** y **Cerrar la anotación** (*Close the annotation*). Los archivos de más de 20 mil líneas no se anotan.
 
 ## El submenú Git

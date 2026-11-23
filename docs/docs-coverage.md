@@ -475,6 +475,10 @@ Vídeos das páginas, gravados com o gravador do app (`scripts/docs-media/`) na 
 | `voice/voz.mp4` | `voice` | Ditar |
 | `updates/atualizar.mp4` | `updates` | Atualizar no app |
 | `privacy-and-network/rede.mp4` | `privacy-and-network` | Registro de rede |
+| `files/arquivos.mp4` | `files` | Criar arquivos e pastas |
+| `tabs-and-groups/dividir.mp4` | `tabs-and-groups` | Dividir o editor |
+| `git-in-the-editor/blame.mp4` | `git-in-the-editor` | Anotar com o git blame |
+| `code-navigation/recentes.mp4` | `code-navigation` | Arquivos e lugares recentes |
 
 ## Páginas sem vídeo
 
