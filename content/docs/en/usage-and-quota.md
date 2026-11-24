@@ -9,11 +9,11 @@ The footer of every agent session shows the model, the estimated spend, the cont
 
 ## Estimated spend
 
-![From the command palette, the AI usage page opens with the project's estimated spend by period, session and model; All projects brings everything together and shows the spend by project.](/docs-media/usage-and-quota/uso.mp4)
+![From the command palette, AI usage — all projects opens the AI usage page with the estimated spend of every project, by period and by session; further down come the spend by project, by model and by provider.](/docs-media/usage-and-quota/uso.mp4)
 
 The **Details** panel (<kbd>⌘</kbd> <kbd>I</kbd>) shows these numbers for the focused session and the project's spend for the month, under **AI this month**. **Usage details**, in the same panel, opens the project's **AI usage** page: requests, tokens and cost for **Today** and **This month**, the Claude Code sessions with their cost, context and windows, and the **By session**, **By model** and **By provider** tables. **All projects**, at the top, brings everything together and shows **By project** instead of **By session**.
 
-The page also opens from **AI usage — all projects** in the command palette, and from **Open detailed usage** in [**Settings › AI usage**](/docs/settings#ai-usage). **Sync** reads the records again, and **Back** or <kbd>Esc</kbd> closes the page.
+**AI usage — all projects**, in the command palette, and **Open detailed usage**, in [**Settings › AI usage**](/docs/settings#ai-usage), open the page on **All projects**; **Open detailed usage** in the project settings opens the project's. **Sync** reads the records again, and **Back** or <kbd>Esc</kbd> closes the page.
 
 Spend comes from Claude Code's local records and from the status line it calculates itself. Token-based estimates use list prices with a date and a source, and **are not the invoice** from the provider.
 
