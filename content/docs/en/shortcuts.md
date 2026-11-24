@@ -81,6 +81,7 @@ These keys answer with the file tree in focus. Opening the menu, cut, copy, past
 | Copy to another folder | <kbd>F5</kbd> |
 | Cut, copy and paste files | <kbd>⌘</kbd> <kbd>X</kbd> <kbd>⌘</kbd> <kbd>C</kbd> <kbd>⌘</kbd> <kbd>V</kbd> |
 | Delete to the Trash | <kbd>⌫</kbd> |
+| Find Usages of the file (also on the tab) | <kbd>⌥</kbd> <kbd>F7</kbd> |
 | Undo the delete (while the notice shows) | <kbd>⌘</kbd> <kbd>Z</kbd> |
 | Copy path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copy reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |

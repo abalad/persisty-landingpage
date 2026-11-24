@@ -81,6 +81,7 @@ Estas teclas valem com a árvore de arquivos em foco. Abrir o menu, recortar, co
 | Copiar para outra pasta | <kbd>F5</kbd> |
 | Recortar, copiar e colar arquivos | <kbd>⌘</kbd> <kbd>X</kbd> <kbd>⌘</kbd> <kbd>C</kbd> <kbd>⌘</kbd> <kbd>V</kbd> |
 | Excluir para a Lixeira | <kbd>⌫</kbd> |
+| Encontrar usos do arquivo (também na aba) | <kbd>⌥</kbd> <kbd>F7</kbd> |
 | Desfazer a exclusão (enquanto o aviso aparece) | <kbd>⌘</kbd> <kbd>Z</kbd> |
 | Copiar caminho (também na aba e no código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referência (também na aba e no código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |

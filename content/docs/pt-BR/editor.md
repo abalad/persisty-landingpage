@@ -73,7 +73,7 @@ Em Rust, a biblioteca padrão precisa do código-fonte dela no seu toolchain (`r
 
 ## Painel de baixo
 
-Embaixo do código, acima da barra de status, o editor tem um painel com as abas **Usos** e **Problemas**. **Problemas** lista os erros, os avisos e as informações dos servidores da linguagem, por arquivo, e um clique abre o arquivo na linha. Clicar na contagem de erros e avisos da barra de status abre essa aba. **Usos** mostra o último resultado de [Encontrar usos](/docs/usages-and-refactoring#encontrar-usos), da implementação ou do tipo.
+Embaixo do código, acima da barra de status, o editor tem um painel com as abas **Usos** e **Problemas**. **Problemas** lista os erros, os avisos e as informações dos servidores da linguagem, por arquivo, e um clique abre o arquivo na linha. Clicar na contagem de erros e avisos da barra de status abre essa aba. **Usos** mostra o último resultado de [Encontrar usos](/docs/usages-and-refactoring#encontrar-usos), da implementação, do tipo ou dos [usos de um arquivo](/docs/usages-and-refactoring#usos-de-um-arquivo). [**Inspecionar código**](/docs/usages-and-refactoring#inspecionar-código) põe os problemas de arquivos abertos ou não numa seção **Inspeção** de **Problemas**, separada da lista ao vivo.
 
 Arraste a borda de cima do painel para mudar a altura, ou use <kbd>↑</kbd> e <kbd>↓</kbd> com ela em foco; um clique duplo volta à altura padrão. Cada sessão guarda se o painel estava aberto, em que aba e com que altura.
 

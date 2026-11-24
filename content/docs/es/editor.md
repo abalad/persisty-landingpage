@@ -73,7 +73,7 @@ En Rust, la biblioteca estándar necesita su código fuente en tu toolchain (`ru
 
 ## Panel inferior
 
-Debajo del código, encima de la barra de estado, el editor tiene un panel con las pestañas **Usos** (*Usages*) y **Problemas** (*Problems*). **Problemas** lista los errores, los avisos y la información de los servidores del lenguaje, por archivo, y un clic abre el archivo en la línea. Al hacer clic en la cuenta de errores y avisos de la barra de estado se abre esa pestaña. **Usos** muestra el último resultado de [Buscar usos](/docs/usages-and-refactoring#buscar-usos), de la implementación o del tipo.
+Debajo del código, encima de la barra de estado, el editor tiene un panel con las pestañas **Usos** (*Usages*) y **Problemas** (*Problems*). **Problemas** lista los errores, los avisos y la información de los servidores del lenguaje, por archivo, y un clic abre el archivo en la línea. Al hacer clic en la cuenta de errores y avisos de la barra de estado se abre esa pestaña. **Usos** muestra el último resultado de [Buscar usos](/docs/usages-and-refactoring#buscar-usos), de la implementación, del tipo o de los [usos de un archivo](/docs/usages-and-refactoring#usos-de-un-archivo). [**Inspeccionar código**](/docs/usages-and-refactoring#inspeccionar-código) pone los problemas de archivos abiertos o no en una sección **Inspección** (*Inspection*) de **Problemas**, aparte de la lista en vivo.
 
 Arrastra el borde de arriba del panel para cambiar la altura, o usa <kbd>↑</kbd> y <kbd>↓</kbd> con él en foco; un doble clic vuelve a la altura por defecto. Cada sesión recuerda si el panel estaba abierto, en qué pestaña y con qué altura.
 

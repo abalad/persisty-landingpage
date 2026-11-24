@@ -1,6 +1,6 @@
 ---
 title: Archivos
-description: El árbol de la carpeta de la sesión en el panel Código, para crear, renombrar, mover, copiar y eliminar archivos, abrirlos en otra app y copiar sus rutas.
+description: El árbol de la carpeta de la sesión en el panel Código, para crear, renombrar, mover, copiar y eliminar archivos con sus imports actualizados, ver quién usa un archivo, abrirlos en otra app y copiar sus rutas.
 group: code
 order: 4
 ---
@@ -27,9 +27,19 @@ Los archivos que git ignora aparecen atenuados, y `.git` nunca aparece. Arriba d
 
 Con el árbol en foco, <kbd>⌘</kbd> <kbd>X</kbd>, <kbd>⌘</kbd> <kbd>C</kbd> y <kbd>⌘</kbd> <kbd>V</kbd> cortan, copian y pegan archivos, también desde y hacia el Finder; **Cortar** (*Cut*), **Copiar** (*Copy*) y **Pegar** están en el menú. Pegar pone los elementos en la carpeta en la que hiciste clic, o en la carpeta del archivo en el que hiciste clic.
 
+## Imports al renombrar y mover
+
+En TypeScript, JavaScript y Rust, renombrar y mover archivos y carpetas también actualiza los imports de los archivos que los usan. Funciona con **Renombrar…** en el árbol y en la pestaña, **Refactorizar › Mover…**, al arrastrar y al cortar y pegar. Antes de tocar el disco, Persisty le pregunta al servidor del lenguaje qué cambia. Cuando hay imports que actualizar, una vista previa lista los archivos, cada uno con una casilla: <kbd>↵</kbd> confirma y <kbd>Esc</kbd> cancela la operación. Desmarcar todos solo renombra o mueve.
+
+Después, un aviso dice cuántos imports se actualizaron y en cuántos archivos, y nombra lo que quedó fuera. En las pestañas abiertas, el cambio es un paso del deshacer de la pestaña. Los archivos cerrados se guardan directo, y la versión de antes queda en el [historial local](/docs/local-history), con la etiqueta "Before updating imports". Los archivos fuera de la carpeta del proyecto, como un paquete vecino en un monorepo, no entran, y el aviso dice cuántos.
+
+El archivo cambia de lugar aunque los imports no se puedan actualizar, y el aviso dice por qué: el servidor no respondió en 3 segundos, había nombres repetidos en el destino, o el movimiento se detuvo a mitad de camino. Copiar no toca los imports.
+
 ## Eliminar
 
 **Eliminar…** (*Delete…*) siempre pide confirmación y manda los elementos a la Papelera. Durante 10 segundos, **Deshacer** (*Undo*) en el aviso, o <kbd>⌘</kbd> <kbd>Z</kbd> con el árbol en foco, trae todo de vuelta. Si un archivo abierto tiene cambios sin guardar, Persisty pregunta antes si los guarda o los descarta; con **Guardar automáticamente** (*Save automatically*) encendido, los guarda sin preguntar.
+
+Cuando otros archivos importan lo que se va a eliminar, la confirmación dice dónde: hasta 10 lugares, con el archivo y la línea, y "and N more" para el resto. El botón pasa a ser **Eliminar de todos modos** (*Delete anyway*). Ese aviso viene del servidor del lenguaje y solo aparece si responde en hasta 3 segundos, contando el tiempo que tarda en arrancar; sin respuesta, la confirmación es la de siempre. Solo se buscan los archivos elegidos, no el contenido de una carpeta, y un archivo que importa y también va a la Papelera no cuenta.
 
 ## Cuando el nombre ya existe
 
@@ -38,6 +48,10 @@ Al mover, copiar o pegar, si el nombre ya existe en el destino, Persisty pregunt
 ## Copias grandes y fallos
 
 Las copias y los movimientos grandes muestran el avance debajo del árbol y se pueden detener con **Cancelar** (*Cancel*), sin dejar nada a medias. Si una operación se detiene a mitad de camino, lo que ya pasó se queda, y el aviso dice qué elemento falló. Cuando un **Reemplazar** falla, el aviso dice qué elemento no se colocó y que la versión anterior fue a la Papelera; las pestañas cerradas para la operación vuelven al mismo grupo y a la misma posición.
+
+## Usos e inspección
+
+**Buscar usos** (*Find Usages*), en el menú de un archivo, lista los archivos que lo importan; mira [Usos de un archivo](/docs/usages-and-refactoring#usos-de-un-archivo). **Inspeccionar código** (*Inspect Code*), en un archivo, una carpeta o varios elementos seleccionados, muestra los problemas que los servidores del lenguaje encuentran en ellos; mira [Inspeccionar código](/docs/usages-and-refactoring#inspeccionar-código).
 
 ## Abrir en
 
@@ -78,6 +92,7 @@ En **Configuración › Archivos** (*Settings › Files*), **Ocultar archivos** 
 | Mover a otra carpeta | <kbd>F6</kbd> |
 | Copiar a otra carpeta | <kbd>F5</kbd> |
 | Eliminar | <kbd>⌫</kbd> o <kbd>⌘</kbd> <kbd>⌫</kbd> |
+| Buscar usos del archivo (también en la pestaña) | <kbd>⌥</kbd> <kbd>F7</kbd> |
 | Copiar ruta (también en la pestaña y en el código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referencia (*Copy Reference*; también en la pestaña y en el código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar el árbol | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
@@ -89,5 +104,7 @@ En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Al
 ## Plan y límites
 
 El árbol y todas las operaciones de archivos son del plan gratis.
+
+Actualizar los imports y el aviso al eliminar dependen del servidor del lenguaje, en TypeScript, JavaScript y Rust; sin él, renombrar, mover y eliminar funcionan como antes.
 
 El árbol solo muestra y cambia lo que está dentro de la carpeta de la sesión. En Windows y Linux, pegar archivos desde y hacia el sistema y deshacer una eliminación todavía se están comprobando en uso.

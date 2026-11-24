@@ -73,7 +73,7 @@ In Rust, the standard library needs its source in your toolchain (`rustup compon
 
 ## Bottom panel
 
-Below the code, above the status bar, the editor has a panel with the **Usages** and **Problems** tabs. **Problems** lists the language servers' errors, warnings and info, by file, and a click opens the file at the line. Clicking the error and warning count in the status bar opens that tab. **Usages** shows the last result of [Find Usages](/docs/usages-and-refactoring#find-usages), of the implementation or of the type.
+Below the code, above the status bar, the editor has a panel with the **Usages** and **Problems** tabs. **Problems** lists the language servers' errors, warnings and info, by file, and a click opens the file at the line. Clicking the error and warning count in the status bar opens that tab. **Usages** shows the last result of [Find Usages](/docs/usages-and-refactoring#find-usages), of the implementation, of the type or of the [usages of a file](/docs/usages-and-refactoring#usages-of-a-file). [**Inspect Code**](/docs/usages-and-refactoring#inspect-code) puts the problems of files, open or not, in an **Inspection** section of **Problems**, apart from the live list.
 
 Drag the panel's top edge to change its height, or use <kbd>↑</kbd> and <kbd>↓</kbd> with it in focus; a double-click goes back to the default height. Each session remembers whether the panel was open, on which tab and at what height.
 

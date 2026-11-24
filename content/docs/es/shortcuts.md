@@ -81,6 +81,7 @@ Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, co
 | Copiar a otra carpeta | <kbd>F5</kbd> |
 | Cortar, copiar y pegar archivos | <kbd>⌘</kbd> <kbd>X</kbd> <kbd>⌘</kbd> <kbd>C</kbd> <kbd>⌘</kbd> <kbd>V</kbd> |
 | Eliminar a la Papelera | <kbd>⌫</kbd> |
+| Buscar usos del archivo (también en la pestaña) | <kbd>⌥</kbd> <kbd>F7</kbd> |
 | Deshacer la eliminación (mientras se ve el aviso) | <kbd>⌘</kbd> <kbd>Z</kbd> |
 | Copiar ruta (también en la pestaña y en el código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referencia (también en la pestaña y en el código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
