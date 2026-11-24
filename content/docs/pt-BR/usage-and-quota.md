@@ -9,6 +9,8 @@ O rodapé de cada sessão de agente mostra o modelo, o gasto estimado, o context
 
 ## Gasto estimado
 
+![Pela paleta de comandos, a página Uso de IA abre com o gasto estimado do projeto por período, sessão e modelo; Todos os projetos junta tudo e mostra o gasto por projeto.](/docs-media/usage-and-quota/uso.mp4)
+
 O painel **Detalhes** (<kbd>⌘</kbd> <kbd>I</kbd>) mostra esses números da sessão em foco e o gasto do projeto no mês, em **IA no mês**. **Uso detalhado**, no mesmo painel, abre a página **Uso de IA** do projeto: requisições, tokens e custo de **Hoje** e **Este mês**, as sessões do Claude Code com custo, contexto e janelas, e as tabelas **Por sessão**, **Por modelo** e **Por provedor**. **Todos os projetos**, no topo, junta tudo e mostra **Por projeto** no lugar de **Por sessão**.
 
 A página também abre por **Uso de IA — todos os projetos**, na paleta de comandos, e por **Abrir uso detalhado**, em [**Configurações › Uso de IA**](/docs/settings#uso-de-ia). **Sincronizar** lê os registros de novo, e **Voltar** ou <kbd>Esc</kbd> fecham a página.

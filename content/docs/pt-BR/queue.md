@@ -9,6 +9,8 @@ A fila guarda os próximos pedidos a um agente e entrega um por vez, quando cheg
 
 ## Pôr um pedido na fila
 
+![Na Fila de pedidos, com três pedidos em Próximos, o pedido novo fica para quando a janela de 5 h renovar; Command e Enter o põem na fila, em quarto lugar.](/docs-media/queue/fila.mp4)
+
 Escreva o pedido na caixa, escolha quando ele sai e clique em **Pôr na fila**, ou use <kbd>⌘</kbd> <kbd>↵</kbd>. No Windows e no Linux, que estão em prévia, as teclas desta página usam <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd> e <kbd>Alt</kbd> no lugar de <kbd>⌥</kbd>.
 
 O cabeçalho da fila diz o que o agente está fazendo, como **Trabalhando**, **Terminou, pronto para o próximo** ou **Pedindo permissão**. Os pedidos que esperam aparecem numerados em **Próximos**, na ordem em que vão sair, com quando sai cada um e por que os de baixo esperam, como "esperando o nº 1". O primeiro tem a marca **próximo**. Os enviados ficam recolhidos embaixo, em **Enviados**. Na barra da sessão, o ícone da fila mostra quantos pedidos esperam, também com o painel fechado.

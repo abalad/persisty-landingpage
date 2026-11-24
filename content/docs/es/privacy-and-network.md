@@ -33,6 +33,8 @@ Una función en versión preliminar que actives puede hacer otras llamadas, y es
 
 ## Registro de red
 
+![En Configuración, Entrar y Continuar con e-mail piden el código de acceso; en Privacidad y red, la lista de llamadas de red muestra ese pedido, un POST, con el destino, el motivo, los bytes enviados y recibidos, la hora y el resultado.](/docs-media/privacy-and-network/rede.mp4)
+
 Abajo, **Llamadas de red desde que se abrió la app** (*Network calls since the app opened*) lista cada llamada con destino, motivo, bytes enviados y recibidos, resultado y hora. Clonar, buscar, traer y enviar commits aparecen como `GIT`, con 0 bytes: quien transfiere es el propio git, y la app no lo mide. Una llamada redirigida, como la búsqueda y la descarga de una actualización, tiene una línea por cada servidor por el que pasó. Los encabezados, el cuerpo y los parámetros nunca se muestran ni se guardan. La lista no se actualiza sola: **Actualizar** (*Refresh*) la lee de nuevo.
 
 ## Permisos de macOS

@@ -19,6 +19,8 @@ In [**Settings › Editor › Line author (git blame)**](/docs/settings#editor),
 
 ## Annotate with Git Blame
 
+![From the command palette, Annotate with Git Blame puts the date and author of each block in the margin of store.ts; clicking an annotation highlights the lines of the same commit and opens its card, with Copy hash and Show the commit.](/docs-media/git-in-the-editor/blame.mp4)
+
 **Annotate with Git Blame**, on the **Git** submenu or in the palette, puts each line's author and date in the gutter, coloured by the commit's age. A click on the annotation highlights the lines of the same commit and opens its card, and right-clicking it offers **Show the commit's diff**, **Annotate the previous revision**, **Copy hash** and **Close the annotation**. Files over 20,000 lines are not annotated.
 
 ## The Git submenu

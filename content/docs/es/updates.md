@@ -9,6 +9,8 @@ Persisty busca versiones nuevas solo e instala la nueva cuando haces clic. La b�
 
 ## Actualizar en la app
 
+![En la esquina de abajo a la derecha, el aviso Persisty 0.14.0 disponible dice la versión en uso, con Novedades e Instalar y reiniciar; Instalar y reiniciar descarga la actualización y muestra el progreso hasta el 100%.](/docs-media/updates/atualizar.mp4)
+
 La búsqueda automática corre medio minuto después de que la app se abre y, después, cada 6 horas mientras sigue abierta. Cuando hay una versión nueva, aparece un aviso en la esquina de abajo a la derecha con su número, como "Persisty 0.13.0 disponible", y la versión que usas. **Novedades** (*What's new*) abre en el navegador lo que cambió en esa versión. **Instalar y reiniciar** (*Install and restart*) descarga la actualización mostrando el progreso, verifica la firma del archivo, la instala y abre Persisty en la versión nueva.
 
 Para buscar en el momento, haz clic en **Buscar actualizaciones** (*Check for updates*) en [**Configuración › Acerca de**](/docs/settings#acerca-de) (*Settings › About*). La fila pasa a decir "Buscando…" (*Checking…*) y después "Estás en la versión más reciente" (*You're on the newest version*) o la versión nueva, con **Instalar y reiniciar** al lado. Si no se puede buscar, dice "No se pudo buscar ahora" (*Couldn't check right now*). La búsqueda automática que falla no muestra nada y lo intenta de nuevo la próxima vez.

@@ -35,6 +35,8 @@ O destaque de cada linguagem carrega quando o primeiro arquivo dela abre, nas co
 
 ## Markdown e imagens
 
+![Num arquivo release.md, uma tarefa nova é escrita na lista; Command, Shift e V trocam o código pela pré-visualização, com a tabela, a lista de tarefas e o bloco de código.](/docs-media/editor/markdown.mp4)
+
 Num arquivo `.md`, o botão de olho, na barra das abas, ou <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> alterna entre o código e a pré-visualização, que já mostra o que você ainda não gravou. A pré-visualização tem tabelas, listas de tarefas e blocos de código. Um link para um site abre no navegador, um link para um arquivo da pasta abre o arquivo no editor, e um link `#` leva ao título.
 
 Nada carrega na pré-visualização: HTML aparece como texto, e uma imagem da web vira um link para abrir no navegador. Acima de 300 mil caracteres, o arquivo não é pré-visualizado. Em **Configurações › Editor**, **Abrir arquivos .md em** escolhe como um `.md` abre: **Código**, o padrão, ou **Pré-visualização**.
@@ -42,6 +44,8 @@ Nada carrega na pré-visualização: HTML aparece como texto, e uma imagem da we
 Imagens PNG, JPG, GIF, WebP, BMP e ICO abrem numa aba, ajustadas ao painel, com as dimensões e o tamanho do arquivo; um clique mostra a imagem no tamanho real, e outro volta. Um SVG abre como código e tem a mesma pré-visualização do Markdown, desenhada como imagem, sem rodar script.
 
 ## Contexto fixo e minimapa
+
+![Ao rolar um arquivo TypeScript, a classe, o método e o case em que se está ficam fixos no topo do editor, e o minimapa acompanha à direita; um clique na linha fixa do método leva até ela.](/docs-media/editor/contexto-fixo.mp4)
 
 **Contexto fixo ao rolar**, em **Configurações › Editor**, vem desligado. Ligado, o início da função, da classe ou do título em que você está fica no topo do editor, em até 5 linhas, e sai quando a linha que fecha o bloco chega ao topo. Um clique numa dessas linhas leva até ela.
 

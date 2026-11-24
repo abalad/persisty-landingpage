@@ -37,6 +37,8 @@ From the keyboard, with the tab in focus, <kbd>⌥</kbd> <kbd>⇧</kbd> <kbd>←
 
 ## Split the editor
 
+![With the editor maximised, the command palette finds Split Right, and App.tsx opens in a new group on the right; the status bar then reads in the other group, because only the left group talks to the language server.](/docs-media/tabs-and-groups/dividir.mp4)
+
 **Split Right** and **Split Down**, on the tab menu and in the palette, open the same file in a new group. **Split and Move Right** and **Split and Move Down** take the tab to the new group. There are up to four groups; with no room left in the panel, the item tells you to maximise the editor. The divider between two groups can be dragged, or moved with the arrows while it has focus.
 
 In the [tree](/docs/files), **Open on the Right** opens the file in a group on the right. **Close Group** and the actions that focus the group to the left, right, above or below are in the palette.

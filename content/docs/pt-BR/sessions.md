@@ -47,6 +47,8 @@ As sessões, o painel e os links são do plano grátis. Na **Fila de pedidos**, 
 
 ## Painel lateral
 
+![Com Command e barra invertida, o painel lateral abre ao lado do terminal e a divisória o alarga; depois, Alterações mostra o diff de um arquivo, e Command, Shift e F abrem a Busca em todos os arquivos.](/docs-media/sessions/painel.mp4)
+
 <kbd>⌘</kbd> <kbd>&#92;</kbd> mostra ou esconde o painel, na última ferramenta usada, e **Recolher painel**, no canto dele, também fecha. Algumas ferramentas têm tecla própria: <kbd>⌘</kbd> <kbd>P</kbd> abre **Código** com a busca de arquivo pelo nome, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> abre a **Busca**, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> abre e fecha **Alterações**, e <kbd>⌘</kbd> <kbd>I</kbd> abre e fecha **Detalhes**. Dentro do código, as teclas do mapa do editor vêm primeiro; veja [Atalhos](/docs/shortcuts).
 
 A divisória entre o terminal e o painel se arrasta. Com ela em foco, <kbd>←</kbd> e <kbd>→</kbd> mudam a largura de 5% em 5%, e <kbd>←</kbd> alarga o painel. O painel começa com 45% da largura e vai de 20% a 80%. Cada sessão guarda se o painel estava aberto, em que ferramenta e com que largura, também depois de reabrir o app. **Redefinir**, em [**Configurações › Workspace › Tamanho dos painéis**](/docs/settings#workspace), volta todas as sessões à divisão padrão.

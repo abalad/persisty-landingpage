@@ -15,6 +15,8 @@ Persisty guarda las cuentas y sus tokens en el almacén de contraseñas del sist
 
 ## GitHub
 
+![En Configuración › Integraciones, la página de GitHub muestra que no hay cuenta conectada; Conectar cuenta abre la ventana con el código y espera la confirmación en el navegador, y la cuenta @demo aparece conectada.](/docs-media/forges/integracoes.mp4)
+
 **Conectar cuenta** abre **Conectar a GitHub** (*Connect to GitHub*) con un código. Haz clic en **Abrir GitHub** (*Open GitHub*), entra en la cuenta que quieres conectar, confirma el código y autoriza a Persisty. La ventana espera la confirmación y se cierra sola; Persisty nunca ve tu contraseña. El acceso que pide, `repo` y `read:org`, cubre tus repositorios, también los privados y los de tus organizaciones, e incluye escritura: Persisty lo usa para listar y clonar y, al [concluir una issue](/docs/issues#concluir), para comentarla y cerrarla. Si los de una organización no aparecen, ella tiene que aprobar a Persisty.
 
 ## GitLab

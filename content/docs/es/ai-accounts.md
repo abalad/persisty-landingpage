@@ -15,6 +15,8 @@ Las barras vienen del mismo lugar que el `/usage` de Claude Code, con la credenc
 
 ## Conectar una cuenta
 
+![En Configuración › Cuentas de IA, Conectar cuenta deja escribir el e-mail de la cuenta; Entrar con el navegador espera el inicio de sesión, y la cuenta nueva entra en la lista con sus ventanas de 5 h y 7 d.](/docs-media/ai-accounts/contas.mp4)
+
 Conectar otra cuenta es [Pro](/docs/pro). Sin él, **Conectar cuenta** (*Connect account*) queda desactivado y usas la cuenta de esta computadora.
 
 1. En la fila **Otra cuenta** (*Another account*), haz clic en **Conectar cuenta**. Si quieres, escribe el e-mail en **E-mail de la cuenta (opcional)** (*Account e-mail (optional)*): solo viene completado en la pantalla de login. Después haz clic en **Entrar con el navegador** (*Sign in with the browser*).
@@ -34,6 +36,8 @@ El login y el historial de prompts quedan separados por cuenta. Los ajustes (`se
 Las conversaciones y la memoria de cada proyecto también están en una sola carpeta, la `~/.claude/projects` de la cuenta de esta computadora. Por eso una sesión que cambia de cuenta no pierde nada, y el `/resume` de cualquier cuenta encuentra la conversación entera. Una cuenta que tenía su propia carpeta de conversaciones se unió a esa una vez, sin borrar nada: cuando los dos lados tenían un archivo distinto con el mismo nombre, uno se quedó y el otro fue a una carpeta de respaldo.
 
 ## Rotación
+
+![En Cuentas de IA, activar la Rotación entre cuentas marca la Próxima en la rotación; en Nueva sesión, el campo Cuenta de Claude viene con Automática · rotación.](/docs-media/ai-accounts/rodizio.mp4)
 
 Con la **Rotación entre cuentas** (*Rotate between accounts*) activada, cada sesión nueva de Claude Code va a la cuenta con más margen, y la lista marca cuál es la **Próxima en la rotación** (*Next in rotation*). En **Nueva sesión** (*New session*), el campo **Cuenta de Claude** (*Claude account*) viene con **Automática · rotación** (*Automatic · rotation*); elige una cuenta ahí para abrir esa sesión en ella.
 

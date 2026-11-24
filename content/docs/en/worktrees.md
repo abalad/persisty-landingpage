@@ -9,6 +9,8 @@ In git folders, a new session can get a `persist/<name>` branch in a folder of i
 
 ## Create the folder
 
+![In New session, named Pagamento Pix and with Own folder (worktree) on, the new branch persist/pagamento-pix appears; Create and open starts the session in the new folder, with the worktree tag in its header.](/docs-media/worktrees/pasta-propria.mp4)
+
 In [**New session**](/docs/sessions#new-session), with a git folder, turn on **Own folder (worktree)**. The hint shows the new branch and where it starts from, such as "New branch persist/pagamento-pix from main, in a folder for this session only." The name comes from the session's name, in lower case and without accents, and gets a number if it is already taken; change it under **New branch**. The branch starts from whatever is checked out in the folder now.
 
 The session opens in the new folder, in the same subfolder you picked, and the header shows the `worktree` tag; hovering over it shows the folder and the branch. It works for any session, agent or terminal. The new folder only has what is in the starting commit: uncommitted changes and what git ignores, such as `node_modules`, `.env` and builds, stay in the original folder.

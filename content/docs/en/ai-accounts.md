@@ -15,6 +15,8 @@ The bars come from the same place as Claude Code's `/usage`, with the credential
 
 ## Connect an account
 
+![In Settings › AI accounts, Connect account lets you type the account's e-mail; Sign in with the browser waits for the sign-in, and the new account joins the list with its 5-hour and 7-day windows.](/docs-media/ai-accounts/contas.mp4)
+
 Connecting another account is [Pro](/docs/pro). Without it, **Connect account** is disabled and you use this computer's account.
 
 1. On the **Another account** row, click **Connect account**. If you like, type the e-mail under **Account e-mail (optional)**: it only comes filled in on the sign-in page. Then click **Sign in with the browser**.
@@ -34,6 +36,8 @@ Sign-in and the prompt history stay separate per account. Settings (`settings.js
 Conversations and each project's memory also live in a single folder, this computer's account's `~/.claude/projects`. That is why a session that switches accounts loses nothing, and `/resume` on any account finds the whole conversation. An account that had a conversation folder of its own was merged into that one once, with nothing deleted: where both sides held a different file under the same name, one stayed and the other went to a backup folder.
 
 ## Rotation
+
+![In AI accounts, turning on Rotate between accounts marks the Next in rotation; in New session, the Claude account field reads Automatic · rotation.](/docs-media/ai-accounts/rodizio.mp4)
 
 With **Rotate between accounts** turned on, each new Claude Code session goes to the account with the most room, and the list marks which one is **Next in rotation**. In **New session**, the **Claude account** field comes set to **Automatic · rotation**; pick an account there to open that session on it.
 

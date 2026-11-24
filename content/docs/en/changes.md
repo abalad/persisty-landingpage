@@ -21,6 +21,8 @@ A click on a file shows its diff beside the list, in the current text, with remo
 
 ## Commit
 
+![In the Changes panel, clicking App.tsx shows its diff; the file is staged, the message goes in the box, and Command and Enter make the commit, which appears at the top of History.](/docs-media/changes/commit.mp4)
+
 Write the message in the box and commit with <kbd>⌘</kbd> <kbd>↵</kbd> or the **Commit** button. With nothing staged, the button becomes **Commit all**, which stages every change and commits.
 
 **More commit actions**, on the arrow beside the button, holds **Commit and push**, **Amend last commit**, which folds what is staged into the last commit (an empty message keeps its message), and **Undo last commit**, which takes the commit back, with its changes staged and its message in the box. If that commit was already pushed, Persisty first warns that the next push will have to be forced.
@@ -33,6 +35,8 @@ Write the message in the box and commit with <kbd>⌘</kbd> <kbd>↵</kbd> or th
 
 ## Sync with the remote
 
+![The main branch is 2 commits behind and 1 ahead of the remote; the ↓ arrow asks how to combine them, Rebase: my commits on top brings in the new commits, and the ↑ arrow sends the rest, until the panel reads Up to date.](/docs-media/changes/git.mp4)
+
 On a branch with a remote, the top of the panel shows its name and how it stands against the remote: **Up to date**, ↓ with the commits to pull and ↑ with the commits to push. A click on the arrow pulls or pushes. If both sides have new commits, Persisty asks how to join them: **Merge: a joining commit** or **Rebase: my commits on top**. A branch not on the remote yet shows **Publish branch**, which pushes the branch and tracks it from then on.
 
 **Fetch from the remote** brings in the news right away. **More sync actions** holds **Pull with rebase**, **Pull with merge** and **Force push**, which asks first and only replaces the remote if nobody pushed anything since the last fetch.
@@ -40,6 +44,8 @@ On a branch with a remote, the top of the panel shows its name and how it stands
 The session header shows the same arrows beside the branch name. While the app is in view, Persisty fetches from the remote on its own every 5 minutes, unless someone fetched less than 3 minutes before.
 
 ## Branches
+
+![Clicking the branch in the session header opens the branch list, with the warning about the changes that go along; typing feat/pagamento-pix offers Create branch, and Enter switches the header to the new branch.](/docs-media/changes/branch.mp4)
 
 A click on the branch, in the session header, opens **Find or create a branch**: the **Local** ones, the **Remote** ones and, when the name you type does not exist, **Create branch** with it. The list warns when uncommitted changes go along and when the agent is working in that folder. The header's branch follows switches made from the terminal.
 

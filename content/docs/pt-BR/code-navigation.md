@@ -9,6 +9,8 @@ Estas ações levam você a outro ponto do código sem procurar na árvore. Quas
 
 ## Arquivos e lugares recentes
 
+![No App.tsx, Command e E abrem Arquivos recentes, com store.ts e release.md marcados como abertos; a seta para baixo e Enter levam ao release.md.](/docs-media/code-navigation/recentes.mp4)
+
 **Arquivos recentes** (<kbd>⌘</kbd> <kbd>E</kbd>) lista os últimos 50 arquivos abertos na sessão, do mais recente para o mais antigo, mesmo os de abas já fechadas. O arquivo à vista fica de fora, e os que têm aba aberta levam a marca **aberta**. A lista continua depois de fechar o app e acompanha os arquivos renomeados, movidos e excluídos. Com ela aberta, a mesma tecla mostra só os **Arquivos editados nesta sessão**.
 
 **Lugares recentes** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd>) lista por onde o cursor passou e o que foi editado, marcados como **visitado** ou **editado**, cada lugar com o arquivo, a linha e 3 linhas de código. Apertar a tecla de novo deixa só os **Lugares editados**.

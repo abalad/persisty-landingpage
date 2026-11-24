@@ -17,6 +17,8 @@ Las sesiones tienen su propia página, [Sesiones y terminales](/docs/sessions). 
 
 ## Barra de proyectos
 
+![Cambio de la pestaña de la sesión api a web, después al workspace atlas-site en la lista de workspaces y, por último, del proyecto Atlas a Nimbus en la barra de proyectos de la izquierda.](/docs-media/projects-and-workspaces/projetos.mp4)
+
 Cada proyecto es un bloque con las dos primeras letras del nombre. Un punto en la esquina del bloque dice cómo está el proyecto: amarillo cuando un agente terminó y te espera o pide permiso, azul cuando un agente está trabajando, verde cuando hay sesiones corriendo, y un anillo hueco cuando hay sesiones por restaurar. El punto muestra lo más urgente, y al pasar el puntero dice lo mismo en palabras, como "2 waiting for you".
 
 Presiona <kbd>⌘</kbd> <kbd>B</kbd> para expandir la barra. Expandida, muestra el nombre y el estado de cada proyecto y la lista de **Agentes** (*Agents*), con el estado y el workspace de cada uno; el filtro alterna entre **Proyecto** (*Project*) y **Todos** (*All*). Cambia de proyecto con <kbd>⌘</kbd> <kbd>1</kbd> a <kbd>⌘</kbd> <kbd>9</kbd>. En Windows y Linux, que están en versión preliminar, usa <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>.
@@ -56,6 +58,8 @@ La tarjeta **Agregar workspace** (*Add workspace*), al final de la franja, abre 
 Con **Carpeta de la computadora**, escribe la ruta completa o haz clic en **Elegir carpeta…** (*Choose folder…*). En Windows, la ruta empieza por la letra del disco, como `C:\`. Persisty lee la carpeta y muestra lo que encontró: **Repositorio git** (*Git repository*) o **Carpeta común** (*Plain folder*), la rama y el remoto. El **Nombre** es lo que muestran las tarjetas y las pestañas, y **Agregar workspace** termina.
 
 ## Clonar un repositorio
+
+![En Agregar workspace, Repositorio remoto lista los repositorios de la cuenta conectada; elegido atlas-landing, aparecen el repositorio, la rama por defecto y la carpeta de destino, y Clonar y agregar lo descarga y abre el workspace nuevo.](/docs-media/projects-and-workspaces/workspace-remoto.mp4)
 
 Con **Repositorio remoto**, pega el enlace del repositorio; cualquier dirección git funciona. Sin cuenta conectada, el campo se llama **Enlace** (*Link*), y **Tus repositorios** (*Your repositories*) ofrece conectar GitHub o GitLab ahí mismo; Bitbucket y el GitLab de una empresa están en [**Configuración › Integraciones**](/docs/settings#integraciones) (*Settings › Integrations*); mira [GitHub, GitLab y Bitbucket](/docs/forges). Con una cuenta conectada, el campo pasa a ser **Enlace o búsqueda** (*Link or search*) y lista tus repositorios, con un filtro por servicio, y también se pueden clonar los privados.
 

@@ -13,6 +13,8 @@ In [**Settings › Voice**](/docs/settings#voice), turn on **Voice dictation**; 
 
 ## Dictate
 
+![With the api terminal in focus, Command, Shift and D start dictating and the indicator shows Listening; the same key stops, the indicator turns to Transcribing…, and the text lands in the prompt with the notice Inserted into terminal api.](/docs-media/voice/voz.mp4)
+
 Click the terminal or editor that should get the text and press <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd>. The indicator at the bottom of the window shows **Listening**. Speak and press the same key again: the indicator changes to **Transcribing…** and then says where the text went, such as "Inserted into terminal api". <kbd>Esc</kbd> cancels.
 
 The text goes where the focus was when you started, even if you click elsewhere. In a terminal, it is typed as if by you, without Enter: in an agent, it sits in the prompt waiting for you to send it. In the editor, it goes in at the cursor. A read-only file, or one covered by the Markdown preview, takes no dictation. If the terminal or the file closes first, nothing is inserted, and **Copy text** copies what was transcribed.

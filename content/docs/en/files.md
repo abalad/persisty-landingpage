@@ -15,6 +15,8 @@ Files git ignores are dimmed, and `.git` never shows. At the top of the list, **
 
 ## Create files and folders
 
+![New file, at the top of the tree, opens the name field in the tree itself; with the name checkout.ts and Enter, the file joins the list and opens in a tab.](/docs-media/files/arquivos.mp4)
+
 **New**, on the menu, creates a **File** or a **Folder** inside the item's folder. The same submenu creates TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile and EditorConfig files with a minimal template. You type the name in the tree itself, and a name that already exists is refused, with the reason.
 
 ## Rename, move and copy

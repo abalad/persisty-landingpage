@@ -23,6 +23,8 @@ Después, **Cambiar** (*Change*) cambia la cuenta o el alcance, y **Desvincular*
 
 ## Empezar desde una issue
 
+![En Nueva sesión, Elegir issue lista las issues de Linear; la ENG-123 elegida da nombre a la sesión y llena el Pedido al agente, y Crear y abrir abre la sesión, con la clave y Concluir en el encabezado.](/docs-media/issues/issue.mp4)
+
 En la ventana [**Nueva sesión**](/docs/sessions#nueva-sesión) (*New session*) (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>), el grupo **Issue** tiene **Empezar desde una issue** (*Start from an issue*). **Elegir issue** (*Choose issue*) lista las issues abiertas de lo que vinculaste al proyecto, las actualizadas más recientemente primero. **Mías** (*Mine*), la opción por defecto, muestra solo las asignadas a ti, y **Todas abiertas** (*All open*) las muestra todas. La búsqueda filtra por clave o título lo que ya llegó, **Cargar más** (*Load more*) trae la página siguiente, y **Actualizar** (*Refresh*) vuelve a traer la lista. En un proyecto todavía sin servicio, **Vincular un servicio** abre ahí mismo la sección **Tareas**.
 
 La issue elegida le da nombre a la sesión, como `ENG-123 Fix the login`, y llena el **Pedido al agente** (*Request to the agent*) con "Work on issue ENG-123: Fix the login", el enlace y la descripción. Edita el pedido si quieres: entra como el primer pedido en cuanto el agente esté listo. En una **Terminal** no hay pedido, y la issue queda solo vinculada a la sesión. Antes de crear la sesión, **Cambiar** elige otra issue, y **Quitar la issue** (*Remove the issue*) deshace la elección.
@@ -30,6 +32,8 @@ La issue elegida le da nombre a la sesión, como `ENG-123 Fix the login`, y llen
 Con **Carpeta propia (worktree)** (*Own folder (worktree)*) encendida, la **Rama nueva** (*New branch*) también viene de la issue: el nombre que sugiere Linear o, en los otros servicios, la clave y el título en minúsculas, sin acentos y unidos por guiones, como `eng-123-fix-the-login`, cortado en una palabra entera hasta 60 caracteres. La carpeta propia es Pro; mira [Carpeta propia](/docs/worktrees).
 
 ## Concluir
+
+![En la sesión de la issue ENG-123, Concluir abre la ventana de conclusión, con el comentario ya escrito; el Nuevo estado pasa a In Review, y Enviar comenta en la issue y cambia el estado.](/docs-media/issues/concluir.mp4)
 
 La sesión abierta desde una issue muestra la clave en el encabezado; al hacer clic se abre la issue en el navegador. Al lado, **Concluir** abre la ventana para concluirla. El **Comentario** (*Comment*) ya viene escrito, con el agente y la rama actual de la carpeta, como "Done with Claude Code, through Persisty." y "Branch: eng-123-fix-the-login". En una sesión de **Terminal**, la primera línea es solo "Done with Persisty." Cambia el texto como quieras; vacío, no se comenta nada.
 

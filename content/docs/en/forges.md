@@ -15,6 +15,8 @@ Persisty keeps the accounts and their tokens in the system's password store; on 
 
 ## GitHub
 
+![In Settings › Integrations, the GitHub page shows no account connected; Connect account opens the window with the code and waits for the confirmation in the browser, and the @demo account shows as connected.](/docs-media/forges/integracoes.mp4)
+
 **Connect account** opens **Connect to GitHub** with a code. Click **Open GitHub**, sign in to the account you want to connect, confirm the code and authorise Persisty. The window waits for the confirmation and closes on its own; Persisty never sees your password. The access requested, `repo` and `read:org`, covers your repositories, including private ones and your organisations', and includes write access: Persisty uses it to list and clone and, when you [finish an issue](/docs/issues#finish), to comment on it and close it. If an organisation's repositories do not show up, it needs to approve Persisty.
 
 ## GitLab

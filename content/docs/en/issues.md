@@ -23,6 +23,8 @@ Afterwards, **Change** switches the account or the scope, and **Unlink** removes
 
 ## Start from an issue
 
+![In New session, Choose issue lists the Linear issues; the chosen ENG-123 names the session and fills in the Request to the agent, and Create and open starts the session, with the key and Finish in its header.](/docs-media/issues/issue.mp4)
+
 In the [**New session**](/docs/sessions#new-session) window (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>), the **Issue** group has **Start from an issue**. **Choose issue** lists the open issues of whatever you linked to the project, most recently updated first. **Mine**, the default, shows only those assigned to you, and **All open** shows them all. The search filters what has arrived by key or title, **Load more** brings the next page, and **Refresh** fetches the list again. In a project with no service yet, **Link a service** opens the **Tasks** section right there.
 
 The chosen issue names the session, such as `ENG-123 Fix the login`, and fills in **Request to the agent** with "Work on issue ENG-123: Fix the login", the link and the description. Edit the request if you like: it goes as the first request as soon as the agent is ready. In a **Terminal** there is no request, and the issue is only linked to the session. Before you create the session, **Change** picks another issue, and **Remove the issue** clears the choice.
@@ -30,6 +32,8 @@ The chosen issue names the session, such as `ENG-123 Fix the login`, and fills i
 With **Own folder (worktree)** on, the **New branch** also comes from the issue: the name Linear suggests or, on the other services, the key and the title in lower case, without accents and joined by hyphens, such as `eng-123-fix-the-login`, cut at a whole word within 60 characters. The own folder is Pro; see [Own folder](/docs/worktrees).
 
 ## Finish
+
+![In the ENG-123 issue's session, Finish opens the finishing window with the comment already written; the New status is set to In Review, and Send comments on the issue and changes its status.](/docs-media/issues/concluir.mp4)
 
 A session started from an issue shows its key in the header; clicking it opens the issue in the browser. Beside it, **Finish** opens the finishing window. The **Comment** comes already written, with the agent and the folder's current branch, such as "Done with Claude Code, through Persisty." and "Branch: eng-123-fix-the-login". In a **Terminal** session, the first line is just "Done with Persisty." Change the text as you like; left empty, nothing is posted.
 

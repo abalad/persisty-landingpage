@@ -15,6 +15,8 @@ O Persisty guarda as contas e os tokens no cofre de senhas do sistema; no Mac, �
 
 ## GitHub
 
+![Em Configurações › Integrações, a página do GitHub mostra que não há conta conectada; Conectar conta abre a janela com o código e espera a confirmação no navegador, e a conta @demo aparece conectada.](/docs-media/forges/integracoes.mp4)
+
 **Conectar conta** abre **Conectar ao GitHub** com um código. Clique em **Abrir o GitHub**, entre na conta que quer conectar, confirme o código e autorize o Persisty. A janela espera a confirmação e fecha sozinha; o Persisty nunca vê a sua senha. O acesso pedido, `repo` e `read:org`, cobre os seus repositórios, inclusive os privados e os das suas organizações, e inclui escrita: o Persisty o usa para listar e clonar e, ao [concluir uma issue](/docs/issues#concluir), para comentar nela e fechá-la. Se os de uma organização não aparecem, ela precisa aprovar o Persisty.
 
 ## GitLab

@@ -21,6 +21,8 @@ Un clic en un archivo muestra su diff junto a la lista, sobre el texto actual, c
 
 ## Hacer el commit
 
+![En el panel Cambios, un clic en App.tsx muestra el diff; el archivo se prepara, el mensaje se escribe en la caja, y Command y Enter hacen el commit, que aparece arriba en el Historial.](/docs-media/changes/commit.mp4)
+
 Escribe el mensaje en la caja y haz el commit con <kbd>⌘</kbd> <kbd>↵</kbd> o con el botón **Commit**. Sin nada preparado, el botón pasa a **Commit de todo** (*Commit all*), que prepara todos los cambios y hace el commit.
 
 **Más acciones de commit** (*More commit actions*), en la flecha junto al botón, tiene **Commit y enviar** (*Commit and push*), **Corregir el último commit** (*Amend last commit*), que junta lo preparado al último commit (con el mensaje vacío, conserva el suyo), y **Deshacer el último commit** (*Undo last commit*), que quita el commit y devuelve sus cambios, preparados, con el mensaje en la caja. Si ese commit ya se envió, Persisty avisa antes que el próximo envío tendrá que ser forzado.
@@ -33,6 +35,8 @@ Escribe el mensaje en la caja y haz el commit con <kbd>⌘</kbd> <kbd>↵</kbd> 
 
 ## Sincronizar con el remoto
 
+![La rama main está 2 commits atrás y 1 adelante del remoto; la flecha ↓ pregunta cómo juntarlos, Rebase: mis commits encima trae los commits nuevos, y la flecha ↑ envía lo que falta, hasta que el panel dice Al día.](/docs-media/changes/git.mp4)
+
 En una rama con remoto, la parte de arriba del panel muestra su nombre y cómo está respecto al remoto: **Al día** (*Up to date*), ↓ con los commits por traer y ↑ con los commits por enviar. Un clic en la flecha trae o envía. Si los dos lados tienen commits nuevos, Persisty pregunta cómo unirlos: **Merge: un commit de unión** (*Merge: a joining commit*) o **Rebase: mis commits encima** (*Rebase: my commits on top*). Una rama que todavía no está en el remoto muestra **Publicar rama** (*Publish branch*), que envía la rama y pasa a seguirla.
 
 **Buscar del remoto** (*Fetch from the remote*) trae las novedades en el momento. **Más acciones de sincronización** (*More sync actions*) tiene **Traer con rebase** (*Pull with rebase*), **Traer con merge** (*Pull with merge*) y **Envío forzado** (*Force push*), que pregunta antes y solo reemplaza el remoto si nadie envió nada desde la última búsqueda.
@@ -40,6 +44,8 @@ En una rama con remoto, la parte de arriba del panel muestra su nombre y cómo e
 El encabezado de la sesión muestra las mismas flechas junto al nombre de la rama. Con la app a la vista, Persisty busca las novedades del remoto por su cuenta cada 5 minutos, salvo que alguien haya buscado hace menos de 3.
 
 ## Ramas
+
+![Un clic en la rama, en el encabezado de la sesión, abre la lista de ramas, con el aviso de los cambios que van juntos; escribir feat/pagamento-pix ofrece Crear rama, y Enter cambia el encabezado a la rama nueva.](/docs-media/changes/branch.mp4)
 
 Un clic en la rama, en el encabezado de la sesión, abre **Buscar o crear rama** (*Find or create a branch*): las **Locales** (*Local*), las **Remotas** (*Remote*) y, cuando el nombre que escribes no existe, **Crear rama** (*Create branch*) con él. La lista avisa cuando hay cambios sin commit que van con la rama y cuando el agente está trabajando en esa carpeta. La rama del encabezado sigue los cambios hechos desde la terminal.
 

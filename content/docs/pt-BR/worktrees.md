@@ -9,6 +9,8 @@ Em pastas git, uma sessão nova pode ganhar um branch `persist/<nome>` numa past
 
 ## Criar a pasta
 
+![Na Nova sessão, com o nome Pagamento Pix e a Pasta própria (worktree) ligada, aparece o branch novo persist/pagamento-pix; Criar e abrir abre a sessão na pasta nova, com a marca worktree no cabeçalho.](/docs-media/worktrees/pasta-propria.mp4)
+
 Na [**Nova sessão**](/docs/sessions#nova-sessão), com uma pasta git, ligue **Pasta própria (worktree)**. A dica mostra o branch novo e de onde ele parte, como "Novo branch persist/pagamento-pix a partir de main, numa pasta só desta sessão." O nome vem do nome da sessão, em minúsculas e sem acentos, e ganha um número se já existir; mude em **Branch novo**. O branch parte do que está em uso na pasta agora.
 
 A sessão abre na pasta nova, na mesma subpasta que você escolheu, e o cabeçalho mostra a marca `worktree`; passar o mouse mostra a pasta e o branch. Vale para qualquer sessão, de agente ou de terminal. A pasta nova só traz o que está no commit de partida: as alterações não commitadas e o que o git ignora, como `node_modules`, `.env` e builds, ficam na pasta original.

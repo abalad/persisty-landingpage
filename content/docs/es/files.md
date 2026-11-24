@@ -15,6 +15,8 @@ Los archivos que git ignora aparecen atenuados, y `.git` nunca aparece. Arriba d
 
 ## Crear archivos y carpetas
 
+![Nuevo archivo, arriba del árbol, abre el campo del nombre en el propio árbol; con el nombre checkout.ts y Enter, el archivo aparece en la lista y se abre en una pestaña.](/docs-media/files/arquivos.mp4)
+
 **Nuevo**, en el menú, crea un **Archivo** (*File*) o una **Carpeta** (*Folder*) dentro de la carpeta del elemento. El mismo submenú crea archivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile y EditorConfig con la plantilla mínima. El nombre se escribe en el propio árbol, y un nombre que ya existe se rechaza con el motivo.
 
 ## Renombrar, mover y copiar

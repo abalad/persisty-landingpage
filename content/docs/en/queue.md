@@ -9,6 +9,8 @@ The queue holds the next requests for an agent and hands them over one at a time
 
 ## Queue a request
 
+![In the Request queue, with three requests Up next, the new one is set to go when the 5-hour window renews; Command and Enter queue it in fourth place.](/docs-media/queue/fila.mp4)
+
 Write the request in the box, choose when it goes and click **Queue it**, or use <kbd>⌘</kbd> <kbd>↵</kbd>. On Windows and Linux, which are in preview, the keys on this page use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd> and <kbd>Alt</kbd> instead of <kbd>⌥</kbd>.
 
 The queue's header says what the agent is doing, such as **Working**, **Done, ready for the next one** or **Asking for permission**. Waiting requests are numbered under **Up next**, in the order they will go, with when each one goes and why the ones below are waiting, such as "waiting for no. 1". The first one has the **next** tag. Sent requests fold away at the bottom, under **Sent**. In the session's bar, the queue icon shows how many requests are waiting, also with the panel closed.

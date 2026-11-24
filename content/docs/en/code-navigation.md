@@ -9,6 +9,8 @@ These actions take you to another point in the code without hunting through the 
 
 ## Recent files and locations
 
+![In App.tsx, Command and E open Recent Files, with store.ts and release.md marked as open; the down arrow and Enter go to release.md.](/docs-media/code-navigation/recentes.mp4)
+
 **Recent Files** (<kbd>⌘</kbd> <kbd>E</kbd>) lists the last 50 files opened in the session, newest first, including those whose tabs are already closed. The file on screen is left out, and the ones with an open tab are marked **open**. The list survives closing the app and follows files that are renamed, moved and deleted. With it open, the same key shows only the **Files edited in this session**.
 
 **Recent Locations** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>E</kbd>) lists where the cursor has been and what was edited, marked **visited** or **edited**, each place with its file, its line and 3 lines of code. Pressing the key again leaves only the **Edited locations**.

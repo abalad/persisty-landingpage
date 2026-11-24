@@ -9,6 +9,8 @@ O plano grátis não pede conta. A conta do Persisty Cloud serve para os planos 
 
 ## Entrar
 
+![No rodapé de Configurações, Entrar pede o e-mail, e Continuar com e-mail manda o código de 8 dígitos; com o último dígito, o app entra sozinho e mostra a Conta, com o e-mail, o plano, a licença e os recursos do plano.](/docs-media/account-and-license/entrar.mp4)
+
 Sem conta, o rodapé de [**Configurações**](/docs/settings#conta) mostra **Entrar** e **Criar conta grátis**. Os dois abrem a mesma janela, em dois passos. No primeiro, digite o e-mail e clique em **Continuar com e-mail**. No segundo, digite o código de 8 dígitos que chegou no e-mail; com o último dígito, o app entra sozinho. O código vale por 10 minutos e uma vez só. A conta nasce no primeiro acesso, sem senha.
 
 Se o código não chegar, **Reenviar código** manda outro depois de 60 segundos, e **Usar outro e-mail** volta ao primeiro passo. Se você já tem um código, **Digitar código** leva direto ao segundo passo: pedir um novo invalidaria o que chegou.

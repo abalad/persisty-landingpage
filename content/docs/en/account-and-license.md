@@ -9,6 +9,8 @@ The free plan needs no account. The Persisty Cloud account is for the paid plans
 
 ## Sign in
 
+![In the Settings footer, Sign in asks for the e-mail, and Continue with e-mail sends the 8-digit code; with the last digit, the app signs in on its own and shows the Account, with the e-mail, plan, license and plan features.](/docs-media/account-and-license/entrar.mp4)
+
 Without an account, the footer of [**Settings**](/docs/settings#account) shows **Sign in** and **Create free account**. Both open the same window, in two steps. In the first, type your e-mail and click **Continue with e-mail**. In the second, type the 8-digit code that arrived by e-mail; with the last digit, the app signs you in on its own. The code works for 10 minutes, once. The account is created the first time you sign in, with no password.
 
 If the code does not arrive, **Resend code** sends another after 60 seconds, and **Use another e-mail** goes back to the first step. If you already have a code, **Enter code** goes straight to the second step: asking for a new one would void the one that arrived.

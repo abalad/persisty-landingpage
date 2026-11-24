@@ -15,6 +15,8 @@ Arquivos que o git ignora aparecem esmaecidos, e o `.git` nunca aparece. No topo
 
 ## Criar arquivos e pastas
 
+![Novo arquivo, no topo da árvore, abre o campo do nome na própria árvore; com o nome checkout.ts e Enter, o arquivo aparece na lista e abre numa aba.](/docs-media/files/arquivos.mp4)
+
 **Novo**, no menu, cria um **Arquivo** ou uma **Pasta** dentro da pasta do item. O mesmo submenu cria arquivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile e EditorConfig já com o modelo mínimo. O nome é escrito na própria árvore, e um nome que já existe é recusado com o motivo.
 
 ## Renomear, mover e copiar
