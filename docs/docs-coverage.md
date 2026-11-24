@@ -378,6 +378,9 @@ Lista final: 37 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Ações do servidor que criam, renomeiam ou apagam arquivos | usages-and-refactoring#mover-para-um-arquivo-novo | coberto |
 | Inspecionar código | usages-and-refactoring#inspecionar-código | coberto |
 | A seção "Inspeção" do painel Problemas, com andamento, Cancelar e Fechar | usages-and-refactoring#inspecionar-código | coberto |
+| Corrigido: "Uso de IA — todos os projetos", na paleta, abre o uso de todos os projetos | usage-and-quota#gasto-estimado | coberto |
+| Corrigido: o idioma de Configurações › Aparência vale ao abrir o app de novo | settings#aparência | coberto |
+| Corrigido: sem IDE, o aviso de "Abrir em" aponta Configurações › Workspace › IDE padrão | files#abrir-em | coberto |
 
 ## Configurações
 
