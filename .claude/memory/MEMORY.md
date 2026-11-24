@@ -1,0 +1,21 @@
+- [Publishing the site](publishing-the-site.md) — merge to main and push directly on the user's OK, abalad token inline, verify with vercel inspect
+- [Local toolchain](local-toolchain.md) — pnpm shim broken; node_modules/.bin with nvm node v24; installs via node …/pnpm/12.3.4/…/bin/pnpm.mjs; typegen after route changes
+- [Remote phone app plan](remote-phone-app-plan.md) — still Planned (internal beta: iPhone dev build, Android APK; answers questions from the phone since 2026-11-09); account deletion live at /account/delete since 2026-11-23; phones in /account/devices, /r/pair, .well-known; new migrations after 20261104090000
+- [Short, direct flow copy](short-direct-flow-copy.md) — dialogs/flows: few words, no inner scroll, no empty areas, mascot speaks in a bubble
+- [Footer account switch](footer-account-switch-pending.md) — released in 0.10.0 (Pro); on /pro and in the docs since 2026-11-11
+- [Session tool bar](session-toolbar-pending.md) — released in 0.10.0; docs and every session mockup show it (main 2f5363b)
+- [Editor and terminal features](editor-terminal-features-pending.md) — released in 0.10.0 and documented (editor-and-git, shortcuts)
+- [Board and mascot](board-and-mascot-pending.md) — released in 0.10.0; Board window on home/free and the live 3D mascot desk on /free, published (main 1fddcd9)
+- [Queue hold and pinned account](queue-hold-pinned-account-pending.md) — released in 0.10.0: queue waits at quota limit, resume on renewal (app open), pinned/reserved account (Pro)
+- [Release 0.10.0](release-0-10-0.md) — live 2026-11-10; changelog, pages, docs and mockups all published (main 2f5363b)
+- [Editor files slice 1](editor-files-slice1-pending.md) — released in 0.11.0 (2026-11-12, site main 61dc0a5): file tree New/Open in/Copy path/Reload, multi-select, tab close menu; docs published (main 1a0bcee)
+- [Release 0.12.0](release-0-12-0.md) — live 2026-11-13 (site main a8870c0): editor tree file operations; docs for 0.11.0/0.12.0 published 2026-11-13 (main 1a0bcee)
+- [Editor Git slice 3](editor-git-slice3-pending.md) — app ac9f562, released in 0.13.0 (site live 2026-11-16): inline blame, annotate, Git submenu, read-only diffs
+- [Release 0.13.0](release-0-13-0.md) — built 2026-11-16: Git per file, split editor/tabs, background-work fix; site live 2026-11-16 (main 3b84236); docs and a full audit of every page published 2026-11-16 (main 629c6c4)
+- [Release updates the docs](release-updates-docs.md) — every version updates content/docs (pt/en/es), PRODUCT.md and limitations in the same release worktree as the changelog, one OK, one push
+- [Google Analytics on the site](google-analytics-site.md) — consent-gated GA G-KE0RFHH7ZZ live 2026-11-16 (main 17258f1); no PostHog/app analytics by choice
+- [Docs per feature](docs-per-feature.md) — 37 pages one per feature; delivery 2 live 2026-11-24 (main 0fd3367): 27 videos of the 0.14.0 interface in public/docs-media, scenes in scripts/docs-media
+- [Release 0.14.0](release-0-14-0.md) — 2026-11-17: LSP phase 2, navigations, local history; site live 2026-11-19 (main f723303) with changelog, downloads and docs (3 new code pages)
+- [Persisty cloud production](persisty-cloud-production.md) — function JWT settings, db push --db-url, empty audit log, RESEND_API_KEY (persisty-funcoes), driving Resend via Chrome accessibility
+- [Editor slice 6](editor-slice6-pending.md) — NOT released: rename/move update imports, file usages, delete warns where, move to new file, inspect code; for the next version after 0.14.0
+- [Memory in the project](memory-in-project.md) — all memory lives in .claude/memory, committed with the public repo (no e-mails or keys in notes); the automatic memory folder links to it
