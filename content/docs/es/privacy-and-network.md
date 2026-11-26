@@ -21,8 +21,8 @@ La app solo habla con afuera para:
 
 - leer la cuota de Claude Code (`api.anthropic.com`), con la credencial que Claude Code ya guarda; el token no se guarda ni se registra;
 - entrar a la cuenta de Persisty Cloud y renovar la [licencia](/docs/account-and-license#licencia), en el servidor de Persisty Cloud, una dirección `supabase.co`;
-- hablar con GitHub, GitLab o Bitbucket, en las [cuentas que conectes](/docs/forges);
-- leer las [issues](/docs/issues) de Linear, Jira, ClickUp y GitHub, en las integraciones de tareas que conectes; al **Concluir** (*Finish*), cuando haces clic en **Enviar** (*Send*), escribir en la issue el comentario que revisaste, si no está vacío, y el nuevo estado;
+- hablar con GitHub, GitLab o Bitbucket, en las [cuentas que conectes](/docs/forges), y crear en GitHub los [Gists](/docs/files#crear-gist) que envíes;
+- leer las [issues](/docs/issues) de Linear, Jira, ClickUp, GitHub y Azure DevOps, en las integraciones de tareas que conectes; al **Concluir** (*Finish*), cuando haces clic en **Enviar** (*Send*), escribir en la issue el comentario que revisaste, si no está vacío, y el nuevo estado;
 - clonar, buscar, traer y enviar commits en el remoto de tus repositorios git (la búsqueda también ocurre sola al abrir y cada 5 minutos con la app en pantalla, para mostrar lo que falta traer y enviar);
 - descargar un [servidor de lenguaje](/docs/editor#el-servidor-del-lenguaje) cuando el editor necesita uno que no está en el proyecto ni en el sistema: Node de `nodejs.org`, los paquetes de npm de `registry.npmjs.org` (o del registro de tu `.npmrc`) y rust-analyzer de GitHub;
 - descargar el [modelo de voz](/docs/voice#modelo-de-voz) del dictado de `huggingface.co`, cuando haces clic en **Descargar** (*Download*) en **Configuración › Voz** (*Settings › Voice*);

@@ -382,6 +382,34 @@ Lista final: 37 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Corrigido: o idioma de Configurações › Aparência vale ao abrir o app de novo | settings#aparência | coberto |
 | Corrigido: sem IDE, o aviso de "Abrir em" aponta Configurações › Workspace › IDE padrão | files#abrir-em | coberto |
 
+## 0.16.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Colar do histórico, com as últimas 30 cópias do editor | editor#colar-do-histórico | coberto |
+| Colar várias cópias de uma vez, com um desfazer só | editor#colar-do-histórico | coberto |
+| Fora do código, a tecla continua sendo a da pré-visualização do Markdown | editor#markdown-e-imagens | coberto |
+| Arquivos de rascunho, fora do projeto e gravados sozinhos | files#arquivos-de-rascunho | coberto |
+| As teclas de Novo arquivo de rascunho em cada mapa | files#arquivos-de-rascunho | coberto |
+| A seção Rascunhos, no fim da árvore, com abrir, renomear e excluir | files#arquivos-de-rascunho | coberto |
+| Criar Gist…, na árvore, na aba e na paleta | files#criar-gist | coberto |
+| O aviso de segredos antes de enviar o Gist | files#criar-gist | coberto |
+| A permissão gist na primeira vez, e a conta certa do GitHub | files#criar-gist | coberto |
+| Uma conta por token sem a permissão gist recebe um erro que diz o que falta | files#criar-gist | coberto |
+| Azure DevOps nas tarefas | issues#conectar-o-serviço | coberto |
+| Conectar a organização do Azure DevOps com um token pessoal | issues#conectar-o-serviço | coberto |
+| Ligar um projeto do Azure DevOps e começar sessões dos work items | issues#ligar-ao-projeto | coberto |
+| Ao concluir, o comentário na discussão e o estado do tipo do work item | issues#concluir | coberto |
+| Corrigido: Contas de IA diz por que a quota de uma conta não aparece | ai-accounts#contas-conectadas | coberto |
+| Corrigido: Entrar de novo numa conta com o login vencido, recusado ou ausente | ai-accounts#entrar-de-novo | coberto |
+| Corrigido: a quota volta logo depois, em qualquer plano | ai-accounts#entrar-de-novo | coberto |
+| Corrigido: no Windows, o mascote fora do app anda sobre as janelas | mascot#fora-do-app | coberto |
+| Corrigido: no Windows sem HOME, o app acha a conta do computador pela pasta do usuário | ai-accounts#plano-e-limites | coberto |
+| Corrigido: o app não segura o índice do git enquanto lê | changes#plano-e-limites | coberto |
+| Corrigido: mover instrução leva junto o comentário de documentação do vizinho | editor#mapa-de-teclas | coberto |
+| Corrigido: Configurações › Voz avisa quando a tecla do ditado colide com uma ação | voice#atalho | coberto |
+| Corrigido: no Quadro, o cartão de uma pergunta mostra o fim dela | board#os-cartões | coberto |
+
 ## Configurações
 
 As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Código (Editor, Terminal, Arquivos), Agentes (Agentes, Contas de IA, Voz), Conexões (Integrações, Servidores MCP, Uso de IA, Privacidade e rede), Persisty (Atalhos, Conta, Sobre). A aba Conta só aparece com a sessão iniciada.
@@ -426,6 +454,7 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Contas de IA › Lista de contas (este computador e conectadas, com quota de 5 h e 7 d) | ai-accounts#contas-conectadas | coberto |
 | Contas de IA › Conectar conta (e-mail opcional, código do navegador) | ai-accounts#conectar-uma-conta | coberto |
 | Contas de IA › Desconectar | ai-accounts#conectar-uma-conta | coberto |
+| Contas de IA › Entrar de novo (conta com acesso vencido, login recusado ou sem login) | ai-accounts#entrar-de-novo | coberto |
 | Contas de IA › Rodízio entre contas | ai-accounts#rodízio | coberto |
 | Contas de IA › Trocar de conta ao chegar em | ai-accounts#rodízio | coberto |
 | Contas de IA › Continuar a tarefa cortada pelo limite | ai-accounts#continuar-a-tarefa-cortada | coberto |
@@ -444,6 +473,7 @@ As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Có
 | Integrações › Linear | issues#conectar-o-serviço | coberto |
 | Integrações › Jira Cloud | issues#conectar-o-serviço | coberto |
 | Integrações › ClickUp | issues#conectar-o-serviço | coberto |
+| Integrações › Azure DevOps | issues#conectar-o-serviço | coberto |
 | Servidores MCP › Instalados e Disponíveis (seleção de servidores oficiais) | mcp-servers#instalar-da-seleção | coberto |
 | Servidores MCP › Buscar no registro oficial | mcp-servers#buscar-no-registro-oficial | coberto |
 | Servidores MCP › Adicionar manualmente | mcp-servers#adicionar-manualmente | coberto |

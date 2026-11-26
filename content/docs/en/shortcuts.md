@@ -21,7 +21,7 @@ On the Mac, the app's shortcuts always include <kbd>⌘</kbd>; <kbd>⌃</kbd> is
 | [Search all files](/docs/search) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
 | [Git changes](/docs/changes) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
 | Save file | <kbd>⌘</kbd> <kbd>S</kbd> |
-| Preview Markdown (in the editor) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
+| Preview Markdown (in the editor; in the WebStorm keymaps, outside the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
 | New terminal in the current workspace | <kbd>⌘</kbd> <kbd>N</kbd> |
 | Choose what to open | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
 | New session with the default agent | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> |
@@ -58,6 +58,8 @@ These app keys change meaning only with the cursor in the code, as in WebStorm. 
 | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>I</kbd> | **Quick Definition**, in WebStorm, with the server | Details |
 | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> | **Inline**, in the WebStorm keymaps, with the server | New session with the default agent |
 | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> | **Replace in Files**, in WebStorm (macOS) | Restore all |
+| <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> | **Paste from History**, in the WebStorm keymaps | Preview Markdown |
+| <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> | **Go to File**, in WebStorm; **New Scratch File**, in WebStorm (macOS) | Choose what to open |
 | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> | **Go to File**, in WebStorm (macOS); **File Structure**, in VS Code, with the server | Session board |
 | <kbd>⌘</kbd> <kbd>B</kbd> | **Go to Declaration**, in the WebStorm keymaps, with the server | Project bar |
 
@@ -86,6 +88,8 @@ These keys answer with the file tree in focus. Opening the menu, cut, copy, past
 | Copy path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copy reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sync the tree with the folder | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+
+**New Scratch File** is <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd> in WebStorm and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> in WebStorm (macOS), with the cursor in the code; see [Scratch files](/docs/files#scratch-files).
 
 ## Tabs and groups
 
@@ -142,6 +146,6 @@ In the file tree and on a tab, a keymap key whose action cannot run there shows 
 
 ## Windows and Linux
 
-On Windows and Linux, which are in preview, the app's shortcuts use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>, and dictation is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. In the code, in every keymap, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> move word by word, and <kbd>Home</kbd> and <kbd>End</kbd> go to the start and end of the line. In the terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> go to the shell. In the editor keymaps, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>; see [Keymap](/docs/editor#keymap). In the tree, in the WebStorm keymaps, delete is <kbd>Delete</kbd> or <kbd>Alt</kbd> <kbd>Delete</kbd>, and moving between groups has no key.
+On Windows and Linux, which are in preview, the app's shortcuts use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>, and dictation is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. In the code, in every keymap, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> move word by word, and <kbd>Home</kbd> and <kbd>End</kbd> go to the start and end of the line. In the terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> and <kbd>Ctrl</kbd> <kbd>→</kbd> go to the shell. In the editor keymaps, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>; see [Keymap](/docs/editor#keymap). In the WebStorm keymaps, **Paste from History** is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>V</kbd>, and **New Scratch File**, <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>. In the tree, in the WebStorm keymaps, delete is <kbd>Delete</kbd> or <kbd>Alt</kbd> <kbd>Delete</kbd>, and moving between groups has no key.
 
 In the code, in the WebStorm keymaps, <kbd>Ctrl</kbd> <kbd>E</kbd>, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>E</kbd>, <kbd>Ctrl</kbd> <kbd>N</kbd> and <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> change meaning as on the Mac. <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>N</kbd> inlines, with the server, and <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> is **Replace in Files**, instead of a new session with the default agent and **Restore all**. The bottom panel uses <kbd>Alt</kbd> <kbd>3</kbd> and <kbd>Alt</kbd> <kbd>6</kbd>, which leave <kbd>Ctrl</kbd> <kbd>3</kbd> and <kbd>Ctrl</kbd> <kbd>6</kbd> to the projects. In the VS Code keymap, with the server, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd> opens the file structure, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> opens **Refactor This…** and, on Linux, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> reformats. **Search Everywhere** is <kbd>Shift</kbd> twice, and cloning a caret with the gesture uses <kbd>Ctrl</kbd> twice.

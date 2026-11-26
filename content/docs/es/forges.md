@@ -17,7 +17,7 @@ Persisty guarda las cuentas y sus tokens en el almacén de contraseñas del sist
 
 ![En Configuración › Integraciones, la página de GitHub muestra que no hay cuenta conectada; Conectar cuenta abre la ventana con el código y espera la confirmación en el navegador, y la cuenta @demo aparece conectada.](/docs-media/forges/integracoes.mp4)
 
-**Conectar cuenta** abre **Conectar a GitHub** (*Connect to GitHub*) con un código. Haz clic en **Abrir GitHub** (*Open GitHub*), entra en la cuenta que quieres conectar, confirma el código y autoriza a Persisty. La ventana espera la confirmación y se cierra sola; Persisty nunca ve tu contraseña. El acceso que pide, `repo` y `read:org`, cubre tus repositorios, también los privados y los de tus organizaciones, e incluye escritura: Persisty lo usa para listar y clonar y, al [concluir una issue](/docs/issues#concluir), para comentarla y cerrarla. Si los de una organización no aparecen, ella tiene que aprobar a Persisty.
+**Conectar cuenta** abre **Conectar a GitHub** (*Connect to GitHub*) con un código. Haz clic en **Abrir GitHub** (*Open GitHub*), entra en la cuenta que quieres conectar, confirma el código y autoriza a Persisty. La ventana espera la confirmación y se cierra sola; Persisty nunca ve tu contraseña. El acceso que pide, `repo` y `read:org`, cubre tus repositorios, también los privados y los de tus organizaciones, e incluye escritura: Persisty lo usa para listar y clonar y, al [concluir una issue](/docs/issues#concluir), para comentarla y cerrarla. Si los de una organización no aparecen, ella tiene que aprobar a Persisty. Para [crear un Gist](/docs/files#crear-gist), Persisty también pide el permiso `gist`, la primera vez que creas uno.
 
 ## GitLab
 
@@ -31,7 +31,7 @@ Bitbucket Cloud se conecta con un token de API de Atlassian. **Abrir tokens de A
 
 En **Agregar workspace**, con **Repositorio remoto** (*Remote repository*), el campo pasa a ser **Enlace o búsqueda** (*Link or search*) y lista los repositorios de las cuentas conectadas, con un filtro por servicio; los pasos están en [Clonar un repositorio](/docs/projects-and-workspaces#clonar-un-repositorio). Un enlace pegado se consulta con las cuentas de ese servicio, una por una, hasta que una ve el repositorio; sin cuenta de ese servicio, se consulta sin iniciar sesión, y solo aparece un repositorio público. El clon lo hace git, directo con el servicio: por HTTPS, con el token de esa cuenta, solo en su dirección; por SSH, con tus propias claves.
 
-La cuenta de GitHub también trae las issues de tus repositorios, para [empezar sesiones desde ellas](/docs/issues), y sirve al servidor MCP de GitHub; mira [Servidores MCP](/docs/mcp-servers).
+La cuenta de GitHub también trae las issues de tus repositorios, para [empezar sesiones desde ellas](/docs/issues), crea [Gists](/docs/files#crear-gist) y sirve al servidor MCP de GitHub; mira [Servidores MCP](/docs/mcp-servers).
 
 ## Carpeta de los clones
 

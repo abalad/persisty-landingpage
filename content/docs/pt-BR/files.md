@@ -1,6 +1,6 @@
 ---
 title: Arquivos
-description: A árvore da pasta da sessão no painel Código, para criar, renomear, mover, copiar e excluir arquivos com os imports atualizados, achar quem usa um arquivo, abrir em outro app e copiar caminhos.
+description: A árvore da pasta da sessão no painel Código, para criar, renomear, mover, copiar e excluir arquivos com os imports atualizados, achar quem usa um arquivo, abrir em outro app, copiar caminhos, guardar rascunhos e criar Gists.
 group: code
 order: 4
 ---
@@ -17,7 +17,15 @@ Arquivos que o git ignora aparecem esmaecidos, e o `.git` nunca aparece. No topo
 
 ![Novo arquivo, no topo da árvore, abre o campo do nome na própria árvore; com o nome checkout.ts e Enter, o arquivo aparece na lista e abre numa aba.](/docs-media/files/arquivos.mp4)
 
-**Novo**, no menu, cria um **Arquivo** ou uma **Pasta** dentro da pasta do item. O mesmo submenu cria arquivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile e EditorConfig já com o modelo mínimo. O nome é escrito na própria árvore, e um nome que já existe é recusado com o motivo.
+**Novo**, no menu, cria um **Arquivo** ou uma **Pasta** dentro da pasta do item. O mesmo submenu cria arquivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile e EditorConfig já com o modelo mínimo. O nome é escrito na própria árvore, e um nome que já existe é recusado com o motivo. **Novo › Arquivo de rascunho** cria um arquivo fora da pasta; veja [Arquivos de rascunho](#arquivos-de-rascunho).
+
+## Arquivos de rascunho
+
+Um rascunho é um arquivo fora do projeto, para anotar ou testar um trecho sem mexer na pasta da sessão. **Novo › Arquivo de rascunho**, na árvore, ou **Novo arquivo de rascunho**, na paleta, pergunta a linguagem, ou **Texto simples**, e o arquivo abre numa aba marcada como rascunho, fora do projeto. Ele é gravado sozinho.
+
+A tecla é <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd> no WebStorm e <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> no WebStorm (macOS), esta só com o cursor no código: fora dele, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> continua abrindo **Escolher o que abrir**. No mapa do VS Code, use a árvore ou a paleta.
+
+A seção **Rascunhos**, no fim da árvore, vem fechada e mostra quantos rascunhos existem. Aberta, ela lista os rascunhos de todos os projetos: um clique abre o rascunho numa aba, e o botão direito tem **Abrir**, **Renomear…** e **Excluir**. Excluir pede confirmação e manda o arquivo para a Lixeira; se ele estiver aberto, a aba fecha sem gravar. O nome de um rascunho não pode começar com ponto, porque ele sumiria da lista.
 
 ## Renomear, mover e copiar
 
@@ -63,6 +71,18 @@ A IDE é a que você escolhe em [**Configurações › Workspace › IDE padrão
 
 **Copiar caminho** dá o **Caminho absoluto**, o **Caminho a partir do projeto**, o **Caminho a partir da raiz do repositório**, o **Nome do arquivo**, a **Referência** e o **Link no GitHub** (ou GitLab, ou Bitbucket), no commit atual. A referência é `arquivo:linha`, ou `arquivo:início-fim` com linhas selecionadas na aba. Com vários itens selecionados, cada um vai numa linha.
 
+## Criar Gist
+
+**Criar Gist…**, no menu da árvore e da aba e na paleta, envia arquivos para um Gist do GitHub, na conta que você conectou em [**Configurações › Integrações**](/docs/forges#github). Da árvore vão até 20 arquivos selecionados, sem pastas; da aba, o arquivo ou o rascunho dela. Pela paleta, com o cursor no código, vai só o trecho selecionado, ou o arquivo inteiro quando nada está selecionado.
+
+A janela **Criar Gist** tem a **Descrição**, que é opcional, o nome de cada arquivo, a **Visibilidade** e, com mais de uma conta do GitHub, a **Conta**. **Secreto**, o padrão, não aparece no seu perfil, e só quem tiver o link vê. **Público** aparece no seu perfil e na busca do GitHub. Arquivos binários, vazios ou grandes demais ficam de fora, e o aviso diz quais.
+
+Antes de enviar, o Persisty procura segredos nos arquivos: um `.env`, um arquivo de chave, uma chave privada, um token do GitHub ou do Slack, uma chave da AWS ou uma linha que parece uma senha, um token ou uma chave. Se achar algum, a janela diz em que arquivo e em que linha, e só **Enviar mesmo assim** envia. Um Gist secreto ainda pode ser visto por quem tiver o link.
+
+Criado o Gist, o link vai para a área de transferência, e **Abrir**, no aviso, abre o Gist no navegador.
+
+Na primeira vez, o Persisty pede ao GitHub a permissão `gist`, com um código para confirmar no navegador, como ao conectar a conta. Se nessa hora você entrar em outra conta do GitHub, nada é enviado, e o aviso diz com qual conta entrar. Uma conta conectada por token precisa já ter essa permissão; sem ela, o erro diz o que falta.
+
 ## Favoritos e histórico local
 
 O submenu **Favoritos** tem **Adicionar aos favoritos**, para os itens selecionados, ou **Tirar dos favoritos**, quando todos eles já estão lá. Os favoritos seguem o arquivo ou a pasta renomeados e movidos, e a lista deles abre pela tecla; veja [Favoritos](/docs/code-navigation#favoritos).
@@ -96,15 +116,18 @@ Em **Configurações › Arquivos**, **Ocultar arquivos** lista padrões como `*
 | Copiar caminho (também na aba e no código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referência (também na aba e no código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar a árvore | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+| Novo arquivo de rascunho | <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd>; no WebStorm (macOS), <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>, com o cursor no código |
 
 No mapa do VS Code, essas ações ficam no menu. <kbd>⌘</kbd> <kbd>N</kbd> do WebStorm (macOS) abre o **Novo** só com o foco na árvore; fora dela, abre um terminal novo. [**Configurações › Atalhos**](/docs/shortcuts#arquivos) tem o grupo **Arquivos**, com onde cada tecla vale: na árvore, na aba ou no editor.
 
-No Windows e no Linux, que estão em prévia, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> fazem o papel de <kbd>⌘</kbd> e <kbd>⌥</kbd>, <kbd>Delete</kbd> exclui, e **Novo** é <kbd>Alt</kbd> <kbd>Insert</kbd>. O Finder dá lugar ao Explorador de Arquivos ou ao gerenciador de arquivos.
+No Windows e no Linux, que estão em prévia, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> fazem o papel de <kbd>⌘</kbd> e <kbd>⌥</kbd>, <kbd>Delete</kbd> exclui, **Novo** é <kbd>Alt</kbd> <kbd>Insert</kbd>, e **Novo arquivo de rascunho** é <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>. O Finder dá lugar ao Explorador de Arquivos ou ao gerenciador de arquivos.
 
 ## Plano e limites
 
-A árvore e todas as operações de arquivo são do plano grátis.
+A árvore, todas as operações de arquivo, os rascunhos e o Gist são do plano grátis.
 
 Atualizar os imports e o aviso ao excluir dependem do servidor da linguagem, em TypeScript, JavaScript e Rust; sem ele, renomear, mover e excluir funcionam como antes.
+
+Os rascunhos ficam na pasta de dados do Persisty, fora de qualquer projeto: não entram no Git nem no [histórico local](/docs/local-history), o editor não confere se eles mudaram no disco, e as sugestões e os erros do servidor da linguagem podem faltar neles. O código não tem menu do botão direito, então o Gist de um trecho sai pela paleta. Um Gist leva no máximo 20 arquivos.
 
 A árvore só mostra e altera o que está dentro da pasta da sessão. No Windows e no Linux, colar arquivos de e para o sistema e o Desfazer da exclusão ainda estão sendo conferidos em uso.

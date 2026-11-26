@@ -21,7 +21,7 @@ En Mac, los atajos de la app siempre llevan <kbd>⌘</kbd>; el <kbd>⌃</kbd> qu
 | [Buscar en todos los archivos](/docs/search) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>F</kbd> |
 | [Cambios de git](/docs/changes) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>G</kbd> |
 | Guardar archivo | <kbd>⌘</kbd> <kbd>S</kbd> |
-| Vista previa de Markdown (en el editor) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
+| Vista previa de Markdown (en el editor; en los mapas WebStorm, fuera del código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
 | Nueva terminal en el workspace actual | <kbd>⌘</kbd> <kbd>N</kbd> |
 | Elegir qué abrir | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
 | Nueva sesión con el agente por defecto | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> |
@@ -58,6 +58,8 @@ Estas teclas de la app cambian de sentido solo con el cursor en el código, como
 | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>I</kbd> | **Definición rápida** (*Quick Definition*), en WebStorm, con el servidor | Detalles |
 | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>N</kbd> | **Insertar en línea** (*Inline*), en los mapas WebStorm, con el servidor | Nueva sesión con el agente por defecto |
 | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>R</kbd> | **Reemplazar en archivos** (*Replace in Files*), en WebStorm (macOS) | Restaurar todo |
+| <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> | **Pegar del historial** (*Paste from History*), en los mapas WebStorm | Vista previa de Markdown |
+| <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> | **Ir al archivo** (*Go to File*), en WebStorm; **Nuevo archivo borrador** (*New Scratch File*), en WebStorm (macOS) | Elegir qué abrir |
 | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>O</kbd> | **Ir al archivo** (*Go to File*), en WebStorm (macOS); **Estructura del archivo** (*File Structure*), en VS Code, con el servidor | Tablero de sesiones |
 | <kbd>⌘</kbd> <kbd>B</kbd> | **Ir a la declaración** (*Go to Declaration*), en los mapas WebStorm, con el servidor | Barra de proyectos |
 
@@ -86,6 +88,8 @@ Estas teclas valen con el árbol de archivos en foco. Abrir el menú, cortar, co
 | Copiar ruta (también en la pestaña y en el código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referencia (también en la pestaña y en el código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar el árbol con la carpeta | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+
+**Nuevo archivo borrador** (*New Scratch File*) es <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd> en WebStorm y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> en WebStorm (macOS), con el cursor en el código; mira [Archivos borrador](/docs/files#archivos-borrador).
 
 ## Pestañas y grupos
 
@@ -142,6 +146,6 @@ En el árbol de archivos y en la pestaña, una tecla del mapa cuya acción no pu
 
 ## Windows y Linux
 
-En Windows y Linux, que están en versión preliminar, los atajos de la app usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>, y el dictado es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. En el código, en cualquier mapa, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> avanzan de palabra en palabra, y <kbd>Home</kbd> y <kbd>End</kbd> llevan al inicio y al final de la línea. En la terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> quedan para el shell. En los mapas del editor, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>; mira [Mapa de teclas](/docs/editor#mapa-de-teclas). En el árbol, en los mapas WebStorm, eliminar es <kbd>Delete</kbd> o <kbd>Alt</kbd> <kbd>Delete</kbd>, y cambiar de grupo no tiene tecla.
+En Windows y Linux, que están en versión preliminar, los atajos de la app usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>, y el dictado es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. En el código, en cualquier mapa, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> avanzan de palabra en palabra, y <kbd>Home</kbd> y <kbd>End</kbd> llevan al inicio y al final de la línea. En la terminal, <kbd>Ctrl</kbd> <kbd>←</kbd> y <kbd>Ctrl</kbd> <kbd>→</kbd> quedan para el shell. En los mapas del editor, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>; mira [Mapa de teclas](/docs/editor#mapa-de-teclas). En los mapas WebStorm, **Pegar del historial** (*Paste from History*) es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>V</kbd>, y **Nuevo archivo borrador** (*New Scratch File*), <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>. En el árbol, en los mapas WebStorm, eliminar es <kbd>Delete</kbd> o <kbd>Alt</kbd> <kbd>Delete</kbd>, y cambiar de grupo no tiene tecla.
 
 En el código, en los mapas WebStorm, <kbd>Ctrl</kbd> <kbd>E</kbd>, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>E</kbd>, <kbd>Ctrl</kbd> <kbd>N</kbd> y <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> cambian de sentido como en Mac. <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>N</kbd> inserta en línea, con el servidor, y <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> es **Reemplazar en archivos**, en lugar de una sesión nueva con el agente por defecto y de **Restaurar todo** (*Restore all*). El panel inferior usa <kbd>Alt</kbd> <kbd>3</kbd> y <kbd>Alt</kbd> <kbd>6</kbd>, que dejan <kbd>Ctrl</kbd> <kbd>3</kbd> y <kbd>Ctrl</kbd> <kbd>6</kbd> para los proyectos. En el mapa de VS Code, con el servidor, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>O</kbd> abre la estructura del archivo, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd> abre **Refactorizar…** y, en Linux, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> reformatea. **Buscar en todo** es <kbd>Shift</kbd> dos veces, y agregar un cursor con el gesto usa <kbd>Ctrl</kbd> dos veces.

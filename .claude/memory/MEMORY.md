@@ -20,3 +20,4 @@
 - [Editor slice 6](editor-slice6-pending.md) — released in 0.15.0 (site live 2026-11-26, main a25c595): rename/move update imports, file usages, delete warns where, move to new file, inspect code
 - [Memory in the project](memory-in-project.md) — all memory lives in .claude/memory, committed with the public repo (no e-mails or keys in notes); the automatic memory folder links to it
 - [Release 0.15.0](release-0-15-0.md) — app v0.15.0 published 2026-11-24; site live 2026-11-26 (main a25c595) with changelog, downloads, docs and the re-recorded Uso de IA video
+- [Release 0.16.0](release-0-16-0.md) — app v0.16.0 published 2026-11-26; site the same day with changelog, downloads, docs (paste history, scratch, Gist, Azure DevOps, Sign in again) and the Markdown video re-recorded

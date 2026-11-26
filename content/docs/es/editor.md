@@ -1,6 +1,6 @@
 ---
 title: Editor
-description: El editor de cada sesión, junto a la terminal, con resaltado por lenguaje, vista previa de Markdown e imágenes, sugerencias y errores del proyecto, el panel inferior, la selección en columna y el mapa de teclas que elijas.
+description: El editor de cada sesión, junto a la terminal, con resaltado por lenguaje, vista previa de Markdown e imágenes, sugerencias y errores del proyecto, el panel inferior, el historial de copias, la selección en columna y el mapa de teclas que elijas.
 group: code
 order: 1
 ---
@@ -35,9 +35,9 @@ El resaltado de cada lenguaje se carga cuando se abre el primer archivo de ese l
 
 ## Markdown e imágenes
 
-![En un archivo release.md se escribe una tarea nueva en la lista; Command, Shift y V cambian el código por la vista previa, con la tabla, la lista de tareas y el bloque de código.](/docs-media/editor/markdown.mp4)
+![En un archivo release.md se escribe una tarea nueva en la lista; el botón del ojo, en la barra de las pestañas, cambia el código por la vista previa, con la tabla, la lista de tareas y el bloque de código.](/docs-media/editor/markdown.mp4)
 
-En un archivo `.md`, el botón del ojo, en la barra de las pestañas, o <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> alterna entre el código y la vista previa, que ya muestra lo que todavía no guardaste. La vista previa tiene tablas, listas de tareas y bloques de código. Un enlace a un sitio se abre en el navegador, un enlace a un archivo de la carpeta abre ese archivo en el editor, y un enlace `#` lleva al título.
+En un archivo `.md`, el botón del ojo, en la barra de las pestañas, alterna entre el código y la vista previa, que ya muestra lo que todavía no guardaste. <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> hace lo mismo; en los mapas WebStorm, solo fuera del código, porque en el código esa tecla es [**Pegar del historial**](#pegar-del-historial) (*Paste from History*). La vista previa tiene tablas, listas de tareas y bloques de código. Un enlace a un sitio se abre en el navegador, un enlace a un archivo de la carpeta abre ese archivo en el editor, y un enlace `#` lleva al título.
 
 Nada se carga en la vista previa: el HTML aparece como texto, y una imagen de la web se vuelve un enlace que se abre en el navegador. Por encima de 300 mil caracteres, el archivo no se previsualiza. En **Configuración › Editor**, **Abrir archivos .md en** (*Open .md files in*) elige cómo se abre un `.md`: **Código**, por defecto, o **Vista previa** (*Preview*).
 
@@ -79,6 +79,14 @@ Arrastra el borde de arriba del panel para cambiar la altura, o usa <kbd>↑</kb
 
 En el código, en los dos mapas WebStorm, <kbd>⌘</kbd> <kbd>3</kbd> abre **Usos** y <kbd>⌘</kbd> <kbd>6</kbd> abre **Problemas**, en lugar de elegir el proyecto 3 o 6. En el mapa de VS Code, **Problemas** es <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>M</kbd>, y **Usos** se abre desde la paleta. La tecla lleva el foco a la lista, y <kbd>Esc</kbd> cierra el panel y devuelve el foco al código. En Windows y Linux, que están en versión preliminar, las teclas son <kbd>Alt</kbd> <kbd>3</kbd> y <kbd>Alt</kbd> <kbd>6</kbd>, o <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>M</kbd> en VS Code.
 
+## Pegar del historial
+
+**Pegar del historial** (*Paste from History*, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> en el código, en los mapas WebStorm) abre la lista de las últimas 30 copias y cortes hechos en el editor, la más reciente primero. Lo que escribes filtra la lista por el texto de las copias, y la elegida entra donde está el cursor. Copiar de nuevo un texto que ya está en la lista solo lo sube al principio.
+
+Para pegar varias a la vez, márcalas con <kbd>⇧</kbd> y las flechas, o con <kbd>⌘</kbd> + clic. Entran juntas, en el orden de la lista y una por línea, y un deshacer las quita todas.
+
+La lista guarda solo lo que copias o cortas en el código: la terminal, los diffs y lo que copias en otra app quedan fuera. Vive solo en la memoria y desaparece al cerrar Persisty. En el mapa de VS Code, **Pegar del historial** no tiene tecla y está en la paleta. En Windows y Linux, la tecla es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>V</kbd>.
+
 ## Selección en columna y cursores
 
 **Modo de selección en columna** (*Column Selection Mode*, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>8</kbd> en los mapas WebStorm) activa el modo, y la barra de estado muestra **Columna** (*Column*). Con él activado, <kbd>⇧</kbd> y las flechas forman un rectángulo, con un cursor por línea en la misma columna, y arrastrar con el ratón dibuja el rectángulo. En una línea corta el cursor queda al final, y la columna vuelve en una línea más larga. Lo que escribes va a todas las líneas, y deshacer lo revierte todo en un paso. <kbd>Esc</kbd> o la misma tecla apagan el modo.
@@ -110,11 +118,13 @@ Las teclas de los dos mapas WebStorm en Mac:
 | Ir a la línea (*Go to Line*) | <kbd>⌘</kbd> <kbd>G</kbd> | <kbd>⌘</kbd> <kbd>L</kbd> |
 | Ir al inicio / al final del bloque de código (*Move Caret to Code Block Start / End*) | <kbd>⌘</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>]</kbd> | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>]</kbd> |
 | Mover instrucción arriba / abajo, con los comentarios encima (*Move Statement Up / Down*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> |
+| Pegar del historial (*Paste from History*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
+| Nuevo archivo borrador (*New Scratch File*) | <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
 | Buscar acción (*Find Action*) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> |
 
 El mapa de VS Code mantiene sus propias teclas, como <kbd>F12</kbd> para ir a la declaración y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> para buscar una acción. <kbd>⌘</kbd> <kbd>K</kbd> abre la paleta, que también lista las acciones del editor. En el mapa de VS Code, con el cursor en el código, <kbd>⌘</kbd> <kbd>K</kbd> empieza sus teclas de dos partes, como <kbd>⌘</kbd> <kbd>K</kbd> <kbd>⌘</kbd> <kbd>C</kbd>, que comenta la línea; ahí, las acciones del editor están en <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd>.
 
-En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, y los dos mapas WebStorm usan las teclas de la columna WebStorm, con una diferencia: **Documentación rápida** es <kbd>Ctrl</kbd> <kbd>Q</kbd>.
+En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, y los dos mapas WebStorm usan las teclas de la columna WebStorm, con dos diferencias: **Documentación rápida** es <kbd>Ctrl</kbd> <kbd>Q</kbd>, y **Nuevo archivo borrador** es <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>.
 
 Las teclas de navegación, de usos y de refactorización de cada mapa están en [Moverse por el código](/docs/code-navigation#teclas) y [Usos, renombrar y refactorizar](/docs/usages-and-refactoring#teclas), y la lista de las teclas que cambian de sentido en el código, en [Atajos](/docs/shortcuts#dentro-del-código).
 

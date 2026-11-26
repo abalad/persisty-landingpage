@@ -68,3 +68,5 @@ During a merge, rebase, cherry-pick or revert, the panel shows the operation, su
 The **Changes** panel is on the free plan, including the restore point before discarding.
 
 It works in folders that are git repositories; outside one, it says "This folder is not in a git repository." Persisty uses the credentials git already has on the computer, such as the Keychain and the SSH agent, and never asks for a password in the terminal: if git needs to ask, the refusal shows as git wrote it. With too many changes, the list says it is partial.
+
+The **Changes** panel, the Git panel and the editor read git's state without holding the index. Since 0.16.0, a commit made in the terminal, yours or the agent's, does not fail with `index.lock exists` because of Persisty.

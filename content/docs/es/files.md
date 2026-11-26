@@ -1,6 +1,6 @@
 ---
 title: Archivos
-description: El árbol de la carpeta de la sesión en el panel Código, para crear, renombrar, mover, copiar y eliminar archivos con sus imports actualizados, ver quién usa un archivo, abrirlos en otra app y copiar sus rutas.
+description: El árbol de la carpeta de la sesión en el panel Código, para crear, renombrar, mover, copiar y eliminar archivos con sus imports actualizados, ver quién usa un archivo, abrirlos en otra app, copiar sus rutas, guardar borradores y crear Gists.
 group: code
 order: 4
 ---
@@ -17,7 +17,15 @@ Los archivos que git ignora aparecen atenuados, y `.git` nunca aparece. Arriba d
 
 ![Nuevo archivo, arriba del árbol, abre el campo del nombre en el propio árbol; con el nombre checkout.ts y Enter, el archivo aparece en la lista y se abre en una pestaña.](/docs-media/files/arquivos.mp4)
 
-**Nuevo**, en el menú, crea un **Archivo** (*File*) o una **Carpeta** (*Folder*) dentro de la carpeta del elemento. El mismo submenú crea archivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile y EditorConfig con la plantilla mínima. El nombre se escribe en el propio árbol, y un nombre que ya existe se rechaza con el motivo.
+**Nuevo**, en el menú, crea un **Archivo** (*File*) o una **Carpeta** (*Folder*) dentro de la carpeta del elemento. El mismo submenú crea archivos TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile y EditorConfig con la plantilla mínima. El nombre se escribe en el propio árbol, y un nombre que ya existe se rechaza con el motivo. **Nuevo › Archivo borrador** (*New › Scratch file*) crea un archivo fuera de la carpeta; mira [Archivos borrador](#archivos-borrador).
+
+## Archivos borrador
+
+Un borrador es un archivo fuera del proyecto, para anotar o probar un fragmento sin tocar la carpeta de la sesión. **Nuevo › Archivo borrador** (*New › Scratch file*), en el árbol, o **Nuevo archivo borrador** (*New Scratch File*), en la paleta, pregunta el lenguaje, o **Texto plano** (*Plain text*), y el archivo se abre en una pestaña marcada como borrador, fuera del proyecto. Se guarda solo.
+
+La tecla es <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd> en WebStorm y <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> en WebStorm (macOS), esta solo con el cursor en el código: fuera de él, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> sigue abriendo **Elegir qué abrir** (*Choose what to open*). En el mapa de VS Code, usa el árbol o la paleta.
+
+La sección **Borradores** (*Scratches*), al final del árbol, viene cerrada y muestra cuántos borradores hay. Abierta, lista los borradores de todos los proyectos: un clic abre el borrador en una pestaña, y el clic derecho tiene **Abrir** (*Open*), **Renombrar…** (*Rename…*) y **Eliminar** (*Delete*). Eliminar pide confirmación y manda el archivo a la Papelera; si está abierto, la pestaña se cierra sin guardar. El nombre de un borrador no puede empezar con punto, porque desaparecería de la lista.
 
 ## Renombrar, mover y copiar
 
@@ -63,6 +71,18 @@ La IDE es la que eliges en [**Configuración › Workspace › IDE por defecto**
 
 **Copiar ruta** (*Copy path*) da la **Ruta absoluta** (*Absolute path*), la **Ruta desde el proyecto** (*Path from the project*), la **Ruta desde la raíz del repositorio** (*Path from the repository root*), el **Nombre del archivo** (*File name*), la **Referencia** (*Reference*) y el **Enlace en GitHub** (*Link on GitHub*, o GitLab, o Bitbucket), en el commit actual. La referencia es `archivo:línea`, o `archivo:inicio-fin` con líneas seleccionadas en la pestaña. Con varios elementos seleccionados, cada uno va en una línea.
 
+## Crear Gist
+
+**Crear Gist…** (*Create Gist…*), en el menú del árbol y de la pestaña y en la paleta, envía archivos a un Gist de GitHub, en la cuenta que conectaste en [**Configuración › Integraciones**](/docs/forges#github) (*Settings › Integrations*). Desde el árbol van hasta 20 archivos seleccionados, sin carpetas; desde la pestaña, su archivo o su borrador. Desde la paleta, con el cursor en el código, va solo el fragmento seleccionado, o el archivo entero cuando no hay nada seleccionado.
+
+La ventana **Crear Gist** (*Create Gist*) tiene la **Descripción** (*Description*), que es opcional, el nombre de cada archivo, la **Visibilidad** (*Visibility*) y, con más de una cuenta de GitHub, la **Cuenta** (*Account*). **Secreto** (*Secret*), la opción por defecto, no aparece en tu perfil, y solo lo ve quien tenga el enlace. **Público** (*Public*) aparece en tu perfil y en la búsqueda de GitHub. Los archivos binarios, vacíos o demasiado grandes quedan fuera, y el aviso dice cuáles.
+
+Antes de enviar, Persisty busca secretos en los archivos: un `.env`, un archivo de clave, una clave privada, un token de GitHub o de Slack, una clave de AWS o una línea que parece una contraseña, un token o una clave. Si encuentra alguno, la ventana dice en qué archivo y en qué línea, y solo **Enviar de todos modos** (*Send anyway*) envía. Un Gist secreto todavía lo puede ver quien tenga el enlace.
+
+Creado el Gist, el enlace va al portapapeles, y **Abrir** (*Open*), en el aviso, abre el Gist en el navegador.
+
+La primera vez, Persisty le pide a GitHub el permiso `gist`, con un código para confirmar en el navegador, como al conectar la cuenta. Si en ese momento entras en otra cuenta de GitHub, no se envía nada, y el aviso dice con qué cuenta entrar. Una cuenta conectada por token ya tiene que tener ese permiso; sin él, el error dice qué falta.
+
 ## Favoritos e historial local
 
 El submenú **Favoritos** (*Bookmarks*) tiene **Agregar a favoritos** (*Add to Bookmarks*), para los elementos seleccionados, o **Quitar de favoritos** (*Remove from Bookmarks*), cuando todos ya están ahí. Los favoritos siguen al archivo o a la carpeta cuando se renombran o se mueven, y su lista se abre con una tecla; mira [Favoritos](/docs/code-navigation#favoritos).
@@ -96,15 +116,18 @@ En **Configuración › Archivos** (*Settings › Files*), **Ocultar archivos** 
 | Copiar ruta (también en la pestaña y en el código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referencia (*Copy Reference*; también en la pestaña y en el código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar el árbol | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+| Nuevo archivo borrador | <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd>; en WebStorm (macOS), <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>, con el cursor en el código |
 
 En el mapa de VS Code, esas acciones están en el menú. En WebStorm (macOS), <kbd>⌘</kbd> <kbd>N</kbd> abre **Nuevo** solo con el foco en el árbol; fuera de él, abre una terminal nueva. [**Configuración › Atajos**](/docs/shortcuts#archivos) (*Settings › Shortcuts*) tiene el grupo **Archivos**, con dónde vale cada tecla: en el árbol, en la pestaña o en el editor.
 
-En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, <kbd>Supr</kbd> elimina, y **Nuevo** es <kbd>Alt</kbd> <kbd>Insert</kbd>. El Finder da lugar al Explorador de archivos o al gestor de archivos.
+En Windows y Linux, que están en versión preliminar, <kbd>Ctrl</kbd> y <kbd>Alt</kbd> hacen el papel de <kbd>⌘</kbd> y <kbd>⌥</kbd>, <kbd>Supr</kbd> elimina, **Nuevo** es <kbd>Alt</kbd> <kbd>Insert</kbd>, y **Nuevo archivo borrador** es <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>. El Finder da lugar al Explorador de archivos o al gestor de archivos.
 
 ## Plan y límites
 
-El árbol y todas las operaciones de archivos son del plan gratis.
+El árbol, todas las operaciones de archivos, los borradores y el Gist son del plan gratis.
 
 Actualizar los imports y el aviso al eliminar dependen del servidor del lenguaje, en TypeScript, JavaScript y Rust; sin él, renombrar, mover y eliminar funcionan como antes.
+
+Los borradores quedan en la carpeta de datos de Persisty, fuera de cualquier proyecto: no entran en Git ni en el [historial local](/docs/local-history), el editor no revisa si cambiaron en el disco, y pueden faltarles las sugerencias y los errores del servidor del lenguaje. El código no tiene menú de clic derecho, así que el Gist de un fragmento sale desde la paleta. Un Gist lleva como máximo 20 archivos.
 
 El árbol solo muestra y cambia lo que está dentro de la carpeta de la sesión. En Windows y Linux, pegar archivos desde y hacia el sistema y deshacer una eliminación todavía se están comprobando en uso.

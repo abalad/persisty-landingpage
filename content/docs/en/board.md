@@ -23,7 +23,7 @@ At the top, switch **All projects** to **This project** to see only the current 
 
 ## The cards
 
-Each card says in one line what the session wants: the command waiting for permission, the question the agent asked, the end of its answer or the error. Beside the name is how long ago. Below are the project, or the workspace under **This project**, and the branch, when it is not the main one.
+Each card says in one line what the session wants: the command waiting for permission, the question the agent asked, the end of its answer or the error. A long question shows its end, with the question mark, and appears in full when you rest the pointer on it. Beside the name is how long ago. Below are the project, or the workspace under **This project**, and the branch, when it is not the main one.
 
 Answers and errors you have not opened yet show in bold, with a dot. The session that has waited longest gets the amber frame and the hint <kbd>A</kbd> **opens this one**. A session Persisty has no news of yet, such as a Claude Code stuck on the folder trust prompt, says **No word from the agent**.
 

@@ -1,6 +1,6 @@
 ---
 title: Editor
-description: Each session's editor, beside the terminal, with syntax highlighting, Markdown and image previews, suggestions and errors from the project, the bottom panel, column selection and the keymap you choose.
+description: Each session's editor, beside the terminal, with syntax highlighting, Markdown and image previews, suggestions and errors from the project, the bottom panel, the copy history, column selection and the keymap you choose.
 group: code
 order: 1
 ---
@@ -35,9 +35,9 @@ Each language's highlighting loads when its first file opens, in the colours of 
 
 ## Markdown and images
 
-![In a release.md file, a new task is written into the list; Command, Shift and V switch the code for the preview, with the table, the task list and the code block.](/docs-media/editor/markdown.mp4)
+![In a release.md file, a new task is written into the list; the eye button, on the tab bar, switches the code for the preview, with the table, the task list and the code block.](/docs-media/editor/markdown.mp4)
 
-In a `.md` file, the eye button, on the tab bar, or <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> switches between the code and the preview, which already shows what you have not saved yet. The preview has tables, task lists and code blocks. A link to a website opens in the browser, a link to a file in the folder opens that file in the editor, and a `#` link goes to its heading.
+In a `.md` file, the eye button, on the tab bar, switches between the code and the preview, which already shows what you have not saved yet. <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> does the same; in the WebStorm keymaps, only outside the code, because in the code that key is [**Paste from History**](#paste-from-history). The preview has tables, task lists and code blocks. A link to a website opens in the browser, a link to a file in the folder opens that file in the editor, and a `#` link goes to its heading.
 
 Nothing loads in the preview: HTML shows as text, and an image from the web becomes a link that opens in the browser. Over 300,000 characters, a file is not previewed. In **Settings › Editor**, **Open .md files in** chooses how a `.md` opens: **Code**, the default, or **Preview**.
 
@@ -79,6 +79,14 @@ Drag the panel's top edge to change its height, or use <kbd>↑</kbd> and <kbd>�
 
 In the code, in both WebStorm keymaps, <kbd>⌘</kbd> <kbd>3</kbd> opens **Usages** and <kbd>⌘</kbd> <kbd>6</kbd> opens **Problems**, instead of choosing project 3 or 6. In the VS Code keymap, **Problems** is <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>M</kbd>, and **Usages** opens from the palette. The key moves the focus to the list, and <kbd>Esc</kbd> closes the panel and gives the focus back to the code. On Windows and Linux, which are in preview, the keys are <kbd>Alt</kbd> <kbd>3</kbd> and <kbd>Alt</kbd> <kbd>6</kbd>, or <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>M</kbd> in VS Code.
 
+## Paste from History
+
+**Paste from History** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> in the code, in the WebStorm keymaps) opens the list of the last 30 copies and cuts made in the editor, newest first. Typing filters the list by the copies' text, and the one you pick goes in at the cursor. Copying again a text that is already on the list only moves it to the top.
+
+To paste several at once, mark them with <kbd>⇧</kbd> and the arrows, or with <kbd>⌘</kbd> + click. They go in together, in the list's order and one per line, and one undo takes them all out.
+
+The list keeps only what you copy or cut in the code: the terminal, the diffs and what you copy in another app stay out. It lives only in memory and is gone when you quit Persisty. In the VS Code keymap, **Paste from History** has no key and is in the palette. On Windows and Linux, the key is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>V</kbd>.
+
 ## Column selection and carets
 
 **Column Selection Mode** (<kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>8</kbd> in the WebStorm keymaps) turns the mode on, and the status bar shows **Column**. While it is on, <kbd>⇧</kbd> and the arrows grow a rectangle, with one caret per line in the same column, and dragging with the mouse draws the rectangle. On a short line the caret sits at the end, and the column comes back on a longer line. Typing writes on every line, and undo takes it all back in one step. <kbd>Esc</kbd> or the same key turn the mode off.
@@ -110,11 +118,13 @@ The keys of the two WebStorm keymaps on the Mac:
 | Go to Line | <kbd>⌘</kbd> <kbd>G</kbd> | <kbd>⌘</kbd> <kbd>L</kbd> |
 | Move Caret to Code Block Start / End | <kbd>⌘</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>]</kbd> | <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>[</kbd> / <kbd>⌘</kbd> <kbd>⌥</kbd> <kbd>]</kbd> |
 | Move Statement Up / Down, with the comments above it | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↑</kbd> / <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>↓</kbd> |
+| Paste from History | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>V</kbd> |
+| New Scratch File | <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> |
 | Find Action | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>A</kbd> |
 
 The VS Code keymap keeps its own keys, such as <kbd>F12</kbd> to go to the declaration and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd> to find an action. <kbd>⌘</kbd> <kbd>K</kbd> opens the palette, which also lists the editor's actions. In the VS Code keymap, with the cursor in the code, <kbd>⌘</kbd> <kbd>K</kbd> starts its two-part keys, such as <kbd>⌘</kbd> <kbd>K</kbd> <kbd>⌘</kbd> <kbd>C</kbd>, which comments the line; there, the editor's actions are on <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>P</kbd>.
 
-On Windows and Linux, which are in preview, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, and both WebStorm keymaps use the keys of the WebStorm column, with one difference: **Quick Documentation** is <kbd>Ctrl</kbd> <kbd>Q</kbd>.
+On Windows and Linux, which are in preview, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, and both WebStorm keymaps use the keys of the WebStorm column, with two differences: **Quick Documentation** is <kbd>Ctrl</kbd> <kbd>Q</kbd>, and **New Scratch File** is <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>.
 
 Each keymap's navigation, usages and refactoring keys are in [Move through the code](/docs/code-navigation#keys) and [Usages, rename and refactor](/docs/usages-and-refactoring#keys), and the list of keys whose meaning changes in the code, in [Shortcuts](/docs/shortcuts#inside-the-code).
 

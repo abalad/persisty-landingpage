@@ -9,7 +9,7 @@ order: 5
 
 ## Connected accounts
 
-Each account shows its e-mail, organisation, Claude plan, how many sessions are open on it and the **5 h** and **7 d** [windows](/docs/usage-and-quota#the-5-h-and-7-d-windows). The account that was already on the computer has the **This computer** tag. The same e-mail in two organisations shows as two accounts. An account that is signed out shows **Not signed in**, and a quota that could not be read, **Quota unavailable**.
+Each account shows its e-mail, organisation, Claude plan, how many sessions are open on it and the **5 h** and **7 d** [windows](/docs/usage-and-quota#the-5-h-and-7-d-windows). The account that was already on the computer has the **This computer** tag. The same e-mail in two organisations shows as two accounts. When an account's quota does not show, the row says why: **Access expired**, **Sign-in refused**, **Signed out**, **No network** or **Waiting for the quota**. Any other reason shows as **Quota unavailable**.
 
 The bars come from the same place as Claude Code's `/usage`, with the credential it already stores on the machine. Persisty checks at most once a minute per account (the service refuses more frequent checks) and keeps the latest numbers on screen between checks. Seeing the accounts and their quotas is on the free plan.
 
@@ -28,6 +28,12 @@ Persisty never sees your password and does not store the credential: Claude Code
 To remove an account, use the disconnect button on its row and confirm with **Disconnect**. Persisty runs Claude Code's logout and deletes that account's folder; sessions already open with it carry on until you close them.
 
 AI accounts warns you when two connected accounts signed in with the same e-mail. That happens when a `/login` inside a session changes the account without Persisty knowing. Disconnect the repeated one and connect the account it had again.
+
+## Sign in again
+
+An account with **Access expired**, **Sign-in refused** or **Signed out** gets the **Sign in again** button, beside the reason. It runs Claude Code's own sign-in for that account, this computer's included, and the browser opens; finish as in [Connect an account](#connect-an-account). The account stays on the list the whole time, and the quota comes back soon after, with **Signed in again.** on the row. If you sign in with another e-mail, the row becomes that account, and the notice says which.
+
+With **Access expired**, Claude Code usually renews the access by itself the next time it runs; sign in again if a session asks you to. **Sign in again** works on any plan.
 
 ## What the accounts share
 
@@ -69,6 +75,8 @@ Persisty does not create accounts or touch limits. It uses the accounts you alre
 
 ## Plan and limits
 
-Seeing the accounts and their quotas is on the free plan, and the queue waits for the quota to renew on any plan. Connecting other accounts, rotation, switching a session's account, pinning a project to an account, reserving an account and carrying on the task the limit cut are Pro.
+Seeing the accounts and their quotas and signing in to an account again are on the free plan, and the queue waits for the quota to renew on any plan. Connecting other accounts, rotation, switching a session's account, pinning a project to an account, reserving an account and carrying on the task the limit cut are Pro.
 
 Accounts and rotation are for Claude Code only.
+
+On Windows, which is in preview, Persisty finds this computer's account through the user folder, even without the `HOME` variable, and a session can leave a reserved account. This is still being checked on a real Windows machine.

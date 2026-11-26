@@ -21,7 +21,7 @@ Se ainda assim nada mudar, o `claude` que você digitou não passou pelo do Pers
 
 ## A quota aparece como indisponível
 
-O Persisty lê a [quota](/docs/usage-and-quota) com a credencial que o Claude Code guarda. Se ela venceu, as barras usam os números da própria sessão até o Claude Code renová-la. No Mac, as contas conectadas pelo Persisty precisam do item que o Claude Code cria no Keychain ao concluir o login; veja [Contas conectadas](/docs/ai-accounts#contas-conectadas).
+O Persisty lê a [quota](/docs/usage-and-quota) com a credencial que o Claude Code guarda. Se ela venceu, as barras usam os números da própria sessão até o Claude Code renová-la. Em **Configurações › Contas de IA**, a linha da conta diz o motivo, como **Acesso vencido** ou **Sem rede**, e **Entrar de novo** refaz o login daquela conta; veja [Entrar de novo](/docs/ai-accounts#entrar-de-novo). No Mac, as contas conectadas pelo Persisty precisam do item que o Claude Code cria no Keychain ao concluir o login; veja [Contas conectadas](/docs/ai-accounts#contas-conectadas).
 
 ## A fila não enviou o pedido
 
@@ -43,7 +43,7 @@ No Windows, com a tela em escala de 125% ou 150%, o terminal das sessões podia 
 
 [**Adicionar workspace**](/docs/projects-and-workspaces#adicionar-workspace) aceita a pasta escolhida no Windows, como `C:\...`, e uma [**Nova sessão**](/docs/sessions#nova-sessão) num workspace do Windows abre normalmente desde a 0.9.1.
 
-Ainda estão sendo conferidos em uso: no Windows e no Linux, colar arquivos de e para o sistema e o **Desfazer** da [exclusão](/docs/files#excluir); no Windows, o **Desfazer** da Lixeira e os avisos de arquivo em uso. O [mascote fora do app](/docs/mascot#fora-do-app) existe só no macOS.
+Ainda estão sendo conferidos em uso: no Windows e no Linux, colar arquivos de e para o sistema e o **Desfazer** da [exclusão](/docs/files#excluir); no Windows, o **Desfazer** da Lixeira e os avisos de arquivo em uso. O [mascote fora do app](/docs/mascot#fora-do-app) anda sobre as janelas no macOS e no Windows, e no Linux fica onde você o deixar.
 
 ## O que o Persisty ainda não faz
 

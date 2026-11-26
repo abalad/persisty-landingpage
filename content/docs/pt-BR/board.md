@@ -23,7 +23,7 @@ No topo, troque **Todos os projetos** por **Este projeto** para ver só as sess�
 
 ## Os cartões
 
-Cada cartão diz em uma linha o que a sessão quer: o comando que espera permissão, a pergunta que o agente fez, o fim da resposta ou o erro. Ao lado do nome vem há quanto tempo. Embaixo, o projeto, ou o workspace em **Este projeto**, e o branch, quando não é o principal.
+Cada cartão diz em uma linha o que a sessão quer: o comando que espera permissão, a pergunta que o agente fez, o fim da resposta ou o erro. Uma pergunta longa aparece pelo fim, com a interrogação, e inteira ao parar o ponteiro em cima. Ao lado do nome vem há quanto tempo. Embaixo, o projeto, ou o workspace em **Este projeto**, e o branch, quando não é o principal.
 
 Respostas e erros que você ainda não abriu aparecem em negrito, com um ponto. A sessão que espera há mais tempo ganha a moldura âmbar e a dica <kbd>A</kbd> **abre esta**. Uma sessão de que o Persisty ainda não tem notícias, como um Claude Code parado no aviso de confiança da pasta, diz **Sem notícias do agente**.
 

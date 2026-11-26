@@ -1,11 +1,11 @@
 ---
 title: Mascot
-description: The mascot in the terminal's corner follows the session's agent; on macOS it can also leave the app and tell you things on top of your windows.
+description: The mascot in the terminal's corner follows the session's agent; it can also leave the app and tell you things on top of your windows.
 group: agents
 order: 3
 ---
 
-The mascot sits in the corner of the session's terminal and reacts to what the agent does. On macOS it can also leave the app and stand on your windows, to tell you when a session needs you.
+The mascot sits in the corner of the session's terminal and reacts to what the agent does. It can also leave the app and stay on top of your windows, to tell you when a session needs you.
 
 ![The mascot walks along the top of a window and reaches its edge.](/changelog/0.10.0/mascote.mp4)
 
@@ -19,11 +19,11 @@ It starts on. To remove it, turn off [**Settings › Appearance › Mascot in th
 
 ## Outside the app
 
-On macOS, the mascot can leave the terminal's corner and stand on your windows, on top of any app. That way it tells you things while you are in your editor or browser. It starts off: turn it on in **Settings › Appearance › Mascot outside the app**, or with **Show the mascot outside the app** in the command palette. With the mascot outside the app, the one in the terminal goes away.
+The mascot can leave the terminal's corner and stay on top of any app. On macOS and Windows, it stands on your windows. That way it tells you things while you are in your editor or browser. It starts off: turn it on in **Settings › Appearance › Mascot outside the app**, or with **Show the mascot outside the app** in the command palette. With the mascot outside the app, the one in the terminal goes away.
 
-It stands on top of the front window, rides along when the window moves and falls when it goes away; when nothing is happening, it sits down and dozes. Drag it anywhere, on any display, and it remembers where. Clicking or dragging the mascot does not take the focus away from the app you are in.
+It stands on top of the front window, rides along when the window moves and falls when it goes away; when nothing is happening, it sits down and dozes. Drag it anywhere, on any display, and it remembers where. On the Mac, clicking or dragging the mascot does not take the focus away from the app you are in; on Windows and Linux, it may.
 
-**The mascot walks on your windows**, on the same screen, starts on. Turned off, the mascot stays only where you leave it.
+**The mascot walks on your windows**, on the same screen, is on by default on macOS and Windows. Turned off, the mascot stays only where you leave it. On Linux, the setting does not show, and the mascot stays where you leave it.
 
 ## Notices and balloon
 
@@ -35,4 +35,6 @@ At the top of the balloon are **Open the Board**, the bell and **Hide mascot**, 
 
 ## Plan and limits
 
-The mascot is on the free plan. Outside the app, it exists only on macOS and only while Persisty is open: quitting Persisty closes the mascot. Like the Board, it only opens sessions and never answers for you.
+The mascot is on the free plan. Outside the app, it exists only while Persisty is open: quitting Persisty closes the mascot. Like the Board, it only opens sessions and never answers for you.
+
+On Windows and Linux, which are in preview, the mascot outside the app has not been checked on real machines yet. On Windows, it has walked on your windows since 0.16.0, and with displays at different scales its position may jump a step at the seam between them. Persisty reads only each window's position, size and type, never its title or the app's name.

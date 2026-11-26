@@ -1,11 +1,11 @@
 ---
 title: Mascote
-description: O mascote no canto do terminal acompanha o agente da sessão; no macOS, ele também sai do app e avisa por cima das suas janelas.
+description: O mascote no canto do terminal acompanha o agente da sessão; ele também sai do app e avisa por cima das suas janelas.
 group: agents
 order: 3
 ---
 
-O mascote fica no canto do terminal da sessão e reage ao que o agente faz. No macOS, ele também pode sair do app e ficar em pé sobre as suas janelas, para avisar quando uma sessão precisa de você.
+O mascote fica no canto do terminal da sessão e reage ao que o agente faz. Ele também pode sair do app e ficar por cima das suas janelas, para avisar quando uma sessão precisa de você.
 
 ![O mascote anda sobre o topo de uma janela e chega à borda dela.](/changelog/0.10.0/mascote.mp4)
 
@@ -19,11 +19,11 @@ Ele vem ligado. Para tirar, desligue [**Configurações › Aparência › Masco
 
 ## Fora do app
 
-No macOS, o mascote pode sair do canto do terminal e ficar em pé sobre as suas janelas, por cima de qualquer app. Assim ele avisa enquanto você está no editor ou no navegador. Ele vem desligado: ligue em **Configurações › Aparência › Mascote fora do app**, ou com **Mostrar o mascote fora do app**, na paleta de comandos. Com o mascote fora do app, o do terminal some.
+O mascote pode sair do canto do terminal e ficar por cima de qualquer app. No macOS e no Windows, ele fica em pé sobre as suas janelas. Assim ele avisa enquanto você está no editor ou no navegador. Ele vem desligado: ligue em **Configurações › Aparência › Mascote fora do app**, ou com **Mostrar o mascote fora do app**, na paleta de comandos. Com o mascote fora do app, o do terminal some.
 
-Ele fica no topo da janela da frente, vai junto quando ela se mexe e cai quando ela some; quando nada acontece, senta e cochila. Arraste-o para qualquer lugar, em qualquer monitor, e ele lembra a posição. Clicar ou arrastar o mascote não tira o foco do app em que você está.
+Ele fica no topo da janela da frente, vai junto quando ela se mexe e cai quando ela some; quando nada acontece, senta e cochila. Arraste-o para qualquer lugar, em qualquer monitor, e ele lembra a posição. No Mac, clicar ou arrastar o mascote não tira o foco do app em que você está; no Windows e no Linux, pode tirar.
 
-**O mascote anda sobre as janelas**, na mesma tela, vem ligado. Desligado, o mascote fica só onde você deixar.
+**O mascote anda sobre as janelas**, na mesma tela, vem ligado no macOS e no Windows. Desligado, o mascote fica só onde você deixar. No Linux, o ajuste não aparece, e o mascote fica onde você o deixar.
 
 ## Avisos e balão
 
@@ -35,4 +35,6 @@ No topo do balão estão **Abrir o Quadro**, o sino e **Esconder mascote**, que 
 
 ## Plano e limites
 
-O mascote é do plano grátis. Fora do app, ele existe só no macOS e só com o Persisty aberto: fechar o Persisty fecha o mascote. Como o Quadro, ele só abre sessões e nunca responde por você.
+O mascote é do plano grátis. Fora do app, ele existe só com o Persisty aberto: fechar o Persisty fecha o mascote. Como o Quadro, ele só abre sessões e nunca responde por você.
+
+No Windows e no Linux, que estão em prévia, o mascote fora do app ainda não foi conferido em máquinas reais. No Windows, ele anda sobre as janelas desde a 0.16.0, e com monitores de escalas diferentes a posição pode dar um degrau na emenda entre eles. O Persisty lê só a posição, o tamanho e o tipo de cada janela, nunca o título nem o nome do app.

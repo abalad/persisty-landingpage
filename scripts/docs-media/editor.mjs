@@ -16,8 +16,9 @@ export const clips = [
       await ui.press("Enter", { show: false, after: 150 });
       await ui.type("Revisar o changelog da 2.4", { delay: 45 });
       await ui.wait(800);
-      await ui.press("Meta+Shift+V");
-      await ui.wait(900);
+      // Since 0.16.0, Command + Shift + V inside the code is Paste from history in the WebStorm keymaps: the eye button toggles the preview.
+      await ui.click({ selector: 'button[aria-label="Pré-visualizar"]' }, { ms: 850 });
+      await ui.wait(1100);
     },
   },
   {

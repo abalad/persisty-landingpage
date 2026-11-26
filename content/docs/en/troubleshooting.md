@@ -21,7 +21,7 @@ If nothing changes after that, the `claude` you typed did not go through Persist
 
 ## The quota shows as unavailable
 
-Persisty reads the [quota](/docs/usage-and-quota) with the credential Claude Code stores. If that credential has expired, the bars use the session's own numbers until Claude Code renews it. On a Mac, accounts connected through Persisty need the item Claude Code creates in the Keychain when you finish signing in; see [Connected accounts](/docs/ai-accounts#connected-accounts).
+Persisty reads the [quota](/docs/usage-and-quota) with the credential Claude Code stores. If that credential has expired, the bars use the session's own numbers until Claude Code renews it. In **Settings › AI accounts**, the account's row says why, such as **Access expired** or **No network**, and **Sign in again** redoes that account's sign-in; see [Sign in again](/docs/ai-accounts#sign-in-again). On a Mac, accounts connected through Persisty need the item Claude Code creates in the Keychain when you finish signing in; see [Connected accounts](/docs/ai-accounts#connected-accounts).
 
 ## The queue did not send the request
 
@@ -43,7 +43,7 @@ On Windows, with the display scaled to 125% or 150%, a session's terminal could 
 
 [**Add workspace**](/docs/projects-and-workspaces#add-a-workspace) accepts the folder you pick on Windows, such as `C:\...`, and a [**New session**](/docs/sessions#new-session) in a Windows workspace opens normally since 0.9.1.
 
-Still being checked in real use: on Windows and Linux, pasting files to and from the system and **Undo** after a [delete](/docs/files#delete); on Windows, **Undo** from the Recycle Bin and the file-in-use notices. The [mascot outside the app](/docs/mascot#outside-the-app) exists only on macOS.
+Still being checked in real use: on Windows and Linux, pasting files to and from the system and **Undo** after a [delete](/docs/files#delete); on Windows, **Undo** from the Recycle Bin and the file-in-use notices. The [mascot outside the app](/docs/mascot#outside-the-app) walks on your windows on macOS and Windows, and on Linux it stays where you leave it.
 
 ## What Persisty does not do yet
 
