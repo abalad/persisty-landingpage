@@ -17,5 +17,6 @@
 - [Docs per feature](docs-per-feature.md) — 37 pages one per feature; delivery 2 live 2026-11-24 (main 0fd3367): 27 videos of the 0.14.0 interface in public/docs-media, scenes in scripts/docs-media
 - [Release 0.14.0](release-0-14-0.md) — 2026-11-17: LSP phase 2, navigations, local history; site live 2026-11-19 (main f723303) with changelog, downloads and docs (3 new code pages)
 - [Persisty cloud production](persisty-cloud-production.md) — function JWT settings, db push --db-url, empty audit log, RESEND_API_KEY (persisty-funcoes), driving Resend via Chrome accessibility
-- [Editor slice 6](editor-slice6-pending.md) — NOT released: rename/move update imports, file usages, delete warns where, move to new file, inspect code; for the next version after 0.14.0
+- [Editor slice 6](editor-slice6-pending.md) — released in 0.15.0 (site live 2026-11-26, main a25c595): rename/move update imports, file usages, delete warns where, move to new file, inspect code
 - [Memory in the project](memory-in-project.md) — all memory lives in .claude/memory, committed with the public repo (no e-mails or keys in notes); the automatic memory folder links to it
+- [Release 0.15.0](release-0-15-0.md) — app v0.15.0 published 2026-11-24; site live 2026-11-26 (main a25c595) with changelog, downloads, docs and the re-recorded Uso de IA video
