@@ -1,6 +1,6 @@
 ---
 title: Arquivos
-description: A árvore da pasta da sessão no painel Código, para criar, renomear, mover, copiar e excluir arquivos, abrir em outro app e copiar caminhos.
+description: A árvore da pasta da sessão no painel Código, para criar, renomear, mover, copiar e excluir arquivos com os imports atualizados, achar quem usa um arquivo, abrir em outro app e copiar caminhos.
 group: code
 order: 4
 ---
@@ -27,9 +27,19 @@ Arquivos que o git ignora aparecem esmaecidos, e o `.git` nunca aparece. No topo
 
 Com a árvore em foco, <kbd>⌘</kbd> <kbd>X</kbd>, <kbd>⌘</kbd> <kbd>C</kbd> e <kbd>⌘</kbd> <kbd>V</kbd> recortam, copiam e colam arquivos, também de e para o Finder; **Recortar**, **Copiar** e **Colar** estão no menu. Colar põe os itens na pasta clicada, ou na pasta do arquivo clicado.
 
+## Imports ao renomear e mover
+
+Em TypeScript, JavaScript e Rust, renomear e mover arquivos e pastas também atualiza os imports dos arquivos que os usam. Vale para **Renomear…** na árvore e na aba, **Refatorar › Mover…**, arrastar e recortar e colar. Antes de mexer no disco, o Persisty pergunta ao servidor da linguagem o que muda. Quando há imports a atualizar, uma prévia lista os arquivos, cada um com uma caixa de marcar: <kbd>↵</kbd> confirma e <kbd>Esc</kbd> cancela a operação. Desmarcar todos só renomeia ou move.
+
+Depois, um aviso diz quantos imports foram atualizados e em quantos arquivos, e nomeia o que ficou de fora. Nas abas abertas, a mudança entra no desfazer da aba. Os arquivos fechados são gravados direto, e a versão de antes fica no [histórico local](/docs/local-history), com o rótulo "Antes de atualizar os imports". Arquivos fora da pasta do projeto, como um pacote vizinho num monorepo, não entram, e o aviso diz quantos.
+
+O arquivo muda de lugar mesmo quando os imports não podem ser atualizados, e o aviso diz por quê: o servidor não respondeu em 3 segundos, havia nomes repetidos no destino, ou o mover parou no meio. Copiar não mexe nos imports.
+
 ## Excluir
 
 **Excluir…** sempre pede confirmação e manda os itens para a Lixeira. Por 10 segundos, **Desfazer** no aviso, ou <kbd>⌘</kbd> <kbd>Z</kbd> com a árvore em foco, traz tudo de volta. Se um arquivo aberto tem alterações não gravadas, o Persisty pergunta antes se grava ou descarta; com **Salvar automaticamente** ligado, ele grava sem perguntar.
+
+Quando outros arquivos importam o que vai ser excluído, a confirmação diz onde: até 10 lugares, com o arquivo e a linha, e "e mais N" para o resto. O botão vira **Excluir mesmo assim**. Esse aviso vem do servidor da linguagem e só aparece se ele responde em até 3 segundos, contando o tempo de ele subir; sem resposta, a confirmação é a de sempre. Só os arquivos escolhidos são pesquisados, não o conteúdo de uma pasta, e quem importa e também vai para a Lixeira não conta.
 
 ## Quando o nome já existe
 
@@ -38,6 +48,10 @@ Ao mover, copiar ou colar, se o nome já existe no destino, o Persisty pergunta 
 ## Cópias grandes e falhas
 
 Cópias e movimentos grandes mostram o andamento embaixo da árvore e podem ser cancelados com **Cancelar**, sem deixar nada pela metade. Se uma operação parar no meio, o que já foi fica, e o aviso diz qual item falhou. Quando um **Substituir** falha, o aviso diz qual item não foi colocado e que a versão antiga foi para a Lixeira; as abas fechadas para a operação voltam ao mesmo grupo e à mesma posição.
+
+## Usos e inspeção
+
+**Encontrar usos**, no menu de um arquivo, lista os arquivos que o importam; veja [Usos de um arquivo](/docs/usages-and-refactoring#usos-de-um-arquivo). **Inspecionar código**, num arquivo, numa pasta ou em vários itens selecionados, mostra os problemas que os servidores da linguagem acham neles; veja [Inspecionar código](/docs/usages-and-refactoring#inspecionar-código).
 
 ## Abrir em
 
@@ -78,6 +92,7 @@ Em **Configurações › Arquivos**, **Ocultar arquivos** lista padrões como `*
 | Mover para outra pasta | <kbd>F6</kbd> |
 | Copiar para outra pasta | <kbd>F5</kbd> |
 | Excluir | <kbd>⌫</kbd> ou <kbd>⌘</kbd> <kbd>⌫</kbd> |
+| Encontrar usos do arquivo (também na aba) | <kbd>⌥</kbd> <kbd>F7</kbd> |
 | Copiar caminho (também na aba e no código) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copiar referência (também na aba e no código) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Sincronizar a árvore | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
@@ -89,5 +104,7 @@ No Windows e no Linux, que estão em prévia, <kbd>Ctrl</kbd> e <kbd>Alt</kbd> f
 ## Plano e limites
 
 A árvore e todas as operações de arquivo são do plano grátis.
+
+Atualizar os imports e o aviso ao excluir dependem do servidor da linguagem, em TypeScript, JavaScript e Rust; sem ele, renomear, mover e excluir funcionam como antes.
 
 A árvore só mostra e altera o que está dentro da pasta da sessão. No Windows e no Linux, colar arquivos de e para o sistema e o Desfazer da exclusão ainda estão sendo conferidos em uso.

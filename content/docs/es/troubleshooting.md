@@ -50,5 +50,5 @@ Todavía se están revisando en uso real: en Windows y Linux, pegar archivos des
 - Cambiar la cuenta de una sesión en medio de un turno. El cambio, por la rotación o a mano desde el pie de la sesión, espera a que termine la respuesta y también lo que ella dejó corriendo en segundo plano, como subagentes y comandos; mira [Cambiar la cuenta de una sesión](/docs/ai-accounts#cambiar-la-cuenta-de-una-sesión).
 - Integraciones con herramientas de analítica.
 - Dividir la terminal en paneles lado a lado.
-- En el editor, renombrar o aplicar una acción de código que cree, renombre o borre archivos, y mover código a otro archivo; mira [Usos, renombrar y refactorizar](/docs/usages-and-refactoring#plan-y-límites).
+- En el editor, mover código a un archivo que tú eliges, y renombrar el archivo de un módulo de Rust desde el nombre del `mod` en el código; mira [Usos, renombrar y refactorizar](/docs/usages-and-refactoring#plan-y-límites).
 - Instalador firmado en Windows, y Windows y Linux probados en máquinas reales.

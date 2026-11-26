@@ -366,6 +366,22 @@ Lista final: 37 páginas em seis grupos. Parte da lista da spec; o inventário a
 | Algumas teclas mudam de sentido só dentro do código | shortcuts#dentro-do-código | coberto |
 | No mapa WebStorm (macOS), F3 marca um favorito e a busca da próxima fica em ⌘G | code-navigation#favoritos | coberto |
 
+## 0.15.0
+
+| Item | Página | Situação |
+|---|---|---|
+| Renomear e mover atualizam os imports | files#imports-ao-renomear-e-mover | coberto |
+| O aviso diz quantos imports mudaram e o que ficou de fora; sem resposta do servidor, o arquivo muda de lugar do mesmo jeito | files#imports-ao-renomear-e-mover | coberto |
+| Encontrar usos de um arquivo | usages-and-refactoring#usos-de-um-arquivo | coberto |
+| Excluir um arquivo que outros importam avisa onde ele é usado | files#excluir | coberto |
+| Mover para um arquivo novo | usages-and-refactoring#mover-para-um-arquivo-novo | coberto |
+| Ações do servidor que criam, renomeiam ou apagam arquivos | usages-and-refactoring#mover-para-um-arquivo-novo | coberto |
+| Inspecionar código | usages-and-refactoring#inspecionar-código | coberto |
+| A seção "Inspeção" do painel Problemas, com andamento, Cancelar e Fechar | usages-and-refactoring#inspecionar-código | coberto |
+| Corrigido: "Uso de IA — todos os projetos", na paleta, abre o uso de todos os projetos | usage-and-quota#gasto-estimado | coberto |
+| Corrigido: o idioma de Configurações › Aparência vale ao abrir o app de novo | settings#aparência | coberto |
+| Corrigido: sem IDE, o aviso de "Abrir em" aponta Configurações › Workspace › IDE padrão | files#abrir-em | coberto |
+
 ## Configurações
 
 As abas, na ordem do app: Interface (Aparência, Workspace, Notificações), Código (Editor, Terminal, Arquivos), Agentes (Agentes, Contas de IA, Voz), Conexões (Integrações, Servidores MCP, Uso de IA, Privacidade e rede), Persisty (Atalhos, Conta, Sobre). A aba Conta só aparece com a sessão iniciada.

@@ -11,11 +11,10 @@ export const clips = [
       await ui.type("uso", { delay: 90 });
       await ui.wait(500);
       await ui.press("Enter");
-      await ui.wait(1700);
-      await ui.click({ text: "Todos os projetos" }, { ms: 800 });
-      await ui.wait(1000);
+      // Since 0.15.0 the palette's "Uso de IA — todos os projetos" opens straight on all projects.
+      await ui.wait(2200);
       await ui.scroll({ text: "Por projeto" }, 300, { ms: 700 });
-      await ui.wait(600);
+      await ui.wait(1600);
     },
   },
 ];

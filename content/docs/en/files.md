@@ -1,6 +1,6 @@
 ---
 title: Files
-description: The session folder's tree in the Code panel, to create, rename, move, copy and delete files, open them in another app and copy their paths.
+description: The session folder's tree in the Code panel, to create, rename, move, copy and delete files with their imports updated, find who uses a file, open files in another app and copy their paths.
 group: code
 order: 4
 ---
@@ -27,9 +27,19 @@ Files git ignores are dimmed, and `.git` never shows. At the top of the list, **
 
 With the tree in focus, <kbd>⌘</kbd> <kbd>X</kbd>, <kbd>⌘</kbd> <kbd>C</kbd> and <kbd>⌘</kbd> <kbd>V</kbd> cut, copy and paste files, to and from the Finder as well; **Cut**, **Copy** and **Paste** are on the menu. Paste puts the items in the folder you clicked, or in the folder of the file you clicked.
 
+## Imports when renaming and moving
+
+In TypeScript, JavaScript and Rust, renaming and moving files and folders also updates the imports in the files that use them. This works for **Rename…** in the tree and on the tab, **Refactor › Move…**, dragging, and cut and paste. Before touching the disk, Persisty asks the language server what changes. When there are imports to update, a preview lists the files, each with a checkbox: <kbd>↵</kbd> confirms and <kbd>Esc</kbd> cancels the operation. Unchecking them all only renames or moves.
+
+Afterwards, a notice says how many imports were updated and in how many files, and names what was left out. In open tabs, the change is one step of the tab's undo. Closed files are written directly, and the version from before stays in the [local history](/docs/local-history), labelled "Before updating imports". Files outside the project folder, such as a neighbouring package in a monorepo, are not included, and the notice says how many.
+
+The file moves even when the imports can't be updated, and the notice says why: the server didn't answer within 3 seconds, there were repeated names at the destination, or the move stopped halfway. Copying leaves the imports alone.
+
 ## Delete
 
 **Delete…** always asks first and sends the items to the Trash. For 10 seconds, **Undo** on the notice, or <kbd>⌘</kbd> <kbd>Z</kbd> with the tree in focus, brings everything back. If an open file has unsaved changes, Persisty first asks whether to save or discard them; with **Save automatically** on, it saves them without asking.
+
+When other files import what is about to be deleted, the confirmation says where: up to 10 places, with the file and the line, and "and N more" for the rest. The button becomes **Delete anyway**. That warning comes from the language server and only shows if it answers within 3 seconds, counting the time it takes to start; with no answer, you get the usual confirmation. Only the chosen files are searched, not a folder's contents, and a file that imports one of them but is also going to the Trash doesn't count.
 
 ## When the name already exists
 
@@ -38,6 +48,10 @@ When moving, copying or pasting, if the name already exists at the destination, 
 ## Large copies and failures
 
 Large copies and moves show their progress under the tree and can be stopped with **Cancel**, leaving nothing half done. If an operation stops partway, what already went stays, and the notice says which item failed. When a **Replace** fails, the notice says which item was not placed and that the old version went to the Trash; tabs closed for the operation come back in the same group and the same position.
+
+## Usages and inspection
+
+**Find Usages**, on a file's menu, lists the files that import it; see [Usages of a file](/docs/usages-and-refactoring#usages-of-a-file). **Inspect Code**, on a file, a folder or several selected items, shows the problems the language servers find in them; see [Inspect code](/docs/usages-and-refactoring#inspect-code).
 
 ## Open in
 
@@ -78,6 +92,7 @@ In **Settings › Files**, **Hide files** lists patterns such as `**/node_module
 | Move to another folder | <kbd>F6</kbd> |
 | Copy to another folder | <kbd>F5</kbd> |
 | Delete | <kbd>⌫</kbd> or <kbd>⌘</kbd> <kbd>⌫</kbd> |
+| Find Usages of the file (also on the tab) | <kbd>⌥</kbd> <kbd>F7</kbd> |
 | Copy Path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copy Reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Synchronize the Tree | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
@@ -89,5 +104,7 @@ On Windows and Linux, which are in preview, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> s
 ## Plan and limits
 
 The tree and every file operation are on the free plan.
+
+Updating the imports and the warning when deleting depend on the language server, in TypeScript, JavaScript and Rust; without it, rename, move and delete work as before.
 
 The tree only shows and changes what is inside the session folder. On Windows and Linux, pasting files to and from the system and undoing a delete are still being checked in use.

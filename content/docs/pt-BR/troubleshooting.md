@@ -50,5 +50,5 @@ Ainda estão sendo conferidos em uso: no Windows e no Linux, colar arquivos de e
 - Trocar a conta de uma sessão no meio de um turno. A troca, pelo rodízio ou à mão pelo rodapé, espera a resposta terminar e também o que ela deixou rodando em segundo plano, como subagentes e comandos; veja [Trocar a conta de uma sessão](/docs/ai-accounts#trocar-a-conta-de-uma-sessão).
 - Integrações com ferramentas de analytics.
 - Divisão do terminal em painéis lado a lado.
-- No editor, renomear ou aplicar uma ação de código que crie, renomeie ou apague arquivos, e mover código para outro arquivo; veja [Usos, renomear e refatorar](/docs/usages-and-refactoring#plano-e-limites).
+- No editor, mover código para um arquivo que você escolhe, e renomear o arquivo de um módulo do Rust pelo nome do `mod` no código; veja [Usos, renomear e refatorar](/docs/usages-and-refactoring#plano-e-limites).
 - Instalador assinado no Windows, e Windows e Linux testados em máquinas reais.

@@ -9,7 +9,7 @@ Each file open in the [editor](/docs/editor) gets a tab. The editor can split in
 
 ## The tab menu
 
-Right-clicking a tab, or <kbd>⇧</kbd> <kbd>F10</kbd> with the tab in focus, opens its menu. It holds every way to close, **Copy path**, [**Show in Tree**](/docs/code-navigation#show-in-tree), the [**Bookmarks**](/docs/code-navigation#bookmarks) submenu, the editor splits, **Pin Tab**, **Configure Tabs**, **Maximize the editor**, **Change File Type…**, **Open in**, the [**Local History**](/docs/local-history) and [**Git**](/docs/git-in-the-editor#the-git-submenu) submenus, **Rename File…** and **Reload from Disk**. A tab from outside the session's folder has no **Show in Tree** or **Bookmarks**. An item that does not apply to that tab is greyed out and says why, such as "it is the only tab". Git diff and history tabs have only the ways to close.
+Right-clicking a tab, or <kbd>⇧</kbd> <kbd>F10</kbd> with the tab in focus, opens its menu. It holds every way to close, **Copy path**, [**Show in Tree**](/docs/code-navigation#show-in-tree), the [**Bookmarks**](/docs/code-navigation#bookmarks) submenu, the editor splits, **Pin Tab**, **Configure Tabs**, **Maximize the editor**, **Change File Type…**, [**Find Usages**](/docs/usages-and-refactoring#usages-of-a-file), [**Inspect Code**](/docs/usages-and-refactoring#inspect-code), **Open in**, the [**Local History**](/docs/local-history) and [**Git**](/docs/git-in-the-editor#the-git-submenu) submenus, **Rename File…** and **Reload from Disk**. A tab from outside the session's folder has no **Show in Tree** or **Bookmarks**. An item that does not apply to that tab is greyed out and says why, such as "it is the only tab". Git diff and history tabs have only the ways to close.
 
 ## Switch tabs
 
