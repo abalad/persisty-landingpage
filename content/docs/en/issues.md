@@ -1,23 +1,23 @@
 ---
-title: "Issues: Linear, Jira, ClickUp and GitHub"
+title: "Issues: Linear, Jira, ClickUp, Azure DevOps and GitHub"
 description: Start a session from an issue and, at the end, comment on it and change its status without leaving Persisty.
 group: integrations
 order: 1
 ---
 
-Persisty reads issues from Linear, Jira, ClickUp and GitHub. You pick one when you create the session, the agent gets the request with the title, the link and the description, and at the end **Finish** comments on the issue and changes its status.
+Persisty reads issues from Linear, Jira, ClickUp and GitHub, and work items from Azure DevOps. You pick one when you create the session, the agent gets the request with the title, the link and the description, and at the end **Finish** comments on the issue and changes its status.
 
 ## Connect the service
 
-GitHub issues come from the account you connected to clone repositories; see [GitHub, GitLab and Bitbucket](/docs/forges). Linear, Jira and ClickUp connect with a token, in [**Settings › Integrations**](/docs/settings#integrations): open the service, click **Connect account** and follow the steps on its page.
+GitHub issues come from the account you connected to clone repositories; see [GitHub, GitLab and Bitbucket](/docs/forges). Linear, Jira, ClickUp and Azure DevOps connect with a token, in [**Settings › Integrations**](/docs/settings#integrations): open the service, click **Connect account** and follow the steps on its page.
 
-In Linear, create a personal key in Security & access, under Personal API keys; **Open Linear** takes you there. In Jira, enter the **Jira address**, such as `company.atlassian.net`, create an API token at Atlassian with Create API token, without scopes, and enter the **Atlassian account e-mail** that made the token. In ClickUp, generate your personal token in Settings › Apps, under API Token; it starts with `pk_`. Paste the key or the token and click **Connect**. Persisty checks the token with the service before keeping it in the system's password store.
+In Linear, create a personal key in Security & access, under Personal API keys; **Open Linear** takes you there. In Jira, enter the **Jira address**, such as `company.atlassian.net`, create an API token at Atlassian with Create API token, without scopes, and enter the **Atlassian account e-mail** that made the token. In ClickUp, generate your personal token in Settings › Apps, under API Token; it starts with `pk_`. In Azure DevOps, enter the **Organization address**, such as `dev.azure.com/company`; the older `company.visualstudio.com` address works too, and on the company's own server (Azure DevOps Server) it is the collection's address, such as `ado.company.com/DefaultCollection`. **Open Azure DevOps tokens** takes you to the personal access tokens: in New Token, choose the organisation and the scopes Work Items (Read & write) and Project and Team (Read). The token expires on the date you pick when you create it. Paste the key or the token and click **Connect**. Persisty checks the token with the service before keeping it in the system's password store.
 
 Each service takes more than one account, and each one shows under **Accounts** with **Disconnect**. Disconnecting makes Persisty forget the token but does not delete it on the service: to revoke it, delete the token there or, in ClickUp, generate a new one.
 
 ## Link it to the project
 
-Each project takes its issues from one service. Right-click the project, open [**Project settings › Tasks**](/docs/projects-and-workspaces#project-settings) and click **Link a service**. Choose the **Account** and where the issues come from: the **Repository** on GitHub, the **Team** in Linear, the **Project** in Jira or the **List** in ClickUp. On GitHub, the repositories of the project's workspaces come first, marked "this project's workspace", and, if there are any, the first one is already chosen. **Link** saves it.
+Each project takes its issues from one service. Right-click the project, open [**Project settings › Tasks**](/docs/projects-and-workspaces#project-settings) and click **Link a service**. Choose the **Account** and where the issues come from: the **Repository** on GitHub, the **Team** in Linear, the **Project** in Jira, the **List** in ClickUp or the **Project** in Azure DevOps. On GitHub, the repositories of the project's workspaces come first, marked "this project's workspace", and, if there are any, the first one is already chosen. **Link** saves it.
 
 Afterwards, **Change** switches the account or the scope, and **Unlink** removes the link. With no account connected, the section shows **Open Integrations**.
 
@@ -37,13 +37,13 @@ With **Own folder (worktree)** on, the **New branch** also comes from the issue:
 
 A session started from an issue shows its key in the header; clicking it opens the issue in the browser. Beside it, **Finish** opens the finishing window. The **Comment** comes already written, with the agent and the folder's current branch, such as "Done with Claude Code, through Persisty." and "Branch: eng-123-fix-the-login". In a **Terminal** session, the first line is just "Done with Persisty." Change the text as you like; left empty, nothing is posted.
 
-**New status** lists the team's states in Linear, the transitions the issue offers now in Jira and the list's statuses in ClickUp. On GitHub, the options are **Close** and **Keep open**. The default is **Leave as is**, and the status you send comes already chosen for the project's next issue.
+**New status** lists the team's states in Linear, the transitions the issue offers now in Jira, the list's statuses in ClickUp and, in Azure DevOps, the states of the work item's type. On GitHub, the options are **Close** and **Keep open**. The default is **Leave as is**, and the status you send comes already chosen for the project's next issue.
 
 Nothing reaches the service before you click **Send**. The window says what worked and what failed, and **Try again** sends only the part that failed: the comment never goes twice.
 
 ## Plan and limits
 
-The task integrations are on the free plan. They list only open issues, and each project links one service at a time. For Jira, it is Jira Cloud. Issues from GitLab and Bitbucket are not read.
+The task integrations are on the free plan. They list only open issues, and each project links one service at a time. For Jira, it is Jira Cloud. In Azure DevOps, the comment goes into the work item's discussion. The Azure DevOps integration arrived in 0.16.0 and is still being checked against a real organisation. Issues from GitLab and Bitbucket are not read.
 
 The first request goes when Persisty knows the agent is ready. In [Codex CLI](/docs/agents#codex-cli), Persisty does not receive the agent's state by default, so the request waits in the session's [queue](/docs/queue).
 

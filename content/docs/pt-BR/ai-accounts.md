@@ -9,7 +9,7 @@ Em [**Configurações › Contas de IA**](/docs/settings#contas-de-ia) ficam as 
 
 ## Contas conectadas
 
-Cada conta aparece com o e-mail, a organização, o plano do Claude, quantas sessões estão abertas nela e as [janelas](/docs/usage-and-quota#janelas-de-5-h-e-7-d) de **5 h** e **7 d**. A conta que já estava no computador tem a marca **Este computador**. O mesmo e-mail em duas organizações aparece como duas contas. Uma conta sem login mostra **Sem login**, e uma quota que não deu para ler, **Quota indisponível**.
+Cada conta aparece com o e-mail, a organização, o plano do Claude, quantas sessões estão abertas nela e as [janelas](/docs/usage-and-quota#janelas-de-5-h-e-7-d) de **5 h** e **7 d**. A conta que já estava no computador tem a marca **Este computador**. O mesmo e-mail em duas organizações aparece como duas contas. Quando a quota de uma conta não aparece, a linha diz por quê: **Acesso vencido**, **Login recusado**, **Sem login**, **Sem rede** ou **Aguardando a quota**. Outro motivo aparece como **Quota indisponível**.
 
 As barras vêm do mesmo lugar que o `/usage` do Claude Code, com a credencial que ele já guarda na máquina. O Persisty consulta no máximo uma vez por minuto por conta (o serviço recusa consultas mais frequentes) e mantém os últimos números na tela entre uma consulta e outra. Ver as contas e as quotas é do plano grátis.
 
@@ -28,6 +28,12 @@ O Persisty nunca vê a sua senha nem guarda a credencial: quem guarda é o Claud
 Para tirar uma conta, use o botão de desconectar na linha dela e confirme em **Desconectar**. O Persisty roda o logout do Claude Code e apaga a pasta daquela conta; as sessões já abertas com ela seguem até você fechá-las.
 
 Contas de IA avisa quando duas contas conectadas entraram com o mesmo e-mail. Isso acontece quando um `/login` feito dentro de uma sessão troca a conta sem o Persisty saber. Desconecte a repetida e conecte de novo a conta que ela tinha.
+
+## Entrar de novo
+
+Uma conta com **Acesso vencido**, **Login recusado** ou **Sem login** ganha o botão **Entrar de novo**, ao lado do motivo. Ele roda o login do próprio Claude Code para aquela conta, inclusive a deste computador, e o navegador abre; conclua como em [Conectar uma conta](#conectar-uma-conta). A conta fica na lista o tempo todo, e a quota volta logo depois, com **Login renovado.** na linha. Se você entrar com outro e-mail, a linha passa a ser dessa conta, e o aviso diz qual.
+
+Com **Acesso vencido**, o Claude Code costuma renovar o acesso sozinho na próxima vez que roda; entre de novo se uma sessão pedir login. **Entrar de novo** vale em qualquer plano.
 
 ## O que as contas compartilham
 
@@ -69,6 +75,8 @@ O Persisty não cria contas nem mexe em limites. Ele usa as contas que você já
 
 ## Plano e limites
 
-Ver as contas e as quotas é do plano grátis, e a fila espera a quota renovar em qualquer plano. Conectar outras contas, o rodízio, trocar a conta de uma sessão, prender um projeto a uma conta, reservar uma conta e continuar a tarefa cortada são do Pro.
+Ver as contas e as quotas e entrar de novo numa conta são do plano grátis, e a fila espera a quota renovar em qualquer plano. Conectar outras contas, o rodízio, trocar a conta de uma sessão, prender um projeto a uma conta, reservar uma conta e continuar a tarefa cortada são do Pro.
 
 As contas e o rodízio valem só para o Claude Code.
+
+No Windows, que está em prévia, o Persisty acha a conta deste computador pela pasta do usuário, mesmo sem a variável `HOME`, e uma sessão consegue sair de uma conta reservada. Isso ainda está sendo conferido num Windows de verdade.

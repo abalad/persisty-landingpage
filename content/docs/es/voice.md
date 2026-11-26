@@ -41,7 +41,9 @@ Persisty usa la entrada por defecto del sistema, que aparece en **Entrada** (*In
 
 <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> es el atajo por defecto en el Mac. En Windows y Linux, que están en versión preliminar, es <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. Para cambiarlo, haz clic en **Cambiar** (*Change*) en la fila **Atajo** (*Shortcut*) y aprieta la combinación nueva; <kbd>Esc</kbd> desiste, y **Por defecto** (*Default*) vuelve a la original.
 
-En el Mac, el atajo necesita <kbd>⌘</kbd> y una letra, un número o una tecla de función. En Windows y Linux, necesita <kbd>Ctrl</kbd> <kbd>Shift</kbd> y una tecla, porque <kbd>Ctrl</kbd> con una letra va a la terminal. Una combinación del sistema, como copiar o pegar, o una que Persisty o el mapa de teclas del editor ya usan, se rechaza, y la pantalla dice quién ya la usa. El atajo solo funciona con Persisty al frente, y **Dictar** (*Dictate*) aparece en **Configuración › Atajos** (*Settings › Shortcuts*) con el dictado encendido.
+En el Mac, el atajo necesita <kbd>⌘</kbd> y una letra, un número o una tecla de función. En Windows y Linux, necesita <kbd>Ctrl</kbd> <kbd>Shift</kbd> y una tecla, porque <kbd>Ctrl</kbd> con una letra va a la terminal. Una combinación del sistema, como copiar o pegar, o una que Persisty o el mapa de teclas del editor ya usan, se rechaza, y la pantalla dice quién ya la usa. Si la tecla grabada pasa a ser también una acción del mapa de teclas o de Persisty, por ejemplo después de cambiar de mapa, la fila **Atajo** avisa: el dictado se queda con la tecla, y esa acción no se ejecuta. Para elegir otra, usa **Cambiar**; la tecla nunca cambia sola.
+
+El atajo solo funciona con Persisty al frente, y **Dictar** (*Dictate*) aparece en **Configuración › Atajos** (*Settings › Shortcuts*) con el dictado encendido.
 
 ## Plan y límites
 

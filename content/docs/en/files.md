@@ -1,6 +1,6 @@
 ---
 title: Files
-description: The session folder's tree in the Code panel, to create, rename, move, copy and delete files with their imports updated, find who uses a file, open files in another app and copy their paths.
+description: The session folder's tree in the Code panel, to create, rename, move, copy and delete files with their imports updated, find who uses a file, open files in another app, copy their paths, keep scratch files and create Gists.
 group: code
 order: 4
 ---
@@ -17,7 +17,15 @@ Files git ignores are dimmed, and `.git` never shows. At the top of the list, **
 
 ![New file, at the top of the tree, opens the name field in the tree itself; with the name checkout.ts and Enter, the file joins the list and opens in a tab.](/docs-media/files/arquivos.mp4)
 
-**New**, on the menu, creates a **File** or a **Folder** inside the item's folder. The same submenu creates TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile and EditorConfig files with a minimal template. You type the name in the tree itself, and a name that already exists is refused, with the reason.
+**New**, on the menu, creates a **File** or a **Folder** inside the item's folder. The same submenu creates TypeScript, JavaScript, HTML, CSS, JSON, Markdown, Dockerfile and EditorConfig files with a minimal template. You type the name in the tree itself, and a name that already exists is refused, with the reason. **New › Scratch file** creates a file outside the folder; see [Scratch files](#scratch-files).
+
+## Scratch files
+
+A scratch file is a file outside the project, to jot something down or try a snippet without touching the session's folder. **New › Scratch file**, in the tree, or **New Scratch File**, in the palette, asks for the language, or **Plain text**, and the file opens in a tab marked as a scratch, outside the project. It is saved on its own.
+
+The key is <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd> in WebStorm and <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> in WebStorm (macOS), the latter only with the cursor in the code: outside it, <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd> still opens **Choose what to open**. In the VS Code keymap, use the tree or the palette.
+
+The **Scratches** section, at the bottom of the tree, starts closed and shows how many scratch files there are. Open, it lists the scratch files of every project: a click opens one in a tab, and right-clicking offers **Open**, **Rename…** and **Delete**. Delete asks first and sends the file to the Trash; if it is open, the tab closes without saving. A scratch file's name cannot start with a dot, because it would vanish from the list.
 
 ## Rename, move and copy
 
@@ -63,6 +71,18 @@ The IDE is the one you choose in [**Settings › Workspace › Default IDE**](/d
 
 **Copy path** gives the **Absolute path**, the **Path from the project**, the **Path from the repository root**, the **File name**, the **Reference** and the **Link on GitHub** (or GitLab, or Bitbucket), at the current commit. The reference is `file:line`, or `file:start-end` with lines selected on the tab. With several items selected, each goes on its own line.
 
+## Create Gist
+
+**Create Gist…**, on the tree's and the tab's menus and in the palette, sends files to a GitHub Gist, on the account you connected in [**Settings › Integrations**](/docs/forges#github). From the tree go up to 20 selected files, no folders; from the tab, its file or its scratch file. From the palette, with the cursor in the code, only the selected snippet goes, or the whole file when nothing is selected.
+
+The **Create Gist** window has the **Description**, which is optional, each file's name, the **Visibility** and, with more than one GitHub account, the **Account**. **Secret**, the default, does not show on your profile, and only people with the link see it. **Public** shows on your profile and in GitHub's search. Binary, empty or too large files are left out, and the notice says which.
+
+Before sending, Persisty looks for secrets in the files: a `.env`, a key file, a private key, a GitHub or Slack token, an AWS key or a line that looks like a password, a token or a key. If it finds one, the window says in which file and on which line, and only **Send anyway** sends. A secret Gist can still be seen by anyone with the link.
+
+Once the Gist is created, the link goes to the clipboard, and **Open**, on the notice, opens the Gist in the browser.
+
+The first time, Persisty asks GitHub for the `gist` permission, with a code to confirm in the browser, as when you connected the account. If you sign in to another GitHub account at that point, nothing is sent, and the notice says which account to sign in to. An account connected by token must already have that permission; without it, the error says what is missing.
+
 ## Bookmarks and local history
 
 The **Bookmarks** submenu has **Add to Bookmarks**, for the selected items, or **Remove from Bookmarks**, when they are all there already. Bookmarks follow the file or folder when it is renamed or moved, and their list opens from a key; see [Bookmarks](/docs/code-navigation#bookmarks).
@@ -96,15 +116,18 @@ In **Settings › Files**, **Hide files** lists patterns such as `**/node_module
 | Copy Path (also on the tab and in the code) | <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Copy Reference (also on the tab and in the code) | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>C</kbd> |
 | Synchronize the Tree | <kbd>⌥</kbd> <kbd>⌘</kbd> <kbd>Y</kbd> |
+| New Scratch File | <kbd>⌃</kbd> <kbd>⇧</kbd> <kbd>N</kbd>; in WebStorm (macOS), <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>N</kbd>, with the cursor in the code |
 
 In the VS Code keymap, these actions are on the menu. In WebStorm (macOS), <kbd>⌘</kbd> <kbd>N</kbd> opens **New** only with the focus in the tree; elsewhere, it opens a new terminal. [**Settings › Shortcuts**](/docs/shortcuts#files) has a **Files** group, with where each key works: in the tree, on the tab or in the editor.
 
-On Windows and Linux, which are in preview, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, <kbd>Delete</kbd> deletes, and **New** is <kbd>Alt</kbd> <kbd>Insert</kbd>. The Finder gives way to File Explorer or the file manager.
+On Windows and Linux, which are in preview, <kbd>Ctrl</kbd> and <kbd>Alt</kbd> stand in for <kbd>⌘</kbd> and <kbd>⌥</kbd>, <kbd>Delete</kbd> deletes, **New** is <kbd>Alt</kbd> <kbd>Insert</kbd>, and **New Scratch File** is <kbd>Ctrl</kbd> <kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>Insert</kbd>. The Finder gives way to File Explorer or the file manager.
 
 ## Plan and limits
 
-The tree and every file operation are on the free plan.
+The tree, every file operation, the scratch files and the Gist are on the free plan.
 
 Updating the imports and the warning when deleting depend on the language server, in TypeScript, JavaScript and Rust; without it, rename, move and delete work as before.
+
+Scratch files live in Persisty's data folder, outside any project: they do not go into Git or the [local history](/docs/local-history), the editor does not check whether they changed on disk, and the language server's suggestions and errors may be missing in them. The code has no right-click menu, so a snippet's Gist goes through the palette. A Gist takes at most 20 files.
 
 The tree only shows and changes what is inside the session folder. On Windows and Linux, pasting files to and from the system and undoing a delete are still being checked in use.

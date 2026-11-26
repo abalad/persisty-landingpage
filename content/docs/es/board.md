@@ -23,7 +23,7 @@ Arriba, cambia **Todos los proyectos** (*All projects*) por **Este proyecto** (*
 
 ## Las tarjetas
 
-Cada tarjeta dice en una línea qué quiere la sesión: el comando que espera permiso, la pregunta que hizo el agente, el final de la respuesta o el error. Junto al nombre aparece desde hace cuánto. Debajo, el proyecto, o el workspace en **Este proyecto**, y la rama, cuando no es la principal.
+Cada tarjeta dice en una línea qué quiere la sesión: el comando que espera permiso, la pregunta que hizo el agente, el final de la respuesta o el error. Una pregunta larga aparece por el final, con el signo de interrogación, y entera al dejar el puntero encima. Junto al nombre aparece desde hace cuánto. Debajo, el proyecto, o el workspace en **Este proyecto**, y la rama, cuando no es la principal.
 
 Las respuestas y los errores que todavía no abriste aparecen en negrita, con un punto. La sesión que lleva más tiempo esperando recibe el marco ámbar y la pista <kbd>A</kbd> **abre esta** (*opens this one*). Una sesión de la que Persisty todavía no tiene noticias, como un Claude Code detenido en el aviso de confianza de la carpeta, dice **Sin noticias del agente** (*No word from the agent*).
 

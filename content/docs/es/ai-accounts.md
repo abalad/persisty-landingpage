@@ -9,7 +9,7 @@ En [**Configuración › Cuentas de IA**](/docs/settings#cuentas-de-ia) (*Settin
 
 ## Cuentas conectadas
 
-Cada cuenta aparece con el e-mail, la organización, el plan de Claude, cuántas sesiones tiene abiertas y las [ventanas](/docs/usage-and-quota#ventanas-de-5-h-y-7-d) de **5 h** y **7 d**. La cuenta que ya estaba en la computadora tiene la marca **Esta computadora** (*This computer*). El mismo e-mail en dos organizaciones aparece como dos cuentas. Una cuenta sin login muestra **Sin login** (*Not signed in*), y una cuota que no se pudo leer, **Cuota no disponible** (*Quota unavailable*).
+Cada cuenta aparece con el e-mail, la organización, el plan de Claude, cuántas sesiones tiene abiertas y las [ventanas](/docs/usage-and-quota#ventanas-de-5-h-y-7-d) de **5 h** y **7 d**. La cuenta que ya estaba en la computadora tiene la marca **Esta computadora** (*This computer*). El mismo e-mail en dos organizaciones aparece como dos cuentas. Cuando la cuota de una cuenta no aparece, la fila dice por qué: **Acceso vencido** (*Access expired*), **Inicio de sesión rechazado** (*Sign-in refused*), **Sin sesión** (*Signed out*), **Sin red** (*No network*) o **Esperando la cuota** (*Waiting for the quota*). Otro motivo aparece como **Cuota no disponible** (*Quota unavailable*).
 
 Las barras vienen del mismo lugar que el `/usage` de Claude Code, con la credencial que Claude Code ya guarda en la máquina. Persisty consulta como máximo una vez por minuto por cuenta (el servicio rechaza consultas más frecuentes) y mantiene los últimos números en pantalla entre una consulta y otra. Ver las cuentas y sus cuotas es del plan gratis.
 
@@ -28,6 +28,12 @@ Persisty nunca ve tu contraseña ni guarda la credencial: quien la guarda es Cla
 Para quitar una cuenta, usa el botón de desconectar en su fila y confirma con **Desconectar** (*Disconnect*). Persisty ejecuta el logout de Claude Code y borra la carpeta de esa cuenta; las sesiones ya abiertas con ella siguen hasta que las cierres.
 
 Cuentas de IA avisa cuando dos cuentas conectadas entraron con el mismo e-mail. Eso pasa cuando un `/login` hecho dentro de una sesión cambia la cuenta sin que Persisty lo sepa. Desconecta la repetida y vuelve a conectar la cuenta que tenía.
+
+## Iniciar sesión de nuevo
+
+Una cuenta con **Acceso vencido** (*Access expired*), **Inicio de sesión rechazado** (*Sign-in refused*) o **Sin sesión** (*Signed out*) recibe el botón **Iniciar sesión de nuevo** (*Sign in again*), junto al motivo. Ejecuta el login del propio Claude Code para esa cuenta, incluida la de esta computadora, y se abre el navegador; termina como en [Conectar una cuenta](#conectar-una-cuenta). La cuenta se queda en la lista todo el tiempo, y la cuota vuelve enseguida, con **Sesión iniciada de nuevo.** (*Signed in again.*) en la fila. Si entras con otro e-mail, la fila pasa a ser de esa cuenta, y el aviso dice cuál.
+
+Con **Acceso vencido**, Claude Code suele renovar el acceso solo la próxima vez que se ejecuta; inicia sesión de nuevo si una sesión te pide login. **Iniciar sesión de nuevo** vale en cualquier plan.
 
 ## Lo que comparten las cuentas
 
@@ -69,6 +75,8 @@ Persisty no crea cuentas ni toca límites. Usa las cuentas que ya tienes, como l
 
 ## Plan y límites
 
-Ver las cuentas y sus cuotas es del plan gratuito, y la cola espera a que la cuota se renueve en cualquier plan. Conectar otras cuentas, la rotación, cambiar la cuenta de una sesión, fijar un proyecto a una cuenta, reservar una cuenta y seguir con la tarea cortada son Pro.
+Ver las cuentas y sus cuotas y volver a iniciar sesión en una cuenta son del plan gratuito, y la cola espera a que la cuota se renueve en cualquier plan. Conectar otras cuentas, la rotación, cambiar la cuenta de una sesión, fijar un proyecto a una cuenta, reservar una cuenta y seguir con la tarea cortada son Pro.
 
 Las cuentas y la rotación valen solo para Claude Code.
+
+En Windows, que está en versión preliminar, Persisty encuentra la cuenta de esta computadora por la carpeta del usuario, aunque no exista la variable `HOME`, y una sesión puede salir de una cuenta reservada. Eso todavía se está comprobando en un Windows real.

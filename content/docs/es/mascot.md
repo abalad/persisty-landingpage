@@ -1,11 +1,11 @@
 ---
 title: Mascota
-description: La mascota en la esquina de la terminal sigue al agente de la sesión; en macOS también sale de la app y te avisa encima de tus ventanas.
+description: La mascota en la esquina de la terminal sigue al agente de la sesión; también sale de la app y te avisa encima de tus ventanas.
 group: agents
 order: 3
 ---
 
-La mascota está en la esquina de la terminal de la sesión y reacciona a lo que hace el agente. En macOS también puede salir de la app y quedarse de pie sobre tus ventanas, para avisarte cuando una sesión te necesita.
+La mascota está en la esquina de la terminal de la sesión y reacciona a lo que hace el agente. También puede salir de la app y quedarse encima de tus ventanas, para avisarte cuando una sesión te necesita.
 
 ![La mascota camina por el borde superior de una ventana y llega a su orilla.](/changelog/0.10.0/mascote.mp4)
 
@@ -19,11 +19,11 @@ Viene encendida. Para quitarla, apaga [**Configuración › Apariencia › Masco
 
 ## Fuera de la app
 
-En macOS, la mascota puede salir de la esquina de la terminal y quedarse de pie sobre tus ventanas, encima de cualquier app. Así te avisa mientras estás en el editor o en el navegador. Viene apagada: enciéndela en **Configuración › Apariencia › Mascota fuera de la app** (*Mascot outside the app*), o con **Mostrar la mascota fuera de la app** (*Show the mascot outside the app*) en la paleta de comandos. Con la mascota fuera de la app, la de la terminal desaparece.
+La mascota puede salir de la esquina de la terminal y quedarse encima de cualquier app. En macOS y Windows, se queda de pie sobre tus ventanas. Así te avisa mientras estás en el editor o en el navegador. Viene apagada: enciéndela en **Configuración › Apariencia › Mascota fuera de la app** (*Mascot outside the app*), o con **Mostrar la mascota fuera de la app** (*Show the mascot outside the app*) en la paleta de comandos. Con la mascota fuera de la app, la de la terminal desaparece.
 
-Se queda en lo alto de la ventana de delante, va con ella cuando se mueve y se cae cuando desaparece; cuando no pasa nada, se sienta y dormita. Arrástrala a cualquier lugar, en cualquier monitor, y recuerda dónde quedó. Hacer clic en la mascota o arrastrarla no le quita el foco a la app en la que estás.
+Se queda en lo alto de la ventana de delante, va con ella cuando se mueve y se cae cuando desaparece; cuando no pasa nada, se sienta y dormita. Arrástrala a cualquier lugar, en cualquier monitor, y recuerda dónde quedó. En el Mac, hacer clic en la mascota o arrastrarla no le quita el foco a la app en la que estás; en Windows y Linux, puede quitárselo.
 
-**La mascota camina sobre tus ventanas** (*The mascot walks on your windows*), en la misma pantalla, viene encendida. Apagada, la mascota se queda solo donde la dejes.
+**La mascota camina sobre tus ventanas** (*The mascot walks on your windows*), en la misma pantalla, viene encendida en macOS y Windows. Apagada, la mascota se queda solo donde la dejes. En Linux, el ajuste no aparece, y la mascota se queda donde la dejes.
 
 ## Avisos y globo
 
@@ -35,4 +35,6 @@ Arriba del globo están **Abrir el Tablero** (*Open the Board*), la campana y **
 
 ## Plan y límites
 
-La mascota es del plan gratis. Fuera de la app, existe solo en macOS y solo con Persisty abierto: cerrar Persisty cierra la mascota. Como el Tablero, solo abre sesiones y nunca responde por ti.
+La mascota es del plan gratis. Fuera de la app, existe solo con Persisty abierto: cerrar Persisty cierra la mascota. Como el Tablero, solo abre sesiones y nunca responde por ti.
+
+En Windows y Linux, que están en versión preliminar, la mascota fuera de la app todavía no se comprobó en máquinas reales. En Windows, camina sobre las ventanas desde la 0.16.0, y con monitores de escalas distintas la posición puede dar un salto en la unión entre ellos. Persisty lee solo la posición, el tamaño y el tipo de cada ventana, nunca el título ni el nombre de la app.

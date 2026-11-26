@@ -17,7 +17,7 @@ Persisty keeps the accounts and their tokens in the system's password store; on 
 
 ![In Settings › Integrations, the GitHub page shows no account connected; Connect account opens the window with the code and waits for the confirmation in the browser, and the @demo account shows as connected.](/docs-media/forges/integracoes.mp4)
 
-**Connect account** opens **Connect to GitHub** with a code. Click **Open GitHub**, sign in to the account you want to connect, confirm the code and authorise Persisty. The window waits for the confirmation and closes on its own; Persisty never sees your password. The access requested, `repo` and `read:org`, covers your repositories, including private ones and your organisations', and includes write access: Persisty uses it to list and clone and, when you [finish an issue](/docs/issues#finish), to comment on it and close it. If an organisation's repositories do not show up, it needs to approve Persisty.
+**Connect account** opens **Connect to GitHub** with a code. Click **Open GitHub**, sign in to the account you want to connect, confirm the code and authorise Persisty. The window waits for the confirmation and closes on its own; Persisty never sees your password. The access requested, `repo` and `read:org`, covers your repositories, including private ones and your organisations', and includes write access: Persisty uses it to list and clone and, when you [finish an issue](/docs/issues#finish), to comment on it and close it. If an organisation's repositories do not show up, it needs to approve Persisty. To [create a Gist](/docs/files#create-gist), Persisty also asks for the `gist` permission, the first time you create one.
 
 ## GitLab
 
@@ -31,7 +31,7 @@ Bitbucket Cloud connects with an Atlassian API token. **Open Atlassian tokens** 
 
 In **Add workspace**, with **Remote repository**, the field becomes **Link or search** and lists the connected accounts' repositories, with a filter by service; the steps are in [Clone a repository](/docs/projects-and-workspaces#clone-a-repository). A pasted link is looked up with that service's accounts, one by one, until one of them can see the repository; with no account for that service, it is looked up without signing in, and only a public repository shows. Git does the clone, straight with the service: over HTTPS with that account's token, for its address only; over SSH with your own keys.
 
-The GitHub account also brings in your repositories' issues, to [start sessions from them](/docs/issues), and serves the GitHub MCP server; see [MCP servers](/docs/mcp-servers).
+The GitHub account also brings in your repositories' issues, to [start sessions from them](/docs/issues), creates [Gists](/docs/files#create-gist) and serves the GitHub MCP server; see [MCP servers](/docs/mcp-servers).
 
 ## Clone folder
 

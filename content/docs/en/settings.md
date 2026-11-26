@@ -16,7 +16,7 @@ Theme, language and the mascot.
 | **Theme** | **Dark**. Also **Light** or **System**, which follows your computer's light or dark mode |
 | **Language** | **Português (Brasil)**. Also **English**. Changes the interface text |
 | [**Mascot in the terminal**](/docs/mascot#in-the-terminal) | on. With the mascot outside the app, the terminal's one goes away |
-| [**Mascot outside the app**](/docs/mascot#outside-the-app) | off. macOS only |
+| [**Mascot outside the app**](/docs/mascot#outside-the-app) | off |
 | [**The mascot walks on your windows**](/docs/mascot#outside-the-app) | on. Applies with the mascot outside the app |
 
 ## Workspace
@@ -146,7 +146,7 @@ With **Voice dictation** off, the screen shows only that switch; the other optio
 
 ## Integrations
 
-The screen shows the **Connected** services first and then the **Available** ones, each with **Connect** or, once connected, the account or the number of accounts; click a service to open its page. GitHub, GitLab and Bitbucket connect accounts to list and clone your repositories; see [GitHub, GitLab and Bitbucket](/docs/forges). Linear, Jira and ClickUp bring issues to start sessions from; see [Issues](/docs/issues#connect-the-service). At the bottom, **Cloning › Default folder for clones** starts as `~/Documents/GitHub`; see [Clone folder](/docs/forges#clone-folder).
+The screen shows the **Connected** services first and then the **Available** ones, each with **Connect** or, once connected, the account or the number of accounts; click a service to open its page. GitHub, GitLab and Bitbucket connect accounts to list and clone your repositories; see [GitHub, GitLab and Bitbucket](/docs/forges). Linear, Jira, ClickUp and Azure DevOps bring issues to start sessions from; see [Issues](/docs/issues#connect-the-service). At the bottom, **Cloning › Default folder for clones** starts as `~/Documents/GitHub`; see [Clone folder](/docs/forges#clone-folder).
 
 ## MCP servers
 
@@ -191,4 +191,4 @@ The groups, in order: **This app**, **Updates** and **Learn more**.
 
 Almost everything in Settings is on the free plan. In **AI accounts**, connecting another account, **Rotate between accounts**, **Go on with the task the limit cut** and **Use only for the projects pinned to it** are Pro. Without Pro, **Connect account** is disabled, rotation and the reservation show the **Pro** tag, and **Go on with the task the limit cut** does not show. The **Worktrees folder** is on every plan, but the [own folder](/docs/worktrees) that goes in it is Pro.
 
-On Windows and Linux, which are in preview, the keys on this page use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>. **The mascot walks on your windows** shows only on macOS.
+On Windows and Linux, which are in preview, the keys on this page use <kbd>Ctrl</kbd> instead of <kbd>⌘</kbd>. **The mascot walks on your windows** shows on macOS and Windows.

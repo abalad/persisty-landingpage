@@ -68,3 +68,5 @@ Durante um merge, rebase, cherry-pick ou reversão, o painel mostra a operação
 O painel **Alterações** é do plano grátis, inclusive o ponto de restauração antes de descartar.
 
 Ele funciona em pastas que são repositórios git; fora de um, diz "Esta pasta não está num repositório git." O Persisty usa as credenciais que o git já tem no computador, como o Keychain e o agente SSH, e nunca pede senha no terminal: se o git precisar perguntar, a recusa aparece como o git escreveu. Com alterações demais, a lista avisa que é parcial.
+
+O painel **Alterações**, o painel Git e o editor leem o estado do git sem segurar o índice. Desde a 0.16.0, um commit feito no terminal, seu ou do agente, não falha com `index.lock exists` por causa do Persisty.

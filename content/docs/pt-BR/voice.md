@@ -41,7 +41,9 @@ O Persisty usa a entrada padrão do sistema, que aparece em **Entrada**. No Mac,
 
 <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> é o padrão no Mac. No Windows e no Linux, que estão em prévia, é <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. Para trocar, clique em **Mudar** na linha **Atalho** e aperte a combinação nova; <kbd>Esc</kbd> desiste, e **Padrão** volta à original.
 
-No Mac, o atalho precisa do <kbd>⌘</kbd> e de uma letra, um número ou uma tecla de função. No Windows e no Linux, precisa de <kbd>Ctrl</kbd> <kbd>Shift</kbd> e de uma tecla, porque <kbd>Ctrl</kbd> com uma letra vai para o terminal. Uma combinação do sistema, como copiar ou colar, ou que o Persisty ou o mapa do editor já usam, é recusada, e a tela diz quem já a usa. O atalho só funciona com o Persisty na frente, e **Ditar** aparece em **Configurações › Atalhos** com o ditado ligado.
+No Mac, o atalho precisa do <kbd>⌘</kbd> e de uma letra, um número ou uma tecla de função. No Windows e no Linux, precisa de <kbd>Ctrl</kbd> <kbd>Shift</kbd> e de uma tecla, porque <kbd>Ctrl</kbd> com uma letra vai para o terminal. Uma combinação do sistema, como copiar ou colar, ou que o Persisty ou o mapa do editor já usam, é recusada, e a tela diz quem já a usa. Se a tecla gravada passa a ser também uma ação do mapa de teclas ou do Persisty, por exemplo depois de trocar de mapa, a linha **Atalho** avisa: o ditado fica com a tecla, e aquela ação não roda. Para escolher outra, use **Mudar**; a tecla nunca muda sozinha.
+
+O atalho só funciona com o Persisty na frente, e **Ditar** aparece em **Configurações › Atalhos** com o ditado ligado.
 
 ## Plano e limites
 

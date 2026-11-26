@@ -68,3 +68,5 @@ Durante un merge, rebase, cherry-pick o revert, el panel muestra la operación, 
 El panel **Cambios** es del plan gratis, incluido el punto de restauración antes de descartar.
 
 Funciona en carpetas que son repositorios git; fuera de uno, dice "Esta carpeta no está en un repositorio git." (*This folder is not in a git repository.*). Persisty usa las credenciales que git ya tiene en la computadora, como el Llavero y el agente SSH, y nunca pide una contraseña en la terminal: si git necesita preguntar, el rechazo aparece tal como git lo escribió. Con demasiados cambios, la lista avisa que es parcial.
+
+El panel **Cambios**, el panel Git y el editor leen el estado de git sin retener el índice. Desde la 0.16.0, un commit hecho en la terminal, tuyo o del agente, no falla con `index.lock exists` por culpa de Persisty.

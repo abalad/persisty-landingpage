@@ -41,7 +41,9 @@ Persisty uses the system's default input, shown under **Input**. On the Mac, mac
 
 <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>D</kbd> is the default on the Mac. On Windows and Linux, which are in preview, it is <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>D</kbd>. To change it, click **Change** on the **Shortcut** row and press the new combination; <kbd>Esc</kbd> gives up, and **Default** puts the original back.
 
-On the Mac, the shortcut needs <kbd>⌘</kbd> and a letter, a number or a function key. On Windows and Linux, it needs <kbd>Ctrl</kbd> <kbd>Shift</kbd> and a key, because <kbd>Ctrl</kbd> with a letter goes to the terminal. A system combination, such as copy or paste, or one Persisty or the editor's keymap already uses, is refused, and the screen says what already uses it. The shortcut only works while Persisty is in front, and **Dictate** shows in **Settings › Shortcuts** while dictation is on.
+On the Mac, the shortcut needs <kbd>⌘</kbd> and a letter, a number or a function key. On Windows and Linux, it needs <kbd>Ctrl</kbd> <kbd>Shift</kbd> and a key, because <kbd>Ctrl</kbd> with a letter goes to the terminal. A system combination, such as copy or paste, or one Persisty or the editor's keymap already uses, is refused, and the screen says what already uses it. If the recorded key also becomes an action of the keymap or of Persisty, for example after switching keymaps, the **Shortcut** row warns you: dictation keeps the key, and that action does not run. To choose another, use **Change**; the key never changes on its own.
+
+The shortcut only works while Persisty is in front, and **Dictate** shows in **Settings › Shortcuts** while dictation is on.
 
 ## Plan and limits
 

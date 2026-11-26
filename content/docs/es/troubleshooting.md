@@ -21,7 +21,7 @@ Si aun así nada cambia, el `claude` que escribiste no pasó por el de Persisty.
 
 ## La cuota aparece como no disponible
 
-Persisty lee la [cuota](/docs/usage-and-quota) con la credencial que guarda Claude Code. Si venció, las barras usan los números de la propia sesión hasta que Claude Code la renueve. En Mac, las cuentas conectadas desde Persisty necesitan el ítem que Claude Code crea en el Keychain al completar el login; mira [Cuentas conectadas](/docs/ai-accounts#cuentas-conectadas).
+Persisty lee la [cuota](/docs/usage-and-quota) con la credencial que guarda Claude Code. Si venció, las barras usan los números de la propia sesión hasta que Claude Code la renueve. En **Configuración › Cuentas de IA** (*Settings › AI accounts*), la fila de la cuenta dice el motivo, como **Acceso vencido** (*Access expired*) o **Sin red** (*No network*), e **Iniciar sesión de nuevo** (*Sign in again*) vuelve a hacer el login de esa cuenta; mira [Iniciar sesión de nuevo](/docs/ai-accounts#iniciar-sesión-de-nuevo). En Mac, las cuentas conectadas desde Persisty necesitan el ítem que Claude Code crea en el Keychain al completar el login; mira [Cuentas conectadas](/docs/ai-accounts#cuentas-conectadas).
 
 ## La cola no envió el pedido
 
@@ -43,7 +43,7 @@ En Windows, con la pantalla escalada al 125% o al 150%, la terminal de las sesio
 
 [**Agregar workspace**](/docs/projects-and-workspaces#agregar-workspace) (*Add workspace*) acepta la carpeta elegida en Windows, como `C:\...`, y una [**Nueva sesión**](/docs/sessions#nueva-sesión) (*New session*) en un workspace de Windows se abre con normalidad desde la 0.9.1.
 
-Todavía se están revisando en uso real: en Windows y Linux, pegar archivos desde y hacia el sistema y el **Deshacer** (*Undo*) de la [eliminación](/docs/files#eliminar); en Windows, el **Deshacer** de la Papelera de reciclaje y los avisos de archivo en uso. La [mascota fuera de la app](/docs/mascot#fuera-de-la-app) existe solo en macOS.
+Todavía se están revisando en uso real: en Windows y Linux, pegar archivos desde y hacia el sistema y el **Deshacer** (*Undo*) de la [eliminación](/docs/files#eliminar); en Windows, el **Deshacer** de la Papelera de reciclaje y los avisos de archivo en uso. La [mascota fuera de la app](/docs/mascot#fuera-de-la-app) camina sobre las ventanas en macOS y Windows, y en Linux se queda donde la dejes.
 
 ## Lo que Persisty todavía no hace
 

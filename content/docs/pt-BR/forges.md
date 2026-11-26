@@ -17,7 +17,7 @@ O Persisty guarda as contas e os tokens no cofre de senhas do sistema; no Mac, �
 
 ![Em Configurações › Integrações, a página do GitHub mostra que não há conta conectada; Conectar conta abre a janela com o código e espera a confirmação no navegador, e a conta @demo aparece conectada.](/docs-media/forges/integracoes.mp4)
 
-**Conectar conta** abre **Conectar ao GitHub** com um código. Clique em **Abrir o GitHub**, entre na conta que quer conectar, confirme o código e autorize o Persisty. A janela espera a confirmação e fecha sozinha; o Persisty nunca vê a sua senha. O acesso pedido, `repo` e `read:org`, cobre os seus repositórios, inclusive os privados e os das suas organizações, e inclui escrita: o Persisty o usa para listar e clonar e, ao [concluir uma issue](/docs/issues#concluir), para comentar nela e fechá-la. Se os de uma organização não aparecem, ela precisa aprovar o Persisty.
+**Conectar conta** abre **Conectar ao GitHub** com um código. Clique em **Abrir o GitHub**, entre na conta que quer conectar, confirme o código e autorize o Persisty. A janela espera a confirmação e fecha sozinha; o Persisty nunca vê a sua senha. O acesso pedido, `repo` e `read:org`, cobre os seus repositórios, inclusive os privados e os das suas organizações, e inclui escrita: o Persisty o usa para listar e clonar e, ao [concluir uma issue](/docs/issues#concluir), para comentar nela e fechá-la. Se os de uma organização não aparecem, ela precisa aprovar o Persisty. Para [criar um Gist](/docs/files#criar-gist), o Persisty pede também a permissão `gist`, na primeira vez que você cria um.
 
 ## GitLab
 
@@ -31,7 +31,7 @@ O Bitbucket Cloud conecta com um token de API da Atlassian. **Abrir tokens da At
 
 Em **Adicionar workspace**, com **Repositório remoto**, o campo vira **Link ou busca** e lista os repositórios das contas conectadas, com um filtro por serviço; o passo a passo está em [Clonar um repositório](/docs/projects-and-workspaces#clonar-um-repositório). Um link colado é consultado com as contas daquele serviço, uma a uma, até uma enxergar o repositório; sem conta daquele serviço, a consulta vai sem login, e só um repositório público aparece. Quem clona é o git, direto com o serviço: por HTTPS, com o token dessa conta, só no endereço dela; por SSH, com as suas próprias chaves.
 
-A conta do GitHub também traz as issues dos seus repositórios, para [começar sessões a partir delas](/docs/issues), e serve ao servidor MCP do GitHub; veja [Servidores MCP](/docs/mcp-servers).
+A conta do GitHub também traz as issues dos seus repositórios, para [começar sessões a partir delas](/docs/issues), cria [Gists](/docs/files#criar-gist) e serve ao servidor MCP do GitHub; veja [Servidores MCP](/docs/mcp-servers).
 
 ## Pasta dos clones
 

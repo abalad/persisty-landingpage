@@ -16,7 +16,7 @@ Tema, idioma e o mascote.
 | **Tema** | **Escuro**. Também **Claro** ou **Sistema**, que acompanha o modo claro ou escuro do computador |
 | **Idioma** | **Português (Brasil)**. Também **English**. Muda os textos da interface |
 | [**Mascote no terminal**](/docs/mascot#no-terminal) | ligado. Com o mascote fora do app, o do terminal some |
-| [**Mascote fora do app**](/docs/mascot#fora-do-app) | desligado. Só no macOS |
+| [**Mascote fora do app**](/docs/mascot#fora-do-app) | desligado |
 | [**O mascote anda sobre as janelas**](/docs/mascot#fora-do-app) | ligado. Vale com o mascote fora do app |
 
 ## Workspace
@@ -146,7 +146,7 @@ Com **Ditado por voz** desligado, a tela mostra só ele; as outras opções apar
 
 ## Integrações
 
-A tela mostra primeiro as **Conectadas** e depois as **Disponíveis**, cada uma com **Conectar** ou, já conectada, a conta ou o número de contas; clique num serviço para abrir a página dele. GitHub, GitLab e Bitbucket conectam contas para listar e clonar os seus repositórios; veja [GitHub, GitLab e Bitbucket](/docs/forges). Linear, Jira e ClickUp trazem issues para começar sessões; veja [Issues](/docs/issues#conectar-o-serviço). No fim, **Clonagem › Pasta padrão para clones** vem em `~/Documents/GitHub`; veja [Pasta dos clones](/docs/forges#pasta-dos-clones).
+A tela mostra primeiro as **Conectadas** e depois as **Disponíveis**, cada uma com **Conectar** ou, já conectada, a conta ou o número de contas; clique num serviço para abrir a página dele. GitHub, GitLab e Bitbucket conectam contas para listar e clonar os seus repositórios; veja [GitHub, GitLab e Bitbucket](/docs/forges). Linear, Jira, ClickUp e Azure DevOps trazem issues para começar sessões; veja [Issues](/docs/issues#conectar-o-serviço). No fim, **Clonagem › Pasta padrão para clones** vem em `~/Documents/GitHub`; veja [Pasta dos clones](/docs/forges#pasta-dos-clones).
 
 ## Servidores MCP
 
@@ -191,4 +191,4 @@ Os grupos, na ordem: **Este aplicativo**, **Atualizações** e **Saiba mais**.
 
 Quase tudo em Configurações é do plano grátis. Em **Contas de IA**, são do Pro conectar outra conta, o **Rodízio entre contas**, **Continuar a tarefa cortada pelo limite** e **Usar só nos projetos fixados nela**. Sem o Pro, **Conectar conta** fica desligado, o rodízio e a reserva aparecem com a marca **Pro**, e **Continuar a tarefa cortada pelo limite** não aparece. A **Pasta dos worktrees** é de todos os planos, mas a [pasta própria](/docs/worktrees) que vai para ela é do Pro.
 
-No Windows e no Linux, que estão em prévia, as teclas desta página usam <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>. **O mascote anda sobre as janelas** só aparece no macOS.
+No Windows e no Linux, que estão em prévia, as teclas desta página usam <kbd>Ctrl</kbd> no lugar de <kbd>⌘</kbd>. **O mascote anda sobre as janelas** aparece no macOS e no Windows.

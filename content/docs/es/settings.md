@@ -16,7 +16,7 @@ Tema, idioma y la mascota.
 | **Tema** (*Theme*) | **Oscuro** (*Dark*). También **Claro** (*Light*) o **Sistema** (*System*), que sigue el modo claro u oscuro de la computadora |
 | **Idioma** (*Language*) | **Português (Brasil)**. También **English**. Cambia los textos de la interfaz |
 | [**Mascota en la terminal**](/docs/mascot#en-la-terminal) (*Mascot in the terminal*) | encendido. Con la mascota fuera de la app, la de la terminal desaparece |
-| [**Mascota fuera de la app**](/docs/mascot#fuera-de-la-app) (*Mascot outside the app*) | apagado. Solo en macOS |
+| [**Mascota fuera de la app**](/docs/mascot#fuera-de-la-app) (*Mascot outside the app*) | apagado |
 | [**La mascota camina sobre tus ventanas**](/docs/mascot#fuera-de-la-app) (*The mascot walks on your windows*) | encendido. Vale con la mascota fuera de la app |
 
 ## Workspace
@@ -146,7 +146,7 @@ Con **Dictado por voz** (*Voice dictation*) apagado, la pantalla muestra solo es
 
 ## Integraciones
 
-La pantalla muestra primero las **Conectadas** (*Connected*) y después las **Disponibles** (*Available*), cada una con **Conectar** (*Connect*) o, ya conectada, la cuenta o la cantidad de cuentas; haz clic en un servicio para abrir su página. GitHub, GitLab y Bitbucket conectan cuentas para listar y clonar tus repositorios; mira [GitHub, GitLab y Bitbucket](/docs/forges). Linear, Jira y ClickUp traen issues para empezar sesiones; mira [Issues](/docs/issues#conectar-el-servicio). Al final, **Clonación › Carpeta por defecto para clones** (*Cloning › Default folder for clones*) viene en `~/Documents/GitHub`; mira [Carpeta de los clones](/docs/forges#carpeta-de-los-clones).
+La pantalla muestra primero las **Conectadas** (*Connected*) y después las **Disponibles** (*Available*), cada una con **Conectar** (*Connect*) o, ya conectada, la cuenta o la cantidad de cuentas; haz clic en un servicio para abrir su página. GitHub, GitLab y Bitbucket conectan cuentas para listar y clonar tus repositorios; mira [GitHub, GitLab y Bitbucket](/docs/forges). Linear, Jira, ClickUp y Azure DevOps traen issues para empezar sesiones; mira [Issues](/docs/issues#conectar-el-servicio). Al final, **Clonación › Carpeta por defecto para clones** (*Cloning › Default folder for clones*) viene en `~/Documents/GitHub`; mira [Carpeta de los clones](/docs/forges#carpeta-de-los-clones).
 
 ## Servidores MCP
 
@@ -191,4 +191,4 @@ Los grupos, en orden: **Esta aplicación** (*This app*), **Actualizaciones** (*U
 
 Casi todo en Configuración es del plan gratis. En **Cuentas de IA**, son de Pro conectar otra cuenta, la **Rotación entre cuentas**, **Continuar la tarea cortada por el límite** y **Usar solo en los proyectos fijados en ella**. Sin Pro, **Conectar cuenta** queda desactivado, la rotación y la reserva aparecen con la marca **Pro**, y **Continuar la tarea cortada por el límite** no aparece. La **Carpeta de los worktrees** es de todos los planes, pero la [carpeta propia](/docs/worktrees) que va en ella es de Pro.
 
-En Windows y Linux, que están en versión preliminar, las teclas de esta página usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>. **La mascota camina sobre tus ventanas** solo aparece en macOS.
+En Windows y Linux, que están en versión preliminar, las teclas de esta página usan <kbd>Ctrl</kbd> en lugar de <kbd>⌘</kbd>. **La mascota camina sobre tus ventanas** aparece en macOS y Windows.
